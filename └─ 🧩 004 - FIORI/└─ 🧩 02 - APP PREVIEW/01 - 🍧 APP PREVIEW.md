@@ -153,10 +153,9 @@ Usage
 - Développement local avec proxies ou modifications d’URLs
 
 > [!TIP]
-> Image simple
 > Même appli que start, mais avec un plan réseau différent
 
-#### 💮 start-tart-noflp
+#### 💮 start-noflp
 
 ```json
 "start-noflp": "fiori run --open \"/index.html?sap-ui-xx-viewCache=false\""
@@ -175,7 +174,6 @@ Usage
 - Développement UI sans dépendre du FLP
 
 > [!TIP]
-> Image simple
 > On ouvre directement la page, sans passer par le Launchpad
 
 #### 💮 start-mock
@@ -196,7 +194,6 @@ Usage
 - Test de scénarios spécifiques
 
 > [!TIP]
-> Image simple
 > Les données viennent d’un serveur factice, mais le FLP fonctionne normalement
 
 #### 💮 start-variants-management
@@ -216,7 +213,6 @@ Usage
 - Tests de scénarios de personnalisation (ex. colonnes masquées, filtres sauvegardés)
 
 > [!TIP]
-> Image simple
 > Prévisualisation avec les options de personnalisation activées
 
 ## 🧩 QUELLE PREVIEW CHOISIR ?

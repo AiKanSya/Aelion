@@ -42,6 +42,8 @@
 
 Accéder à la Palette de commandes via `Ctrl + Maj + P` et sélectionner `Fiori: Open Application Generator`. Vous devriez avoir ceci :
 
+![](./assets/Capture%20d’écran%202026-05-20%20124944.png)
+
 ![](./assets/Capture%20d’écran%202026-05-20%20084803.png)
 
 ### 🍧 2. TEMPLATE SELECTION
