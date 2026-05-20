@@ -5,7 +5,7 @@
 > - [ ] Comprendre la structure principale d’un projet SAP Fiori
 > - [ ] Identifier le rôle des dossiers essentiels : `webapp/`, `controller/`, `view/`, `model/`, `i18n/`, `css/`, `libs/`, `localService/`
 > - [ ] Comprendre l’utilité des fichiers clés : `Component.js`, `manifest.json`, `index.html`, `package.json`, `ui5*.yaml`
-> - [ ] Savoir quand et pourquoi utiliser les vues, fragments et modèles
+> - [ ] Savoir quand et pourquoi utiliser les vues, controllers et modèles
 > - [ ] Se repérer rapidement dans un projet pour le développement et la preview
 
 ## 🧩 STRUCTURE
@@ -21,7 +21,7 @@ appdemofgi/                       			# Racine du projet
 │   │   ├── BaseController.js         		# Contrôleur de base utilisé par d'autres controllers
 │   │   ├── Home.controller.js    			# Contrôleur de la vue Home
 │   │   ├── Detail.controller.js  			# Contrôleur de la vue Detail
-│   │   └── <view_n>.controller.js 		# Controller n
+│   │   └── <view_n>.controller.js 		    # Controller n
 │   │
 │   ├── css/                      			# Styles CSS
 │   │   └── style.css
