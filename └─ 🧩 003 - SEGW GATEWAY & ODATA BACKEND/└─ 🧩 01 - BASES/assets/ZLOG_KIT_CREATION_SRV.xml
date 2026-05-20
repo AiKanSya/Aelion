@@ -1,0 +1,66 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZLOG_KIT_CREATION_SRV" xml:lang="fr" sap:schema-version="1">
+			<EntityType Name="OutDeliv" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Docno"/>
+				</Key>
+				<Property Name="Docno" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Nº de document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Docid" Type="Edm.Binary" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="ID de document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Procty" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Type proc. mag." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Valid" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<NavigationProperty Name="TaskSet" Relationship="ZLOG_KIT_CREATION_SRV.DelivToTask" FromRole="FromRole_DelivToTask" ToRole="ToRole_DelivToTask"/>
+			</EntityType>
+			<EntityType Name="Task" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Docno"/>
+					<PropertyRef Name="Tanum"/>
+				</Key>
+				<Property Name="Docno" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Nº de document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Docid" Type="Edm.Binary" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="ID de document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Tanum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Tâche magasin" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Huident" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Unité manutent." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="GuidHu" Type="Edm.Binary" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="GUID UM" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Nlpla" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Empl. prenant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Article" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Maktx" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Vsolm" Type="Edm.Decimal" Nullable="false" Precision="31" Scale="14" sap:unicode="false" sap:unit="Meins" sap:label="Qté théor. UQB" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Meins" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Unité de base" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+			</EntityType>
+			<EntityType Name="HuScan" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Docno"/>
+					<PropertyRef Name="Huident"/>
+				</Key>
+				<Property Name="Docno" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Nº de document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Huident" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Unité manutent." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="GuidHu" Type="Edm.Binary" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="GUID UM" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Tanum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Tâche magasin" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+			</EntityType>
+			<Association Name="DelivToTask" sap:content-version="1">
+				<End Type="ZLOG_KIT_CREATION_SRV.OutDeliv" Multiplicity="1" Role="FromRole_DelivToTask"/>
+				<End Type="ZLOG_KIT_CREATION_SRV.Task" Multiplicity="*" Role="ToRole_DelivToTask"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_DelivToTask">
+						<PropertyRef Name="Docno"/>
+					</Principal>
+					<Dependent Role="ToRole_DelivToTask">
+						<PropertyRef Name="Docno"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZLOG_KIT_CREATION_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+				<EntitySet Name="OutDelivSet" EntityType="ZLOG_KIT_CREATION_SRV.OutDeliv" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="TaskSet" EntityType="ZLOG_KIT_CREATION_SRV.Task" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="HuScanSet" EntityType="ZLOG_KIT_CREATION_SRV.HuScan" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<AssociationSet Name="DelivToTaskSet" Association="ZLOG_KIT_CREATION_SRV.DelivToTask" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="OutDelivSet" Role="FromRole_DelivToTask"/>
+					<End EntitySet="TaskSet" Role="ToRole_DelivToTask"/>
+				</AssociationSet>
+			</EntityContainer>
+			<Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Core.SchemaVersion" String="1.0.0"/>
+			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="https://vhtceds4ci.sap.toray-cfe.local:44300/sap/opu/odata/sap/ZLOG_KIT_CREATION_SRV/$metadata"/>
+			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="https://vhtceds4ci.sap.toray-cfe.local:44300/sap/opu/odata/sap/ZLOG_KIT_CREATION_SRV/$metadata"/>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

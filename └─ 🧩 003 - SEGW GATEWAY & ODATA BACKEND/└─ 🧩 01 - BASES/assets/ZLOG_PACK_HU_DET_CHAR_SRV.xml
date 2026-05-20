@@ -1,0 +1,49 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZLOG_PACK_HU_DET_CHAR_SRV" xml:lang="fr" sap:schema-version="1">
+			<EntityType Name="ProdOrder" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Aufnr"/>
+				</Key>
+				<Property Name="Aufnr" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Ordre" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Statut" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+			</EntityType>
+			<EntityType Name="Um" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Aufnr"/>
+					<PropertyRef Name="Huident"/>
+				</Key>
+				<Property Name="Aufnr" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Ordre" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Huident" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Unité manutent." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+			</EntityType>
+			<EntityType Name="PackHu" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Aufnr"/>
+					<PropertyRef Name="Huident"/>
+				</Key>
+				<Property Name="Aufnr" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Ordre" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Huident" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Unité manutent." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Chariot" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Unité manutent." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Nbbob" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="INT2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+			</EntityType>
+			<EntityContainer Name="ZLOG_PACK_HU_DET_CHAR_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+				<EntitySet Name="ProdOrderSet" EntityType="ZLOG_PACK_HU_DET_CHAR_SRV.ProdOrder" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="UmSet" EntityType="ZLOG_PACK_HU_DET_CHAR_SRV.Um" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="PackHuSet" EntityType="ZLOG_PACK_HU_DET_CHAR_SRV.PackHu" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<FunctionImport Name="Print" ReturnType="ZLOG_PACK_HU_DET_CHAR_SRV.PackHu" EntitySet="PackHuSet" m:HttpMethod="GET">
+					<Parameter Name="Aufnr" Type="Edm.String" Mode="In" MaxLength="12"/>
+					<Parameter Name="Huident" Type="Edm.String" Mode="In" MaxLength="20"/>
+					<Parameter Name="Chariot" Type="Edm.String" Mode="In" MaxLength="20"/>
+				</FunctionImport>
+				<FunctionImport Name="PrintDirect" ReturnType="ZLOG_PACK_HU_DET_CHAR_SRV.PackHu" EntitySet="PackHuSet" m:HttpMethod="GET">
+					<Parameter Name="Chariot" Type="Edm.String" Mode="In" MaxLength="20"/>
+					<Parameter Name="Huident" Type="Edm.String" Mode="In" MaxLength="20"/>
+					<Parameter Name="Aufnr" Type="Edm.String" Mode="In" MaxLength="12"/>
+				</FunctionImport>
+			</EntityContainer>
+			<Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Core.SchemaVersion" String="1.0.0"/>
+			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="https://vhtceds4ci.sap.toray-cfe.local:44300/sap/opu/odata/sap/ZLOG_PACK_HU_DET_CHAR_SRV/$metadata"/>
+			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="https://vhtceds4ci.sap.toray-cfe.local:44300/sap/opu/odata/sap/ZLOG_PACK_HU_DET_CHAR_SRV/$metadata"/>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
