@@ -14,7 +14,9 @@ En français :
 
      Kit de développement logiciel
 
-Le SDK SAPUI5 est la documentation officielle qui contient tous les outils et informations nécessaires pour développer une application Fiori.
+Le [SDK SAPUI5](https://ui5.sap.com/) est la documentation officielle qui contient tous les outils et informations nécessaires pour développer une application Fiori.
+
+![](./assets/Capture%20d’écran%202026-05-20%20143941.png)
 
 ## 🧩 POURQUOI UTILISER SDK
 
@@ -42,9 +44,9 @@ Le SDK SAPUI5 contient :
 Schéma simplifié
 
      Développeur
-          ↓
-          SDK
-          ↓
+     ↓
+     SDK
+     ↓
      Documentation
      Exemples
      API
@@ -52,73 +54,196 @@ Schéma simplifié
 
 ### 🍧 EXEMPLE CONCRET
 
-Supposons qu'un développeur veut ajouter un bouton.
+Supposons qu'un développeur veut ajouter un bouton et recherche "button" sur le SDK.
 
-Question :
+![](./assets/Capture%20d’écran%202026-05-20%20144040.png)
 
-Comment fonctionne Button ?
+Il va d'abord visualiser et tester les exemples ("samples)
 
-Le SDK fournit :
+![](./assets/Capture%20d’écran%202026-05-20%20144150.png)
 
-Nom :
+![](./assets/Capture%20d’écran%202026-05-20%20144256.png)
 
-     Button
+![](./assets/Capture%20d’écran%202026-05-20%20144329.png)
 
-Propriétés :
+Si le composant et le comportement correspond, il va lire la documentation référence de ce composant en cliquant sur `API Reference`
 
-     text
-     icon
-     enabled
-     visible
+![](./assets/Capture%20d’écran%202026-05-20%20144538.png)
 
-Événements :
+![](./assets/Capture%20d’écran%202026-05-20%20144643.png)
 
-     press
+Le SDK fournit alors :
 
-Méthodes :
+#### 🌺 Class :
 
-     setText()
-     setEnabled()
+     sap.m.Button
 
-### 🍧 EXEMPLE SAPUI5
-
-Code XML :
-
-```xml
-<Button text="Valider" press="onValider"/>
-```
-
-Dans le SDK, il est possible de voir :
+#### 🌺 Nom :
 
      Button
-        ↓
 
-     text
-        ↓
-     Texte affiché
+#### 🌺 Overview :
 
-     press
-        ↓
-     Événement déclenché au clic
+     <Description du composant, usage ...>
 
-### 🍧 EXEMPLE AVEC INPUT
+#### 🌺 Constructor
 
-Code :
-
-```xml
-<Input value="{/nom}" placeholder="Saisir nom"/>
+```
+new sap.m.Button(sId?, mSettings?)
 ```
 
-Le SDK explique :
+     sId       → identifiant du bouton
+     mSettings → objet de paramètres
 
-     value
-        ↓
-     Valeur du champ
+     "s" signifie "String"
+     "m" signifie "mapping object"
 
-     placeholder
-        ↓
-     Texte affiché avant saisie
+Exemple :
 
-     enabled
-        ↓
-     Active ou désactive le champ
+```js
+new sap.m.Button("btn1", {
+  text: "Valider",
+  enabled: true,
+  press: onPressHandler,
+});
+```
+
+Pourquoi "m" ?
+
+SAPUI5 utilise une convention interne :
+
+| Préfixe | Signification                |
+| ------- | ---------------------------- |
+| s       | string                       |
+| b       | boolean                      |
+| i       | integer                      |
+| o       | object                       |
+| a       | array                        |
+| m       | map (objet de configuration) |
+
+#### 🌺 Properties :
+
+Une property dans SAPUI5 est une valeur simple stockée dans un contrôle UI5. Elle décrit l’état ou le comportement d’un composant.
+
+Les properties servent à :
+
+- afficher du texte
+- gérer l’état (actif/inactif)
+- configurer l’apparence
+- définir des comportements simples
+
+Exemple :
+
+     iconFirst      Determines whether the icon is displayed before the text.
+     width          Defines the Button width.
+
+#### 🌺 Aggregations :
+
+Une aggregation est une propriété spéciale d’un contrôle UI5 qui permet de stocker des sous-éléments UI5 structurés.
+
+Dans une classe UI5 (contrôle ou composant), les aggregations correspondent à des relations "contient / possède des éléments enfants"
+
+Contrairement à :
+
+     properties → valeurs simples (string, bool, int)
+     aggregations → objets UI5 enfants
+
+Image mentale :
+
+     Button → pas d’aggregation utile
+     Page → contient content (aggregation)
+     Table → contient items (aggregation)
+     VBox → contient items (aggregation)
+
+#### 🌺 Associations :
+
+Une association dans SAPUI5 est un lien logique entre deux contrôles UI5 sans relation de possession.
+
+Contrairement aux aggregations :
+
+     Aggregation = contient des enfants
+     Association = référence vers un autre élément
+
+Image mentale :
+
+     Aggregation   → Parent possède enfant
+     Association   → Parent connaît un autre élément
+
+Association possible :
+
+     Button → Label (référence)
+
+#### 🌺 Events :
+
+Un event (événement) dans SAPUI5 est une action déclenchée par l’utilisateur ou le système.
+
+Les events servent à :
+
+- détecter une interaction utilisateur
+- exécuter une logique dans le Controller
+- déclencher un traitement
+- mettre à jour la View ou le Model
+
+Schéma simple
+
+     View (UI)
+     ↓
+     Event (clic / saisie)
+     ↓
+     Controller
+     ↓
+     Logique métier
+     ↓
+     Model / View mis à jour
+
+#### 🌺 Methods :
+
+Une méthode dans SAPUI5 est une fonction appartenant à un objet (Controller ou Control UI5).
+
+Les méthodes servent à :
+
+- exécuter une logique métier
+- traiter les events
+- manipuler le Model
+- modifier la View
+- réutiliser du code
+
+Schéma simple :
+
+     Event → Method → Traitement → Résultat
+
+Où trouve-t-on des méthodes ?
+
+1.  Controller (le plus important)
+
+```js
+onPress: function () {
+     // méthode
+}
+```
+
+2. Contrôles UI5
+
+```js
+onPress: function () {
+     setText();
+     getText();
+     setEnabled();
+}
+```
+
+3. Modèle (Model)
+
+> [!Note]
+> Méthode setModel
+
+```js
+var oData = {
+  nom: "Martin",
+  ville: "Toulouse",
+};
+
+var oModel = new sap.ui.model.json.JSONModel(oData);
+
+this.getView().setModel(oModel);
+```
