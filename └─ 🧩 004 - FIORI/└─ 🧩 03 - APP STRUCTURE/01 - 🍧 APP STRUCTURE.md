@@ -13,18 +13,18 @@
 ```
 appdemofgi/                       			# Racine du projet
 ├── webapp/                       			# Contenu principal de l'application Fiori
-│   ├── (annotations/)              		# Fichiers d’annotations OData
-│   │   └── (annotation.xml)        		# Décrit des métadonnées supplémentaires pour le modèle
+│   ├── (annotations/)              		# dossier d’annotations OData
+│   │   └── (annotation.xml)        		# Fichier décrivant les métadonnées supplémentaires pour le modèle
 │   │
-│   ├── controller/               			# Contrôleurs JavaScript
+│   ├── controller/               			# Dossier contenant les Contrôleurs JavaScript
 │   │   ├── App.controller.js     			# Contrôleur principal
 │   │   ├── BaseController.js         		# Contrôleur de base utilisé par d'autres controllers
 │   │   ├── Home.controller.js    			# Contrôleur de la vue Home
 │   │   ├── Detail.controller.js  			# Contrôleur de la vue Detail
-│   │   └── <view_n>.controller.js 		    # Controller n
+│   │   └── <view_n>.controller.js 		# Controller n
 │   │
-│   ├── css/                      			# Styles CSS
-│   │   └── style.css
+│   ├── css/                      			# Dossier contenant les Styles CSS
+│   │   └── style.css                        # Fichiers de Styles
 │   │
 │   ├── i18n/                     			# Internationalisation
 │   │   ├── i18n_en.properties    			# Traductions anglais
@@ -42,20 +42,20 @@ appdemofgi/                       			# Racine du projet
 │   │
 │   ├── model/                    			# Modèles de données côté client
 │   │   ├── models.js             			# Définition des modèles
-│   │   └── [autres JSON ou JS]  			# Données locales ou configurations
+│   │   └── [autres models JSON ou JS]  			# Données locales ou configurations
 │   │
 │   ├── view/                     			# Vues de l'application
 │   │   ├── fragments/            			# Fragments réutilisables
 │   │   │   └── <fragment_n>.fragment.xml
 │   │   │
 │   │   ├── App.view.xml          			# Vue App
-│   │   ├── Home.view.xml                   # Vue Home
-│   │   ├── Detail.view.xml                 # Vue Detail
-│   │   └── <view_n>.view.xml               # Vue n
+│   │   ├── Home.view.xml                    # Vue Home
+│   │   ├── Detail.view.xml                  # Vue Detail
+│   │   └── <view_n>.view.xml                # Vue n
 │   │
-│   ├── Component.js               		    # Point d’entrée de l’application
-│   ├── index.html                 		    # Page HTML principale
-│   └── manifest.json              		    # Métadonnées Fiori : routes, models, data sources, namespace
+│   ├── Component.js               		# Point d’entrée de l’application
+│   ├── index.html                 		# Page HTML principale
+│   └── manifest.json              		# Métadonnées Fiori : routes, models, data sources, namespace
 │
 ├── .gitignore                      		# Fichiers à ignorer par git
 ├── (mta.yaml)                      		# Multi-Target Application config (si onPremise ou BTP)
@@ -64,7 +64,7 @@ appdemofgi/                       			# Racine du projet
 ├── README.md                        		# Documentation projet
 ├── ui5-local.yaml                   		# Config UI5 pour start-local
 ├── ui5-mock.yaml                    		# Config UI5 pour start-mock
-└── ui5.yaml                         		# (duplicata parfois selon version BAS)
+└── ui5.yaml                         		# Config UI5
 ```
 
 > [!CAUTION]
@@ -78,6 +78,10 @@ appdemofgi/                       			# Racine du projet
 
 ## 🧩 RACINE DU PROJET
 
+```
+appdemofgi/                       			# Racine du projet
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
@@ -88,19 +92,18 @@ appdemofgi/                       			# Racine du projet
 >   - preview,
 >   - build.
 >
-> - 🔨 Utilité
->
->   C’est le dossier que tu ouvres dans SAP Business Application Studio.
->
-> - ⌚ Quand utilisé ?
->
->   Toujours : c’est le point de départ.
->
-> - 📌 Exemple
+> - 🔨 Utilité : C’est le dossier que tu ouvres dans SAP Business Application Studio.
+> - ⌚ Quand utilisé ? Toujours : c’est le point de départ.
+> - 📌 Exemple :
 >
 >   Quand tu fais npm start, la commande est exécutée depuis cette racine.
 
 ## 🧩 WEBAPP/ (COEUR DE L'APPLICATION)
+
+```
+appdemofgi/
+└── webapp/                       			# Contenu principal de l'application Fiori
+```
 
 > [!IMPORTANT]
 >
@@ -108,41 +111,78 @@ appdemofgi/                       			# Racine du projet
 >
 >   Contenir tout ce qui est exécuté dans le navigateur.
 >
-> - 🔨 Utilité
->
->   UI5 charge exclusivement ce dossier pour afficher l’application.
->
-> - ⌚ Quand utilisé ?
->
->   À chaque fois que l’app démarre.
->
-> - 📌 Exemple
+> - 🔨 Utilité : UI5 charge exclusivement ce dossier pour afficher l’application.
+> - ⌚ Quand utilisé ? À chaque fois que l’app démarre.
+> - 📌 Exemple :
 >
 >   Les vues XML, les controllers JS et le manifest sont tous ici.
 
 ## 🧩 ANNOTATIONS/ (ANNOTATIONS ODATA)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)              		# dossier d’annotations OData
+│   │
+│   ├── controller/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
->   Centraliser les fichiers d’annotations OData utilisés par l’application.
+>   Centraliser les dossier d’annotations OData utilisés par l’application.
 >
-> - 🔨 Utilité
->
->   Enrichir le modèle OData avec des informations supplémentaires
->   (UI, labels, champs obligatoires, comportements).
->
-> - ⌚ Quand utilisé ?
->
->   Lorsqu’on souhaite influencer l’affichage ou le comportement UI
->   sans modifier le service backend.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Enrichir le modèle OData avec des informations supplémentaires (UI, labels, champs obligatoires, comportements).
+> - ⌚ Quand utilisé ? Lorsqu’on souhaite influencer l’affichage ou le comportement UI sans modifier le service backend.
+> - 📌 Exemple :
 >
 >   Ajouter un libellé lisible à un champ OData pour l’affichage dans l’UI.
 
 ### 🍧 ANNOTATION.XML (DESCRIPTIONS UI ODATA)
+
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   │   └── (annotation.xml)        		# Fichier décrivant les métadonnées supplémentaires pour le modèle
+│   │
+│   ├── controller/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
 
 > [!IMPORTANT]
 >
@@ -150,17 +190,9 @@ appdemofgi/                       			# Racine du projet
 >
 >   Décrire des métadonnées complémentaires pour un service OData.
 >
-> - 🔨 Utilité
->
->   Contrôler l’affichage UI (labels, champs visibles, sections, importance)
->   via des annotations standards SAP.
->
-> - ⌚ Quand utilisé ?
->
->   Quand on développe une application Fiori utilisant OData
->   et qu’on veut enrichir le modèle sans toucher au backend ABAP.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Contrôler l’affichage UI (labels, champs visibles, sections, importance) via des annotations standards SAP.
+> - ⌚ Quand utilisé ? Quand on développe une application Fiori utilisant OData et que l'on veut enrichir le modèle sans toucher au backend ABAP.
+> - 📌 Exemple :
 >
 >   ```xml
 >   <Annotation Term="Common.Label" String="Nom du client"/>
@@ -168,21 +200,42 @@ appdemofgi/                       			# Racine du projet
 
 ## 🧩 CONTROLLER/ (LOGIQUE APPLICATIVE)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   │
+│   ├── controller/               			# Dossier contenant les Contrôleurs JavaScript
+│   │
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Gérer le comportement de l’application.
 >
-> - 🔨 Utilité
->
->   Réagir aux actions utilisateur (clics, navigation, chargement des données).
->
-> - ⌚ Quand utilisé ?
->
->   Réagir aux actions utilisateur (clics, navigation, chargement des données).
->
-> - 📌 Exemple
+> - 🔨 Utilité : Réagir aux actions utilisateur (clics, navigation, chargement des données).
+> - ⌚ Quand utilisé ? Lorsqu'une action d'un composant UI5 est triggered
+> - 📌 Exemple :
 >
 >   ```js
 >   onPress: function () {
@@ -192,21 +245,48 @@ appdemofgi/                       			# Racine du projet
 
 ### 🍧 APP.CONTROLLER.JS (CONTROLLER PRINCIPAL)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   │   └── (annotation.xml)
+│   │
+│   ├── controller/
+│   │   ├── App.controller.js     			# Contrôleur principal
+│   │   ├── BaseController.js         		# Contrôleur de base utilisé par d'autres controllers
+│   │   ├── Home.controller.js    			# Contrôleur de la vue Home
+│   │   ├── Detail.controller.js  			# Contrôleur de la vue Detail
+│   │   └── <view_n>.controller.js 		# Controller n
+│   │
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Gérer le cycle de vie global de l’application.
 >
-> - 🔨 Utilité
->
->   Initialiser l’application et gérer les événements globaux.
->
-> - ⌚ Quand utilisé ?
->
->   Au démarrage de l’application ou pour des comportements transverses.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Initialiser l’application et gérer les événements globaux.
+> - ⌚ Quand utilisé ? Au démarrage de l’application ou pour des comportements transverses.
+> - 📌 Exemple :
 >
 >   ```js
 >   onInit: function () {
@@ -216,22 +296,48 @@ appdemofgi/                       			# Racine du projet
 
 ### 🍧 BASECONTROLLER.JS (CONTROLLER DE BASE)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   │   └── (annotation.xml)
+│   │
+│   ├── controller/
+│   │   ├── App.controller.js     			# Contrôleur principal
+│   │   ├── BaseController.js         		# Contrôleur de base utilisé par d'autres controllers
+│   │   ├── Home.controller.js    			# Contrôleur de la vue Home
+│   │   ├── Detail.controller.js  			# Contrôleur de la vue Detail
+│   │   └── <view_n>.controller.js 		# Controller n
+│   │
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Centraliser les fonctions communes utilisées par plusieurs contrôleurs.
 >
-> - 🔨 Utilité
->
->   Éviter la duplication de code (router, models, messages, helpers).
->
-> - ⌚ Quand utilisé ?
->
->   Lorsqu’une fonction est partagée par plusieurs contrôleurs
->   (navigation, accès aux modèles, messages).
->
-> - 📌 Exemple
+> - 🔨 Utilité : Éviter la duplication de code (router, models, messages, helpers).
+> - ⌚ Quand utilisé ? Lorsqu’une fonction est partagée par plusieurs contrôleurs (navigation, accès aux modèles, messages), elle aura tendance à être implémenté dans ce fichier
+> - 📌 Exemple :
 >
 >   ```js
 >   getRouter: function () {
@@ -241,22 +347,48 @@ appdemofgi/                       			# Racine du projet
 
 ### 🍧 HOMECONTROLLER.JS (CONTROLLER DE LA VUE HOME)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   │   └── (annotation.xml)
+│   │
+│   ├── controller/
+│   │   ├── App.controller.js     			# Contrôleur principal
+│   │   ├── BaseController.js         		# Contrôleur de base utilisé par d'autres controllers
+│   │   ├── Home.controller.js    			# Contrôleur de la vue Home
+│   │   ├── Detail.controller.js  			# Contrôleur de la vue Detail
+│   │   └── <view_n>.controller.js 		# Controller n
+│   │
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Gérer la logique métier de la vue Home.
 >
-> - 🔨 Utilité
->
->   Réagir aux actions utilisateur sur l’écran principal
->   (sélection, navigation, chargement initial).
->
-> - ⌚ Quand utilisé ?
->
->   Lors de l’affichage ou de l’interaction avec la vue Home.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Réagir aux actions utilisateur sur l’écran principal/la vue principale (sélection, navigation, chargement initial).
+> - ⌚ Quand utilisé ? Lors de l’affichage ou de l’interaction avec la vue Home.
+> - 📌 Exemple :
 >
 >   ```js
 >   onItemPress: function (oEvent) {
@@ -266,22 +398,48 @@ appdemofgi/                       			# Racine du projet
 
 ### 🍧 DETAIL.CONTROLLER.JS (CONTROLLER DE LA VUE DETAIL)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   │   └── (annotation.xml)
+│   │
+│   ├── controller/
+│   │   ├── App.controller.js     			# Contrôleur principal
+│   │   ├── BaseController.js         		# Contrôleur de base utilisé par d'autres controllers
+│   │   ├── Home.controller.js    			# Contrôleur de la vue Home
+│   │   ├── Detail.controller.js  			# Contrôleur de la vue Detail
+│   │   └── <view_n>.controller.js 		# Controller n
+│   │
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
->   Gérer l’affichage et les actions liées à un objet détaillé.
+>   Gérer la logique métier de la vue Details.
 >
-> - 🔨 Utilité
->
->   Charger les données spécifiques à un élément sélectionné
->   et gérer les actions associées.
->
-> - ⌚ Quand utilisé ?
->
->   Lorsqu’un utilisateur navigue vers une vue de détail.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Charger les données spécifiques à un élément sélectionné et gérer les actions associées.
+> - ⌚ Quand utilisé ? Lorsqu’un utilisateur navigue vers une vue de détail.
+> - 📌 Exemple :
 >
 >   ```js
 >   onInit: function () {
@@ -292,27 +450,74 @@ appdemofgi/                       			# Racine du projet
 
 ## 🧩 CSS/ (STYLES DE L’APPLICATION)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   │
+│   ├── css/                      			# Dossier contenant les Styles CSS
+│   │
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Centraliser les styles graphiques de l’application.
 >
-> - 🔨 Utilité
->
->   Personnaliser l’apparence de l’application
->   (couleurs, marges, tailles, alignements).
->
-> - ⌚ Quand utilisé ?
->
->   Lorsque le style standard SAPUI5 ne suffit pas
->   ou pour appliquer une charte graphique spécifique.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Personnaliser l’apparence de l’application (couleurs, marges, tailles, alignements).
+> - ⌚ Quand utilisé ? Lorsque le style standard SAPUI5 ne suffit pas ou pour appliquer une charte graphique spécifique.
+> - 📌 Exemple :
 >
 >   Définir des styles communs réutilisables dans plusieurs vues.
 
 ### 🍧 STYLE.CSS (FEUILLE DE STYLE)
+
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   │
+│   ├── css/                      			# Dossier contenant les Styles CSS
+│   │   └── style.css                        # Fichiers de Styles
+│   │
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
 
 > [!IMPORTANT]
 >
@@ -320,17 +525,9 @@ appdemofgi/                       			# Racine du projet
 >
 >   Définir les règles CSS utilisées par l’application.
 >
-> - 🔨 Utilité
->
->   Modifier l’apparence visuelle des contrôles UI5
->   sans changer le code JavaScript ou XML.
->
-> - ⌚ Quand utilisé ?
->
->   Pour ajuster l’UI (espacements, couleurs, visibilité)
->   ou appliquer une identité visuelle.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Modifier l’apparence visuelle des contrôles UI5 sans changer le code JavaScript ou XML.
+> - ⌚ Quand utilisé ? Pour ajuster l’UI (espacements, couleurs, visibilité) ou appliquer une identité visuelle.
+> - 📌 Exemple :
 >
 >   ```css
 >   .myTitle {
@@ -341,27 +538,77 @@ appdemofgi/                       			# Racine du projet
 
 ## 🧩 I18N/ (INTERNATIONALISATION)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   │
+│   ├── i18n/                     			# Internationalisation
+│   │
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Gérer les textes de l’application dans plusieurs langues.
 >
-> - 🔨 Utilité
->
->   Séparer les textes affichés du code
->   pour faciliter la traduction et la maintenance.
->
-> - ⌚ Quand utilisé ?
->
->   Dès qu’une application doit être utilisée
->   par des utilisateurs de langues différentes.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Séparer les textes affichés du code pour faciliter la traduction et la maintenance.
+> - ⌚ Quand utilisé ? Dès qu’une application doit être utilisée par des utilisateurs de langues différentes.
+> - 📌 Exemple :
 >
 >   Utiliser une clé de traduction dans une vue XML.
 
 ### 🍧 I18N_EN.PROPERTIES (TRADUCTIONS ANGLAIS)
+
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   │
+│   ├── i18n/
+│   │   ├── i18n_en.properties    			# Traductions anglais
+│   │   ├── i18n_fr.properties    			# Traductions français
+│   │   ├── i18n_??.properties    			# Traductions dans la langue ??
+│   │   └── i18n.properties       			# Fichier de base
+│   │
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
 
 > [!IMPORTANT]
 >
@@ -369,16 +616,10 @@ appdemofgi/                       			# Racine du projet
 >
 >   Définir les textes de l’application en anglais.
 >
-> - 🔨 Utilité
->
->   Afficher automatiquement l’interface en anglais
+> - 🔨 Utilité : Afficher automatiquement l’interface en anglais
 >   selon la langue de l’utilisateur.
->
-> - ⌚ Quand utilisé ?
->
->   Lorsque la langue de l’utilisateur est l’anglais.
->
-> - 📌 Exemple
+> - ⌚ Quand utilisé ? Lorsque la langue de l’utilisateur est l’anglais.
+> - 📌 Exemple :
 >
 >   ```properties
 >   appTitle=My Fiori Application
@@ -387,21 +628,46 @@ appdemofgi/                       			# Racine du projet
 
 ### 🍧 I18N_FR.PROPERTIES (TRADUCTIONS FRANÇAIS)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   │
+│   ├── i18n/
+│   │   ├── i18n_en.properties    			# Traductions anglais
+│   │   ├── i18n_fr.properties    			# Traductions français
+│   │   ├── i18n_??.properties    			# Traductions dans la langue ??
+│   │   └── i18n.properties       			# Fichier de base
+│   │
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Définir les textes de l’application en français.
 >
-> - 🔨 Utilité
->
->   Fournir une version française de l’interface utilisateur.
->
-> - ⌚ Quand utilisé ?
->
->   Lorsque la langue de l’utilisateur est le français.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Fournir une version française de l’interface utilisateur.
+> - ⌚ Quand utilisé ? Lorsque la langue de l’utilisateur est le français.
+> - 📌 Exemple :
 >
 >   ```properties
 >   appTitle=Mon application Fiori
@@ -410,23 +676,48 @@ appdemofgi/                       			# Racine du projet
 
 ### 🍧 I18N.PROPERTIES (FICHIER PAR DÉFAUT)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   │
+│   ├── i18n/
+│   │   ├── i18n_en.properties    			# Traductions anglais
+│   │   ├── i18n_fr.properties    			# Traductions français
+│   │   ├── i18n_??.properties    			# Traductions dans la langue ??
+│   │   └── i18n.properties       			# Fichier de base
+│   │
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Fournir les textes par défaut de l’application.
 >
-> - 🔨 Utilité
->
->   Servir de langue de référence
+> - 🔨 Utilité : Servir de langue de référence
 >   si aucune traduction spécifique n’est trouvée.
->
-> - ⌚ Quand utilisé ?
->
->   Lorsque la langue utilisateur ne correspond
+> - ⌚ Quand utilisé ? Lorsque la langue utilisateur ne correspond
 >   à aucun fichier de traduction spécifique.
->
-> - 📌 Exemple
+> - 📌 Exemple :
 >
 >   ```properties
 >   appTitle=Fiori App
@@ -435,27 +726,75 @@ appdemofgi/                       			# Racine du projet
 
 ## 🧩 LIBS/ (BIBLIOTHÈQUES ET UTILITAIRES)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   │
+│   ├── libs/                     			# Fonctions et utilitaires
+│   │
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Regrouper les fonctions utilitaires réutilisables de l’application.
 >
-> - 🔨 Utilité
->
->   Centraliser la logique transverse
->   (formatage, appels de services, helpers).
->
-> - ⌚ Quand utilisé ?
->
->   Lorsqu’une fonction est utilisée
->   dans plusieurs contrôleurs ou vues.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Centraliser la logique transverse (formatage, appels de services, helpers).
+> - ⌚ Quand utilisé ? Lorsqu’une fonction est utilisée dans plusieurs contrôleurs ou vues.
+> - 📌 Exemple :
 >
 >   Créer des fonctions génériques appelées depuis les contrôleurs.
 
 ### 🍧 DATASERVICES.JS (SERVICES DE DONNÉES)
+
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   │
+│   ├── libs/
+│   │   ├── DataServices.js       			# Services de données génériques
+│   │   └── Formatter.js
+│   │
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
 
 > [!IMPORTANT]
 >
@@ -463,17 +802,9 @@ appdemofgi/                       			# Racine du projet
 >
 >   Centraliser les appels aux services backend.
 >
-> - 🔨 Utilité
->
->   Encapsuler la logique d’accès aux données
->   (OData, REST, gestion des erreurs).
->
-> - ⌚ Quand utilisé ?
->
->   Lorsqu’un contrôleur doit lire ou écrire des données
->   sans gérer directement la complexité technique.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Encapsuler la logique d’accès aux données (OData, REST, gestion des erreurs).
+> - ⌚ Quand utilisé ? Lorsqu’un contrôleur doit lire ou écrire des données sans gérer directement la complexité technique.
+> - 📌 Exemple :
 >
 >   ```js
 >   getCustomers: function (oModel) {
@@ -483,23 +814,44 @@ appdemofgi/                       			# Racine du projet
 
 ### 🍧 FORMATTER.JS (FORMATAGE DES DONNÉES UI)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   │
+│   ├── libs/
+│   │   ├── DataServices.js
+│   │   └── Formatter.js          			# Fonctions de formatage UI
+│   │
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Adapter l’affichage des données dans l’interface utilisateur.
 >
-> - 🔨 Utilité
->
->   Transformer des données brutes
->   (dates, statuts, montants) en valeurs lisibles.
->
-> - ⌚ Quand utilisé ?
->
->   Lorsqu’un champ doit être affiché différemment
->   de sa valeur technique.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Transformer des données brutes (dates, statuts, montants) en valeurs lisibles.
+> - ⌚ Quand utilisé ? Lorsqu’un champ doit être affiché différemment de sa valeur technique.
+> - 📌 Exemple :
 >
 >   ```js
 >   formatStatus: function (sStatus) {
@@ -509,26 +861,72 @@ appdemofgi/                       			# Racine du projet
 
 ## 🧩 LOCALSERVICE/ (SERVICES LOCAUX / MOCK)
 
+```
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   │
+│   ├── localService/             			# Données mock ou locales
+│   │
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Simuler un service backend sans dépendre d’un système SAP réel.
 >
-> - 🔨 Utilité
->
->   Permettre le développement et les tests de l’application
->   sans connexion au backend.
->
-> - ⌚ Quand utilisé ?
->
->   Lors du développement local ou en l’absence de backend disponible.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Permettre le développement et les tests de l’application sans connexion au backend.
+> - ⌚ Quand utilisé ? Lors du développement local ou en l’absence de backend disponible.
+> - 📌 Exemple :
 >
 >   Utiliser le mockserver avec la commande start-mock.
 
 ### 🍧 MAINSERVICE/ (SERVICE ODATA MOCKÉ)
+
+```
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   │
+│   ├── localService/
+│   │   └── mainService/
+│   │
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
 
 > [!IMPORTANT]
 >
@@ -536,22 +934,42 @@ appdemofgi/                       			# Racine du projet
 >
 >   Représenter un service OData fictif pour l’application.
 >
-> - 🔨 Utilité
->
->   Simuler la structure d’un vrai service backend
->   (entités, propriétés, relations).
->
-> - ⌚ Quand utilisé ?
->
->   Lorsque l’application doit fonctionner
->   sans accès à un système SAP.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Simuler la structure d’un vrai service backend (entités, propriétés, relations).
+> - ⌚ Quand utilisé ? Lorsque l’application doit fonctionner sans accès à un système SAP.
+> - 📌 Exemple :
 >
 >   Simuler un service client ou commande
 >   utilisé par les vues Fiori.
 
 ### 🍧 METADATA.XML (MÉTADONNÉES DU SERVICE MOCK)
+
+```
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   │
+│   ├── localService/
+│   │   └── mainService/
+│   │       └── metadata.xml      			# Métadonnées du mockserver
+│   │
+│   ├── model/
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
 
 > [!IMPORTANT]
 >
@@ -559,17 +977,9 @@ appdemofgi/                       			# Racine du projet
 >
 >   Décrire la structure du service OData simulé.
 >
-> - 🔨 Utilité
->
->   Fournir au mockserver les entités, champs
->   et types attendus par l’application.
->
-> - ⌚ Quand utilisé ?
->
->   Lors du lancement de l’application en mode mock
->   (start-mock).
->
-> - 📌 Exemple
+> - 🔨 Utilité : Fournir au mockserver les entités, champs et types attendus par l’application.
+> - ⌚ Quand utilisé ? Lors du lancement de l’application en mode mock (start-mock).
+> - 📌 Exemple :
 >
 >   ```xml
 >   <EntityType Name="Customer">
@@ -580,27 +990,73 @@ appdemofgi/                       			# Racine du projet
 
 ## 🧩 MODEL/ (MODÈLES DE DONNÉES)
 
+```
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   │
+│   ├── model/                    			# Modèles de données côté client
+│   │
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Centraliser la gestion des modèles de données côté client.
 >
-> - 🔨 Utilité
->
->   Définir et exposer les modèles utilisés par l’application
->   (OData, JSON, Resource).
->
-> - ⌚ Quand utilisé ?
->
->   Dès que l’application manipule des données
->   (backend, données locales, paramètres).
->
-> - 📌 Exemple
+> - 🔨 Utilité : Définir et exposer les modèles utilisés par l’application (OData, JSON, Resource).
+> - ⌚ Quand utilisé ? Dès que l’application manipule des données (backend, données locales, paramètres).
+> - 📌 Exemple :
 >
 >   Utiliser un modèle JSON pour stocker des données temporaires.
 
 ### 🍧 MODELS.JS (DÉFINITION DES MODÈLES)
+
+```
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   │
+│   ├── model/
+│   │   ├── models.js             			# Définition des modèles
+│   │   └── [autres models JSON ou JS]
+│   │
+│   ├── view/
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
 
 > [!IMPORTANT]
 >
@@ -608,17 +1064,11 @@ appdemofgi/                       			# Racine du projet
 >
 >   Initialiser et configurer les modèles de l’application.
 >
-> - 🔨 Utilité
->
->   Créer les modèles (OData, JSON, i18n)
+> - 🔨 Utilité : Créer les modèles (OData, JSON, i18n)
 >   et les rendre accessibles aux vues et contrôleurs.
->
-> - ⌚ Quand utilisé ?
->
->   Au démarrage de l’application
+> - ⌚ Quand utilisé ? Au démarrage de l’application
 >   (chargé depuis Component.js).
->
-> - 📌 Exemple
+> - 📌 Exemple :
 >
 >   ```js
 >   var oModel = new JSONModel({});
@@ -627,27 +1077,78 @@ appdemofgi/                       			# Racine du projet
 
 ## 🧩 VIEW/ (VUES DE L’APPLICATION)
 
+```
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   │
+│   ├── view/                     			# Vues de l'application
+│   │
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Définir l’interface utilisateur de l’application.
 >
-> - 🔨 Utilité
->
->   Décrire la structure visuelle des écrans
->   (boutons, champs, tableaux, layouts).
->
-> - ⌚ Quand utilisé ?
->
->   À chaque affichage d’un écran de l’application
->   (Home, Detail, etc.).
->
-> - 📌 Exemple
+> - 🔨 Utilité : Décrire la structure visuelle des écrans (boutons, champs, tableaux, layouts).
+> - ⌚ Quand utilisé ? À chaque affichage d’un écran de l’application (Home, Detail, etc.).
+> - 📌 Exemple :
 >
 >   Une vue XML décrivant un écran avec un titre et une liste.
 
 ### 🍧 FRAGMENTS/ (COMPOSANTS UI RÉUTILISABLES)
+
+```
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   │
+│   ├── view/
+│   │   ├── fragments/            			# Fragments réutilisables
+│   │   │   └── <fragment_n>.fragment.xml
+│   │   │
+│   │   ├── App.view.xml          			# Vue App
+│   │   ├── Home.view.xml                    # Vue Home
+│   │   ├── Detail.view.xml                  # Vue Detail
+│   │   └── <view_n>.view.xml                # Vue n
+│   │
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
 
 > [!IMPORTANT]
 >
@@ -655,21 +1156,47 @@ appdemofgi/                       			# Racine du projet
 >
 >   Factoriser des morceaux d’interface réutilisables.
 >
-> - 🔨 Utilité
->
->   Éviter la duplication de code UI
->   dans plusieurs vues.
->
-> - ⌚ Quand utilisé ?
->
->   Lorsqu’un même bloc d’interface
->   est utilisé dans plusieurs vues.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Éviter la duplication de code UI dans plusieurs vues.
+> - ⌚ Quand utilisé ? Lorsqu’un même bloc d’interface est utilisé dans plusieurs vues.
+> - 📌 Exemple :
 >
 >   Un formulaire ou une boîte de dialogue réutilisable.
 
 ### 🍧 FRAGMENT_N.FRAGMENT.XML (FRAGMENT UI5)
+
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   │
+│   ├── view/
+│   │   ├── fragments/            			# Fragments réutilisables
+│   │   │   └── <fragment_n>.fragment.xml
+│   │   │
+│   │   ├── App.view.xml          			# Vue App
+│   │   ├── Home.view.xml                    # Vue Home
+│   │   ├── Detail.view.xml                  # Vue Detail
+│   │   └── <view_n>.view.xml                # Vue n
+│   │
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
 
 > [!IMPORTANT]
 >
@@ -677,17 +1204,9 @@ appdemofgi/                       			# Racine du projet
 >
 >   Définir un fragment d’interface indépendant.
 >
-> - 🔨 Utilité
->
->   Ajouter dynamiquement un composant UI
->   dans une vue ou un contrôleur.
->
-> - ⌚ Quand utilisé ?
->
->   Lorsqu’on souhaite afficher un composant
->   ponctuellement (dialog, popover).
->
-> - 📌 Exemple
+> - 🔨 Utilité : Ajouter dynamiquement un composant UI dans une vue ou un contrôleur.
+> - ⌚ Quand utilisé ? Lorsqu’on souhaite afficher un composant ponctuellement (dialog, popover).
+> - 📌 Exemple :
 >
 >   ```xml
 >   <Dialog title="Confirmation">
@@ -697,22 +1216,49 @@ appdemofgi/                       			# Racine du projet
 
 ### 🍧 APP.VIEW.XML (VUE RACINE DE L’APPLICATION)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   │
+│   ├── view/
+│   │   ├── fragments/            			# Fragments réutilisables
+│   │   │   └── <fragment_n>.fragment.xml
+│   │   │
+│   │   ├── App.view.xml          			# Vue App
+│   │   ├── Home.view.xml                    # Vue Home
+│   │   ├── Detail.view.xml                  # Vue Detail
+│   │   └── <view_n>.view.xml                # Vue n
+│   │
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Définir le conteneur principal de l’application.
 >
-> - 🔨 Utilité
->
->   Héberger le NavContainer ou Router
->   qui gère la navigation entre les vues.
->
-> - ⌚ Quand utilisé ?
->
->   Chargée une seule fois au démarrage de l’application.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Héberger le NavContainer ou Router qui gère la navigation entre les vues.
+> - ⌚ Quand utilisé ? Chargée une seule fois au démarrage de l’application.
+> - 📌 Exemple :
 >
 >   ```xml
 >   <App id="app"/>
@@ -720,22 +1266,49 @@ appdemofgi/                       			# Racine du projet
 
 ### 🍧 HOME.VIEW.XML (VUE PRINCIPALE)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   │
+│   ├── view/
+│   │   ├── fragments/            			# Fragments réutilisables
+│   │   │   └── <fragment_n>.fragment.xml
+│   │   │
+│   │   ├── App.view.xml          			# Vue App
+│   │   ├── Home.view.xml                    # Vue Home
+│   │   ├── Detail.view.xml                  # Vue Detail
+│   │   └── <view_n>.view.xml                # Vue n
+│   │
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Afficher l’écran d’accueil de l’application.
 >
-> - 🔨 Utilité
->
->   Présenter une liste, un tableau ou un résumé
->   des données principales.
->
-> - ⌚ Quand utilisé ?
->
->   Lorsqu’un utilisateur ouvre l’application.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Présenter une liste, un tableau ou un résumé des données principales.
+> - ⌚ Quand utilisé ? Lorsqu’un utilisateur ouvre l’application.
+> - 📌 Exemple :
 >
 >   ```xml
 >   <Page title="Accueil">
@@ -747,23 +1320,50 @@ appdemofgi/                       			# Racine du projet
 
 ### 🍧 DETAIL.VIEW.XML (VUE DE DÉTAIL)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   │
+│   ├── view/
+│   │   ├── fragments/            			# Fragments réutilisables
+│   │   │   └── <fragment_n>.fragment.xml
+│   │   │
+│   │   ├── App.view.xml          			# Vue App
+│   │   ├── Home.view.xml                    # Vue Home
+│   │   ├── Detail.view.xml                  # Vue Detail
+│   │   └── <view_n>.view.xml                # Vue n
+│   │
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Afficher les informations détaillées d’un élément sélectionné.
 >
-> - 🔨 Utilité
->
->   Montrer les données complètes
->   liées à un objet métier.
->
-> - ⌚ Quand utilisé ?
->
->   Après une navigation depuis la vue Home
+> - 🔨 Utilité : Montrer les données complètes liées à un objet métier.
+> - ⌚ Quand utilisé ? Après une navigation depuis la vue Home
 >   vers un élément précis.
->
-> - 📌 Exemple
+> - 📌 Exemple :
 >
 >   ```xml
 >   <Page title="Détail">
@@ -773,23 +1373,42 @@ appdemofgi/                       			# Racine du projet
 
 ## 🧩 COMPONENT.JS (POINT D’ENTRÉE DE L’APPLICATION)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   │
+│   ├── Component.js               		# Point d’entrée de l’application
+│   │
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Initialiser l’application et ses composants.
 >
-> - 🔨 Utilité
->
->   Charger les modèles, configurer le router,
->   et préparer l’application pour l’exécution.
->
-> - ⌚ Quand utilisé ?
->
->   Dès le démarrage de l’application,
->   avant l’affichage des vues.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Charger les modèles, configurer le router, et préparer l’application pour l’exécution.
+> - ⌚ Quand utilisé ? Dès le démarrage de l’application, avant l’affichage des vues.
+> - 📌 Exemple :
 >
 >   ```js
 >   sap.ui.define(
@@ -809,21 +1428,43 @@ appdemofgi/                       			# Racine du projet
 
 ## 🧩 INDEX.HTML (PAGE PRINCIPALE)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   │
+│   ├── Component.js
+│   │
+│   ├── index.html                 		# Page HTML principale
+│   │
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Charger l’application UI5 dans le navigateur.
 >
-> - 🔨 Utilité
->
->   Inclure les bibliothèques SAPUI5 et déclencher le bootstrap.
->
-> - ⌚ Quand utilisé ?
->
->   À l’ouverture de l’application dans le navigateur.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Inclure les bibliothèques SAPUI5 et déclencher le bootstrap.
+> - ⌚ Quand utilisé ? À l’ouverture de l’application dans le navigateur.
+> - 📌 Exemple :
 >
 >   ```html
 >   <!DOCTYPE html>
@@ -845,22 +1486,42 @@ appdemofgi/                       			# Racine du projet
 
 ## 🧩 MANIFEST.JSON (MÉTADONNÉES DE L’APPLICATION)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   │
+│   ├── Component.js
+│   ├── index.html
+│   │
+│   └── manifest.json              		# Métadonnées Fiori : routes, models, data sources, namespace
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Décrire toute la configuration Fiori de l’application.
 >
-> - 🔨 Utilité
->
->   Définir routes, modèles, data sources, titres, icônes et namespace.
->
-> - ⌚ Quand utilisé ?
->
->   En permanence par UI5 pour initialiser
->   et orchestrer l’application.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Définir routes, modèles, data sources, titres, icônes et namespace.
+> - ⌚ Quand utilisé ? En permanence par UI5 pour initialiser et orchestrer l’application.
+> - 📌 Exemple :
 >
 >   ```json
 >   {
@@ -887,22 +1548,42 @@ appdemofgi/                       			# Racine du projet
 
 ## 🧩 .GITIGNORE (FICHIERS À IGNORER PAR GIT)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   │
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore                      		# Fichiers à ignorer par git
+│
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Définir quels fichiers et dossiers ne doivent pas être suivis par Git.
 >
-> - 🔨 Utilité
->
->   Éviter de versionner des fichiers temporaires,
->   logs, ou dépendances locales.
->
-> - ⌚ Quand utilisé ?
->
->   Lors des commits et push vers le dépôt.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Éviter de versionner des fichiers temporaires, logs, ou dépendances locales.
+> - ⌚ Quand utilisé ? Lors des commits et push vers le dépôt.
+> - 📌 Exemple :
 >
 >   ```
 >   node_modules/
@@ -913,25 +1594,75 @@ appdemofgi/                       			# Racine du projet
 
 ## 🧩 PACKAGE-LOCK.JSON (VERROUILLAGE DES DÉPENDANCES NPM)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   │
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+│
+├── package-lock.json                		# Gestionnaire de versions npm
+│
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Verrouiller les versions exactes des dépendances installées.
 >
-> - 🔨 Utilité
->
->   Garantir que tous les développeurs utilisent les mêmes versions.
->
-> - ⌚ Quand utilisé ?
->
->   Après un `npm install` pour sauvegarder l’arborescence exacte.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Garantir que tous les développeurs utilisent les mêmes versions.
+> - ⌚ Quand utilisé ? Après un `npm install` pour sauvegarder l’arborescence exacte.
+> - 📌 Exemple :
 >
 >   Contient les versions exactes de `@ui5/cli`, `@sap/ux-ui5-tooling`, etc.
 
 ## 🧩 UI5-LOCAL.YAML (CONFIGURATION POUR START-LOCAL)
+
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   │
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+│
+├── ui5-local.yaml                   		# Config UI5 pour start-local
+│
+├── ui5-mock.yaml
+└── ui5.yaml
+```
 
 > [!IMPORTANT]
 >
@@ -939,15 +1670,9 @@ appdemofgi/                       			# Racine du projet
 >
 >   Configurer l’environnement pour se connecter à un backend réel.
 >
-> - 🔨 Utilité
->
->   Permettre à l’application de récupérer des données depuis un système SAP local ou distant.
->
-> - ⌚ Quand utilisé ?
->
->   Avec la commande `npm run start-local` ou `fiori run --config ui5-local.yaml`.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Permettre à l’application de récupérer des données depuis un système SAP local ou distant.
+> - ⌚ Quand utilisé ? Avec la commande `npm run start-local` ou `fiori run --config ui5-local.yaml`.
+> - 📌 Exemple :
 >
 >   ```yaml
 >   server:
@@ -961,21 +1686,43 @@ appdemofgi/                       			# Racine du projet
 
 ## 🧩 UI5-MOCK.YAML (CONFIGURATION POUR START-MOCK)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   │
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+│
+├── ui5-mock.yaml                    		# Config UI5 pour start-mock
+│
+└── ui5.yaml
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Configurer le mockserver pour le développement sans backend.
 >
-> - 🔨 Utilité
->
->   Fournir des données simulées pour tester l’application.
->
-> - ⌚ Quand utilisé ?
->
->   Avec la commande `npm run start-mock` ou `fiori run --config ui5-mock.yaml`.
->
-> - 📌 Exemple
+> - 🔨 Utilité : Fournir des données simulées pour tester l’application.
+> - ⌚ Quand utilisé ? Avec la commande `npm run start-mock` ou `fiori run --config ui5-mock.yaml`.
+> - 📌 Exemple :
 >
 >   ```yaml
 >   server:
@@ -989,21 +1736,42 @@ appdemofgi/                       			# Racine du projet
 
 ## 🧩 UI5.YAML (CONFIGURATION UI5 GÉNÉRALE)
 
+```
+appdemofgi/
+├── webapp/
+│   ├── (annotations/)
+│   ├── controller/
+│   ├── css/
+│   ├── i18n/
+│   ├── libs/
+│   ├── localService/
+│   ├── model/
+│   ├── view/
+│   │
+│   ├── Component.js
+│   ├── index.html
+│   └── manifest.json
+│
+├── .gitignore
+├── (mta.yaml)
+├── package-lock.json
+├── package.json
+├── README.md
+├── ui5-local.yaml
+├── ui5-mock.yaml
+│
+└── ui5.yaml                         		# Config UI5
+```
+
 > [!IMPORTANT]
 >
 > - 🎯 Objectif
 >
 >   Définir la configuration standard de l’application UI5.
 >
-> - 🔨 Utilité
->
->   Déclarer le build, la structure des ressources, et les chemins du projet.
->
-> - ⌚ Quand utilisé ?
->
->   Lors de l’exécution de commandes UI5 (`build`, `preview`, `deploy`).
->
-> - 📌 Exemple
+> - 🔨 Utilité : Déclarer le build, la structure des ressources, et les chemins du projet.
+> - ⌚ Quand utilisé ? Lors de l’exécution de commandes UI5 (`build`, `preview`, `deploy`).
+> - 📌 Exemple :
 >
 >   ```yaml
 >   specVersion: "2.2"
