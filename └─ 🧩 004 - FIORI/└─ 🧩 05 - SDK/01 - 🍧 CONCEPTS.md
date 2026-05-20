@@ -52,41 +52,41 @@ Schéma simplifié
      API
      Composants
 
-### 🍧 EXEMPLE CONCRET
+## 🧩 SDK
 
 Supposons qu'un développeur veut ajouter un bouton et recherche "button" sur le SDK.
 
-![](./assets/Capture%20d’écran%202026-05-20%20144040.png)
+[![](./assets/Capture%20d’écran%202026-05-20%20144040.png)](https://ui5.sap.com/)
 
 Il va d'abord visualiser et tester les exemples ("samples)
 
-![](./assets/Capture%20d’écran%202026-05-20%20144150.png)
+[![](./assets/Capture%20d’écran%202026-05-20%20144150.png)](https://ui5.sap.com/)
 
-![](./assets/Capture%20d’écran%202026-05-20%20144256.png)
+[![](./assets/Capture%20d’écran%202026-05-20%20144256.png)](https://ui5.sap.com/)
 
-![](./assets/Capture%20d’écran%202026-05-20%20144329.png)
+[![](./assets/Capture%20d’écran%202026-05-20%20144329.png)](https://ui5.sap.com/)
 
 Si le composant et le comportement correspond, il va lire la documentation référence de ce composant en cliquant sur `API Reference`
 
-![](./assets/Capture%20d’écran%202026-05-20%20144538.png)
+[![](./assets/Capture%20d’écran%202026-05-20%20144538.png)](https://ui5.sap.com/)
 
-![](./assets/Capture%20d’écran%202026-05-20%20144643.png)
+[![](./assets/Capture%20d’écran%202026-05-20%20144643.png)](https://ui5.sap.com/)
 
 Le SDK fournit alors :
 
-#### 🌺 Class :
+### 🍧 CLASS :
 
      sap.m.Button
 
-#### 🌺 Nom :
+### 🍧 NAME :
 
      Button
 
-#### 🌺 Overview :
+### 🍧 OVERVIEW :
 
      <Description du composant, usage ...>
 
-#### 🌺 Constructor
+### 🍧 CONSTRUCTOR
 
 ```
 new sap.m.Button(sId?, mSettings?)
@@ -98,7 +98,7 @@ new sap.m.Button(sId?, mSettings?)
      "s" signifie "String"
      "m" signifie "mapping object"
 
-Exemple :
+#### 🌺 Exemple :
 
 ```js
 new sap.m.Button("btn1", {
@@ -108,7 +108,7 @@ new sap.m.Button("btn1", {
 });
 ```
 
-Pourquoi "m" ?
+#### 🌺 Pourquoi "m" ?
 
 SAPUI5 utilise une convention interne :
 
@@ -121,7 +121,7 @@ SAPUI5 utilise une convention interne :
 | a       | array                        |
 | m       | map (objet de configuration) |
 
-#### 🌺 Properties :
+### 🍧 PROPERTIES :
 
 Une property dans SAPUI5 est une valeur simple stockée dans un contrôle UI5. Elle décrit l’état ou le comportement d’un composant.
 
@@ -132,39 +132,39 @@ Les properties servent à :
 - configurer l’apparence
 - définir des comportements simples
 
-Exemple :
+#### 🌺 Exemple :
 
      iconFirst      Determines whether the icon is displayed before the text.
      width          Defines the Button width.
 
-#### 🌺 Aggregations :
+### 🍧 AGGREGATIONS :
 
 Une aggregation est une propriété spéciale d’un contrôle UI5 qui permet de stocker des sous-éléments UI5 structurés.
 
 Dans une classe UI5 (contrôle ou composant), les aggregations correspondent à des relations "contient / possède des éléments enfants"
 
-Contrairement à :
+#### 🌺 Contrairement à :
 
      properties → valeurs simples (string, bool, int)
      aggregations → objets UI5 enfants
 
-Image mentale :
+#### 🌺 Image mentale :
 
      Button → pas d’aggregation utile
      Page → contient content (aggregation)
      Table → contient items (aggregation)
      VBox → contient items (aggregation)
 
-#### 🌺 Associations :
+### 🍧 ASSOCIATIONS :
 
 Une association dans SAPUI5 est un lien logique entre deux contrôles UI5 sans relation de possession.
 
-Contrairement aux aggregations :
+#### 🌺 Contrairement aux aggregations :
 
      Aggregation = contient des enfants
      Association = référence vers un autre élément
 
-Image mentale :
+#### 🌺 Image mentale :
 
      Aggregation   → Parent possède enfant
      Association   → Parent connaît un autre élément
@@ -173,7 +173,7 @@ Association possible :
 
      Button → Label (référence)
 
-#### 🌺 Events :
+### 🍧 EVENTS :
 
 Un event (événement) dans SAPUI5 est une action déclenchée par l’utilisateur ou le système.
 
@@ -184,7 +184,7 @@ Les events servent à :
 - déclencher un traitement
 - mettre à jour la View ou le Model
 
-Schéma simple
+#### 🌺 Schéma simple
 
      View (UI)
      ↓
@@ -196,7 +196,7 @@ Schéma simple
      ↓
      Model / View mis à jour
 
-#### 🌺 Methods :
+### 🍧 METHODS :
 
 Une méthode dans SAPUI5 est une fonction appartenant à un objet (Controller ou Control UI5).
 
@@ -208,11 +208,11 @@ Les méthodes servent à :
 - modifier la View
 - réutiliser du code
 
-Schéma simple :
+#### 🌺 Schéma simple :
 
      Event → Method → Traitement → Résultat
 
-Où trouve-t-on des méthodes ?
+#### 🌺 Où trouve-t-on des méthodes ?
 
 1.  Controller (le plus important)
 
