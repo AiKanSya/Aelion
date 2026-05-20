@@ -8,12 +8,7 @@
 > Modifier le fichier hosts en mode Administrateur
 >
 > - Path : C:\Windows\System32\drivers\etc
-> - Elements à rajouter :
-
-     #""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-     # S4H # STMS
-     #""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-     192.168.231.70  s4hhost1.stms.fr
+> - Elements à rajouter : (a demander au formateur)
 
 ## 🧩 VISUAL STUDIO CODE
 
