@@ -4,7 +4,7 @@
 
 > [!IMPORTANT]
 >
-> 1. Modifier les Dépendances et le Return de la view
+> 1. Modifier les Dépendances et le Return du controller
 >
 > ![](./assets/Capture%20d’écran%202026-02-10%20112259.png)
 
@@ -13,7 +13,10 @@
 > - Ne pas oublier de modifier le(s) Namespace(s) par le votre !
 > - La manipulation sera a répéter pour chaque View.controller.js
 
-## 🧩 UPDATED VERSION
+> [!NOTE]
+> Path : `appdemofgi` → `webapp` → `controller` → `Home.controller.js`
+
+## 🧩 CODE `Home.controller.js`
 
 ```js
 sap.ui.define(

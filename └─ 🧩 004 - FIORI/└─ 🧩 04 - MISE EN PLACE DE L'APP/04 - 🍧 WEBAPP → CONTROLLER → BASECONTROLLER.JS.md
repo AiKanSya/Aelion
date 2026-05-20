@@ -17,7 +17,7 @@
 >
 > - Ne pas oublier de modifier le(s) Namespace(s) par le votre !
 
-## 🧩 CODE
+## 🧩 CODE `BaseController.js`
 
 ```js
 sap.ui.define(

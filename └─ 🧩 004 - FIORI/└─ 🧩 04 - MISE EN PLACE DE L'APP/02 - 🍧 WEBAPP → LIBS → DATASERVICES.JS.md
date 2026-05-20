@@ -18,7 +18,7 @@
 >
 > - Ne pas oublier de modifier le(s) Namespace(s) par le votre !
 
-## 🧩 CODE
+## 🧩 CODE `DataServices.js`
 
 ```js
 sap.ui.define(

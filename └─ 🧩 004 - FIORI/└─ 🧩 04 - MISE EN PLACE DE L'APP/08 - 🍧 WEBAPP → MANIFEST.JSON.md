@@ -6,31 +6,10 @@
 >
 > 1. Modifier le Manifest.json
 
-## 🧩 UPDATED VERSION
+## 🧩 CODE `manifest.json`
 
 > [!IMPORTANT]
 > Ajouter en dessous de `"dataSources"` le `"crossNavigation"`
-> Path : sap.app/dataSources
-
-> [!TIP]
-> Pourquoi ?
-> Le champ `crossNavigation` dans le manifest.json est utilisé pour définir des points d’entrée ou inbounds pour la navigation entre applications dans le Fiori Launchpad (FLP).
->
-> `crossNavigation` permet à une application Fiori de déclarer comment elle peut être ouverte depuis une autre application ou depuis un bouton dans le FLP.
->
-> Chaque entrée (inbound) décrit :
->
-> - semanticObject : l’objet métier utilisé pour identifier le type de navigation (ex : Material, SalesOrder, Customer…).
-> - action : l’action à exécuter sur cet objet (ex : SortieMarchandise, Display, Edit…).
-> - signature : paramètres attendus pour cette navigation (ex : ID d’un matériel, numéro de commande…).
-> - title : le titre affiché dans le FLP ou dans les liens.
-
-> [!CAUTION]
->
-> - Ne pas oublier de modifier :
->   - "semanticObject"
->   - "action"
->   - "title"
 
 ```json
 {
@@ -60,6 +39,26 @@
     }
   },
 ```
+
+> [!TIP]
+> Pourquoi ?
+> Le champ `crossNavigation` dans le manifest.json est utilisé pour définir des points d’entrée ou inbounds pour la navigation entre applications dans le Fiori Launchpad (FLP).
+>
+> `crossNavigation` permet à une application Fiori de déclarer comment elle peut être ouverte depuis une autre application ou depuis un bouton dans le FLP.
+>
+> Chaque entrée (inbound) décrit :
+>
+> - semanticObject : l’objet métier utilisé pour identifier le type de navigation (ex : Material, SalesOrder, Customer…).
+> - action : l’action à exécuter sur cet objet (ex : SortieMarchandise, Display, Edit…).
+> - signature : paramètres attendus pour cette navigation (ex : ID d’un matériel, numéro de commande…).
+> - title : le titre affiché dans le FLP ou dans les liens.
+
+> [!CAUTION]
+>
+> - Ne pas oublier de modifier :
+>   - "semanticObject"
+>   - "action"
+>   - "title"
 
 > [!IMPORTANT]
 > Ajouter en dessous de `"sap.ui5"` le `"sap.cloud"`

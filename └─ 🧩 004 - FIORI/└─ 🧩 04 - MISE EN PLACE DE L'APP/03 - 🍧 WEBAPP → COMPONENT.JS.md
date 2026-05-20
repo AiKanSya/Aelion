@@ -4,7 +4,7 @@
 
 > [!IMPORTANT]
 >
-> 1. Modifier les Dépendances dans le le `Component.js`
+> 1. Modifier les Dépendances dans le `Component.js`
 >
 >    ![](./assets/Capture%20d’écran%202026-02-10%20105811.png)
 >
@@ -16,7 +16,7 @@
 >
 > - Ne pas oublier de modifier le(s) Namespace(s) par le votre !
 
-## 🧩 UPDATED VERSION
+## 🧩 CODE `Component.js`
 
 ```js
 sap.ui.define(

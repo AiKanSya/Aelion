@@ -17,7 +17,7 @@
 >
 > - Ne pas oublier de modifier le(s) Namespace(s) par le votre !
 
-## 🧩 CODE
+## 🧩 CODE `i18n`
 
 > [!NOTE]
 > Nous changerons ultérieurement les traductions.

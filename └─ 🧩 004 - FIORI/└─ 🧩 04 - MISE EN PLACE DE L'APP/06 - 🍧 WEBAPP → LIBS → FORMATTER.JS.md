@@ -16,9 +16,9 @@
 > [!CAUTION]
 >
 > - Ne pas oublier de modifier le(s) Namespace(s) par le votre !
-> - La manipulation sera a répéter pour chaque View.controller.js
+> - La manipulation sera a répéter pour chaque controller qui solliciterait le formatter
 
-## 🧩 CODE
+## 🧩 CODE `Formatter.js`
 
 ```js
 sap.ui.define(
@@ -203,7 +203,7 @@ sap.ui.define(
 );
 ```
 
-## 🧩 HOME.CONTROLLER.JS
+## 🧩 CODE `Home.controller.js`
 
 ```js
 sap.ui.define(
