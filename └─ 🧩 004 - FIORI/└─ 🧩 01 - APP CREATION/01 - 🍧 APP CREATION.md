@@ -79,31 +79,41 @@ Renseignes les champs obligatoires suivants :
 
 #### 🌺 Data Source\*
 
-      Connect to a System
+    Connect to a System
 
 #### 🌺 System\*
 
-      New System
+    New System
+
+> [!IMPORTANT]
+> New System sera sélectionné par défaut si aucun System n'a encore été paramétré. Si le System ciblé est déjà paramétré, il apparaîtra dans la liste et il ne sera pas nécessaire de renseigner :
+>
+> - le System Type\*
+> - le System URL\*
+> - le SAP Client
 
 #### 🌺 System Type\*
 
-      ABAP On Premise
+    ABAP On Premise
 
 #### 🌺 System URL\*
 
-      https://s4hhost1.stms.fr:44300
+    https://s4hhost1.stms.fr:44300
 
 #### 🌺 SAP Client (leave empty for default)
 
-      200
+    200
 
 #### 🌺 Username\*
 
-      <SAP_GUI_USER_Name>
+    <SAP_GUI_USER_Name>
+
+> [!IMPORTANT]
+> Le demande d'identification ne s'appliquera que la première fois sauf si les System Credentials (identifiant/mot de passe) ne sont pas enregistrés.
 
 #### 🌺 Password\*
 
-      <SAP_GUI_USER_Password>
+    <SAP_GUI_USER_Password>
 
 > [!WARNING]
 > Il est nécessaire de cliquer sur l'icône de `Login` !
@@ -116,22 +126,20 @@ Vous devriez avoir ceci :
 
 #### 🌺 Do you want to store the system credentials?
 
-      Yes
+    Yes
 
 #### 🌺 System name\*
 
-      S4H, client 200
+    S4H, client 200
 
 #### 🌺 Service (for user [<SAP_GUI_USER_Name>])\*
 
-      <SERVICE_GATEWAY_A_UTILISER_POUR_L'APP>
+    ZAELION_<TRI>_SRV
 
 > [!NOTE]
-> Sélectionner le Service Gateway que l'app va consommer.
+> Sélectionner le Service Gateway que l'app va consommer. Pour l'exemple, nous utiliserons le service ZAELION_FGI_SRV
 
 - `Next >`
-
-![](./assets/Capture%20d’écran%202026-05-20%20091545.png)
 
 ### 🍧 4. ENTITY SELECTION
 
@@ -139,7 +147,7 @@ _Configure the selected service._
 
 #### 🌺 View Name
 
-      Home
+    Home
 
 > [!NOTE]
 > Il s'agit du nom de la Vue (View) initiale.
@@ -152,47 +160,47 @@ _Configure the main project attributes._
 
 #### 🌺 Module Name\*
 
-      <tri>_first_app_module_name
+    <tri>_first_app_module_name
 
 #### 🌺 Application Title\*
 
-      <TRI> First App Application Title
+    <TRI> First App Application Title
 
 #### 🌺 Application Namespace
 
-      fr.stms
+    fr.stms
 
 #### 🌺 Description
 
-      <TRI> First Fiori App Description
+    <TRI> First Fiori App Description
 
 #### 🌺 Project Folder Path\*
 
-      <sélectionner le dossier où vous souhaitez créer le projet>
+    <sélectionner le dossier où vous souhaitez créer le projet>
 
 #### 🌺 Minimum SAPUI5 Version\*
 
-      <Laisser la valeur par défaut>
+    <Laisser la valeur par défaut>
 
 #### 🌺 Enable TypeScript
 
-      <No>
+    <No>
 
 #### 🌺 Add Deployment Configuration
 
-      <No>
+    <No>
 
 #### 🌺 Add SAP Fiori Launchpad Configuration
 
-      <No>
+    <No>
 
 #### 🌺 Use Virtual Endpoints for Local Preview
 
-      <Yes>
+    <Yes>
 
 #### 🌺 Configure Advanced Options
 
-      <No>
+    <No>
 
 #### 🌺 `Finish`
 
