@@ -49,13 +49,13 @@ appdemofgi/                       			# Racine du projet
 │   │   │   └── <fragment_n>.fragment.xml
 │   │   │
 │   │   ├── App.view.xml          			# Vue App
-│   │   ├── Home.view.xml                    # Vue Home
-│   │   ├── Detail.view.xml                  # Vue Detail
-│   │   └── <view_n>.view.xml                # Vue n
+│   │   ├── Home.view.xml                   # Vue Home
+│   │   ├── Detail.view.xml                 # Vue Detail
+│   │   └── <view_n>.view.xml               # Vue n
 │   │
-│   ├── Component.js               		# Point d’entrée de l’application
-│   ├── index.html                 		# Page HTML principale
-│   └── manifest.json              		# Métadonnées Fiori : routes, models, data sources, namespace
+│   ├── Component.js               		    # Point d’entrée de l’application
+│   ├── index.html                 		    # Page HTML principale
+│   └── manifest.json              		    # Métadonnées Fiori : routes, models, data sources, namespace
 │
 ├── .gitignore                      		# Fichiers à ignorer par git
 ├── (mta.yaml)                      		# Multi-Target Application config (si onPremise ou BTP)
