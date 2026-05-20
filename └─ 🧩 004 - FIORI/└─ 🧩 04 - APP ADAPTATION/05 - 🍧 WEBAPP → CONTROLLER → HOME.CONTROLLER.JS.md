@@ -8,13 +8,13 @@
 >
 > ![](./assets/Capture%20d’écran%202026-02-10%20112259.png)
 
+> [!NOTE]
+> Path : `appdemofgi` → `webapp` → `controller` → `Home.controller.js`
+
 > [!CAUTION]
 >
 > - Ne pas oublier de modifier le(s) Namespace(s) par le votre !
 > - La manipulation sera a répéter pour chaque View.controller.js
-
-> [!NOTE]
-> Path : `appdemofgi` → `webapp` → `controller` → `Home.controller.js`
 
 ## 🧩 CODE `Home.controller.js`
 

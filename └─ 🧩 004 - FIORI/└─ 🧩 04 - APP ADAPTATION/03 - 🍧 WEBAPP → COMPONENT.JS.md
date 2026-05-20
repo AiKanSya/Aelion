@@ -13,8 +13,7 @@
 >    ![](./assets/Capture%20d’écran%202026-02-10%20105923.png)
 
 > [!CAUTION]
->
-> - Ne pas oublier de modifier le(s) Namespace(s) par le votre !
+> Ne pas oublier de modifier le(s) Namespace(s) par le votre !
 
 ## 🧩 CODE `Component.js`
 

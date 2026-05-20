@@ -32,17 +32,52 @@ Dans une application Fiori :
 
 Le XML est utilisé pour la View.
 
-### 🍧 EXEMPLE SIMPLE
+## 🧩 ID/CLASS CONVENTION
 
-Code XML :
+Il n'existe pas de convention officielle SAP unique et obligatoire pour les IDs UI5/Fiori. SAP recommande surtout des IDs clairs, cohérents et maintenables.
+
+Conventions couramment utilisées en projets Fiori :
+
+| Type composant | Préfixe fréquent | Exemple         |
+| -------------- | ---------------: | --------------- |
+| Button         |              btn | btnSave         |
+| Input          |              inp | inpNom          |
+| Text           |              txt | txtClient       |
+| Label          |              lbl | lblNom          |
+| Table          |              tbl | tblEmployes     |
+| List           |              lst | lstClients      |
+| Dialog         |              dlg | dlgConfirmation |
+| Page           |               pg | pgAccueil       |
+| VBox           |              vbx | vbxMain         |
+| HBox           |              hbx | hbxHeader       |
+| Icon           |              ico | icoDelete       |
+
+## 🧩 EXEMPLE : COMPOSANT TEXT (sap.m.Text)
+
+> [!NOTE]
+> Path : `webapp` → `view` → `Home.view.xml`
+
+> [!CAUTION]
+> Ne pas oublier de modifier le(s) Namespace(s) par le votre !
 
 ```xml
-<Text text="Bonjour"/>
+<mvc:View
+    controllerName="fr.stms.fgifirstappmodulename.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page id="page" title="{i18n>title}">
+
+        <Text id="txtWelcome" text="Bienvenue"/>
+
+    </Page>
+
+</mvc:View>
 ```
 
 Affichage :
 
-     Bonjour
+     Bonjour !
 
 Explication :
 
@@ -54,25 +89,30 @@ Explication :
      ↓
      Contenu affiché
 
-### 🍧 XML DANS SAP UI5 (VIEW)
+## 🧩 EXEMPLE : COMPOSANT TEXT (sap.m.Text) ET BUTTON (sap.m.Button)
 
-Exemple complet de View :
+> [!NOTE]
+> Path : `webapp` → `view` → `Home.view.xml`
+
+> [!CAUTION]
+> Ne pas oublier de modifier le(s) Namespace(s) par le votre !
 
 ```xml
 <mvc:View
-xmlns:mvc="sap.ui.core.mvc"
-xmlns="sap.m">
+    controllerName="fr.stms.fgifirstappmodulename.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
 
-<Page title="Exemple">
+    <Page id="page" title="{i18n>title}">
 
-<content>
+        <content>
 
-<Text text="Bienvenue"/>
-<Button text="Valider"/>
+            <Text id="txtWelcome" text="Bienvenue"/>
+            <Button id="btnConfirm" text="Valider"/>
 
-</content>
+        </content>
 
-</Page>
+    </Page>
 
 </mvc:View>
 ```
@@ -94,34 +134,6 @@ xmlns="sap.m">
      Text / Button
      ↓
      Composants UI
-
-## 🧩 XML & DATA BINDING
-
-XML permet de lier les données du Model.
-
-Exemple :
-
-```xml
-<Text text="{/nom}" />
-```
-
-Modèle :
-
-```json
-{
-  "nom": "Martin"
-}
-```
-
-Affichage :
-
-     Martin
-
-Explication :
-
-     {/nom}
-     ↓
-     liaison avec le Model
 
 ## 🧩 TYPES DE XML UTILISES
 

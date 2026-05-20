@@ -14,8 +14,7 @@
 > Path : `appdemofgi` → `webapp` → `i18n`.
 
 > [!CAUTION]
->
-> - Ne pas oublier de modifier le(s) Namespace(s) par le votre !
+> Ne pas oublier de modifier le(s) Namespace(s) par le votre !
 
 ## 🧩 CODE `i18n`
 

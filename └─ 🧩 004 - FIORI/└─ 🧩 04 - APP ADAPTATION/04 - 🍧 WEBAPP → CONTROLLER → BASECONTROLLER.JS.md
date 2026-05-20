@@ -14,8 +14,7 @@
 > Path : `appdemofgi` → `webapp` → `controller` → `BaseController.js`
 
 > [!CAUTION]
->
-> - Ne pas oublier de modifier le(s) Namespace(s) par le votre !
+> Ne pas oublier de modifier le(s) Namespace(s) par le votre !
 
 ## 🧩 CODE `BaseController.js`
 

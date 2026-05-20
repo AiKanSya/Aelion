@@ -15,8 +15,7 @@
 > Path : `appdemofgi` → `webapp` → `libs` → `DataServices.js`
 
 > [!CAUTION]
->
-> - Ne pas oublier de modifier le(s) Namespace(s) par le votre !
+> Ne pas oublier de modifier le(s) Namespace(s) par le votre !
 
 ## 🧩 CODE `DataServices.js`
 
