@@ -47,11 +47,11 @@ Affichage :
 Explication :
 
      <Text>
-          ↓
+     ↓
      Composant UI
 
      text="Bonjour"
-          ↓
+     ↓
      Contenu affiché
 
 ### 🍧 XML DANS SAP UI5 (VIEW)
@@ -80,19 +80,19 @@ xmlns="sap.m">
 ### 🍧 EXPLICATION DE LA STRUCTURE
 
      mvc:View
-          ↓
+     ↓
      Vue SAPUI5
 
      Page
-          ↓
+     ↓
      Écran principal
 
      content
-          ↓
+     ↓
      Zone d’affichage
 
      Text / Button
-          ↓
+     ↓
      Composants UI
 
 ## 🧩 XML & DATA BINDING
@@ -120,7 +120,7 @@ Affichage :
 Explication :
 
      {/nom}
-          ↓
+     ↓
      liaison avec le Model
 
 ## 🧩 TYPES DE XML UTILISES

@@ -37,15 +37,15 @@ Exemples de composants :
 Sans UI5 :
 
     Développeur
-        ↓
+    ↓
     HTML + CSS + JavaScript manuel
 
 Avec UI5 :
 
     Développeur
-        ↓
+    ↓
     Composants UI5
-        ↓
+    ↓
     Application
 
 ## 🧩 POURQUOI UTILISER UI5
@@ -63,27 +63,27 @@ Avantages :
 ## 🧩 ARCHITECTURE SIMPLIFIEE
 
     Utilisateur
-        ↓
+    ↓
     Application Fiori
-        ↓
+    ↓
     SAPUI5
-        ↓
+    ↓
     ODATA
-        ↓
+    ↓
     SAP Backend
 
 Explication :
 
     SAPUI5
-        ↓
+    ↓
     Affiche les données
 
     ODATA
-        ↓
+    ↓
     Récupère les données
 
     SAP
-        ↓
+    ↓
     Fournit les données
 
 ## 🧩 PRINCIPALE LIBRARY
@@ -131,7 +131,8 @@ Explication :
 
 ## 🧩 OU TROUVER LA DOCUMENTATION UI5 ?
 
-📘 https://ui5.sap.com  
+📘 https://ui5.sap.com
+
 Sections clés :
 
 - Documentation
@@ -223,11 +224,13 @@ Il permet :
 
 ### 🍧 EXEMPLE
 
-    var oButton = new sap.m.Button("btnSave", {
-        text: "Enregistrer",
-        enabled: true,
-        press: this.onSave
-    });
+```js
+var oButton = new sap.m.Button("btnSave", {
+  text: "Enregistrer",
+  enabled: true,
+  press: this.onSave,
+});
+```
 
 > [!TIP]
 > En XML View, le constructor est appelé automatiquement par UI5.
