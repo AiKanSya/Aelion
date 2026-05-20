@@ -16,7 +16,7 @@ En français :
 
 Le [SDK SAPUI5](https://ui5.sap.com/) est la documentation officielle qui contient tous les outils et informations nécessaires pour développer une application Fiori.
 
-![](./assets/Capture%20d’écran%202026-05-20%20143941.png)
+[![](./assets/Capture%20d’écran%202026-05-20%20143941.png)](https://ui5.sap.com/)
 
 ## 🧩 POURQUOI UTILISER SDK
 
