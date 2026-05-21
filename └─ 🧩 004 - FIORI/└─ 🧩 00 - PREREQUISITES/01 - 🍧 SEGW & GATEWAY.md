@@ -54,9 +54,8 @@ Il contient :
 
 - les _Entities_ (_EntityTypes_ et _EntitySets_)
 - les _Associations_ (relations)
-- les _Methods_
 - les paramètres
-- les classes générées (MPC/DPC/...)
+- les classes générées (MPC/DPC/...) et leurs _Methods_
 
 ### 🍧 SEGW PROJECT
 
@@ -87,7 +86,7 @@ Il contient :
 
 ### 🍧 ENTITYTYPE 'SESSION' & ENTITYSET 'SESSIONSET'
 
-#### 🌺 Nom
+#### 🌺 EntityType Name
 
     Session
 
@@ -109,14 +108,14 @@ Il contient :
 <details>
   <summary>Rappel</summary>
 
-1. `Import` > `DDIC structure`
+1. `Data Model` > `Import` > `DDIC structure`
 
    ![](./assets/Capture%20d’écran%202026-05-21%20080158.png)
 
    ![](./assets/Capture%20d’écran%202026-05-21%20080751.png)
 
    > [!NOTE]
-   > La création de l'EntitySet 'SessionSet' va se faire automatiquement si la case est coché
+   > La création de l'EntitySet 'SessionSet' va se faire automatiquement si la case 'Create Default Entity Set' est coché
 
 2. Sélection des Champs de l'EntityType
 
@@ -130,7 +129,7 @@ Il contient :
 
 ### 🍧 ENTITYTYPE 'CONSULTANT' & ENTITYSET 'CONSULTANTSET'
 
-#### 🌺 Nom
+#### 🌺 EntityType Name
 
     Consultant
 
@@ -158,14 +157,14 @@ Il contient :
 <details>
   <summary>Rappel</summary>
 
-1. `Import` > `DDIC structure`
+1. `Data Model` > `Import` > `DDIC structure`
 
    ![](./assets/Capture%20d’écran%202026-05-21%20080158.png)
 
    ![](./assets/Capture%20d’écran%202026-05-21%20081723.png)
 
    > [!NOTE]
-   > La création de l'EntitySet 'ConsultantSet' va se faire automatiquement si la case est coché
+   > La création de l'EntitySet 'SessionSet' va se faire automatiquement si la case 'Create Default Entity Set' est coché
 
 2. Sélection des Champs de l'EntityType
 
@@ -213,7 +212,7 @@ Il contient :
 
     ConsultantSet
 
-### 🍧 DEFINITION DES CLES COMMUNES
+### 🍧 DEFINITION DES CLES COMMUNES POUR ASSOCIER LES ENTITIES
 
 #### 🌺 Principal Entity
 
