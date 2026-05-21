@@ -8,7 +8,7 @@
 > - [ ] 3. Création de l'Assocation
 > - [ ] 4. Sauvegarde et génération du projet
 > - [ ] 5. Création/enregistrement du service OData
-> - [ ] 6. Redefine les Methods des Entities
+> - [ ] 6. Redefine les Methods de la class '\*\_DPC_EXT'
 
 ## 🧩 CONTEXTE
 
@@ -350,7 +350,7 @@ Schéma simplifié :
 ### 🍧 ENREGISTREMENT DU SERVICE
 
 > [!TIP]
-> Le nom du service OData lié au projet et généré lors de l'étape 4 aura par défaut le suffixe '\_SRV' ajouté au nom du projet SEGW. Dans notre démo, le projet se nommant 'Z<TRI>\_FIORI_DEMO', le nom du service OData généré est 'Z<TRI>\_FIORI_DEMO_SRV'.
+> Le nom du service OData lié au projet et généré lors de l'étape 4 aura par défaut le suffixe '\_SRV' ajouté au nom du projet SEGW.
 
 #### 🌺 Nom du service technique :
 
@@ -401,5 +401,109 @@ Schéma simplifié :
 5. Rechercher le service dans la liste et vérifier l'état du Noeud ICF (qui doit être vert)
 
    ![](./assets/Capture%20d’écran%202026-05-21%20092831.png)
+
+</details>
+
+## 🧩 6. REDEFINE LES METHODS DE LA CLASS '\*\_DPC_EXT'
+
+> [!IMPORTANT]
+> Après génération du projet SEGW, SAP crée automatiquement les méthodes ODATA standard. Exemple :
+
+     GET_ENTITY
+
+     GET_ENTITYSET
+
+     CREATE_ENTITY
+
+     UPDATE_ENTITY
+
+     DELETE_ENTITY
+
+> [!IMPORTANT]
+> Ces méthodes existent techniquement mais sont générées avec une logique vide. À ce stade :
+
+     Requête ODATA reçue
+     ↓
+     Méthode appelée
+     ↓
+     Aucun traitement
+     ↓
+     Aucune donnée retournée
+
+L'application Fiori ne reçoit rien.
+
+### 🍧 ROLE DE '\*\_DPC_EXT'
+
+La '\*\_DPC_EXT' contient la logique métier qui permet :
+
+- lire des données SAP
+- créer des données
+- modifier des données
+- supprimer des données
+- traiter les requêtes ODATA
+
+Schéma :
+
+     Application Fiori
+     ↓
+     Requête ODATA
+     ↓
+     DPC_EXT
+     ↓
+     Code ABAP
+     ↓
+     Base SAP
+
+### 🍧 POURQUOI NE PAS MODIFIER LES CLASS '_\_DPC' et '_\_MPC' ?
+
+Les classes :
+
+     MPC
+     DPC
+
+sont régénérées par SAP. Une nouvelle génération peut supprimer les développements.
+
+SAP prévoit :
+
+     MPC_EXT
+     DPC_EXT
+
+pour conserver le code personnalisé.
+
+### 🍧 REDEFINITION
+
+Methodes à redéfinir :
+
+     CONSULTANTSET_CREATE_ENTITY
+     CONSULTANTSET_DELETE_ENTITY
+     CONSULTANTSET_GET_ENTITY
+     CONSULTANTSET_GET_ENTITYSET
+     CONSULTANTSET_UPDATE_ENTITY
+
+     SESSIONSET_CREATE_ENTITY
+     SESSIONSET_DELETE_ENTITY
+     SESSIONSET_GET_ENTITY
+     SESSIONSET_GET_ENTITYSET
+     SESSIONSET_UPDATE_ENTITY
+
+<details>
+  <summary>Rappel de la procédure</summary>
+
+> [!NOTE]
+> La manière de redéfinir une méthode est la même, quelque soit les méthodes.
+
+1. `SEGW` > `Z<TRI>_FIORI_DEMO` > `Runtime Artifacts` > `ZCL_*_DPC_EXT` > `Go to ABAP Workbench`
+
+   ![](./assets/Capture%20d’écran%202026-05-21%20095028.png)
+
+2. `ZCL_*_DPC_EXT` > `<Method>` > `Redéfinir`
+
+   ![](./assets/Capture%20d’écran%202026-05-21%20095258.png)
+
+   ![](./assets/Capture%20d’écran%202026-05-21%20095436.png)
+
+3. Redéfinition de toutes les méthodes concernées
+
+   ![](./assets/Capture%20d’écran%202026-05-21%20095652.png)
 
 </details>
