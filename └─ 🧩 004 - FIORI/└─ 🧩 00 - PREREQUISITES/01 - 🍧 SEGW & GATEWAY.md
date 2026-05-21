@@ -7,8 +7,8 @@
 > - [ ] 2. Création des Entities
 > - [ ] 3. Création de l'Assocation
 > - [ ] 4. Sauvegarde et génération du projet
-> - [ ] 4. Créer le Service `ODATA` à partir du projet
-> - [ ] 5. Redefine les Methods des Entities
+> - [ ] 5. Création/enregistrement du service OData
+> - [ ] 6. Redefine les Methods des Entities
 
 ## 🧩 CONTEXTE
 
@@ -68,7 +68,7 @@ Il contient :
     <TRI> - AELION FIORI DEMO - SEGW PROJECT
 
 <details>
-  <summary>Rappel</summary>
+  <summary>Rappel de la procédure</summary>
 
 1. Transaction `SEGW` > `Créer projet`
 
@@ -106,7 +106,7 @@ Il contient :
     ID_SESSION
 
 <details>
-  <summary>Rappel</summary>
+  <summary>Rappel de la procédure</summary>
 
 1. `Data Model` > `Import` > `DDIC structure`
 
@@ -155,7 +155,7 @@ Il contient :
     ID_CONSULTANT
 
 <details>
-  <summary>Rappel</summary>
+  <summary>Rappel de la procédure</summary>
 
 1. `Data Model` > `Import` > `DDIC structure`
 
@@ -223,7 +223,7 @@ Il contient :
     IdSession
 
 <details>
-  <summary>Rappel</summary>
+  <summary>Rappel de la procédure</summary>
 
 1. `Association` > `Create`
 
@@ -245,6 +245,28 @@ Il contient :
 
 ## 🧩 4. SAUVEGARDE ET GENERATION DU PROJET
 
+> [!IMPORTANT]
+> Après avoir créé le projet SEGW, les EntityTypes, les Entity Sets et les associations, ces derniers n'existent uniquement que comme définition fonctionnelle. À ce stade :
+
+     Projet SEGW
+     ↓
+     Description des objets
+
+     PAS de service exécutable
+
+> [!IMPORTANT]
+> Aucune application Fiori ne peut utiliser ces objets pour le moment. La génération du service OData transformera cette définition en objets techniques ABAP exécutables. Autrement dit, la génération créera automatiquement les composants nécessaires au fonctionnement du service ODATA.
+>
+> La génération crée automatiquement les composants nécessaires au fonctionnement du service ODATA.
+>
+> Elle produit notamment :
+>
+> - classes ABAP
+> - classes runtime
+> - structures techniques
+> - méthodes ODATA
+> - métadonnées du service
+
 #### 🌺 OT :
 
     <TRI> - FIORI MODULE
@@ -254,7 +276,7 @@ Il contient :
     Z<TRI>_FIORI_MODULE
 
 <details>
-  <summary>Rappel</summary>
+  <summary>Rappel de la procédure</summary>
 
 1. Sauvegarde
 
@@ -273,5 +295,111 @@ Il contient :
    ![](./assets/Capture%20d’écran%202026-05-21%20084404.png)
 
    ![](./assets/Capture%20d’écran%202026-05-21%20084439.png)
+
+</details>
+
+## 🧩 5. CREATION/ENREGISTREMENT DU SERVICE ODATA
+
+> [!IMPORTANT]
+> À ce stade, le service existe techniquement dans le système ABAP, mais il n'est pas encore exposé à SAP Gateway. Les applications Fiori ne peuvent pas encore communiquer avec le service.
+
+     Projet SEGW
+     ↓
+     Classes générées
+
+     Service disponible en backend
+
+     NON accessible depuis Fiori
+
+### 🍧 ROLE DE /N/IWFND/MAINT_SERVICE
+
+La transaction :
+
+    /N/IWFND/MAINT_SERVICE
+
+permet :
+
+- d'enregistrer le service ODATA
+- de l'activer
+- de le publier dans SAP Gateway
+- de le rendre accessible via URL HTTP
+
+Schéma simplifié :
+
+     SEGW
+     ↓
+     Génération
+     ↓
+     Classes ABAP créées
+     ↓
+     /IWFND/MAINT_SERVICE
+     ↓
+     Service publié
+     ↓
+     SAP Fiori peut l'utiliser
+
+> [!IMPORTANT]
+> Lors de l'ajout du service, SAP crée automatiquement plusieurs éléments techniques :
+>
+> - enregistrement du service
+> - liaison avec les classes générées
+> - activation Gateway
+> - métadonnées ODATA accessibles
+> - URL du service
+
+### 🍧 ENREGISTREMENT DU SERVICE
+
+> [!TIP]
+> Le nom du service OData lié au projet et généré lors de l'étape 4 aura par défaut le suffixe '\_SRV' ajouté au nom du projet SEGW. Dans notre démo, le projet se nommant 'Z<TRI>\_FIORI_DEMO', le nom du service OData généré est 'Z<TRI>\_FIORI_DEMO_SRV'.
+
+#### 🌺 Nom du service technique :
+
+    Z<TRI>\_FIORI_DEMO_SRV
+
+#### 🌺 Nom du service technique :
+
+    Z<TRI>\_FIORI_DEMO_SRV
+
+#### 🌺 Dépl. int. (Déploiement intégré) :
+
+    [X]
+
+#### 🌺 OT :
+
+    <TRI> - FIORI MODULE
+
+<details>
+  <summary>Rappel de la procédure</summary>
+
+1. `Ajouter le service`
+
+   ![](./assets/Capture%20d’écran%202026-05-21%20091555.png)
+
+2. Renseigner le service généré et sélectionner `Dépl. int.`
+
+   ![](./assets/Capture%20d’écran%202026-05-21%20091910.png)
+
+   > [!WARNING]
+   > Une fois les noms des services renseignés et `Dépl. int.` coché, appuyez sur Entrée pour faire afficher le service.
+
+   ![](./assets/Capture%20d’écran%202026-05-21%20092059.png)
+
+3. Cliquer sur le service
+
+   ![](./assets/Capture%20d’écran%202026-05-21%20092237.png)
+
+4. Vérifier que le Noeud ICF est bien sur `SAP Gateway OData V2` et valider
+
+   ![](./assets/Capture%20d’écran%202026-05-21%20092353.png)
+
+   ![](./assets/Capture%20d’écran%202026-05-21%20092444.png)
+
+   ![](./assets/Capture%20d’écran%202026-05-21%20092517.png)
+
+   ![](./assets/Capture%20d’écran%202026-05-21%20092553.png)
+
+5. Rechercher le service dans la liste et vérifier l'état du Noeud ICF (qui doit être vert)
+
+   ![](./assets/Capture%20d’écran%202026-05-21%20092831.png)
 
 </details>
