@@ -68,7 +68,7 @@ Il contient :
     <TRI> - AELION FIORI DEMO - SEGW PROJECT
 
 <details>
-  <summary>Rappel de la procédure</summary>
+  <summary>SOLUTION</summary>
 
 1. Transaction `SEGW` > `Créer projet`
 
@@ -106,7 +106,7 @@ Il contient :
     ID_SESSION
 
 <details>
-  <summary>Rappel de la procédure</summary>
+  <summary>SOLUTION</summary>
 
 1. `Data Model` > `Import` > `DDIC structure`
 
@@ -154,8 +154,28 @@ Il contient :
     ID_SESSION
     ID_CONSULTANT
 
+### 🍧 PARAMETRAGE DES ENTITYTYPES/ENTITYSETS
+
+> [!NOTE]
+> Dans le cadre de la démo, nous allons rendre les EntityTypes :
+
+    CREATABLE
+    UPDATABLE
+    SORTABLE
+    NULLABLE (excepté sur les clés)
+    FILTERABLE
+    ADDRESSABLE
+
+> [!NOTE]
+> Dans le cadre de la démo, nous allons rendre les EntitySets :
+
+    CREATABLE
+    UPDATABLE
+    DELETABLE
+    ADDRESSABLE
+
 <details>
-  <summary>Rappel de la procédure</summary>
+  <summary>SOLUTION</summary>
 
 1. `Data Model` > `Import` > `DDIC structure`
 
@@ -173,6 +193,14 @@ Il contient :
 3. Sélection du/des clé(s)
 
    ![](./assets/Capture%20d’écran%202026-05-21%20082008.png)
+
+4. Paramétrages des EntityTypes/EntitySets
+
+   ![](./assets/Capture%20d’écran%202026-05-21%20101408.png)
+
+   ![](./assets/Capture%20d’écran%202026-05-21%20101457.png)
+
+   ![](./assets/Capture%20d’écran%202026-05-21%20101657.png)
 
 </details>
 
@@ -223,7 +251,7 @@ Il contient :
     IdSession
 
 <details>
-  <summary>Rappel de la procédure</summary>
+  <summary>SOLUTION</summary>
 
 1. `Association` > `Create`
 
@@ -276,7 +304,7 @@ Il contient :
     Z<TRI>_FIORI_MODULE
 
 <details>
-  <summary>Rappel de la procédure</summary>
+  <summary>SOLUTION</summary>
 
 1. Sauvegarde
 
@@ -369,7 +397,7 @@ Schéma simplifié :
     <TRI> - FIORI MODULE
 
 <details>
-  <summary>Rappel de la procédure</summary>
+  <summary>SOLUTION</summary>
 
 1. `Ajouter le service`
 
@@ -432,9 +460,9 @@ Schéma simplifié :
 
 L'application Fiori ne reçoit rien.
 
-### 🍧 ROLE DE '\*\_DPC_EXT'
+### 🍧 ROLE DE LA CLASS 'DPC_EXT'
 
-La '\*\_DPC_EXT' contient la logique métier qui permet :
+La 'DPC_EXT' contient la logique métier qui permet :
 
 - lire des données SAP
 - créer des données
@@ -461,9 +489,9 @@ Les classes :
      MPC
      DPC
 
-sont régénérées par SAP. Une nouvelle génération peut supprimer les développements.
+sont régénérées par SAP. Une nouvelle génération en SEGW peut supprimer les développements qui auraient été implémenté dans l'une de ces Class.
 
-SAP prévoit :
+SAP prévoit donc des Class d'extension :
 
      MPC_EXT
      DPC_EXT
@@ -474,20 +502,20 @@ pour conserver le code personnalisé.
 
 Methodes à redéfinir :
 
-     CONSULTANTSET_CREATE_ENTITY
-     CONSULTANTSET_DELETE_ENTITY
-     CONSULTANTSET_GET_ENTITY
-     CONSULTANTSET_GET_ENTITYSET
-     CONSULTANTSET_UPDATE_ENTITY
-
      SESSIONSET_CREATE_ENTITY
      SESSIONSET_DELETE_ENTITY
      SESSIONSET_GET_ENTITY
      SESSIONSET_GET_ENTITYSET
      SESSIONSET_UPDATE_ENTITY
 
+     CONSULTANTSET_CREATE_ENTITY
+     CONSULTANTSET_DELETE_ENTITY
+     CONSULTANTSET_GET_ENTITY
+     CONSULTANTSET_GET_ENTITYSET
+     CONSULTANTSET_UPDATE_ENTITY
+
 <details>
-  <summary>Rappel de la procédure</summary>
+  <summary>SOLUTION</summary>
 
 > [!NOTE]
 > La manière de redéfinir une méthode est la même, quelque soit les méthodes.
