@@ -29,7 +29,7 @@ Fonctionnalités :
 > [!IMPORTANT]
 > `Visual Studio Code` utilise de nombreux packages et modules `NodeJS`, même pour le développement d'interfaces utilisateur SAP ; je recommande donc d'installer `NodeJS` en même temps.
 
-[NodeJS - Téléchargement et Installation](https://``nodejs``.org/en/)
+[NodeJS - Téléchargement et Installation](https://nodejs.org/en/)
 
 ## 🧩 FIORI EXTENSIONS FOR VSCODE
 
