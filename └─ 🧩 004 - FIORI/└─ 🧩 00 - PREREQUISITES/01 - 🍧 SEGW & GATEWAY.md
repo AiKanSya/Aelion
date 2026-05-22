@@ -114,8 +114,8 @@ Il contient :
 
    ![](./assets/Capture%20d’écran%202026-05-21%20080751.png)
 
-   > [!NOTE]
-   > La création de l'EntitySet 'SessionSet' va se faire automatiquement si la case 'Create Default Entity Set' est coché
+> [!NOTE]
+> La création de l'EntitySet 'SessionSet' va se faire automatiquement si la case 'Create Default Entity Set' est coché
 
 2. Sélection des Champs de l'EntityType
 
@@ -204,7 +204,7 @@ Il contient :
 
 </details>
 
-## 🧩 2. CREATION DE L'ASSOCIATION
+## 🧩 3. CREATION DE L'ASSOCIATION
 
 ### 🍧 CREATION
 
