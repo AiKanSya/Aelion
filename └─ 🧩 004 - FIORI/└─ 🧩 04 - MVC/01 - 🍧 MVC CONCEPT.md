@@ -10,7 +10,7 @@
 
 ## 🧩 CONCEPT MVC
 
-`MVC` = `Model` – `View` – `Controller`
+`MVC` = `Model` <–> `View` <–> `Controller`
 
 C’est une architecture qui sépare une application en 3 parties :
 
