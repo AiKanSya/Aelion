@@ -2,7 +2,7 @@
 
 > 🌺 Objectifs
 >
-> - [ ] Mettre en place un MockServer UI5 complet pour remplacer le backend SAP et permettre aux stagiaires de travailler sans VPN ni système distant.
+> - [ ] Mettre en place un MockServer UI5 complet pour remplacer le backend SAP et permettre à tous de travailler sans VPN ni système distant avec les même données.
 
 ## 🧩 PRINCIPES
 
@@ -25,6 +25,8 @@ Flux :
 
 ## 🧩 STRUCTURE DU PROJET
 
+Ce que le mock va nécessiter de créer/modifier :
+
     webapp
     │
     ├── localService
@@ -41,7 +43,7 @@ Flux :
     │
     └── Component.js
 
-## 🧩 ETAPE 1 - METADATA
+## 🧩 ETAPE 1 - METADATA.XML
 
 > [!IMPORTANT]
 > Le metadata = contrat entre UI5 et backend
@@ -186,7 +188,7 @@ Contenu :
     "Name": "Sophie",
     "DateBirth": "\/Date(725846400000)\/",
     "City": "Marseille",
-    "Region": "PACA",
+    "Region": "PAC",
     "Country": "FR",
     "Lang": "EN"
   },
@@ -343,7 +345,7 @@ Contenu :
     "Name": "Nadia",
     "DateBirth": "\/Date(1167340800000)\/",
     "City": "Marseille",
-    "Region": "PACA",
+    "Region": "PAC",
     "Country": "FR",
     "Lang": "FR"
   },
@@ -466,7 +468,7 @@ Contenu :
     "Name": "Romain",
     "DateBirth": "\/Date(1514236800000)\/",
     "City": "Marseille",
-    "Region": "PACA",
+    "Region": "PAC",
     "Country": "FR",
     "Lang": "FR"
   },
@@ -574,6 +576,9 @@ sap.ui.define(
 );
 ```
 
+> [!CAUTION]
+> Remplacer `fgifirstappmodulename` par le namespace de votre application !
+
 Component.js modifié :
 
 ```js
@@ -601,7 +606,6 @@ sap.ui.define(
 
         if (bMock) {
           mockServer.init();
-          Log.info("MockServer ACTIVATED");
         }
 
         this.setModel(models.createDeviceModel(), "device");
@@ -615,10 +619,12 @@ sap.ui.define(
         // =====================================================
         oModel.read("/SessionSet", {
           success: function (data) {
+            Log.info("SessionSet loaded");
+
             console.table(data.results);
           },
           error: function (err) {
-            console.Log("SessionSet error", err);
+            Log.error("SessionSet error", err);
           },
         });
 
@@ -627,10 +633,12 @@ sap.ui.define(
         // =====================================================
         oModel.read("/ConsultantSet", {
           success: function (data) {
+            Log.info("ConsultantSet loaded");
+
             console.table(data.results);
           },
           error: function (err) {
-            console.Log("ConsultantSet error", err);
+            Log.error("ConsultantSet error", err);
           },
         });
       },
@@ -684,4 +692,6 @@ Lancer :
 
     npm start-mock
 
-Vérifier les logs dans la console.
+Vérifier les logs dans la console :
+
+![]()
