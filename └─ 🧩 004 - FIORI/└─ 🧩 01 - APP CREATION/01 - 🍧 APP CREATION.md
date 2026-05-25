@@ -210,3 +210,15 @@ _Configure the main project attributes._
 > Si tout c'est bien passé, vous devirez avoir ceci :
 
 ![](./assets/Capture%20d’écran%202026-05-20%20093317.png)
+
+Console
+
+    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+Console
+
+    npm run
+
+Modifier ui5-local.yaml
+
+    https://s4hhost1.stms.fr:44300

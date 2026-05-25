@@ -9,6 +9,7 @@
 > - [ ] 4. Sauvegarde et génération du projet
 > - [ ] 5. Création/enregistrement du service OData
 > - [ ] 6. Redefine les Methods de la class '\*\_DPC_EXT'
+> - [ ] 7. Implémentation DPC_EXT & TEST GW_CLIENT
 
 ## 🧩 CONTEXTE
 
@@ -533,5 +534,477 @@ Methodes à redéfinir :
 3. Redéfinition de toutes les méthodes concernées
 
    ![](./assets/Capture%20d’écran%202026-05-21%20095652.png)
+
+</details>
+
+## 🧩 7. IMPLEMENTATION DPC_EXt & TESTS GW_CLIENT AVEC ASSOCIATION 1:N
+
+> [!IMPORTANT]
+> Objectif(s) :
+>
+> - sécuriser toutes les méthodes
+> - gérer erreurs métier + techniques
+> - rendre service stable pour Fiori + GW_CLIENT
+
+#### 🌺 Transaction Gateway Client :
+
+    /N/IWFND/GW_CLIENT
+
+### 🍧 CONTEXTE
+
+#### 🌺 Tables :
+
+    ZAELION
+
+#### 🌺 Service :
+
+    Z<TRI>_FIORI_DEMO_SRV
+
+#### 🌺 Entités :
+
+    Session (1)
+    Consultant (N)
+
+#### 🌺 Relation :
+
+    Session.IdSession  →  Consultant.IdSession
+
+#### 🌺 Service :
+
+    Z<TRI>_FIORI_DEMO_SRV
+
+#### 🌺 Navigation :
+
+    SessionSet('SAP_2027')/ConsultantSet
+    SessionSet?$expand=ConsultantSet
+
+### 🍧 CONSULTANTSET_GET_ENTITYSET
+
+> [!IMPORTANT]
+> Objectif(s) :
+>
+> - Retourner tous les Consultants.
+
+<details>
+  <summary>SOLUTION</summary>
+
+1.  Implémentation de la logique de la méthode consultantset_get_entityset
+
+    ```abap
+    METHOD consultantset_get_entityset.
+
+          "--------------------------------------------
+          " GW_CLIENT
+          "   GET : /sap/opu/odata/sap/ZFGI_FIORI_DEMO_SRV/ConsultantSet
+          "--------------------------------------------
+
+          SELECT *
+               FROM zconsultant
+               INTO TABLE et_entityset.
+
+    ENDMETHOD.
+    ```
+
+2.  /N/IWFND/GW_CLIENT
+
+    #### 🌺 URI de requête :
+
+        GET : /sap/opu/odata/sap/ZFGI_FIORI_DEMO_SRV/ConsultantSet
+
+</details>
+
+### 🍧 CONSULTANTSET_GET_ENTITY
+
+> [!IMPORTANT]
+> Objectif(s) :
+>
+> - Retourner un Consultant via ses IDs.
+> - Implémenter les gestions d'erreur (Technique/Business)
+
+<details>
+  <summary>SOLUTION</summary>
+
+1.  Implémentation de la logique de la méthode consultantset_get_entity
+
+    ```abap
+    METHOD consultantset_get_entity.
+
+        "--------------------------------------------
+        " GW_CLIENT
+        "   GET : /ConsultantSet(IdSession='SAP_2026',IdConsultant='AELION14')
+        "--------------------------------------------
+
+        TRY.
+
+            DATA ls_key TYPE zconsultant.
+
+            " Récupération clés depuis URL
+            io_tech_request_context->get_converted_keys(
+                IMPORTING
+                es_key_values = ls_key
+            ).
+
+            SELECT SINGLE *
+                FROM zconsultant
+                INTO @DATA(ls_data)
+                WHERE id_session    = @ls_key-id_session
+                AND id_consultant = @ls_key-id_consultant.
+
+            IF sy-subrc <> 0.
+
+                DATA(lo_msg) = mo_context->get_message_container( ).
+
+                lo_msg->add_message_text_only(
+                iv_msg_type = 'E'
+                iv_msg_text = 'Consultant introuvable'
+                ).
+
+                RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
+                EXPORTING
+                    message_container = lo_msg.
+
+            ENDIF.
+
+            er_entity = ls_data.
+
+            CATCH cx_root.
+
+            DATA(lo_msg2) = mo_context->get_message_container( ).
+
+            lo_msg2->add_message_text_only(
+                iv_msg_type = 'E'
+                iv_msg_text = 'Erreur technique GET_ENTITY'
+            ).
+
+            RAISE EXCEPTION TYPE /iwbep/cx_mgw_tech_exception
+                EXPORTING
+                message_container = lo_msg2.
+
+        ENDTRY.
+
+    ENDMETHOD.
+    ```
+
+2.  /N/IWFND/GW_CLIENT
+
+    #### 🌺 URI de requête :
+
+        /sap/opu/odata/sap/Z<TRI>_FIORI_DEMO_SRV/ConsultantSet(IdSession='SAP_2026',IdConsultant='AELION14')
+
+</details>
+
+### 🍧 CONSULTANTSET_CREATE_ENTITY
+
+> [!IMPORTANT]
+> Objectif(s) :
+>
+> - Créer un Consultant
+> - Implémenter les gestions d'erreur (Technique/Business)
+
+<details>
+  <summary>SOLUTION</summary>
+
+1.  Implémentation de la logique de la méthode consultantset_create_entity
+
+    ```abap
+    METHOD consultantset_create_entity.
+
+        "--------------------------------------------
+        " GW_CLIENT :
+        "   POST : /sap/opu/odata/sap/ZFGI_FIORI_DEMO_SRV/ConsultantSet
+        "
+        " Header :
+        "   Content-Type: application/json
+        "
+        " Payload :
+        " {
+        "   "IdSession": "SAP_TEST",
+        "   "IdConsultant": "AELION00",
+        "   "Entreprise": "STMS",
+        "   "Name": "Fred",
+        "   "DateBirth": "/Date(631152000000)/",
+        "   "City": "Paris",
+        "   "Region": "IDF",
+        "   "Country": "FR",
+        "   "Lang": "FR"
+        " }
+        "--------------------------------------------
+
+        TRY.
+
+            DATA ls_input TYPE zconsultant.
+
+            io_data_provider->read_entry_data(
+                IMPORTING
+                es_data = ls_input
+            ).
+
+            "--------------------------------------------
+            " Validation simple
+            "--------------------------------------------
+            IF ls_input-id_session IS INITIAL OR ls_input-id_consultant IS INITIAL.
+
+                DATA(lo_msg) = mo_context->get_message_container( ).
+
+                lo_msg->add_message_text_only(
+                iv_msg_type = 'E'
+                iv_msg_text = 'Clés obligatoires manquantes'
+                ).
+
+                RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
+                EXPORTING
+                    message_container = lo_msg.
+
+            ENDIF.
+
+            "--------------------------------------------
+            " INSERT DB
+            "--------------------------------------------
+            INSERT zconsultant FROM ls_input.
+
+            IF sy-subrc <> 0.
+
+                lo_msg = mo_context->get_message_container( ).
+
+                lo_msg->add_message_text_only(
+                iv_msg_type = 'E'
+                iv_msg_text = 'Erreur INSERT ZCONSULTANT'
+                ).
+
+                RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
+                EXPORTING
+                    message_container = lo_msg.
+
+            ENDIF.
+
+            er_entity = ls_input.
+
+            CATCH cx_sy_open_sql_db.
+
+            DATA(lo_msg2) = mo_context->get_message_container( ).
+
+            lo_msg2->add_message_text_only(
+                iv_msg_type = 'E'
+                iv_msg_text = 'Erreur base de données'
+            ).
+
+            RAISE EXCEPTION TYPE /iwbep/cx_mgw_tech_exception
+                EXPORTING
+                message_container = lo_msg2.
+
+        ENDTRY.
+
+    ENDMETHOD.
+    ```
+
+2.  /N/IWFND/GW_CLIENT
+
+    #### 🌺 URI de requête :
+
+        /sap/opu/odata/sap/ZFGI_FIORI_DEMO_SRV/ConsultantSet
+
+    #### 🌺 Header :
+
+        | NOM D'ENTETE | VALEUR           |
+        |--------------|------------------|
+        | Content-Type | application/json |
+
+    #### 🌺 Payload :
+
+    ```json
+    {
+      "IdSession": "SAP_TEST",
+      "IdConsultant": "AELION00",
+      "Entreprise": "SAP SE",
+      "Name": "John",
+      "City": "Lyon",
+      "Region": "ARA",
+      "Country": "FR",
+      "Lang": "FR"
+    }
+    ```
+
+</details>
+
+### 🍧 CONSULTANTSET_UPDATE_ENTITY
+
+> [!IMPORTANT]
+> Objectif(s) :
+>
+> - Mettre à jour un Consultant
+> - Implémenter les gestions d'erreur (Technique/Business)
+
+<details>
+  <summary>SOLUTION</summary>
+
+1.  Implémentation de la logique de la méthode consultantset_update_entity
+
+    ```abap
+    METHOD consultantset_update_entity.
+
+        "--------------------------------------------
+        " GW_CLIENT :
+        "   PUT : /sap/opu/odata/sap/ZFGI_FIORI_DEMO_SRV/ConsultantSet(IdSession='SAP_TEST',IdConsultant='AELION00')
+        "
+        " Headers :
+        "   Content-Type : application/json
+        "
+        " Payload :
+        " {
+        "   "IdSession": "SAP_TEST",
+        "   "IdConsultant": "AELION00",
+        "   "Entreprise": "Updated value",
+        "   "Name": "Updated value",
+        "   "City": "Updated value",
+        "   "Region": "UWU",
+        "   "Country": "JP",
+        "   "Lang": "JP"
+        " }
+        "--------------------------------------------
+
+        TRY.
+
+
+            DATA ls_input TYPE zconsultant.
+
+            io_data_provider->read_entry_data(
+                IMPORTING es_data = ls_input
+            ).
+
+            UPDATE zconsultant FROM ls_input.
+
+            IF sy-subrc <> 0.
+
+                DATA(lo_msg) = mo_context->get_message_container( ).
+
+                lo_msg->add_message_text_only(
+                iv_msg_type = 'E'
+                iv_msg_text = 'Update impossible (introuvable)'
+                ).
+
+                RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
+                EXPORTING message_container = lo_msg.
+
+            ENDIF.
+
+            er_entity = ls_input.
+
+            CATCH cx_root.
+
+            DATA(lo_msg2) = mo_context->get_message_container( ).
+
+            lo_msg2->add_message_text_only(
+                iv_msg_type = 'E'
+                iv_msg_text = 'Erreur technique UPDATE'
+            ).
+
+            RAISE EXCEPTION TYPE /iwbep/cx_mgw_tech_exception
+                EXPORTING message_container = lo_msg2.
+
+        ENDTRY.
+
+    ENDMETHOD.
+    ```
+
+2.  /N/IWFND/GW_CLIENT
+
+    #### 🌺 URI de requête :
+
+        /sap/opu/odata/sap/ZFGI_FIORI_DEMO_SRV/ConsultantSet(IdSession='SAP_TEST',IdConsultant='AELION00')
+
+    #### 🌺 Header :
+
+        | NOM D'ENTETE | VALEUR           |
+        |--------------|------------------|
+        | Content-Type | application/json |
+
+    #### 🌺 Payload :
+
+    ```json
+    {
+      "IdSession": "SAP_TEST",
+      "IdConsultant": "AELION00",
+      "Entreprise": "Updated value",
+      "Name": "Updated value",
+      "City": "Updated value",
+      "Region": "UWU",
+      "Country": "JP",
+      "Lang": "JP"
+    }
+    ```
+
+</details>
+
+### 🍧 CONSULTANTSET_DELETE_ENTITY
+
+> [!IMPORTANT]
+> Objectif(s) :
+>
+> - Supprimer un Consultant
+> - Implémenter les gestions d'erreur (Technique/Business)
+
+<details>
+  <summary>SOLUTION</summary>
+
+1.  Implémentation de la logique de la méthode consultantset_delete_entity
+
+    ```abap
+    METHOD consultantset_delete_entity.
+
+        "--------------------------------------------
+        " DELETE /sap/opu/odata/sap/ZFGI_FIORI_DEMO_SRV/ConsultantSet(IdSession='SAP_TEST',IdConsultant='AELION00')
+        "--------------------------------------------
+
+        TRY.
+
+            DATA ls_key TYPE zconsultant.
+
+            io_tech_request_context->get_converted_keys(
+                IMPORTING
+                es_key_values = ls_key
+            ).
+
+            DELETE FROM zconsultant
+                WHERE id_session    = ls_key-id_session
+                AND id_consultant = ls_key-id_consultant.
+
+            IF sy-subrc <> 0.
+
+                DATA(lo_msg) = mo_context->get_message_container( ).
+
+                lo_msg->add_message_text_only(
+                iv_msg_type = 'E'
+                iv_msg_text = 'Suppression impossible'
+                ).
+
+                RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
+                EXPORTING
+                    message_container = lo_msg.
+
+            ENDIF.
+
+            CATCH cx_root.
+
+            DATA(lo_msg2) = mo_context->get_message_container( ).
+
+            lo_msg2->add_message_text_only(
+                iv_msg_type = 'E'
+                iv_msg_text = 'Erreur technique DELETE'
+            ).
+
+            RAISE EXCEPTION TYPE /iwbep/cx_mgw_tech_exception
+                EXPORTING
+                message_container = lo_msg2.
+
+        ENDTRY.
+
+    ENDMETHOD.
+    ```
+
+2.  /N/IWFND/GW_CLIENT
+
+    #### 🌺 URI de requête :
+
+        /sap/opu/odata/sap/ZFGI_FIORI_DEMO_SRV/ConsultantSet(IdSession='SAP_TEST',IdConsultant='AELION00')
 
 </details>
