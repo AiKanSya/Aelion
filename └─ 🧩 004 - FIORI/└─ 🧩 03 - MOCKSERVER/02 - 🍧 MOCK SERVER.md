@@ -503,29 +503,80 @@ Code :
 ```js
 sap.ui.define(["sap/ui/core/util/MockServer"], function (MockServer) {
   "use strict";
+
+  /**
+   * MockServer wrapper pour application UI5
+   * Permet de simuler un backend OData SAP sans système S/4HANA
+   *
+   * Utilisé pour :
+   * - formation stagiaires
+   * - développement offline
+   * - tests fonctionnels UI5
+   *
+   * @class fr.stms.fgifirstappmodulename.test.mockServer
+   */
   return {
+    /**
+     * Initialise et démarre le MockServer OData
+     *
+     * Étapes :
+     * 1. création du serveur mock sur l'URI OData
+     * 2. activation auto-response
+     * 3. simulation basée sur metadata.xml
+     * 4. connexion aux fichiers mockdata JSON
+     * 5. démarrage du serveur
+     */
     init: function () {
+      /**
+       * Instance MockServer liée au service OData
+       */
       var oMockServer = new MockServer({
         rootUri: "/sap/opu/odata/sap/ZFGI_FIORI_DEMO_SRV/",
       });
 
+      /**
+       * Configuration globale MockServer
+       * autoRespond = true → réponses automatiques sans délai manuel
+       * autoRespondAfter → simulation latence réseau SAP
+       */
       MockServer.config({
         autoRespond: true,
         autoRespondAfter: 300,
       });
 
+      /**
+       * Simulation du service OData à partir du metadata.xml
+       * - définit les EntitySets
+       * - génère les routes REST mockées
+       * - lie les fichiers JSON mockdata
+       */
       oMockServer.simulate(
         sap.ui.require.toUrl(
           "fr/stms/fgifirstappmodulename/localService/metadata.xml",
         ),
         {
+          /**
+           * Base des fichiers JSON mockés
+           */
           sMockdataBaseUrl: sap.ui.require.toUrl(
             "fr/stms/fgifirstappmodulename/localService/mockdata",
           ),
+
+          /**
+           * Désactive la génération automatique de données fictives
+           * (on force uniquement les JSON fournis)
+           */
           bGenerateMissingMockData: false,
         },
       );
+
+      /**
+       * Démarrage du serveur mock
+       * Intercepte les appels OData de l'application
+       */
       oMockServer.start();
+
+      // Log de validation runtime
       console.log("Mock server started");
     },
   };
@@ -535,7 +586,76 @@ sap.ui.define(["sap/ui/core/util/MockServer"], function (MockServer) {
 > [!CAUTION]
 > Remplacer `fgifirstappmodulename` par le namespace de votre application !
 
-## 🧩 ETAPE 4 - ACTIVATION MOCKSERVER
+## 🧩 ETAPE 4 - DATASERVICES.JS
+
+Créer :
+
+    webapp/libs/DataServices.js
+
+Code :
+
+```js
+sap.ui.define(
+  ["sap/ui/base/EventProvider", "sap/ui/model/json/JSONModel"],
+  function (EventProvider, JSONModel) {
+    "use strict";
+
+    /**
+     * DataService (couche service côté frontend)
+     *
+     * Rôle :
+     * - centraliser l'accès aux données du modèle OData
+     * - stocker des données temporaires côté UI (JSONModel)
+     * - préparer une couche d'abstraction entre UI et backend
+     *
+     * ⚠ Ne remplace pas le modèle OData UI5
+     * ⚠ Sert uniquement de wrapper métier frontend
+     *
+     * @class fr.stms.fgifirstappmodulename.libs.DataService
+     * @extends sap.ui.base.EventProvider
+     */
+    return EventProvider.extend(
+      "fr.stms.fgifirstappmodulename.libs.DataService",
+      {
+        /**
+         * Constructeur du DataService
+         *
+         * @param {sap.ui.model.odata.v2.ODataModel|sap.ui.model.json.JSONModel} oModel
+         *        Modèle principal UI5 (OData ou JSON)
+         *
+         * Fonctionnement :
+         * - stocke le modèle principal (_oModel)
+         * - initialise un modèle JSON local (_oModelUser)
+         */
+        constructor: function (oModel) {
+          // Appel constructeur parent EventProvider
+          EventProvider.prototype.constructor.apply(this, arguments);
+
+          /**
+           * Modèle JSON local
+           * utilisé pour :
+           * - états UI
+           * - buffers temporaires
+           * - données non persistées backend
+           */
+          this._oModelUser = new JSONModel();
+
+          /**
+           * Référence au modèle principal UI5
+           * (ODataModel injecté par Component)
+           */
+          this._oModel = oModel;
+        },
+      },
+    );
+  },
+);
+```
+
+> [!CAUTION]
+> Remplacer `fgifirstappmodulename` par le namespace de votre application !
+
+## 🧩 ETAPE 5 - ACTIVATION MOCKSERVER & RECUPERATION DES DATASERVICES
 
     webapp/Component.js
 
@@ -586,61 +706,106 @@ sap.ui.define(
   [
     "sap/ui/core/UIComponent",
     "sap/base/Log",
+    "sap/ui/model/resource/ResourceModel",
     "fr/stms/fgifirstappmodulename/model/models",
-    "./test/mockServer",
+    "fr/stms/fgifirstappmodulename/test/mockServer",
+    "fr/stms/fgifirstappmodulename/libs/DataServices",
   ],
-  function (UIComponent, Log, models, mockServer) {
+  function (UIComponent, Log, ResourceModel, models, mockServer, DataServices) {
     "use strict";
 
+    /**
+     * Component principal de l'application Fiori/UI5
+     * - Initialise le modèle OData (via manifest)
+     * - Active le MockServer si nécessaire
+     * - Initialise les services métier (DataServices)
+     * - Configure i18n et device model
+     *
+     * @class fr.stms.fgifirstappmodulename.Component
+     * @extends sap.ui.core.UIComponent
+     */
     return UIComponent.extend("fr.stms.fgifirstappmodulename.Component", {
       metadata: {
         manifest: "json",
+
+        /**
+         * Permet l'instanciation asynchrone des vues
+         * recommandé pour performance UI5
+         */
         interfaces: ["sap.ui.core.IAsyncContentCreation"],
       },
 
+      /**
+       * Point d'entrée du composant UI5
+       * Initialise modèles, mock server et services applicatifs
+       */
       init: function () {
+        // Appel du cycle de vie UI5 standard
         UIComponent.prototype.init.apply(this, arguments);
 
+        /**
+         * Détection du mode mock via URL
+         * ex : ?mock=true
+         */
         var bMock =
           new URLSearchParams(window.location.search).get("mock") === "true";
 
+        /**
+         * Initialisation MockServer (mode offline formation)
+         */
         if (bMock) {
           mockServer.init();
+          Log.info("MockServer activated");
         }
 
+        /**
+         * Modèle device (responsive UI)
+         */
         this.setModel(models.createDeviceModel(), "device");
 
+        /**
+         * Modèle i18n (traductions)
+         */
+        var i18nModel = new ResourceModel({
+          bundleName: "fr.stms.fgifirstappmodulename.i18n.i18n",
+        });
+        this.setModel(i18nModel, "i18n");
+
+        /**
+         * Initialisation des services métiers
+         *
+         * Important :
+         * On attend que les métadonnées OData soient chargées
+         * pour garantir que le modèle est exploitable.
+         */
+        this.getModel()
+          .metadataLoaded()
+          .then(() => {
+            this.oDataServices = new DataServices(this.getModel());
+
+            Log.info("DataServices READY");
+            console.log("DataServices READY");
+          });
+
+        /**
+         * Initialisation du router UI5
+         */
         this.getRouter().initialize();
+      },
 
-        var oModel = this.getModel();
+      /**
+       * Singleton accessor du service DataServices
+       * Garantit une seule instance dans l'application
+       *
+       * @returns {object} instance DataServices
+       */
+      getDataServices: function () {
+        // Lazy initialization (création à la demande)
+        if (!this.oDataServices) {
+          this.oDataServices = new DataServices(this.getModel());
+        }
 
-        // =====================================================
-        // SESSIONSET TEST
-        // =====================================================
-        oModel.read("/SessionSet", {
-          success: function (data) {
-            Log.info("SessionSet loaded");
-
-            console.table(data.results);
-          },
-          error: function (err) {
-            Log.error("SessionSet error", err);
-          },
-        });
-
-        // =====================================================
-        // CONSULTANTSET TEST
-        // =====================================================
-        oModel.read("/ConsultantSet", {
-          success: function (data) {
-            Log.info("ConsultantSet loaded");
-
-            console.table(data.results);
-          },
-          error: function (err) {
-            Log.error("ConsultantSet error", err);
-          },
-        });
+        return this.oDataServices;
       },
     });
   },
@@ -650,7 +815,7 @@ sap.ui.define(
 > [!CAUTION]
 > Remplacer `fgifirstappmodulename` par le namespace de votre application !
 
-## 🧩 ETAPE 5 - MANIFEST.JSON
+## 🧩 ETAPE 6 - MANIFEST.JSON
 
 Vérifier le `datasource` dans le manifest.json :
 
@@ -676,7 +841,7 @@ Vérifier le `datasource` dans le manifest.json :
 > - remplace backend SAP
 > - utilise metadata + JSON
 
-## 🧩 ETAPE 6 - PACKAGE.JSON
+## 🧩 ETAPE 7 - PACKAGE.JSON
 
 Remplacer :
 
@@ -686,7 +851,7 @@ par :
 
     "start-mock": "fiori run --config ./ui5-mock.yaml --open \"test/flp.html?mock=true#app-preview\"",
 
-## 🧩 ETAPE 7 - TESTER
+## 🧩 ETAPE 8 - TESTER
 
 Lancer :
 

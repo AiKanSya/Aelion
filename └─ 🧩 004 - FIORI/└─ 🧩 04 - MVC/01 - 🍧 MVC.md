@@ -2,156 +2,224 @@
 
 > 🌺 Objectifs
 >
-> - [ ] Comprendre le fonctionnement du modèle MVC dans SAP Fiori/UI5 afin de structurer correctement une application.
-> - [ ] MVC est un modèle d'architecture qui sépare une application en plusieurs parties pour rendre le développement plus clair, plus organisé et plus facile à maintenir.
+> - [ ] Comprendre l’architecture MVC en SAP UI5
+> - [ ] Savoir identifier Model / View / Controller
+> - [ ] Savoir utiliser MVC correctement dans une app Fiori
+> - [ ] Éviter la logique dans la View
+> - [ ] Comprendre le flux de données UI5
 
 ## 🧩 CONCEPT MVC
 
-Comprendre le fonctionnement du modèle MVC dans SAP Fiori/UI5 afin de structurer correctement une application.
+`MVC` = `Model` – `View` – `Controller`
 
-MVC est un modèle d'architecture qui sépare une application en plusieurs parties pour rendre le développement plus clair, plus organisé et plus facile à maintenir.
+C’est une architecture qui sépare une application en 3 parties :
 
-MVC signifie :
+- Model : données
+- View : interface utilisateur
+- Controller : logique
 
-- M = Model
-- V = View
-- C = Controller
+### 🍧 POURQUOI UTILISER MVC EN UI5 ?
 
-### 🍧 POURQUOI UTILISER MVC ?
+Sans `MVC` :
 
-Sans MVC :
+- code mélangé
+- maintenance difficile
+- erreurs fréquentes
+- logique dispersée
 
-- Tout le code est mélangé
-- Difficile à comprendre
-- Difficile à modifier
-- Risque élevé d'erreurs
+Avec `MVC` :
 
-Avec MVC :
-
-- haque élément a un rôle précis
-- Code organisé
-- Maintenance simplifiée
-- Travail d'équipe facilité
+- séparation claire
+- code maintenable
+- réutilisable
+- testable
 
 ### 🍧 3 COMPOSANTS DU MVC
 
-#### 💮 Model (M)
+#### 🌺 MODEL (M)
 
-Le Model contient les données.
+Rôle :
 
-Il représente :
+     Contient les données uniquement.
 
-données utilisateur
-données SAP
-données ODATA
-données JSON
-informations métier
+Types en UI5 :
+
+     ODataModel (SAP)
+     JSONModel (local)
 
 Exemple :
 
 ```js
 var oData = {
-  nom: "Jean",
-  age: 25,
+  IdSession: "S001",
+  IdConsultant: "C001",
+  Entreprise: "SAP",
+  Name: "Martin",
+  DateBirth: "\/Date(631152000000)\/",
+  City: "Paris",
+  Region: "IDF",
+  Country: "FR",
+  Lang: "FR",
 };
 ```
 
-Le modèle stocke :
+Règles :
 
-```
-Nom : Jean
-Age : 25
-```
+- ne contient pas de logique UI
+- ne gère pas l’affichage
+- source de données unique
 
-Le modèle ne décide pas comment afficher les données.
-Il stocke uniquement les informations.
+#### 🌺 VIEW (V)
 
-#### 💮 View (V)
+Rôle :
 
-La View correspond à l'interface visible par l'utilisateur.
+     Affichage de l’interface utilisateur.
 
-Elle contient :
-
-- boutons
-- champs de saisie
-- tableaux
-- textes
-- formulaires
-
-En SAPUI5, les vues sont souvent écrites en XML.
-
-Exemple :
+Exemple XML UI5 :
 
 ```xml
-<Text text="{/nom}" />
-<Input value="{/age}" />
+<Text text="{/Name}" />
 ```
 
-Résultat affiché :
+Contenu typique :
 
-```
-Nom : Jean
-Age : 25
-```
+- Table
+- Input
+- Button
+- Text
 
-La vue affiche uniquement les données.
-Elle ne contient pas la logique métier.
+Règles :
 
-#### 💮 Controller (C)
+- aucune logique métier
+- uniquement affichage + binding
+- déclenche des événements
 
-Le Controller contient la logique de l'application.
+#### 🌺 CONTROLLER (C)
 
-Il gère :
+Rôle :
 
-- actions utilisateur
-- clics sur boutons
-- traitements
-- appels aux données
+     Logique de l’application.
 
 Exemple :
 
 ```js
-onPress: function() {
-    MessageToast.show("Bouton cliqué");
+onPress: function () {
+    sap.m.MessageToast.show("Click OK");
 }
 ```
 
-Quand l'utilisateur clique :
+Responsabilités :
 
-     Utilisateur → Bouton
-     Controller → Exécute une action
-     Communication entre les composants
+- gérer les événements
+- appeler le Model
+- traiter les données
+- mettre à jour la View
 
-Schéma simplifié :
+## 🧩 FLUX UI5 REEL
 
      Utilisateur
-          ↓
-     View
-          ↓
-     Controller
-          ↓
-     Model
-          ↓
-     Controller
-          ↓
-     View
-          ↓
-     Utilisateur
+     ↓
+     View (clic / interaction)
+     ↓
+     Controller (logique)
+     ↓
+     Model (données)
+     ↓
+     Controller (traitement)
+     ↓
+     View (affichage mis à jour)
 
-Explication :
+> [!WARNING]
+> UI5 n’est pas une boucle stricte : les interactions sont déclenchées par événements + binding.
 
-- L'utilisateur clique sur un bouton
-- La View détecte l'action
-- Le Controller exécute un traitement
-- Le Controller récupère les données du Model
-- Le résultat est envoyé à la View
-- La View affiche les données
+## 🧩 EXEMPLE SIMPLE COMPLET
 
-## 🧩 POINTS A RETENIR
+Modifier :
 
-- ✔ Model = contient les données
-- ✔ View = affiche les données
-- ✔ Controller = gère les actions et traitements
-- ✔ Les composants sont séparés
-- ✔ SAPUI5 utilise fortement MVC
-- ✔ Une bonne compréhension du MVC est indispensable avant ODATA et Data Binding
+    webapp/view/Home.view.xml
+
+Code :
+
+```xml
+<mvc:View
+    controllerName="fr.stms.fgifirstappmodulename.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <Table items="{/SessionSet}">
+            <columns>
+                <Column>
+                    <Text text="Session" />
+                </Column>
+                <Column>
+                    <Text text="Site" />
+                </Column>
+            </columns>
+
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{IdSession}" />
+                        <Text text="{Site}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+
+    </Page>
+</mvc:View>
+```
+
+> [!CAUTION]
+> Remplacer `fgifirstappmodulename` par le namespace de votre application !
+
+Modifier :
+
+    webapp/controller/Home.controller.js
+
+Code :
+
+```js
+sap.ui.define(["sap/ui/core/mvc/Controller"], (Controller) => {
+  "use strict";
+
+  return Controller.extend("fr.stms.fgifirstappmodulename.controller.Home", {
+    onInit: function () {
+      var oModel = this.getOwnerComponent().getModel();
+
+      oModel.read("/SessionSet", {
+        success: function (data) {
+          console.table(data.results);
+        },
+        error: function (err) {
+          console.error(err);
+        },
+      });
+
+      oModel.read("/ConsultantSet", {
+        success: function (data) {
+          console.table(data.results);
+        },
+        error: function (err) {
+          console.error(err);
+        },
+      });
+    },
+  });
+});
+```
+
+> [!CAUTION]
+> Remplacer `fgifirstappmodulename` par le namespace de votre application !
+
+## 🧩 REGLES IMPORTANTES
+
+- Le Model contient les données uniquement
+- La View affiche uniquement les données
+- Le Controller contient toute la logique
+- Pas de logique métier dans XML
+- Le Model est la source de vérité
