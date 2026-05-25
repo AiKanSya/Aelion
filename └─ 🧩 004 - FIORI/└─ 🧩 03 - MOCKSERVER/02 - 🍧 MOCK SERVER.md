@@ -23,7 +23,7 @@ Flux :
     ↓
     metadata.xml + mockdata JSON
 
-## 🧩 STRUCTURE DU PROJET
+## 🧩 NOUVEAUX FICHIERS
 
 Ce que le mock va nécessiter de créer/modifier :
 
@@ -659,47 +659,7 @@ sap.ui.define(
 
     webapp/Component.js
 
-Component.js initial :
-
-```js
-sap.ui.define(
-  [
-    "sap/ui/core/UIComponent",
-    "fr/stms/fgifirstappmodulename/model/models",
-    "./test/mockServer",
-  ],
-  (UIComponent, models, mockServer) => {
-    "use strict";
-
-    return UIComponent.extend("fr.stms.fgifirstappmodulename.Component", {
-      metadata: {
-        manifest: "json",
-        interfaces: ["sap.ui.core.IAsyncContentCreation"],
-      },
-
-      init() {
-        UIComponent.prototype.init.apply(this, arguments);
-
-        const bMock =
-          new URLSearchParams(window.location.search).get("mock") === "true";
-
-        if (bMock) {
-          mockServer.init();
-        }
-
-        this.setModel(models.createDeviceModel(), "device");
-
-        this.getRouter().initialize();
-      },
-    });
-  },
-);
-```
-
-> [!CAUTION]
-> Remplacer `fgifirstappmodulename` par le namespace de votre application !
-
-Component.js modifié :
+Modifications :
 
 ```js
 sap.ui.define(
@@ -820,6 +780,8 @@ sap.ui.define(
 Vérifier le `datasource` dans le manifest.json :
 
     webapp/manifest.json
+
+Il doit avoir :
 
 ```json
     "dataSources": {
