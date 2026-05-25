@@ -102,13 +102,11 @@ Il contient :
 "scripts": {
   "start": "...",
   "start-local": "...",
+  "start-noflp": "...",
+  "start-mock": "...",
   ...
 }
 ```
-
-> [!NOTE]
-> Les scripts sont des raccourcis de commandes.
-> Quand tu cliques sur Start dans BAS, c’est ici que ça se passe.
 
 ### 🍧 TYPES DE PREVIEW
 
@@ -176,6 +174,25 @@ Usage
 > [!TIP]
 > On ouvre directement la page, sans passer par le Launchpad
 
+#### 💮 start-variants-management
+
+```json
+"start-variants-management": "fiori run --open \"/preview.html#app-preview\""
+```
+
+Objectif
+
+- Tester l’application avec les variantes et la personnalisation activée
+- Lancer une prévisualisation spéciale pour les fonctionnalités de variant management
+
+Usage
+
+- Vérification de l’adaptation de vues pour différents utilisateurs
+- Tests de scénarios de personnalisation (ex. colonnes masquées, filtres sauvegardés)
+
+> [!TIP]
+> Prévisualisation avec les options de personnalisation activées
+
 #### 💮 start-mock
 
 ```json
@@ -195,25 +212,6 @@ Usage
 
 > [!TIP]
 > Les données viennent d’un serveur factice, mais le FLP fonctionne normalement
-
-#### 💮 start-variants-management
-
-```json
-"start-variants-management": "fiori run --open \"/preview.html#app-preview\""
-```
-
-Objectif
-
-- Tester l’application avec les variantes et la personnalisation activée
-- Lancer une prévisualisation spéciale pour les fonctionnalités de variant management
-
-Usage
-
-- Vérification de l’adaptation de vues pour différents utilisateurs
-- Tests de scénarios de personnalisation (ex. colonnes masquées, filtres sauvegardés)
-
-> [!TIP]
-> Prévisualisation avec les options de personnalisation activées
 
 ## 🧩 QUELLE PREVIEW CHOISIR ?
 
