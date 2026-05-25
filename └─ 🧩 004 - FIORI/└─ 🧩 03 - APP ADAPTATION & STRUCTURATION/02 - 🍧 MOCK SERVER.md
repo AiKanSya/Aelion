@@ -694,4 +694,4 @@ Lancer :
 
 Vérifier les logs dans la console :
 
-![]()
+![](./assets/Capture%20d’écran%202026-05-25%20103744.png)
