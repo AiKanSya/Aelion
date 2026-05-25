@@ -819,6 +819,7 @@ Lancer :
 
     npm start-mock
 
-Vérifier les logs dans la console :
+Vérifier les logs dans la console. Vous devriez voir :
 
-![](./assets/Capture%20d’écran%202026-05-25%20103744.png)
+    Mock server started
+    DataServices READY
