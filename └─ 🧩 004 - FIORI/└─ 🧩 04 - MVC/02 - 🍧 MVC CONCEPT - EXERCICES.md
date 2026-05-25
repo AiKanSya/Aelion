@@ -12,7 +12,7 @@
 
 ### 🍧 Énoncé
 
-Dans une application simple de gestion de profil utilisateur, classer les éléments suivants :
+Dans une application simple de gestion de profil utilisateur, classer les éléments suivants en déterminant s'ils correspondent aux Models, aux Views ou aux Controllers:
 
 - Formulaire HTML avec champs (nom, prénom, âge)
 - Objet utilisateur contenant les données
@@ -24,7 +24,7 @@ Dans une application simple de gestion de profil utilisateur, classer les élém
 
 ### 🍧 Énoncé
 
-Toujours dans le cadre du formulaire, représenter ou organiser la logique des éléments suivants en MVC :
+Toujours dans le cadre du formulaire, organiser l'ordre logique des éléments suivants en MVC :
 
 - CONTROLLER → Envoie les données du MODEL au BACKEND
 - VIEW → Affiche les composants du formulaire
