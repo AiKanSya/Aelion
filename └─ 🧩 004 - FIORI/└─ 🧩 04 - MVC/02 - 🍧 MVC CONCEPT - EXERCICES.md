@@ -1,13 +1,5 @@
 # 🌸 EXERCICES
 
-> 🌺 Objectifs
-> Comprendre et distinguer clairement :
->
-> - `Model` (données)
-> - `View` (affichage)
-> - `Controller` (logique)
-> - et éviter le mélange des responsabilités.
-
 ## 🧩 EXERCICE 1 - IDENTIFIER LE MVC
 
 ### 🍧 Énoncé
