@@ -25,7 +25,7 @@ appdemofgi/
 │   ├── i18n/
 │   │   └── i18n.properties
 │   │
-│   ├── localService/
+│   ├── localService/                   # N'apparaît pas si aucun service n'a été défini lors de la génération de l'app
 │   │   └── mainService/
 │   │       └── metadata.xml
 │   │
