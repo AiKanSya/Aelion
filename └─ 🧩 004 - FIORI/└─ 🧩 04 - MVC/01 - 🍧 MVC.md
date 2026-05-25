@@ -189,25 +189,23 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], (Controller) => {
 
   return Controller.extend("fr.stms.fgifirstappmodulename.controller.Home", {
     onInit: function () {
-      var oModel = this.getOwnerComponent().getModel();
-
-      oModel.read("/SessionSet", {
-        success: function (data) {
-          console.table(data.results);
-        },
-        error: function (err) {
-          console.error(err);
-        },
-      });
-
-      oModel.read("/ConsultantSet", {
-        success: function (data) {
-          console.table(data.results);
-        },
-        error: function (err) {
-          console.error(err);
-        },
-      });
+      // var oModel = this.getOwnerComponent().getModel();
+      // oModel.read("/SessionSet", {
+      //     success: function (data) {
+      //         console.table(data.results);
+      //     },
+      //     error: function (err) {
+      //         console.error(err);
+      //     }
+      // });
+      // oModel.read("/ConsultantSet", {
+      //     success: function (data) {
+      //         console.table(data.results);
+      //     },
+      //     error: function (err) {
+      //         console.error(err);
+      //     },
+      // });
     },
   });
 });
