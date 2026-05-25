@@ -92,7 +92,7 @@ appdemofgi/                       			# Racine du projet
 >   - preview,
 >   - build.
 >
-> - 🔨 Utilité : C’est le dossier que tu ouvres dans SAP Business Application Studio.
+> - 🔨 Utilité : C’est le dossier que tu ouvres dans SAP Business Application Studio ou VSCode.
 > - ⌚ Quand utilisé ? Toujours : c’est le point de départ.
 > - 📌 Exemple :
 >
