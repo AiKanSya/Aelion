@@ -823,3 +823,9 @@ Vérifier les logs dans la console. Vous devriez voir :
 
     Mock server started
     DataServices READY
+
+## ERREURS
+
+fe-mockserver manquant (package)
+
+    npm install --save-dev @sap-ux/ui5-middleware-fe-mockserver

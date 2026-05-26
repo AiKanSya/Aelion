@@ -8,7 +8,7 @@ Home.view.xml
 
      webapp/view/Home.view.xml
 
-Créer 4 boutons avec les Properties :
+Créer 1 bouton avec les 4 Properties :
 
      texte     = "Valider"
      Bouton    = <désactivé>
