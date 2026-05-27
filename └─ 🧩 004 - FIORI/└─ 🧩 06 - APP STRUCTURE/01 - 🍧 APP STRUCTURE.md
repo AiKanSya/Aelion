@@ -11,7 +11,7 @@
 ## 🧩 STRUCTURE
 
 ```
-fgifirstappmodulename/                       # Racine du projet
+fgifirstappmodulename/                      # Racine du projet
 ├── webapp/                       			# Contenu principal de l'application Fiori
 │   ├── (annotations/)              		# dossier d’annotations OData
 │   │   └── (annotation.xml)        		# Fichier décrivant les métadonnées supplémentaires pour le modèle
@@ -21,10 +21,10 @@ fgifirstappmodulename/                       # Racine du projet
 │   │   ├── BaseController.js         		# Contrôleur de base utilisé par d'autres controllers
 │   │   ├── Home.controller.js    			# Contrôleur de la vue Home
 │   │   ├── Detail.controller.js  			# Contrôleur de la vue Detail
-│   │   └── <view_n>.controller.js 		# Controller n
+│   │   └── <view_n>.controller.js 		    # Controller n
 │   │
 │   ├── css/                      			# Dossier contenant les Styles CSS
-│   │   └── style.css                        # Fichiers de Styles
+│   │   └── style.css                       # Fichiers de Styles
 │   │
 │   ├── i18n/                     			# Internationalisation
 │   │   ├── i18n_en.properties    			# Traductions anglais
@@ -42,20 +42,20 @@ fgifirstappmodulename/                       # Racine du projet
 │   │
 │   ├── model/                    			# Modèles de données côté client
 │   │   ├── models.js             			# Définition des modèles
-│   │   └── [autres models JSON ou JS]  			# Données locales ou configurations
+│   │   └── [autres models JSON ou JS]  	# Données locales ou configurations
 │   │
 │   ├── view/                     			# Vues de l'application
 │   │   ├── fragments/            			# Fragments réutilisables
 │   │   │   └── <fragment_n>.fragment.xml
 │   │   │
 │   │   ├── App.view.xml          			# Vue App
-│   │   ├── Home.view.xml                    # Vue Home
-│   │   ├── Detail.view.xml                  # Vue Detail
-│   │   └── <view_n>.view.xml                # Vue n
+│   │   ├── Home.view.xml                   # Vue Home
+│   │   ├── Detail.view.xml                 # Vue Detail
+│   │   └── <view_n>.view.xml               # Vue n
 │   │
-│   ├── Component.js               		# Point d’entrée de l’application
-│   ├── index.html                 		# Page HTML principale
-│   └── manifest.json              		# Métadonnées Fiori : routes, models, data sources, namespace
+│   ├── Component.js               		    # Point d’entrée de l’application
+│   ├── index.html                 		    # Page HTML principale
+│   └── manifest.json              		    # Métadonnées Fiori : routes, models, data sources, namespace
 │
 ├── .gitignore                      		# Fichiers à ignorer par git
 ├── (mta.yaml)                      		# Multi-Target Application config (si onPremise ou BTP)
