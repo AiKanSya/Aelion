@@ -3,7 +3,7 @@
 ## 🧩 HOME.VIEW.XML (VUE PRINCIPALE)
 
 ```
-appdemofgi/
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   ├── controller/
@@ -44,12 +44,20 @@ appdemofgi/
 >
 > - 🔨 Utilité : Présenter une liste, un tableau ou un résumé des données principales.
 > - ⌚ Quand utilisé ? Lorsqu’un utilisateur ouvre l’application.
-> - 📌 Exemple :
+
+📌 Exemple :
+
+```xml
+<mvc:View
+    controllerName="fr.stms.fgifirstappmodulename.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
 >
->   ```xml
->   <Page title="Accueil">
->       <List items="{/Items}">
->           <StandardListItem title="{Name}" />
->       </List>
->   </Page>
->   ```
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+
+    </Page>
+</mvc:View>
+```

@@ -11,7 +11,7 @@
 ## 🧩 STRUCTURE
 
 ```
-appdemofgi/                       			# Racine du projet
+fgifirstappmodulename/                       # Racine du projet
 ├── webapp/                       			# Contenu principal de l'application Fiori
 │   ├── (annotations/)              		# dossier d’annotations OData
 │   │   └── (annotation.xml)        		# Fichier décrivant les métadonnées supplémentaires pour le modèle
@@ -75,55 +75,3 @@ appdemofgi/                       			# Racine du projet
 > - ui5.yaml → configuration du UI5 Tooling pour le build ; modifier sans comprendre peut casser le build.
 > - ui5-local.yaml / ui5-mock.yaml → configurations locales/mocks pour les développeurs ; toucher seulement si on comprend le rôle des middleware.
 > - mta.yaml → configuration MTA pour déploiement BTP/onPremise. Toucher seulement si on déploie ou ajoute des modules/services.
-
-### 🍧 FRAGMENT_N.FRAGMENT.XML (FRAGMENT UI5)
-
-```
-appdemofgi/
-├── webapp/
-│   ├── (annotations/)
-│   ├── controller/
-│   ├── css/
-│   ├── i18n/
-│   ├── libs/
-│   ├── localService/
-│   ├── model/
-│   │
-│   ├── view/
-│   │   ├── fragments/            			# Fragments réutilisables
-│   │   │   └── <fragment_n>.fragment.xml
-│   │   │
-│   │   ├── App.view.xml          			# Vue App
-│   │   ├── Home.view.xml                    # Vue Home
-│   │   ├── Detail.view.xml                  # Vue Detail
-│   │   └── <view_n>.view.xml                # Vue n
-│   │
-│   ├── Component.js
-│   ├── index.html
-│   └── manifest.json
-│
-├── .gitignore
-├── (mta.yaml)
-├── package-lock.json
-├── package.json
-├── README.md
-├── ui5-local.yaml
-├── ui5-mock.yaml
-└── ui5.yaml
-```
-
-> [!IMPORTANT]
->
-> - 🎯 Objectif
->
->   Définir un fragment d’interface indépendant.
->
-> - 🔨 Utilité : Ajouter dynamiquement un composant UI dans une vue ou un contrôleur.
-> - ⌚ Quand utilisé ? Lorsqu’on souhaite afficher un composant ponctuellement (dialog, popover).
-> - 📌 Exemple :
->
->   ```xml
->   <Dialog title="Confirmation">
->       <Text text="Êtes-vous sûr ?" />
->   </Dialog>
->   ```

@@ -3,6 +3,7 @@
 ## 🧩 MODEL/ (MODÈLES DE DONNÉES)
 
 ```
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   ├── controller/
@@ -43,6 +44,7 @@
 ### 🍧 MODELS.JS (DÉFINITION DES MODÈLES)
 
 ```
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   ├── controller/
@@ -80,9 +82,26 @@
 >   et les rendre accessibles aux vues et contrôleurs.
 > - ⌚ Quand utilisé ? Au démarrage de l’application
 >   (chargé depuis Component.js).
-> - 📌 Exemple :
->
->   ```js
->   var oModel = new JSONModel({});
->   this.setModel(oModel, "viewModel");
->   ```
+
+📌 Exemple :
+
+```js
+sap.ui.define(
+  ["sap/ui/model/json/JSONModel", "sap/ui/Device"],
+  function (JSONModel, Device) {
+    "use strict";
+
+    return {
+      /**
+       * Provides runtime information for the device the UI5 app is running on as a JSONModel.
+       * @returns {sap.ui.model.json.JSONModel} The device model.
+       */
+      createDeviceModel: function () {
+        var oModel = new JSONModel(Device);
+        oModel.setDefaultBindingMode("OneWay");
+        return oModel;
+      },
+    };
+  },
+);
+```

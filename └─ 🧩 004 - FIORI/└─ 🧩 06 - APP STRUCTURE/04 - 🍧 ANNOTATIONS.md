@@ -3,7 +3,7 @@
 ## 🧩 ANNOTATIONS/ (ANNOTATIONS ODATA)
 
 ```
-appdemofgi/
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)              		# dossier d’annotations OData
 │   │
@@ -75,7 +75,8 @@ appdemofgi/
 >
 > - 🔨 Utilité : Contrôler l’affichage UI (labels, champs visibles, sections, importance) via des annotations standards SAP.
 > - ⌚ Quand utilisé ? Quand on développe une application Fiori utilisant OData et que l'on veut enrichir le modèle sans toucher au backend ABAP.
-> - 📌 Exemple :
+
+📌 Exemple :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

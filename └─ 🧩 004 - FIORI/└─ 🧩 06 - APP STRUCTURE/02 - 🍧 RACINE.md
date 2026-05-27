@@ -3,7 +3,7 @@
 ## 🧩 RACINE
 
 ```
-appdemofgi/                       			# Racine du projet
+fgifirstappmodulename/                       			# Racine du projet
 ```
 
 > [!IMPORTANT]
@@ -18,6 +18,7 @@ appdemofgi/                       			# Racine du projet
 >
 > - 🔨 Utilité : C’est le dossier que tu ouvres dans SAP Business Application Studio ou VSCode.
 > - ⌚ Quand utilisé ? Toujours : c’est le point de départ.
-> - 📌 Exemple :
->
->   Quand tu fais npm start, la commande est exécutée depuis cette racine.
+
+📌 Exemple :
+
+     Quand vous faites npm start, la commande est exécutée depuis cette racine.

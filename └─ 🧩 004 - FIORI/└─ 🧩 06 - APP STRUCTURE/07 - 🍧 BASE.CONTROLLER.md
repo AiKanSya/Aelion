@@ -3,7 +3,7 @@
 ## 🧩 BASE.CONTROLLER.JS
 
 ```
-appdemofgi/
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   │   └── (annotation.xml)
@@ -43,10 +43,24 @@ appdemofgi/
 >
 > - 🔨 Utilité : Éviter la duplication de code (router, models, messages, helpers).
 > - ⌚ Quand utilisé ? Lorsqu’une fonction est partagée par plusieurs contrôleurs (navigation, accès aux modèles, messages), elle aura tendance à être implémenté dans ce fichier
-> - 📌 Exemple :
->
->   ```js
->   getRouter: function () {
->       return this.getOwnerComponent().getRouter();
->   }
->   ```
+
+📌 Exemple :
+
+```js
+sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
+  "use strict";
+  return Controller.extend("fr.stms.fgifirstappmodulename.controller.Base", {
+    getRouter: function () {
+      return this.getOwnerComponent().getRouter();
+    },
+
+    getModel: function (sName) {
+      return this.getView().getModel(sName);
+    },
+
+    setModel: function (oModel, sName) {
+      return this.getView().setModel(oModel, sName);
+    },
+  });
+});
+```

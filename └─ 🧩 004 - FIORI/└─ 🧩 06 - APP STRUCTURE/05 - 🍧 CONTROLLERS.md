@@ -3,7 +3,7 @@
 ## 🧩 CONTROLLER/ (LOGIQUE APPLICATIVE)
 
 ```
-appdemofgi/
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   │
@@ -33,14 +33,7 @@ appdemofgi/
 >
 > - 🎯 Objectif
 >
->   Gérer le comportement de l’application.
+>   Dossier comprenant les gestions des comportements de l’application.
 >
-> - 🔨 Utilité : Réagir aux actions utilisateur (clics, navigation, chargement des données).
+> - 🔨 Utilité : Centraliser la logique.
 > - ⌚ Quand utilisé ? Lorsqu'une action d'un composant UI5 est triggered
-> - 📌 Exemple :
->
->   ```js
->   onPress: function () {
->        this.getRouter().navTo("Detail");
->   }
->   ```

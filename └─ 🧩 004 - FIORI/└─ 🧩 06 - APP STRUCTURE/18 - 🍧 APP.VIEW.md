@@ -3,7 +3,7 @@
 ## 🧩 APP.VIEW.XML (VUE RACINE DE L’APPLICATION)
 
 ```
-appdemofgi/
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   ├── controller/
@@ -44,8 +44,15 @@ appdemofgi/
 >
 > - 🔨 Utilité : Héberger le NavContainer ou Router qui gère la navigation entre les vues.
 > - ⌚ Quand utilisé ? Chargée une seule fois au démarrage de l’application.
-> - 📌 Exemple :
->
->   ```xml
->   <App id="app"/>
->   ```
+
+📌 Exemple :
+
+```xml
+<mvc:View controllerName="fr.stms.fgifirstappmodulename.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <App id="app">
+    </App>
+</mvc:View>
+```

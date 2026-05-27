@@ -3,7 +3,7 @@
 ## 🧩 DETAIL.VIEW.XML (VUE DE DÉTAIL)
 
 ```
-appdemofgi/
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   ├── controller/
@@ -45,10 +45,20 @@ appdemofgi/
 > - 🔨 Utilité : Montrer les données complètes liées à un objet métier.
 > - ⌚ Quand utilisé ? Après une navigation depuis la vue Home
 >   vers un élément précis.
-> - 📌 Exemple :
+
+📌 Exemple :
+
+```xml
+<mvc:View
+    controllerName="fr.stms.fgifirstappmodulename.controller.Details"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
 >
->   ```xml
->   <Page title="Détail">
->       <Text text="{Name}" />
->   </Page>
->   ```
+    <Page
+        id="details"
+    >
+
+    </Page>
+</mvc:View>
+
+```

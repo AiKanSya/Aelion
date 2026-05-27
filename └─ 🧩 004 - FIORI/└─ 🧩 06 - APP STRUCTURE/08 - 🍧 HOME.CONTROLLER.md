@@ -3,7 +3,7 @@
 ## 🧩 HOME.CONTROLLER.JS
 
 ```
-appdemofgi/
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   │   └── (annotation.xml)
@@ -43,10 +43,33 @@ appdemofgi/
 >
 > - 🔨 Utilité : Réagir aux actions utilisateur sur l’écran principal/la vue principale (sélection, navigation, chargement initial).
 > - ⌚ Quand utilisé ? Lors de l’affichage ou de l’interaction avec la vue Home.
-> - 📌 Exemple :
->
->   ```js
->   onItemPress: function (oEvent) {
->       this.getRouter().navTo("Detail");
->   }
->   ```
+
+📌 Exemple de base :
+
+```js
+sap.ui.define(["sap/ui/core/mvc/Controller"], (Controller) => {
+  "use strict";
+
+  return Controller.extend("fr.stms.fgifirstappmodulename.controller.Home", {
+    onInit() {},
+  });
+});
+```
+
+📌 Exemple avec BaseController :
+
+```js
+sap.ui.define(
+  ["fr/stms/fgifirstappmodulename/controller/BaseController"],
+  (BaseController) => {
+    "use strict";
+
+    return BaseController.extend(
+      "fr.stms.fgifirstappmodulename.controller.Home",
+      {
+        onInit: function () {},
+      },
+    );
+  },
+);
+```

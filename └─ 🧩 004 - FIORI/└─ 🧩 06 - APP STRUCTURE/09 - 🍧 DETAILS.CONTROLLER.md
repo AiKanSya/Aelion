@@ -3,7 +3,7 @@
 ## 🧩 DETAIL.CONTROLLER.JS
 
 ```
-appdemofgi/
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   │   └── (annotation.xml)
@@ -43,11 +43,33 @@ appdemofgi/
 >
 > - 🔨 Utilité : Charger les données spécifiques à un élément sélectionné et gérer les actions associées.
 > - ⌚ Quand utilisé ? Lorsqu’un utilisateur navigue vers une vue de détail.
-> - 📌 Exemple :
->
->   ```js
->   onInit: function () {
->       this.getRouter().getRoute("Detail")
->           .attachPatternMatched(this._onObjectMatched, this);
->   }
->   ```
+
+📌 Exemple de base :
+
+```js
+sap.ui.define(["sap/ui/core/mvc/Controller"], (Controller) => {
+  "use strict";
+
+  return Controller.extend("fr.stms.fgifirstappmodulename.controller.Details", {
+    onInit() {},
+  });
+});
+```
+
+📌 Exemple avec BaseController :
+
+```js
+sap.ui.define(
+  ["fr/stms/fgifirstappmodulename/controller/BaseController"],
+  (BaseController) => {
+    "use strict";
+
+    return BaseController.extend(
+      "fr.stms.fgifirstappmodulename.controller.Details",
+      {
+        onInit: function () {},
+      },
+    );
+  },
+);
+```

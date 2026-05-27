@@ -3,7 +3,7 @@
 ## 🧩 LIBS/ (BIBLIOTHÈQUES ET UTILITAIRES)
 
 ```
-appdemofgi/
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   ├── controller/
@@ -37,6 +37,7 @@ appdemofgi/
 >
 > - 🔨 Utilité : Centraliser la logique transverse (formatage, appels de services, helpers).
 > - ⌚ Quand utilisé ? Lorsqu’une fonction est utilisée dans plusieurs contrôleurs ou vues.
-> - 📌 Exemple :
->
->   Créer des fonctions génériques appelées depuis les contrôleurs.
+
+📌 Exemple :
+
+     Créer des fonctions génériques appelées depuis les contrôleurs.

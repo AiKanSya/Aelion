@@ -3,7 +3,7 @@
 ## 🧩 .GITIGNORE (FICHIERS À IGNORER PAR GIT)
 
 ```
-appdemofgi/
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   ├── controller/
@@ -37,11 +37,18 @@ appdemofgi/
 >
 > - 🔨 Utilité : Éviter de versionner des fichiers temporaires, logs, ou dépendances locales.
 > - ⌚ Quand utilisé ? Lors des commits et push vers le dépôt.
-> - 📌 Exemple :
->
->   ```
->   node_modules/
->   dist/
->   *.log
->   .DS_Store
->   ```
+
+📌 Exemple :
+
+```
+node_modules/
+dist/
+.scp/
+.env
+Makefile*.mta
+mta_archives
+mta-*
+resources
+archive.zip
+.*_mta_build_tmp
+```

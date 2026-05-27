@@ -3,6 +3,7 @@
 ## 🧩 VIEW/ (VUES DE L’APPLICATION)
 
 ```
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   ├── controller/

@@ -3,6 +3,7 @@
 ## 🧩 FRAGMENTS/ (COMPOSANTS UI RÉUTILISABLES)
 
 ```
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   ├── controller/
@@ -43,6 +44,21 @@
 >
 > - 🔨 Utilité : Éviter la duplication de code UI dans plusieurs vues.
 > - ⌚ Quand utilisé ? Lorsqu’un même bloc d’interface est utilisé dans plusieurs vues.
-> - 📌 Exemple :
->
->   Un formulaire ou une boîte de dialogue réutilisable.
+
+📌 Exemple :
+
+```xml
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+  <Dialog title="{i18n>fragment.title}">
+    <Label
+      text="{i18n>fragment.package}:"
+      design="Bold"
+      class="sapUiTinyMarginBegin sapUiTinyMarginEnd"
+    />
+    <buttons>
+      <Button text="{i18n>fragment.ok}" press="onCreatePalette" />
+      <Button text="{i18n>fragment.cancel}" press="onCancelCreatePalette" />
+    </buttons>
+  </Dialog>
+</core:FragmentDefinition>
+```

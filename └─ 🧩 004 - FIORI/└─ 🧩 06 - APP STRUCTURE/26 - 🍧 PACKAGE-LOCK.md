@@ -3,7 +3,7 @@
 ## 🧩 PACKAGE-LOCK.JSON (VERROUILLAGE DES DÉPENDANCES NPM)
 
 ```
-appdemofgi/
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   ├── controller/

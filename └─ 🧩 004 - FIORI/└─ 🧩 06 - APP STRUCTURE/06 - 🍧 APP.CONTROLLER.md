@@ -3,7 +3,7 @@
 ## 🧩 APP.CONTROLLER.JS (CONTROLLER PRINCIPAL)
 
 ```
-appdemofgi/
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   │   └── (annotation.xml)
@@ -43,10 +43,14 @@ appdemofgi/
 >
 > - 🔨 Utilité : Initialiser l’application et gérer les événements globaux.
 > - ⌚ Quand utilisé ? Au démarrage de l’application ou pour des comportements transverses.
-> - 📌 Exemple :
->
->   ```js
->   onInit: function () {
->       // Initialisation globale de l'application
->   }
->   ```
+>   📌 Exemple :
+
+```js
+sap.ui.define(["sap/ui/core/mvc/Controller"], (BaseController) => {
+  "use strict";
+
+  return BaseController.extend("fr.stms.fgifirstappmodulename.controller.App", {
+    onInit: function () {},
+  });
+});
+```

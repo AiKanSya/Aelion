@@ -3,7 +3,7 @@
 ## 🧩 WEBAPP/ (COEUR DE L'APPLICATION)
 
 ```
-appdemofgi/
+fgifirstappmodulename/
 └── webapp/                       			# Contenu principal de l'application Fiori
 ```
 
@@ -15,6 +15,7 @@ appdemofgi/
 >
 > - 🔨 Utilité : UI5 charge exclusivement ce dossier pour afficher l’application.
 > - ⌚ Quand utilisé ? À chaque fois que l’app démarre.
-> - 📌 Exemple :
->
->   Les vues XML, les controllers JS et le manifest sont tous ici.
+
+📌 Exemple :
+
+     Les vues XML, les controllers JS et le manifest sont tous ici.

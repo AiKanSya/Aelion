@@ -3,7 +3,7 @@
 ## 🧩 CSS/ (STYLES DE L’APPLICATION)
 
 ```
-appdemofgi/
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   ├── controller/
@@ -79,11 +79,42 @@ appdemofgi/
 >
 > - 🔨 Utilité : Modifier l’apparence visuelle des contrôles UI5 sans changer le code JavaScript ou XML.
 > - ⌚ Quand utilisé ? Pour ajuster l’UI (espacements, couleurs, visibilité) ou appliquer une identité visuelle.
-> - 📌 Exemple :
->
->   ```css
->   .myTitle {
->     font-weight: bold;
->     color: #0a6ed1;
->   }
->   ```
+
+📌 Exemple :
+
+```css
+/* Enter your custom styles here */
+
+.textError {
+  color: red;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-left: 13px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.marginLeftAndRight {
+  margin-left: 13px;
+  margin-right: 13px;
+}
+
+.dialogWidth {
+  width: 95vw;
+}
+
+.customHeaderText {
+  font-size: 13px;
+}
+
+.customListText {
+  font-size: 13px;
+}
+
+.button-focus:focus {
+  outline: 2px solid #0070f3;
+  background-color: rgba(0, 112, 243, 0.1);
+}
+```
