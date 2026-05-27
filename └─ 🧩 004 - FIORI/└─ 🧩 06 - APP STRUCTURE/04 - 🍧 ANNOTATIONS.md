@@ -42,7 +42,7 @@ fgifirstappmodulename/
 ### 🍧 ANNOTATION.XML (DESCRIPTIONS UI ODATA)
 
 ```
-appdemofgi/
+fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   │   └── (annotation.xml)        		# Fichier décrivant les métadonnées supplémentaires pour le modèle
