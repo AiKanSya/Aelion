@@ -7,7 +7,7 @@ fgifirstappmodulename/
 ├── webapp/
 │   ├── (annotations/)
 │   │
-│   ├── controller/               			# Dossier contenant les Contrôleurs JavaScript
+│   ├── controller/ # <- Dossier contenant les Contrôleurs JavaScript
 │   │
 │   ├── css/
 │   ├── i18n/

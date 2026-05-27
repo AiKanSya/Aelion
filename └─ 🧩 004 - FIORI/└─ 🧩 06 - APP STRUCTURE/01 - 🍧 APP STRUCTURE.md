@@ -41,8 +41,7 @@ fgifirstappmodulename/                      # Racine du projet
 │   │       └── metadata.xml      			# Métadonnées du mockserver
 │   │
 │   ├── model/                    			# Modèles de données côté client
-│   │   ├── models.js             			# Définition des modèles
-│   │   └── [autres models JSON ou JS]  	# Données locales ou configurations
+│   │   └── models.js             			# Définition des modèles
 │   │
 │   ├── view/                     			# Vues de l'application
 │   │   ├── fragments/            			# Fragments réutilisables

@@ -18,7 +18,7 @@ fgifirstappmodulename/
 │   ├── index.html
 │   └── manifest.json
 │
-├── .gitignore                      		# Fichiers à ignorer par git
+├── .gitignore # <- Fichiers à ignorer par git
 │
 ├── (mta.yaml)
 ├── package-lock.json

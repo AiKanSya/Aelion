@@ -44,8 +44,8 @@ fgifirstappmodulename/
 ```
 fgifirstappmodulename/
 ├── webapp/
-│   ├── (annotations/)
-│   │   └── (annotation.xml)        		# Fichier décrivant les métadonnées supplémentaires pour le modèle
+│   ├── (annotations/)       # <- Dossiers d'annotations
+│   │   └── (annotation.xml) # <- Fichier décrivant les métadonnées supplémentaires pour le modèle
 │   │
 │   ├── controller/
 │   ├── i18n/
@@ -73,7 +73,7 @@ fgifirstappmodulename/
 >
 >   Décrire des métadonnées complémentaires pour un service OData.
 >
-> - 🔨 Utilité : Contrôler l’affichage UI (labels, champs visibles, sections, importance) via des annotations standards SAP.
+> - 🔨 Utilité : Contrôler l’affichage UI (labels, champs visibles, sections, importance) via des annotations standards SAP (niveau avancé).
 > - ⌚ Quand utilisé ? Quand on développe une application Fiori utilisant OData et que l'on veut enrichir le modèle sans toucher au backend ABAP.
 
 📌 Exemple :

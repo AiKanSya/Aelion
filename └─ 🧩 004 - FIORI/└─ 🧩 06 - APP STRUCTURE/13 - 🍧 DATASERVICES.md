@@ -11,7 +11,7 @@ fgifirstappmodulename/
 │   ├── i18n/
 │   │
 │   ├── libs/
-│   │   ├── DataServices.js       			# Services de données génériques
+│   │   ├── DataServices.js # <- Services de données génériques
 │   │   └── Formatter.js
 │   │
 │   ├── localService/

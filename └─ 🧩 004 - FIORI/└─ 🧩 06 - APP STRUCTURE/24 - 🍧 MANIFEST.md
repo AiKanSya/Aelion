@@ -17,7 +17,7 @@ fgifirstappmodulename/
 │   ├── Component.js
 │   ├── index.html
 │   │
-│   └── manifest.json              		# Métadonnées Fiori : routes, models, data sources, namespace
+│   └── manifest.json # <- Métadonnées Fiori : routes, models, data sources, namespace
 │
 ├── .gitignore
 ├── (mta.yaml)

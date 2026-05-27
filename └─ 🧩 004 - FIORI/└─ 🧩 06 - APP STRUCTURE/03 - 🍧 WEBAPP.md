@@ -4,7 +4,7 @@
 
 ```
 fgifirstappmodulename/
-└── webapp/                       			# Contenu principal de l'application Fiori
+└── webapp/ # <- Contenu principal de l'application Fiori
 ```
 
 > [!IMPORTANT]

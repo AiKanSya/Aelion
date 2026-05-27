@@ -14,13 +14,13 @@ fgifirstappmodulename/
 │   ├── model/
 │   │
 │   ├── view/
-│   │   ├── fragments/            			# Fragments réutilisables
+│   │   ├── fragments/
 │   │   │   └── <fragment_n>.fragment.xml
 │   │   │
-│   │   ├── App.view.xml          			# Vue App
-│   │   ├── Home.view.xml                    # Vue Home
-│   │   ├── Detail.view.xml                  # Vue Detail
-│   │   └── <view_n>.view.xml                # Vue n
+│   │   ├── App.view.xml
+│   │   ├── Home.view.xml # <- Vue Home
+│   │   ├── Detail.view.xml
+│   │   └── <view_n>.view.xml
 │   │
 │   ├── Component.js
 │   ├── index.html

@@ -10,7 +10,7 @@ fgifirstappmodulename/
 │   ├── css/
 │   ├── i18n/
 │   │
-│   ├── libs/                     			# Fonctions et utilitaires
+│   ├── libs/ # <- Fonctions et utilitaires
 │   │
 │   ├── localService/
 │   ├── model/

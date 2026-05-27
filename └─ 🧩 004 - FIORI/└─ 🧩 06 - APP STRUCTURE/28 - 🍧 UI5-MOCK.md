@@ -25,7 +25,7 @@ fgifirstappmodulename/
 ├── README.md
 ├── ui5-local.yaml
 │
-├── ui5-mock.yaml                    		# Config UI5 pour start-mock
+├── ui5-mock.yaml # <- Config UI5 pour start-mock
 │
 └── ui5.yaml
 ```

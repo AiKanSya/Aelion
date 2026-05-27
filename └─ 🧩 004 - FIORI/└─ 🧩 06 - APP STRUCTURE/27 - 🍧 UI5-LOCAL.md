@@ -24,7 +24,7 @@ fgifirstappmodulename/
 ├── package.json
 ├── README.md
 │
-├── ui5-local.yaml                   		# Config UI5 pour start-local
+├── ui5-local.yaml # <- Config UI5 pour start-local
 │
 ├── ui5-mock.yaml
 └── ui5.yaml

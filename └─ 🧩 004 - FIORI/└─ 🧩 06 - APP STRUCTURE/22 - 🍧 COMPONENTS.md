@@ -14,7 +14,7 @@ fgifirstappmodulename/
 │   ├── model/
 │   ├── view/
 │   │
-│   ├── Component.js               		# Point d’entrée de l’application
+│   ├── Component.js # <- Point d’entrée de l’application
 │   │
 │   ├── index.html
 │   └── manifest.json

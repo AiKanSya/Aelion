@@ -21,7 +21,7 @@ fgifirstappmodulename/
 ├── .gitignore
 ├── (mta.yaml)
 │
-├── package-lock.json                		# Gestionnaire de versions npm
+├── package-lock.json # <- Gestionnaire de versions npm
 │
 ├── package.json
 ├── README.md

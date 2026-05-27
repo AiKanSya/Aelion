@@ -8,7 +8,7 @@ fgifirstappmodulename/
 │   ├── (annotations/)
 │   ├── controller/
 │   │
-│   ├── css/                      			# Dossier contenant les Styles CSS
+│   ├── css/ # <- Dossier contenant les Styles CSS
 │   │
 │   ├── i18n/
 │   ├── libs/
@@ -49,8 +49,8 @@ appdemofgi/
 │   ├── (annotations/)
 │   ├── controller/
 │   │
-│   ├── css/                      			# Dossier contenant les Styles CSS
-│   │   └── style.css                        # Fichiers de Styles
+│   ├── css/
+│   │   └── style.css # <- Fichiers de Styles
 │   │
 │   ├── i18n/
 │   ├── libs/

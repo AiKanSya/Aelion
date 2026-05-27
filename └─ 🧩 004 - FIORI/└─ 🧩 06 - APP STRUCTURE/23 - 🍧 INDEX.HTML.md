@@ -16,7 +16,7 @@ fgifirstappmodulename/
 │   │
 │   ├── Component.js
 │   │
-│   ├── index.html                 		# Page HTML principale
+│   ├── index.html # <- Page HTML principale
 │   │
 │   └── manifest.json
 │

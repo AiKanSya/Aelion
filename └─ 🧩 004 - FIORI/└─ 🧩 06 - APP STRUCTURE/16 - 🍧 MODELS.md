@@ -12,7 +12,7 @@ fgifirstappmodulename/
 │   ├── libs/
 │   ├── localService/
 │   │
-│   ├── model/                    			# Modèles de données côté client
+│   ├── model/ # <- Modèles de données côté client
 │   │
 │   ├── view/
 │   ├── Component.js
@@ -54,8 +54,7 @@ fgifirstappmodulename/
 │   ├── localService/
 │   │
 │   ├── model/
-│   │   ├── models.js             			# Définition des modèles
-│   │   └── [autres models JSON ou JS]
+│   │   └── models.js # <- Définition des modèles
 │   │
 │   ├── view/
 │   ├── Component.js

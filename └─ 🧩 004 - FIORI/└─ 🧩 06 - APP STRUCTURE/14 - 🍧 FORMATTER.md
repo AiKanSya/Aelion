@@ -12,7 +12,7 @@ fgifirstappmodulename/
 │   │
 │   ├── libs/
 │   │   ├── DataServices.js
-│   │   └── Formatter.js          			# Fonctions de formatage UI
+│   │   └── Formatter.js # <- Fonctions de formatage UI
 │   │
 │   ├── localService/
 │   ├── model/

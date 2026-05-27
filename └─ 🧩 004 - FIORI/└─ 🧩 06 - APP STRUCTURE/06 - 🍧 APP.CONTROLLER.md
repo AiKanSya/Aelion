@@ -9,11 +9,11 @@ fgifirstappmodulename/
 │   │   └── (annotation.xml)
 │   │
 │   ├── controller/
-│   │   ├── App.controller.js     			# Contrôleur principal
-│   │   ├── BaseController.js         		# Contrôleur de base utilisé par d'autres controllers
-│   │   ├── Home.controller.js    			# Contrôleur de la vue Home
-│   │   ├── Detail.controller.js  			# Contrôleur de la vue Detail
-│   │   └── <view_n>.controller.js 		# Controller n
+│   │   ├── App.controller.js # <- Contrôleur principal
+│   │   ├── BaseController.js
+│   │   ├── Home.controller.js
+│   │   ├── Detail.controller.js
+│   │   └── <view_n>.controller.js
 │   │
 │   ├── css/
 │   ├── i18n/

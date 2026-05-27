@@ -3,7 +3,7 @@
 ## 🧩 RACINE
 
 ```
-fgifirstappmodulename/                       			# Racine du projet
+fgifirstappmodulename/ # <- Racine du projet
 ```
 
 > [!IMPORTANT]

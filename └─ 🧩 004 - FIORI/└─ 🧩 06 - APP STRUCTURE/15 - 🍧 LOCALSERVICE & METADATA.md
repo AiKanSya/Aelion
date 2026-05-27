@@ -11,7 +11,7 @@ fgifirstappmodulename/
 │   ├── i18n/
 │   ├── libs/
 │   │
-│   ├── localService/             			# Données mock ou locales
+│   ├── localService/ # <- Données mock ou locales
 │   │
 │   ├── model/
 │   ├── view/
@@ -53,7 +53,7 @@ fgifirstappmodulename/
 │   ├── libs/
 │   │
 │   ├── localService/
-│   │   └── mainService/
+│   │   └── mainService/ # <- Dossier par défaut
 │   │
 │   ├── model/
 │   ├── view/
@@ -97,7 +97,7 @@ fgifirstappmodulename/
 │   │
 │   ├── localService/
 │   │   └── mainService/
-│   │       └── metadata.xml      			# Métadonnées du mockserver
+│   │       └── metadata.xml # <- Métadonnées du mockserver
 │   │
 │   ├── model/
 │   ├── view/

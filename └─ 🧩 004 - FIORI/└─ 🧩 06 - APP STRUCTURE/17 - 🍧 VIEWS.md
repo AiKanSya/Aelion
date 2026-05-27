@@ -13,7 +13,7 @@ fgifirstappmodulename/
 │   ├── localService/
 │   ├── model/
 │   │
-│   ├── view/                     			# Vues de l'application
+│   ├── view/ # <- Vues de l'application
 │   │
 │   ├── Component.js
 │   ├── index.html
