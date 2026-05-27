@@ -1,10 +1,10 @@
 # 🌸 BASE.CONTROLLER
 
-## 🧩 BASECONTROLLER.JS
+## 🧩 BASECONTROLLER.CONTROLLER.JS
 
 Path :
 
-    webapp/controller/BaseController.js
+    webapp/controller/BaseController.controller.js
 
 ```
 fgifirstappmodulename/
