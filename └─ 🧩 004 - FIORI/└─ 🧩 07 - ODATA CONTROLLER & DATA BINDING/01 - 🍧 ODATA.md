@@ -92,16 +92,86 @@ Le développeur n'a généralement rien à créer manuellement.
 Exemple View :
 
 ```xml
-<Table items="{/SessionSet}">
-    <items>
-        <ColumnListItem>
-            <cells>
-                <Text text="{IdSession}" />
-                <Text text="{Site}" />
-            </cells>
-        </ColumnListItem>
-    </items>
-</Table>
+<mvc:View
+    controllerName="fr.stms.fgifirstappmodulename.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+
+            <!-- ===================== -->
+            <!-- TABLE SESSIONSET -->
+            <!-- ===================== -->
+            <Table
+                id="sessionTable"
+                items="{/SessionSet}"
+                inset="false"
+                headerText="Sessions">
+
+                <columns>
+                    <Column><Text text="IdSession"/></Column>
+                    <Column><Text text="Année"/></Column>
+                    <Column><Text text="Durée"/></Column>
+                    <Column><Text text="Site"/></Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{IdSession}"/>
+                            <Text text="{Annee}"/>
+                            <Text text="{Duree}"/>
+                            <Text text="{Site}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+
+            </Table>
+
+            <!-- ===================== -->
+            <!-- TABLE CONSULTANTSET -->
+            <!-- ===================== -->
+            <Table
+                id="consultantTable"
+                items="{/ConsultantSet}"
+                inset="false"
+                headerText="Consultants">
+
+                <columns>
+                    <Column><Text text="Session"/></Column>
+                    <Column><Text text="IdConsultant"/></Column>
+                    <Column><Text text="Nom"/></Column>
+                    <Column><Text text="Entreprise"/></Column>
+                    <Column><Text text="Ville"/></Column>
+                    <Column><Text text="Pays"/></Column>
+                    <Column><Text text="Lang"/></Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{IdSession}"/>
+                            <Text text="{IdConsultant}"/>
+                            <Text text="{Name}"/>
+                            <Text text="{Entreprise}"/>
+                            <Text text="{City}"/>
+                            <Text text="{Country}"/>
+                            <Text text="{Lang}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+
+            </Table>
+
+        </content>
+
+    </Page>
+</mvc:View>
+
 ```
 
 Explication :

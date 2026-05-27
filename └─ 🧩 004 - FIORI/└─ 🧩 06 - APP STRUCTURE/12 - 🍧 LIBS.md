@@ -1,4 +1,4 @@
-# 🌸 I18N
+# 🌸 LIBS
 
 ## 🧩 LIBS/ (BIBLIOTHÈQUES ET UTILITAIRES)
 
