@@ -1,6 +1,10 @@
 # 🌸 DETAILS.CONTROLLER
 
-## 🧩 DETAIL.CONTROLLER.JS
+## 🧩 DETAILS.CONTROLLER.JS
+
+Path :
+
+    webapp/controller.Details.controller.js
 
 ```
 fgifirstappmodulename/
@@ -12,7 +16,7 @@ fgifirstappmodulename/
 │   │   ├── App.controller.js
 │   │   ├── BaseController.js
 │   │   ├── Home.controller.js
-│   │   ├── Detail.controller.js # <- Contrôleur de la vue Detail
+│   │   ├── Details.controller.js # <- Contrôleur de la vue Detail
 │   │   └── <view_n>.controller.js
 │   │
 │   ├── css/
