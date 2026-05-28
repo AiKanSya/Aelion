@@ -1,14 +1,8 @@
-# 🌸 GET ALL
+# 🌸 READ BY ID
 
 > 🌺 Objectifs
 >
-> - [ ] Récupérer toutes les sessions depuis le service OData SessionSet.
-
-## 🧩 METADATA
-
-```xml
-<EntitySet Name="SessionSet" EntityType="Session"/>
-```
+> - [ ] Récupérer toutes les Sessions
 
 ## 🧩 APPEL DIRECT ODATA
 
@@ -52,14 +46,8 @@ sap.ui.define(
           /* =========================
            * READ COLLECTION
            * ========================= */
-          this.readSessions(oModel);
-          this.readConsultants(oModel);
 
-          /* =========================
-           * READ ONE
-           * ========================= */
-          this.readSessionById(oModel, "S001");
-          this.readConsultantById(oModel, "S001", "C001");
+          this.readSessions(oModel);
         },
 
         /* =========================
@@ -67,25 +55,17 @@ sap.ui.define(
          * ========================= */
 
         readSessions: function (oModel) {
-          this.oDataRead(oModel, "/SessionSet")
-            .then(function (res) {
+          oModel.read("/SessionSet", {
+            success: function (oData) {
               console.log("READ SessionSet OK");
-              console.table(res.data.results);
-            })
-            .catch(function (err) {
-              console.error("READ SessionSet ERROR", err);
-            });
-        },
 
-        readConsultants: function (oModel) {
-          this.oDataRead(oModel, "/ConsultantSet")
-            .then(function (res) {
-              console.log("READ ConsultantSet OK");
-              console.table(res.data.results);
-            })
-            .catch(function (err) {
-              console.error("READ ConsultantSet ERROR", err);
-            });
+              console.table(oData.results);
+            },
+
+            error: function (oError) {
+              console.error("READ SessionSet ERROR", oError);
+            },
+          });
         },
       },
     );
