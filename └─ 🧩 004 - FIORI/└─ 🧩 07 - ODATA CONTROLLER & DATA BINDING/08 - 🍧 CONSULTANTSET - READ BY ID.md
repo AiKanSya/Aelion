@@ -1,8 +1,8 @@
-# 🌸 CREATE
+# 🌸 READ BY ID
 
 > 🌺 Objectifs
 >
-> - [ ] Créer une Session.
+> - [ ] Récupérer un Consultant avec son ID.
 
 ## 🧩 APPEL DIRECT ODATA
 
@@ -48,18 +48,32 @@ sap.ui.define(
            * ========================= */
 
           this.readSessions(oModel);
+          this.readConsultants(oModel);
 
           /* =========================
            * READ ONE
            * ========================= */
 
           this.readSessionById(oModel, "S001");
+          this.readConsultantById(oModel, "S001", "C001");
 
           /* =========================
            * CREATE
            * ========================= */
 
           this.createSession(oModel);
+
+          /* =========================
+           * UPDATE
+           * ========================= */
+
+          this.updateSession(oModel);
+
+          /* =========================
+           * DELETE
+           * ========================= */
+
+          this.deleteSession(oModel);
         },
 
         /* =========================
@@ -70,11 +84,26 @@ sap.ui.define(
           oModel.read("/SessionSet", {
             success: function (oData) {
               console.log("READ SessionSet OK");
+
               console.table(oData.results);
             },
 
             error: function (oError) {
               console.error("READ SessionSet ERROR", oError);
+            },
+          });
+        },
+
+        readConsultants: function (oModel) {
+          oModel.read("/ConsultantSet", {
+            success: function (oData) {
+              console.log("READ ConsultantSet OK");
+
+              console.table(oData.results);
+            },
+
+            error: function (oError) {
+              console.error("READ ConsultantSet ERROR", oError);
             },
           });
         },
@@ -87,6 +116,7 @@ sap.ui.define(
           oModel.read("/SessionSet('" + sSessionId + "')", {
             success: function (oData) {
               console.log("READ ONE Session OK");
+
               console.log(oData);
             },
 
@@ -94,6 +124,27 @@ sap.ui.define(
               console.error("READ ONE Session ERROR", oError);
             },
           });
+        },
+
+        readConsultantById: function (oModel, sSessionId, sConsultantId) {
+          oModel.read(
+            "/ConsultantSet(IdSession='" +
+              sSessionId +
+              "',IdConsultant='" +
+              sConsultantId +
+              "')",
+            {
+              success: function (oData) {
+                console.log("READ ONE Consultant OK");
+
+                console.log(oData);
+              },
+
+              error: function (oError) {
+                console.error("READ ONE Consultant ERROR", oError);
+              },
+            },
+          );
         },
 
         /* =========================
@@ -117,6 +168,28 @@ sap.ui.define(
               console.error("CREATE Session ERROR", oError);
             },
           });
+        },
+
+        /* =========================
+         * UPDATE
+         * ========================= */
+
+        updateSession: function (oModel) {
+          var oPayload = {
+            Annee: "2027",
+            Duree: "120",
+            Site: "Lille",
+          };
+
+          oModel.update("/SessionSet('S006')", oPayload);
+        },
+
+        /* =========================
+         * DELETE
+         * ========================= */
+
+        deleteSession: function (oModel) {
+          oModel.remove("/SessionSet('S006')");
         },
       },
     );

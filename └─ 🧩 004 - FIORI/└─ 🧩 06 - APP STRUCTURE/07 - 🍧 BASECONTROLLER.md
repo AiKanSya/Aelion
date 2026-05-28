@@ -14,7 +14,7 @@ fgifirstappmodulename/
 │   │
 │   ├── controller/
 │   │   ├── App.controller.js
-│   │   ├── BaseController.controller.js # <- Contrôleur de base utilisé par d'autres controllers
+│   │   ├── BaseController.js # <- Contrôleur de base utilisé par d'autres controllers
 │   │   ├── Home.controller.js
 │   │   ├── Detail.controller.js
 │   │   └── <view_n>.controller.js
