@@ -49,15 +49,98 @@ fgifirstappmodulename/
 📌 Exemple :
 
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+==========================================================
+SAPUI5 XML VIEW : DETAILS
+==========================================================
+
+OBJECTIF :
+Cette vue représente l’écran de détail d’une entité (ex : Session).
+
+Elle est affichée lorsque l’utilisateur clique sur un élément dans une liste.
+
+Elle est pilotée par un controller JavaScript.
+-->
+
 <mvc:View
     controllerName="fr.stms.fgifirstappmodulename.controller.Details"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
 >
+
+    <!--
+    ==========================================================
+    MVC VIEW
+    ==========================================================
+
+    controllerName :
+    - lien entre la vue XML et le controller JS
+    - SAPUI5 instancie automatiquement ce controller
+
+    Exemple :
+    Details.controller.js
+
+    Rôle du controller :
+    - gérer la logique métier
+    - récupérer les données
+    - gérer les événements UI
+    -->
+
+    <!--
+    xmlns:mvc :
+    - active le framework MVC SAPUI5
+    - permet d’utiliser <mvc:View>
+
+    xmlns="sap.m" :
+    - bibliothèque UI Fiori
+    - contient Page, Button, Input, Table...
+    -->
+
     <Page
         id="details"
     >
 
+        <!--
+        ==========================================================
+        PAGE SAPUI5
+        ==========================================================
+
+        Une Page est un conteneur Fiori complet.
+
+        Elle représente un écran avec :
+        - zone header (titre)
+        - zone content (contenu)
+        - zone footer (actions)
+        -->
+
+        <!--
+        id="details"
+
+        Rôle :
+        - identifiant unique de la page
+        - permet de la récupérer dans le controller
+
+        Exemple JS :
+        this.byId("details")
+        -->
+
+        <!--
+        ==========================================================
+        CONTENU DE LA PAGE
+        ==========================================================
+
+        Actuellement vide.
+
+        Dans une vraie application, on ajouterait :
+        - ObjectHeader (résumé)
+        - Input (édition)
+        - Text (affichage)
+        - Form (détail structuré)
+        -->
+
     </Page>
+
 </mvc:View>
 ```
