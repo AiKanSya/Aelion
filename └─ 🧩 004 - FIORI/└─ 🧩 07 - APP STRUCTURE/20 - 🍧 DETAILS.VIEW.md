@@ -60,5 +60,4 @@ fgifirstappmodulename/
 
     </Page>
 </mvc:View>
-
 ```

@@ -125,7 +125,11 @@ sap.ui.define(
   ],
 
   /**
-   * Callback exécuté après chargement des dépendances.
+   * Callback exécuté après chargement des dépendances AMD.
+   *
+   * IMPORTANT :
+   * L’ordre des paramètres DOIT correspondre à l’ordre du tableau
+   * des dépendances.
    */
   function (UIComponent, Log, ResourceModel, models, mockServer, DataServices) {
     "use strict";
@@ -186,6 +190,9 @@ sap.ui.define(
          *
          * Exemple :
          * http://app?mock=true
+         *
+         * URLSearchParams :
+         * API JavaScript permettant de lire les paramètres URL.
          ****************************************************************/
         var bMock =
           new URLSearchParams(window.location.search).get("mock") === "true";
@@ -220,15 +227,48 @@ sap.ui.define(
         this.setModel(i18nModel, "i18n");
 
         /****************************************************************
-         * Initialisation DataServices (lazy-safe)
+         * metadataLoaded()
+         * --------------------------------------------------------------
+         * Fonction fournie par ODataModel V2.
          *
-         * Important :
-         * metadataLoaded() garantit que le modèle OData est prêt.
+         * Retourne une PROMISE JavaScript.
+         *
+         * BUT :
+         * attendre le chargement complet des métadonnées OData :
+         * - EntitySet
+         * - propriétés
+         * - associations
+         * - types
+         *
+         * IMPORTANT :
+         * Sans cela, certains appels OData peuvent échouer
+         * car le modèle n’est pas encore prêt.
          ****************************************************************/
         this.getModel()
           .metadataLoaded()
+
+          /**************************************************************
+           * .then()
+           * ------------------------------------------------------------
+           * Exécuté UNIQUEMENT quand la Promise est résolue.
+           *
+           * Ici :
+           * => le modèle OData est maintenant prêt.
+           **************************************************************/
           .then(() => {
-            this.oDataServices = new DataServices(this.getModel());
+            /************************************************************
+             * getDataServices()
+             * ----------------------------------------------------------
+             * Récupère l’instance unique du service métier.
+             *
+             * Pattern utilisé :
+             * - Singleton léger
+             * - Lazy initialization
+             *
+             * Avantage :
+             * évite de créer plusieurs fois DataServices.
+             ************************************************************/
+            this.getDataServices();
 
             Log.info("DataServices READY");
             console.log("DataServices READY");
@@ -245,17 +285,34 @@ sap.ui.define(
       /******************************************************************
        * getDataServices()
        * ----------------------------------------------------------------
-       * Singleton accessor du service métier.
+       * Getter centralisé des services backend.
        *
-       * Pattern utilisé :
-       * - lazy initialization
-       * - une seule instance globale
+       * Retourne toujours UNE seule instance.
+       *
+       * Concept :
+       * SINGLETON
        ******************************************************************/
       getDataServices: function () {
+        /****************************************************************
+         * Vérification existence instance
+         *
+         * !this.oDataServices
+         * => signifie :
+         * "l’instance n’existe pas encore"
+         ****************************************************************/
         if (!this.oDataServices) {
+          /**************************************************************
+           * Création du service métier
+           *
+           * this.getModel()
+           * retourne le ODataModel principal défini dans le manifest.
+           **************************************************************/
           this.oDataServices = new DataServices(this.getModel());
         }
 
+        /****************************************************************
+         * Retour de l’instance unique
+         ****************************************************************/
         return this.oDataServices;
       },
     });
