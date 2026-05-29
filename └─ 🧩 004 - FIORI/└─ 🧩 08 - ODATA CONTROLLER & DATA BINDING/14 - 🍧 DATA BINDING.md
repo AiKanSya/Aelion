@@ -102,20 +102,48 @@ sap.ui.define(
 Dans onInit, après l'instanciation des DataServices, ajouter :
 
 ```js
-/**
- * ViewModel :
- * - sert de stockage temporaire UI (formulaire Session)
- * - indépendant du backend
- */
 const oViewModel = new JSONModel({
+  /**
+   * JSON MODEL UI (sap.ui.model.json.JSONModel)
+   * ------------------------------------------------------------
+   * STRUCTURE INITIALE DU MODÈLE FRONTEND
+   *
+   * Rôle :
+   * - stocker l’état de l’interface utilisateur
+   * - ne contient aucune logique backend
+   * - totalement indépendant de l’ODataModel
+   */
   sessionForm: {
-    IdSession: "",
-    Annee: "",
-    Duree: "",
-    Site: "",
+    /**
+     * OBJET MÉTIER "SESSION"
+     * ------------------------------------------------------------
+     * Sert de source de binding pour le formulaire XML
+     * (/sessionForm/...)
+     */
+
+    IdSession: "", // clé métier de la session (ex: "S001")
+    Annee: "", // année de la session
+    Duree: "", // durée (jours/heures selon backend)
+    Site: "", // lieu de la session
   },
 });
 
+/**
+ * AFFECTATION DU MODÈLE À LA VIEW
+ * ------------------------------------------------------------
+ * this.getView().setModel(model, "name")
+ *
+ * PARAMÈTRES :
+ * 1) oViewModel : instance JSONModel
+ * 2) "view"     : nom logique du modèle
+ *
+ * CONSÉQUENCE :
+ * - accessible dans XMLView via :
+ *   {view>/sessionForm/IdSession}
+ *
+ * - binding bidirectionnel :
+ *   UI ↔ JSONModel
+ */
 this.getView().setModel(oViewModel, "view");
 ```
 
@@ -134,18 +162,66 @@ Path :
 ```xml
 <Panel headerText="Session Form" class="sapUiSmallMargin">
 
+    <!--
+        PANEL SAPUI5
+        Conteneur visuel standard (sap.m.Panel)
+
+        Rôle :
+        - regrouper un ensemble de champs liés à une entité métier (Session)
+        - ici : CRUD sur SessionSet (OData)
+    -->
+
     <VBox>
 
+        <!--
+            INPUT + DATA BINDING (2-WAY)
+            value="{view>/sessionForm/IdSession}"
+
+            DÉCOMPOSITION :
+            - view : nom du JSONModel (this.getView().setModel(..., "view"))
+            - /sessionForm : objet racine dans le JSONModel
+            - IdSession : propriété métier
+
+            FONCTIONNEMENT :
+            - affichage automatique de la valeur du modèle dans l’Input
+            - modification utilisateur => mise à jour automatique du JSONModel
+              (two-way binding par défaut sur sap.m.Input)
+        -->
         <Input value="{view>/sessionForm/IdSession}" placeholder="IdSession"/>
+
         <Input value="{view>/sessionForm/Annee}" placeholder="Année"/>
+
         <Input value="{view>/sessionForm/Duree}" placeholder="Durée"/>
+
         <Input value="{view>/sessionForm/Site}" placeholder="Site"/>
 
+        <!--
+            HBOX = layout horizontal
+            aligne les boutons sur une seule ligne
+        -->
         <HBox>
+
+            <!--
+                BUTTONS + EVENT HANDLING
+                press="onReadSessionById"
+
+                signifie :
+                - déclenche une méthode du controller
+                - équivalent UI5 de onClick
+                - binding automatique via MVC SAPUI5
+
+                IMPORTANT :
+                - pas de paramètre explicite ici
+                - la fonction récupère les données via le ViewModel
+            -->
             <Button text="READ BY ID" press="onReadSessionById"/>
+
             <Button text="CREATE" type="Emphasized" press="onCreateSession"/>
+
             <Button text="UPDATE" press="onUpdateSession"/>
+
             <Button text="DELETE" type="Reject" press="onDeleteSession"/>
+
         </HBox>
 
     </VBox>

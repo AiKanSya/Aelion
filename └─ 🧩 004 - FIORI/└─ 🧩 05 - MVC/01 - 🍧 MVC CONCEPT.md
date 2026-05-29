@@ -51,11 +51,11 @@ Exemple :
 
 ```js
 var oData = {
-  IdSession: "S001",
-  IdConsultant: "C001",
+  IdSession: "S001", // Clé technique de la session côté backend SAP (identifiant fonctionnel)
+  IdConsultant: "C001", // Clé technique du consultant (identifiant unique dans la session)
   Entreprise: "SAP",
   Name: "Martin",
-  DateBirth: "\/Date(631152000000)\/",
+  DateBirth: "\/Date(631152000000)\/", // Date de naissance au format OData V2 (format spécifique : /Date(<timestamp en millisecondes>)/)
   City: "Paris",
   Region: "IDF",
   Country: "FR",
@@ -104,7 +104,7 @@ Exemple :
 
 ```js
 onPress: function () {
-    sap.m.MessageToast.show("Click OK");
+    console.log("Click OK");
 }
 ```
 
