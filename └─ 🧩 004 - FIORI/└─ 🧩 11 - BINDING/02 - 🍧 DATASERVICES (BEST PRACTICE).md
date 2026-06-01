@@ -545,23 +545,6 @@ sap.ui.define(
               console.error("DELETE Session ERROR", err);
             });
         },
-
-        /*
-        ==========================================================
-        NAVIGATION VERS DETAILS
-        ==========================================================
-        */
-        onPressSession: function (oEvent) {
-          const oItem = oEvent.getSource();
-
-          const oContext = oItem.getBindingContext();
-
-          const sIdSession = oContext.getProperty("IdSession");
-
-          this.getRouter().navTo("RouteDetails", {
-            IdSession: sIdSession,
-          });
-        },
       },
     );
   },
