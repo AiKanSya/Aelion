@@ -339,63 +339,64 @@ sap.ui.define(
     "fr/stms/fgifirstappmodulename/libs/Formatter",
     "fr/stms/fgifirstappmodulename/libs/DataServices",
     "sap/ui/model/json/JSONModel",
+    "sap/m/MessageToast",
   ],
-  (BaseController, Formatter, DataServices, JSONModel) => {
+  (BaseController, Formatter, DataServices, JSONModel, MessageToast) => {
     "use strict";
 
     return BaseController.extend(
       "fr.stms.fgifirstappmodulename.controller.Home",
       {
         /*
-                ==========================================================
-                FORMATTER
-                ==========================================================
-                Utilitaire pour transformer les données dans la vue XML
-                */
+        ==========================================================
+        FORMATTER
+        ==========================================================
+        Utilitaire pour transformer les données dans la vue XML
+        */
         formatter: Formatter,
 
         /*
-                ==========================================================
-                SERVICE BACKEND (OData WRAPPER)
-                ==========================================================
-                - centralise les appels HTTP
-                - transforme callbacks UI5 en Promises
-                */
+        ==========================================================
+        SERVICE BACKEND (OData WRAPPER)
+        ==========================================================
+        - centralise les appels HTTP
+        - transforme callbacks UI5 en Promises
+        */
         _oDataServices: null,
 
         /*
-                ==========================================================
-                INIT CONTROLLER
-                ==========================================================
-                Appelé automatiquement au chargement de la vue
-                */
+        ==========================================================
+        INIT CONTROLLER
+        ==========================================================
+        Appelé automatiquement au chargement de la vue
+        */
         onInit: function () {
           /*
-                    ======================================================
-                    ODATA MODEL GLOBAL (backend SAP)
-                    ======================================================
-                    */
+          ======================================================
+          ODATA MODEL GLOBAL (backend SAP)
+          ======================================================
+          */
           var oModel = this.getOwnerComponent().getModel();
 
           /*
-                    ======================================================
-                    INITIALISATION SERVICE MÉTIER
-                    ======================================================
-                    */
+          ======================================================
+          INITIALISATION SERVICE MÉTIER
+          ======================================================
+          */
           this._oDataServices = new DataServices(oModel);
 
           console.log("INIT START");
 
           /*
-                    ======================================================
-                    JSONMODEL LOCAL (FORMULAIRE UI)
-                    ======================================================
+          ======================================================
+          JSONMODEL LOCAL (FORMULAIRE UI)
+          ======================================================
 
-                    Rôle :
-                    - stocker les données du formulaire
-                    - indépendant du backend
-                    - utilisé pour binding UI (two-way binding)
-                    */
+          Rôle :
+          - stocker les données du formulaire
+          - indépendant du backend
+          - utilisé pour binding UI (two-way binding)
+          */
           this._oViewModel = new JSONModel({
             selectedSession: null,
 
@@ -411,35 +412,35 @@ sap.ui.define(
         },
 
         /*
-                ==========================================================
-                READ BY ID
-                ==========================================================
-                Objectif :
-                - appeler backend OData
-                - remplir le formulaire UI automatiquement
-                */
+        ==========================================================
+        READ BY ID
+        ==========================================================
+        Objectif :
+        - appeler backend OData
+        - remplir le formulaire UI automatiquement
+        */
         onReadSessionById: function () {
           const oViewModel = this.getView().getModel("view");
 
           /*
-                    Lecture valeur input UI :
-                    /sessionForm/IdSession
-                    */
+          Lecture valeur input UI :
+          /sessionForm/IdSession
+          */
           const sId = oViewModel.getProperty("/sessionForm/IdSession");
 
           this._oDataServices
             .getSessionById(sId)
             .then((res) => {
               /*
-                            ==================================================
-                            ATTENTION STRUCTURE ODATA
-                            ==================================================
-                            res.data peut contenir :
-                            - objet direct
-                            - ou structure enveloppée
+              ==================================================
+              ATTENTION STRUCTURE ODATA
+              ==================================================
+              res.data peut contenir :
+              - objet direct
+              - ou structure enveloppée
 
-                            Ici on suppose objet direct
-                            */
+              Ici objet direct
+              */
               oViewModel.setProperty("/sessionForm", res.data);
             })
             .catch((err) => {
@@ -448,14 +449,14 @@ sap.ui.define(
         },
 
         /*
-                ==========================================================
-                CREATE SESSION
-                ==========================================================
-                Flux :
-                1. récupérer formulaire
-                2. envoyer backend
-                3. (optionnel) rafraîchir UI
-                */
+        ==========================================================
+        CREATE SESSION
+        ==========================================================
+        Flux :
+        1. récupérer formulaire
+        2. envoyer backend
+        3. (optionnel) rafraîchir UI
+        */
         onCreateSession: function () {
           const oViewModel = this.getView().getModel("view");
 
@@ -465,30 +466,30 @@ sap.ui.define(
             .createSession(oPayload)
 
             /*
-                        PROMISE 1 :
-                        - création terminée côté backend
-                        */
+            PROMISE 1 :
+            - création terminée côté backend
+            */
             .then(() => {
               /*
-                            IMPORTANT :
-                            ici tu pourrais soit :
-                            - refresh ODataModel
-                            - OU recharger liste via getSessions()
+              IMPORTANT :
+              ici tu pourrais soit :
+              - refresh ODataModel
+              - OU recharger liste via getSessions()
 
-                            MAIS PAS les deux en même temps
-                            */
+              MAIS PAS les deux en même temps
+              */
               return this._oDataServices.getSessions();
             })
 
             /*
-                        PROMISE 2 :
-                        - données mises à jour récupérées
-                        */
+            PROMISE 2 :
+            - données mises à jour récupérées
+            */
             .then(() => {
               /*
-                            UI5 refresh :
-                            force relecture binding
-                            */
+              UI5 refresh :
+              force relecture binding
+              */
               this.getView().getModel().refresh(true);
             })
             .catch((err) => {
@@ -497,11 +498,11 @@ sap.ui.define(
         },
 
         /*
-                ==========================================================
-                UPDATE SESSION
-                ==========================================================
-                même logique que CREATE
-                */
+        ==========================================================
+        UPDATE SESSION
+        ==========================================================
+        même logique que CREATE
+        */
         onUpdateSession: function () {
           const oViewModel = this.getView().getModel("view");
 
@@ -523,10 +524,10 @@ sap.ui.define(
         },
 
         /*
-                ==========================================================
-                DELETE SESSION
-                ==========================================================
-                */
+        ==========================================================
+        DELETE SESSION
+        ==========================================================
+        */
         onDeleteSession: function () {
           const oViewModel = this.getView().getModel("view");
 
@@ -544,8 +545,101 @@ sap.ui.define(
               console.error("DELETE Session ERROR", err);
             });
         },
+
+        /*
+        ==========================================================
+        NAVIGATION VERS DETAILS
+        ==========================================================
+        */
+        onPressSession: function (oEvent) {
+          const oItem = oEvent.getSource();
+
+          const oContext = oItem.getBindingContext();
+
+          const sIdSession = oContext.getProperty("IdSession");
+
+          this.getRouter().navTo("RouteDetails", {
+            IdSession: sIdSession,
+          });
+        },
       },
     );
   },
 );
 ```
+
+## PROMISE .THEN()
+
+Logique actuelle :
+
+    createSession()
+        |
+        +-- SUCCESS
+        |      |
+        |      +--> then #1
+        |               |
+        |               +--> then #2
+        |
+        +-- ERROR
+              |
+              +--> catch
+
+Explication :
+
+    Il n'y a pas de limite pratique imposée par JavaScript.
+
+Il est possible de chaîner autant de then() que nécessaire :
+
+```js
+maPromise()
+  .then((result1) => {
+    return traitement1(result1);
+  })
+  .then((result2) => {
+    return traitement2(result2);
+  })
+  .then((result3) => {
+    return traitement3(result3);
+  })
+  .then((result4) => {
+    return traitement4(result4);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+Chaque then() reçoit la valeur retournée par le then() précédent.
+
+Dans notre contexte SAPUI5 :
+
+```js
+this._oDataServices
+  .createSession(oPayload)
+
+  .then(() => {
+    console.log("CREATE OK");
+  })
+
+  .then(() => {
+    this.getView().getModel().refresh(true);
+  })
+
+  .then(() => {
+    console.log("UI REFRESH OK");
+  })
+
+  .then(() => {
+    MessageToast.show("Session créée");
+  })
+
+  .catch((oError) => {
+    console.error(oError);
+  });
+```
+
+est valide.
+
+Règle :
+
+    1 then = 1 étape métier identifiable
