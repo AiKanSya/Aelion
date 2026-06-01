@@ -58,7 +58,7 @@ STRUCTURE :
 
 IMPORTANT :
 
-ordre des paramètres = ordre du tableau
+    ordre des paramètres = ordre du tableau
 
 ## 🧩 OÙ TROUVER LES MODULES IMPORTABLES (SOURCE OFFICIELLE)
 
@@ -76,13 +76,31 @@ Exemple avec MessageToast :
 
 - Import AMD :
 
-  ```js
-  sap.ui.define([
-  "sap/m/MessageToast"
-  ], function (MessageToast) {
-       /* ... */
-  }
-  ```
+```js
+sap.ui.define(
+  [
+    "fr/stms/fgifirstappmodulename/controller/BaseController",
+    "fr/stms/fgifirstappmodulename/libs/Formatter",
+    "fr/stms/fgifirstappmodulename/libs/DataServices",
+    "sap/ui/model/json/JSONModel",
+    "sap/m/MessageToast",
+  ],
+  (BaseController, Formatter, DataServices, JSONModel, MessageToast) => {
+    "use strict";
+
+    return BaseController.extend(
+      "fr.stms.fgifirstappmodulename.controller.Home",
+      {
+        onInit: function () {
+          /* ... */
+        },
+
+        /* ... */
+      },
+    );
+  },
+);
+```
 
 - Utilisation :
 
@@ -112,7 +130,7 @@ Comment trouver le bon Path ?
 Exemple :
 
 ```js
-return Controller.extend("namespace.Controller", {
+return BaseController.extend("fr.stms.fgifirstappmodulename.controller.Home", {
   /* ... */
 });
 ```
@@ -173,7 +191,7 @@ EXEMPLE :
 
 ```js
 onInit: function () {
-console.log(this); // instance du controller
+  console.log(this); // instance du controller
 }
 ```
 
