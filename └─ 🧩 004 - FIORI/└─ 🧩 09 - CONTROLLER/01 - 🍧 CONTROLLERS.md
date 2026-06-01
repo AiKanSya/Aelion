@@ -2,12 +2,12 @@
 
 > Objectifs
 >
-> [ ] - Comprendre le rôle exact d’un Controller SAPUI5
-> [ ] - Comprendre le pattern MVC dans UI5 (View / Controller / Model)
-> [ ] - Maîtriser le cycle de vie (lifecycle)
-> [ ] - Comprendre l’héritage UI5 et sap.ui.define (AMD)
-> [ ] - Savoir manipuler les événements UI et les modèles
-> [ ] - Éviter les erreurs classiques (this, binding, async, OData)
+> - [ ] Comprendre le rôle exact d’un Controller SAPUI5
+> - [ ] Comprendre le pattern MVC dans UI5 (View / Controller / Model)
+> - [ ] Maîtriser le cycle de vie (lifecycle)
+> - [ ] Comprendre l’héritage UI5 et sap.ui.define (AMD)
+> - [ ] Savoir manipuler les événements UI et les modèles
+> - [ ] Éviter les erreurs classiques (this, binding, async, OData)
 
 ## 🧩 CONTROLLER SAPUI5
 
@@ -137,27 +137,25 @@ HÉRITAGE IMPLIQUE :
 > [!NOTE]
 > La surcharge = redéfinir une méthode héritée dans un enfant.
 > Exemple :
->
-> - BaseController :
->
->   ```js
->   onInit: function () {
->        console.log("Base init");
->   }
->   ```
->
-> - Home Controller :
->
->   ```js
->   onInit: function () {
->        console.log("Home init");
->   }
->   ```
->
-> Résultat :
->
-> - la version Home remplace celle du parent
-> - la version parent est ignorée sauf appel explicite
+
+- > BaseController :
+  >
+  > ```js
+  > onInit: function () {
+  >      console.log("Base init");
+  > }
+  > ```
+- > Home Controller :
+  >
+  > ```js
+  > onInit: function () {
+  >      console.log("Home init");
+  > }
+  > ```
+  >
+  > Résultat :
+- > la version Home remplace celle du paren- t
+  > la version parent est ignorée sauf appel explicite
 
 ## 🧩 INSTANCE (CONCEPT IMPORTANT)
 
@@ -194,10 +192,10 @@ onInit();
 ```
 
 - appelé une seule fois à la création du controller
-- utilisé pour :
-  - initialiser modèles
-  - injecter services
-  - lancer appels backend
+- utilisé pour - :
+  initialiser modèle- s
+  injecter service- s
+  lancer appels backend
 
 ```js
 onBeforeRendering();
@@ -220,10 +218,10 @@ onExit();
 ```
 
 - appelé lors de destruction du controller
-- nettoyage :
-  - timers
-  - subscriptions
-  - ressources
+- nettoyage - :
+  timer- s
+  subscription- s
+  ressources
 
 ## 🧩 CONTEXT "this" (CRITIQUE)
 
