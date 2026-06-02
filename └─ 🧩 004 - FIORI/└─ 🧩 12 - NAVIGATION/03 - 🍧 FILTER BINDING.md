@@ -3,6 +3,7 @@
 > 🌺 Objectifs
 >
 > - [ ] Récupérer les données pour les futures implémentations des Opérations CRUD
+> - [ ] Afficher la liste des consultants dans Details.view
 
 ## 🧩 DETAILS.CONTROLLER
 
