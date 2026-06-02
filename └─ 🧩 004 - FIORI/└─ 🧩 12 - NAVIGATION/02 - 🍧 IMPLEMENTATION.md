@@ -63,9 +63,6 @@ Code :
 </mvc:View>
 ```
 
-> [!NOTE]
-> La View Details présente
-
 > [!WARNING]
 > Ne pas oublier de définir le controller de cette nouvelle View !
 
@@ -201,7 +198,7 @@ Code :
 
 Path :
 
-    webapp/controller/Home.controller.xml
+    webapp/controller/Home.controller.js
 
 Code :
 
