@@ -63,6 +63,12 @@ Code :
 </mvc:View>
 ```
 
+> [!NOTE]
+> La View Details présente
+
+> [!WARNING]
+> Ne pas oublier de définir le controller de cette nouvelle View !
+
 ## 🧩 2. CREATION DU CONTROLLER DETAILS.CONTROLLER
 
 Path :
