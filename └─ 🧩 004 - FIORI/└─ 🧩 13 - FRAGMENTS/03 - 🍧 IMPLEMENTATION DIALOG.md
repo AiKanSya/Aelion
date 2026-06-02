@@ -4,7 +4,7 @@
 >
 > - [ ] Créer un Fragment Type Dialog Box
 
-## 🧩 1. CREATION D'UN FRAGMENT
+## 🧩 1. CREATION D'UN BOUTON D'APPEL DU FRAGMENT
 
 Créer :
 
@@ -16,7 +16,7 @@ Code :
 <Button text="Créer une session" press="onOpenSessionDialog" />
 ```
 
-## 🧩 2. CREER LE FRAGMENT
+## 🧩 2. CREATION DU FRAGMENT
 
 Path :
 
@@ -113,7 +113,7 @@ Ajouter :
 _oSessionDialog: null,
 ```
 
-Puis ajouter la fonction :
+Puis ajouter les fonctions :
 
 ```js
 /**
