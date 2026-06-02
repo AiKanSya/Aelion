@@ -5,7 +5,110 @@
 > - [ ] Récupérer les données pour les futures implémentations des Opérations CRUD
 > - [ ] Afficher la liste des consultants dans Details.view
 
-## 🧩 DETAILS.CONTROLLER
+## 🧩 1. ADAPTATION DE LA VIEW DETAILS.VIEW
+
+Path :
+
+     webapp/view/Details.view.xml
+
+Code :
+
+```xml
+<mvc:View
+    controllerName="fr.stms.fgifirstappmodulename.controller.Details"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page
+        id="detailsPage"
+        title="Détails Session"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+    >
+        <content>
+            <!-- ============================== -->
+            <!-- CONTENEUR DÉTAIL SESSION -->
+            <!-- ============================== -->
+
+            <Panel
+                headerText="Session"
+                class="sapUiSmallMargin"
+            >
+                <VBox class="sapUiSmallMargin">
+                    <!-- ID -->
+                    <Text
+                        text="IdSession"
+                        class="sapUiTinyMarginBottom"
+                    />
+                    <ObjectStatus text="{IdSession}" />
+
+                    <!-- ANNEE -->
+                    <Text text="Année" />
+                    <ObjectStatus text="{Annee}" />
+
+                    <!-- DUREE -->
+                    <Text text="Durée" />
+                    <ObjectStatus text="{Duree}" />
+
+                    <!-- SITE -->
+                    <Text text="Site" />
+                    <ObjectStatus text="{Site}" />
+                </VBox>
+            </Panel>
+
+            <!-- ===================== -->
+            <!-- TABLE CONSULTANTSET -->
+            <!-- ===================== -->
+            <Table
+                id="consultantTableBySession"
+                items="{/ConsultantSet}"
+                inset="false"
+                headerText="Consultants"
+            >
+                <columns>
+                    <Column>
+                        <Text text="Session" />
+                    </Column>
+                    <Column>
+                        <Text text="IdConsultant" />
+                    </Column>
+                    <Column>
+                        <Text text="Nom" />
+                    </Column>
+                    <Column>
+                        <Text text="Entreprise" />
+                    </Column>
+                    <Column>
+                        <Text text="Ville" />
+                    </Column>
+                    <Column>
+                        <Text text="Pays" />
+                    </Column>
+                    <Column>
+                        <Text text="Lang" />
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{IdSession}" />
+                            <Text text="{IdConsultant}" />
+                            <Text text="{Name}" />
+                            <Text text="{Entreprise}" />
+                            <Text text="{City}" />
+                            <Text text="{Country}" />
+                            <Text text="{Lang}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>
+```
+
+## 🧩 2. DETAILS.CONTROLLER
 
 Path :
 
@@ -121,108 +224,4 @@ _onObjectMatched: function (oEvent) {
     */
     oBinding.filter([oFilter]);
 }
-```
-
-## 🧩 ADAPTATION DE LA VIEW DETAILS.VIEW
-
-Path :
-
-     webapp/view/Details.view.xml
-
-Code :
-
-```xml
-<mvc:View
-    controllerName="fr.stms.fgifirstappmodulename.controller.Details"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m"
->
-    <Page
-        id="detailsPage"
-        title="Détails Session"
-        showNavButton="true"
-        navButtonPress="onNavBack"
-    >
-        <content>
-            <!-- ============================== -->
-            <!-- CONTENEUR DÉTAIL SESSION -->
-            <!-- ============================== -->
-
-            <Panel
-                headerText="Session"
-                class="sapUiSmallMargin"
-            >
-                <VBox class="sapUiSmallMargin">
-                    <!-- ID -->
-                    <Text
-                        text="IdSession"
-                        class="sapUiTinyMarginBottom"
-                    />
-                    <ObjectStatus text="{IdSession}" />
-
-                    <!-- ANNEE -->
-                    <Text text="Année" />
-                    <ObjectStatus text="{Annee}" />
-
-                    <!-- DUREE -->
-                    <Text text="Durée" />
-                    <ObjectStatus text="{Duree}" />
-
-                    <!-- SITE -->
-                    <Text text="Site" />
-                    <ObjectStatus text="{Site}" />
-                </VBox>
-            </Panel>
-
-            <!-- ===================== -->
-            <!-- TABLE CONSULTANTSET -->
-            <!-- ===================== -->
-            <Table
-                id="consultantTableBySession"
-                items="{/ConsultantSet}"
-                inset="false"
-                headerText="Consultants"
-            >
-                <columns>
-                    <Column>
-                        <Text text="Session" />
-                    </Column>
-                    <Column>
-                        <Text text="IdConsultant" />
-                    </Column>
-                    <Column>
-                        <Text text="Nom" />
-                    </Column>
-                    <Column>
-                        <Text text="Entreprise" />
-                    </Column>
-                    <Column>
-                        <Text text="Ville" />
-                    </Column>
-                    <Column>
-                        <Text text="Pays" />
-                    </Column>
-                    <Column>
-                        <Text text="Lang" />
-                    </Column>
-                </columns>
-
-                <items>
-                    <ColumnListItem>
-                        <cells>
-                            <Text text="{IdSession}" />
-                            <Text text="{IdConsultant}" />
-                            <Text text="{Name}" />
-                            <Text text="{Entreprise}" />
-                            <Text text="{City}" />
-                            <Text text="{Country}" />
-                            <Text text="{Lang}" />
-                        </cells>
-                    </ColumnListItem>
-                </items>
-            </Table>
-        </content>
-    </Page>
-</mvc:View>
-
 ```
