@@ -20,10 +20,10 @@ Par exemple :
           ├── Details.view.xml
           │
           └── fragments/
-          ├── SessionForm.fragment.xml
-          ├── ConsultantForm.fragment.xml
-          ├── SessionTable.fragment.xml
-          └── ConsultantTable.fragment.xml
+               ├── SessionForm.fragment.xml
+               ├── ConsultantForm.fragment.xml
+               ├── SessionTable.fragment.xml
+               └── ConsultantTable.fragment.xml
 
 Chaque fragment contient uniquement une partie de l'écran.
 
