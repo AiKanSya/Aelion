@@ -4,7 +4,7 @@
 >
 > - [ ] Créer un Fragment statique
 
-## 🧩 0. EXTRACTION DU FORMULAIRE SESSION
+## 🧩 OBJECTIF
 
 Nous souhaitons extraire le formulaire Session.
 
@@ -48,7 +48,7 @@ Code :
 </core:FragmentDefinition>
 ```
 
-## 🧩 2. AJOUT DE LA ROUTE DANS LE MANIFEST
+## 🧩 2. ADAPTER LE HOME.VIEW.XML
 
 Path :
 
