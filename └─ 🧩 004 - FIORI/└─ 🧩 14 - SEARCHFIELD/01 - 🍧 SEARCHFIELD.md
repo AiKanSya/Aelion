@@ -248,19 +248,15 @@ onFilterConsultant: function (oEvent) {
 Filtre sur un seul champ :
 
 ```js
-                onFilterConsultant: function (oEvent) {
-                    const sValue =
-                        oEvent.getParameter("newValue");
-                    const oTable =
-                        this.byId("consultantTable");
-                    const oBinding =
-                        oTable.getBinding("items");
-                    const oFilter =
-                        new Filter(
+onFilterConsultant: function (oEvent) {
+    const sValue = oEvent.getParameter("newValue");
+    const oTable = this.byId("consultantTable");
+    const oBinding = oTable.getBinding("items");
+    const oFilter = new Filter(
                             "Name",
                             FilterOperator.Contains,
                             sValue
                         );
-                    oBinding.filter([oFilter]);
-                },
+    oBinding.filter([oFilter]);
+},
 ```
