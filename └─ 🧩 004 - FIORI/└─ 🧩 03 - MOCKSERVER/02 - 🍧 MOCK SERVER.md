@@ -694,269 +694,281 @@ sap.ui.define(
 Modifications :
 
 ```js
-/******************************************************************************
+/**
  * sap.ui.define
  * ---------------------------------------------------------------------------
- * Déclare un module SAPUI5.
+ * Module principal SAPUI5 : Component de l’application Fiori/UI5.
  *
- * Les dépendances sont chargées puis injectées automatiquement dans la
- * fonction callback.
- ******************************************************************************/
+ * Rôle global :
+ * - point d’entrée de l’application
+ * - initialisation des modèles globaux
+ * - configuration du routing
+ * - initialisation des services métier
+ * - activation du mock backend (optionnel)
+ */
 sap.ui.define(
   [
-    /**************************************************************************
+    /**********************************************************************
      * UIComponent
-     * ------------------------------------------------------------------------
-     * Classe principale d’une application SAPUI5.
+     * --------------------------------------------------------------------
+     * Classe de base SAPUI5 pour toute application Fiori.
      *
      * Gère :
-     * - le cycle de vie de l’application
-     * - les modèles
-     * - le routing
-     * - le manifest.json
-     **************************************************************************/
+     * - cycle de vie application
+     * - routing
+     * - modèles globaux
+     * - chargement manifest.json
+     **********************************************************************/
     "sap/ui/core/UIComponent",
 
-    /**************************************************************************
+    /**********************************************************************
      * Log
-     * ------------------------------------------------------------------------
-     * API SAPUI5 permettant d’écrire des logs.
+     * --------------------------------------------------------------------
+     * API de logging SAPUI5.
      *
-     * Exemples :
-     * - Log.info(...)
-     * - Log.error(...)
-     * - Log.warning(...)
-     **************************************************************************/
+     * Utilisé pour tracer :
+     * - info
+     * - warning
+     * - error
+     **********************************************************************/
     "sap/base/Log",
 
-    /**************************************************************************
-     * ResourceModel
-     * ------------------------------------------------------------------------
-     * Modèle SAPUI5 utilisé pour l’internationalisation (i18n).
+    /**********************************************************************
+     * ResourceModel (i18n)
+     * --------------------------------------------------------------------
+     * Modèle de traduction.
      *
      * Charge les fichiers :
      * - i18n.properties
-     * - i18n_fr.properties
-     * - etc.
-     **************************************************************************/
+     * - i18n_xx.properties
+     **********************************************************************/
     "sap/ui/model/resource/ResourceModel",
 
-    /**************************************************************************
-     * models
-     * ------------------------------------------------------------------------
-     * Module personnalisé contenant souvent :
+    /**********************************************************************
+     * models (custom)
+     * --------------------------------------------------------------------
+     * Module applicatif contenant les modèles utilitaires :
      * - createDeviceModel()
-     * - autres modèles applicatifs
-     **************************************************************************/
+     * - autres modèles UI
+     **********************************************************************/
     "fr/stms/fgifirstappmodulename/model/models",
 
-    /**************************************************************************
+    /**********************************************************************
      * mockServer
-     * ------------------------------------------------------------------------
-     * Serveur simulé SAPUI5.
+     * --------------------------------------------------------------------
+     * Serveur OData simulé.
      *
-     * Permet de simuler un backend OData localement.
-     **************************************************************************/
+     * Utilisé en mode développement/formation :
+     * - sans backend réel
+     * - données fictives
+     **********************************************************************/
     "fr/stms/fgifirstappmodulename/test/mockServer",
 
-    /**************************************************************************
+    /**********************************************************************
      * DataServices
-     * ------------------------------------------------------------------------
-     * Service personnalisé contenant généralement :
+     * --------------------------------------------------------------------
+     * Service métier centralisé.
+     *
+     * Contient :
      * - appels OData
      * - logique métier
-     * - traitements de données
-     **************************************************************************/
+     * - abstraction du backend
+     **********************************************************************/
     "fr/stms/fgifirstappmodulename/libs/DataServices",
   ],
 
-  /****************************************************************************
-   * Fonction callback exécutée après chargement des dépendances.
+  /**
+   * Callback exécuté après chargement des dépendances AMD.
    *
-   * Les paramètres sont injectés dans le même ordre que les dépendances.
-   ****************************************************************************/
+   * IMPORTANT :
+   * L’ordre des paramètres DOIT correspondre à l’ordre du tableau
+   * des dépendances.
+   */
   function (UIComponent, Log, ResourceModel, models, mockServer, DataServices) {
     "use strict";
 
-    /**************************************************************************
-     * Création du composant principal de l’application.
+    /**********************************************************************
+     * Classe Component principale
+     * --------------------------------------------------------------------
+     * Hérite de UIComponent.
      *
-     * UIComponent.extend(...)
-     * crée une nouvelle classe héritant de UIComponent.
-     **************************************************************************/
-    return UIComponent.extend(
-      "fr.stms.fgifirstappmodulename.Component",
+     * Responsabilités :
+     * - bootstrap application
+     * - initialisation services
+     * - configuration globale UI5
+     **********************************************************************/
+    return UIComponent.extend("fr.stms.fgifirstappmodulename.Component", {
+      /******************************************************************
+       * metadata
+       * ----------------------------------------------------------------
+       * Configuration statique du composant.
+       ******************************************************************/
+      metadata: {
+        /****************************************************************
+         * manifest.json
+         * --------------------------------------------------------------
+         * Configuration centrale Fiori :
+         * - routing
+         * - modèles
+         * - datasources
+         ****************************************************************/
+        manifest: "json",
 
-      {
-        /**********************************************************************
-         * metadata
-         * --------------------------------------------------------------------
-         * Configuration du composant.
-         **********************************************************************/
-        metadata: {
-          /********************************************************************
-           * Indique que la configuration principale est dans manifest.json
-           ********************************************************************/
-          manifest: "json",
+        /****************************************************************
+         * IAsyncContentCreation
+         * --------------------------------------------------------------
+         * Optimisation UI5 :
+         * chargement asynchrone des vues.
+         ****************************************************************/
+        interfaces: ["sap.ui.core.IAsyncContentCreation"],
+      },
 
-          /********************************************************************
-           * Interface SAPUI5 utilisée pour le chargement asynchrone des vues.
-           ********************************************************************/
-          interfaces: ["sap.ui.core.IAsyncContentCreation"],
-        },
-
-        /**********************************************************************
-         * init()
-         * --------------------------------------------------------------------
-         * Méthode du cycle de vie SAPUI5.
+      /******************************************************************
+       * init()
+       * ----------------------------------------------------------------
+       * Point d’entrée runtime de l’application.
+       *
+       * Appelé automatiquement au lancement UI5.
+       ******************************************************************/
+      init: function () {
+        /****************************************************************
+         * Appel du constructeur parent UIComponent
          *
-         * Appelée automatiquement au démarrage de l’application.
-         **********************************************************************/
-        init: function () {
-          /********************************************************************
-           * Appel du init() parent.
-           *
-           * Très important :
-           * permet d’exécuter l’initialisation standard SAPUI5.
-           *
-           * apply(this, arguments)
-           * -> exécute la méthode parent
-           * -> conserve le contexte courant
-           * -> transmet tous les arguments reçus
-           ********************************************************************/
-          UIComponent.prototype.init.apply(this, arguments);
+         * Obligatoire pour initialisation framework UI5.
+         ****************************************************************/
+        UIComponent.prototype.init.apply(this, arguments);
 
-          /********************************************************************
-           * Lecture du paramètre d’URL "mock"
-           *
-           * Exemple :
-           * index.html?mock=true
-           *
-           * URLSearchParams :
-           * API JavaScript permettant de lire les paramètres d’URL.
-           ********************************************************************/
-          var bMock =
-            new URLSearchParams(window.location.search).get("mock") === "true";
+        /****************************************************************
+         * Détection mode mock via URL
+         *
+         * Exemple :
+         * http://app?mock=true
+         *
+         * URLSearchParams :
+         * API JavaScript permettant de lire les paramètres URL.
+         ****************************************************************/
+        var bMock =
+          new URLSearchParams(window.location.search).get("mock") === "true";
 
-          /********************************************************************
-           * Si mock=true :
-           * - activation du MockServer
-           * - simulation du backend OData
-           ********************************************************************/
-          if (bMock) {
-            mockServer.init();
+        /****************************************************************
+         * Activation MockServer si mode dev activé
+         ****************************************************************/
+        if (bMock) {
+          mockServer.init();
+          Log.info("MockServer activated");
+        }
 
-            Log.info("MockServer activated");
-          }
+        /****************************************************************
+         * Modèle device
+         *
+         * Sert à adapter l’UI :
+         * - mobile
+         * - tablette
+         * - desktop
+         ****************************************************************/
+        this.setModel(models.createDeviceModel(), "device");
 
-          /********************************************************************
-           * Création du modèle device.
-           *
-           * Sert généralement à détecter :
-           * - mobile
-           * - tablette
-           * - desktop
-           *
-           * Le modèle est enregistré sous le nom "device".
-           ********************************************************************/
-          this.setModel(models.createDeviceModel(), "device");
+        /****************************************************************
+         * Modèle i18n
+         *
+         * Permet l’internationalisation de l’application.
+         ****************************************************************/
+        var i18nModel = new ResourceModel({
+          bundleName: "fr.stms.fgifirstappmodulename.i18n.i18n",
+        });
 
-          /********************************************************************
-           * Création du modèle i18n.
+        this.setModel(i18nModel, "i18n");
+
+        /****************************************************************
+         * metadataLoaded()
+         * --------------------------------------------------------------
+         * Fonction fournie par ODataModel V2.
+         *
+         * Retourne une PROMISE JavaScript.
+         *
+         * BUT :
+         * attendre le chargement complet des métadonnées OData :
+         * - EntitySet
+         * - propriétés
+         * - associations
+         * - types
+         *
+         * IMPORTANT :
+         * Sans cela, certains appels OData peuvent échouer
+         * car le modèle n’est pas encore prêt.
+         ****************************************************************/
+        this.getModel()
+          .metadataLoaded()
+
+          /**************************************************************
+           * .then()
+           * ------------------------------------------------------------
+           * Exécuté UNIQUEMENT quand la Promise est résolue.
            *
-           * Charge les traductions depuis :
-           * fr/stms/fgifirstappmodulename/i18n/i18n.properties
-           ********************************************************************/
-          var i18nModel = new ResourceModel({
-            bundleName: "fr.stms.fgifirstappmodulename.i18n.i18n",
+           * Ici :
+           * => le modèle OData est maintenant prêt.
+           **************************************************************/
+          .then(() => {
+            /************************************************************
+             * getDataServices()
+             * ----------------------------------------------------------
+             * Récupère l’instance unique du service métier.
+             *
+             * Pattern utilisé :
+             * - Singleton léger
+             * - Lazy initialization
+             *
+             * Avantage :
+             * évite de créer plusieurs fois DataServices.
+             ************************************************************/
+            this.getDataServices();
+
+            Log.info("DataServices READY");
+            console.log("DataServices READY");
           });
 
-          /********************************************************************
-           * Enregistrement du modèle i18n.
-           *
-           * Accessible dans les vues via :
-           * i18n>MY_TEXT
-           ********************************************************************/
-          this.setModel(i18nModel, "i18n");
-
-          /********************************************************************
-           * this.getModel()
-           * ------------------------------------------------------------------
-           * Récupère le modèle OData principal défini dans le manifest.json
-           ********************************************************************/
-          this.getModel()
-
-            /******************************************************************
-             * metadataLoaded()
-             * ---------------------------------------------------------------
-             * Promise exécutée lorsque les métadonnées OData sont chargées.
-             *
-             * Important :
-             * les services OData ne doivent parfois être utilisés
-             * qu’après chargement des métadonnées.
-             ******************************************************************/
-            .metadataLoaded()
-
-            /******************************************************************
-             * then(...)
-             * ---------------------------------------------------------------
-             * Exécuté lorsque la Promise est résolue.
-             *
-             * Syntaxe ES6 :
-             * Arrow Function
-             ******************************************************************/
-            .then(() => {
-              /***************************************************************
-               * Création de l’instance DataServices.
-               *
-               * this.oDataServices :
-               * propriété personnalisée du composant.
-               ***************************************************************/
-              this.oDataServices = new DataServices(this.getModel());
-
-              Log.info("DataServices READY");
-
-              console.log("DataServices READY");
-            });
-
-          /********************************************************************
-           * Initialisation du Router SAPUI5.
-           *
-           * Permet :
-           * - navigation entre vues
-           * - gestion des routes
-           * - gestion des URLs
-           ********************************************************************/
-          this.getRouter().initialize();
-        },
-
-        /**********************************************************************
-         * getDataServices()
-         * --------------------------------------------------------------------
-         * Méthode publique permettant de récupérer DataServices.
-         **********************************************************************/
-        getDataServices: function () {
-          /********************************************************************
-           * Vérifie si l’instance existe déjà.
-           *
-           * !this.oDataServices
-           * -> signifie :
-           * "si oDataServices n’existe pas"
-           ********************************************************************/
-          if (!this.oDataServices) {
-            /******************************************************************
-             * Création de l’instance si elle n’existe pas.
-             ******************************************************************/
-            this.oDataServices = new DataServices(this.getModel());
-          }
-
-          /********************************************************************
-           * Retourne l’instance DataServices.
-           ********************************************************************/
-          return this.oDataServices;
-        },
+        /****************************************************************
+         * Initialisation router
+         *
+         * Active la navigation entre vues Fiori.
+         ****************************************************************/
+        this.getRouter().initialize();
       },
-    );
+
+      /******************************************************************
+       * getDataServices()
+       * ----------------------------------------------------------------
+       * Getter centralisé des services backend.
+       *
+       * Retourne toujours UNE seule instance.
+       *
+       * Concept :
+       * SINGLETON
+       ******************************************************************/
+      getDataServices: function () {
+        /****************************************************************
+         * Vérification existence instance
+         *
+         * !this.oDataServices
+         * => signifie :
+         * "l’instance n’existe pas encore"
+         ****************************************************************/
+        if (!this.oDataServices) {
+          /**************************************************************
+           * Création du service métier
+           *
+           * this.getModel()
+           * retourne le ODataModel principal défini dans le manifest.
+           **************************************************************/
+          this.oDataServices = new DataServices(this.getModel());
+        }
+
+        /****************************************************************
+         * Retour de l’instance unique
+         ****************************************************************/
+        return this.oDataServices;
+      },
+    });
   },
 );
 ```
@@ -1013,7 +1025,7 @@ Vérifier les logs dans la console. Vous devriez voir :
     Mock server started
     DataServices READY
 
-## ERREURS
+## 🧩 ERREURS POSSIBLES
 
 fe-mockserver manquant (package)
 

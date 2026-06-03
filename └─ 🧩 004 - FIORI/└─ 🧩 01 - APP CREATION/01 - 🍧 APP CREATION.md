@@ -211,14 +211,99 @@ _Configure the main project attributes._
 
 ![](./assets/Capture%20d’écran%202026-05-20%20093317.png)
 
-Console
+#### 🌺 Vérifier le ui5-local.yaml
 
-    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+Path :
 
-Console
+    racine/ui5.yaml
 
-    npm run
+Vous devriez avoir ceci :
 
-Modifier ui5-local.yaml
+```yaml
+backend:
+  - path: /sap
+    url: https://s4hhost1.stms.fr:44300
+    client: "200"
+```
 
-    https://s4hhost1.stms.fr:44300
+Si ce n'est pas le cas, modifier le pour correspondre.
+
+#### 🌺 Vérifier/créer le ui5-mock.yaml
+
+vérifier le `Path` du `backend`
+
+```yaml
+backend:
+  - path: /sap
+    url: https://s4hhost1.stms.fr:44300
+    client: "200"
+```
+
+ainsi que :
+
+```yaml
+services:
+  - urlPath: /sap/opu/odata/sap/ZFIORI_DEMO_SRV
+    metadataPath: ./webapp/localService/metadata.xml
+    mockdataPath: ./webapp/localService/data
+    generateMockData: true
+```
+
+Si le fichier n'existe pas, voici une copie :
+
+```yaml
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "4.0"
+metadata:
+  name: fr.stms.fioriappdemo
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertErrors: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+        backend:
+          - path: /sap
+            url: https://s4hhost1.stms.fr:44300
+            client: "200"
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        flp:
+          theme: sap_horizon
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
+      configuration:
+        mountPath: /
+        services:
+          - urlPath: /sap/opu/odata/sap/ZFIORI_DEMO_SRV
+            metadataPath: ./webapp/localService/metadata.xml
+            mockdataPath: ./webapp/localService/data
+            generateMockData: true
+        annotations: []
+```
+
+## 🧩 ERREURS POSSIBLES
+
+#### 🌺 Erreurs de Policies :
+
+1. Dans la Console au niveau de la racine du projet
+
+   Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+2. Toujours dans la console
+
+   npm run
