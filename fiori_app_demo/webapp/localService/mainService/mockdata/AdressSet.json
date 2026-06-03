@@ -1,0 +1,164 @@
+[
+     {
+          "Partner": "1000000001",
+          "Addrnumber": "0000000001",
+          "Xdfadr": true,
+          "Adext": "ADR-0001",
+          "Nation": "F",
+          "AddrValidFrom": "/Date(1704067200000)/",
+          "AddrValidTo": "/Date(4102444800000)/"
+     },
+     {
+          "Partner": "1000000001",
+          "Addrnumber": "0000000002",
+          "Xdfadr": false,
+          "Adext": "ADR-0002",
+          "Nation": "F",
+          "AddrValidFrom": "/Date(1672531200000)/",
+          "AddrValidTo": "/Date(1735603200000)/"
+     },
+     {
+          "Partner": "1000000001",
+          "Addrnumber": "0000000003",
+          "Xdfadr": false,
+          "Adext": "ADR-0003",
+          "Nation": "BE",
+          "AddrValidFrom": "/Date(1688169600000)/",
+          "AddrValidTo": "/Date(1751328000000)/"
+     },
+     {
+          "Partner": "1000000002",
+          "Addrnumber": "0000000004",
+          "Xdfadr": true,
+          "Adext": "ADR-0004",
+          "Nation": "F",
+          "AddrValidFrom": "/Date(1704067200000)/",
+          "AddrValidTo": "/Date(4102444800000)/"
+     },
+     {
+          "Partner": "1000000002",
+          "Addrnumber": "0000000005",
+          "Xdfadr": false,
+          "Adext": "ADR-0005",
+          "Nation": "DE",
+          "AddrValidFrom": "/Date(1696118400000)/",
+          "AddrValidTo": "/Date(1767139200000)/"
+     },
+     {
+          "Partner": "1000000003",
+          "Addrnumber": "0000000006",
+          "Xdfadr": true,
+          "Adext": "ADR-0006",
+          "Nation": "F",
+          "AddrValidFrom": "/Date(1704067200000)/",
+          "AddrValidTo": "/Date(4102444800000)/"
+     },
+     {
+          "Partner": "1000000003",
+          "Addrnumber": "0000000007",
+          "Xdfadr": false,
+          "Adext": "ADR-0007",
+          "Nation": "ES",
+          "AddrValidFrom": "/Date(1680307200000)/",
+          "AddrValidTo": "/Date(1743465600000)/"
+     },
+     {
+          "Partner": "1000000004",
+          "Addrnumber": "0000000008",
+          "Xdfadr": true,
+          "Adext": "ADR-0008",
+          "Nation": "F",
+          "AddrValidFrom": "/Date(1704067200000)/",
+          "AddrValidTo": "/Date(4102444800000)/"
+     },
+     {
+          "Partner": "1000000004",
+          "Addrnumber": "0000000009",
+          "Xdfadr": false,
+          "Adext": "ADR-0009",
+          "Nation": "IT",
+          "AddrValidFrom": "/Date(1667260800000)/",
+          "AddrValidTo": "/Date(1730332800000)/"
+     },
+     {
+          "Partner": "1000000005",
+          "Addrnumber": "0000000010",
+          "Xdfadr": true,
+          "Adext": "ADR-0010",
+          "Nation": "F",
+          "AddrValidFrom": "/Date(1704067200000)/",
+          "AddrValidTo": "/Date(4102444800000)/"
+     },
+     {
+          "Partner": "1000000005",
+          "Addrnumber": "0000000011",
+          "Xdfadr": false,
+          "Adext": "ADR-0011",
+          "Nation": "UK",
+          "AddrValidFrom": "/Date(1677628800000)/",
+          "AddrValidTo": "/Date(1740787200000)/"
+     },
+     {
+          "Partner": "1000000006",
+          "Addrnumber": "0000000012",
+          "Xdfadr": true,
+          "Adext": "ADR-0012",
+          "Nation": "F",
+          "AddrValidFrom": "/Date(1704067200000)/",
+          "AddrValidTo": "/Date(4102444800000)/"
+     },
+     {
+          "Partner": "1000000006",
+          "Addrnumber": "0000000013",
+          "Xdfadr": false,
+          "Adext": "ADR-0013",
+          "Nation": "NL",
+          "AddrValidFrom": "/Date(1682899200000)/",
+          "AddrValidTo": "/Date(1746057600000)/"
+     },
+     {
+          "Partner": "1000000007",
+          "Addrnumber": "0000000014",
+          "Xdfadr": true,
+          "Adext": "ADR-0014",
+          "Nation": "F",
+          "AddrValidFrom": "/Date(1704067200000)/",
+          "AddrValidTo": "/Date(4102444800000)/"
+     },
+     {
+          "Partner": "1000000007",
+          "Addrnumber": "0000000015",
+          "Xdfadr": false,
+          "Adext": "ADR-0015",
+          "Nation": "CH",
+          "AddrValidFrom": "/Date(1675209600000)/",
+          "AddrValidTo": "/Date(1738368000000)/"
+     },
+     {
+          "Partner": "1000000008",
+          "Addrnumber": "0000000016",
+          "Xdfadr": true,
+          "Adext": "ADR-0016",
+          "Nation": "F",
+          "AddrValidFrom": "/Date(1704067200000)/",
+          "AddrValidTo": "/Date(4102444800000)/"
+     },
+     {
+          "Partner": "1000000008",
+          "Addrnumber": "0000000017",
+          "Xdfadr": false,
+          "Adext": "ADR-0017",
+          "Nation": "US",
+          "AddrValidFrom": "/Date(1685577600000)/",
+          "AddrValidTo": "/Date(1748736000000)/"
+     },
+     {
+          "Partner": "1000000008",
+          "Addrnumber": "0000000018",
+          "Xdfadr": false,
+          "Adext": "ADR-0018",
+          "Nation": "CA",
+          "AddrValidFrom": "/Date(1693440000000)/",
+          "AddrValidTo": "/Date(1756598400000)/"
+     }
+]

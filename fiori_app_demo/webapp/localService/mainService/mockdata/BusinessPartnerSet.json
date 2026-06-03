@@ -1,0 +1,74 @@
+[
+     {
+          "Partner": "1000000001",
+          "Bpext": "EXT-BP-0001",
+          "NameOrg1": "STMS France",
+          "NameOrg2": "Consulting",
+          "IndSector": "IT",
+          "NameLast": "",
+          "NameFirst": ""
+     },
+     {
+          "Partner": "1000000002",
+          "Bpext": "EXT-BP-0002",
+          "NameOrg1": "Alphatech",
+          "NameOrg2": "Manufacturing",
+          "IndSector": "INDUS",
+          "NameLast": "",
+          "NameFirst": ""
+     },
+     {
+          "Partner": "1000000003",
+          "Bpext": "EXT-BP-0003",
+          "NameOrg1": "",
+          "NameOrg2": "",
+          "IndSector": "SERV",
+          "NameLast": "Martin",
+          "NameFirst": "Sophie"
+     },
+     {
+          "Partner": "1000000004",
+          "Bpext": "EXT-BP-0004",
+          "NameOrg1": "",
+          "NameOrg2": "",
+          "IndSector": "CONS",
+          "NameLast": "Durand",
+          "NameFirst": "Pierre"
+     },
+     {
+          "Partner": "1000000005",
+          "Bpext": "EXT-BP-0005",
+          "NameOrg1": "Global Finance",
+          "NameOrg2": "Paris Office",
+          "IndSector": "BANK",
+          "NameLast": "",
+          "NameFirst": ""
+     },
+     {
+          "Partner": "1000000006",
+          "Bpext": "EXT-BP-0006",
+          "NameOrg1": "Blue Energy",
+          "NameOrg2": "Renewables",
+          "IndSector": "ENERGY",
+          "NameLast": "",
+          "NameFirst": ""
+     },
+     {
+          "Partner": "1000000007",
+          "Bpext": "EXT-BP-0007",
+          "NameOrg1": "",
+          "NameOrg2": "",
+          "IndSector": "HEALTH",
+          "NameLast": "Bernard",
+          "NameFirst": "Claire"
+     },
+     {
+          "Partner": "1000000008",
+          "Bpext": "EXT-BP-0008",
+          "NameOrg1": "Tech Solutions",
+          "NameOrg2": "Innovation Lab",
+          "IndSector": "IT",
+          "NameLast": "",
+          "NameFirst": ""
+     }
+]

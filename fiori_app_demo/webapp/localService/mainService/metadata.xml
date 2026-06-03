@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZFIORI_DEMO_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="BusinessPartner" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Partner"/>
+                </Key>
+                <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Busn. Partner"/>
+                <Property Name="Bpext" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="External Number"/>
+                <Property Name="NameOrg1" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Name 1"/>
+                <Property Name="NameOrg2" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Name 2"/>
+                <Property Name="IndSector" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Industry sector"/>
+                <Property Name="NameLast" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Last Name"/>
+                <Property Name="NameFirst" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="First Name"/>
+            </EntityType>
+            <EntityType Name="Adress" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Partner"/>
+                    <PropertyRef Name="Addrnumber"/>
+                </Key>
+                <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Busn. Partner"/>
+                <Property Name="Addrnumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Address Number"/>
+                <Property Name="Xdfadr" Type="Edm.Boolean" sap:unicode="false" sap:label="Stand. address"/>
+                <Property Name="Adext" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="External number"/>
+                <Property Name="Nation" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Address Version"/>
+                <Property Name="AddrValidFrom" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Valid From"/>
+                <Property Name="AddrValidTo" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Valid To"/>
+            </EntityType>
+            <EntityContainer Name="ZFIORI_DEMO_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="BusinessPartnerSet" EntityType="ZFIORI_DEMO_SRV.BusinessPartner" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="AdressSet" EntityType="ZFIORI_DEMO_SRV.Adress" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <atom:link rel="self" href="https://s4hhost1.stms.fr:44300/sap/opu/odata/sap/ZFIORI_DEMO_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://s4hhost1.stms.fr:44300/sap/opu/odata/sap/ZFIORI_DEMO_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

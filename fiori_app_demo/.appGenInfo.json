@@ -1,0 +1,23 @@
+{
+  "generationParameters": {
+    "generationDate": "Wed Jun 03 2026 11:56:37 GMT+0200 (Central European Summer Time)",
+    "generatorPlatform": "Visual Studio Code",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "https://s4hhost1.stms.fr:44300/sap/opu/odata/sap/ZFIORI_DEMO_SRV",
+    "appName": "fiori_app_demo",
+    "appTitle": "FIORI APP DEMO",
+    "appDescription": "Mon app Demo Fiori",
+    "appNamespace": "fr.stms",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.120.14",
+    "enableEslint": true,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.22.0",
+    "template": "Basic V2",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```"
+  }
+}
