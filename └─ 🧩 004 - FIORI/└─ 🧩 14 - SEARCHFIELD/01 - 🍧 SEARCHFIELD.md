@@ -57,7 +57,7 @@ Au-dessus de la table Consultant :
 ```xml
 <SearchField
      width="100%"
-     placeholder="Rechercher un consultant (Nom, Entreprise, Ville, Pays)"
+     placeholder="Rechercher un consultant (Nom)"
      liveChange="onFilterName"
 />
 
@@ -243,20 +243,4 @@ onFilterConsultant: function (oEvent) {
     oBinding.filter([oFilter]);
 
 }
-```
-
-Filtre sur un seul champ :
-
-```js
-onFilterConsultant: function (oEvent) {
-    const sValue = oEvent.getParameter("newValue");
-    const oTable = this.byId("consultantTable");
-    const oBinding = oTable.getBinding("items");
-    const oFilter = new Filter(
-                            "Name",
-                            FilterOperator.Contains,
-                            sValue
-                        );
-    oBinding.filter([oFilter]);
-},
 ```
