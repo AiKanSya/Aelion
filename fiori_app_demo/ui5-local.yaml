@@ -39,7 +39,7 @@ server:
         mountPath: /
         services:
           - urlPath: /sap/opu/odata/sap/ZFIORI_DEMO_SRV
-            metadataPath: ./webapp/localService/mainService/metadata.xml
-            mockdataPath: ./webapp/localService/mainService/data
+            metadataPath: ./webapp/localService/metadata.xml
+            mockdataPath: ./webapp/localService/data
             generateMockData: true
         annotations: []

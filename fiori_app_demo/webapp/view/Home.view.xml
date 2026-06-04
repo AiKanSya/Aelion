@@ -1,6 +1,10 @@
-<mvc:View controllerName="fr.stms.fioriappdemo.controller.Home"
+<mvc:View
+    controllerName="fr.stms.fioriappdemo.controller.Home"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-    </Page>
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    />
 </mvc:View>

@@ -1,10 +1,17 @@
-sap.ui.define([
-    "sap/ui/core/mvc/Controller"
-], (Controller) => {
-    "use strict";
+sap.ui.define(
+    [
+        "fr/stms/fioriappdemo/controller/BaseController",
+    ],
+    (BaseController) => {
+        "use strict";
+        return BaseController.extend(
+            "fr.stms.fioriappdemo.controller.Home",
+            {
+                onInit: function () {
 
-    return Controller.extend("fr.stms.fioriappdemo.controller.Home", {
-        onInit() {
-        }
-    });
-});
+                    this.callBaseController();
+                },
+            },
+        );
+    },
+);
