@@ -226,6 +226,21 @@ backend:
     client: "200"
 ```
 
+Modifier également le Path metadataPath et mockdataPath :
+
+```yaml
+- name: sap-fe-mockserver
+  beforeMiddleware: csp
+  configuration:
+    mountPath: /
+    services:
+      - urlPath: /sap/opu/odata/sap/ZFIORI_EVALUATION_2026_SRV
+        metadataPath: ./webapp/localService/metadata.xml
+        mockdataPath: ./webapp/localService/data
+        generateMockData: true
+    annotations: []
+```
+
 Si ce n'est pas le cas, modifier le pour correspondre.
 
 #### 🌺 Vérifier/créer le ui5-mock.yaml
@@ -239,7 +254,7 @@ backend:
     client: "200"
 ```
 
-ainsi que :
+ainsi que metadataPath et mockdataPath :
 
 ```yaml
 services:
@@ -300,10 +315,15 @@ server:
 
 #### 🌺 Erreurs de Policies :
 
-1. Dans la Console au niveau de la racine du projet
+> [!WARNING]
+> Il se peut que vous ayez une erreur de Policy. Dans ce cas
+
+1. Ouvrir la console au niveau de l'app (clic-droit sur la racine du projet > "open in integrated terminal")
+
+2. Entrer la commande suivante :
 
    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
-2. Toujours dans la console
+3. Toujours dans la console
 
    npm run
