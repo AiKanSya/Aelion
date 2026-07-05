@@ -67,7 +67,7 @@ sap.ui.define(
            * - de centraliser de la logique métier
            **************************************************************************/
           return EventProvider.extend(
-               "fr.stms.fioriappdemo.libs.DataService",
+               "fr.stms.fioriappdemo.libs.DataServices",
 
                {
                     /**********************************************************************
