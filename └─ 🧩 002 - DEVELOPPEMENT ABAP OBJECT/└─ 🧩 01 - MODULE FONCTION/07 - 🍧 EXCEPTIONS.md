@@ -8,7 +8,6 @@
 - [ ] Interpréter `SY-SUBRC`
 - [ ] Comprendre la différence avec une exception de classe
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,7 +19,6 @@ flowchart TD
     D --> E["MAPPING DANS L'APPEL"]
     E --> F["ROLE DE OTHERS"]
 ```
-
 
 ## 🌺 DÉFINITION
 

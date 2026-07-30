@@ -6,6 +6,7 @@
 - [ ] Comprendre **sap gateway datamodel - abap field name**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -16,7 +17,6 @@ flowchart TD
 
 > [!IMPORTANT]
 > Une modification du modèle OData peut nécessiter une nouvelle génération des artefacts d’exécution et une vérification du document `$metadata` consommé par les clients.
-
 
 ## 🌺 SAP GATEWAY DATAMODEL - ABAP FIELD NAME
 
@@ -38,12 +38,12 @@ L'`ABAP Field Name` relie une `OData Property` à son `Field` correspondant dans
 
 ### 🍧 RÈGLES
 
-| 🍧 Règle                                              | 🍧 Explication                                                   |
-| ----------------------------------------------------- | ---------------------------------------------------------------- |
-| Doit correspondre à un `Field` DDIC existant          | Évite les erreurs de mapping ou d’accès aux données              |
-| Respecter la casse et longueur du DDIC                | Les noms incorrects provoquent des échecs de génération          |
-| Stable après livraison                                | Changer casse le mapping automatique et peut casser les services |
-| Ne pas utiliser pour des calculs ou champs virtuels | Ces champs n’ont pas de correspondance DDIC                    |
+| 🍧 Règle                                            | 🍧 Explication                                                   |
+| --------------------------------------------------- | ---------------------------------------------------------------- |
+| Doit correspondre à un `Field` DDIC existant        | Évite les erreurs de mapping ou d’accès aux données              |
+| Respecter la casse et longueur du DDIC              | Les noms incorrects provoquent des échecs de génération          |
+| Stable après livraison                              | Changer casse le mapping automatique et peut casser les services |
+| Ne pas utiliser pour des calculs ou champs virtuels | Ces champs n’ont pas de correspondance DDIC                      |
 
 ### 🍧 $METADATA EXAMPLES
 

@@ -7,7 +7,6 @@
 - [ ] Définir la description et la présentation des données
 - [ ] Créer un `ELEMENT DE DONNEES` dans la transaction SE11
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     C --> D["CREATION D’UN ELEMENT DE DONNEES"]
     D --> E["UTILISATION CONSEILLÉE"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -150,6 +148,7 @@ Avoir créé un `DOMAINE` (ex : `ZCONSULTANT_ID`).
 
 > [!TIP]
 > Les textes courts, moyens et longs sont utilisés selon le contexte d’affichage
+>
 > - Court : listes, ALV, tableaux
 > - Moyen : écrans SAP classiques
 > - Long / Intitulé : info-bulles, aide à la saisie, formulaires
@@ -161,6 +160,7 @@ Avoir créé un `DOMAINE` (ex : `ZCONSULTANT_ID`).
 ## 🌺 UTILISATION CONSEILLÉE
 
 > Utilisation conseillée
+>
 > - Créez un `ELEMENT DE DONNEES` par champ fonctionnel distinct, même si le `DOMAINE` est le même.
 > - Utilisez des noms explicites (`ZCLIENT_ID`, `ZSUPPLIER_ID`) pour faciliter la maintenance.
 > - Toujours documenter la signification du champ dans l’onglet "Document." de SE11.
@@ -171,6 +171,7 @@ Avoir créé un `DOMAINE` (ex : `ZCONSULTANT_ID`).
 > L’`ELEMENT DE DONNEES` est la définition sémantique d’un champ SAP.
 > Il repose sur un `DOMAINE` pour ses caractéristiques techniques,
 > mais ajoute la signification, les libellés et l’aide utilisateur.
+>
 > - Un `ELEMENT DE DONNEES` = un libellé fonctionnel basé sur un `DOMAINE` technique.
 > - Un `DOMAINE` peut être partagé, mais un `ELEMENT DE DONNEES` ne référence qu’un seul `DOMAINE`.
 > - Il garantit une présentation homogène et une compréhension claire des données dans tout SAP.

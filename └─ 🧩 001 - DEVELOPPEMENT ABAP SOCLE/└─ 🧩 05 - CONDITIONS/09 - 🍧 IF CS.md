@@ -8,7 +8,6 @@
 - [ ] Apprendre à utiliser `IF ... CS ... ENDIF` pour des contrôles simples
 - [ ] Identifier quand utiliser `FIND` pour obtenir la position exacte ou faire des recherches avancées
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     B --> C["SYNTAXE"]
     C --> D["EXEMPLE"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -30,6 +28,7 @@ flowchart TD
 > Si la phrase exacte est présente, la condition `CS` est vraie.
 
 > [!NOTE]
+>
 > - "HELLO WORLD" CS "WORLD" → vrai
 > - "HELLO WORLD" CS "WOR" → vrai
 > - "HELLO WORLD" CS "WORD" → faux (lettres hors séquence)
@@ -75,8 +74,8 @@ flowchart TD
 > - Sensible à la casse.
 > - Condition vraie si la séquence complète est présente.
 > - Pour des recherches plus détaillées, utiliser `FIND`.
-> [!TIP]
-> c’est comme chercher une phrase exacte dans un livre plutôt que vérifier lettre par lettre
+>   [!TIP]
+>   c’est comme chercher une phrase exacte dans un livre plutôt que vérifier lettre par lettre
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

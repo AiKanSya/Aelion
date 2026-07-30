@@ -8,7 +8,6 @@
 - [ ] Accéder aux valeurs des champs pour lecture ou affichage
 - [ ] Appliquer des structures pour organiser des données hétérogènes
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +18,6 @@ flowchart TD
     C --> D["ALIMENTATION DES CHAMPS"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > Une `STRUCTURE` est un regroupement de plusieurs `VARIABLES` de types différents sous un même nom.
@@ -28,11 +26,12 @@ flowchart TD
 
 > [!TIP]
 > Pensez à une `STRUCTURE` comme une fiche d’identité d’une personne
+>
 > - nom
 > - prénom
 > - date de naissance
 > - adresse
-> Chaque information est un champ, et l’ensemble constitue une `STRUCTURE` unique représentant la personne.
+>   Chaque information est un champ, et l’ensemble constitue une `STRUCTURE` unique représentant la personne.
 
 > [!NOTE]
 > Les champs d’une `STRUCTURE` peuvent être de types différents : caractères, entiers, dates, etc.
@@ -84,11 +83,12 @@ Pour afficher les valeurs :
 
 > [!IMPORTANT]
 > Définir une `STRUCTURE ty_livre` avec les champs
+>
 > - titre (CHAR30)
 > - auteur (CHAR30)
 > - annee (I)
 > - genre (CHAR20)
-> Déclarer une `VARIABLE ls_livre` et remplir les champs avec vos informations.
+>   Déclarer une `VARIABLE ls_livre` et remplir les champs avec vos informations.
 
 <details>
   <summary>SOLUTION</summary>
@@ -151,7 +151,7 @@ Pour afficher les valeurs :
 > - Une `STRUCTURE` regroupe plusieurs champs hétérogènes sous un même nom.
 > - Chaque champ est accessible avec `structure-champ`.
 > - Permet d’organiser les données de manière logique et claire.
-> [!TIP]
-> fiche d’identité pour une structure, carnet d’adresses pour une table de structures.
-> [!TIP]
-> pour manipuler des données liées, éviter de déclarer des variables individuelles pour chaque information.
+>   [!TIP]
+>   fiche d’identité pour une structure, carnet d’adresses pour une table de structures.
+>   [!TIP]
+>   pour manipuler des données liées, éviter de déclarer des variables individuelles pour chaque information.

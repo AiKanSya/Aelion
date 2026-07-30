@@ -8,7 +8,6 @@
 - [ ] Différencier `CLEAR itab[]` et `REFRESH itab`
 - [ ] Vérifier le contenu d’une table avant et après effacement
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +18,6 @@ flowchart TD
     C --> D["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
     CLEAR: itab[],
@@ -29,6 +27,7 @@ flowchart TD
 
 > [!TIP]
 > Imaginez un tableau blanc rempli d’informations.
+>
 > - `CLEAR itab[]` = effacer complètement le tableau (toutes les lignes).
 > - `CLEAR var1` = effacer le contenu d’une seule cellule du tableau.
 
@@ -70,6 +69,7 @@ flowchart TD
     WRITE:/ 'Lignes apres CLEAR :', gv_count.
 
 > [!IMPORTANT]
+>
 > - Avant `CLEAR`, la table contient 2 lignes.
 > - Après `CLEAR`, la table est complètement vide.
 
@@ -89,6 +89,7 @@ flowchart TD
 > [!TIP]
 > Le `CLEAR` sur une variable simple remet sa valeur à zéro (ou initiale).
 > Par exemple
+>
 > - Numérique → 0
 > - Caractère → vide
 > - Booléen → ‘ ‘ (faux)
@@ -160,13 +161,14 @@ flowchart TD
 ## 🌺 RÉSUMÉ
 
 > `CLEAR` est une instruction simple mais puissante
+>
 > - `CLEAR itab[]` : efface toutes les lignes d’une table interne
 > - `CLEAR var` : remet une variable à sa valeur initiale
 > - `CLEAR structure` : réinitialise tous les champs de la structure
 > - `CLEAR` peut être combiné sur plusieurs objets
 > - `CLEAR` avec `[]` est l’équivalent moderne de `REFRESH`
-> [!TIP]
-> C’est comme appuyer sur “Réinitialiser” — on remet tout à zéro avant de recommencer proprement.
+>   [!TIP]
+>   C’est comme appuyer sur “Réinitialiser” — on remet tout à zéro avant de recommencer proprement.
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

@@ -6,7 +6,6 @@
 - [ ] Savoir lire des données depuis une table SAP
 - [ ] Identifier les colonnes à sélectionner et les conditions à appliquer
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -16,7 +15,6 @@ flowchart TD
     B --> C["SYNTAXE GENERALE"]
     C --> D["EXEMPLE"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -44,6 +42,7 @@ flowchart TD
            [CONNECTION con|(con_syntax)].
 
 > [!IMPORTANT]
+>
 > - `result` : colonne(s) que l’on veut récupérer
 > - `source` : table SAP ciblée
 > - `itab` : table interne utilisée pour filtrer (optionnel)
@@ -103,14 +102,15 @@ flowchart TD
 > Utiliser SELECT simple sans WHERE sur une table volumineuse peut être très coûteux en performance et ramener beaucoup de données inutiles.
 
 > [!IMPORTANT]
+>
 > - `SELECT` simple pour extraire des colonnes précises avec filtres connus
 
 ## 🌺 RÉSUMÉ
 
 > - `SELECT` permet de lire et récupérer des données depuis une table SAP.
 > - On choisit les colonnes, on applique des filtres et on stocke le résultat dans une variable, une structure ou une table interne.
-> [!TIP]
-> chercher des informations dans un classeur Excel, filtrer les lignes et copier les colonnes nécessaires dans un tableau de travail.
+>   [!TIP]
+>   chercher des informations dans un classeur Excel, filtrer les lignes et copier les colonnes nécessaires dans un tableau de travail.
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

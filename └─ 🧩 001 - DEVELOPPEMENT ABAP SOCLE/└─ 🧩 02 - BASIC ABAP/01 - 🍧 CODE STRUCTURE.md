@@ -7,7 +7,6 @@
 - [ ] Savoir à quel moment chaque section du programme est exécutée
 - [ ] Etre capable d’écrire un squelette complet de `PROGRAMME ABAP`
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +18,6 @@ flowchart TD
     D --> E["EXPLICATION DES BLOCS"]
     E --> F["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 PRE-REQUIS
 

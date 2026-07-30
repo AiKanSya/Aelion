@@ -61,11 +61,11 @@ ENDTRY.
 
 ## 🌺 CATÉGORIES
 
-| Superclasse | Contrôle principal |
-|---|---|
-| `CX_STATIC_CHECK` | Déclaration ou traitement imposé statiquement |
+| Superclasse        | Contrôle principal                                  |
+| ------------------ | --------------------------------------------------- |
+| `CX_STATIC_CHECK`  | Déclaration ou traitement imposé statiquement       |
 | `CX_DYNAMIC_CHECK` | Contrôle au moment de l’exécution selon propagation |
-| `CX_NO_CHECK` | Pas d’obligation de déclaration explicite |
+| `CX_NO_CHECK`      | Pas d’obligation de déclaration explicite           |
 
 Le choix dépend du contrat de l’API et des règles du projet.
 

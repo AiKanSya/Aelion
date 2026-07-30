@@ -8,7 +8,6 @@
 - [ ] Utiliser une génération d’appel depuis l’éditeur
 - [ ] Contrôler `SY-SUBRC`
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,7 +19,6 @@ flowchart TD
     D --> E["PARAMETRES NOMMES"]
     E --> F["GENERATION DE L'APPEL"]
 ```
-
 
 ## 🌺 SYNTAXE GENERALE
 

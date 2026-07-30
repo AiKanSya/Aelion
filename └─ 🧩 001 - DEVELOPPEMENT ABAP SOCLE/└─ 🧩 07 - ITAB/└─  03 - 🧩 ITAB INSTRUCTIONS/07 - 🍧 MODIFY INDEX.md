@@ -7,7 +7,6 @@
 - [ ] Identifier la différence avec `MODIFY INDEX` et `MODIFY TABLE`
 - [ ] Utiliser TRANSPORTING pour limiter les champs modifiés
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -16,7 +15,6 @@ flowchart TD
     A --> B["DEFINITION"]
     B --> C["DECLARATION ET EXEMPLE"]
 ```
-
 
 ## 🌺 DÉFINITION
 

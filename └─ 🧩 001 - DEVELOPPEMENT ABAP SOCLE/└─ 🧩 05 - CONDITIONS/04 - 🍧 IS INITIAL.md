@@ -8,7 +8,6 @@
 - [ ] Appliquer `IS INITIAL` avec `CASE` pour gérer plusieurs cas
 - [ ] Simplifier les tests de variables non initialisées ou vides
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,10 +18,10 @@ flowchart TD
     C --> D["IF IS INITIAL"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > L’instruction `IS INITIAL` permet de tester si une variable est initialisée ou non.
+>
 > - `IS INITIAL` retourne vrai si la variable est vide ou contient la valeur par défaut pour son type.
 > - `IS NOT INITIAL` retourne vrai si la variable contient une valeur.
 
@@ -79,8 +78,8 @@ flowchart TD
 > - `IS INITIAL` teste si une variable est vide ou contient sa valeur par défaut.
 > - `IS NOT INITIAL` teste si la variable contient une valeur.
 > - Fonctionne pour tous les types de variables : chaînes, nombres, dates, tables internes.
-> [!TIP]
-> comme vérifier si une boîte est vide ou remplie avant d’agir sur son contenu
+>   [!TIP]
+>   comme vérifier si une boîte est vide ou remplie avant d’agir sur son contenu
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

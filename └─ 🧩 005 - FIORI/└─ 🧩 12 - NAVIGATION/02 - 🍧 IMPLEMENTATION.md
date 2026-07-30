@@ -6,6 +6,7 @@
 - [ ] Comprendre **1. création de la view details.view**.
 - [ ] Mettre en œuvre **2. création du controller details.controller** dans un exemple guidé.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +18,6 @@ flowchart TD
     D --> E["4. AJOUTER LE TARGET"]
     E --> F["5. AJOUTER L'EVENEMENT ITEMPRESS ET RENDRE LES LIGNES "]
 ```
-
 
 ## 🌺 1. CRÉATION DE LA VIEW DETAILS.VIEW
 

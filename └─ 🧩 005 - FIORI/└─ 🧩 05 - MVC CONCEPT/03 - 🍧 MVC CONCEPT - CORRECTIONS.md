@@ -6,6 +6,7 @@
 - [ ] Comprendre **exercice 1 - identifier le mvc**.
 - [ ] Mettre en œuvre **exercice 2 - construire la logique mvc** dans un exemple guidé.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +20,6 @@ flowchart TD
 
 > [!NOTE]
 > Comparer la correction avec la démarche suivie avant de recopier le code. Une solution différente peut être valide si elle respecte la consigne et les contraintes techniques.
-
 
 ## 🌺 EXERCICE 1 - IDENTIFIER LE MVC
 

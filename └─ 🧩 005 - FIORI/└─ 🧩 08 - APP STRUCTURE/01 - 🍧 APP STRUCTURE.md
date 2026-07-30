@@ -6,6 +6,7 @@
 - [ ] Comprendre **structure**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["APP STRUCTURE"]
     A --> B["STRUCTURE"]
 ```
-
 
 ## 🌺 STRUCTURE
 
@@ -75,6 +75,7 @@ fgifirstappmodulename/                      # Racine du projet
 
 > [!CAUTION]
 > Certains fichiers ne doivent généralement pas être modifiés par des débutants car ils contiennent soit des configurations de base du projet, soit des fichiers générés automatiquement par les outils.
+>
 > - .gitignore → géré par Git pour ignorer certains fichiers. Modifier peut casser le suivi Git.
 > - package-lock.json → généré automatiquement par NPM, reflète les versions exactes des dépendances. Ne jamais modifier manuellement.
 > - ui5.yaml → configuration du UI5 Tooling pour le build ; modifier sans comprendre peut casser le build.

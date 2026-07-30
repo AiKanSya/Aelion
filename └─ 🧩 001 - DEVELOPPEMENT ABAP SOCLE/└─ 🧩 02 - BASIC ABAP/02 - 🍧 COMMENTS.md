@@ -6,7 +6,6 @@
 - [ ] Identifier les différents types de `COMMENTAIRES`
 - [ ] Savoir appliquer les conventions de bonne pratique
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     D --> E["TYPES DE COMMENTAIRES"]
     E --> F["LONGUEUR MAXIMALE"]
 ```
-
 
 ## 🌺 RACCOURCIS
 

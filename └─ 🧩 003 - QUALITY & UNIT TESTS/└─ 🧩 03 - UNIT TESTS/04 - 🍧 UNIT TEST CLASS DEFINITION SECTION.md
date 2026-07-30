@@ -6,6 +6,7 @@
 - [ ] Comprendre **structure de base**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["UNIT TEST CLASS DEFINITION SECTION"]
     A --> B["STRUCTURE DE BASE"]
 ```
-
 
 ## 🌺 STRUCTURE DE BASE
 
@@ -106,6 +106,7 @@ CLASS ltc_customer_orders DEFINITION
 > [!IMPORTANT]
 > Le paramètre `FOR TESTING` : la classe est déclarée comme une classe de test ABAP Unit, exécutée par le framework de test.
 > `FOR TESTING` peut être utilisé à de multiples fins :
+>
 > - Création d'une classe de test contenant des méthodes de test
 > - Création d'un double de test
 > - Création de méthodes auxiliaires pour les tests unitaires ABAP
@@ -113,6 +114,7 @@ CLASS ltc_customer_orders DEFINITION
 > [!IMPORTANT]
 > Le paramètre `DURATION SHORT` : indique que les tests sont rapides, pas de préparation longue nécessaire.
 > `DURATION` (Optional addition)
+>
 > - `SHORT`: On s'attend à un temps d'exécution de quelques secondes seulement.
 > - `MEDIUM`: Un temps d'exécution d'environ une minute est prévu.
 > - `LONG`: Un temps d'exécution supérieur à une minute est prévu.
@@ -120,6 +122,7 @@ CLASS ltc_customer_orders DEFINITION
 > [!IMPORTANT]
 > Le paramètre `RISK LEVEL HARMLESS` : précise que le test n’a pas d’impact sur la base de données (lecture seule ou rollback automatique).
 > `RISK LEVEL HARMLESS` (Optional addition)
+>
 > - `CRITICAL`: le test modifie les paramètres système ou les données de personnalisation (par défaut)
 > - `DANGEROUS`: le test modifie les données persistantes
 > - `HARMLESS`: le test ne modifie ni les paramètres système ni les données persistantes
@@ -166,6 +169,7 @@ CLASS ltc_customer_orders DEFINITION
 > [!IMPORTANT]
 > Méthode `SETUP` :
 > Méthode d'instance appelée avant chaque test de la classe. Utilisée pour préparer les données de test et créer les objets nécessaires.
+>
 > - Exécutée avant chaque test → initialise les objets nécessaires
 
 > [!IMPORTANT]
@@ -175,6 +179,7 @@ CLASS ltc_customer_orders DEFINITION
 > [!IMPORTANT]
 > Méthode `TEARDOWN` :
 > Méthode d'instance appelée après chaque test. Utilisée pour nettoyer les données et libérer les ressources
+>
 > - Exécutée après chaque test → nettoyage si nécessaire
 
 > [!IMPORTANT]

@@ -6,6 +6,7 @@
 - [ ] Comprendre **model/ (modèles de données)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["MODEL"]
     A --> B["MODEL/ (MODÈLES DE DONNÉES)"]
 ```
-
 
 ## 🌺 MODEL/ (MODÈLES DE DONNÉES)
 
@@ -45,6 +45,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Centraliser la gestion des modèles de données côté client.
 > - 🔨 Utilité : Définir et exposer les modèles utilisés par l’application (OData, JSON, Resource).
@@ -83,6 +84,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Initialiser et configurer les modèles de l’application.
 > - 🔨 Utilité : Créer les modèles (OData, JSON, i18n)

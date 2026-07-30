@@ -6,6 +6,7 @@
 - [ ] Comprendre **application preview**.
 - [ ] Mettre en œuvre **package.json** dans un exemple guidé.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -15,7 +16,6 @@ flowchart TD
     B --> C["PACKAGE.JSON"]
     C --> D["QUELLE PREVIEW CHOISIR ?"]
 ```
-
 
 ## 🌺 APPLICATION PREVIEW
 
@@ -103,6 +103,7 @@ Il contient :
 
 > [!NOTE]
 > Ce sont les outils nécessaires pour développer et prévisualiser l’application.
+>
 > - `@ui5/cli` → lance le serveur UI5 local
 > - `@sap/ux-ui5-tooling` → commandes Fiori (fiori run, fiori verify, etc.)
 > - `@sap-ux/ui5-middleware-fe-mockserver` → simuler les données quand le backend n’est pas disponible

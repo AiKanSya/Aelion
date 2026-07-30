@@ -6,6 +6,7 @@
 - [ ] Comprendre **sap gateway datamodel - unit property name**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["ENTITYTYPE - UNIT PROPERTY NAME (OPTIONAL)"]
     A --> B["SAP GATEWAY DATAMODEL - UNIT PROPERTY NAME"]
 ```
-
 
 ## 🌺 SAP GATEWAY DATAMODEL - UNIT PROPERTY NAME
 
@@ -42,12 +42,12 @@ La colonne `Unit Property Name` permet de lier une `Property` numérique (Amount
 
 ### 🍧 RÈGLES
 
-| 🍧 Règle                                   | 🍧 Explication                                                                      |
-| ------------------------------------------ | ----------------------------------------------------------------------------------- |
-| Ne référencer que des Properties existantes | La Property d’unité doit être définie dans le même EntityType                       |
-| Compatible avec le type numérique          | Seules les Properties de type Quantity ou Amount peuvent avoir un Unit Property Name |
-| Optionnelle                                | Peut rester vide si la valeur n’a pas d’unité spécifique                            |
-| Stable dans le temps                       | Changer après livraison peut casser les comportements automatiques côté UI5/Fiori   |
+| 🍧 Règle                                    | 🍧 Explication                                                                       |
+| ------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Ne référencer que des Properties existantes | La Property d’unité doit être définie dans le même EntityType                        |
+| Compatible avec le type numérique           | Seules les Properties de type Quantity ou Amount peuvent avoir un Unit Property Name |
+| Optionnelle                                 | Peut rester vide si la valeur n’a pas d’unité spécifique                             |
+| Stable dans le temps                        | Changer après livraison peut casser les comportements automatiques côté UI5/Fiori    |
 
 ### 🍧 ERREURS
 

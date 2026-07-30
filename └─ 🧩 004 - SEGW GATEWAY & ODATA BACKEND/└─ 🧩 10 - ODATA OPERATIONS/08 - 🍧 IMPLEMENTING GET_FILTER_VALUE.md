@@ -6,6 +6,7 @@
 - [ ] Comprendre **method implémentation**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["IMPLEMENTING GETFILTERVALUE"]
     A --> B["METHOD IMPLEMENTATION"]
 ```
-
 
 ## 🌺 METHOD IMPLÉMENTATION
 
@@ -36,6 +36,7 @@ flowchart TD
 
 > [!NOTE]
 > 🍧 `IT_FILTER_SELECT_OPTIONS` (`/IWBEP//IWBEP/T_MGW_SELECT_OPTION`)
+>
 > - Contient les clés de l’entité demandée.
 > - Exemple URL : `Products(ProductID='100')`
 > - Chaque entrée représente une paire clé / valeur.
@@ -43,12 +44,14 @@ flowchart TD
 
 > [!NOTE]
 > 🍧 `IV_FILTER_NAME` (STRING)
+>
 > - Nom de l’EntitySet appelée.
 > - Exemple : `Products`.
 > - C’est le nom réellement appelé dans l’URL OData. Le plus utilisé pour identifier le contexte.
 
 > [!NOTE]
 > 🍧 `/IWBEP/T_COD_SELECT_OPTIONS` (STRING)
+>
 > - Nom de la source (utilisé surtout pour navigation ou alias).
 > - Peu utilisé en pratique dans les cas simples.
 

@@ -7,7 +7,6 @@
 - [ ] Utiliser les options `FIRST OCCURRENCE` ou `ALL OCCURRENCES`
 - [ ] Maîtriser les paramètres `REPLACEMENT COUNT`, `REPLACEMENT OFFSET`, `REPLACEMENT LENGTH` et `RESULTS`
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +18,6 @@ flowchart TD
     D --> E["EXEMPLE - REPLACEMENT COUNT"]
     E --> F["EXEMPLE - REPLACEMENT OFFSET"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -134,8 +132,8 @@ flowchart TD
 > - `REPLACE` = rechercher et remplacer un motif dans une chaîne
 > - Peut modifier la première occurrence ou toutes les occurrences
 > - Paramètres utiles : `REPLACEMENT COUNT`, `REPLACEMENT OFFSET`, `LENGTH`, `RESULTS`
-> [!TIP]
-> corriger un texte et suivre les modifications effectuées
+>   [!TIP]
+>   corriger un texte et suivre les modifications effectuées
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

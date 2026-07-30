@@ -6,6 +6,7 @@
 - [ ] Comprendre **ui5-mock.yaml (configuration pour start-mock)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["UI5-MOCK"]
     A --> B["UI5-MOCK.YAML (CONFIGURATION POUR START-MOCK)"]
 ```
-
 
 ## 🌺 UI5-MOCK.YAML (CONFIGURATION POUR START-MOCK)
 
@@ -46,6 +46,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Configurer le mockserver pour le développement sans backend.
 > - 🔨 Utilité : Fournir des données simulées pour tester l’application.

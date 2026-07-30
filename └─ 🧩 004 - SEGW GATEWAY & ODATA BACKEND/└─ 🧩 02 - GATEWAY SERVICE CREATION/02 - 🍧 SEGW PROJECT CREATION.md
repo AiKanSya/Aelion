@@ -8,7 +8,6 @@ flowchart TD
     A --> B["SERVICE/PROJECT CREATION"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] Créer un `Gateway Service` en `SEGW`

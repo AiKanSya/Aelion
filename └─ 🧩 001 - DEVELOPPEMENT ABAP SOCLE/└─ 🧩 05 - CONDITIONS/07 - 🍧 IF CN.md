@@ -9,7 +9,6 @@
 - [ ] Utiliser `SY-FDPOS` pour localiser le dernier caractère valide
 - [ ] Appliquer `CN` pour détecter des caractères indésirables dans une entrée utilisateur
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +18,6 @@ flowchart TD
     B --> C["SYNTAXE"]
     C --> D["EXEMPLE BASIQUE"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -32,6 +30,7 @@ flowchart TD
 > Si `oper1` contient un caractère hors de cette liste, la condition `CN` est vraie.
 
 > [!NOTE]
+>
 > - "HELLO" `CN` "HELL" → vrai (il y a un "O" supplémentaire)
 > - "HELLO" `CN` "HELLO" → faux (tous les caractères sont autorisés)
 
@@ -74,6 +73,7 @@ flowchart TD
 - La condition retourne TRUE car `lc_oper1` contient un caractère non autorisé
 
 > [!TIP]
+>
 > - `CN` est sensible à la casse : `'HELLO'` ≠ `'Hello'`.
 > - Utile pour valider que des codes ou champs texte ne contiennent aucun caractère interdit.
 
@@ -83,8 +83,8 @@ flowchart TD
 > - Retourne TRUE si `oper1` contient autre chose que les caractères de `oper2`.
 > - `SY-FDPOS` indique la position du dernier caractère conforme à `oper2`.
 > - Idéal pour filtrer ou contrôler les saisies utilisateur.
-> [!TIP]
-> vérifier qu’une liste contient au moins un ingrédient non autorisé dans une recette, pour détecter les erreurs ou intrus.
+>   [!TIP]
+>   vérifier qu’une liste contient au moins un ingrédient non autorisé dans une recette, pour détecter les erreurs ou intrus.
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

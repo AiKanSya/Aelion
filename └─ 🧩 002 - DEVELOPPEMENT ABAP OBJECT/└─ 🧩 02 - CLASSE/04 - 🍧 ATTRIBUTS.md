@@ -11,10 +11,10 @@
 
 Un attribut représente une donnée appartenant à un objet ou à la classe entière.
 
-| Catégorie | Déclaration conceptuelle | Nombre de valeurs |
-|---|---|---|
-| Instance | `DATA` | Une valeur par objet |
-| Statique | `CLASS-DATA` | Une valeur partagée par la classe dans la session interne |
+| Catégorie | Déclaration conceptuelle | Nombre de valeurs                                         |
+| --------- | ------------------------ | --------------------------------------------------------- |
+| Instance  | `DATA`                   | Une valeur par objet                                      |
+| Statique  | `CLASS-DATA`             | Une valeur partagée par la classe dans la session interne |
 
 ## 🌺 VUE D'ENSEMBLE
 

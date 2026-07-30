@@ -7,7 +7,6 @@
 - [ ] Connaître les instructions correspondantes `MOVE`, `ADD`, `SUBTRACT`, `MULTIPLY`, `DIVIDE`
 - [ ] Visualiser et appliquer les calculs dans un programme ABAP
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +18,6 @@ flowchart TD
     D --> E["MOVE MULTIPLE"]
     E --> F["+ (PLUS) OU ADD ... TO ..."]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -125,6 +123,7 @@ flowchart TD
     DIVIDE lv_d BY 7.
 
 > [!TIP]
+>
 > - Visualiser chaque variable comme une boîte contenant un nombre
 > - Chaque opération = action sur la boîte : ajouter, retirer, multiplier ou partager
 > - Préférer les expressions (`+`, `-`, `*`, `/`) pour plus de lisibilité

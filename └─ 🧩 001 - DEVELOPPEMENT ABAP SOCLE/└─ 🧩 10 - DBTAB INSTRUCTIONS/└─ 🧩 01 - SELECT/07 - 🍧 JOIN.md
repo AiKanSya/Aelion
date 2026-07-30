@@ -7,7 +7,6 @@
 - [ ] Appliquer les alias pour simplifier les références aux tables
 - [ ] Utiliser les tables internes pour stocker et parcourir les résultats
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,16 +17,17 @@ flowchart TD
     C --> D["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > Un JOIN permet de sélectionner des données de plusieurs tables associées par un ou plusieurs champs communs (`ON`).
+>
 > - INNER JOIN : sélectionne uniquement les lignes présentes dans les deux tables.
 > - LEFT JOIN : sélectionne toutes les lignes de la table de gauche, en ajoutant les lignes correspondantes de la table de droite ou des valeurs nulles si absence de correspondance.
 > - RIGHT JOIN : sélectionne toutes les lignes de la table de droite, avec les valeurs de la table de gauche ou nulles si absence de correspondance.
 
 > [!TIP]
 > Imaginez deux classeurs Excel : l’un pour les modèles de voitures, l’autre pour les conducteurs.
+>
 > - INNER JOIN : seules les combinaisons voiture/conducteur existantes dans les deux classeurs sont conservées.
 > - LEFT JOIN : toutes les voitures apparaissent, même si aucun conducteur n’est associé.
 > - RIGHT JOIN : tous les conducteurs apparaissent, même si aucune voiture ne leur correspond.

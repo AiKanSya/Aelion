@@ -9,7 +9,6 @@ flowchart TD
     B --> C["VERIFIER LA RESPONSES DU SAP GATEWAY SERVICE"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] Vérifier que le Service est accessible et répond correctement

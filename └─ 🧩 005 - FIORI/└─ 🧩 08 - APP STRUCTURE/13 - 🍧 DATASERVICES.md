@@ -6,6 +6,7 @@
 - [ ] Comprendre **dataservices.js (services de données)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["DATASERVICES"]
     A --> B["DATASERVICES.JS (SERVICES DE DONNÉES)"]
 ```
-
 
 ## 🌺 DATASERVICES.JS (SERVICES DE DONNÉES)
 
@@ -47,6 +47,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Centraliser les appels aux services backend.
 > - 🔨 Utilité : Encapsuler la logique d’accès aux données (OData, REST, gestion des erreurs).

@@ -6,6 +6,7 @@
 - [ ] Comprendre **app.view.xml (vue racine de l’application)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["APP.VIEW"]
     A --> B["APP.VIEW.XML (VUE RACINE DE L’APPLICATION)"]
 ```
-
 
 ## 🌺 APP.VIEW.XML (VUE RACINE DE L’APPLICATION)
 
@@ -52,6 +52,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Définir le conteneur principal de l’application.
 > - 🔨 Utilité : Héberger le NavContainer ou Router qui gère la navigation entre les vues.

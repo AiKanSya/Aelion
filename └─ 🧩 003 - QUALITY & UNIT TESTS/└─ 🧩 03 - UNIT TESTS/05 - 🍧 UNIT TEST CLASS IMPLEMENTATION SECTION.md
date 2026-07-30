@@ -6,6 +6,7 @@
 - [ ] Comprendre **structure de base**.
 - [ ] Mettre en œuvre **implémentation de la methode de test** dans un exemple guidé.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -14,7 +15,6 @@ flowchart TD
     A --> B["STRUCTURE DE BASE"]
     B --> C["IMPLEMENTATION DE LA METHODE DE TEST"]
 ```
-
 
 ## 🌺 STRUCTURE DE BASE
 
@@ -131,6 +131,7 @@ METHOD get_order_count.
 
 > [!CAUTION]
 > Nommer les méthodes :
+>
 > - Méthodes : convention `test_<fonction>`
 > - Objectif : identifier facilement le test et savoir quelle méthode métier est testée
 
@@ -215,6 +216,7 @@ METHOD test_get_order_count.
 ### 🍧 RÉSUMÉ FONCTIONNEL
 
 > [!IMPORTANT]
+>
 > - `ltc_customer_orders` est une classe de test `ABAP Unit`.
 > - `setup` prépare l’environnement (instanciation de l’objet à tester).
 > - `test_get_order_count` exécute le test fonctionnel, compare le résultat réel au résultat attendu, et signale toute divergence via l’assertion.

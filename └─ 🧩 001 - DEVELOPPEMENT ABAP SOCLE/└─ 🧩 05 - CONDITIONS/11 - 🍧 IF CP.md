@@ -8,7 +8,6 @@
 - [ ] Identifier les situations pratiques : noms de fichiers, extensions, formats textuels
 - [ ] Reconnaître la sensibilité à la casse et les types de `VARIABLES` compatibles (C ou STRING)
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     B --> C["SYNTAXE"]
     C --> D["EXEMPLES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -82,8 +80,8 @@ Explication :
 >   - - → un caractere
 > - Sensible à la casse
 > - Très utile pour filtrer fichiers, extensions ou formats textuels
-> [!TIP]
-> Comme un filtre de recherche avancé : on peut dire "montre-moi tous les fichiers commençant par 'abc' et finissant par '.txt'".
+>   [!TIP]
+>   Comme un filtre de recherche avancé : on peut dire "montre-moi tous les fichiers commençant par 'abc' et finissant par '.txt'".
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

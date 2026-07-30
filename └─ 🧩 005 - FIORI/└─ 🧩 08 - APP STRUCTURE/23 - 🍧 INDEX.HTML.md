@@ -6,6 +6,7 @@
 - [ ] Comprendre **index.html (page principale)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["INDEX"]
     A --> B["INDEX.HTML (PAGE PRINCIPALE)"]
 ```
-
 
 ## 🌺 INDEX.HTML (PAGE PRINCIPALE)
 
@@ -46,6 +46,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Charger l’application UI5 dans le navigateur.
 > - 🔨 Utilité : Inclure les bibliothèques SAPUI5 et déclencher le bootstrap.

@@ -6,7 +6,6 @@
 - [ ] Savoir créer une aide à la recherche pour un champ
 - [ ] Connaître les différents types de dialogues disponibles
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +16,6 @@ flowchart TD
     C --> D["CREATION D’UNE AIDE A LA RECHERCHE"]
     D --> E["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -36,6 +34,7 @@ flowchart TD
 | Dialogue dépendant du jeu de valeurs | Le système choisit automatiquement : si <100 occurrences, affichage immédiat ; sinon, boîte de dialogue. |
 
 > [!TIP]
+>
 > - Affichage immédiat : liste déroulante courte
 > - Dialogue complexe : filtre avancé
 > - Dialogue dépendant : le système décide le meilleur affichage selon le nombre de valeurs
@@ -68,7 +67,6 @@ flowchart TD
 6. `Renseigner` la description, la `Méthode sélection` et `Table des textes`.
 
    ![](./assets/images/AIDE_A_LA_RECHERCHE_007.jpg)
-
    - Description : Aide à la recherche MARA
 
    - Méthode sélection : MARA
@@ -80,7 +78,6 @@ flowchart TD
    ![](./assets/images/AIDE_A_LA_RECHERCHE_008.jpg)
 
    Cette aide à la recherche affichera les champs :
-
    - `MATNR` (n° d’article) qui sera à la fois un champ d’`import` et d’`export`
    - `MAKTX` (désignation de l’article)
    - `MTART` (type d’article)

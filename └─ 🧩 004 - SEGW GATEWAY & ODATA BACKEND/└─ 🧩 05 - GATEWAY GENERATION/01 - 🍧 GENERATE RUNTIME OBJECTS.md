@@ -9,7 +9,6 @@ flowchart TD
     B --> C["GENERATE RUNTIME OBJECTS"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] Générer les `Runtime Artefacts`
@@ -35,6 +34,7 @@ Etat actuel du `SAP GAteway Project` :
 
 > [!IMPORTANT]
 > Lors de la première utilisation de `Generate Runtime Objects` pour un `SAP Gateway Project`, la fenêtre contextuelle `Model and Service Definition` s'affiche. Vous pouvez y définir les `Runtime Artefacts Names` bien qu'ils soient renseignés par défaut. Les noms proposés sont basés sur le nom du `Project`.
+>
 > - Model Provider Class :
 >   - ZCL\_<Project_name>\_MPC_EXT
 >   - ZCL\_<Project_name>\_MPC

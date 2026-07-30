@@ -6,6 +6,7 @@
 - [ ] Comprendre **formatter.js (formatage des données ui)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["FORMATTER"]
     A --> B["FORMATTER.JS (FORMATAGE DES DONNÉES UI)"]
 ```
-
 
 ## 🌺 FORMATTER.JS (FORMATAGE DES DONNÉES UI)
 
@@ -47,6 +47,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Adapter l’affichage des données dans l’interface utilisateur.
 > - 🔨 Utilité : Transformer des données brutes (dates, statuts, montants) en valeurs lisibles.
@@ -133,8 +134,8 @@ sap.ui.define(
             case "Success":
               // pris en compte uniquement si rien de plus grave
               sHighestSeverityIcon =
-                sHighestSeverityIcon !== "Negative" &
-                sHighestSeverityIcon !== "Critical"
+                (sHighestSeverityIcon !== "Negative") &
+                (sHighestSeverityIcon !== "Critical")
                   ? "Success"
                   : sHighestSeverityIcon;
               break;
@@ -171,7 +172,7 @@ sap.ui.define(
 
             case "Success":
               sIcon =
-                sIcon !== "sap-icon://error" & sIcon !== "sap-icon://alert"
+                (sIcon !== "sap-icon://error") & (sIcon !== "sap-icon://alert")
                   ? "sap-icon://sys-enter-2"
                   : sIcon;
               break;

@@ -8,7 +8,6 @@
 - [ ] Organiser l’affichage sur plusieurs lignes
 - [ ] Utiliser des options de mise en forme simples (longueur, justification)
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,7 +19,6 @@ flowchart TD
     D --> E["OPTIONS DE MISE EN FORME"]
     E --> F["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -99,8 +97,8 @@ flowchart TD
 > - `/` = nouvelle ligne
 > - Peut afficher variables, texte fixe et champs systèmes
 > - Options : justification, longueur, combinaison multiple
-> [!TIP]
-> haut-parleur ou tableau blanc, chaque `WRITE` montre directement les informations à l’utilisateur.
+>   [!TIP]
+>   haut-parleur ou tableau blanc, chaque `WRITE` montre directement les informations à l’utilisateur.
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

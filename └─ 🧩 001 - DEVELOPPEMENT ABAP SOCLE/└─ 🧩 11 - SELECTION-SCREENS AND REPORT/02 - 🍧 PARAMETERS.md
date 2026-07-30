@@ -6,7 +6,6 @@
 - [ ] RECUPERER ET UTILISER LA VALEUR SAISIE DANS LE PROGRAMME ABAP
 - [ ] FACILITER LA NAVIGATION ET LA COMPREHENSION GRACE A DES TEXTES D'INPUT
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     D --> E["TEXTES D'INPUTS"]
     E --> F["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -40,6 +38,7 @@ _Exemple de déclaration simple_
                 p_posnr TYPE vbap-posnr.
 
 > [!IMPORTANT]
+>
 > - `PARAMETERS:` obligatoire pour déclarer un ou plusieurs champs de saisie.
 > - `p_vbeln` : nom du paramètre (par convention, commence par `p_`), ici pour saisir le numéro de document commercial.
 > - `TYPE` : définit le type attendu et permet la génération automatique du match-code.

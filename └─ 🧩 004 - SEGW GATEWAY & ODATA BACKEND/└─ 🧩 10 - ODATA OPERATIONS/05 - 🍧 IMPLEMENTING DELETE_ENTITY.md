@@ -6,6 +6,7 @@
 - [ ] Comprendre **method \_delete_entity implémentation**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["IMPLEMENTING \\DELETEENTITY OPERATION"]
     A --> B["METHOD \\DELETEENTITY IMPLEMENTATION"]
 ```
-
 
 ## 🌺 METHOD \*\_DELETE_ENTITY IMPLÉMENTATION
 
@@ -44,36 +44,42 @@ flowchart TD
 
 > [!NOTE]
 > 🍧 `IV_ENTITY_NAME` (STRING)
+>
 > - Nom de l’Entity OData ciblée pour la suppression.
 > - Exemple : `Product`.
 > - Identification logique de l’entité à supprimer.
 
 > [!NOTE]
 > 🍧 `IV_ENTITY_SET_NAME` (STRING)
+>
 > - Nom de l’EntitySet sur laquelle la suppression est exécutée.
 > - Exemple : `Products`.
 > - Correspond au segment DELETE de l’URL OData.
 
 > [!NOTE]
 > 🍧 `IV_SOURCE_NAME` (STRING)
+>
 > - Nom de la source d’appel.
 > - Utilisé pour navigation ou réutilisation.
 > - Rarement nécessaire dans une suppression simple.
 
 > [!NOTE]
 > 🍧 `IT_KEY_TAB` (`/IWBEP/T_MGW_NAME_VALUE_PAIR`)
+>
 > - Contient les clés de l’entité à supprimer.
 > - Exemple URL : `Products(ProductID='100')`
 > - Paramètre central pour identifier la ligne à supprimer.
 
 > [!NOTE]
 > 🍧 `IO_TECH_REQUEST_CONTEXT` (`/IWBEP/IF_MGW_REQ_ENTITY_D`)
+>
 > - Contexte technique de la requête DELETE.
 > - Permet l’accès aux headers HTTP, utilisateur et informations techniques.
 > - Strictement technique.
 
 > [!NOTE]
 > 🍧 `IT_NAVIGATION_PATH` (`/IWBEP/T_MGW_NAVIGATION_PATH`)
+>
 > - Chemin de navigation OData.
 > - Exemple : `Orders('1')/Items('10')`
 > - Indique depuis quelle entité parente la suppression est effectuée.
@@ -145,6 +151,7 @@ ENDMETHOD.
 
 > [!IMPORTANT]
 > Les erreurs d'une class method doivent être `Raise` à l'aide des `Exception Classes`
+>
 > - `/IWBEP/CX_MGW_BUSI_EXCEPTION` pour les erreurs de `logique métier`
 > - `/IWBEP/CX_MGW_TECH_EXCEPTION` pour les `exceptions techniques`
 

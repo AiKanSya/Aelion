@@ -7,7 +7,6 @@
 - [ ] Gérer les parenthèses pour contrôler l’ordre des conditions
 - [ ] Appliquer des sous-requêtes dans le WHERE
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,10 +18,10 @@ flowchart TD
     D --> E["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > La clause WHERE permet de restreindre les résultats en fonction de conditions définies sur :
+>
 > - des variables
 > - des constantes
 > - des colonnes
@@ -30,6 +29,7 @@ flowchart TD
 
 > [!TIP]
 > Comme filtrer un classeur Excel pour ne conserver que certaines lignes :
+>
 > - Colonne "Marque" = PEUGEOT ou VOLKSWAGEN
 > - Colonne "Année" ≥ 2015
 >   Seules les lignes correspondant aux critères sont extraites.

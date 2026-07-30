@@ -11,13 +11,13 @@
 
 Une méthode est un traitement appartenant à une classe. Sa signature définit les données reçues, modifiées ou retournées.
 
-| Paramètre dans SE24 | Rôle |
-|---|---|
-| Import | Entrée de la méthode |
-| Export | Sortie de la méthode |
-| Changing | Entrée puis sortie |
-| Returning | Valeur fonctionnelle unique |
-| Exception | Exception classique ou classe d’exception selon conception |
+| Paramètre dans SE24 | Rôle                                                       |
+| ------------------- | ---------------------------------------------------------- |
+| Import              | Entrée de la méthode                                       |
+| Export              | Sortie de la méthode                                       |
+| Changing            | Entrée puis sortie                                         |
+| Returning           | Valeur fonctionnelle unique                                |
+| Exception           | Exception classique ou classe d’exception selon conception |
 
 > [!IMPORTANT]
 > Dans la syntaxe d’appel classique, les mots-clés sont vus depuis l’appelant : un paramètre `IMPORTING` de la méthode apparaît dans la section `EXPORTING` de l’appel.

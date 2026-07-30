@@ -8,7 +8,6 @@
 - [ ] Maîtriser l’insertion, la lecture et le tri automatique
 - [ ] Appliquer les bonnes pratiques d’utilisation
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -21,7 +20,6 @@ flowchart TD
     E --> F["EXEMPLES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > Une SORTED TABLE est une table interne triée automatiquement selon une clé définie lors de la déclaration.
@@ -32,6 +30,7 @@ flowchart TD
 > Impossible d’avoir deux fiches avec le même nom si la clé est unique.
 
 > [!NOTE]
+>
 > - Une clé (`WITH UNIQUE KEY` ou `WITH NON-UNIQUE KEY`) est obligatoire.
 > - L’insertion est automatiquement triée.
 > - Les recherches sont optimisées (accès dichotomique).
@@ -57,6 +56,7 @@ flowchart TD
     DATA: ls_person TYPE ty_person.
 
 > [!IMPORTANT]
+>
 > - `SORTED TABLE` maintient un ordre trié automatique.
 > - `WITH UNIQUE KEY` garantit l’unicité sur le champ clé.
 > - `INSERT` insère la ligne au bon endroit, selon la clé.
@@ -77,6 +77,7 @@ flowchart TD
 > Peu importe l’ordre du code, les lignes seront triées par la clé (`id`).
 
 > [!CAUTION]
+>
 > - `APPEND` ne doit jamais être utilisé dans une `SORTED TABLE`.
 > - Seule l’instruction `INSERT` maintient le tri automatique.
 > - Si une clé dupliquée est insérée → erreur d’exécution (`sy-subrc ≠ 0`).

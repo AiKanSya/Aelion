@@ -8,7 +8,6 @@ flowchart TD
     A --> B["SEARCH FOR A SERVICE"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] Rechercher un `Gateway Service` en `SEGW`

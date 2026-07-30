@@ -12,7 +12,6 @@ flowchart TD
     E --> F["ODATA ASSOCIATIONS & NAVIGATION"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] Comprendre la structure d’un service `OData` : `EDM`, `navigation`, `Functions`/`Actions`
@@ -62,6 +61,7 @@ Les points clés :
 ## 🌺 EDM (ENTITY DATA MODEL) & $METADATA
 
 > [!IMPORTANT]
+>
 > - L’`EDM` décrit la structure des données exposées par le service :
 >   - `EntityType`
 >   - `EntitySet`
@@ -292,6 +292,7 @@ Dans `OData`, `Functions` permettent d’effectuer des `opérations spécifiques
 Elles sont définies dans le `$metadata` et peuvent être appelées via des `URI` depuis un `Client`.
 
 > [!CAUTION]
+>
 > - Une `Function` est une `opération` qui ne modifie pas l’état du `Server` (lecture uniquement !).
 > - Elle peut retourner un ou plusieurs `EntityTypes` ou un `PrimitivTypes`.
 > - Les paramètres d’entrée sont définis dans le `$metadata`.
@@ -328,11 +329,13 @@ Exemple extrait du `$metadata` [ZLOG_PACK_HU_DET_CHAR_SRV](./assets/ZLOG_PACK_HU
 
 > [!TIP]
 > Règle simple pour décider
+>
 > - Si ça lit → FunctionImport
 > - Si ça agit → CRUD
 
 > [!TIP]
 > Bonnes pratiques SEGW
+>
 > - Nom explicite : GetOpenOrders, CalculatePrice, CheckAvailability
 > - Pas d’UPDATE caché
 > - Résultat typé DDIC (éviter Edm.String fourre-tout)

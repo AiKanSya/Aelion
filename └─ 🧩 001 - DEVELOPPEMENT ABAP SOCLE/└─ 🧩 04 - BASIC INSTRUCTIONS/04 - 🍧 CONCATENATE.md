@@ -7,7 +7,6 @@
 - [ ] Utiliser les options `SEPARATED BY` et `RESPECTING BLANKS`
 - [ ] Stocker le résultat dans une variable
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +16,6 @@ flowchart TD
     B --> C["SYNTAXE"]
     C --> D["EXEMPLE"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -42,6 +40,7 @@ flowchart TD
 - RESPECTING BLANKS : conserve les espaces de chaque chaîne
 
 > [!TIP]
+>
 > - `IN BYTE MODE` = travailler en mode "octet pur", comme manipuler les lettres en binaire
 > - `SEPARATED BY` = ajouter un petit séparateur entre chaque mot, comme un tiret ou une virgule
 > - `RESPECTING BLANKS` = conserver exactement l’espace prévu pour chaque mot, utile pour les fichiers plats ou formats bancaires
@@ -79,12 +78,14 @@ flowchart TD
           / 'RESPECTING BLANKS:', lv_resul3.
 
 > [!IMPORTANT]
+>
 > - Premier `CONCATENATE` : coller les mots bout à bout sans espace supplémentaire
 > - Deuxième : coller les mots avec un tiret entre chaque mot
 > - Troisième : coller les mots en conservant tous les espaces définis, comme des cases fixes sur une feuille
 
 > [!TIP]
 > Visualiser chaque mot comme une carte à coller sur une feuille
+>
 > - `SEPARATED BY` = ajouter un espace ou un séparateur visible
 > - `RESPECTING BLANKS` = respecter exactement la largeur de chaque mot
 > - Les tables internes peuvent être fusionnées automatiquement ligne par ligne avec LINES OF itab
@@ -93,8 +94,8 @@ flowchart TD
 
 > - `CONCATENATE` = fusionner plusieurs chaînes dans une variable
 > - Options importantes : `SEPARATED BY`, `RESPECTING BLANKS`
-> [!TIP]
-> coller des cartes ou des mots sur une feuille pour former un texte complet
+>   [!TIP]
+>   coller des cartes ou des mots sur une feuille pour former un texte complet
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

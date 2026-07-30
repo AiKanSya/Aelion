@@ -6,6 +6,7 @@
 - [ ] Comprendre **ui5-local.yaml (configuration pour start-local)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["UI5-LOCAL"]
     A --> B["UI5-LOCAL.YAML (CONFIGURATION POUR START-LOCAL)"]
 ```
-
 
 ## 🌺 UI5-LOCAL.YAML (CONFIGURATION POUR START-LOCAL)
 
@@ -46,6 +46,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Configurer l’environnement pour se connecter à un backend réel.
 > - 🔨 Utilité : Permettre à l’application de récupérer des données depuis un système SAP local ou distant.

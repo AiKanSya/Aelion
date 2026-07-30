@@ -8,7 +8,6 @@ flowchart TD
     A --> B["RECHERCHER UN SAP GATEWAY SERVICE"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] Rechercher un `SAP Gateway Service` exposé

@@ -7,7 +7,6 @@
 - [ ] Savoir créer et modifier des `CHAMPS` dans SE11
 - [ ] Différencier l’affichage des `CHAMPS` dans les tables et les structures
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,11 +19,11 @@ flowchart TD
     E --> F["UTILISATION CONSEILLÉE"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > [!TIP]
 > Imaginez une feuille Excel
+>
 > - chaque colonne (ex : Nom, Prénom, Date de naissance) est un `CHAMP` ;
 > - le type de la colonne (texte, nombre, date) est défini par le `DOMAINE` ;
 > - l’étiquette affichée (Nom du client, Âge, etc.) est définie par l’`ELEMENT DE DONNEE`.
@@ -32,11 +31,12 @@ flowchart TD
 > - Un `CHAMP` est une zone de stockage d’information dans une table ou une structure.
 > - Chaque `CHAMP` est lié à un `ELEMENT DE DONNEE`, qui lui-même est lié à un `DOMAINE`.
 > - Le `CHAMP` définit le contenu exact, la longueur, le type et l’affichage de la donnée.
-> Un `CHAMP` (ou zone) dans SAP correspond à une colonne spécifique d’une table ou d’une structure.
-> Chaque `CHAMP` contient une information précise et est lié à un `ELEMENT DE DONNEE` et à un `DOMAINE` qui définissent son type et ses caractéristiques.
+>   Un `CHAMP` (ou zone) dans SAP correspond à une colonne spécifique d’une table ou d’une structure.
+>   Chaque `CHAMP` contient une information précise et est lié à un `ELEMENT DE DONNEE` et à un `DOMAINE` qui définissent son type et ses caractéristiques.
 
 > [!NOTE]
 > Dans la table `MARA` (données de matériaux)
+>
 > - Le `CHAMP` `MATNR` correspond à l’identifiant du matériau.
 > - Le `DOMAINE` définit sa longueur (CHAR 18).
 > - L’`ELEMENT DE DONNEE` définit son étiquette d’affichage (“Numéro de matériel”).
@@ -54,6 +54,7 @@ flowchart TD
 
 > Dans la transaction SE11, lorsqu’on ouvre une structure, chaque ligne du tableau de définition correspond à un `CHAMP`.
 > On y retrouve les colonnes
+>
 > - Nom du `CHAMP`
 > - `ELEMENT DE DONNEE` associé
 > - Description du `CHAMP`
@@ -68,6 +69,7 @@ flowchart TD
 > Ainsi, si un même groupe de `CHAMPS` doit être réutilisé ailleurs, on peut référencer la structure au lieu de tout redéfinir.
 
 > [!TIP]
+>
 > - Pour visualiser les détails d’un `CHAMP` dans SE11, double-cliquez sur le nom de l’`ELEMENT DE DONNEE`.
 > - Pour connaître son type exact, double-cliquez sur le `DOMAINE` associé.
 
@@ -81,6 +83,7 @@ flowchart TD
 > Vous pouvez y trier, filtrer ou saisir des valeurs, mais la forme des données (longueur, type, unité) reste contrôlée par le `DOMAINE` et l’`ELEMENT DE DONNEE`.
 
 > [!CAUTION]
+>
 > - Les modifications dans SE16N affectent les données réelles de la base SAP.
 > - Il faut éviter d’éditer directement dans SE16N sans autorisation, car une mauvaise valeur peut provoquer des incohérences.
 
@@ -104,6 +107,7 @@ flowchart TD
 ## 🌺 UTILISATION CONSEILLÉE
 
 > Utilisation conseillée
+>
 > - Nommer les `CHAMPS` avec des préfixes explicites (ex : `ZCLIENT_ID`, `ZCITY_NAME`)
 > - Réutiliser les éléments de données existants pour garder la cohérence du dictionnaire
 > - Ne jamais créer un `CHAMP` sans `DOMAINE` ni `ELEMENT DE DONNEE` (évite les incohérences)
@@ -111,6 +115,7 @@ flowchart TD
 
 > [!TIP]
 > En cas de doute sur la signification d’un `CHAMP`, consultez
+>
 > - SE11 → double-cliquez sur l’`ELEMENT DE DONNEE`
 > - Cas d’emploi (`Ctrl` + `Shift` + `F3`) pour savoir où il est utilisé dans le système
 

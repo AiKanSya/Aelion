@@ -7,7 +7,6 @@
 - [ ] Utiliser `IS INITIAL` ou `IS NOT INITIAL` pour tester le contenu d’une table interne
 - [ ] Savoir que `IS INITIAL` fonctionne aussi avec des variables simples
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +18,6 @@ flowchart TD
     D --> E["ATTENTION"]
     E --> F["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -35,6 +33,7 @@ flowchart TD
 > Pour les tables internes, les crochets `[]` signifient qu’on évalue le contenu complet de la table.
 
 > [!IMPORTANT]
+>
 > - `itab[] IS INITIAL` → la table ne contient aucune ligne
 > - `itab[] IS NOT INITIAL` → la table contient au moins une ligne
 
@@ -78,6 +77,7 @@ De la même façon :Z
     ENDIF.
 
 > [!IMPORTANT]
+>
 > - Avant le `APPEND`, la table est vide → `IS INITIAL` renvoie VRAI.
 > - Après le `APPEND`, elle contient une ligne → `IS NOT INITIAL` renvoie VRAI.
 
@@ -118,10 +118,11 @@ De la même façon :Z
 ## 🌺 RÉSUMÉ
 
 > `IS INITIAL` permet de vérifier si une table interne ou une variable est vide.
+>
 > - `itab[] IS INITIAL` → table vide
 > - `itab[] IS NOT INITIAL` → table non vide
 > - Fonctionne aussi pour variables et structures simples
-> Bon réflexe : toujours vérifier avant de traiter ou boucler sur une table.
+>   Bon réflexe : toujours vérifier avant de traiter ou boucler sur une table.
 
 > [!TIP]
 > Tester si une boîte contient quelque chose avant d’essayer de prendre un objet à l’intérieur.

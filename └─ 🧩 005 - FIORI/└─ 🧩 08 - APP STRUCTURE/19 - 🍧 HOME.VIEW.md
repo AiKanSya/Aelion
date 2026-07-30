@@ -6,6 +6,7 @@
 - [ ] Comprendre **home.view.xml (vue principale)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["HOME.VIEW"]
     A --> B["HOME.VIEW.XML (VUE PRINCIPALE)"]
 ```
-
 
 ## 🌺 HOME.VIEW.XML (VUE PRINCIPALE)
 
@@ -52,6 +52,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Afficher l’écran d’accueil de l’application.
 > - 🔨 Utilité : Présenter une liste, un tableau ou un résumé des données principales.

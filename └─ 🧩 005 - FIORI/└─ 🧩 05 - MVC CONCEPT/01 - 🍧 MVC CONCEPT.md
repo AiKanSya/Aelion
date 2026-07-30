@@ -6,6 +6,7 @@
 - [ ] Comprendre **concept mvc**.
 - [ ] Mettre en œuvre **flux ui5 reel** dans un exemple guidé.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -15,7 +16,6 @@ flowchart TD
     B --> C["FLUX UI5 REEL"]
     C --> D["REGLES IMPORTANTES"]
 ```
-
 
 ## 🌺 CONCEPT MVC
 

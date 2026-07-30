@@ -8,7 +8,6 @@ flowchart TD
     A --> B["SAP GATEWAY DATA MODEL DEFINITION METHODS"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] `Define Data Model Declaratively Method` pour définir un `DataModel`
@@ -29,6 +28,7 @@ flowchart TD
 ![](.././assets/Capture%20d’écran%202026-01-16%20112029.png)
 
 > [!CAUTION]
+>
 > - Entity Type Name : `BusinessPartner`
 > - [x] `Create Related Entity Set`
 > - Entity Set Name : (Se renseigne automatiquement si vous avez renseigner l'Entity Type Name puis cliquer sur la CheckBox) `BusinessPartnerSet`

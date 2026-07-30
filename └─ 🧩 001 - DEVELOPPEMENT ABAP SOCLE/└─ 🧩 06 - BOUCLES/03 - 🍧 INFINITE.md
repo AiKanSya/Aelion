@@ -7,7 +7,6 @@
 - [ ] Apprendre à interrompre manuellement une boucle infinie via la transaction /oSM50
 - [ ] Toujours prévoir une condition de sortie pour éviter des blocages du programme
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +16,6 @@ flowchart TD
     B --> C["EXEMPLE"]
     C --> D["COMMENT INTERROMPRE UNE BOUCLE INFINIE"]
 ```
-
 
 ## 🌺 DÉFINITION
 

@@ -7,7 +7,6 @@
 - [ ] Identifier la première occurrence ou toutes les occurrences
 - [ ] Utiliser les options `MATCH COUNT`, `MATCH OFFSET`, `MATCH LENGTH`, et `RESULTS`
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +18,6 @@ flowchart TD
     D --> E["EXEMPLE - MATCH COUNT"]
     E --> F["EXEMPLE - MATCH OFFSET"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -127,6 +125,7 @@ flowchart TD
 > Savoir combien de fois le mot apparaît et à quelle position exacte.
 
 > [!TIP]
+>
 > - Visualiser la chaîne comme une phrase à scanner à la recherche d’un mot
 > - `FIRST OCCURRENCE` = le premier mot trouvé
 > - `ALL OCCURRENCES` = tous les mots trouvés
@@ -137,8 +136,8 @@ flowchart TD
 
 > - `FIND` = rechercher un motif dans une chaîne
 > - Peut retourner position, longueur, nombre d’occurrences, ou résultats dans structure/table
-> [!TIP]
-> scanner un texte pour identifier et localiser les mots précis
+>   [!TIP]
+>   scanner un texte pour identifier et localiser les mots précis
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

@@ -10,7 +10,6 @@
 - [ ] Assimiler l’analogie entre `TABLE INTERNE` et carnet d’adresses
 - [ ] Appliquer les bonnes pratiques pour manipuler les tables internes
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -22,7 +21,6 @@ flowchart TD
     D --> E["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > Une `TABLE INTERNE` est un conteneur temporaire de données dans un programme ABAP.
@@ -30,6 +28,7 @@ flowchart TD
 
 > [!TIP]
 > Imaginez une `TABLE INTERNE` comme un carnet d’adresses
+>
 > - Chaque page correspond à une ligne de table (une `STRUCTURE`)
 > - Chaque champ sur la page correspond à un champ de la `STRUCTURE` (nom, prénom, téléphone…)
 > - Vous pouvez ajouter ou supprimer des pages sans toucher aux autres
@@ -97,11 +96,12 @@ flowchart TD
 
 > [!IMPORTANT]
 > Déclarer une `TABLE INTERNE` `lt_livres` avec une `STRUCTURE` `ty_livre` contenant
+>
 > - titre (CHAR30)
 > - auteur (CHAR30)
 > - annee (I)
 > - genre (CHAR20)
-> Ajouter une ligne à la table.
+>   Ajouter une ligne à la table.
 
 <details>
   <summary>SOLUTION</summary>
@@ -150,11 +150,12 @@ flowchart TD
 
 > [!IMPORTANT]
 > Déclarer une `TABLE INTERNE lt_clients` avec une `STRUCTURE ty_client` contenant
+>
 > - nom (CHAR20)
 > - prenom (CHAR20)
 > - age (I)
 > - ville (CHAR20)
-> Ajouter deux clients différents.
+>   Ajouter deux clients différents.
 
 <details>
   <summary>SOLUTION</summary>
@@ -188,7 +189,7 @@ flowchart TD
 > - Une `TABLE INTERNE` contient plusieurs lignes de données structurées.
 > - Chaque ligne est une `STRUCTURE`, manipulée via une `VARIABLE` temporaire avant insertion.
 > - Schéma général : `TYPES` → `DATA structure` → `DATA table` → `APPEND TO table`.
-> [!TIP]
-> carnet d’adresses pour la table, fiche d’identité pour chaque ligne.
-> [!IMPORTANT]
-> utiliser des `STRUCTURES` claires, manipuler les lignes via une `STRUCTURE` temporaire et éviter les header lines.
+>   [!TIP]
+>   carnet d’adresses pour la table, fiche d’identité pour chaque ligne.
+>   [!IMPORTANT]
+>   utiliser des `STRUCTURES` claires, manipuler les lignes via une `STRUCTURE` temporaire et éviter les header lines.

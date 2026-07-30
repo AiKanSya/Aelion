@@ -6,6 +6,7 @@
 - [ ] Comprendre **manifest.json (métadonnées de l’application)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["MANIFEST"]
     A --> B["MANIFEST.JSON (MÉTADONNÉES DE L’APPLICATION)"]
 ```
-
 
 ## 🌺 MANIFEST.JSON (MÉTADONNÉES DE L’APPLICATION)
 
@@ -45,6 +45,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Décrire toute la configuration Fiori de l’application.
 > - 🔨 Utilité : Définir routes, modèles, data sources, titres, icônes et namespace.

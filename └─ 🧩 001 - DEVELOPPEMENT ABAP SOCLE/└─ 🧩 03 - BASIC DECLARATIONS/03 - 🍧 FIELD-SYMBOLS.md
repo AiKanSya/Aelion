@@ -8,7 +8,6 @@
 - [ ] Différencier `FIELD-SYMBOL`, VARIABLE et CONSTANTE
 - [ ] Comprendre le principe d’assignation et pourquoi il est obligatoire
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,7 +19,6 @@ flowchart TD
     D --> E["DÉCLARATION AVEC FIELD-SYMBOLS"]
     E --> F["LE PRINCIPE D’ASSIGNATION"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -119,9 +117,9 @@ Exemple :
 
 > [!IMPORTANT]
 > Pour être sûr qu'un Field-Symbol est assigné, vous pouvez controller l'assignation comme dans l'exemple ci-dessus via la condition
->     IF <lfs_> IS ASSIGNED.
->       "Traitement ici en cas de condition true
->     ENDIF.
+> IF <lfs\_> IS ASSIGNED.
+> "Traitement ici en cas de condition true
+> ENDIF.
 
 ### 🍧 FIELD-SYMBOL ET OBJET
 

@@ -8,7 +8,6 @@
 - [ ] Connaître les précautions à prendre avant une copie
 - [ ] Être capable de vérifier la réussite d’une copie
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +18,6 @@ flowchart TD
     C --> D["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
     itab_dest[] = itab_src[]
@@ -28,6 +26,7 @@ flowchart TD
 
 > [!TIP]
 > Imaginez deux classeurs
+>
 > - `itab_src` = classeur d’origine rempli de fiches
 > - `itab_dest` = classeur vide
 >   Copier `itab_src[]` vers `itab_dest[]` revient à photocopier toutes les fiches du premier pour les ranger dans le second.
@@ -116,12 +115,13 @@ flowchart TD
 ## 🌺 RÉSUMÉ
 
 > `itab_dest[] = itab_src[]` est la méthode la plus simple pour copier intégralement une table interne.
+>
 > - Les crochets `[]` signifient “copie de tout le contenu”
 > - Les données sont dupliquées, pas seulement la référence
 > - Les anciennes lignes sont remplacées
 > - Possibilité d’utiliser des FIELD-SYMBOLS pour un traitement dynamique
-> [!TIP]
-> Copier une table, c’est comme scanner un classeur entier pour en faire une copie fidèle, sans toucher à l’original.
+>   [!TIP]
+>   Copier une table, c’est comme scanner un classeur entier pour en faire une copie fidèle, sans toucher à l’original.
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

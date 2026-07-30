@@ -6,7 +6,6 @@
 - [ ] UTILISER LA CLAUSE WHERE POUR CIBLER L’ENREGISTREMENT
 - [ ] VERIFIER LE SUCCES DE L’OPERATION VIA SY-SUBRC ET SY-DBCNT
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -16,13 +15,13 @@ flowchart TD
     B --> C["EXEMPLE"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > DELETE FROM dbtab WHERE condition
 > Supprime les lignes de la table `dbtab` correspondant à la condition.
 
 > Variables système :
+>
 > - SY-SUBRC = 0 → au moins un enregistrement supprimé
 > - SY-SUBRC = 4 → aucun enregistrement trouvé
 > - SY-DBCNT → nombre de lignes supprimées
@@ -49,6 +48,7 @@ flowchart TD
     ENDIF.
 
 > [!IMPORTANT]
+>
 > 1. La constante `lc_user_id` contient l’ID du passager à supprimer.
 > 2. `DELETE FROM` supprime uniquement la ligne correspondant à cet ID.
 > 3. Vérification du succès avec SY-SUBRC et affichage d’un message.

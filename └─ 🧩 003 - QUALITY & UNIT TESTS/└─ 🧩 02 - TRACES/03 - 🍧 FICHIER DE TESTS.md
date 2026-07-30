@@ -2,11 +2,9 @@
 
 ## 🌺 OBJECTIFS
 
-
 - [ ] Savoir renseigner un `fichier de tests`
 - [ ] `Standardiser` la `validation`
 - [ ] Rendre le test compréhensible par un tiers
-
 
 ## 🌺 VUE D'ENSEMBLE
 
@@ -20,11 +18,11 @@ flowchart TD
     E --> F["CONCLUSION"]
 ```
 
-
 ## 🌺 STRUCTURE STANDARD
 
 > [!IMPORTANT]
 > Format recommandé :
+>
 > - Excel ou Word
 > - Un test = une ligne ou une section
 
@@ -66,6 +64,7 @@ flowchart TD
 ## 🌺 LIMITES
 
 > [!CAUTION]
+>
 > - Une trace n’est pas un test
 > - Une trace ne valide pas la logique
 > - Trop de traces = perte de lisibilité

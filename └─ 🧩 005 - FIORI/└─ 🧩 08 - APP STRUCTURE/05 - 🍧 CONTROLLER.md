@@ -6,6 +6,7 @@
 - [ ] Comprendre **controller/ (logique applicative)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["CONTROLLER"]
     A --> B["CONTROLLER/ (LOGIQUE APPLICATIVE)"]
 ```
-
 
 ## 🌺 CONTROLLER/ (LOGIQUE APPLICATIVE)
 
@@ -45,6 +45,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Dossier comprenant les gestions des comportements de l’application.
 > - 🔨 Utilité : Centraliser la logique.

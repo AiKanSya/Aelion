@@ -8,7 +8,6 @@
 - [ ] Comprendre le contrôle du commit par l’appelant
 - [ ] Utiliser `BAPI_TRANSACTION_COMMIT` et `BAPI_TRANSACTION_ROLLBACK`
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,7 +19,6 @@ flowchart TD
     D --> E["COMMIT APRES UNE BAPI D'ECRITURE"]
     E --> F["POURQUOI LE COMMIT APPARTIENT A L'APPELANT"]
 ```
-
 
 ## 🌺 DÉFINITION
 

@@ -6,6 +6,7 @@
 - [ ] Comprendre **.gitignore (fichiers à ignorer par git)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["GITIGNORE"]
     A --> B[".GITIGNORE (FICHIERS À IGNORER PAR GIT)"]
 ```
-
 
 ## 🌺 .GITIGNORE (FICHIERS À IGNORER PAR GIT)
 
@@ -45,6 +45,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Définir quels fichiers et dossiers ne doivent pas être suivis par Git.
 > - 🔨 Utilité : Éviter de versionner des fichiers temporaires, logs, ou dépendances locales.

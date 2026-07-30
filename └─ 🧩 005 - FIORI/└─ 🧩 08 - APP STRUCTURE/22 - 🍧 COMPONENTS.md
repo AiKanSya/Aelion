@@ -6,6 +6,7 @@
 - [ ] Comprendre **component.js (point d’entrée de l’application)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["COMPONENT"]
     A --> B["COMPONENT.JS (POINT D’ENTRÉE DE L’APPLICATION)"]
 ```
-
 
 ## 🌺 COMPONENT.JS (POINT D’ENTRÉE DE L’APPLICATION)
 
@@ -45,6 +45,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Initialiser l’application et ses composants.
 > - 🔨 Utilité : Charger les modèles, configurer le router, et préparer l’application pour l’exécution.

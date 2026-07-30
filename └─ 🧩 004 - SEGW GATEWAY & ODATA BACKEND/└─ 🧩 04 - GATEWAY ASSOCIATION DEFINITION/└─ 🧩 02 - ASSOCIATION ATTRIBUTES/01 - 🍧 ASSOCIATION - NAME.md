@@ -6,6 +6,7 @@
 - [ ] Comprendre **association name**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -16,7 +17,6 @@ flowchart TD
 
 > [!IMPORTANT]
 > Une modification du modèle OData peut nécessiter une nouvelle génération des artefacts d’exécution et une vérification du document `$metadata` consommé par les clients.
-
 
 ## 🌺 ASSOCIATION NAME
 

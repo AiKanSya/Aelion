@@ -6,7 +6,6 @@
 - [ ] Séparer une chaîne de caractères selon un séparateur défini
 - [ ] Stocker le résultat dans des `VARIABLES` ou une table interne
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +16,6 @@ flowchart TD
     C --> D["EXEMPLE DE BASE"]
     D --> E["DECLARATION DYNAMIQUE"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -40,6 +38,7 @@ flowchart TD
 - IN BYTE|CHARACTER MODE : mode de traitement des caractères
 
 > [!TIP]
+>
 > - `IN BYTE MODE` = travailler en mode binaire pur (peu utilisé)
 > - `IN CHARACTER MODE` = travailler sur les caractères comme des lettres
 
@@ -95,6 +94,7 @@ flowchart TD
 > Chaque mot devient un élément d'une liste
 
 > [!TIP]
+>
 > - Visualiser la chaîne comme une phrase à découper en mots
 > - `SPLIT` est l’inverse de `CONCATENATE` : on passe de la phrase complète aux morceaux
 > - Très utile pour analyser ou transformer des données textuelles
@@ -103,8 +103,8 @@ flowchart TD
 
 > - `SPLIT` = découper une chaîne selon un séparateur
 > - Résultat dans variables individuelles ou table interne
-> [!TIP]
-> mettre chaque mot dans une boîte séparée ou dans une liste
+>   [!TIP]
+>   mettre chaque mot dans une boîte séparée ou dans une liste
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

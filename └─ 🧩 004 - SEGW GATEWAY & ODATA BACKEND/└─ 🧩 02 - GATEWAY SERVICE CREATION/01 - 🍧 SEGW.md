@@ -12,7 +12,6 @@ flowchart TD
     E --> F["SAP GATEWAY SERVICE DEVELOPMENT FLOW"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] Comprendre la transaction `SEGW - SAP GATEWAY SERVICE BUILDER`
@@ -30,22 +29,24 @@ flowchart TD
 
 > [!IMPORTANT]
 > Un `OData Service` :
+>
 > - un service RESTful standardisé (norme `OASIS` pour info)
 > - exposant des ressources (`EntitySets`, `Navigation`, ...)
 > - manipulées via HTTP (GET, POST, PUT, PATCH, DELETE)
 > - en JSON / XML
-> 👉 C’est un concept technique générique, indépendant de SAP.
+>   👉 C’est un concept technique générique, indépendant de SAP.
 
 ## 🌺 GATEWAY SERVICE
 
 > [!IMPORTANT]
 > Un `Gateway Service` :
+>
 > - l’implémentation SAP d’un `OData Service`
 > - développée via `SEGW`
 > - exécutée sur `SAP Gateway` (`IWFND` / `IWBE`) ou `Embedded`
 > - connectée au backend `ABAP`
-> 👉 Tous les `Gateway Services` sont des `OData Services`,
-> 👉 mais tous les `OData Services` ne sont pas des `Gateway Services`.
+>   👉 Tous les `Gateway Services` sont des `OData Services`,
+>   👉 mais tous les `OData Services` ne sont pas des `Gateway Services`.
 
 ## 🌺 GATEWAY PROJECT
 

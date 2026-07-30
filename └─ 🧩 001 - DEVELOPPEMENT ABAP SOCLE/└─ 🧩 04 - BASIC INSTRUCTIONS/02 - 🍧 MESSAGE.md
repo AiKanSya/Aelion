@@ -8,7 +8,6 @@
 - [ ] Créer et référencer des `ELEMENTS DE TEXTE` pour les `MESSAGES`
 - [ ] Créer et utiliser des `MESSAGES` via la transaction SE91
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,7 +19,6 @@ flowchart TD
     D --> E["ELEMENTS DE TEXTE POUR MESSAGES"]
     E --> F["CRÉER DES MESSAGES VIA SE91"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -149,8 +147,8 @@ Permet d’afficher un `MESSAGE` d’un type différent de son type réel :
 > - `DISPLAY LIKE` permet de modifier l’apparence sans changer le type
 > - Les `ELEMENTS DE TEXTE` rendent les `MESSAGES` dynamiques et faciles à maintenir
 > - La SE91 permet de créer des `MESSAGES` réutilisables dans plusieurs programmes
-> [!TIP]
-> panneaux lumineux ou post-it, chaque couleur et type indique un niveau d’importance
+>   [!TIP]
+>   panneaux lumineux ou post-it, chaque couleur et type indique un niveau d’importance
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

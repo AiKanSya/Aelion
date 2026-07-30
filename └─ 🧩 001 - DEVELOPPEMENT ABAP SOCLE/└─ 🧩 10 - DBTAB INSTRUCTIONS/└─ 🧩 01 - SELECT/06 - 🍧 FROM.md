@@ -7,7 +7,6 @@
 - [ ] Utiliser les alias dans la sélection de colonnes
 - [ ] Stocker les résultats dans une table interne et les parcourir
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +16,6 @@ flowchart TD
     B --> C["EXEMPLE"]
     C --> D["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -70,6 +68,7 @@ flowchart TD
 | Documenter les alias                                     | Indiquer ce que chaque alias représente      |
 
 > [!IMPORTANT]
+>
 > - Simplifier les requêtes avec plusieurs colonnes
 > - Faciliter la lecture du code pour les débutants
 > - Préparer le terrain avant d’aborder les sous-requêtes et les JOIN

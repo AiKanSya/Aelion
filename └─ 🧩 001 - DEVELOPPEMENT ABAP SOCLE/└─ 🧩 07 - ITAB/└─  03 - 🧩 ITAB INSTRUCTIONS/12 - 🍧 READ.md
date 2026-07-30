@@ -8,7 +8,6 @@
 - [ ] Maîtriser l’usage de FIELD-SYMBOLS pour manipuler directement la mémoire
 - [ ] Vérifier les retours avec `SY-SUBRC` et connaître l’index via `SY-TABIX`
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +18,6 @@ flowchart TD
     C --> D["EXEMPLES AVEC FIELD-SYMBOL"]
     D --> E["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -188,11 +186,12 @@ flowchart TD
 ## 🌺 RÉSUMÉ
 
 > `READ TABLE` permet de localiser et accéder à une ligne dans une table interne.
+>
 > - Options de recherche : `WITH KEY`, `INDEX`
 > - Options de récupération : `INTO`, `ASSIGNING`, `TRANSPORTING NO FIELDS`
 > - Variables système : `SY-SUBRC` et `SY-TABIX`
-> [!TIP]
-> rechercher une fiche dans un classeur et pointer directement dessus pour modification.
+>   [!TIP]
+>   rechercher une fiche dans un classeur et pointer directement dessus pour modification.
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

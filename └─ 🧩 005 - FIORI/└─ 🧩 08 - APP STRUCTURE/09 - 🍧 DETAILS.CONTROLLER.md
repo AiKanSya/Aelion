@@ -6,6 +6,7 @@
 - [ ] Comprendre **details.controller.js**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["DETAILS.CONTROLLER"]
     A --> B["DETAILS.CONTROLLER.JS"]
 ```
-
 
 ## 🌺 DETAILS.CONTROLLER.JS
 
@@ -55,6 +55,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Gérer la logique métier de la vue Details.
 > - 🔨 Utilité : Charger les données spécifiques à un élément sélectionné et gérer les actions associées.

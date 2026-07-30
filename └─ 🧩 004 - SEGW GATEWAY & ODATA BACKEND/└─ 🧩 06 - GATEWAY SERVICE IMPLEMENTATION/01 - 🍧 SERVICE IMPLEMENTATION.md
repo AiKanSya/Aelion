@@ -11,7 +11,6 @@ flowchart TD
 > [!IMPORTANT]
 > Une modification du modèle OData peut nécessiter une nouvelle génération des artefacts d’exécution et une vérification du document `$metadata` consommé par les clients.
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] Identifier les méthodes natives

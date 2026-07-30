@@ -6,6 +6,7 @@
 - [ ] Comprendre **tests de module**.
 - [ ] Mettre en œuvre **tests de module avec → couverture** dans un exemple guidé.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -16,11 +17,11 @@ flowchart TD
     C --> D["DANS L'ENVIRONNEMENT DE TEST"]
 ```
 
-
 ## 🌺 TESTS DE MODULE
 
 > [!NOTE]
 > Tests de modules
+>
 > - Lancer `ABAP Unit` sur la classe sélectionnée.
 > - Exécuter toutes les méthodes FOR TESTING.
 > - Afficher succès / échecs / messages.
@@ -36,6 +37,7 @@ flowchart TD
 
 > [!NOTE]
 > Pour tester les échecs dans la cadre de la démo, nous allons ajouter volontairement des erreurs :
+>
 > - DEFINITION SECTION
 >   - (+)Déclaration de `f_cut_not_created TYPE REF TO zcl_customer_orders_fgi`
 > - IMPLEMENTATION SECTION
@@ -103,6 +105,7 @@ ENDCLASS.
 
 > [!NOTE]
 > Tests de modules avec → `Couverture`
+>
 > - Identique à Tests de modules.
 > - Ajoute l’analyse de `couverture` de code :
 >   - quelles méthodes / lignes ont été exécutées.
@@ -111,18 +114,20 @@ ENDCLASS.
 
 > [!WARNING]
 > Le `Coverage Analyzer` ne supporte pas :
+>
 > - Classes `FINAL`
 > - avec accès `DB direct`
 > - exécutées via `SE24`
 > - dans certaines versions SAP (`ECC` / `S-4` anciens).
-> Lancer cette version avec une classe répondant à au un de ces critères engendrera un Dump :
-> ![](../assets/Capture%20d’écran%202026-01-14%20163234.png)
-> Pour info, le dump ci-dessus ne signale pas une erreur logique, mais une politique système. Ce n’est pas une erreur fonctionnelle, ni une erreur ABAP Unit, ni un cas limite.
+>   Lancer cette version avec une classe répondant à au un de ces critères engendrera un Dump :
+>   ![](../assets/Capture%20d’écran%202026-01-14%20163234.png)
+>   Pour info, le dump ci-dessus ne signale pas une erreur logique, mais une politique système. Ce n’est pas une erreur fonctionnelle, ni une erreur ABAP Unit, ni un cas limite.
 
 ## 🌺 DANS L'ENVIRONNEMENT DE TEST
 
 > [!NOTE]
 > Dans l’environnement de test
+>
 > - Exécute la classe comme un programme.
 > - Ignore `ABAP Unit`.
 > - Nécessite une méthode statique exécutable (`IF_OO_ADT_CLASSRUN` ou équivalent).

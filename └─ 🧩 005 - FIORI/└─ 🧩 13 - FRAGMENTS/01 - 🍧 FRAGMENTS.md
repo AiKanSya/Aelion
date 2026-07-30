@@ -6,6 +6,7 @@
 - [ ] Comprendre **définition**.
 - [ ] Mettre en œuvre **difference entre view et fragment** dans un exemple guidé.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +19,6 @@ flowchart TD
 
 > [!IMPORTANT]
 > Vérifier la version SAPUI5 ciblée par l’application. La disponibilité d’une API, d’une propriété ou d’un événement peut dépendre de cette version.
-
 
 ## 🌺 DÉFINITION
 

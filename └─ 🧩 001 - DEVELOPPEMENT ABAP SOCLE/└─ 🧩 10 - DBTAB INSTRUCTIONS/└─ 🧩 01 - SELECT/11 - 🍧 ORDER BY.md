@@ -7,7 +7,6 @@
 - [ ] Combiner `ORDER BY` avec `GROUP BY` et des fonctions d’agrégat
 - [ ] Afficher les résultats dans un ordre clair et lisible
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +16,6 @@ flowchart TD
     B --> C["EXEMPLE"]
     C --> D["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 

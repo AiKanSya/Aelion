@@ -7,7 +7,6 @@
 - [ ] Appliquer les alias dans une sélection DISTINCT ou normale
 - [ ] Stocker les résultats dans une table interne avec les nouveaux noms
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +16,6 @@ flowchart TD
     B --> C["EXEMPLE"]
     C --> D["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -68,6 +66,7 @@ flowchart TD
 | Utiliser les alias dans les rapports | Les noms personnalisés améliorent la lisibilité des résultats |
 
 > [!IMPORTANT]
+>
 > - Pour renommer des colonnes dans des requêtes complexes
 > - Pour améliorer la lisibilité des résultats dans les tables internes ou les rapports ABAP
 

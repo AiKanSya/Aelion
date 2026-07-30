@@ -7,7 +7,6 @@
 - [ ] Savoir combiner plusieurs tables sources vers une même table cible
 - [ ] Apprendre à manipuler des structures différentes sans erreur de type
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,7 +19,6 @@ flowchart TD
     E --> F["DIFFERENCE AVEC COPY TABLE"]
 ```
 
-
 ## 🌺 DÉFINITION
 
     MOVE-CORRESPONDING itab_src TO itab_dest.
@@ -32,6 +30,7 @@ flowchart TD
 > `MOVE-CORRESPONDING` copie seulement les rubriques ayant le même intitulé, sans toucher aux autres champs.
 
 > [!IMPORTANT]
+>
 > - Si la source et la destination ont des champs différents, seuls les champs correspondants sont copiés.
 > - Les champs qui n’existent pas dans l’autre structure sont ignorés sans erreur.
 > - L’opération peut être répétée pour fusionner plusieurs tables dans la même cible.
@@ -73,6 +72,7 @@ flowchart TD
     ENDLOOP.
 
 > [!IMPORTANT]
+>
 > - `lt_citizen_src` contient un champ `age` absent dans `lt_citizen_dest`.
 > - `MOVE-CORRESPONDING` ne copie que les champs `country` et `name`, car ils existent dans les deux structures.
 
@@ -130,6 +130,7 @@ flowchart TD
 | `MOVE-CORRESPONDING itab2 TO itab1` | Copie uniquement les champs de même nom, structures différentes acceptées | Correspondance partielle  |
 
 > [!IMPORTANT]
+>
 > - `COPY TABLE` = copie brute (toutes les colonnes doivent exister).
 > - `MOVE-CORRESPONDING` = copie intelligente (seules les colonnes communes sont transférées).
 
@@ -145,6 +146,7 @@ flowchart TD
 ## 🌺 RÉSUMÉ
 
 > `MOVE-CORRESPONDING` permet de transférer uniquement les champs communs entre deux structures ou tables internes.
+>
 > - Idéal pour les structures différentes mais similaires
 > - Ignore les champs inexistants sans erreur
 

@@ -6,6 +6,7 @@
 - [ ] Comprendre **method \_create_entity implémentation**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["IMPLEMENTING \\CREATEENTITY OPERATION"]
     A --> B["METHOD \\CREATEENTITY IMPLEMENTATION"]
 ```
-
 
 ## 🌺 METHOD \*\_CREATE_ENTITY IMPLÉMENTATION
 
@@ -46,48 +46,56 @@ flowchart TD
 
 > [!NOTE]
 > 🍧 `IV_ENTITY_NAME` (STRING)
+>
 > - Nom de l’Entity OData concernée par la création.
 > - Exemple : `Product`.
 > - Identification logique du type d’objet à créer.
 
 > [!NOTE]
 > 🍧 `IV_ENTITY_SET_NAME` (STRING)
+>
 > - Nom de l’EntitySet cible.
 > - Exemple : `Products`.
 > - Correspond au segment POST de l’URL OData.
 
 > [!NOTE]
 > 🍧 `IV_SOURCE_NAME` (STRING)
+>
 > - Nom de la source d’appel.
 > - Utilisé dans les scénarios de navigation ou de réutilisation.
 > - Généralement non exploité dans un CREATE simple.
 
 > [!NOTE]
 > 🍧 `IT_KEY_TAB` (`/IWBEP/T_MGW_NAME_VALUE_PAIR`)
+>
 > - Clés techniques transmises par le framework.
 > - Généralement vide lors d’un CREATE standard.
 > - Utilisé uniquement dans des scénarios spécifiques (navigation, deep insert).
 
 > [!NOTE]
 > 🍧 `IO_TECH_REQUEST_CONTEXT` (`/IWBEP/IF_MGW_REQ_ENTITY_C`)
+>
 > - Contexte technique de la requête CREATE.
 > - Donne accès aux headers HTTP, utilisateur, informations de session.
 > - Strictement technique.
 
 > [!NOTE]
 > 🍧 `IT_NAVIGATION_PATH` (`/IWBEP/T_MGW_NAVIGATION_PATH`)
+>
 > - Chemin de navigation OData.
 > - Exemple : `Orders('1')/Items`
 > - Indique si la création est effectuée via une entité parente.
 
 > [!NOTE]
 > 🍧 `IO_DATA_PROVIDER` (`/IWBEP/IF_MGW_ENTRY_PROVIDER`)
+>
 > - Fournisseur des données envoyées par le client.
 > - Permet de lire le payload POST (JSON/XML).
 > - Source principale des valeurs à créer.
 
 > [!NOTE]
 > 🍧 `ER_ENTITY` (Type spécifique MPC)
+>
 > - Entité créée et retournée au consumer OData.
 > - Contient les valeurs finales après création.
 > - Résultat principal de la méthode CREATE_ENTITY.
@@ -183,6 +191,7 @@ ENDMETHOD.
 
 > [!IMPORTANT]
 > Les erreurs d'une class method doivent être `Raise` à l'aide des `Exception Classes`
+>
 > - `/IWBEP/CX_MGW_BUSI_EXCEPTION` pour les erreurs de `logique métier`
 > - `/IWBEP/CX_MGW_TECH_EXCEPTION` pour les `exceptions techniques`
 

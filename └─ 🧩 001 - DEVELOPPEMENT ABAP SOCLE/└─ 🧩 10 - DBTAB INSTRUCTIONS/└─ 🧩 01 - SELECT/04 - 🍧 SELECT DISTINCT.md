@@ -7,7 +7,6 @@
 - [ ] Récupérer une liste claire de valeurs uniques
 - [ ] Stocker les résultats dans une table interne et les parcourir avec une boucle
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     C --> D["EXEMPLE"]
     D --> E["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -42,6 +40,7 @@ flowchart TD
       WHERE condition.
 
 > [!NOTE]
+>
 > - `col1 col2 ...` : colonnes pour lesquelles les combinaisons doivent être uniques
 > - `table` : table SAP ciblée
 > - `itab` : table interne qui stockera les résultats uniques
@@ -92,6 +91,7 @@ flowchart TD
 | Ajouter une clause WHERE si possible                | Réduit le nombre de lignes à traiter et améliore les performances |
 
 > [!IMPORTANT]
+>
 > - Pour obtenir une liste de valeurs uniques à afficher ou à utiliser dans un programme
 > - Pour préparer des données pour des listes déroulantes ou des rapports simplifiés
 

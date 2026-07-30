@@ -6,6 +6,7 @@
 - [ ] Comprendre **qu'est-ce que xml ?**.
 - [ ] Mettre en œuvre **balises xml** dans un exemple guidé.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +18,6 @@ flowchart TD
     D --> E["ATTRIBUTS XML"]
     E --> F["BALISE AUTO-FERMANTE"]
 ```
-
 
 ## 🌺 QU'EST-CE QUE XML ?
 
@@ -243,6 +243,7 @@ Structure :
 
 > [!TIP]
 > Dans une View UI5 :
+>
 > - Balise XML = composant UI5
 > - Attribut = propriété
 

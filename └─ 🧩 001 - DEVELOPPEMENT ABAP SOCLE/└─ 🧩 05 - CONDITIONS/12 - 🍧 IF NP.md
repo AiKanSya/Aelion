@@ -8,7 +8,6 @@
 - [ ] Identifier les applications pratiques : exclure des fichiers, formats ou motifs textuels
 - [ ] Reconnaître la sensibilité à la casse et les types de VARIABLES compatibles (C ou STRING)
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     B --> C["SYNTAXE"]
     C --> D["EXEMPLES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -82,8 +80,8 @@ Explication :
 > - Caractères génériques : \* pour plusieurs caractères, + pour un seul.
 > - Sensible à la casse.
 > - Très utile pour exclure des fichiers, formats ou motifs textuels indésirables.
-> [!TIP]
-> Comme dire “je veux tout sauf ce type de fichier ou ce motif précis”.
+>   [!TIP]
+>   Comme dire “je veux tout sauf ce type de fichier ou ce motif précis”.
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

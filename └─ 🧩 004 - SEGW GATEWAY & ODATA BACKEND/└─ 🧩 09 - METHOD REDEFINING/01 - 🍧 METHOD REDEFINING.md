@@ -9,7 +9,6 @@ flowchart TD
     B --> C["METHOD REDEFINING"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] Redefinir les méthodes CRUD pour préparer l'implémentation de la logique ABAP
@@ -18,15 +17,18 @@ flowchart TD
 
 > [!IMPORTANT]
 > Un `SAP Gateway Service` repose sur deux types de `ABAP classes` :
+>
 > - `Model Provider Class (MPC)`
 > - `Data Provider Class (DPC)`
 
 > [!IMPORTANT]
+>
 > - Le type de classe `MPC` définit le `Model` et les `metadata` du `SAP Gateway Service`.
 > - Le type de classe `DPC` fournit l'implémentation et les fonctionnalités.
 
 > [!IMPORTANT]
 > Chaque type de classe (`MPC` et `DPC`) est implémenté dans deux `ABAP classes` :
+>
 > - Une `classe de base` (`MPC` et `DPC`) générée automatiquement à partir des paramètres définis dans le générateur de services `SAP Gateway`.
 > - Une `classe d'extension` (`MPC_EXT` et `DPC_EXT`) héritant de la `classe de base`, permettant d'étendre le code généré manuellement.
 
@@ -34,6 +36,7 @@ Une `classe d'extension` est une `subclass` de la `classe de base` créée une s
 
 > [!CAUTION]
 > Simplement dit, toute redéfinition se fera dans les Classes `_EXT` !
+>
 > - `DPC_EXT` pour toute implémentation (logique ABAP) et fonctionnalité (Function Import)
 > - `MPC_EXT` pour toute modification de `Model` (Niveau avancé)
 
@@ -50,13 +53,13 @@ Une `classe d'extension` est une `subclass` de la `classe de base` créée une s
 > [!WARNING]
 > Quand vous redéfinissez une méthode, assurez-vous que l'`EntitySet` ciblés possède l'action `CRUD` requis (exemple : redefinir `PRODUCTSET_CREATE_ENTITY` nécessitera de cocher `Creatable` au niveau de l'`EntitySet` `ProductSet`).
 > ![](./assets/Capture%20d’écran%202026-01-16%20151113.png)
-> | 🍧 Action OData | 🍧 Verbe HTTP | 🍧 Case à cocher EntitySet (SEGW) | 🍧 Méthode DPC_EXT appelée  |
+> | 🍧 Action OData | 🍧 Verbe HTTP | 🍧 Case à cocher EntitySet (SEGW) | 🍧 Méthode DPC_EXT appelée |
 > | --------------- | ------------- | --------------------------------- | --------------------------- |
-> | Lecture liste   | GET           | Addressable                       | `<EntitySet>_GET_ENTITYSET` |
-> | Lecture unique  | GET           | Addressable                       | `<EntitySet>_GET_ENTITY`    |
-> | Création        | POST          | Creatable                         | `<EntitySet>_CREATE_ENTITY` |
-> | Mise à jour     | PUT / PATCH   | Updatable                         | `<EntitySet>_UPDATE_ENTITY` |
-> | Suppression     | DELETE        | Deletable                         | `<EntitySet>_DELETE_ENTITY` |
+> | Lecture liste | GET | Addressable | `<EntitySet>_GET_ENTITYSET` |
+> | Lecture unique | GET | Addressable | `<EntitySet>_GET_ENTITY` |
+> | Création | POST | Creatable | `<EntitySet>_CREATE_ENTITY` |
+> | Mise à jour | PUT / PATCH | Updatable | `<EntitySet>_UPDATE_ENTITY` |
+> | Suppression | DELETE | Deletable | `<EntitySet>_DELETE_ENTITY` |
 
 > [!NOTE]
 > Effectuer un `Right-Clic` sur la classe `ZCL_<PROJECTNAME>_DPC_EXT` → `Go to ABAP Workbench`

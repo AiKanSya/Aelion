@@ -5,7 +5,6 @@
 - [ ] Supprimer un ou plusieurs enregistrements d'une table de base de données en fonction d'une condition `WHERE`.
 - [ ] Vérifier la réussite de l’opération via `SY-SUBRC` et connaître le nombre de lignes supprimées avec `SY-DBCNT`.
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -15,12 +14,12 @@ flowchart TD
     B --> C["EXEMPLE"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > `DELETE FROM dbtab WHERE condition`
 > Supprime les enregistrements de la table `dbtab` qui répondent à la `condition`.
 > Variables système mises à jour :
+>
 > - `SY-SUBRC = 0` si au moins un enregistrement a été supprimé
 > - `SY-SUBRC = 4` si aucun enregistrement correspondant n’a été trouvé
 > - `SY-DBCNT` retourne le nombre de lignes supprimées
@@ -42,6 +41,7 @@ flowchart TD
     ENDIF.
 
 > [!IMPORTANT]
+>
 > 1.  Déclaration de la constante `lc_user_id` contenant l'identifiant du passager à supprimer.
 > 2.  La commande `DELETE FROM ... WHERE` supprime la ou les lignes correspondant à l’ID dans la table `ZPASSENGER`.
 > 3.  Vérification de la réussite via `SY-SUBRC` et affichage d’un message.

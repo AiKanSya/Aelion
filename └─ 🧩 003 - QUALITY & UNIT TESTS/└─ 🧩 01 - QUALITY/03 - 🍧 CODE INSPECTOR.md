@@ -2,10 +2,8 @@
 
 ## 🌺 OBJECTIFS
 
-
 - [ ] Accéder et exécuter le `Code Inspector`
 - [ ] Localiser l'origine de l'erreur
-
 
 ## 🌺 VUE D'ENSEMBLE
 
@@ -15,13 +13,13 @@ flowchart TD
     A --> B["CODE INSPECTOR"]
 ```
 
-
 ## 🌺 CODE INSPECTOR
 
 ### 🍧 DÉFINITION
 
 > [!IMPORTANT]
 > Le Code Inspector
+>
 > - contrôle la qualité global
 > - vérifie les règles plus larges et plus strictes
 > - est souvent exigé avant transport

@@ -6,6 +6,7 @@
 - [ ] Identifier les éléments techniques qui composent la notion.
 - [ ] Mettre en œuvre **home.controller** dans un exemple guidé.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -15,7 +16,6 @@ flowchart TD
     B --> C["HOME.CONTROLLER"]
     C --> D["PROMISE .THEN()"]
 ```
-
 
 > [!IMPORTANT]
 > Cette version est correcte et cohérente pour un cours SAP Fiori / UI5 débutant à intermédiaire.

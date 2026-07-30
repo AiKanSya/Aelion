@@ -7,7 +7,6 @@
 - [ ] Savoir créer une structure et y ajouter des champs
 - [ ] Maîtriser les notions d’INCLUDE et APPEND
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     C --> D["CREATION D’UNE STRUCTURE DE TABLE (SE11)"]
     D --> E["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -127,6 +125,7 @@ flowchart TD
 > Créer une structure revient à préparer une fiche Excel avec les colonnes définies, prête à recevoir des données. Vous définissez la forme des informations avant de remplir les cases.
 
 > [!TIP]
+>
 > - Vérifiez toujours que les éléments de données associés existent et sont corrects.
 > - Les noms de champs doivent suivre la nomenclature Z/AELION pour éviter les collisions avec SAP standard.
 
@@ -143,6 +142,7 @@ flowchart TD
 | Documenter la structure            | Facilite la maintenance et la compréhension pour d’autres devs |
 
 > Utilisation conseillée
+>
 > - Réutilisez INCLUDE pour harmoniser les champs communs dans plusieurs tables/structures
 > - Utilisez APPEND uniquement pour vos développements spécifiques ou extensions
 

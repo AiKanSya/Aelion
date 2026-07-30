@@ -68,11 +68,11 @@ START-OF-SELECTION.
   lo_vehicle->display_message( ).
 ```
 
-| Élément | Rôle |
-|---|---|
+| Élément                          | Rôle                                            |
+| -------------------------------- | ----------------------------------------------- |
 | `TYPE REF TO zcl_aelion_vehicle` | Déclare une référence compatible avec la classe |
-| `NEW zcl_aelion_vehicle( )` | Crée une instance |
-| `lo_vehicle->display_message( )` | Appelle une méthode d’instance |
+| `NEW zcl_aelion_vehicle( )`      | Crée une instance                               |
+| `lo_vehicle->display_message( )` | Appelle une méthode d’instance                  |
 
 ## 🌺 EXERCICE
 

@@ -6,6 +6,7 @@
 - [ ] Comprendre **basecontroller.controller.js**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["BASE.CONTROLLER"]
     A --> B["BASECONTROLLER.CONTROLLER.JS"]
 ```
-
 
 ## 🌺 BASECONTROLLER.CONTROLLER.JS
 
@@ -55,6 +55,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Centraliser les fonctions communes utilisées par plusieurs contrôleurs.
 > - 🔨 Utilité : Éviter la duplication de code (router, models, messages, helpers).

@@ -7,7 +7,6 @@
 - [ ] Identifier les contraintes liées au type de table et à l’ordre des données
 - [ ] Utiliser correctement `COMPARING` pour sélectionner les champs pertinents
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,22 +17,24 @@ flowchart TD
     C --> D["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
     DELETE ADJACENT DUPLICATES FROM itab
                               [COMPARING {comp1 comp2 ...}].
 
 > L’instruction `DELETE ADJACENT DUPLICATES` supprime les lignes consécutives en doublon dans une table interne (`itab`).
+>
 > - Si aucun champ n’est précisé avec `COMPARING`, la suppression se base sur la clé primaire de la table.
 > - Si des champs sont précisés via `COMPARING`, seuls ces champs sont utilisés pour détecter les doublons.
 
 > [!TIP]
 > Imaginez un classeur trié
+>
 > - Les fiches consécutives avec le même identifiant ou les mêmes informations sont fusionnées en une seule
 > - Les fiches uniques restent intactes
 
 > [!NOTE]
+>
 > - Pour STANDARD TABLE, un tri préalable est obligatoire avant suppression
 > - Pour SORTED TABLE, le tri est assuré automatiquement par la clé
 > - La suppression ne retire que les doublons adjacents, pas les doublons dispersés
@@ -88,6 +89,7 @@ flowchart TD
     DELETE ADJACENT DUPLICATES FROM lt_citizen_std COMPARING country.
 
 > [!IMPORTANT]
+>
 > - `STANDARD TABLE` : tri obligatoire pour que les doublons soient adjacents
 > - `SORTED TABLE` : suppression basée automatiquement sur la clé
 > - `COMPARING` permet de cibler les champs précis pour détecter les doublons
@@ -150,5 +152,5 @@ flowchart TD
 > - Avec `COMPARING` : suppression basée sur les champs spécifiés
 > - `STANDARD TABLE` : trier avant suppression
 > - `SORTED TABLE` : suppression basée sur la clé primaire automatiquement
-> [!TIP]
-> retirer les fiches identiques consécutives dans un classeur trié
+>   [!TIP]
+>   retirer les fiches identiques consécutives dans un classeur trié

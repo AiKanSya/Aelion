@@ -6,6 +6,7 @@
 - [ ] Comprendre **annotations/ (annotations odata)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["ANNOTATIONS"]
     A --> B["ANNOTATIONS/ (ANNOTATIONS ODATA)"]
 ```
-
 
 ## 🌺 ANNOTATIONS/ (ANNOTATIONS ODATA)
 
@@ -43,6 +43,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Centraliser les dossier d’annotations OData utilisés par l’application.
 > - 🔨 Utilité : Enrichir le modèle OData avec des informations supplémentaires (UI, labels, champs obligatoires, comportements).
@@ -79,6 +80,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Décrire des métadonnées complémentaires pour un service OData.
 > - 🔨 Utilité : Contrôler l’affichage UI (labels, champs visibles, sections, importance) via des annotations standards SAP (niveau avancé).

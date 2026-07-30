@@ -7,7 +7,6 @@
 - [ ] Savoir créer une `VIEW` en utilisant des tables existantes
 - [ ] Maîtriser les notions de jointures et sélections de champs
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     C --> D["CREATION D’UNE VIEW"]
     D --> E["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -31,6 +29,7 @@ flowchart TD
 ## 🌺 TYPES DE VIEWS
 
 > [!TIP]
+>
 > - Database View : une `VIEW` pivot qui combine plusieurs tableaux Excel.
 > - Projection View : un tableau résumé ne montrant que certaines colonnes.
 > - Help View : un menu déroulant intelligent pour choisir une valeur.

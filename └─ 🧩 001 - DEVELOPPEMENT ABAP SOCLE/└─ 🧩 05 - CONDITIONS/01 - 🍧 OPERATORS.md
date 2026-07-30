@@ -6,7 +6,6 @@
 - [ ] Savoir appliquer les opérateurs pour tester l’égalité, la différence et les relations d’ordre
 - [ ] Savoir utiliser les mots-clés (`EQ`, `GT`, `LE`, etc.) dans les instructions ABAP
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -15,7 +14,6 @@ flowchart TD
     A --> B["DEFINITION"]
     B --> C["TABLEAU DES OPERATEURS"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -36,6 +34,7 @@ flowchart TD
 | Différent               | `<>`     | `NE`       | Not Equal        |
 
 > [!TIP]
+>
 > - `=` ou `EQ` vérifie l’égalité stricte
 > - `>` ou `GT` et `<` ou `LT` comparent les valeurs numériques ou alphabétiques
 > - `>=` ou `GE` et `<=` ou `LE` incluent l’égalité dans la comparaison

@@ -9,7 +9,6 @@
 - [ ] Comprendre INCLUDE et APPEND
 - [ ] Créer une table avec INCLUDE ou APPEND
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -21,7 +20,6 @@ flowchart TD
     D --> E["CREATION D’UNE TABLE"]
     E --> F["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -40,6 +38,7 @@ flowchart TD
 | Table cluster    | Regroupe des tables liées dans une table physique pour optimiser le stockage    |
 
 > [!TIP]
+>
 > - Table transparente : une fiche individuelle pour chaque enregistrement.
 > - Table pool : plusieurs mini-fiches stockées dans un classeur unique.
 > - Table cluster : plusieurs fiches liées combinées dans une enveloppe.
@@ -86,7 +85,6 @@ Les `clés primaires`, souvent abrégées en "PK" pour "Primary Key" en anglais,
     ![](./assets/images/TABLE_008.jpg)
 
 6.  Onglet `Livraison et gestion` :
-
     - `Class de livraison` : `classe A`
 
       ![](./assets/images/TABLE_009.jpg)
@@ -137,22 +135,21 @@ Les `clés primaires`, souvent abrégées en "PK" pour "Primary Key" en anglais,
 
 > [!NOTE]
 > Pour information
+>
 > - Extensible sans restriction : pas de règle pour l’extension de la table ou de la structure.
 > - Extensible et alphanumérique ou numérique : tous les champs devront être soit alphanumériques, soit numériques. La différence avec Extensible sans restriction est qu’il ne sera pas possible d’ajouter des champs de type date ou heure (par exemple) dans un append ou un include.
 > - Extensible et alphanumérique : la table ou la structure ne sera composée que de champs alphanumériques et une erreur sera retournée si un champ est défini comme numérique (il sera alors possible de modifier le type d’extension).
 > - Non extensible : il sera possible d’ajouter un champ directement à la table ou la structure initiale, mais impossible via un append. Ainsi, comme l’append est l’unique moyen d’ajouter un champ à une table standard, il n’y aura aucune possibilité pour accomplir cette tâche.
 > - Non classifié (par défaut), aucune extension n’a été définie pour la table ou la structure.
-> Dans le cas de notre table, il n’y aura pas besoin de restriction, l’option Extensible sans restriction sera donc choisie.
+>   Dans le cas de notre table, il n’y aura pas besoin de restriction, l’option Extensible sans restriction sera donc choisie.
 
 12. Onglet `Aide/contrôle de saisie`
 
     Ici, il n'y a rien à ajouter car nous n'avons pas de quantité et donc pas d'unité de mesure. Lorsque vous aurez à crééer une table avec un champ ayant une quantité telle qu'un nombre de pièce, une taille, le montant d'une devise, ... il faudra (juste en dessous de la ligne en question) ajouter une ligne avec le champ correspondant à son unité de mesure. Par exemple :
-
     - Quantité de pièce : 13
     - Type de pièce : palette
 
     ou encore
-
     - Montant : 12807
     - Devise : Euros
 
@@ -163,7 +160,6 @@ Les `clés primaires`, souvent abrégées en "PK" pour "Primary Key" en anglais,
 14. Onglet `Propriétés générales`, renseigner les éléments suivant comme suit :
 
     ![](./assets/images/TABLE_018.jpg)
-
     - `Type de données` : APPL0
     - `Catég. taille` : 0
 
@@ -181,6 +177,7 @@ Les `clés primaires`, souvent abrégées en "PK" pour "Primary Key" en anglais,
 | Documenter les tables                                  | Facilite la compréhension et la maintenance    |
 
 > [!IMPORTANT]
+>
 > - Définir toujours la clé primaire avant de remplir la table
 > - Réutiliser les éléments de données et domaines pour assurer l’homogénéité
 
@@ -197,6 +194,7 @@ Les `clés primaires`, souvent abrégées en "PK" pour "Primary Key" en anglais,
 > Copier un patron prêt à l’emploi dans une nouvelle fiche, au lieu de réécrire toutes les colonnes.
 
 > [!IMPORTANT]
+>
 > - Réutiliser pour harmoniser des champs communs dans plusieurs tables
 > - Assure la cohérence des données
 

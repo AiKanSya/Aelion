@@ -6,6 +6,7 @@
 - [ ] Comprendre **controller sapui5**.
 - [ ] Mettre en œuvre **module amd sapui5 (sap.ui.define)** dans un exemple guidé.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +18,6 @@ flowchart TD
     D --> E["INSTANCE (CONCEPT IMPORTANT)"]
     E --> F["LIFECYCLE SAPUI5"]
 ```
-
 
 ## 🌺 CONTROLLER SAPUI5
 

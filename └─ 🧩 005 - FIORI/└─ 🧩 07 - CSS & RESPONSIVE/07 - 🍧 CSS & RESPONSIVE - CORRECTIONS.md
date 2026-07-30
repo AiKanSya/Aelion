@@ -6,6 +6,7 @@
 - [ ] Expliquer chaque étape de la correction.
 - [ ] Identifier les erreurs possibles et leur cause.
 - [ ] Reproduire la solution sans recopier le support.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +20,6 @@ flowchart TD
 
 > [!NOTE]
 > Comparer la correction avec la démarche suivie avant de recopier le code. Une solution différente peut être valide si elle respecte la consigne et les contraintes techniques.
-
 
 ## 🌺 EXERCICE 1 - AJOUTER DES MARGES
 

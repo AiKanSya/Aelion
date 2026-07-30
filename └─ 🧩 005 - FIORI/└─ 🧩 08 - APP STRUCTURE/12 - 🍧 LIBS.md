@@ -6,6 +6,7 @@
 - [ ] Comprendre **libs/ (bibliothèques et utilitaires)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["LIBS"]
     A --> B["LIBS/ (BIBLIOTHÈQUES ET UTILITAIRES)"]
 ```
-
 
 ## 🌺 LIBS/ (BIBLIOTHÈQUES ET UTILITAIRES)
 
@@ -45,6 +45,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Regrouper les fonctions utilitaires réutilisables de l’application.
 > - 🔨 Utilité : Centraliser la logique transverse (formatage, appels de services, helpers).

@@ -6,6 +6,7 @@
 - [ ] Comprendre **localservice/ (services locaux / mock)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["LOCALSERVICE & METADATA"]
     A --> B["LOCALSERVICE/ (SERVICES LOCAUX / MOCK)"]
 ```
-
 
 ## 🌺 LOCALSERVICE/ (SERVICES LOCAUX / MOCK)
 
@@ -45,6 +45,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Simuler un service backend sans dépendre d’un système SAP réel.
 > - 🔨 Utilité : Permettre le développement et les tests de l’application sans connexion au backend.
@@ -83,6 +84,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Représenter un service OData fictif pour l’application.
 > - 🔨 Utilité : Simuler la structure d’un vrai service backend (entités, propriétés, relations).
@@ -123,6 +125,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Décrire la structure du service OData simulé.
 > - 🔨 Utilité : Fournir au mockserver les entités, champs et types attendus par l’application.

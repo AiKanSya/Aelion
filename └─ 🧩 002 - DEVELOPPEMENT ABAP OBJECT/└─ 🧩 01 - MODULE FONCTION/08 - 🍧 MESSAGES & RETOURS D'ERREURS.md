@@ -8,7 +8,6 @@
 - [ ] Éviter les sorties écran dans une API réutilisable
 - [ ] Définir un contrat d’erreur cohérent
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,7 +19,6 @@ flowchart TD
     D --> E["TABLE DE MESSAGES"]
     E --> F["EXCEPTION OU STRUCTURE DE RETOUR ?"]
 ```
-
 
 ## 🌺 DEUX FAMILLES D'ERREURS
 

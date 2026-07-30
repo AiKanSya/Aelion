@@ -7,7 +7,6 @@
 - [ ] Connaître la condition nécessaire pour que la recherche binaire fonctionne
 - [ ] Identifier les avantages par rapport à une recherche linéaire
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,11 +17,11 @@ flowchart TD
     C --> D["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > L’option `BINARY SEARCH` utilisée avec `READ TABLE` permet de réaliser une recherche binaire dans une table interne, optimisant ainsi les performances du programme.
 > Principe de la recherche binaire
+>
 > - Comparer la valeur recherchée à la valeur du milieu de la plage
 > - Si égal → retour de l’index, fin de recherche
 > - Si valeur > milieu → recherche dans la moitié inférieure
@@ -116,8 +115,9 @@ flowchart TD
 ## 🌺 RÉSUMÉ
 
 > `BINARY SEARCH` permet une recherche rapide dans une table interne triée.
+>
 > - Condition : table triée ou de type SORTED
 > - Réduit le nombre de comparaisons par rapport à une recherche linéaire
 > - Retourne l’`INDEX` via `SY-TABIX` et le code retour via `SY-SUBRC`
-> [!TIP]
-> feuilleter un annuaire trié en ouvrant toujours au milieu pour diviser les recherches et trouver la personne plus rapidement.
+>   [!TIP]
+>   feuilleter un annuaire trié en ouvrant toujours au milieu pour diviser les recherches et trouver la personne plus rapidement.

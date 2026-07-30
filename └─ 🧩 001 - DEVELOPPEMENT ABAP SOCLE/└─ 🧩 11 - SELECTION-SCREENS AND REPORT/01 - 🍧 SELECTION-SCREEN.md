@@ -6,7 +6,6 @@
 - [ ] PERMETTRE LA SELECTION DE DONNEES OU L’IMPORT DE FICHIERS VIA L’ECRAN
 - [ ] UTILISER LES PARAMETRES ET SELECT-OPTIONS POUR FILTRER LES DONNEES
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,10 +16,10 @@ flowchart TD
     C --> D["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > Un écran de sélection est une interface utilisateur qui permet à l’utilisateur final de :
+>
 > - Saisir des données
 > - Définir des critères de sélection
 > - Importer des fichiers ou listes de données
@@ -48,6 +47,7 @@ flowchart TD
     SELECTION-SCREEN END OF BLOCK b000.
 
 > [!IMPORTANT]
+>
 > 1. `PARAMETERS` définit un champ unique pour la saisie par l’utilisateur.
 > 2. `SELECT-OPTIONS` permet de créer un intervalle ou une liste de valeurs.
 > 3. Les valeurs saisies sont accessibles dans le programme pour filtrer les données.

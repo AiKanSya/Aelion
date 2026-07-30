@@ -9,7 +9,6 @@
 - [ ] Concevoir des boucles conditionnelles avec gestion dynamique du flux
 - [ ] Identifier les erreurs fréquentes et leurs causes
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -21,7 +20,6 @@ flowchart TD
     D --> E["WHILE SIMPLE"]
     E --> F["WHILE AVEC EXIT"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -157,6 +155,7 @@ flowchart TD
     ENDWHILE.
 
 > [!IMPORTANT]
+>
 > - `CHECK` ignore les valeurs jusqu’à 3
 > - `CONTINUE` saute les nombres pairs
 > - `EXIT` interrompt la boucle après 10
@@ -280,8 +279,8 @@ flowchart TD
 > - `CHECK` → saute les itérations non conformes à une condition
 > - `CONTINUE` → passe à l’itération suivante
 > - La condition doit être modifiée à chaque tour pour éviter les boucles infinies
-> [!TIP]
-> Remplir un verre
+>   [!TIP]
+>   Remplir un verre
 > - `WHILE` → tant que le verre n’est pas plein
 > - `EXIT` → arrêter de verser même si le verre n’est pas encore rempli
 > - `CHECK` → ne pas verser si le verre est déjà trop chaud

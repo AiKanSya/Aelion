@@ -10,7 +10,6 @@ flowchart TD
     C --> D["ASSOCIATION DEFINITION"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] Définir une `Association`
@@ -34,6 +33,7 @@ Certains éléments d'un `data model` sont souvent créés manuellement. Il s'ag
 
 > [!IMPORTANT]
 > Dans SEGW, une association définit :
+>
 > - quelles entités sont liées
 > - sur quelles clés
 > - dans quel sens on peut naviguer
@@ -58,6 +58,7 @@ Chaque `EntityType` peut définir des `Navigation Properties` typées par une `A
 
 > [!IMPORTANT]
 > Lorsque vous sélectionnez `Create` → `Association` sur le `data model node` dans `SAP Gateway Service Builder`, un `wizard` s'ouvre et vous permet de définir tous les éléments nécessaires à la navigation :
+>
 > - Une association définissant une entité principale et une entité dépendante avec multiplicité ;
 > - Une contrainte référentielle (referential constraint) reliant la clé principale à la `property` dépendante ;
 > - Un `association set` définissant les `entity sets` principale et dépendante.
@@ -65,6 +66,7 @@ Chaque `EntityType` peut définir des `Navigation Properties` typées par une `A
 Les `navigation properties` doivent avoir des noms explicites afin que l'utilisateur comprenne clairement leur fonctionnement. La définition d'une seule `navigation property` permet une navigation unidirectionnelle. La définition de deux `navigation properties` permet une navigation bidirectionnelle.
 
 > [!NOTE]
+>
 > - Association Name : `BusinessPartner_Products` (Convention de nommage : `PrincipalEntity_DependantEntity(s)` ou `PrincipalEntityToDependantEntity(s)` - Mettre un 's' à la `DependantEntity`)
 > - Principal Entity
 >   - Entity Type Name : `BusinessPartner`

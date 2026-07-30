@@ -6,7 +6,6 @@
 - [ ] Identifier les informations essentielles qu’elle contient
 - [ ] Savoir structurer et rédiger une `CARTOUCHE` correctement
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     D --> E["EXEMPLE TYPE DE CARTOUCHE STANDARD"]
     E --> F["EXEMPLE COMPLET DANS UN PROGRAMME"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -137,6 +135,7 @@ Elle permet de :
             / '-------------------------------------------------'.
 
 > [!IMPORTANT]
+>
 > - Le bloc supérieur (`CARTOUCHE`) présente le programme.
 > - Les blocs suivants (SELECTION-SCREEN, START-OF-SELECTION, etc.) structurent le code.
 > - Chaque section est visuellement délimitée pour une lecture fluide et rapide.

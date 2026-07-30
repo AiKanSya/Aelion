@@ -8,7 +8,6 @@
 - [ ] Comprendre les paramètres tables
 - [ ] Choisir une direction cohérente pour chaque donnée
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,7 +19,6 @@ flowchart TD
     D --> E["PARAMETRE EXPORT"]
     E --> F["PARAMETRE CHANGING"]
 ```
-
 
 ## 🌺 DÉFINITION
 

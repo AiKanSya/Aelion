@@ -10,13 +10,13 @@ flowchart TD
     C --> D["Appliquer la méthode"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] `Import DDIC Structure Method` pour définir un `DataModel`
 
 > [!WARNING]
 > Dans le cadre de la démo et si vous avez importer le `$Metadata` [ZBC_GATEWAYSRVDEMO_SRV.xml](../assets/ZBC_GATEWAYSRVDEMO_SRV.xml) dans l'étape précédente, veuiller supprimer les deux `EntityTypes` et `EntitySets` comme suivant.
+>
 > - Effectuer un Right-Clic sur Chaque `EntityTypes` et `EntitySets` du projet → `Delete`
 
 ![](.././assets/Capture%20d’écran%202026-01-16%20110216.png)
@@ -36,6 +36,7 @@ flowchart TD
 ![](.././assets/Capture%20d’écran%202026-01-16%20110655.png)
 
 > [!CAUTION]
+>
 > - Nom (de l'`EntityType`) : `Product`
 > - [x] `Entity Type`
 > - ABAP Structure (à importer) : `BAPI_EPM_PRODUCT_HEADER`

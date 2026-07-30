@@ -10,7 +10,6 @@
 > [!NOTE]
 > L’objectif est de comprendre comment structurer, créer et exécuter un `PROGRAMME` ABAP dans SAP, tout en respectant l’organisation par PACKAGE et OT.
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -23,7 +22,6 @@ flowchart TD
     E --> F["PREMIER PAS DANS LE PROGRAMME"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > Un `PROGRAMME` ABAP est un ensemble d’instructions exécutables par SAP.
@@ -33,6 +31,7 @@ flowchart TD
 > Un `PROGRAMME` est comme une recette : chaque ligne de code est une instruction pour obtenir un résultat final. Le PACKAGE est votre classeur de recettes, et l’OT le carton pour transporter les recettes.
 
 > [!NOTE]
+>
 > - Lire une table client
 > - Calculer des totaux, traiter des chaîne de caractère
 > - Afficher un rapport à l’écran

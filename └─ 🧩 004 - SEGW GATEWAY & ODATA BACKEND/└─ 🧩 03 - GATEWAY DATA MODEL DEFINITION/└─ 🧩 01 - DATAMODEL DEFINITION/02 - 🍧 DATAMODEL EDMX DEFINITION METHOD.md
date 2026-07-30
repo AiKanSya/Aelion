@@ -10,7 +10,6 @@ flowchart TD
     C --> D["Appliquer la méthode"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] `Import DataModel (EDMX) Method` pour définir un `DataModel`

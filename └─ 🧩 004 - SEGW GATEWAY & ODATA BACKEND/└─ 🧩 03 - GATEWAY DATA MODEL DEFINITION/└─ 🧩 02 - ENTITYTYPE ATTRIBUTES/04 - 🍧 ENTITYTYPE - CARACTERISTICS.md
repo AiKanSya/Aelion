@@ -6,6 +6,7 @@
 - [ ] Comprendre **sap gateway datamodel - characteristics**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["ENTITYTYPE - CHARACTERISTICS"]
     A --> B["SAP GATEWAY DATAMODEL - CHARACTERISTICS"]
 ```
-
 
 ## 🌺 SAP GATEWAY DATAMODEL - CHARACTERISTICS
 

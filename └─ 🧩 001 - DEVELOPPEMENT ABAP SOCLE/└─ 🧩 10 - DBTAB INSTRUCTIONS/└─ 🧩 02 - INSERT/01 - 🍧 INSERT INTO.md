@@ -7,7 +7,6 @@
 - [ ] Vérifier l’état de l’insertion via les variables système `SY-SUBRC` et `SY-DBCNT`
 - [ ] Comprendre l’impact des clés primaires sur l’insertion
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,12 +17,12 @@ flowchart TD
     C --> D["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > `INSERT INTO dbtab VALUES struct`
 > Insère l’enregistrement contenu dans `struct` dans la table de base de données `dbtab`.
 > Le système vérifie la clé primaire :
+>
 > - Si elle existe déjà → l’insertion échoue (`SY-SUBRC = 4`)
 > - Si elle n’existe pas → l’insertion réussit (`SY-SUBRC = 0`)
 >   `SY-DBCNT` indique le nombre de lignes insérées.
@@ -31,6 +30,7 @@ flowchart TD
 > [!TIP]
 > Imaginez un classeur Excel avec une colonne "ID" unique.
 > Vous voulez ajouter une nouvelle ligne :
+>
 > - Si l’ID existe déjà → Excel refuse d’ajouter la ligne
 > - Si l’ID est nouveau → la ligne est ajoutée, et vous savez combien ont été ajoutées.
 

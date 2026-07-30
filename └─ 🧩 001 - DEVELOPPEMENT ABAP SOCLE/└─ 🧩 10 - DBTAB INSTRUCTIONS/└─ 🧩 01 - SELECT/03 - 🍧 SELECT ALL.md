@@ -7,7 +7,6 @@
 - [ ] Identifier l’usage du caractère d’évasion `@` pour les variables externes
 - [ ] Stocker les résultats dans une structure ou dans plusieurs variables
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +18,6 @@ flowchart TD
     D --> E["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > SELECT ALL permet de lire plusieurs lignes d’une table SAP et de les stocker dans une structure ou des variables.
@@ -28,10 +26,12 @@ flowchart TD
 
 > [!TIP]
 > Imaginez copier plusieurs lignes ou toutes les colonnes d’un classeur Excel
+>
 > - Vous pouvez sélectionner toutes les colonnes ou seulement certaines.
 > - Vous pouvez mettre les résultats dans une fiche unique (structure) ou répartir dans plusieurs variables.
 
 > [!IMPORTANT]
+>
 > - `SELECT` peut récupérer plusieurs enregistrements, mais il faut limiter le volume lu pour éviter une consommation excessive de mémoire.
 > - Pour un seul enregistrement, préférez SELECT SINGLE.
 
@@ -46,6 +46,7 @@ flowchart TD
       WHERE condition.
 
 > [!NOTE]
+>
 > - `*` : ALL (toutes les colonnes)
 > - `table` : table SAP ciblée
 > - `dest` : variable, structure ou table interne
@@ -90,6 +91,7 @@ flowchart TD
 | Tester vos SELECT avec un petit échantillon   | Évite de surcharger le système                                             |
 
 > [!IMPORTANT]
+>
 > - SELECT ALL pour récupérer plusieurs lignes ou toutes les colonnes
 
 > [!TIP]

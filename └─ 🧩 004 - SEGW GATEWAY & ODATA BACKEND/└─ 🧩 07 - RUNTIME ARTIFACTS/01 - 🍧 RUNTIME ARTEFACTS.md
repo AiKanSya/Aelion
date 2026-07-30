@@ -8,7 +8,6 @@ flowchart TD
     A --> B["RUNTIME ARTEFACTS"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] Identifier les classes générées
@@ -26,15 +25,18 @@ flowchart TD
 
 > [!IMPORTANT]
 > Un `SAP Gateway Service` repose sur deux types de `ABAP classes` :
+>
 > - `Model Provider Class (MPC)`
 > - `Data Provider Class (DPC)`
 
 > [!IMPORTANT]
+>
 > - Le type de classe `MPC` définit le `Model` et les `metadata` du `SAP Gateway Service`.
 > - Le type de classe `DPC` fournit l'implémentation et les fonctionnalités.
 
 > [!IMPORTANT]
 > Chaque type de classe (`MPC` et `DPC`) est implémenté dans deux `ABAP classes` :
+>
 > - Une `classe de base` (`MPC` et `DPC`) générée automatiquement à partir des paramètres définis dans le générateur de services `SAP Gateway`.
 > - Une `classe d'extension` (`MPC_EXT` et `DPC_EXT`) héritant de la `classe de base`, permettant d'étendre le code généré manuellement.
 

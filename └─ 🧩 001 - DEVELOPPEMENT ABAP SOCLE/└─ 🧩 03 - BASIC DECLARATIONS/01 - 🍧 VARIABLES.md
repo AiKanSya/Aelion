@@ -107,11 +107,11 @@ SELECT SINGLE carrname
 
 ### 🍧 Types texte
 
-| 🍧 Type | 🍧 Nature | 🍧 Exemple |
-|---|---|---|
-| `c` | Texte de longueur fixe | Code, indicateur, libellé court |
-| `n` | Texte numérique de longueur fixe | Identifiant composé uniquement de chiffres |
-| `string` | Texte de longueur variable | Message, description longue |
+| 🍧 Type  | 🍧 Nature                        | 🍧 Exemple                                 |
+| -------- | -------------------------------- | ------------------------------------------ |
+| `c`      | Texte de longueur fixe           | Code, indicateur, libellé court            |
+| `n`      | Texte numérique de longueur fixe | Identifiant composé uniquement de chiffres |
+| `string` | Texte de longueur variable       | Message, description longue                |
 
 ```abap
 DATA lv_code    TYPE c LENGTH 4.
@@ -128,14 +128,14 @@ lv_message = `Traitement terminé`.
 
 ### 🍧 Entiers et nombres décimaux
 
-| 🍧 Type | 🍧 Nature | 🍧 Usage courant |
-|---|---|---|
-| `i` | Entier signé | Compteur, index, quantité entière |
-| `int8` | Entier signé de grande capacité | Valeurs entières dépassant la capacité de `i` |
-| `p` | Nombre décimal compact | Montants et quantités avec décimales définies |
-| `decfloat16` | Nombre décimal flottant, 16 chiffres significatifs | Calculs décimaux nécessitant une plage dynamique |
-| `decfloat34` | Nombre décimal flottant, 34 chiffres significatifs | Calculs décimaux de grande précision |
-| `f` | Nombre flottant binaire | Calculs scientifiques où une approximation binaire est acceptable |
+| 🍧 Type      | 🍧 Nature                                          | 🍧 Usage courant                                                  |
+| ------------ | -------------------------------------------------- | ----------------------------------------------------------------- |
+| `i`          | Entier signé                                       | Compteur, index, quantité entière                                 |
+| `int8`       | Entier signé de grande capacité                    | Valeurs entières dépassant la capacité de `i`                     |
+| `p`          | Nombre décimal compact                             | Montants et quantités avec décimales définies                     |
+| `decfloat16` | Nombre décimal flottant, 16 chiffres significatifs | Calculs décimaux nécessitant une plage dynamique                  |
+| `decfloat34` | Nombre décimal flottant, 34 chiffres significatifs | Calculs décimaux de grande précision                              |
+| `f`          | Nombre flottant binaire                            | Calculs scientifiques où une approximation binaire est acceptable |
 
 ```abap
 DATA lv_counter TYPE i.
@@ -153,9 +153,9 @@ lv_ratio   = '0.3333333333333333333333333333333333'.
 ### 🍧 Date et heure
 
 | 🍧 Type | 🍧 Format interne | 🍧 Valeur système associée |
-|---|---|---|
-| `d` | `AAAAMMJJ` | `sy-datum` |
-| `t` | `HHMMSS` | `sy-uzeit` |
+| ------- | ----------------- | -------------------------- |
+| `d`     | `AAAAMMJJ`        | `sy-datum`                 |
+| `t`     | `HHMMSS`          | `sy-uzeit`                 |
 
 ```abap
 DATA lv_date TYPE d.
@@ -205,27 +205,27 @@ Une affectation entre types différents peut déclencher :
 
 Les préfixes comme `lv_`, `ls_`, `lt_`, `iv_` ou `rv_` sont des conventions de projet, pas des mots-clés ABAP.
 
-| 🍧 Exemple | 🍧 Signification conventionnelle |
-|---|---|
-| `lv_total` | Variable locale élémentaire |
-| `ls_customer` | Structure locale |
-| `lt_customers` | Table interne locale |
-| `iv_customer_id` | Paramètre d’import d’une méthode |
-| `rv_result` | Paramètre de retour d’une méthode |
+| 🍧 Exemple       | 🍧 Signification conventionnelle  |
+| ---------------- | --------------------------------- |
+| `lv_total`       | Variable locale élémentaire       |
+| `ls_customer`    | Structure locale                  |
+| `lt_customers`   | Table interne locale              |
+| `iv_customer_id` | Paramètre d’import d’une méthode  |
+| `rv_result`      | Paramètre de retour d’une méthode |
 
 > [!IMPORTANT]
 > Appliquer la convention définie par le projet. Un nom doit surtout décrire clairement le rôle métier de la donnée.
 
 ## 🌺 BONNES PRATIQUES
 
-| 🍧 Pratique | 🍧 Raison |
-|---|---|
-| Choisir le type selon la sémantique métier | Évite les calculs ou comparaisons incohérents. |
-| Déclarer près de la première utilisation | Réduit l’effort de lecture. |
-| Utiliser les types DDIC lorsque la donnée correspond à un champ métier global | Réutilise longueur, domaine et documentation centralisés. |
-| Initialiser uniquement lorsqu’une valeur par défaut métier est nécessaire | Les objets de données ABAP possèdent déjà une valeur initiale définie par leur type. |
-| Éviter les conversions implicites ambiguës | Rend les erreurs de format plus visibles. |
-| Vérifier longueurs et décimales | Prévient troncatures et arrondis involontaires. |
+| 🍧 Pratique                                                                   | 🍧 Raison                                                                            |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Choisir le type selon la sémantique métier                                    | Évite les calculs ou comparaisons incohérents.                                       |
+| Déclarer près de la première utilisation                                      | Réduit l’effort de lecture.                                                          |
+| Utiliser les types DDIC lorsque la donnée correspond à un champ métier global | Réutilise longueur, domaine et documentation centralisés.                            |
+| Initialiser uniquement lorsqu’une valeur par défaut métier est nécessaire     | Les objets de données ABAP possèdent déjà une valeur initiale définie par leur type. |
+| Éviter les conversions implicites ambiguës                                    | Rend les erreurs de format plus visibles.                                            |
+| Vérifier longueurs et décimales                                               | Prévient troncatures et arrondis involontaires.                                      |
 
 ## 🌺 EXERCICE
 

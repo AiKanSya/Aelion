@@ -10,7 +10,6 @@
 > [!IMPORTANT]
 > Les objectifs visent à maîtriser la structuration des objets ABAP pour simplifier transport, maintenance et collaboration.
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -22,7 +21,6 @@ flowchart TD
     D --> E["CREATION D'UN PACKAGE AVEC SE21"]
     E --> F["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 

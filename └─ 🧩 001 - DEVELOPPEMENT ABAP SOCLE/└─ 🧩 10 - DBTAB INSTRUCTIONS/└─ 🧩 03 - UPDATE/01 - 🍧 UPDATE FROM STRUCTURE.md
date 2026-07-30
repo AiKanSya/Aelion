@@ -7,7 +7,6 @@
 - [ ] Comprendre l’impact de la clé primaire sur la mise à jour
 - [ ] Savoir préparer la structure avant l’`UPDATE`
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     C --> D["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > `UPDATE dbtab FROM struct`
@@ -26,12 +24,14 @@ flowchart TD
 > Le système cherche un enregistrement ayant la même clé primaire que celle définie dans la structure.
 
 > Variables système mises à jour :
+>
 > - `SY-SUBRC = 0` → mise à jour réussie
 > - `SY-SUBRC = 4` → aucun enregistrement correspondant trouvé
 
 > [!TIP]
 > Imaginez un classeur Excel où la colonne "ID" est unique.
 > Vous voulez modifier une ligne :
+>
 > - Si l’ID existe → les valeurs des autres colonnes sont mises à jour
 > - Si l’ID n’existe pas → aucune modification n’est faite
 

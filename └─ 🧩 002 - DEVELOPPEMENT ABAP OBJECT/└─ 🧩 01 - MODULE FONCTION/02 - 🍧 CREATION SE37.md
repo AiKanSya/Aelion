@@ -7,7 +7,6 @@
 - [ ] Identifier les principaux onglets de `SE37`
 - [ ] Activer et documenter l’objet
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +18,6 @@ flowchart TD
     D --> E["ONGLETS PRINCIPAUX"]
     E --> F["TYPE DE TRAITEMENT"]
 ```
-
 
 ## 🌺 TRANSACTION SE37
 

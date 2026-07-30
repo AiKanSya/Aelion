@@ -10,7 +10,6 @@
 > [!IMPORTANT]
 > L’objectif est de modulariser le code ABAP afin de le rendre plus lisible, réutilisable et facile à maintenir, tout en permettant le travail collaboratif.
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -22,7 +21,6 @@ flowchart TD
     D --> E["CREATION D’UN INCLUDE VIA SE80"]
     E --> F["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -125,7 +123,7 @@ flowchart TD
 
 ## 🌺 BONNES PRATIQUES
 
-| 🍧 Bonne pratique                                  | 🍧 Pourquoi                                              |
+| 🍧 Bonne pratique                                  | 🍧 Pourquoi                                               |
 | -------------------------------------------------- | --------------------------------------------------------- |
 | Nommer les `INCLUDES` avec le préfixe du programme | Identifier facilement l’`INCLUDE` et son programme parent |
 | Regrouper les `INCLUDES` par fonction              | Ex : ...\_TOP, ...\_SCR, ...\_F01                         |

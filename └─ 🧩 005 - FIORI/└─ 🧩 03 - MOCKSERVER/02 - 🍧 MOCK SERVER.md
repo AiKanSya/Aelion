@@ -6,6 +6,7 @@
 - [ ] Comprendre **principes**.
 - [ ] Mettre en œuvre **nouveaux fichiers** dans un exemple guidé.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +18,6 @@ flowchart TD
     D --> E["ETAPE 2 - DONNEES SIMULEES (MOCKDATA)"]
     E --> F["ETAPE 3 - MOCKSERVER (COEUR DU SYSTEME)"]
 ```
-
 
 ## 🌺 PRINCIPES
 
@@ -504,6 +504,7 @@ Contenu :
 ## 🌺 ETAPE 3 - MOCKSERVER (COEUR DU SYSTEME)
 
 > [!IMPORTANT]
+>
 > - intercepte toutes les requêtes /sap/opu/odata/...
 > - remplace backend SAP
 > - utilise metadata + JSON
@@ -1013,6 +1014,7 @@ Il doit avoir :
 ```
 
 > [!IMPORTANT]
+>
 > - intercepte toutes les requêtes /sap/opu/odata/...
 > - remplace backend SAP
 > - utilise metadata + JSON

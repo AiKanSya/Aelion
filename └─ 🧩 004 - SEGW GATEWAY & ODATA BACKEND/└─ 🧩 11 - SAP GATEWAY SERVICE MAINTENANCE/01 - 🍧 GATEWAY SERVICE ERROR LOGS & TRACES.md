@@ -6,6 +6,7 @@
 - [ ] Comprendre **error log transactions**.
 - [ ] Mettre en œuvre **error log analyse** dans un exemple guidé.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -15,7 +16,6 @@ flowchart TD
     B --> C["ERROR LOG ANALYSE"]
     C --> D["TRACING TOOL TRANSACTIONS"]
 ```
-
 
 ## 🌺 ERROR LOG TRANSACTIONS
 

@@ -7,7 +7,6 @@
 - [ ] Savoir déclarer correctement la clé unique obligatoire (`WITH UNIQUE KEY`)
 - [ ] Savoir insérer et lire directement des lignes via la clé
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +18,6 @@ flowchart TD
     D --> E["DIFFERENCES AVEC SORTED TABLE"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > Une `HASHED TABLE` est une table interne avec accès direct par clé unique.
@@ -28,11 +26,13 @@ flowchart TD
 
 > [!TIP]
 > Imaginez un casier à code unique dans un vestiaire
+>
 > - Chaque code (clé) ouvre directement le bon casier (ligne).
 > - Aucun besoin de parcourir les autres casiers pour trouver le bon.
 > - Deux clés identiques ne peuvent pas coexister — la clé doit être unique.
 
 > [!NOTE]
+>
 > - La clé unique est obligatoire (`WITH UNIQUE KEY`).
 > - L’ordre des lignes n’est jamais garanti.
 > - Les insertions massives et les lectures par clé sont très performantes.
@@ -85,6 +85,7 @@ flowchart TD
 | Insertion massive         | Très performante                    | Plus coûteuse (réordonnancement) |
 
 > [!CAUTION]
+>
 > - L’accès séquentiel (`LOOP AT`) reste possible, mais l’ordre n’est jamais garanti.
 > - Pour les recherches fréquentes par clé, `HASHED TABLE` est optimal.
 > - Ne jamais insérer deux lignes avec la même clé unique.
@@ -95,10 +96,11 @@ flowchart TD
 
 > [!IMPORTANT]
 > Déclarer une table interne `lt_clients` avec une structure `ty_client` contenant
+>
 > - id (CHAR10) → clé unique
 > - nom (CHAR20)
 > - ville (CHAR20)
-> Ajouter au moins deux clients.
+>   Ajouter au moins deux clients.
 
 <details>
   <summary>SOLUTION</summary>
@@ -133,5 +135,5 @@ flowchart TD
 > - Obligatoire : `WITH UNIQUE KEY`.
 > - Avantage : lecture très rapide par clé, insertion performante.
 > - Inconvénient : pas d’ordre naturel, pas d’accès séquentiel ordonné garanti.
-> [!IMPORTANT]
-> définir clairement la clé, éviter les doublons, privilégier les recherches par clé.
+>   [!IMPORTANT]
+>   définir clairement la clé, éviter les doublons, privilégier les recherches par clé.

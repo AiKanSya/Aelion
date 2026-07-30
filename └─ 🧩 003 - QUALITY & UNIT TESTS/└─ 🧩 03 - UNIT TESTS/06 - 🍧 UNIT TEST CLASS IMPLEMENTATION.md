@@ -2,12 +2,10 @@
 
 ## 🌺 OBJECTIFS
 
-
 - [ ] Comprendre comment créer une méthode de test `ABAP Unit`
 - [ ] Savoir structurer une méthode de test simple
 - [ ] Identifier le rôle de chaque méthode dans la classe de test
 - [ ] Comprendre la séquence : setup → test → assertion → teardown
-
 
 ## 🌺 VUE D'ENSEMBLE
 
@@ -20,7 +18,6 @@ flowchart TD
     D --> E["STRUCTURER LA LOGIQUE D'UNE MÉTHODE"]
     E --> F["BEST PRACTICES"]
 ```
-
 
 ## 🌺 STRUCTURE DE BASE
 
@@ -118,6 +115,7 @@ ENDCLASS.
 ## 🌺 NOMMER LES MÉTHODES
 
 > [!IMPORTANT]
+>
 > - Convention : `test_<nom_fonction_métier>`
 > - Objectif : savoir immédiatement quelle méthode métier est testée
 
@@ -188,6 +186,7 @@ ENDCLASS.
 
 > [!CAUTION]
 > Nommer les méthodes :
+>
 > - Méthodes : convention `test_<fonction>`
 > - Objectif : identifier facilement le test et savoir quelle méthode métier est testée
 
@@ -291,6 +290,7 @@ METHOD test_get_order_count.
 ### 🍧 RÉSUMÉ FONCTIONNEL
 
 > [!IMPORTANT]
+>
 > - `ltc_customer_orders` est une classe de test `ABAP Unit`.
 > - `setup` prépare l’environnement (instanciation de l’objet à tester).
 > - `test_get_order_count` exécute le test fonctionnel, compare le résultat réel au résultat attendu, et signale toute divergence via l’assertion.

@@ -6,6 +6,7 @@
 - [ ] Comprendre **detail.view.xml (vue de détail)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["HOME.VIEW"]
     A --> B["DETAIL.VIEW.XML (VUE DE DÉTAIL)"]
 ```
-
 
 ## 🌺 DETAIL.VIEW.XML (VUE DE DÉTAIL)
 
@@ -52,6 +52,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Afficher les informations détaillées d’un élément sélectionné.
 > - 🔨 Utilité : Montrer les données complètes liées à un objet métier.

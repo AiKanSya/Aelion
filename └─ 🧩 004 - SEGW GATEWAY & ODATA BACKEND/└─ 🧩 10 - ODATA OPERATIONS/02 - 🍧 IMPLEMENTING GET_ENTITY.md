@@ -6,6 +6,7 @@
 - [ ] Comprendre **method \_get_entity implémentation**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["IMPLEMENTING \\GETENTITY OPERATION"]
     A --> B["METHOD \\GETENTITY IMPLEMENTATION"]
 ```
-
 
 ## 🌺 METHOD \*\_GET_ENTITY IMPLÉMENTATION
 
@@ -49,24 +49,28 @@ flowchart TD
 
 > [!NOTE]
 > 🍧 `IV_ENTITY_NAME` (STRING)
+>
 > - Nom de l’Entity OData ciblée.
 > - Exemple : `Product`.
 > - Indique le type logique de l’entité demandée.
 
 > [!NOTE]
 > 🍧 `IV_ENTITY_SET_NAME` (STRING)
+>
 > - Nom de l’EntitySet appelée.
 > - Exemple : `Products`.
 > - Correspond directement au segment utilisé dans l’URL OData.
 
 > [!NOTE]
 > 🍧 `IV_SOURCE_NAME` (STRING)
+>
 > - Nom de la source d’appel.
 > - Utilisé principalement dans les scénarios de navigation ou de réutilisation.
 > - Rarement exploité dans les cas simples.
 
 > [!NOTE]
 > 🍧 `IT_KEY_TAB` (`/IWBEP/T_MGW_NAME_VALUE_PAIR`)
+>
 > - Contient les clés de l’entité demandée.
 > - Exemple URL : `Products(ProductID='100')`
 > - Chaque entrée représente une paire clé / valeur.
@@ -74,30 +78,35 @@ flowchart TD
 
 > [!NOTE]
 > 🍧 `IO_REQUEST_OBJECT` (`/IWBEP/IF_MGW_REQ_ENTITY`)
+>
 > - Objet représentant la requête OData fonctionnelle.
 > - Permet l’accès aux paramètres métier de la requête.
 > - Usage avancé.
 
 > [!NOTE]
 > 🍧 `IO_TECH_REQUEST_CONTEXT` (`/IWBEP/IF_MGW_REQ_ENTITY`)
+>
 > - Contexte technique complet de la requête.
 > - Donne accès aux headers HTTP, utilisateur, options techniques.
 > - Usage strictement technique.
 
 > [!NOTE]
 > 🍧 `IT_NAVIGATION_PATH` (`/IWBEP/T_MGW_NAVIGATION_PATH`)
+>
 > - Chemin de navigation OData.
 > - Exemple : `Orders('1')/Items('10')`
 > - Indique depuis quelle entité parente la requête est effectuée.
 
 > [!NOTE]
 > 🍧 `ER_ENTITY` (Type spécifique MPC)
+>
 > - Structure représentant l’entité retournée.
 > - Contient exactement une instance métier.
 > - Résultat principal de la méthode GET_ENTITY.
 
 > [!NOTE]
 > 🍧 `ES_RESPONSE_CONTEXT` (`/IWBEP/...RESPONSE_ENTITY_CNTXT`)
+>
 > - Métadonnées associées à la réponse.
 > - Utilisé pour informations complémentaires (techniques).
 > - Optionnel pour les scénarios standards.
@@ -180,6 +189,7 @@ ENDMETHOD.
 
 > [!IMPORTANT]
 > Les erreurs d'une class method doivent être `Raise` à l'aide des `Exception Classes`
+>
 > - `/IWBEP/CX_MGW_BUSI_EXCEPTION` pour les erreurs de `logique métier`
 > - `/IWBEP/CX_MGW_TECH_EXCEPTION` pour les `exceptions techniques`
 

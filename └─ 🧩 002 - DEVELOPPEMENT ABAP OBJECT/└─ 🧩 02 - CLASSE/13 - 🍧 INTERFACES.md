@@ -66,7 +66,7 @@ Créer `ZIF_AELION_EXPORTER` avec une méthode `EXPORT`, puis deux classes d’i
 
 - [ ] L’interface est un objet global créé dans SE24.
 - [ ] Les deux classes implémentent la même méthode.
-- [ ] Le programme utilise une référence TYPE REF TO ZIF_...
+- [ ] Le programme utilise une référence TYPE REF TO ZIF\_...
 - [ ] Aucun CAST inutile n’est requis pour appeler le contrat.
 
 </details>

@@ -6,7 +6,6 @@
 - [ ] RECUPERER ET UTILISER LES VALEURS SAISIES DANS LE PROGRAMME ABAP
 - [ ] PERMETTRE A L’UTILISATEUR DE FILTRER SUR DES PLAGES DE DONNEES
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     D --> E["COMPORTEMENTS SPECIFIQUES"]
     E --> F["PARAMETRES D'INSTRUCTION"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -38,6 +36,7 @@ _Exemple de déclaration_
     TABLES: vbak, vbap.
 
 > [!CAUTION]
+>
 > - Obligatoire pour indiquer quelles tables seront utilisées avec les `SELECT-OPTIONS`.
 > - Généralement placé au début du programme avec les variables et constantes.
 > - Permet de lier le type du champ et d’activer automatiquement le match-code.
@@ -50,6 +49,7 @@ _Exemple de déclaration_
                     s_posnr FOR vbap-posnr.
 
 > [!IMPORTANT]
+>
 > - `SELECT-OPTIONS:` obligatoire pour déclarer un ou plusieurs champs.
 > - `s_vbeln` : nom du champ, convention `s_` pour SELECT-OPTIONS, ici pour le numéro de document commercial.
 > - `FOR` : indique la table et le champ pour définir le type et générer le match-code.

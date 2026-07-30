@@ -6,7 +6,6 @@
 - [ ] Savoir réinitialiser une ou plusieurs variables simultanément
 - [ ] Appliquer `CLEAR` sur différents types de données : chaînes, numériques, dates, heures
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +16,6 @@ flowchart TD
     C --> D["EXEMPLE"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > `CLEAR` permet de supprimer ou réinitialiser le contenu d’une variable.
@@ -27,6 +25,7 @@ flowchart TD
 
 > [!IMPORTANT]
 > L'instruction `CLEAR` remet chaque variable à sa valeur par défaut selon son type
+>
 > - Chaîne → vide ('')
 > - Numérique → 0
 > - Date → 00000000
@@ -80,6 +79,7 @@ flowchart TD
 > Après un `CLEAR`, toutes les boîtes sont vides et prêtes à recevoir de nouvelles informations.
 
 > [!TIP]
+>
 > - `CLEAR` fonctionne sur tous les types de variables : chaînes, numériques, dates, heures...
 > - On peut `CLEAR` plusieurs variables en même temps en les séparant par des virgules
 > - Très utile pour réinitialiser avant un nouveau calcul ou traitement de données

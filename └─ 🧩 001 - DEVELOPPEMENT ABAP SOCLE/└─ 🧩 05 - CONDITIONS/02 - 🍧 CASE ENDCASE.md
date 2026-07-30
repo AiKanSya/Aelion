@@ -7,7 +7,6 @@
 - [ ] Apprendre à utiliser `WHEN`, `OR` et `WHEN OTHERS` pour gérer tous les cas possibles
 - [ ] Éviter les comportements inattendus en prévoyant un traitement par défaut
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +16,6 @@ flowchart TD
     B --> C["SYNTAXE"]
     C --> D["EXEMPLE"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -80,8 +78,8 @@ flowchart TD
 > - `WHEN` définit les valeurs possibles et le traitement associé.
 > - `OR` permet de regrouper plusieurs valeurs sous un même traitement.
 > - `WHEN OTHERS` capture toutes les valeurs non prévues pour éviter des erreurs.
-> [!TIP]
-> Comme un menu avec plusieurs options : selon le choix de l’utilisateur, une action différente sera exécutée.
+>   [!TIP]
+>   Comme un menu avec plusieurs options : selon le choix de l’utilisateur, une action différente sera exécutée.
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

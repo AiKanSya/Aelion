@@ -6,6 +6,7 @@
 - [ ] Comprendre **home.controller.js**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["HOME.CONTROLLER"]
     A --> B["HOME.CONTROLLER.JS"]
 ```
-
 
 ## 🌺 HOME.CONTROLLER.JS
 
@@ -51,6 +51,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Gérer la logique métier de la vue Home.
 > - 🔨 Utilité : Réagir aux actions utilisateur sur l’écran principal/la vue principale (sélection, navigation, chargement initial).

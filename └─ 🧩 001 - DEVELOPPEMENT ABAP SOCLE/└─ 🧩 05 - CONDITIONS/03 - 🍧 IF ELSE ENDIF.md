@@ -8,7 +8,6 @@
 - [ ] Prévenir les erreurs et comportements inattendus (ex : division par zéro)
 - [ ] Savoir organiser correctement les conditions pour respecter la priorité `AND` / `OR`
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,7 +19,6 @@ flowchart TD
     D --> E["PRIORITE AND / OR"]
     E --> F["EVITER UN DUMP"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -172,8 +170,8 @@ flowchart TD
 > - `ELSE` capture tous les autres cas non couverts.
 > - `AND` / `OR` permettent de combiner plusieurs conditions.
 > - Utiliser toujours un contrôle pour éviter les erreurs comme la division par zéro.
-> [!TIP]
-> Comme des feux de circulation et panneaux : selon la situation, l’action change.
+>   [!TIP]
+>   Comme des feux de circulation et panneaux : selon la situation, l’action change.
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

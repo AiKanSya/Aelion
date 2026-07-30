@@ -6,7 +6,6 @@
 - [ ] Utiliser une table interne pour filtrer une sélection sur une table de base
 - [ ] Vérifier que la table interne n’est pas vide avant la requête
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +16,6 @@ flowchart TD
     C --> D["EXEMPLE"]
     D --> E["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 

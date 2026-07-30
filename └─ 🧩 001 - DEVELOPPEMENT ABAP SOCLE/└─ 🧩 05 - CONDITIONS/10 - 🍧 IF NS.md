@@ -8,7 +8,6 @@
 - [ ] Apprendre à utiliser `IF ... NS ... ENDIF` pour contrôler l'absence d'une séquence
 - [ ] Identifier les cas pratiques où la vérification de l'absence est nécessaire
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,7 +19,6 @@ flowchart TD
     D --> E["DIFFERENCE AVEC CS"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > L’opérateur `NS` (No String) est l’inverse de `CS` (Contains String).
@@ -31,6 +29,7 @@ flowchart TD
 > Si cette phrase n’existe pas dans le texte, la condition `NS` est vraie.
 
 > [!NOTE]
+>
 > - "HELLO WORLD" NS "WORLD" → faux
 > - "HELLO WORLD" NS "SAP" → vrai
 > - "HELLO WORLD" NS "hello" → vrai (sensible à la casse)
@@ -74,8 +73,8 @@ flowchart TD
 > - Sensible à la casse
 > - Inverse logique de `CS`
 > - Très utile pour détecter l’absence d’un mot ou d’une séquence spécifique dans une chaîne
-> [!TIP]
-> c’est comme vérifier qu’une phrase précise n’apparaît pas dans un livre
+>   [!TIP]
+>   c’est comme vérifier qu’une phrase précise n’apparaît pas dans un livre
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

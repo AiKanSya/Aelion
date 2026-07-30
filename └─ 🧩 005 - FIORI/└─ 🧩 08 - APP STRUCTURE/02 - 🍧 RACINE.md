@@ -6,6 +6,7 @@
 - [ ] Comprendre **racine**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -14,7 +15,6 @@ flowchart TD
     A --> B["RACINE"]
 ```
 
-
 ## 🌺 RACINE
 
 ```
@@ -22,6 +22,7 @@ fgifirstappmodulename/ # <- Racine du projet
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Contenir tout le projet UI5/Fiori :
 >   - code,

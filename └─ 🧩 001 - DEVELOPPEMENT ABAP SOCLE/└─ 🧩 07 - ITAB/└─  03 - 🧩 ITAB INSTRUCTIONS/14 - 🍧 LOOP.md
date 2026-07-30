@@ -11,7 +11,6 @@
 - [ ] Utiliser les ruptures `AT FIRST`, `AT NEW`, `AT END OF`, `AT LAST`
 - [ ] Utiliser des filtres complexes avec `WHERE` sur un ou plusieurs champs
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -22,7 +21,6 @@ flowchart TD
     C --> D["EXEMPLES AVANCES – WHERE"]
     D --> E["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -42,6 +40,7 @@ flowchart TD
 
 > [!TIP]
 > Parcourir un classeur ligne par ligne
+>
 > - `INTO` = photocopier la fiche
 > - `ASSIGNING <lfs\_>` = pointer directement sur la fiche pour modifier
 > - `TRANSPORTING NO FIELDS` = juste vérifier si la fiche existe
@@ -300,6 +299,7 @@ flowchart TD
 ## 🌺 RÉSUMÉ
 
 > `LOOP AT` permet de parcourir les tables internes ligne par ligne.
+>
 > - `INTO` : copie de la ligne
 > - `ASSIGNING` : référence directe en mémoire
 > - `TRANSPORTING NO FIELDS` : vérification uniquement

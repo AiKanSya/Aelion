@@ -10,7 +10,6 @@
 > [!IMPORTANT]
 > L’objectif est d’apprendre à diagnostiquer les erreurs ABAP et à suivre l’exécution du code pour corriger les anomalies.
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -22,7 +21,6 @@ flowchart TD
     D --> E["UTILISER LE DEBUGUEUR ABAP"]
     E --> F["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -64,7 +62,7 @@ flowchart TD
 | 🍧 Section          | 🍧 Rôle                                      |
 | ------------------- | -------------------------------------------- |
 | Short Text          | Description rapide de l’erreur               |
-| Error Analysis      | Informations techniques                  |
+| Error Analysis      | Informations techniques                      |
 | Source Code Extract | Ligne ABAP où le programme a planté          |
 | Variables in Memory | Valeurs des variables au moment du `DUMP`    |
 | Call Stack          | Ordre d’exécution des programmes et includes |
@@ -118,7 +116,7 @@ flowchart TD
 
 ## 🌺 BONNES PRATIQUES
 
-| 🍧 Bonne pratique                 | 🍧 Pourquoi                           |
+| 🍧 Bonne pratique                 | 🍧 Pourquoi                            |
 | --------------------------------- | -------------------------------------- |
 | Lire attentivement `ST22`         | Identifier la cause exacte du `DUMP`   |
 | Utiliser /H pour transactions     | Comprendre le flux complet             |

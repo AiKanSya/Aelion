@@ -6,6 +6,7 @@
 - [ ] Comprendre **business application studio**.
 - [ ] Mettre en œuvre **vscode** dans un exemple guidé.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -16,7 +17,6 @@ flowchart TD
     C --> D["FIORI: OPEN APPLICATION GENERATOR"]
     D --> E["ERREURS POSSIBLES"]
 ```
-
 
 ## 🌺 BUSINESS APPLICATION STUDIO
 
@@ -101,6 +101,7 @@ Renseignes les champs obligatoires suivants :
 
 > [!IMPORTANT]
 > New System sera sélectionné par défaut si aucun System n'a encore été paramétré. Si le System ciblé est déjà paramétré, il apparaîtra dans la liste et il ne sera pas nécessaire de renseigner :
+>
 > - le System Type\*
 > - le System URL\*
 > - le SAP Client

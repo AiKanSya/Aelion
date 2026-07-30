@@ -8,7 +8,6 @@
 - [ ] Déboguer un appel local, RFC ou Update Task
 - [ ] Contrôler les résultats et exceptions
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,7 +19,6 @@ flowchart TD
     D --> E["POINT D'ARRET"]
     E --> F["DEBOGAGE DE L'APPEL"]
 ```
-
 
 ## 🌺 TEST UNITAIRE MANUEL DANS SE37
 

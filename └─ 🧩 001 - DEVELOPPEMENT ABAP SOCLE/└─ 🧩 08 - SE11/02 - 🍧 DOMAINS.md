@@ -7,7 +7,6 @@
 - [ ] Définir les propriétés techniques et éditoriales d’un `DOMAIN`
 - [ ] Créer un `DOMAIN` dans la transaction `SE11` avec ses plages de valeurs et routines de conversion
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +18,6 @@ flowchart TD
     D --> E["PLAGE DE VALEUR"]
     E --> F["ROUTINE DE CONVERSION"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -212,7 +210,6 @@ Les routines de conversion permettent de formater automatiquement les données l
    ![](./assets/images/DOMAINES_013.jpg)
 
 6. Insérer les informations suivantes :
-
    - `Type de données` : CHAR.
 
    - `Nombre positions` : 30.
@@ -255,6 +252,7 @@ Les routines de conversion permettent de formater automatiquement les données l
 
 > Un `DOMAIN` définit la structure technique d’un champ SAP : type, longueur, décimales, conversion et plage de valeurs.
 > Il garantit la cohérence et la qualité des données dans tout le système.
+>
 > - Chaque champ d’une table SAP est basé sur un `DOMAIN`.
 > - Le `DOMAIN` assure l’homogénéité et la validation des données.
 > - Les routines de conversion et les plages de valeurs renforcent l’intégrité du modèle de données.

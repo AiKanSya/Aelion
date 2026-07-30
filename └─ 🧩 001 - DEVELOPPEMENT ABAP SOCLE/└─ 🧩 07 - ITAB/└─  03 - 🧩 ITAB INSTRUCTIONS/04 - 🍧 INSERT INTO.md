@@ -7,7 +7,6 @@
 - [ ] Maîtriser l’insertion à un index précis dans la table cible
 - [ ] Simplifier le code en évitant des boucles manuelles pour ajouter plusieurs lignes
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,22 +18,24 @@ flowchart TD
     D --> E["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > L’instruction `INSERT` permet d’ajouter des lignes dans une table interne (`itab`).
 > Elle peut provenir de différentes sources
+>
 > - Une structure (`ls`)
 > - Une ligne vide (`INITIAL LINE`)
 > - Une autre table interne (`LINES OF jtab`) avec possibilité de spécifier un intervalle (`FROM idx1 TO idx2`)
 
 > [!TIP]
 > Imaginez un classeur de fiches
+>
 > - Ajouter une fiche complète (structure)
 > - Glisser une page blanche (`INITIAL LINE`)
 > - Copier certaines pages d’un autre classeur (`LINES OF`) à une position précise
 
 > [!NOTE]
+>
 > - L’option `INDEX` permet de contrôler l’ordre final des lignes.
 > - Si aucun `INDEX` n’est spécifié, la ligne est ajoutée en fin de table.
 > - Très pratique pour insérer plusieurs lignes d’un coup, sans boucle.
@@ -84,6 +85,7 @@ flowchart TD
     INSERT LINES OF lt_citizen2 FROM 2 TO 3 INTO lt_citizen1 INDEX 1.
 
 > [!IMPORTANT]
+>
 > - Une structure sert de modèle de ligne pour la table interne.
 > - On peut insérer une ligne unique, une ligne vide ou plusieurs lignes d’une autre table.
 > - L’ordre des lignes est contrôlé par `INDEX`.
@@ -115,10 +117,11 @@ flowchart TD
 
 > [!IMPORTANT]
 > Déclarer une table interne `lt_employees` avec une structure `ty_employee`
+>
 > - id (CHAR5)
 > - nom (CHAR20)
 > - departement (CHAR10)
-> Insérer deux employés et afficher les données.
+>   Insérer deux employés et afficher les données.
 
 <details>
   <summary>SOLUTION</summary>
@@ -200,7 +203,7 @@ flowchart TD
 
 > - `INSERT` → ajouter une ligne, une ligne vide ou plusieurs lignes d’une autre table.
 > - `INDEX` → contrôle la position de la ou des lignes.
-> [!TIP]
-> glisser des fiches dans un classeur à l’emplacement désiré, en copiant ou créant de nouvelles fiches.
-> [!IMPORTANT]
-> définir clairement la structure, vérifier la table cible et éviter les boucles pour insérer plusieurs lignes.
+>   [!TIP]
+>   glisser des fiches dans un classeur à l’emplacement désiré, en copiant ou créant de nouvelles fiches.
+>   [!IMPORTANT]
+>   définir clairement la structure, vérifier la table cible et éviter les boucles pour insérer plusieurs lignes.

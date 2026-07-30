@@ -6,6 +6,7 @@
 - [ ] Comprendre **webapp/ (coeur de l'application)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["WEBAPP"]
     A --> B["WEBAPP/ (COEUR DE L'APPLICATION)"]
 ```
-
 
 ## 🌺 WEBAPP/ (COEUR DE L'APPLICATION)
 
@@ -23,6 +23,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Contenir tout ce qui est exécuté dans le navigateur.
 > - 🔨 Utilité : UI5 charge exclusivement ce dossier pour afficher l’application.

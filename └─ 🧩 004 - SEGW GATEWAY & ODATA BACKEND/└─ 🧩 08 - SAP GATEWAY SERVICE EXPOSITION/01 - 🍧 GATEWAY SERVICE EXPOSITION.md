@@ -8,7 +8,6 @@ flowchart TD
     A --> B["EXPOSE THE SAP GATEWAY SERVICE"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] Exposer un `SAP Gateway Service _SRV`

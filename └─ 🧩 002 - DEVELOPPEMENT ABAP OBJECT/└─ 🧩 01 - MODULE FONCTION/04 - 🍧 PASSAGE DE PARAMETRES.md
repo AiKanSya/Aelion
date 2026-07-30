@@ -8,7 +8,6 @@
 - [ ] Déclarer une valeur par défaut
 - [ ] Éviter les modifications involontaires
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,7 +19,6 @@ flowchart TD
     D --> E["PARAMETRE FACULTATIF"]
     E --> F["VALEUR PAR DEFAUT"]
 ```
-
 
 ## 🌺 PASSAGE PAR REFERENCE
 

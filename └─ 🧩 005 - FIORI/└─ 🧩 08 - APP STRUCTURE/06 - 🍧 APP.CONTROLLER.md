@@ -6,6 +6,7 @@
 - [ ] Comprendre **app.controller.js (controller principal)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["APP.CONTROLLER"]
     A --> B["APP.CONTROLLER.JS (CONTROLLER PRINCIPAL)"]
 ```
-
 
 ## 🌺 APP.CONTROLLER.JS (CONTROLLER PRINCIPAL)
 
@@ -51,6 +51,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Gérer le cycle de vie global de l’application.
 > - 🔨 Utilité : Initialiser l’application et gérer les événements globaux.

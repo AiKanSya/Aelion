@@ -6,7 +6,6 @@
 - [ ] UTILISER LA CLASSE `CL_SALV_TABLE` POUR CREER UN TABLEAU DYNAMIQUE
 - [ ] OFFRIR A L’UTILISATEUR DES FONCTIONNALITES DE TRI, FILTRAGE ET EXPORTATION
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,11 +18,11 @@ flowchart TD
     E --> F["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > Un `ALV` (ABAP List Viewer) est un outil SAP qui permet d’afficher des listes et tables de données de manière claire, structurée et interactive.
 > Il offre des fonctions intégrées telles que :
+>
 > - le tri automatique des colonnes,
 > - le filtrage,
 > - les totaux et sous-totaux,
@@ -59,20 +58,16 @@ flowchart TD
 ## 🌺 EXPLICATION
 
 1. Déclaration
-
    - On déclare une référence objet `r_salv_table` de type `CL_SALV_TABLE`.
    - Une table interne `lt_mara` contient les données à afficher.
 
 2. Chargement des données
-
    - On remplit la table interne avec un `SELECT`.
 
 3. Création de l’objet ALV
-
    - La méthode `FACTORY` crée automatiquement la structure ALV à partir de la table interne.
 
 4. Affichage
-
    - `r_salv_table->display( )` ouvre la fenêtre ALV avec toutes les fonctions interactives.
 
 5. Gestion des erreurs

@@ -6,6 +6,7 @@
 - [ ] Comprendre **view/ (vues de l’application)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["VIEW"]
     A --> B["VIEW/ (VUES DE L’APPLICATION)"]
 ```
-
 
 ## 🌺 VIEW/ (VUES DE L’APPLICATION)
 
@@ -45,6 +45,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Définir l’interface utilisateur de l’application.
 > - 🔨 Utilité : Décrire la structure visuelle des écrans (boutons, champs, tableaux, layouts).

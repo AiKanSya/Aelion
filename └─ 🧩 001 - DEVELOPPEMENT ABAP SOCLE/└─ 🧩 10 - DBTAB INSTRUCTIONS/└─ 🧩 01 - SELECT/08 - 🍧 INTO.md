@@ -7,7 +7,6 @@
 - [ ] Appliquer INTO CORRESPONDING FIELDS OF pour associer correctement les champs
 - [ ] Utiliser APPENDING pour ajouter des résultats sans écraser les précédents
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,10 +17,10 @@ flowchart TD
     C --> D["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > L’instruction INTO définit où stocker le résultat d’un SELECT :
+>
 > - Dans une variable simple
 > - Dans une structure
 > - Dans une table interne
@@ -31,6 +30,7 @@ flowchart TD
 
 > [!TIP]
 > Comme dans un classeur Excel, vous pouvez copier les résultats d’une requête dans :
+>
 > - Une seule cellule (variable)
 > - Une ligne (structure)
 > - Une feuille complète (table interne)

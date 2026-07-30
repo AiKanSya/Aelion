@@ -27,15 +27,15 @@ flowchart TD
 
 ## 🌺 ONGLETS PRINCIPAUX
 
-| Onglet | Utilité |
-|---|---|
-| Propriétés | Description, instanciation, statut abstrait ou final |
-| Interfaces | Interfaces implémentées par la classe |
-| Friends | Classes ou interfaces amies, à utiliser exceptionnellement |
-| Attributs | Données d’instance ou statiques |
-| Méthodes | Signatures, visibilité et implémentations |
-| Événements | Événements publiés par la classe |
-| Types | Types internes publics, protégés ou privés |
+| Onglet     | Utilité                                                    |
+| ---------- | ---------------------------------------------------------- |
+| Propriétés | Description, instanciation, statut abstrait ou final       |
+| Interfaces | Interfaces implémentées par la classe                      |
+| Friends    | Classes ou interfaces amies, à utiliser exceptionnellement |
+| Attributs  | Données d’instance ou statiques                            |
+| Méthodes   | Signatures, visibilité et implémentations                  |
+| Événements | Événements publiés par la classe                           |
+| Types      | Types internes publics, protégés ou privés                 |
 
 ## 🌺 EXEMPLE GUIDÉ
 
@@ -63,12 +63,12 @@ lo_service->display( iv_text = 'Bonjour depuis une classe globale' ).
 
 ## 🌺 ERREURS FRÉQUENTES
 
-| Erreur | Cause probable | Correction |
-|---|---|---|
-| Méthode inconnue | Classe ou méthode non active | Activer les objets |
-| Paramètre inconnu | Signature différente de l’appel | Contrôler l’onglet Paramètres |
-| Implémentation vide | Méthode créée sans code | Ouvrir l’éditeur de la méthode |
-| Incohérence de type | Type réel incompatible | Utiliser un type DDIC ou ABAP compatible |
+| Erreur              | Cause probable                  | Correction                               |
+| ------------------- | ------------------------------- | ---------------------------------------- |
+| Méthode inconnue    | Classe ou méthode non active    | Activer les objets                       |
+| Paramètre inconnu   | Signature différente de l’appel | Contrôler l’onglet Paramètres            |
+| Implémentation vide | Méthode créée sans code         | Ouvrir l’éditeur de la méthode           |
+| Incohérence de type | Type réel incompatible          | Utiliser un type DDIC ou ABAP compatible |
 
 ## 🌺 EXERCICE
 

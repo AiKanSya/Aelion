@@ -7,7 +7,6 @@
 - [ ] Assimiler le comportement spécifique d’une table standard (index implicite, ordre d’insertion)
 - [ ] Identifier les cas d’usage pertinents
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,13 +19,13 @@ flowchart TD
     E --> F["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > Une table interne standard (`TYPE STANDARD TABLE OF`) est une table indexée automatiquement par ABAP.
 > Chaque ligne est accessible par un indice numérique (1, 2, 3, ...), représentant l’ordre d’insertion.
 
 > [!IMPORTANT]
+>
 > - L’ordre d’insertion détermine l’ordre de lecture.
 > - L’accès à une ligne spécifique nécessite souvent une recherche séquentielle (instruction `READ TABLE`).
 > - Une table standard n’impose pas d’unicité sur les lignes.
@@ -34,9 +33,9 @@ flowchart TD
 > [!IMPORTANT]
 > | 🍧 Type de table interne | 🍧 Indexée | 🍧 Accès direct | 🍧 Doublons autorisés | 🍧 Tri automatique |
 > | ------------------------ | ---------- | --------------- | --------------------- | ------------------ |
-> | STANDARD TABLE           | ✅ Oui     | ❌ Non          | ✅ Oui                | ❌ Non             |
-> | SORTED TABLE             | ✅ Oui     | ✅ Oui (clé)    | ❌ Non (clé unique)   | ✅ Oui             |
-> | HASHED TABLE             | ❌ Non     | ✅ Oui (clé)    | ❌ Non (clé unique)   | ❌ Non             |
+> | STANDARD TABLE | ✅ Oui | ❌ Non | ✅ Oui | ❌ Non |
+> | SORTED TABLE | ✅ Oui | ✅ Oui (clé) | ❌ Non (clé unique) | ✅ Oui |
+> | HASHED TABLE | ❌ Non | ✅ Oui (clé) | ❌ Non (clé unique) | ❌ Non |
 
 ## 🌺 DECLARATION
 
@@ -58,6 +57,7 @@ flowchart TD
     DATA: ls_person TYPE ty_person.
 
 > [!TIP]
+>
 > - `ty_person` → modèle de fiche d’identité
 > - `ls_person` → fiche en cours de remplissage
 > - `lt_persons` → carnet de fiches numérotées automatiquement
@@ -169,11 +169,12 @@ flowchart TD
 
 > [!IMPORTANT]
 > Déclarer une table standard `lt_clients` avec une structure `ty_client` contenant
+>
 > - nom (CHAR20)
 > - prenom (CHAR20)
 > - age (I)
 > - ville (CHAR20)
-> Ajouter deux clients et afficher leurs noms.
+>   Ajouter deux clients et afficher leurs noms.
 
 <details>
   <summary>SOLUTION</summary>

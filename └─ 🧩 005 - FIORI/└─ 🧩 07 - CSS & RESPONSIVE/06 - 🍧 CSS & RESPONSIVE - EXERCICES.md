@@ -6,6 +6,7 @@
 - [ ] Construire une solution sans consulter la correction.
 - [ ] Vérifier le résultat et les cas limites.
 - [ ] Justifier les choix techniques retenus.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +20,6 @@ flowchart TD
 
 > [!IMPORTANT]
 > Réaliser l’exercice sans ouvrir la correction. Vérifier ensuite le résultat, les cas limites et la lisibilité de la solution.
-
 
 ## 🌺 EXERCICE 1 - AJOUTER DES MARGES
 

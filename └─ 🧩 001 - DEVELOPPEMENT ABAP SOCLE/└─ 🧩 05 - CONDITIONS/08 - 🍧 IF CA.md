@@ -8,7 +8,6 @@
 - [ ] Utiliser `SY-FDPOS` pour obtenir la position du premier caractère trouvé
 - [ ] Appliquer `CA` pour détecter la présence de caractères spécifiques dans une entrée utilisateur
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     B --> C["SYNTAXE"]
     C --> D["EXEMPLE"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -30,6 +28,7 @@ flowchart TD
 > Si tu ouvres `oper1` et que tu y trouves au moins une de ces lettres, la condition `CA` est validée.
 
 > [!NOTE]
+>
 > - "HELLO" CA "XYZ" → faux (aucune lettre commune)
 > - "HELLO" CA "AEIOU" → vrai (il y a "E" et "O")
 > - "HELLO" CA "LLO" → vrai (le "L" apparaît très vite)
@@ -70,6 +69,7 @@ flowchart TD
 - `SY-FDPOS = 2` → position du premier caractère trouvé
 
 > [!TIP]
+>
 > - `CA` est sensible à la casse : `'HELLO'` ≠ `'Hello'`
 > - Très utile pour vérifier la présence de chiffres, lettres ou symboles dans un champ texte
 
@@ -79,8 +79,8 @@ flowchart TD
 > - Condition TRUE dès qu’un seul caractère correspond
 > - `SY-FDPOS` retourne la position du premier caractère trouvé
 > - Idéal pour vérifier la présence de caractères spécifiques dans une chaîne
-> [!TIP]
-> c’est comme chercher une lettre précise dans une boîte pour savoir si elle s’y trouve
+>   [!TIP]
+>   c’est comme chercher une lettre précise dans une boîte pour savoir si elle s’y trouve
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

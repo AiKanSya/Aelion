@@ -6,6 +6,7 @@
 - [ ] Comprendre **sap gateway datamodel - actions (creatable, updatable, sortable, nullable, filterable)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["ENTITYTYPE - ACTIONS"]
     A --> B["SAP GATEWAY DATAMODEL - ACTIONS (CREATABLE, UPDATABLE,"]
 ```
-
 
 ## 🌺 SAP GATEWAY DATAMODEL - ACTIONS (CREATABLE, UPDATABLE, SORTABLE, NULLABLE, FILTERABLE)
 

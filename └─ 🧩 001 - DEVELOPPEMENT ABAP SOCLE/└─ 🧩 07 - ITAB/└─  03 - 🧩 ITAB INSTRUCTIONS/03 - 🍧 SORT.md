@@ -7,7 +7,6 @@
 - [ ] Identifier les options `ASCENDING`, `DESCENDING`, `AS TEXT` et `STABLE`
 - [ ] Savoir quand trier avant certaines opérations comme `DELETE ADJACENT DUPLICATES`
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     C --> D["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
     SORT itab [ASCENDING|DESCENDING] [AS TEXT] [STABLE]
@@ -27,19 +25,22 @@ flowchart TD
                     cn [ASCENDING|DESCENDING] [AS TEXT].
 
 > L’instruction `SORT` organise une table interne (`itab`) de type `STANDARD` ou `HASHED` selon
+>
 > - sa clé primaire si définie
 > - ou une liste de champs `c1` à `cn`
-> [!NOTE]
+>   [!NOTE]
 > - `ASCENDING` / `DESCENDING` : tri croissant ou décroissant
 > - `AS TEXT` : tri des chaînes de caractères selon la langue locale définie par `SET LOCALE LANGUAGE`
 > - `STABLE` : maintien de l’ordre relatif pour les valeurs égales
 
 > [!TIP]
 > Imaginez un classeur de fiches
+>
 > - Vous pouvez trier par identifiant, nom ou plusieurs critères combinés (ex. nom puis âge)
 > - L’option `STABLE` garantit que les fiches ayant le même critère restent dans le même ordre relatif
 
 > [!NOTE]
+>
 > - Les tables `SORTED` ne peuvent pas être triées avec `SORT`, car leur ordre est fixe
 > - Le tri est obligatoire avant certaines opérations comme `DELETE ADJACENT DUPLICATES` pour STANDARD TABLE
 
@@ -86,6 +87,7 @@ flowchart TD
     SORT lt_citizen BY country ASCENDING age DESCENDING.
 
 > [!IMPORTANT]
+>
 > - Si aucun `BY` n’est spécifié et qu’il n’existe pas de clé primaire, le tri peut être instable et aléatoire
 > - `STABLE` garantit un résultat identique lors de tris multiples
 > - Obligatoire avant `DELETE ADJACENT DUPLICATES` pour `STANDARD TABLE`

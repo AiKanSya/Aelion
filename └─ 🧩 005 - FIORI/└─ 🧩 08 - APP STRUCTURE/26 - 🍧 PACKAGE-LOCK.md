@@ -6,6 +6,7 @@
 - [ ] Comprendre **package-lock.json (verrouillage des dépendances npm)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["MANIFEST"]
     A --> B["PACKAGE-LOCK.JSON (VERROUILLAGE DES DÉPENDANCES NPM)"]
 ```
-
 
 ## 🌺 PACKAGE-LOCK.JSON (VERROUILLAGE DES DÉPENDANCES NPM)
 
@@ -46,6 +46,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Verrouiller les versions exactes des dépendances installées.
 > - 🔨 Utilité : Garantir que tous les développeurs utilisent les mêmes versions.

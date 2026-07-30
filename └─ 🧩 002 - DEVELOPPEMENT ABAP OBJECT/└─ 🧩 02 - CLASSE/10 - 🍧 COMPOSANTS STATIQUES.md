@@ -43,12 +43,12 @@ DATA(lv_grams) = zcl_aelion_unit_converter=>convert_kg_to_g(
 
 ## 🌺 COMPARAISON
 
-| Question | Instance | Statique |
-|---|---:|---:|
-| Dépend d’un état propre à l’objet | Oui | Non |
-| Nécessite `NEW` | Oui | Non |
-| Appel | `->` | `=>` |
-| Peut être substituée par polymorphisme d’instance | Oui | Limité |
+| Question                                          | Instance | Statique |
+| ------------------------------------------------- | -------: | -------: |
+| Dépend d’un état propre à l’objet                 |      Oui |      Non |
+| Nécessite `NEW`                                   |      Oui |      Non |
+| Appel                                             |     `->` |     `=>` |
+| Peut être substituée par polymorphisme d’instance |      Oui |   Limité |
 
 ## 🌺 CAS ADAPTÉS
 

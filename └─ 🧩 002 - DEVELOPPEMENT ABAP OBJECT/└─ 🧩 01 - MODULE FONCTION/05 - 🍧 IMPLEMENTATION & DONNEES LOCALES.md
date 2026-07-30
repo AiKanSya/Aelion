@@ -8,7 +8,6 @@
 - [ ] Organiser le traitement en étapes lisibles
 - [ ] Éviter les effets de bord inutiles
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,7 +19,6 @@ flowchart TD
     D --> E["EXEMPLE COMPLET"]
     E --> F["DONNEES LOCALES ET DONNEES GLOBALES"]
 ```
-
 
 ## 🌺 STRUCTURE DU CODE
 

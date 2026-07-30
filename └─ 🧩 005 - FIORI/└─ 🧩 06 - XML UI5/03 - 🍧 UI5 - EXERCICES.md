@@ -6,6 +6,7 @@
 - [ ] Construire une solution sans consulter la correction.
 - [ ] Vérifier le résultat et les cas limites.
 - [ ] Justifier les choix techniques retenus.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -16,7 +17,6 @@ flowchart TD
     C --> D["Construire la solution"]
     D --> E["Vérifier le résultat"]
 ```
-
 
 ## 🌺 EXERCICE 1 - COMPRENDRE UNE PROPERTY
 

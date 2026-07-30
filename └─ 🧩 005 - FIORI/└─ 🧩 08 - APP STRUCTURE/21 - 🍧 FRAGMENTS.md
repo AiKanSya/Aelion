@@ -6,6 +6,7 @@
 - [ ] Comprendre **fragments/ (composants ui réutilisables)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["FRAGMENTS"]
     A --> B["FRAGMENTS/ (COMPOSANTS UI RÉUTILISABLES)"]
 ```
-
 
 ## 🌺 FRAGMENTS/ (COMPOSANTS UI RÉUTILISABLES)
 
@@ -52,6 +52,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Factoriser des morceaux d’interface réutilisables.
 > - 🔨 Utilité : Éviter la duplication de code UI dans plusieurs vues.

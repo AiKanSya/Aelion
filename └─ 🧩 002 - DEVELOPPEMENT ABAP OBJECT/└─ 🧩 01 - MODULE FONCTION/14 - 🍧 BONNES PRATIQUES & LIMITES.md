@@ -8,7 +8,6 @@
 - [ ] Encapsuler la logique métier dans une classe lorsque pertinent
 - [ ] Maintenir la compatibilité des appelants
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,7 +19,6 @@ flowchart TD
     D --> E["EFFETS DE BORD"]
     E --> F["MODULE FONCTION COMME ADAPTATEUR"]
 ```
-
 
 ## 🌺 RESPONSABILITE UNIQUE
 

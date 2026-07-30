@@ -6,7 +6,6 @@
 - [ ] Supprimer les espaces superflus dans une chaîne de caractères
 - [ ] Utiliser l'option `NO-GAPS` pour enlever tous les espaces
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -16,7 +15,6 @@ flowchart TD
     B --> C["SYNTAXE"]
     C --> D["EXEMPLE"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -33,6 +31,7 @@ flowchart TD
 - `NO-GAPS` : supprime tous les espaces, y compris ceux entre les mots
 
 > [!TIP]
+>
 > - Sans `NO-GAPS` = garder un espace simple entre chaque mot
 > - Avec `NO-GAPS` = coller tous les mots ensemble
 
@@ -63,11 +62,13 @@ flowchart TD
     WRITE:/ 'Avec CONDENSE NO GAPS : ', lv_result.
 
 > [!TIP]
+>
 > - Premier affichage : texte avec tous les espaces ajoutés
 > - `CONDENSE` : supprimer les espaces superflus mais garder un espace simple entre les mots
 > - `CONDENSE NO-GAPS` : coller tous les mots ensemble sans aucun espace
 
 > [!TIP]
+>
 > - Visualiser la chaîne comme une ligne de mots avec trop d’espaces
 > - `CONDENSE` = réorganiser la ligne pour ne garder qu’un espace minimal
 > - `NO-GAPS` = éliminer complètement tous les espaces

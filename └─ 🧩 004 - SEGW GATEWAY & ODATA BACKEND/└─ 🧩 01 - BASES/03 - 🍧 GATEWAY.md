@@ -12,7 +12,6 @@ flowchart TD
     E --> F["EXAMPLES OF SAP PRODUCTS USING SAP GATEWAY (OPTIONAL)"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] Comprendre la `SAP Gateway` (Server).
@@ -33,6 +32,7 @@ flowchart TD
 `SAP Gateway` peut être déployé de deux façons :
 
 > [!TIP]
+>
 > - `Hub Deployment` = deux lieux : salle (`FES`) et cuisine/bar (`BES`).
 > - `Embedded Development` = tout dans un même lieu, plus rapide et simple.
 
@@ -57,6 +57,7 @@ Le Front-End et le Back-End peuvent être exécutés dans le même système ABAP
 
 > [!TIP]
 > Pour se souvenir :
+>
 > - Embedded Development = tout dans le même bâtiment (rapide, simple).
 > - Hub = lieux séparés (plus de flexibilité et sécurité pour multi-backends).
 

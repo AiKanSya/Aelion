@@ -6,6 +6,7 @@
 - [ ] Comprendre **css/ (styles de l’application)**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["CONTROLLER"]
     A --> B["CSS/ (STYLES DE L’APPLICATION)"]
 ```
-
 
 ## 🌺 CSS/ (STYLES DE L’APPLICATION)
 
@@ -45,6 +45,7 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Centraliser les styles graphiques de l’application.
 > - 🔨 Utilité : Personnaliser l’apparence de l’application (couleurs, marges, tailles, alignements).
@@ -83,6 +84,7 @@ appdemofgi/
 ```
 
 > [!IMPORTANT]
+>
 > - 🎯 Objectif
 >   Définir les règles CSS utilisées par l’application.
 > - 🔨 Utilité : Modifier l’apparence visuelle des contrôles UI5 sans changer le code JavaScript ou XML.

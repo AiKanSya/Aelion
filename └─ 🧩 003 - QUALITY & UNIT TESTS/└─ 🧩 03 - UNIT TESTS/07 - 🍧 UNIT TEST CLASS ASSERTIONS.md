@@ -2,11 +2,9 @@
 
 ## 🌺 OBJECTIFS
 
-
 - [ ] Comprendre le rôle des `assertions` dans les tests unitaires
 - [ ] Savoir écrire des `assertions` simples et lisibles
 - [ ] Appliquer des bonnes pratiques pour des tests clairs et maintenables
-
 
 ## 🌺 VUE D'ENSEMBLE
 
@@ -19,7 +17,6 @@ flowchart TD
     D --> E["EXEMPLES SIMPLES"]
     E --> F["ASSERTION LIST"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -69,6 +66,7 @@ flowchart TD
 ## 🌺 GOOD PRACTICES
 
 > [!IMPORTANT]
+>
 > - Toujours comparer réel vs attendu (`act` vs `exp`)
 > - Fournir un message clair pour comprendre l’échec
 > - Éviter les assertions tautologiques (`act = act`)

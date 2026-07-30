@@ -2,10 +2,8 @@
 
 ## 🌺 OBJECTIFS
 
-
 - [ ] Accéder et exécuter l'`Extended Check`
 - [ ] Localiser l'origine de l'erreur, la mauvaise pratique etc
-
 
 ## 🌺 VUE D'ENSEMBLE
 
@@ -15,13 +13,13 @@ flowchart TD
     A --> B["EXTENDED CHECK (SLIN)"]
 ```
 
-
 ## 🌺 EXTENDED CHECK (SLIN)
 
 ### 🍧 DÉFINITION
 
 > [!IMPORTANT]
 > détecte au niveau du Code :
+>
 > - erreurs potentielles
 > - mauvaises pratiques
 > - risques techniques
@@ -72,9 +70,9 @@ flowchart TD
 
 > [!IMPORTANT]
 > Nous pouvons ici lire et comprendre le message.
->         This warning is only displayed in SLIN
->         In the case of JOINs, the addition SINGLE can only be executed as UP TO 1 ROWS, so use the addition UP
->         TO 1 ROWS instead of SINGLE.
+> This warning is only displayed in SLIN
+> In the case of JOINs, the addition SINGLE can only be executed as UP TO 1 ROWS, so use the addition UP
+> TO 1 ROWS instead of SINGLE.
 
 > [!IMPORTANT]
 > En double-cliquant sur le message, vous accéderez directement à la partie du code concernée

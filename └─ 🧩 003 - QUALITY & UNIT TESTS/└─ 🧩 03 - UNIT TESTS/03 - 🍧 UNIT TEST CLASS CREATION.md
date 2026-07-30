@@ -6,6 +6,7 @@
 - [ ] Comprendre **procedure**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -13,7 +14,6 @@ flowchart TD
     A["UNIT TEST CLASS CREATION"]
     A --> B["PROCEDURE"]
 ```
-
 
 ## 🌺 PROCEDURE
 
@@ -58,6 +58,7 @@ ENDCLASS.
 
 > [!CAUTION]
 > Nommer la classe de test :
+>
 > - Classe : convention `ltc_<nom_classe>` (ltc = local test class)
 
 ![](../assets/Capture%20d’écran%202026-01-14%20144949.png)

@@ -9,7 +9,6 @@ flowchart TD
     B --> C["6 REST ARCHITECTURAL CONSTRAINTS"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] Comprendre ce qu’est `REST`
@@ -37,9 +36,10 @@ flowchart TD
 > "Chacun son `Role`"
 
 > [!TIP]
+>
 > - Le `Client` = le Chef de rang d'une Brasserie à l'Oktoberfest
 > - Le `Server` = le Barman de cette Brasserie tout comme le Chef de cuisne
-> le Barman ne s’occupe pas d’apporter les boissons, et le Chef de rang ne les prépare pas, ni le Chef de cuisine.
+>   le Barman ne s’occupe pas d’apporter les boissons, et le Chef de rang ne les prépare pas, ni le Chef de cuisine.
 
 - Le `Client` (navigateur, app mobile…) affiche les données.
 - Le `Server` les stocke et les envoie.
@@ -63,6 +63,7 @@ flowchart TD
 
 > [!TIP]
 > Le `Server` (Barman) peut recevoir de multiples `Requests` (Commandes). Afin de faciliter son travail, il compte sur le `Client` (Chef de rang) pour récupérer les informations pour répondre à chaque `Request`.
+>
 > - La première `Request` (1ère tournée) émise par le `User` (les fétards) et transmise par le `Client` (Chef de rang) va contenir les informations nécessaires au traitement de la `Response` (boissons de la 1ère tournée). le `Client` (Barman) va alors préparer la `Response` (boissons de la 1ère tournée) et la transmettre au `Client` (Chef de rang) afin qu'elle soit `Consumed` (consommées) par le `User` (les fétards).
 > - La seconde `Request` (2e tournée) devra contenir les informations nécessaires à son traitement.
 

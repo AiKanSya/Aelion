@@ -6,6 +6,7 @@
 - [ ] Expliquer chaque étape de la correction.
 - [ ] Identifier les erreurs possibles et leur cause.
 - [ ] Reproduire la solution sans recopier le support.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -16,7 +17,6 @@ flowchart TD
     C --> D["Construire la solution"]
     D --> E["Vérifier le résultat"]
 ```
-
 
 ## 🌺 EXERCICE 1 - COMPRENDRE UNE PROPERTY
 

@@ -2,10 +2,8 @@
 
 ## 🌺 OBJECTIFS
 
-
 - [ ] Comprendre le `Code Quality` en ABAP
 - [ ] Identifier les critères de qualité
-
 
 ## 🌺 VUE D'ENSEMBLE
 
@@ -19,13 +17,13 @@ flowchart TD
     E --> F["CONFORMITÉ"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 La `Code Quality` désigne le niveau de `fiabilité`, de `lisibilité` et de `maintenabilité` du code ABAP livré.
 
 > [!IMPORTANT]
 > Un code de qualité :
+>
 > - fonctionne correctement
 > - peut être compris par un autre développeur
 > - peut être modifié sans casser l’existant
@@ -38,6 +36,7 @@ La `Code Quality` désigne le niveau de `fiabilité`, de `lisibilité` et de `ma
 
 > [!IMPORTANT]
 > Le code ABAP :
+>
 > - vit longtemps (années)
 > - est maintenu par plusieurs équipes
 > - est transporté entre systèmes
@@ -45,6 +44,7 @@ La `Code Quality` désigne le niveau de `fiabilité`, de `lisibilité` et de `ma
 
 > [!WARNING]
 > Un défaut de qualité :
+>
 > - génère des bugs tardifs
 > - rend les corrections risquées
 > - augmente le coût de maintenance
@@ -54,13 +54,15 @@ La `Code Quality` désigne le niveau de `fiabilité`, de `lisibilité` et de `ma
 
 > [!CAUTION]
 > Un code rapide mais :
+>
 > - illisible
 > - non testé
 > - non contrôlé
-> est un code dangereux.
+>   est un code dangereux.
 
 > [!IMPORTANT]
 > La qualité vise d’abord :
+>
 > - la lisibitité
 > - la fiabilité
 > - la maintenabilité

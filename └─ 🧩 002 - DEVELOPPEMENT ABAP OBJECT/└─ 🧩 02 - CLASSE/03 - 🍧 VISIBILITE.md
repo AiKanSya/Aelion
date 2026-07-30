@@ -12,10 +12,10 @@
 La visibilité détermine quels consommateurs peuvent accéder à un composant de classe.
 
 | Visibilité SE24 | Accessible depuis la classe | Depuis une sous-classe | Depuis un programme appelant |
-|---|---:|---:|---:|
-| Publique | Oui | Oui | Oui |
-| Protégée | Oui | Oui | Non |
-| Privée | Oui | Non | Non |
+| --------------- | --------------------------: | ---------------------: | ---------------------------: |
+| Publique        |                         Oui |                    Oui |                          Oui |
+| Protégée        |                         Oui |                    Oui |                          Non |
+| Privée          |                         Oui |                    Non |                          Non |
 
 > [!IMPORTANT]
 > Un composant public constitue un contrat pour les appelants. Il doit rester stable, cohérent et documenté.

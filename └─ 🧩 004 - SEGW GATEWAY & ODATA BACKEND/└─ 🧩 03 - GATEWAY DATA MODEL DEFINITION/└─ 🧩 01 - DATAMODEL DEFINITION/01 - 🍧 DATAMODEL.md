@@ -9,7 +9,6 @@ flowchart TD
     B --> C["SAP GATEWAY DATA MODEL DEFINITION METHODS"]
 ```
 
-
 ## 🌺 OBJECTIFS
 
 - [ ] Définir un `Data Model`
@@ -23,6 +22,7 @@ flowchart TD
 > Le `Data Model` est la description structurée des données exposées par un `OData Service` :
 > il définit quelles données existent, comment elles sont organisées, et comment elles sont liées entre elles.
 > Le `Data Model` répond aux questions :
+>
 > - Quelles sont les `Entities` ? (ex : BusinessPartner, Order, Product…)
 > - Quelles propriétés possède chaque `Entity` ? (ex : Name, Status, Quantity…)
 > - Comment ces `Entities` sont liées entre elles ? (ex : un Order → plusieurs Items)

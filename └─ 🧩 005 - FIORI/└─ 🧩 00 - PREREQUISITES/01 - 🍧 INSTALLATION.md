@@ -6,6 +6,7 @@
 - [ ] Comprendre **host file**.
 - [ ] Mettre en œuvre **visual studio code** dans un exemple guidé.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,13 +19,13 @@ flowchart TD
     E --> F["OPEN APPLICATION GENERATOR"]
 ```
 
-
 ## 🌺 HOST FILE
 
 ![](./assets/Capture%20d’écran%202026-02-09%20105016.png)
 
 > [!IMPORTANT]
 > Modifier le fichier hosts en mode Administrateur
+>
 > - Path : C:\Windows\System32\drivers\etc
 > - Elements à rajouter : (a demander au formateur)
 

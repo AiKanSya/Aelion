@@ -2,10 +2,8 @@
 
 ## 🌺 OBJECTIFS
 
-
 - [ ] Savoir lancer une `trace SQL`
 - [ ] Savoir utiliser une `trace` pour justifier un test
-
 
 ## 🌺 VUE D'ENSEMBLE
 
@@ -15,13 +13,13 @@ flowchart TD
     A --> B["TRACES SQL - TRANSACTION ST05"]
 ```
 
-
 ## 🌺 TRACES SQL - TRANSACTION ST05
 
 ![](../assets/Capture%20d’écran%202026-01-15%20103434.png)
 
 > [!IMPORTANT]
 > Usage principal :
+>
 > - Vérifier qu’un accès base a bien eu lieu
 > - Montrer qu’une table est lue ou mise à jour
 
@@ -50,6 +48,7 @@ Procédure simplifiée :
 
 > [!NOTE]
 > Pour la démo, nous allons exécuter la méthode GET_ORDER_COUNT de la classe ZCL_CUSTOMER_ORDERS_FGI créée pour l'occasion. La méthode consiste à :
+>
 > ```abap
 > SELECT COUNT(*) FROM vbak
 >   INTO rv_count
@@ -78,6 +77,7 @@ Procédure simplifiée :
 
 > [!IMPORTANT]
 > Les éléments (en général) à capturer sont (pour cet exemple) :
+>
 > - La ligne SELECT
 > - La table VBAK
 > - L’utilisateur
@@ -90,6 +90,7 @@ Procédure simplifiée :
 
 > [!IMPORTANT]
 > Lien avec les tests :
+>
 > - Montre que le code lit bien VBAK
 > - Montre que la condition client est utilisée
 
@@ -98,10 +99,11 @@ Procédure simplifiée :
 
 > [!WARNING]
 > Erreur classique à éviter :
+>
 > - Montrer 20 lignes de trace
 > - Chercher "la méthode" dans ST05
 > - Analyser les temps d’exécution
-> ST05 n’est pas un debugger métier.
+>   ST05 n’est pas un debugger métier.
 
 ## 🌺 RÉSUMÉ
 

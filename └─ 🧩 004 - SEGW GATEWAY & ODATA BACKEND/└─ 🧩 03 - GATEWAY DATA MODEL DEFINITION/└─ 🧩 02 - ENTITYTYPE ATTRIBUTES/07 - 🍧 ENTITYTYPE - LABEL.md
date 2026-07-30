@@ -6,6 +6,7 @@
 - [ ] Comprendre **sap gateway datamodel - label**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -16,7 +17,6 @@ flowchart TD
 
 > [!IMPORTANT]
 > Une modification du modèle OData peut nécessiter une nouvelle génération des artefacts d’exécution et une vérification du document `$metadata` consommé par les clients.
-
 
 ## 🌺 SAP GATEWAY DATAMODEL - LABEL
 
@@ -60,7 +60,7 @@ Le `Label` définit le nom lisible et affichable d’une `Property` dans un `Ent
 | ------------------------------------- | ------------------------------------------------------------ |
 | Label générique ou ambigu             | Confusion pour les Final Users                               |
 | Changement fréquent                   | Les écrans et rapports peuvent devenir incohérents           |
-| Label identique pour plusieurs champs | Difficulté à distinguer les Properties dans l’interface       |
+| Label identique pour plusieurs champs | Difficulté à distinguer les Properties dans l’interface      |
 | Langue incohérente                    | UI5/Fiori risque de mélanger les libellés dans l’application |
 
 ## 🌺 RÉSUMÉ

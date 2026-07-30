@@ -7,7 +7,6 @@
 - [ ] Identifier la différence avec `MODIFY INDEX` et `MODIFY TABLE`
 - [ ] Utiliser TRANSPORTING pour limiter les champs modifiés
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     C --> D["ETAT DE LA TABLE"]
     D --> E["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -31,11 +29,13 @@ flowchart TD
 
 > [!TIP]
 > Imaginez un classeur
+>
 > - Vous cherchez les fiches correspondant à un critère précis (WHERE)
 > - Vous modifiez uniquement les informations nécessaires
 > - Les autres fiches restent inchangées
 
 > [!NOTE]
+>
 > - Fonctionne pour `STANDARD`, `SORTED` et `HASHED TABLE`
 > - Utile lorsque la clé n’est pas connue ou lorsqu’une condition complexe doit être appliquée
 > - Comparable à un WHERE dans SQL
@@ -76,6 +76,7 @@ flowchart TD
                       WHERE land = 'IT'.
 
 > [!IMPORTANT]
+>
 > - La clause `WHERE` sélectionne la ou les lignes à modifier
 > - `TRANSPORTING` restreint la modification aux champs listés
 > - Contrairement à `MODIFY TABLE`, la recherche ne se fait pas via la clé mais via la condition
@@ -167,7 +168,7 @@ Après le `MODIFY` :
 > - Permet de modifier tous les champs ou seulement certains via TRANSPORTING
 > - Différence avec `MODIFY INDEX` : sélection par condition au lieu d’un index
 > - Différence avec `MODIFY TABLE` : sélection par condition au lieu de la clé
-> [!TIP]
-> modifier certaines fiches dans un classeur en fonction d’un critère précis
-> [!IMPORTANT]
-> vérifier la clause `WHERE`, initialiser la structure et utiliser `TRANSPORTING`
+>   [!TIP]
+>   modifier certaines fiches dans un classeur en fonction d’un critère précis
+>   [!IMPORTANT]
+>   vérifier la clause `WHERE`, initialiser la structure et utiliser `TRANSPORTING`

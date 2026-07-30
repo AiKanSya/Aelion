@@ -8,7 +8,6 @@
 - [ ] Identifier les types de données possibles
 - [ ] Différencier CONSTANTES et VARIABLES
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -20,7 +19,6 @@ flowchart TD
     D --> E["TYPE VS LIKE"]
     E --> F["TYPES DE DONNÉES POUR CONSTANTES"]
 ```
-
 
 ## 🌺 DÉFINITION
 

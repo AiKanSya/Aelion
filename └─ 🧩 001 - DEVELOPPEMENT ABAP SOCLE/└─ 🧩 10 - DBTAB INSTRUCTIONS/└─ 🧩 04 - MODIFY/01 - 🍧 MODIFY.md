@@ -7,7 +7,6 @@
 - [ ] VERIFIER LE SUCCES VIA SY-SUBRC ET SY-DBCNT
 - [ ] UTILISER MODIFY AVEC UNE STRUCTURE OU UNE TABLE INTERNE
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,24 +17,26 @@ flowchart TD
     C --> D["UTILISATION CONSEILLEE"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > MODIFY dbtab FROM struct
 > MODIFY dbtab FROM TABLE itab
 > Permet de mettre à jour ou d’insérer des enregistrements dans la table `dbtab` depuis :
+>
 > - Une structure ABAP (`struct`)
 > - Une table interne (`itab`)
 
 > [!IMPORTANT]
+>
 > - Si la clé primaire existe → mise à jour de la ligne
 > - Sinon → insertion de la ligne
-> [!NOTE]
+>   [!NOTE]
 > - SY-SUBRC = 0 → opération réussie
 > - SY-DBCNT → nombre de lignes insérées ou modifiées
 
 > [!TIP]
 > Imaginez un classeur Excel :
+>
 > - Si l’ID existe déjà → vous remplacez la ligne (update)
 > - Sinon → vous ajoutez une nouvelle ligne (insert)
 
@@ -64,6 +65,7 @@ flowchart TD
 
 > [!IMPORTANT]
 > La commande `MODIFY FROM` vérifie la présence de la clé primaire.
+>
 > - Si la clé existe → mise à jour des champs
 > - Sinon → insertion d’une nouvelle ligne
 
@@ -122,6 +124,7 @@ flowchart TD
 
 > [!IMPORTANT]
 > La commande `MODIFY FROM TABLE` traite toutes les lignes de la table interne :
+>
 > - Mise à jour si clé primaire existante
 > - Insertion sinon
 

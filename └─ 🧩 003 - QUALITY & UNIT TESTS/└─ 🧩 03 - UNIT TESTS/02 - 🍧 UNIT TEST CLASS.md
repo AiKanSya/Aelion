@@ -2,11 +2,9 @@
 
 ## 🌺 OBJECTIFS
 
-
 - [ ] Comprendre comment créer une `ABAP Unit Test Class`
 - [ ] Connaître les éléments obligatoires et facultatifs
 - [ ] Savoir nommer correctement la classe pour rester organisé
-
 
 ## 🌺 VUE D'ENSEMBLE
 
@@ -16,7 +14,6 @@ flowchart TD
     A --> B["DÉFINITION"]
     B --> C["UNIT TEST CLASS VS BUSINESS CLASS"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -28,6 +25,7 @@ flowchart TD
 
 > [!IMPORTANT]
 > L'importance des tests dans le développement SAP est cruciale car ils permettent de :
+>
 > - Détecter les erreurs tôt dans le cycle de développement
 > - Faciliter la maintenance et les évolutions du code
 > - Assurer la qualité et la fiabilité des applications
@@ -37,14 +35,17 @@ flowchart TD
 
 > [!IMPORTANT]
 > Classe métier :
+>
 > - contient la logique réelle du programme (ex : `ZCL_CUSTOMER_ORDERS`)
 
 > [!IMPORTANT]
 > Classe de test :
+>
 > - contient les tests pour vérifier la classe métier
 
 > [!IMPORTANT]
 > Règle clé :
+>
 > - ne pas mélanger logique métier et tests
 
 ### 🍧 FONCTIONNALITÉ - ÉCRITURE
@@ -53,6 +54,7 @@ L'écriture de tests `ABAP Unit` est le moyen de fournir un logiciel de haute qu
 
 > [!IMPORTANT]
 > Les fonctionnalités les plus importantes pour écrire des tests `ABAP Unit` sont les suivantes :
+>
 > - Les tests `ABAP Unit` sont écrits en ABAP. Vous n'avez pas besoin d'apprendre un langage de script supplémentaire à des fins de test.
 > - Vous écrivez des tests avec les outils de développement ABAP (`ABAP Workbench`) standard. Vous n'avez pas besoin d'utiliser d'outils supplémentaires pour développer des tests.
 > - Les tests `ABAP Unit` sont transportés avec les objets de l'ABAP Repository qu'ils testent. Elles sont donc disponibles dans tous les systèmes de votre infrastructure de développement et de test.
@@ -61,6 +63,7 @@ L'écriture de tests `ABAP Unit` est le moyen de fournir un logiciel de haute qu
 
 > [!IMPORTANT]
 > Les fonctionnalités les plus importantes de l'`ABAP Unit` pour l'exécution et l'évaluation des `tests unitaires` sont les suivantes :
+>
 > - Vous pouvez exécuter des tests `ABAP Unit` au fur et à mesure que vous développez du code. Vous pouvez lancer des tests, par exemple, directement à partir de l'éditeur ABAP dans l'`ABAP Workbench`.
 > - La mesure de la couverture du code est intégrée au test `ABAP Unit`, ce qui vous permet de vérifier la rigueur de vos tests unitaires et de trouver facilement le code non testé.
 > - Les tests `ABAP Unit` peuvent être automatisés et font partie des tests de qualité de masse.

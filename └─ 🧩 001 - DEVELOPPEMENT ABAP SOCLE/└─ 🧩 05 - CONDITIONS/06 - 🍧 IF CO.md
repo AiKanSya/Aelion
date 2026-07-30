@@ -9,7 +9,6 @@
 - [ ] Utiliser `SY-FDPOS` pour connaître la position du dernier caractère vérifié
 - [ ] Appliquer `CO` pour valider ou filtrer des entrées utilisateur
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +18,6 @@ flowchart TD
     B --> C["SYNTAXE"]
     C --> D["EXEMPLE BASIQUE"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -71,6 +69,7 @@ flowchart TD
 - Si `lc_oper2` valait `'Hell'`, la condition serait fausse.
 
 > [!TIP]
+>
 > - `CO` est sensible à la casse : `'HELLO'` ≠ `'Hello'`.
 > - Très utile pour valider que les codes ou chaînes saisies respectent un alphabet ou un ensemble de caractères autorisés.
 
@@ -80,8 +79,8 @@ flowchart TD
 > - Retourne TRUE si la chaîne respecte l’ensemble, FALSE sinon.
 > - La position du dernier caractère vérifié est disponible dans `SY-FDPOS`.
 > - Idéal pour valider ou filtrer des saisies utilisateur.
-> [!TIP]
-> vérifier que tous les ingrédients d’un plat proviennent d’une seule liste autorisée, sans intrus.
+>   [!TIP]
+>   vérifier que tous les ingrédients d’un plat proviennent d’une seule liste autorisée, sans intrus.
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

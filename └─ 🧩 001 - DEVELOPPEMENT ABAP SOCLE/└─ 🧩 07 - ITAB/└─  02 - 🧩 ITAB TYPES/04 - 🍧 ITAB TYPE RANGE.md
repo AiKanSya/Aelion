@@ -6,7 +6,6 @@
 - [ ] Identifier les champs prédéfinis : `SIGN`, `OPTION`, `LOW`, `HIGH`
 - [ ] Comprendre la notion d’inclusion/exclusion et d’intervalles
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +16,6 @@ flowchart TD
     C --> D["ALIMENTATION"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > Une `RANGE TABLE` est une table interne spéciale pour définir des intervalles de valeurs.
@@ -25,6 +23,7 @@ flowchart TD
 
 > [!TIP]
 > Imaginez un filtre de recherche avancé
+>
 > - Vous indiquez ce que vous voulez inclure ou exclure
 > - Vous précisez des intervalles de valeurs
 > - La table RANGE stocke toutes ces informations de manière structurée pour la requête

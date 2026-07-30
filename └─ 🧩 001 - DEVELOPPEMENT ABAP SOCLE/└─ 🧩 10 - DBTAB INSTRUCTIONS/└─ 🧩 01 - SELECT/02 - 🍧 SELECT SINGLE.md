@@ -6,7 +6,6 @@
 - [ ] Savoir récupérer un seul enregistrement depuis une table SAP
 - [ ] Appliquer des filtres pour obtenir précisément l’enregistrement souhaité
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     D --> E["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > `SELECT SINGLE` permet de lire un seul enregistrement d’une table SAP correspondant aux conditions spécifiées.
@@ -28,6 +26,7 @@ flowchart TD
 > Imaginez que vous cherchez une fiche client dans un classeur : au lieu de feuilleter toutes les fiches, vous vous arrêtez dès que vous trouvez celle qui correspond exactement au critère recherché.
 
 > [!IMPORTANT]
+>
 > - `SELECT SINGLE` est optimisé pour récupérer un enregistrement précis.
 > - Il est plus rapide qu’un `SELECT` classique avec `WHERE` si vous savez qu’il n’existe qu’un seul enregistrement ou que vous voulez seulement le premier correspondant.
 
@@ -42,6 +41,7 @@ flowchart TD
       WHERE condition.
 
 > [!NOTE]
+>
 > - `col1 col2 ...` : colonnes à récupérer
 > - `table` : table SAP ciblée
 > - `dest` : variable ou structure ABAP où stocker l’enregistrement
@@ -67,6 +67,7 @@ flowchart TD
     ULINE.
 
 > [!IMPORTANT]
+>
 > - La variable `lv_matnr` contiendra le code Article
 > - Seul le premier enregistrement correspondant à `ebeln = '4500000106'` est récupéré
 
@@ -141,6 +142,7 @@ flowchart TD
 | Documenter la condition de filtrage                        | Permet de savoir quel critère a été utilisé pour récupérer la donnée |
 
 > [!IMPORTANT]
+>
 > - `SELECT SINGLE` pour des données uniques (clé primaire ou identifiant unique)
 > - `SELECT` classique ou `FOR ALL ENTRIES` pour plusieurs lignes
 
@@ -152,8 +154,8 @@ flowchart TD
 > - `SELECT SINGLE` lit un seul enregistrement correspondant à vos critères.
 > - Plus rapide qu’un `SELECT` classique pour une recherche ciblée.
 > - Ne garantit pas l’unicité si plusieurs enregistrements répondent à la condition.
-> [!TIP]
-> chercher la fiche exacte dans un classeur et s’arrêter dès qu’on la trouve.
+>   [!TIP]
+>   chercher la fiche exacte dans un classeur et s’arrêter dès qu’on la trouve.
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>

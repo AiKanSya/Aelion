@@ -2,11 +2,9 @@
 
 ## 🌺 OBJECTIFS
 
-
 - [ ] Comprendre ce qu’est un `Unit Test`
 - [ ] Différencier `Unit Test` et test d’intégration
 - [ ] Comprendre pourquoi les tests sont essentiels pour la qualité du code
-
 
 ## 🌺 VUE D'ENSEMBLE
 
@@ -17,7 +15,6 @@ flowchart TD
     B --> C["UNIT TEST VS INTEGRATION TEST"]
     C --> D["POURQUOI TESTER ?"]
 ```
-
 
 ## 🌺 UNIT TEST
 
@@ -40,6 +37,7 @@ flowchart TD
 ## 🌺 POURQUOI TESTER ?
 
 > [!IMPORTANT]
+>
 > - Détecter les erreurs tôt dans le développement
 > - Garantir que les modifications futures ne cassent pas le code existant
 > - Documenter le comportement attendu du code

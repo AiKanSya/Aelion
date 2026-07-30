@@ -6,6 +6,7 @@
 - [ ] Comprendre **sap gateway datamodel - complex type name**.
 - [ ] Appliquer la notion dans un exemple simple.
 - [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -16,7 +17,6 @@ flowchart TD
 
 > [!IMPORTANT]
 > Une modification du modèle OData peut nécessiter une nouvelle génération des artefacts d’exécution et une vérification du document `$metadata` consommé par les clients.
-
 
 ## 🌺 SAP GATEWAY DATAMODEL - COMPLEX TYPE NAME
 
@@ -38,12 +38,12 @@ Le `ComplexType Name` définit le `ComplexType` associé à une `Property` lorsq
 
 ### 🍧 RÈGLES
 
-| 🍧 Règle                                       | 🍧 Explication                                                        |
-| ---------------------------------------------- | --------------------------------------------------------------------- |
-| Nom unique dans le service                     | Chaque Complex Type doit avoir un identifiant unique dans le metadata |
-| Réutilisable                                   | Le même Complex Type peut être utilisé dans plusieurs EntityTypes     |
-| Doit contenir uniquement des Properties valides | Sub-Properties doivent respecter les règles EDM et Name                |
-| Stable dans le temps                           | Changer casse toutes les Clients qui consomment ce type               |
+| 🍧 Règle                                        | 🍧 Explication                                                        |
+| ----------------------------------------------- | --------------------------------------------------------------------- |
+| Nom unique dans le service                      | Chaque Complex Type doit avoir un identifiant unique dans le metadata |
+| Réutilisable                                    | Le même Complex Type peut être utilisé dans plusieurs EntityTypes     |
+| Doit contenir uniquement des Properties valides | Sub-Properties doivent respecter les règles EDM et Name               |
+| Stable dans le temps                            | Changer casse toutes les Clients qui consomment ce type               |
 
 ### 🍧 $METADATA EXAMPLES
 
@@ -66,7 +66,7 @@ Le `ComplexType Name` définit le `ComplexType` associé à une `Property` lorsq
 | 🍧 Erreur                            | 🍧 Pourquoi c’est un problème                      |
 | ------------------------------------ | -------------------------------------------------- |
 | Nom du Complex Type ambigu           | Risque de conflit et confusion dans le $metadata   |
-| Sub-Properties non conformes          | Génération de service ou affichage incorrect       |
+| Sub-Properties non conformes         | Génération de service ou affichage incorrect       |
 | Changement après livraison           | Toutes les Clients qui utilisent ce type cassent   |
 | Utilisation pour une Property simple | Inutile, complexité et surcharge dans le $metadata |
 

@@ -6,7 +6,6 @@
 - [ ] Savoir convertir une chaîne en majuscules ou minuscules
 - [ ] Savoir appliquer un masque de transformation sur une chaîne
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +16,6 @@ flowchart TD
     C --> D["EXEMPLE BASIQUE"]
     D --> E["EXEMPLE AVEC MASQUE"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -38,6 +36,7 @@ flowchart TD
 - USING mask : applique une logique de transformation définie par un masque
 
 > [!TIP]
+>
 > - `UPPER` = écrire tout en lettres capitales
 > - `LOWER` = écrire tout en lettres minuscules
 > - `USING mask` = appliquer un code spécial de substitution lettre par lettre, comme un message codé
@@ -79,7 +78,6 @@ flowchart TD
     WRITE: / 'lv_text3 = ', lv_text3.
 
 - Masque `ABBAabba` :
-
   - A → B
   - B → A
   - a → b

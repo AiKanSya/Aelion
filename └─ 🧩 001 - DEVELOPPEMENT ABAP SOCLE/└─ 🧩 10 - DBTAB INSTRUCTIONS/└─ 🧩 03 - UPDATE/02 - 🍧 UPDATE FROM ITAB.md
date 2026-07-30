@@ -7,7 +7,6 @@
 - [ ] Comprendre l’impact de la clé primaire sur la mise à jour multiple
 - [ ] Manipuler les données via field symbols pour modifier la table interne
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -18,7 +17,6 @@ flowchart TD
     C --> D["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
 > `UPDATE dbtab FROM TABLE itab`
@@ -26,11 +24,13 @@ flowchart TD
 > Pour chaque ligne de `itab`, le système recherche un enregistrement dans `dbtab` ayant la même clé primaire.
 
 > Variables système mises à jour :
+>
 > - `SY-SUBRC = 0` → toutes les lignes ont été mises à jour correctement
 > - `SY-SUBRC = 4` → aucun enregistrement correspondant trouvé
 
 > [!TIP]
 > Imaginez un classeur Excel et une feuille temporaire :
+>
 > - Vous modifiez plusieurs lignes sur votre feuille temporaire
 > - Puis vous appliquez toutes les modifications au classeur principal en une seule fois
 > - Les lignes sont mises à jour uniquement si l’ID correspond

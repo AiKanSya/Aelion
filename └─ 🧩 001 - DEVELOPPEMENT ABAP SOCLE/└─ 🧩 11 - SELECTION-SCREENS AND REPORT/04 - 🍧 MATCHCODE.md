@@ -6,7 +6,6 @@
 - [ ] UTILISER LES MATCH-CODES AUTOMATIQUES ET SPECIFIQUES
 - [ ] FACILITER LA SELECTION DE DONNEES PAR L’UTILISATEUR FINAL
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -17,7 +16,6 @@ flowchart TD
     C --> D["MATCH-CODES SPECIFIQUES"]
     D --> E["BONNES PRATIQUES"]
 ```
-
 
 ## 🌺 DÉFINITION
 
@@ -37,6 +35,7 @@ _Exemple :_
                 p_posnr TYPE vbap-posnr.
 
 > [!IMPORTANT]
+>
 > - Ici, `p_vbeln` et `p_posnr` sont typés sur des champs de table.
 > - SAP propose automatiquement les `MATCH-CODES` associés aux champs.
 > - Si le typage est sur un type simple (ex: `TYPE vbeln`), aucun `MATCH-CODE` ne sera proposé.
@@ -56,6 +55,7 @@ _Exemple :_
     PARAMETERS: p_matnr TYPE mara-matnr MATCHCODE OBJECT zar_mara.
 
 > [!IMPORTANT]
+>
 > - `p_matnr` est typé sur `mara-matnr`.
 > - Le `MATCH-CODE` spécifique `zar_mara` est utilisé pour afficher les colonnes et valeurs personnalisées définies dans l’aide à la recherche.
 

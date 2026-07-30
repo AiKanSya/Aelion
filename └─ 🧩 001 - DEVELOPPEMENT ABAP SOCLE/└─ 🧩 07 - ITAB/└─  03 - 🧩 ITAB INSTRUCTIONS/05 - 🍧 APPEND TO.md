@@ -7,7 +7,6 @@
 - [ ] Identifier les limitations selon le type de table interne
 - [ ] Comparer `APPEND` et `INSERT` selon le type de table
 
-
 ## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
@@ -19,7 +18,6 @@ flowchart TD
     D --> E["BONNES PRATIQUES"]
 ```
 
-
 ## 🌺 DÉFINITION
 
        APPEND { ls | {INITIAL LINE} | {LINES OF jtab [FROM idx1] [TO idx2]} }
@@ -30,6 +28,7 @@ flowchart TD
 
 > [!TIP]
 > Imaginez un classeur :
+>
 > - Vous collez toujours les nouvelles fiches à la fin.
 > - Vous pouvez :
 >   - Ajouter une fiche complète (`STRUCTURE`)
@@ -37,6 +36,7 @@ flowchart TD
 >   - Copier des pages d’une autre table interne (`LINES OF itab`)
 
 > [!TIP]
+>
 > - `APPEND` est simple et rapide pour `STANDARD` et `RANGE TABLE`.
 > - Pour `HASHED` ou `SORTED TABLE`, il faut utiliser `INSERT INTO TABLE` pour respecter les contraintes.
 
@@ -66,6 +66,7 @@ flowchart TD
 ## 🌺 LIMITATIONS POUR SORTED ET HASHED TABLE
 
 > [!CAUTION]
+>
 > - `APPEND` fonctionne uniquement pour `STANDARD` et `RANGE TABLE`.
 > - Pour `HASHED` ou `SORTED TABLE`, il faut `INSERT INTO TABLE`.
 > - Sur une `SORTED TABLE`, ajouter en fin peut violé l’ordre défini par la clé → `DUMP`.
@@ -94,6 +95,7 @@ flowchart TD
     APPEND ls_country TO lt_country.  " Ordre respecté, pas de DUMP
 
 > [!IMPORTANT]
+>
 > - APPEND ne contrôle pas l’ordre sur SORTED TABLE.
 > - L’usage correct dépend de la clé et de l’ordre défini.
 > - HASHED TABLE ne peut jamais utiliser APPEND car il n’y a pas d’ordre séquentiel.
@@ -113,10 +115,11 @@ flowchart TD
 
 > [!IMPORTANT]
 > Déclarer `lt_employees` avec la structure `ty_employee` :
+>
 > - id (CHAR5)
 > - nom (CHAR20)
 > - departement (CHAR10)
-> Ajouter deux employés avec APPEND et afficher la table.
+>   Ajouter deux employés avec APPEND et afficher la table.
 
 <details>
   <summary>SOLUTION</summary>
@@ -176,9 +179,9 @@ flowchart TD
 
 > - `APPEND` → ajoute toujours à la fin d’une table interne.
 > - Compatible avec `STANDARD` et `RANGE`, interdit sur `SORTED`/`HASHED` sauf précaution.
-> [!CAUTION]
-> DUMP si l’ordre est violé sur `SORTED TABLE`.
-> [!TIP]
-> coller de nouvelles fiches à la fin d’un classeur, en respectant l’ordre si nécessaire.
-> [!IMPORTANT]
-> vérifier le type de table et utiliser `INSERT` pour `SORTED`/`HASHED`.
+>   [!CAUTION]
+>   DUMP si l’ordre est violé sur `SORTED TABLE`.
+>   [!TIP]
+>   coller de nouvelles fiches à la fin d’un classeur, en respectant l’ordre si nécessaire.
+>   [!IMPORTANT]
+>   vérifier le type de table et utiliser `INSERT` pour `SORTED`/`HASHED`.
