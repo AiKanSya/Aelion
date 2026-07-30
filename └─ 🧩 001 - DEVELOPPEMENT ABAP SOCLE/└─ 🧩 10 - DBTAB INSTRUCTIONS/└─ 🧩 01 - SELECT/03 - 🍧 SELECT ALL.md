@@ -7,21 +7,32 @@
 - [ ] Identifier l’usage du caractère d’évasion `@` pour les variables externes
 - [ ] Stocker les résultats dans une structure ou dans plusieurs variables
 
-## 🌺 DEFINITION
 
-> SELECT ALL permet de lire plusieurs lignes d’une table SAP et de les stocker dans une structure ou des variables.  
-> Le symbole `*` signifie tous les champs.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["SELECT ALL – EXTRACTION DE PLUSIEURS ENREGISTREMENTS"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLE"]
+    D --> E["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> SELECT ALL permet de lire plusieurs lignes d’une table SAP et de les stocker dans une structure ou des variables.
+> Le symbole `*` signifie tous les champs.
 > Le symbole `@` indique que la variable ou table interne utilisée dans le INTO fait partie du programme (externe à la base).
 
 > [!TIP]
 > Imaginez copier plusieurs lignes ou toutes les colonnes d’un classeur Excel
->
 > - Vous pouvez sélectionner toutes les colonnes ou seulement certaines.
 > - Vous pouvez mettre les résultats dans une fiche unique (structure) ou répartir dans plusieurs variables.
 
 > [!IMPORTANT]
->
-> - SELECT ALL est utile pour récupérer plusieurs enregistrements, mais [!CAUTION] à ne pas surcharger la mémoire si la table est très grande.
+> - `SELECT` peut récupérer plusieurs enregistrements, mais il faut limiter le volume lu pour éviter une consommation excessive de mémoire.
 > - Pour un seul enregistrement, préférez SELECT SINGLE.
 
 > [!CAUTION]
@@ -35,7 +46,6 @@
       WHERE condition.
 
 > [!NOTE]
->
 > - `*` : ALL (toutes les colonnes)
 > - `table` : table SAP ciblée
 > - `dest` : variable, structure ou table interne
@@ -43,7 +53,7 @@
 
 ## 🌺 EXEMPLE
 
-### PERFORM SELECT_ALL_INTO_TAB
+### 🍧 PERFORM SELECT_ALL_INTO_TAB
 
     DATA: lt_ekpo TYPE STANDARD TABLE OF ekpo.
 
@@ -56,7 +66,7 @@
       MESSAGE 'Error select_all_into_tab' TYPE 'E'.
     ENDIF.
 
-### PERFORM SELECT_SINGLE_ALL_INTO_STRUCT
+### 🍧 PERFORM SELECT_SINGLE_ALL_INTO_STRUCT
 
     DATA: ls_ekpo TYPE ekpo.
 
@@ -80,8 +90,23 @@
 | Tester vos SELECT avec un petit échantillon   | Évite de surcharger le système                                             |
 
 > [!IMPORTANT]
->
 > - SELECT ALL pour récupérer plusieurs lignes ou toutes les colonnes
 
 > [!TIP]
 > Vous pouvez tester chaque SELECT dans un petit programme ABAP et afficher les résultats avec WRITE ou dans un ALV simple.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - Savoir utiliser **syntaxe** dans le contexte présenté.
+> - **Exemple :** DATA: ltekpo TYPE STANDARD TABLE OF ekpo.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **SELECT ALL – EXTRACTION DE PLUSIEURS ENREGISTREMENTS** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

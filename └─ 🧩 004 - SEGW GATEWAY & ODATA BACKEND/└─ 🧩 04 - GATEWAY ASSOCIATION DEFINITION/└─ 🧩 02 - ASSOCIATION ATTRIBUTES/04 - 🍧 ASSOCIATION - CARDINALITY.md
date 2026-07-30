@@ -1,24 +1,40 @@
 # 🌸 GATEWAY DATA MODEL DEFINITION - ASSOCIATION CARDINALITY
 
-![](../assets/Capture%20d’écran%202026-01-16%20125638.png)
+## 🌺 OBJECTIFS
 
-## 🧩 SAP GATEWAY DATAMODEL - ASSOCIATION CARDINALITY (PRINCIPAL / DEPENDANT)
+- [ ] Expliquer le rôle de **GATEWAY DATA MODEL DEFINITION - ASSOCIATION CARDINALITY** dans le contexte présenté.
+- [ ] Comprendre **sap gateway datamodel - association cardinality (principal / dependant)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["GATEWAY DATA MODEL DEFINITION - ASSOCIATION CARDINALIT"]
+    A --> B["SAP GATEWAY DATAMODEL - ASSOCIATION CARDINALITY (PRINC"]
+```
+
+> [!IMPORTANT]
+> Une modification du modèle OData peut nécessiter une nouvelle génération des artefacts d’exécution et une vérification du document `$metadata` consommé par les clients.
+
+
+## 🌺 SAP GATEWAY DATAMODEL - ASSOCIATION CARDINALITY (PRINCIPAL / DEPENDANT)
 
 La `Cardinality` définit le nombre d’occurrences possibles entre la `Principal Entity` et la `Dependant Entity` dans une `Association`. Elle décrit la relation quantitative entre les deux `Entities`.
 
-### 🍧 DEFINITION
+### 🍧 DÉFINITION
 
 - Indique combien d’instances d’une `Entity` peuvent être liées à une instance de l’autre `Entity`.
 - Définie séparément pour la `Principal Entity` et la `Dependant Entity`.
 - Exprimée dans le $metadata via la `Property Multiplicity`.
 
-### 🍧 ROLE
+### 🍧 RÔLE
 
 - Définir clairement les relations de cardinalité.
 - Permettre aux `Frameworks SAP` et `UI5` de générer des `Navigations` correctes.
 - Garantir la cohérence métier et technique du `DataModel`.
 
-### 🍧 RULES
+### 🍧 RÈGLES
 
 | 🍧 Règle                                    | 🍧 Explication                                          |
 | ------------------------------------------- | ------------------------------------------------------- |
@@ -50,7 +66,7 @@ La `Cardinality` définit le nombre d’occurrences possibles entre la `Principa
 - Un utilisateur possède zéro ou un profil.
 - Relation 1:0..1.
 
-### 🍧 ERRORS
+### 🍧 ERREURS
 
 | 🍧 Erreur                              | 🍧 Pourquoi c’est un problème                        |
 | -------------------------------------- | ---------------------------------------------------- |
@@ -58,3 +74,17 @@ La `Cardinality` définit le nombre d’occurrences possibles entre la `Principa
 | Utiliser n:m sans Entity intermédiaire | Modèle non supporté correctement                     |
 | Changer après livraison                | Rupture des navigations et des applications clientes |
 | Incohérence Principal / Dependant      | Modèle difficile à comprendre et à maintenir         |
+
+## 🌺 RÉSUMÉ
+
+> - **Sap gateway datamodel - association cardinality (principal / dependant) :** La Cardinality définit le nombre d’occurrences possibles entre la Principal Entity et la Dependant Entity dans une Association.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **GATEWAY DATA MODEL DEFINITION - ASSOCIATION CARDINALITY** avec mes propres mots.
+- [ ] Je peux expliquer **sap gateway datamodel - association cardinality (principal / dependant)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

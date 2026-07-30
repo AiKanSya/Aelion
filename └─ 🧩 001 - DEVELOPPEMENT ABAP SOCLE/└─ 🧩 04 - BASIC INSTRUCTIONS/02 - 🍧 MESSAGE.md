@@ -8,9 +8,23 @@
 - [ ] Créer et référencer des `ELEMENTS DE TEXTE` pour les `MESSAGES`
 - [ ] Créer et utiliser des `MESSAGES` via la transaction SE91
 
-## 🌺 DEFINITION
 
-> Un `MESSAGE` est une instruction ABAP permettant d’afficher une information à l’utilisateur pendant l’exécution d’un programme.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["MESSAGES"]
+    A --> B["DEFINITION"]
+    B --> C["TYPES DE MESSAGES"]
+    C --> D["UTILISATION DE DISPLAY LIKE"]
+    D --> E["ELEMENTS DE TEXTE POUR MESSAGES"]
+    E --> F["CRÉER DES MESSAGES VIA SE91"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Un `MESSAGE` est une instruction ABAP permettant d’afficher une information à l’utilisateur pendant l’exécution d’un programme.
 > Les `MESSAGES` peuvent être informative, avertissement, erreur ou succès, chacun avec un impact différent sur le programme.
 
 > [!TIP]
@@ -18,7 +32,7 @@
 
 ## 🌺 TYPES DE MESSAGES
 
-### MESSAGE INFORMATIF (I)
+### 🍧 MESSAGE INFORMATIF (I)
 
     WRITE:/ '     - MESSAGE TYPE I...'.
 
@@ -29,7 +43,7 @@
 > [!TIP]
 > post-it sur le tableau indiquant une information non urgente.
 
-### MESSAGE WARNING (W)
+### 🍧 MESSAGE WARNING (W)
 
     WRITE:/ '     - MESSAGE TYPE W...'.
 
@@ -40,7 +54,7 @@
 > [!TIP]
 > signal lumineux clignotant pour attirer l’attention.
 
-### MESSAGE ERROR (E)
+### 🍧 MESSAGE ERROR (E)
 
     WRITE:/ '     - MESSAGE TYPE E...'.
 
@@ -51,7 +65,7 @@
 > [!TIP]
 > feu rouge ; l’utilisateur doit corriger avant de continuer.
 
-### MESSAGE SUCCESS (S)
+### 🍧 MESSAGE SUCCESS (S)
 
     WRITE:/ '     - MESSAGE TYPE I...'.
 
@@ -75,7 +89,8 @@ Permet d’afficher un `MESSAGE` d’un type différent de son type réel :
 
 ## 🌺 ELEMENTS DE TEXTE POUR MESSAGES
 
-![](./assets/images/Capture%20d’écran%202025-10-31%20150238.png)
+> [!NOTE]
+> La capture annoncée dans le support initial n’était pas présente dans le dépôt source. Les étapes textuelles ci-dessous restent applicables.
 
 - Utiliser les `ELEMENTS DE TEXTE` rend les `MESSAGES` dynamiques et modifiables sans toucher au code.
 - Étapes :
@@ -117,7 +132,7 @@ Permet d’afficher un `MESSAGE` d’un type différent de son type réel :
 > [!NOTE]
 > C'est l'idéal de créer dans une classe de `MESSAGE` si le programme/class/module function présentent de multiples textes. Ici aussi, il sera possible de renseigner les traductions.
 
-## BONNES PRATIQUES
+## 🌺 BONNES PRATIQUES
 
 | 🍧 Bonne pratique                             | 🍧 Explication                                              |
 | --------------------------------------------- | ----------------------------------------------------------- |
@@ -127,13 +142,22 @@ Permet d’afficher un `MESSAGE` d’un type différent de son type réel :
 | Créer des `MESSAGES` réutilisables via S``E91 | Permet cohérence et centralisation des `MESSAGES`           |
 | Éviter les `MESSAGES` bloquants inutilement   | Prévenir les interruptions inutiles pour l’utilisateur      |
 
-## RESUME
+## 🌺 RÉSUMÉ
 
 > - `MESSAGE` = afficher un MESSAGE SAP pour l’utilisateur
 > - Types : I, W, E, S
 > - `DISPLAY LIKE` permet de modifier l’apparence sans changer le type
 > - Les `ELEMENTS DE TEXTE` rendent les `MESSAGES` dynamiques et faciles à maintenir
 > - La SE91 permet de créer des `MESSAGES` réutilisables dans plusieurs programmes
->
 > [!TIP]
 > panneaux lumineux ou post-it, chaque couleur et type indique un niveau d’importance
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **MESSAGES** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **types de messages** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

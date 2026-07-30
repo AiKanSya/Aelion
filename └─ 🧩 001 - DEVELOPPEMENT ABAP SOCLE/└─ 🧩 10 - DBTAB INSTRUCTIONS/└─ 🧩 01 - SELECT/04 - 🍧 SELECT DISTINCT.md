@@ -7,19 +7,31 @@
 - [ ] Récupérer une liste claire de valeurs uniques
 - [ ] Stocker les résultats dans une table interne et les parcourir avec une boucle
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["SELECT DISTINCT – EXTRACTION DE VALEURS UNIQUES"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLE"]
+    D --> E["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
 
 > L’instruction DISTINCT permet de sélectionner uniquement des valeurs uniques, en supprimant tous les doublons d’une table SAP.
->
 > [!TIP]
-> Imaginez un classeur Excel contenant plusieurs lignes pour chaque voiture : certaines marques et modèles apparaissent plusieurs fois.  
+> Imaginez un classeur Excel contenant plusieurs lignes pour chaque voiture : certaines marques et modèles apparaissent plusieurs fois.
 > Avec `DISTINCT`, vous gardez une seule occurrence de chaque marque/modèle, comme un catalogue simplifié.
 
 > [!IMPORTANT]
 > DISTINCT s’applique sur tous les champs sélectionnés : la combinaison des valeurs doit être unique pour qu’une ligne soit conservée.
 
 > [!CAUTION]
-> DISTINCT ne modifie pas la table d’origine. Elle ne fait que filtrer les doublons dans le résultat de la requête.  
+> DISTINCT ne modifie pas la table d’origine. Elle ne fait que filtrer les doublons dans le résultat de la requête.
 > Utiliser DISTINCT sur de très grandes tables peut avoir un impact sur les performances.
 
 ## 🌺 SYNTAXE
@@ -30,14 +42,13 @@
       WHERE condition.
 
 > [!NOTE]
->
 > - `col1 col2 ...` : colonnes pour lesquelles les combinaisons doivent être uniques
 > - `table` : table SAP ciblée
 > - `itab` : table interne qui stockera les résultats uniques
 
 ## 🌺 EXEMPLE
 
-### PERFORM SELECT_DISTINCT
+### 🍧 PERFORM SELECT_DISTINCT
 
     TYPES: BEGIN OF ty_ekpo,
             ebeln TYPE ekpo-ebeln,
@@ -60,7 +71,7 @@
 > [!TIP]
 > On parcourt la liste Excel et on ne garde qu’une seule ligne pour chaque combinaison marque/modèle.
 
-### PERFORM SELECT_DISTINCT_ALL
+### 🍧 PERFORM SELECT_DISTINCT_ALL
 
     SELECT DISTINCT *
       FROM ekpo
@@ -81,9 +92,24 @@
 | Ajouter une clause WHERE si possible                | Réduit le nombre de lignes à traiter et améliore les performances |
 
 > [!IMPORTANT]
->
 > - Pour obtenir une liste de valeurs uniques à afficher ou à utiliser dans un programme
 > - Pour préparer des données pour des listes déroulantes ou des rapports simplifiés
 
 > [!TIP]
 > Tester DISTINCT avec un petit échantillon permet de bien visualiser quelles lignes sont supprimées et comment fonctionne le filtrage.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - **Syntaxe :** SELECT DISTINCT col1 col2 ...
+> - **Exemple :** TYPES: BEGIN OF tyekpo,
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **SELECT DISTINCT – EXTRACTION DE VALEURS UNIQUES** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

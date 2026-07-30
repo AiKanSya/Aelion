@@ -6,39 +6,53 @@
 - [ ] Identifier les différents types de `COMMENTAIRES`
 - [ ] Savoir appliquer les conventions de bonne pratique
 
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["COMMENTAIRES IN ABAP"]
+    A --> B["RACCOURCIS"]
+    B --> C["DEFINITION"]
+    C --> D["EXPLICATION"]
+    D --> E["TYPES DE COMMENTAIRES"]
+    E --> F["LONGUEUR MAXIMALE"]
+```
+
+
 ## 🌺 RACCOURCIS
 
 - `[ CTRL ]` + `[ ? ]` commente automatiquement la ligne sélectionnée
 - `[ CTRL ]` + `[ ; ]` décommente automatiquement la ligne sélectionnée
 
-## 🌺 DEFINITION
+## 🌺 DÉFINITION
 
-> Un `COMMENTAIRE` en ABAP est une ligne ou un bloc de texte ignoré par le système d’exécution.  
-> Son seul rôle est d’expliquer le code pour les humains.  
-> Un bon `COMMENTAIRE` [!TIP] à comprendre pourquoi un code existe, pas seulement ce qu’il fait.
+> Un `COMMENTAIRE` en ABAP est une ligne ou un bloc de texte ignoré par le système d’exécution.
+> Son seul rôle est d’expliquer le code pour les humains.
+> Un bon `COMMENTAIRE` aide à comprendre pourquoi un code existe, pas seulement ce qu’il fait.
 
 > [!TIP]
-> Un `COMMENTAIRE`, c’est une [!NOTE] dans la marge d’un plan d’ingénieur.  
-> Le plan construit la machine (le code), la [!NOTE] explique la raison de chaque pièce.
+> Un `COMMENTAIRE`, c’est une note dans la marge d’un plan d’ingénieur.
+> Le plan construit la machine (le code), la note explique la raison de chaque pièce.
 
 ## 🌺 EXPLICATION
 
 Les `COMMENTAIRES` sont essentiels pour :
 
 - faciliter la lecture du code par un autre développeur,
-- [!TIP]r à la maintenance dans le temps,
+- aider à la maintenance dans le temps,
 - documenter les choix techniques,
 - rendre visible la structure logique d’un programme.
 
 > [!TIP]
-> En entreprise, le code ABAP est rarement lu par son auteur après quelques semaines.  
+> En entreprise, le code ABAP est rarement lu par son auteur après quelques semaines.
 > Les ``COMMENTAIRES` garantissent la continuité de compréhension collective.
 
 ## 🌺 TYPES DE COMMENTAIRES
 
-### 1. COMMENTAIRE SUR LIGNE UNIQUE
+### 🍧 1. COMMENTAIRE SUR LIGNE UNIQUE
 
-Utiliser le symbole `*` en première colonne (en début de ligne).  
+Utiliser le symbole `*` en première colonne (en début de ligne).
 Tout ce qui suit sur la ligne est ignoré par le système.
 
     * Déclaration d’une variable
@@ -47,7 +61,7 @@ Tout ce qui suit sur la ligne est ignoré par le système.
 > [!NOTE]
 > Le `*` doit être placé dans la première colonne (en début de ligne), sinon SAP peut interpréter la ligne comme du code.
 
-### 2. COMMENTAIRE DE FIN DE LIGNE
+### 🍧 2. COMMENTAIRE DE FIN DE LIGNE
 
 Utiliser le symbole `"` (guillemet double) pour commenter après une instruction.
 
@@ -57,9 +71,9 @@ Utiliser le symbole `"` (guillemet double) pour commenter après une instruction
 > [!IMPORTANT]
 > Les `COMMENTAIRES` de fin de ligne expliquent le rôle exact d’une variable ou d’une instruction sans casser la lecture du code.
 
-### 3. COMMENTAIRE MULTILIGNE STRUCTURÉ
+### 🍧 3. COMMENTAIRE MULTILIGNE STRUCTURÉ
 
-Utiliser `*&` pour construire des blocs visuels de `COMMENTAIRE`.  
+Utiliser `*&` pour construire des blocs visuels de `COMMENTAIRE`.
 Cette méthode est utilisée pour les cartouches, les sections ou les explications longues.
 
     *&---------------------------------------------------------------------*
@@ -73,11 +87,11 @@ Cette méthode est utilisée pour les cartouches, les sections ou les explicatio
 
 ## 🌺 LONGUEUR MAXIMALE
 
-SAP limite techniquement la lecture à 72–76 caractères par ligne.  
+SAP limite techniquement la lecture à 72–76 caractères par ligne.
 Les `COMMENTAIRES` trop longs peuvent être tronqués.
 
 > [!WARNING]
-> Un texte coupé peut rendre le `COMMENTAIRE` incohérent.  
+> Un texte coupé peut rendre le `COMMENTAIRE` incohérent.
 > Mieux vaut plusieurs lignes brèves et alignées qu’une phrase trop longue.
 
 ## 🌺 BONNES PRATIQUES
@@ -91,7 +105,7 @@ Les `COMMENTAIRES` trop longs peuvent être tronqués.
 | Ne pas sur-commenter le code évident                      | Favorise la clarté : commenter l’intention, pas la syntaxe |
 
 > [!CAUTION]
-> Trop de `COMMENTAIRES` "inutiles" peuvent polluer la lecture du code.  
+> Trop de `COMMENTAIRES` "inutiles" peuvent polluer la lecture du code.
 > Un bon `COMMENTAIRE` répond à la question : _Pourquoi ce code existe-t-il ?_
 
 ## 🌺 EXEMPLE
@@ -102,10 +116,20 @@ Les `COMMENTAIRES` trop longs peuvent être tronqués.
     * Afficher le message à l’écran
     WRITE: / 'Bonjour', lv_firstname, '!'.            "Affiche Bonjour Alice
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Les `COMMENTAIRES` documentent le code sans être exécutés.
 > - Utiliser `*` pour une ligne entière, `"` pour la fin de ligne, `*&` pour un bloc.
 > - Respecter la limite de longueur et mettre à jour les `COMMENTAIRES` lors de chaque évolution.
 > - La cartouche standard doit être présente dans tout programme.
 > - Le bon `COMMENTAIRE` explique l’intention, pas la syntaxe.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **COMMENTAIRES IN ABAP** avec mes propres mots.
+- [ ] Je peux expliquer **raccourcis** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **definition** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

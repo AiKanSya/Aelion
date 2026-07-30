@@ -7,9 +7,22 @@
 - [ ] Savoir créer une `VIEW` en utilisant des tables existantes
 - [ ] Maîtriser les notions de jointures et sélections de champs
 
-## 🌺 DEFINITION
 
-> Une `VIEW` est une représentation logique de données provenant d’une ou plusieurs tables.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["VIEWS SAP"]
+    A --> B["DEFINITION"]
+    B --> C["TYPES DE VIEWS"]
+    C --> D["CREATION D’UNE VIEW"]
+    D --> E["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Une `VIEW` est une représentation logique de données provenant d’une ou plusieurs tables.
 > Elle ne stocke pas physiquement les données mais permet d’accéder à une sélection structurée et filtrée.
 
 > [!TIP]
@@ -18,7 +31,6 @@
 ## 🌺 TYPES DE VIEWS
 
 > [!TIP]
->
 > - Database View : une `VIEW` pivot qui combine plusieurs tableaux Excel.
 > - Projection View : un tableau résumé ne montrant que certaines colonnes.
 > - Help View : un menu déroulant intelligent pour choisir une valeur.
@@ -29,10 +41,10 @@
 | Projection View   | Sélection de certains champs d’une seule table, souvent pour des rapports ou modules spécifiques. |
 | Help View         | Spéciale pour les aides à la recherche, affiche une liste filtrée de valeurs pour un champ.       |
 
-> [!NOTE]  
+> [!NOTE]
 > Les `VIEWS` n’écrivent pas dans la base, elles ne servent qu’à consulter ou filtrer les données.
 
-## 🌺 CREATION D’UNE VIEW
+## 🌺 CRÉATION D’UNE VIEW
 
 1. Transaction SE11
 
@@ -81,10 +93,10 @@
 
     ![](./assets/images/VUES_014.jpg)
 
-> [!NOTE]  
+> [!NOTE]
 > Une Database View `ZV_CONSULTANT_INFO` pourrait combiner la table `ZT_CONSULTANT` avec la table `ZT_PROJETS` pour afficher le consultant, sa ville et ses projets en une seule `VIEW`.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > La `VIEW` agit comme un résumé logique des tables : on peut interroger, filtrer et afficher les données sans toucher aux tables originales.
 
 ## 🌺 BONNES PRATIQUES
@@ -102,7 +114,7 @@
 > [!CAUTION]
 > Ne pas confondre Database View et table physique : une modification des données via la `VIEW` impacte toujours la table source, mais certaines `VIEWS` (projection/help) peuvent être lecture seule.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Une `VIEW` est une représentation logique des données SAP
 > - Types de `VIEWS` : Database, Projection, Help
@@ -111,3 +123,13 @@
 
 > [!TIP]
 > Une `VIEW` SAP est comme un filtre ou un tableau de bord Excel : elle montre ce dont vous avez besoin sans toucher aux données originales.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **VIEWS SAP** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **types de views** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

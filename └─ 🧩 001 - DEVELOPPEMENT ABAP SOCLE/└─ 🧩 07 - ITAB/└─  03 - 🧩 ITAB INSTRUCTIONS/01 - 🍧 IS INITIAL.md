@@ -7,7 +7,21 @@
 - [ ] Utiliser `IS INITIAL` ou `IS NOT INITIAL` pour tester le contenu d’une table interne
 - [ ] Savoir que `IS INITIAL` fonctionne aussi avec des variables simples
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["IS INITIAL"]
+    A --> B["DEFINITION"]
+    B --> C["ANALOGIE"]
+    C --> D["EXEMPLE COMPLET"]
+    D --> E["ATTENTION"]
+    E --> F["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
 
     IF itab[] IS INITIAL.
       " La table est vide
@@ -17,11 +31,10 @@
       " La table contient au moins une ligne
     ENDIF.
 
-> L’expression `IS INITIAL` vérifie si une donnée est vide ou non initialisée.  
+> L’expression `IS INITIAL` vérifie si une donnée est vide ou non initialisée.
 > Pour les tables internes, les crochets `[]` signifient qu’on évalue le contenu complet de la table.
 
 > [!IMPORTANT]
->
 > - `itab[] IS INITIAL` → la table ne contient aucune ligne
 > - `itab[] IS NOT INITIAL` → la table contient au moins une ligne
 
@@ -65,14 +78,13 @@ De la même façon :Z
     ENDIF.
 
 > [!IMPORTANT]
->
 > - Avant le `APPEND`, la table est vide → `IS INITIAL` renvoie VRAI.
 > - Après le `APPEND`, elle contient une ligne → `IS NOT INITIAL` renvoie VRAI.
 
 ## 🌺 ATTENTION
 
 - Si vous oubliez les crochets `[]`, vous testez la référence de la table, pas son contenu.
-- Une table peut être "non initiale" même si elle n’a plus de lignes si elle a été initialisée ailleurs.  
+- Une table peut être "non initiale" même si elle n’a plus de lignes si elle a été initialisée ailleurs.
   → Utilisez toujours `itab[] IS INITIAL` avec les crochets.
 
 ## 🌺 BONNES PRATIQUES
@@ -85,9 +97,9 @@ De la même façon :Z
 | Appliquer aussi à des variables             | Permet de contrôler l’initialisation d’une donnée   |
 | Préférer `IS INITIAL` à `LINES( itab ) = 0` | Plus lisible et plus rapide                         |
 
-## 🌺 EXEMPLES RESUME
+## 🌺 EXEMPLES RÉSUMÉ
 
-### 🔹 1 — TABLE VIDE
+### 🍧 1 — TABLE VIDE
 
     DATA lt_data TYPE TABLE OF string.
 
@@ -95,7 +107,7 @@ De la même façon :Z
       WRITE: / 'La table est vide.'.
     ENDIF.
 
-### 🔹 2 — TABLE NON VIDE
+### 🍧 2 — TABLE NON VIDE
 
     APPEND 'Hello' TO lt_data.
 
@@ -103,15 +115,23 @@ De la même façon :Z
       WRITE: / 'La table contient au moins une valeur.'.
     ENDIF.
 
-## RESUME
+## 🌺 RÉSUMÉ
 
 > `IS INITIAL` permet de vérifier si une table interne ou une variable est vide.
->
 > - `itab[] IS INITIAL` → table vide
 > - `itab[] IS NOT INITIAL` → table non vide
 > - Fonctionne aussi pour variables et structures simples
->
 > Bon réflexe : toujours vérifier avant de traiter ou boucler sur une table.
 
 > [!TIP]
 > Tester si une boîte contient quelque chose avant d’essayer de prendre un objet à l’intérieur.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **IS INITIAL** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **analogie** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

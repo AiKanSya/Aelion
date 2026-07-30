@@ -1,29 +1,26 @@
 # 🌸 DATASERVICES
 
-> 🌺 Objectifs
->
-> - [ ] Déplacer les opérations CRUD dans le DataServices (bonne pratique)
-> - [ ] Appeler les opération CRUD depuis le Home.controller.js
+## 🌺 OBJECTIFS
 
-DISCLAIMER :
+- [ ] Expliquer le rôle de **DATASERVICES** dans le contexte présenté.
+- [ ] Identifier les éléments techniques qui composent la notion.
+- [ ] Mettre en œuvre **home.controller** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
 
-    Cette version est correcte et cohérente pour un cours SAP Fiori / UI5 débutant à intermédiaire.
+```mermaid
+flowchart TD
+    A["DATASERVICES"]
+    A --> B["DATASERVICES"]
+    B --> C["HOME.CONTROLLER"]
+    C --> D["PROMISE .THEN()"]
+```
 
-Elle privilégie :
 
-    compréhension du flux OData
-    visibilité des opérations CRUD
-    simplicité cognitive
-    lecture linéaire du code
+> [!IMPORTANT]
+> Cette version est correcte et cohérente pour un cours SAP Fiori / UI5 débutant à intermédiaire.
 
-Elle sacrifie volontairement :
-
-    DRY
-    abstraction avancée
-    robustesse production
-    orchestration async structurée
-
-## 🧩 DATASERVICES
+## 🌺 DATASERVICES
 
 Path :
 
@@ -126,7 +123,7 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
            * ----------------------------------------------------------
            * PARAMÈTRES FOURNIS PAR UI5 :
            *
-           * 1) oData
+           * 1) OData
            *    → données métier (payload JSON issu backend)
            *
            * 2) oResponse
@@ -136,9 +133,9 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
            *       - metadata
            *
            * ORDRE IMPORTANT :
-           * UI5 impose (oData, oResponse)
+           * UI5 impose (OData, oResponse)
            ************************************************************/
-          success: (oData, oResponse) => {
+          success: (OData, oResponse) => {
             /******************************************************
              * resolve()
              * ----------------------------------------------------
@@ -149,7 +146,7 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
              * Ici value = objet structuré :
              *
              * {
-             *   data: oData,         // données métier
+             *   data: OData,         // données métier
              *   response: oResponse  // metadata HTTP
              * }
              *
@@ -157,7 +154,7 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
              * resolve() déclenche THEN côté consommateur
              ******************************************************/
             resolve({
-              data: oData,
+              data: OData,
               response: oResponse,
             });
           },
@@ -204,12 +201,12 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
            * SUCCESS CREATE
            * ----------------------------------------------------------
            * PARAMÈTRES UI5 :
-           * 1) oData     → objet créé côté backend
+           * 1) OData     → objet créé côté backend
            * 2) oResponse → HTTP response
            ************************************************************/
-          success: (oData, oResponse) => {
+          success: (OData, oResponse) => {
             resolve({
-              data: oData,
+              data: OData,
               response: oResponse,
             });
           },
@@ -234,9 +231,9 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
 
       return new Promise((resolve, reject) => {
         this._oModel.update(sPath, oPayload, {
-          success: (oData, oResponse) => {
+          success: (OData, oResponse) => {
             resolve({
-              data: oData,
+              data: OData,
               response: oResponse,
             });
           },
@@ -266,7 +263,7 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
            * SUCCESS PARAMÈTRE UNIQUE :
            * oResponse uniquement
            *
-           * Pourquoi pas oData ?
+           * Pourquoi pas OData ?
            * → DELETE ne retourne généralement pas de payload métier
            ************************************************************/
           success: (oResponse) => {
@@ -324,7 +321,7 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
 });
 ```
 
-## 🧩 HOME.CONTROLLER
+## 🌺 HOME.CONTROLLER
 
 Path :
 
@@ -362,7 +359,7 @@ sap.ui.define(
         - centralise les appels HTTP
         - transforme callbacks UI5 en Promises
         */
-        _oDataServices: null,
+        _ODataServices: null,
 
         /*
         ==========================================================
@@ -383,7 +380,7 @@ sap.ui.define(
           INITIALISATION SERVICE MÉTIER
           ======================================================
           */
-          this._oDataServices = new DataServices(oModel);
+          this._ODataServices = new DataServices(oModel);
 
           console.log("INIT START");
 
@@ -428,7 +425,7 @@ sap.ui.define(
           */
           const sId = oViewModel.getProperty("/sessionForm/IdSession");
 
-          this._oDataServices
+          this._ODataServices
             .getSessionById(sId)
             .then((res) => {
               /*
@@ -462,7 +459,7 @@ sap.ui.define(
 
           const oPayload = oViewModel.getProperty("/sessionForm");
 
-          this._oDataServices
+          this._ODataServices
             .createSession(oPayload)
 
             /*
@@ -478,7 +475,7 @@ sap.ui.define(
 
               MAIS PAS les deux en même temps
               */
-              return this._oDataServices.getSessions();
+              return this._ODataServices.getSessions();
             })
 
             /*
@@ -510,10 +507,10 @@ sap.ui.define(
 
           const sId = oPayload.IdSession;
 
-          this._oDataServices
+          this._ODataServices
             .updateSession(sId, oPayload)
             .then(() => {
-              return this._oDataServices.getSessions();
+              return this._ODataServices.getSessions();
             })
             .then(() => {
               this.getView().getModel().refresh(true);
@@ -533,10 +530,10 @@ sap.ui.define(
 
           const sId = oViewModel.getProperty("/sessionForm/IdSession");
 
-          this._oDataServices
+          this._ODataServices
             .deleteSession(sId)
             .then(() => {
-              return this._oDataServices.getSessions();
+              return this._ODataServices.getSessions();
             })
             .then(() => {
               this.getView().getModel().refresh(true);
@@ -551,7 +548,7 @@ sap.ui.define(
 );
 ```
 
-## PROMISE .THEN()
+## 🌺 PROMISE .THEN()
 
 Logique actuelle :
 
@@ -597,7 +594,7 @@ Chaque then() reçoit la valeur retournée par le then() précédent.
 Dans notre contexte SAPUI5 :
 
 ```js
-this._oDataServices
+this._ODataServices
   .createSession(oPayload)
 
   .then(() => {
@@ -626,3 +623,19 @@ est valide.
 Règle :
 
     1 then = 1 étape métier identifiable
+
+## 🌺 RÉSUMÉ
+
+> - **Dataservices :** webapp/controller/DataServices.js
+> - **Home.controller :** webapp/controller/Home.controller.js
+> - **Promise .then() :** Il n'y a pas de limite pratique imposée par JavaScript.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **DATASERVICES** avec mes propres mots.
+- [ ] Je peux expliquer **dataservices** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **home.controller** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

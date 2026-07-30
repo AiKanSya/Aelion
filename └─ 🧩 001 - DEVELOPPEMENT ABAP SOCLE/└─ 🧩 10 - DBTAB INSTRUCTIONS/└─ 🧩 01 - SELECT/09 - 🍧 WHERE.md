@@ -7,10 +7,22 @@
 - [ ] Gérer les parenthèses pour contrôler l’ordre des conditions
 - [ ] Appliquer des sous-requêtes dans le WHERE
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["WHERE – FILTRER LES RESULTATS D'UN SELECT"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE PRINCIPALE"]
+    C --> D["EXEMPLE"]
+    D --> E["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
 
 > La clause WHERE permet de restreindre les résultats en fonction de conditions définies sur :
->
 > - des variables
 > - des constantes
 > - des colonnes
@@ -18,16 +30,15 @@
 
 > [!TIP]
 > Comme filtrer un classeur Excel pour ne conserver que certaines lignes :
->
 > - Colonne "Marque" = PEUGEOT ou VOLKSWAGEN
-> - Colonne "Année" ≥ 2015  
+> - Colonne "Année" ≥ 2015
 >   Seules les lignes correspondant aux critères sont extraites.
 
 ## 🌺 SYNTAXE PRINCIPALE
 
     WHERE ( condition_1 OR condition_2 ) AND condition_3
 
-> [!NOTE]  
+> [!NOTE]
 > Les parenthèses permettent de regrouper les conditions et éviter une interprétation incorrecte par le moteur SQL.
 
 ## 🌺 EXEMPLE
@@ -70,3 +81,19 @@
 | Toujours utiliser les parenthèses     | Pour éviter les erreurs d’ordre dans les conditions       |
 | Combiner AND / OR avec logique claire | Facilite la lecture et la maintenance du code             |
 | Limiter les données retournées        | Optimise les performances, surtout sur les grandes tables |
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - **Syntaxe principale :** WHERE ( condition1 OR condition2 ) AND condition3
+> - **Exemple :** TYPES: BEGIN OF tyekkoekpo,
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **WHERE – FILTRER LES RESULTATS D'UN SELECT** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe principale** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

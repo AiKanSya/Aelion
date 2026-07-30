@@ -1,12 +1,28 @@
 # 🌸 NAVIGATION
 
-> 🌺 Objectifs
->
-> - [ ] Comprendre le principe de navigation
-> - [ ] Identifier les types de navigation
-> - [ ] Connaître le composant
+## 🌺 OBJECTIFS
 
-## 🧩 NAVIGATION
+- [ ] Expliquer le rôle de **NAVIGATION** dans le contexte présenté.
+- [ ] Identifier les éléments techniques qui composent la notion.
+- [ ] Mettre en œuvre **architecture** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["NAVIGATION"]
+    A --> B["NAVIGATION"]
+    B --> C["ARCHITECTURE"]
+    C --> D["TYPE DE NAVIGATION"]
+    D --> E["COMPOSANT CLE : ROUTER"]
+    E --> F["STRUCTURE DU MANIFEST"]
+```
+
+> [!IMPORTANT]
+> Vérifier la version SAPUI5 ciblée par l’application. La disponibilité d’une API, d’une propriété ou d’un événement peut dépendre de cette version.
+
+
+## 🌺 NAVIGATION
 
 La navigation SAPUI5 est le mécanisme permettant de changer de vue (View) ou d’écran dans une application, tout en conservant :
 
@@ -14,7 +30,7 @@ La navigation SAPUI5 est le mécanisme permettant de changer de vue (View) ou d�
 - le modèle de données
 - le router central (Component.js)
 
-## 🧩 ARCHITECTURE
+## 🌺 ARCHITECTURE
 
     Component (Router)
     ↓
@@ -24,7 +40,7 @@ La navigation SAPUI5 est le mécanisme permettant de changer de vue (View) ou d�
     ↓
     Controllers
 
-## 🧩 TYPE DE NAVIGATION
+## 🌺 TYPE DE NAVIGATION
 
 ### 🍧 NAVIGATION VIEW → VIEW
 
@@ -42,7 +58,7 @@ Pas de changement d’écran :
     affichage formulaire
     mise à jour modèle
 
-## 🧩 COMPOSANT CLE : ROUTER
+## 🌺 COMPOSANT CLE : ROUTER
 
 Dans SAPUI5, la navigation repose sur l'instruction :
 
@@ -94,7 +110,7 @@ Il est instancié dans le Component.js à partir de la configuration manifest.js
 */
 ```
 
-## 🧩 STRUCTURE DU MANIFEST
+## 🌺 STRUCTURE DU MANIFEST
 
 Path :
 
@@ -248,3 +264,19 @@ ROOT VIEW = POINT D’ENTRÉE DE L’APPLICATION
   */
 }
 ```
+
+## 🌺 RÉSUMÉ
+
+> - **Navigation :** La navigation SAPUI5 est le mécanisme permettant de changer de vue (View) ou d’écran dans une application, tout en conservant :
+> - **Architecture :** Routes (manifest.json)
+> - **Type de navigation :** Changement d’écran dans la même application Fiori :
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **NAVIGATION** avec mes propres mots.
+- [ ] Je peux expliquer **navigation** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **architecture** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

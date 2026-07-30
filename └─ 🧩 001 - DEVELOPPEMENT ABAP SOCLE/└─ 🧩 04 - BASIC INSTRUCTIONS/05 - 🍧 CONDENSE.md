@@ -6,7 +6,19 @@
 - [ ] Supprimer les espaces superflus dans une chaîne de caractères
 - [ ] Utiliser l'option `NO-GAPS` pour enlever tous les espaces
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CONDENSE"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLE"]
+```
+
+
+## 🌺 DÉFINITION
 
 > `CONDENSE` sert à réduire les espaces inutiles dans une chaîne de caractères.
 
@@ -21,7 +33,6 @@
 - `NO-GAPS` : supprime tous les espaces, y compris ceux entre les mots
 
 > [!TIP]
->
 > - Sans `NO-GAPS` = garder un espace simple entre chaque mot
 > - Avec `NO-GAPS` = coller tous les mots ensemble
 
@@ -52,22 +63,30 @@
     WRITE:/ 'Avec CONDENSE NO GAPS : ', lv_result.
 
 > [!TIP]
->
 > - Premier affichage : texte avec tous les espaces ajoutés
 > - `CONDENSE` : supprimer les espaces superflus mais garder un espace simple entre les mots
 > - `CONDENSE NO-GAPS` : coller tous les mots ensemble sans aucun espace
 
 > [!TIP]
->
 > - Visualiser la chaîne comme une ligne de mots avec trop d’espaces
 > - `CONDENSE` = réorganiser la ligne pour ne garder qu’un espace minimal
 > - `NO-GAPS` = éliminer complètement tous les espaces
 > - Très utile après un `CONCATENATE` pour nettoyer le texte avant affichage ou traitement
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `CONDENSE` = supprimer les espaces inutiles dans une variable
 > - `NO-GAPS` = supprimer tous les espaces
 
 > [!TIP]
 > plier le texte pour qu’il soit compact et lisible
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CONDENSE** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

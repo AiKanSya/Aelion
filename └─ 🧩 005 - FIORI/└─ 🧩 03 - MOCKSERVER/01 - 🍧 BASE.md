@@ -1,10 +1,24 @@
 # 🌸 BASE
 
-> 🌺 Objectifs
->
-> - [ ] Préparer le projet pour les futures implémentations
+## 🌺 OBJECTIFS
 
-## 🧩 ETAT ACTUEL
+- [ ] Expliquer le rôle de **BASE** dans le contexte présenté.
+- [ ] Comprendre **etat actuel**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["BASE"]
+    A --> B["ETAT ACTUEL"]
+```
+
+> [!IMPORTANT]
+> Vérifier la version SAPUI5 ciblée par l’application. La disponibilité d’une API, d’une propriété ou d’un événement peut dépendre de cette version.
+
+
+## 🌺 ETAT ACTUEL
 
 En l'état actuel, vous devriez avoir :
 
@@ -50,3 +64,17 @@ appdemofgi/
 ```
 
 ![](./assets/Capture%20d’écran%202026-02-10%20101152.png)
+
+## 🌺 RÉSUMÉ
+
+> - **Etat actuel :** En l'état actuel, vous devriez avoir :
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **BASE** avec mes propres mots.
+- [ ] Je peux expliquer **etat actuel** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

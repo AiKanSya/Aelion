@@ -1,6 +1,21 @@
 # 🌸 CONTROLLER
 
-## 🧩 CSS/ (STYLES DE L’APPLICATION)
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **CONTROLLER** dans le contexte présenté.
+- [ ] Comprendre **css/ (styles de l’application)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CONTROLLER"]
+    A --> B["CSS/ (STYLES DE L’APPLICATION)"]
+```
+
+
+## 🌺 CSS/ (STYLES DE L’APPLICATION)
 
 ```
 fgifirstappmodulename/
@@ -30,15 +45,11 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Centraliser les styles graphiques de l’application.
->
 > - 🔨 Utilité : Personnaliser l’apparence de l’application (couleurs, marges, tailles, alignements).
 > - ⌚ Quand utilisé ? Lorsque le style standard SAPUI5 ne suffit pas ou pour appliquer une charte graphique spécifique.
 > - 📌 Exemple :
->
 >   Définir des styles communs réutilisables dans plusieurs vues.
 
 ### 🍧 STYLE.CSS (FEUILLE DE STYLE)
@@ -72,11 +83,8 @@ appdemofgi/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Définir les règles CSS utilisées par l’application.
->
 > - 🔨 Utilité : Modifier l’apparence visuelle des contrôles UI5 sans changer le code JavaScript ou XML.
 > - ⌚ Quand utilisé ? Pour ajuster l’UI (espacements, couleurs, visibilité) ou appliquer une identité visuelle.
 
@@ -118,3 +126,17 @@ appdemofgi/
   background-color: rgba(0, 112, 243, 0.1);
 }
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **css/ (styles de l’application)** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CONTROLLER** avec mes propres mots.
+- [ ] Je peux expliquer **css/ (styles de l’application)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

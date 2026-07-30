@@ -8,7 +8,19 @@
 - [ ] Différencier `CLEAR itab[]` et `REFRESH itab`
 - [ ] Vérifier le contenu d’une table avant et après effacement
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CLEAR TABLE"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLES"]
+    C --> D["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
 
     CLEAR: itab[],
            var1.
@@ -17,7 +29,6 @@
 
 > [!TIP]
 > Imaginez un tableau blanc rempli d’informations.
->
 > - `CLEAR itab[]` = effacer complètement le tableau (toutes les lignes).
 > - `CLEAR var1` = effacer le contenu d’une seule cellule du tableau.
 
@@ -26,7 +37,7 @@
 
 ## 🌺 EXEMPLES
 
-### 1 – CLEAR SUR UNE TABLE INTERNE
+### 🍧 1 – CLEAR SUR UNE TABLE INTERNE
 
     TYPES: BEGIN OF ty_citizen,
              country TYPE char3,
@@ -59,14 +70,13 @@
     WRITE:/ 'Lignes apres CLEAR :', gv_count.
 
 > [!IMPORTANT]
->
 > - Avant `CLEAR`, la table contient 2 lignes.
 > - Après `CLEAR`, la table est complètement vide.
 
 > [!CAUTION]
 > Le `CLEAR lt_citizen` (sans `[]`) n’efface pas les lignes, il ne fait que remettre la variable au statut initial (structure vide).
 
-### 2 – CLEAR SUR VARIABLE SIMPLE
+### 🍧 2 – CLEAR SUR VARIABLE SIMPLE
 
     DATA: gv_total TYPE i VALUE 125.
 
@@ -77,14 +87,13 @@
     WRITE:/ 'Apres CLEAR :', gv_total.
 
 > [!TIP]
-> Le `CLEAR` sur une variable simple remet sa valeur à zéro (ou initiale).  
+> Le `CLEAR` sur une variable simple remet sa valeur à zéro (ou initiale).
 > Par exemple
->
 > - Numérique → 0
 > - Caractère → vide
 > - Booléen → ‘ ‘ (faux)
 
-### 3 – CLEAR SUR PLUSIEURS OBJETS EN UNE SEULE FOIS
+### 🍧 3 – CLEAR SUR PLUSIEURS OBJETS EN UNE SEULE FOIS
 
     DATA: gv_counter TYPE i VALUE 10,
           gv_name    TYPE string VALUE 'Thierry',
@@ -93,10 +102,10 @@
     CLEAR: gv_counter, gv_name, lt_data[].
 
 > [!IMPORTANT]
-> Il est possible d’effacer plusieurs éléments en une seule instruction.  
+> Il est possible d’effacer plusieurs éléments en une seule instruction.
 > Pratique pour remettre un environnement à zéro avant de relancer un traitement.
 
-### 4 – DIFFERENCE ENTRE CLEAR ET REFRESH
+### 🍧 4 – DIFFERENCE ENTRE CLEAR ET REFRESH
 
     DATA: lt_table TYPE STANDARD TABLE OF ty_citizen.
 
@@ -104,10 +113,10 @@
     REFRESH lt_table.  " Efface aussi le contenu (comportement identique depuis ABAP 7.40)
 
 > [!IMPORTANT]
-> Le `CLEAR itab[]` est préféré dans le code moderne.  
+> Le `CLEAR itab[]` est préféré dans le code moderne.
 > Le `REFRESH` est conservé pour compatibilité avec les anciens programmes.
 
-### 5 – CLEAR SUR STRUCTURE COMPLETE
+### 🍧 5 – CLEAR SUR STRUCTURE COMPLETE
 
     DATA: ls_person TYPE ty_citizen.
 
@@ -124,7 +133,7 @@
 > [!NOTE]
 > Le `CLEAR` sur une structure remet chaque champ à sa valeur initiale (vidée ou zéro).
 
-### 6 – CLEAR DYNAMIQUE AVEC FIELD-SYMBOL
+### 🍧 6 – CLEAR DYNAMIQUE AVEC FIELD-SYMBOL
 
     FIELD-SYMBOLS: <lfs_tab> TYPE STANDARD TABLE.
 
@@ -148,15 +157,23 @@
 | Ne pas oublier les crochets []              | Sans crochets, seule la variable est remise à zéro, pas le contenu     |
 | Eviter CLEAR sur des références non testées | Toujours vérifier `IS ASSIGNED` avant CLEAR sur FIELD-SYMBOLS          |
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > `CLEAR` est une instruction simple mais puissante
->
 > - `CLEAR itab[]` : efface toutes les lignes d’une table interne
 > - `CLEAR var` : remet une variable à sa valeur initiale
 > - `CLEAR structure` : réinitialise tous les champs de la structure
 > - `CLEAR` peut être combiné sur plusieurs objets
 > - `CLEAR` avec `[]` est l’équivalent moderne de `REFRESH`
->
 > [!TIP]
 > C’est comme appuyer sur “Réinitialiser” — on remet tout à zéro avant de recommencer proprement.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CLEAR TABLE** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemples** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

@@ -1,6 +1,21 @@
 # 🌸 IMPLEMENTING GET_KEY_VALUE
 
-## 🧩 METHOD IMPLEMENTATION
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **IMPLEMENTING GET_KEY_VALUE** dans le contexte présenté.
+- [ ] Comprendre **method implémentation**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["IMPLEMENTING GETKEYVALUE"]
+    A --> B["METHOD IMPLEMENTATION"]
+```
+
+
+## 🌺 METHOD IMPLÉMENTATION
 
 ### 🍧 TRANSACTION SE24
 
@@ -21,7 +36,6 @@
 
 > [!NOTE]
 > 🍧 `IT_KEY_TAB` (`/IWBEP/T_MGW_NAME_VALUE_PAIR`)
->
 > - Contient les `Keys` de l’entité demandée.
 > - Exemple URL : `Products(ProductID='100')`
 > - Chaque entrée représente une paire clé / valeur.
@@ -29,18 +43,16 @@
 
 > [!NOTE]
 > 🍧 `IV_KEY_NAME` (STRING)
->
 > - Nom de l’EntitySet appelée.
 > - Exemple : `Products`.
 > - C’est le nom réellement appelé dans l’URL OData. Le plus utilisé pour identifier le contexte.
 
 > [!NOTE]
 > 🍧 `OV_KEY_VALUE` (STRING)
->
 > - Nom de la source (utilisé surtout pour navigation ou alias).
 > - Peu utilisé en pratique dans les cas simples.
 
-### 🍧 GET_KEY_VALUE METHOD IMPLEMENTATION
+### 🍧 GET_KEY_VALUE METHOD IMPLÉMENTATION
 
 ```abap
   METHOD get_key_value.
@@ -83,3 +95,17 @@ METHOD productset_get_entity.
 
 ENDMETHOD.
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **method implémentation** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **IMPLEMENTING GET_KEY_VALUE** avec mes propres mots.
+- [ ] Je peux expliquer **method implementation** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

@@ -7,10 +7,9 @@
 - [ ] Comprendre le lien entre les deux objets
 - [ ] Distinguer module fonction, sous-programme et méthode
 
-## 🌺 DEFINITION DU MODULE FONCTION
+## 🌺 DÉFINITION DU MODULE FONCTION
 
 > Un `MODULE FONCTION` est une procédure ABAP globale enregistrée dans la bibliothèque de fonctions SAP.
->
 > Il possède un nom unique, une interface formelle et un bloc de code compris entre `FUNCTION` et `ENDFUNCTION`.
 
 Un module fonction peut être appelé depuis différents programmes ABAP avec l’instruction :
@@ -20,7 +19,7 @@ Un module fonction peut être appelé depuis différents programmes ABAP avec l�
 > [!TIP]
 > Un module fonction peut être comparé à un service technique central : plusieurs programmes lui transmettent des données, il exécute un traitement, puis il retourne un résultat.
 
-## 🌺 DEFINITION DU GROUPE DE FONCTIONS
+## 🌺 DÉFINITION DU GROUPE DE FONCTIONS
 
 > Un `GROUPE DE FONCTIONS` est le programme conteneur qui regroupe un ou plusieurs modules fonction liés à un même domaine.
 
@@ -109,13 +108,23 @@ Sortie :
 3. Identifier l’instruction utilisée pour appeler un module fonction.
 4. Expliquer pourquoi le nom du module fonction doit être unique.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Le module fonction est une procédure globale.
 > - Le groupe de fonctions est son programme conteneur.
 > - L’appel utilise `CALL FUNCTION`.
 > - Plusieurs modules fonction peuvent partager les données globales du même groupe.
 > - Cette portée globale impose de contrôler les impacts avant toute modification.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **MODULES FONCTION ET GROUPES DE FONCTIONS** avec mes propres mots.
+- [ ] Je peux expliquer **definition du module fonction** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **definition du groupe de fonctions** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>
 
 ## 🌺 SOURCES OFFICIELLES
 

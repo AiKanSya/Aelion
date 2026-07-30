@@ -6,9 +6,22 @@
 - [ ] Savoir créer une aide à la recherche pour un champ
 - [ ] Connaître les différents types de dialogues disponibles
 
-## 🌺 DEFINITION
 
-> Une aide à la recherche permet à l’utilisateur de voir une liste de valeurs possibles directement depuis un champ SAP.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["AIDE A LA RECHERCHE (F4 HELP)"]
+    A --> B["DEFINITION"]
+    B --> C["TYPES DE DIALOGUES"]
+    C --> D["CREATION D’UNE AIDE A LA RECHERCHE"]
+    D --> E["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Une aide à la recherche permet à l’utilisateur de voir une liste de valeurs possibles directement depuis un champ SAP.
 > Elle facilite la saisie et réduit les erreurs.
 
 > [!TIP]
@@ -23,15 +36,14 @@
 | Dialogue dépendant du jeu de valeurs | Le système choisit automatiquement : si <100 occurrences, affichage immédiat ; sinon, boîte de dialogue. |
 
 > [!TIP]
->
 > - Affichage immédiat : liste déroulante courte
 > - Dialogue complexe : filtre avancé
 > - Dialogue dépendant : le système décide le meilleur affichage selon le nombre de valeurs
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Le type de dialogue choisi influence la performance et l’ergonomie de l’aide à la saisie. Pour beaucoup de valeurs, préférez le dialogue complexe.
 
-## 🌺 CREATION D’UNE AIDE A LA RECHERCHE
+## 🌺 CRÉATION D’UNE AIDE A LA RECHERCHE
 
 1. Transaction SE11
 
@@ -125,7 +137,7 @@
 > [!CAUTION]
 > Si le nombre de valeurs est très important, privilégiez un dialogue complexe ou vue filtrée, sinon l’aide sera lente ou inutilisable.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Une aide à la recherche permet de proposer des valeurs possibles pour un champ SAP
 > - Elle peut être élémentaire ou collective et se base sur une table ou une vue
@@ -134,3 +146,13 @@
 
 > [!TIP]
 > L’aide à la recherche est comme un menu déroulant intelligent dans Excel : elle guide l’utilisateur pour éviter les erreurs et accélérer la saisie.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **AIDE A LA RECHERCHE (F4 HELP)** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **types de dialogues** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

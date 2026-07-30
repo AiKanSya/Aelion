@@ -1,15 +1,28 @@
 # 🌸 ENTITYTYPE - ACTIONS
 
-![](.././assets/Capture%20d’écran%202026-01-16%20115135.png)
+## 🌺 OBJECTIFS
 
-## 🧩 SAP GATEWAY DATAMODEL - ACTIONS (CREATABLE, UPDATABLE, SORTABLE, NULLABLE, FILTERABLE)
+- [ ] Expliquer le rôle de **ENTITYTYPE - ACTIONS** dans le contexte présenté.
+- [ ] Comprendre **sap gateway datamodel - actions (creatable, updatable, sortable, nullable, filterable)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["ENTITYTYPE - ACTIONS"]
+    A --> B["SAP GATEWAY DATAMODEL - ACTIONS (CREATABLE, UPDATABLE,"]
+```
+
+
+## 🌺 SAP GATEWAY DATAMODEL - ACTIONS (CREATABLE, UPDATABLE, SORTABLE, NULLABLE, FILTERABLE)
 
 Les `Checkboxes` correspondent aux `Actions` et comportements permis pour chaque `Property` d’un `EntityType`. Elles définissent ce que les `OData Consumers` peuvent faire avec cette donnée : créer, mettre à jour, trier, filtrer ou accepter des valeurs nulles.
 
 > [!NOTE]
 > Dans `OData V2` (et SEGW), l’absence d’une annotation d’action (`sap:creatable`, `sap:updatable`, `sap:deletable`) dans le `$metadata` est interprétée comme `true` par défaut.
 
-### 🍧 DEFINITION
+### 🍧 DÉFINITION
 
 - `sap:creatable` : la `Property` peut être fournie lors de la création d’une `Entity`.
 - `sap:updatable` : la `Property` peut être modifiée après création.
@@ -19,13 +32,13 @@ Les `Checkboxes` correspondent aux `Actions` et comportements permis pour chaque
 
 Ces flags sont enregistrés dans le `$metadata` et déterminent la logique côté service et `UI5`/`Fiori`.
 
-### 🍧 ROLE
+### 🍧 RÔLE
 
 - Contrôler l’accès et les `Opérations` permises sur chaque `Property`.
 - Permettre aux `OData Frameworks` et `UI5`/`Fiori` d’activer ou désactiver automatiquement les `Actions` disponibles.
 - Garantir la cohérence des données en imposant les règles métier et techniques.
 
-### 🍧 RULES
+### 🍧 RÈGLES
 
 | 🍧 Règle   | 🍧 Explication                                                                  |
 | ---------- | ------------------------------------------------------------------------------- |
@@ -35,7 +48,7 @@ Ces flags sont enregistrés dans le `$metadata` et déterminent la logique côt�
 | Nullable   | Respecter la définition DDIC ; clé primaire ne peut pas être nullable           |
 | Filterable | Autoriser si la `Property` peut être filtrée côté service                       |
 
-### 🍧 ERRORS
+### 🍧 ERREURS
 
 | 🍧 Erreur                            | 🍧 Pourquoi c’est un problème                                               |
 | ------------------------------------ | --------------------------------------------------------------------------- |
@@ -43,3 +56,17 @@ Ces flags sont enregistrés dans le `$metadata` et déterminent la logique côt�
 | Nullable sur une clé primaire        | Provoque erreurs de validation et génération du service                     |
 | Sortable ou Filterable mal configuré | Les listes, rapports et filtres côté client ne fonctionnent pas             |
 | Modification après livraison         | Applications clientes risquent d’échouer ou de contourner la logique métier |
+
+## 🌺 RÉSUMÉ
+
+> - **Sap gateway datamodel - actions (creatable, updatable, sortable, nullable, filterable) :** Les Checkboxes correspondent aux Actions et comportements permis pour chaque Property d’un EntityType.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **ENTITYTYPE - ACTIONS** avec mes propres mots.
+- [ ] Je peux expliquer **sap gateway datamodel - actions (creatable, updatable, sortable, nullable, filterable)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

@@ -8,13 +8,26 @@
 - [ ] Comprendre les paramètres tables
 - [ ] Choisir une direction cohérente pour chaque donnée
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["INTERFACE DU MODULE FONCTION"]
+    A --> B["DEFINITION"]
+    B --> C["CATEGORIES DE PARAMETRES"]
+    C --> D["PARAMETRE IMPORT"]
+    D --> E["PARAMETRE EXPORT"]
+    E --> F["PARAMETRE CHANGING"]
+```
+
+
+## 🌺 DÉFINITION
 
 > L’interface définit le contrat entre le programme appelant et le module fonction.
->
 > Elle précise les données reçues, retournées, modifiées et les erreurs déclarées.
 
-## 🌺 CATEGORIES DE PARAMETRES
+## 🌺 CATEGORIES DE PARAMÈTRES
 
 | 🍧 Interface SE37 | 🍧 Sens logique      | 🍧 Vue du module fonction |
 | ----------------- | -------------------- | ------------------------- |
@@ -113,7 +126,7 @@ Exemple d’interface moderne :
 
     ENDFUNCTION.
 
-## 🌺 NOMMAGE DES PARAMETRES
+## 🌺 NOMMAGE DES PARAMÈTRES
 
 | 🍧 Préfixe | 🍧 Signification           | 🍧 Exemple   |
 | ---------- | -------------------------- | ------------ |
@@ -145,13 +158,23 @@ Exemple d’interface moderne :
 3. Définir l’interface d’un module qui reçoit une table et retourne une autre table.
 4. Expliquer pourquoi `TABLES` ne doit pas être privilégié dans un nouveau développement.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `IMPORT` fournit les entrées.
 > - `EXPORT` fournit les sorties.
 > - `CHANGING` reçoit puis modifie une donnée.
 > - `TABLES` est une forme héritée et obsolète.
 > - L’interface est un contrat global qui doit rester lisible et stable.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **INTERFACE DU MODULE FONCTION** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **categories de parametres** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>
 
 ## 🌺 SOURCES OFFICIELLES
 

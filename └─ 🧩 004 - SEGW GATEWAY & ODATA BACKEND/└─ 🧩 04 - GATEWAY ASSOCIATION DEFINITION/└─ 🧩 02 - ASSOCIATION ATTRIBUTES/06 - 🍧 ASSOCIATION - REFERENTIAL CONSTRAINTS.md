@@ -1,18 +1,34 @@
 # 🌸 ASSOCIATION - REFERENTIAL CONSTRAINTS
 
-![](../assets/Capture%20d’écran%202026-01-16%20125734.png)
+## 🌺 OBJECTIFS
 
-## 🧩 REFERENTIAL CONSTRAINTS
+- [ ] Expliquer le rôle de **ASSOCIATION - REFERENTIAL CONSTRAINTS** dans le contexte présenté.
+- [ ] Comprendre **referential constraints**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["ASSOCIATION - REFERENTIAL CONSTRAINTS"]
+    A --> B["REFERENTIAL CONSTRAINTS"]
+```
+
+> [!IMPORTANT]
+> Une modification du modèle OData peut nécessiter une nouvelle génération des artefacts d’exécution et une vérification du document `$metadata` consommé par les clients.
+
+
+## 🌺 REFERENTIAL CONSTRAINTS
 
 Les `Referential Constraints` définissent la règle de liaison technique entre la `Principal Entity` et la `Dependant Entity`. Elles indiquent quelle `Key` de la `Principal Entity` est référencée par quelle `Property` de `Dependant Entity`.
 
-### 🍧 DEFINITION
+### 🍧 DÉFINITION
 
 - Règle qui relie une `Primary Key` de la `Principal Entity` à une `Foreign Key` de la `Dependant Entity`.
 - Définie au niveau de l’`Association` dans le `$metadata`.
 - Garantit l’intégrité relationnelle entre les `Entities`.
 
-### 🍧 ROLE
+### 🍧 RÔLE
 
 - Assurer que chaque `Entity` dépendante est liée à une `Principal Entity` valide.
 - Permettre aux `Frameworks SAP` et `UI5` de comprendre la relation `Key`-`Key`.
@@ -23,13 +39,13 @@ Les `Referential Constraints` définissent la règle de liaison technique entre 
 
 Un `Referential Constraint` est composé de deux éléments :
 
-- `Principal Property` :  
+- `Principal Property` :
   `Property` `Key` de la `Principal Entity` (`Primary Key`).
 
-- `Dependent Property` :  
+- `Dependent Property` :
   `Property` de la `Dependant Entity` qui référence la `Primary Key` (`Foreign Key`).
 
-### 🍧 RULES
+### 🍧 RÈGLES
 
 | 🍧 Règle                                  | 🍧 Explication                                              |
 | ----------------------------------------- | ----------------------------------------------------------- |
@@ -56,7 +72,7 @@ Un `Referential Constraint` est composé de deux éléments :
 </Association>
 ```
 
-### 🍧 ERRORS
+### 🍧 ERREURS
 
 | 🍧 Erreur                              | 🍧 Pourquoi c’est un problème                      |
 | -------------------------------------- | -------------------------------------------------- |
@@ -65,3 +81,17 @@ Un `Referential Constraint` est composé de deux éléments :
 | Mauvais champ référencé côté dépendant | Navigation incorrecte ou données incohérentes      |
 | Omission du Referential Constraint     | Navigation possible mais intégrité non garantie    |
 | Changement après livraison             | Rupture des relations et des applications clientes |
+
+## 🌺 RÉSUMÉ
+
+> - **Referential constraints :** Les Referential Constraints définissent la règle de liaison technique entre la Principal Entity et la Dependant Entity.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **ASSOCIATION - REFERENTIAL CONSTRAINTS** avec mes propres mots.
+- [ ] Je peux expliquer **referential constraints** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

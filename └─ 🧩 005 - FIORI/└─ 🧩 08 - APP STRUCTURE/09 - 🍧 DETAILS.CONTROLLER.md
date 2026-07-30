@@ -1,6 +1,21 @@
 # 🌸 DETAILS.CONTROLLER
 
-## 🧩 DETAILS.CONTROLLER.JS
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **DETAILS.CONTROLLER** dans le contexte présenté.
+- [ ] Comprendre **details.controller.js**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["DETAILS.CONTROLLER"]
+    A --> B["DETAILS.CONTROLLER.JS"]
+```
+
+
+## 🌺 DETAILS.CONTROLLER.JS
 
 Path :
 
@@ -40,11 +55,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Gérer la logique métier de la vue Details.
->
 > - 🔨 Utilité : Charger les données spécifiques à un élément sélectionné et gérer les actions associées.
 > - ⌚ Quand utilisé ? Lorsqu’un utilisateur navigue vers une vue de détail.
 
@@ -169,3 +181,17 @@ sap.ui.define(
   },
 );
 ```
+
+## 🌺 RÉSUMÉ
+
+> - **Details.controller.js :** webapp/controller.Details.controller.js
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **DETAILS.CONTROLLER** avec mes propres mots.
+- [ ] Je peux expliquer **details.controller.js** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

@@ -8,10 +8,20 @@
 - [ ] Simplifier les comparaisons numériques grâce à `BETWEEN`
 - [ ] Combiner `BETWEEN` avec d'autres tests comme `IS INITIAL` pour des conditions robustes
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["BETWEEN"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+```
+
+
+## 🌺 DÉFINITION
 
 > L’instruction `BETWEEN` permet de tester si une variable se situe dans une plage de valeurs.
->
 > - `BETWEEN low AND high` retourne vrai si la variable est comprise entre `low` et `high` inclusivement.
 > - Peut être utilisé avec `IF` ou `CASE`.
 
@@ -23,7 +33,7 @@
 
 ## 🌺 SYNTAXE
 
-### AVEC IF
+### 🍧 AVEC IF
 
     WRITE:/ '     - BETWEEN + IF...'.
 
@@ -38,7 +48,7 @@
 > [!IMPORTANT]
 > Plutôt que d’écrire `IF lv_variable >= 1 AND lv_variable <= 100`, `BETWEEN` simplifie la lecture et réduit le risque d’erreur.
 
-### AVEC CASE
+### 🍧 AVEC CASE
 
     WRITE:/ '     - BETWEEN + CASE...'.
 
@@ -54,11 +64,20 @@
 > [!TIP]
 > Le `BETWEEN` est compatible avec `WHEN` dans un `CASE`, ce qui rend les blocs plus lisibles pour les plages numériques.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `BETWEEN low AND high` teste si une variable est comprise entre deux valeurs inclusives.
 > - Fonctionne avec `IF` et `CASE`.
 > - Simplifie les conditions comparatives sur des plages numériques.
->
 > [!TIP]
 > comme vérifier si une valeur se situe entre deux bornes sur une règle graduée, plus lisible et moins sujet aux erreurs que plusieurs comparaisons séparées
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **BETWEEN** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

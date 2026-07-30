@@ -7,10 +7,21 @@
 - [ ] Appliquer INTO CORRESPONDING FIELDS OF pour associer correctement les champs
 - [ ] Utiliser APPENDING pour ajouter des résultats sans écraser les précédents
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["INTO – STOCKER LES RESULTATS D'UN SELECT"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXES PRINCIPALES"]
+    C --> D["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
 
 > L’instruction INTO définit où stocker le résultat d’un SELECT :
->
 > - Dans une variable simple
 > - Dans une structure
 > - Dans une table interne
@@ -20,48 +31,47 @@
 
 > [!TIP]
 > Comme dans un classeur Excel, vous pouvez copier les résultats d’une requête dans :
->
 > - Une seule cellule (variable)
 > - Une ligne (structure)
-> - Une feuille complète (table interne)  
+> - Une feuille complète (table interne)
 >   Vous pouvez également compléter la feuille existante sans supprimer les données déjà présentes.
 
 ## 🌺 SYNTAXES PRINCIPALES
 
-### INTO Variable
+### 🍧 INTO Variable
 
         INTO lv_variable
 
-### INTO structure
+### 🍧 INTO structure
 
         INTO ls_structure
 
-### INTO Table
+### 🍧 INTO Table
 
         INTO TABLE lt_table
 
-### INTO Variables multiples
+### 🍧 INTO Variables multiples
 
         INTO (lv_var1, lv_var2, lv_var3, ...)
 
-### INTO @DATA structure
+### 🍧 INTO @DATA structure
 
         INTO @DATA(ls_structure)
 
-### INTO @DATA table interne
+### 🍧 INTO @DATA table interne
 
         INTO @DATA(lt_table)
 
-### INTO (@DATA variables)
+### 🍧 INTO (@DATA variables)
 
         INTO (@DATA(lv_var1), @DATA(lv_var2), ...)
 
-### INTO Corresponding Fields Of
+### 🍧 INTO Corresponding Fields Of
 
         INTO CORRESPONDING FIELDS OF ls_structure
         INTO CORRESPONDING FIELDS OF TABLE lt_table
 
-### APPENDING Table
+### 🍧 APPENDING Table
 
         APPENDING [CORRESPONDING FIELDS OF] TABLE lt_table
 
@@ -76,3 +86,19 @@
 
 > [!TIP]
 > Les exercices permettent de visualiser la différence entre `INTO`, `INTO TABLE`, `CORRESPONDING FIELDS` et `APPENDING`.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - **Syntaxes principales :** INTO (lvvar1, lvvar2, lvvar3, ...)
+> - Savoir utiliser **bonnes pratiques** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **INTO – STOCKER LES RESULTATS D'UN SELECT** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxes principales** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

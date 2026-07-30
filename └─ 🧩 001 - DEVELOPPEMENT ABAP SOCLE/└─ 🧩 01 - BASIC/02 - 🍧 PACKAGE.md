@@ -10,7 +10,21 @@
 > [!IMPORTANT]
 > Les objectifs visent à maîtriser la structuration des objets ABAP pour simplifier transport, maintenance et collaboration.
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CREATION DE PACKAGE – SE80 / SE21"]
+    A --> B["DEFINITION"]
+    B --> C["POURQUOI CREER UN PACKAGE ?"]
+    C --> D["CREATION D'UN PACKAGE AVEC SE80"]
+    D --> E["CREATION D'UN PACKAGE AVEC SE21"]
+    E --> F["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
 
 > Un `PACKAGE` (anciennement `DEVELOPMENT CLASS`) est un conteneur logique qui regroupe les objets de développement ABAP.
 
@@ -45,7 +59,7 @@ Créer un `PACKAGE` permet :
 > [!TIP]
 > Z/Y = client → transportable ; `$TMP` = test → local uniquement.
 
-## 🌺 CREATION D'UN PACKAGE AVEC SE80
+## 🌺 CRÉATION D'UN PACKAGE AVEC SE80
 
 1. Entrer `/nSE80`
 
@@ -89,14 +103,15 @@ Créer un `PACKAGE` permet :
 > └─ Tâches (ex. S4HK905580)
 > └─ Objets
 
-## 🌺 CREATION D'UN PACKAGE AVEC SE21
+## 🌺 CRÉATION D'UN PACKAGE AVEC SE21
 
 1. Entrer `/nSE21`
 2. Saisir le nom du `PACKAGE` → Entrer
 3. Renseigner Titre et `PACKAGE` parent si applicable
 4. Sauvegarder et associer un OT si transportable
 
-> [!TIP] > `SE21` est plus direct, `SE80` permet de visualiser l’arborescence complète des objets.
+> [!TIP]
+> `SE21` est plus direct, `SE80` permet de visualiser l’arborescence complète des objets.
 
 ## 🌺 BONNES PRATIQUES
 
@@ -116,7 +131,7 @@ Créer un `PACKAGE` permet :
 2. Associer ton `OT`
 3. Vérifier dans `SE80` l’arborescence du `PACKAGE`
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Le `PACKAGE` est un classeur logique pour regrouper objets ABAP
 > - Permet d’organiser, maintenir et transporter les objets
@@ -126,3 +141,13 @@ Créer un `PACKAGE` permet :
 
 > [!TIP]
 > Chaque `PACKAGE` est un classeur où chaque tiroir contient vos programmes et Includes, organisé pour être facilement transporté et retrouvé.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CREATION DE PACKAGE – SE80 / SE21** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **pourquoi creer un package ?** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

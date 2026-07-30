@@ -1,11 +1,28 @@
 # 🌸 UNIT TEST CLASS IMPLEMENTATION
 
+## 🌺 OBJECTIFS
+
+
 - [ ] Comprendre comment créer une méthode de test `ABAP Unit`
 - [ ] Savoir structurer une méthode de test simple
 - [ ] Identifier le rôle de chaque méthode dans la classe de test
 - [ ] Comprendre la séquence : setup → test → assertion → teardown
 
-## 🧩 STRUCTURE DE BASE
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["UNIT TEST CLASS IMPLEMENTATION"]
+    A --> B["STRUCTURE DE BASE"]
+    B --> C["DÉCLARER UNE MÉTHODE DE TEST"]
+    C --> D["NOMMER LES MÉTHODES"]
+    D --> E["STRUCTURER LA LOGIQUE D'UNE MÉTHODE"]
+    E --> F["BEST PRACTICES"]
+```
+
+
+## 🌺 STRUCTURE DE BASE
 
 ```abap
 *"* use this source file for your ``ABAP unit`` test classes
@@ -86,7 +103,7 @@ CLASS ltc_Customer_Orders IMPLEMENTATION.
 ENDCLASS.
 ```
 
-## 🧩 DÉCLARER UNE MÉTHODE DE TEST
+## 🌺 DÉCLARER UNE MÉTHODE DE TEST
 
 > [!IMPORTANT]
 > Chaque méthode qui teste une fonctionnalité doit être déclarée avec `FOR TESTING`
@@ -98,10 +115,9 @@ ENDCLASS.
 > [!WARNING]
 > La méthode doit être publique dans la classe de test ou déclarée dans la section privée avec `FOR TESTING`
 
-## 🧩 NOMMER LES MÉTHODES
+## 🌺 NOMMER LES MÉTHODES
 
 > [!IMPORTANT]
->
 > - Convention : `test_<nom_fonction_métier>`
 > - Objectif : savoir immédiatement quelle méthode métier est testée
 
@@ -111,7 +127,7 @@ ENDCLASS.
     test_valide_client FOR TESTING.
 ```
 
-## 🧩 STRUCTURER LA LOGIQUE D'UNE MÉTHODE
+## 🌺 STRUCTURER LA LOGIQUE D'UNE MÉTHODE
 
 1. Préparation des données : variables et objets nécessaires
 
@@ -138,14 +154,14 @@ ENDCLASS.
 > [!NOTE]
 > Cette structure simple est suffisante pour un test unitaire clair et lisible
 
-## 🧩 BEST PRACTICES
+## 🌺 BEST PRACTICES
 
 - Chaque méthode doit tester un seul scénario
 - Éviter de combiner plusieurs méthodes métiers dans le même test
 - Toujours fournir un message clair dans l’assertion
 - Préparer les données dans la méthode ou via `setup` si elles sont réutilisées
 
-## 🧩 SETUP ET TEARDOWN
+## 🌺 SETUP ET TEARDOWN
 
 > [!IMPORTANT]
 > Le `setup` : initialise l’objet métier avant chaque test
@@ -168,11 +184,10 @@ ENDCLASS.
 > [!NOTE]
 > Les méthodes de test peuvent utiliser les objets créés dans `setup` pour rester indépendantes
 
-## 🧩 IMPLEMENTATION DE LA METHODE DE TEST
+## 🌺 IMPLÉMENTATION DE LA METHODE DE TEST
 
 > [!CAUTION]
 > Nommer les méthodes :
->
 > - Méthodes : convention `test_<fonction>`
 > - Objectif : identifier facilement le test et savoir quelle méthode métier est testée
 
@@ -212,7 +227,7 @@ CLASS ltc_customer_orders IMPLEMENTATION.
 ENDCLASS.
 ```
 
-### 🍧 SECTION DEFINITION
+### 🍧 SECTION DÉFINITION
 
 ```abap
 PRIVATE SECTION.
@@ -230,7 +245,7 @@ PRIVATE SECTION.
 > [!NOTE]
 > Définition de la METHOD `test_get_order_count FOR TESTING` : méthode qui contient un test unitaire, marquée pour que `ABAP Unit` la reconnaisse automatiquement.
 
-### 🍧 SECTION IMPLEMENTATION
+### 🍧 SECTION IMPLÉMENTATION
 
 ```abap
 METHOD setup.
@@ -273,10 +288,25 @@ METHOD test_get_order_count.
 > [!IMPORTANT]
 > Il s'agit de la méthode de test. Cette dernière vérifie une égalité. Il existe d'autres méthodes d'Assertion.
 
-### 🍧 RESUME FONCTIONNEL
+### 🍧 RÉSUMÉ FONCTIONNEL
 
 > [!IMPORTANT]
->
 > - `ltc_customer_orders` est une classe de test `ABAP Unit`.
 > - `setup` prépare l’environnement (instanciation de l’objet à tester).
 > - `test_get_order_count` exécute le test fonctionnel, compare le résultat réel au résultat attendu, et signale toute divergence via l’assertion.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **structure de base** dans le contexte présenté.
+> - Savoir utiliser **déclarer une méthode de test** dans le contexte présenté.
+> - Savoir utiliser **nommer les méthodes** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **UNIT TEST CLASS IMPLEMENTATION** avec mes propres mots.
+- [ ] Je peux expliquer **structure de base** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **déclarer une méthode de test** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

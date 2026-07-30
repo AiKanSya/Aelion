@@ -1,6 +1,24 @@
 # 🌸 EXERCICES
 
-## 🧩 EXERCICE 1 - COMPRENDRE UNE PROPERTY
+## 🌺 OBJECTIFS
+
+- [ ] Comparer la solution proposée avec sa propre démarche.
+- [ ] Expliquer chaque étape de la correction.
+- [ ] Identifier les erreurs possibles et leur cause.
+- [ ] Reproduire la solution sans recopier le support.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["EXERCICES"]
+    A --> B["Lire la consigne"]
+    B --> C["Identifier les données"]
+    C --> D["Construire la solution"]
+    D --> E["Vérifier le résultat"]
+```
+
+
+## 🌺 EXERCICE 1 - COMPRENDRE UNE PROPERTY
 
 ### 🍧 Énoncé
 
@@ -18,7 +36,7 @@ Créer 4 boutons avec les Properties :
 - [sap.m.Button - Class](https://sapui5.netweaver.ondemand.com/#/api/sap.m.Button%23overview)
 - [sap.m.Button - Samples](https://sapui5.netweaver.ondemand.com/#/entity/sap.m.Button)
 
-#### 🌺 Correction
+#### 💮 Correction
 
 ```xml
 <Button
@@ -29,7 +47,7 @@ Créer 4 boutons avec les Properties :
 />
 ```
 
-## 🧩 EXERCICE 2 - COMPRENDRE UN EVENT
+## 🌺 EXERCICE 2 - COMPRENDRE UN EVENT
 
 ### 🍧 Énoncé
 
@@ -60,7 +78,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], (Controller) => {
 > [!CAUTION]
 > Remplacer `fgifirstappmodulename` par le namespace de votre application !
 
-#### 🌺 Correction
+#### 💮 Correction
 
 ```xml
 <mvc:View
@@ -83,7 +101,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], (Controller) => {
 </mvc:View>
 ```
 
-## 🧩 EXERCICE 3 - COMPRENDRE UNE ASSOCIATION
+## 🌺 EXERCICE 3 - COMPRENDRE UNE ASSOCIATION
 
 ### 🍧 Énoncé
 
@@ -108,7 +126,7 @@ avec
 - [sap.m.Input - Class](https://sapui5.netweaver.ondemand.com/#/api/sap.m.Input)
 - [sap.m.Input - Samples](https://sapui5.netweaver.ondemand.com/#/entity/sap.m.Input)
 
-#### 🌺 Correction
+#### 💮 Correction
 
 ```xml
 <mvc:View
@@ -139,7 +157,7 @@ avec
 </mvc:View>
 ```
 
-## 🧩 EXERCICE 4 - COMPRENDRE UNE AGGREGATION
+## 🌺 EXERCICE 4 - COMPRENDRE UNE AGGREGATION
 
 ### 🍧 Énoncé
 
@@ -156,7 +174,7 @@ Home.view.xml
 
 3. Positionner le bouton à droite dans le footer
 
-#### 🌺 Correction
+#### 💮 Correction
 
 ```xml
 <mvc:View
@@ -190,3 +208,19 @@ Home.view.xml
 </mvc:View>
 
 ```
+
+## 🌺 RÉSUMÉ
+
+> - **Exercice 1 - comprendre une property :** webapp/view/Home.view.xml
+> - **Exercice 2 - comprendre un event :** webapp/view/Home.view.xml
+> - **Exercice 3 - comprendre une association :** webapp/view/Home.view.xml
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **EXERCICES** avec mes propres mots.
+- [ ] Je peux expliquer **exercice 1 - comprendre une property** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exercice 2 - comprendre un event** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

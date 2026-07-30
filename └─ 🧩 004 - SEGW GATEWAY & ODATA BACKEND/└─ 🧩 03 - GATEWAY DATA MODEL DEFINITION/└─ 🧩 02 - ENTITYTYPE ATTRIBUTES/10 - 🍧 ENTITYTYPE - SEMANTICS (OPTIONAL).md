@@ -1,18 +1,34 @@
 # 🌸 ENTITYTYPE - SEMANTICS (OPTIONAL)
 
-![](.././assets/Capture%20d’écran%202026-01-16%20115808.png)
+## 🌺 OBJECTIFS
 
-## 🧩 SAP GATEWAY DATAMODEL - SEMANTICS
+- [ ] Expliquer le rôle de **ENTITYTYPE - SEMANTICS (OPTIONAL)** dans le contexte présenté.
+- [ ] Comprendre **sap gateway datamodel - semantics**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["ENTITYTYPE - SEMANTICS (OPTIONAL)"]
+    A --> B["SAP GATEWAY DATAMODEL - SEMANTICS"]
+```
+
+> [!IMPORTANT]
+> Une modification du modèle OData peut nécessiter une nouvelle génération des artefacts d’exécution et une vérification du document `$metadata` consommé par les clients.
+
+
+## 🌺 SAP GATEWAY DATAMODEL - SEMANTICS
 
 La colonne `Semantics` définit le rôle fonctionnel ou le type métier d’une `Property` dans l'`OData Service`. Elle informe les `Frameworks` et applications clientes sur le traitement, l’affichage et la validation adaptés à la donnée.
 
-### 🍧 DEFINITION
+### 🍧 DÉFINITION
 
 - Indique la signification métier de la `Property` (ex. Amount, Quantity, Indicator, Date, Time).
 - Stockée dans le `$metadata` pour permettre aux outils SAP (`UI5`/`Fiori`, `Fiori Elements`, Analyt``ics) de comprendre le type de contenu.
 - Ne change pas le type technique `EDM` de la `Property`, mais influence le formatage et le comportement côté `Client`.
 
-### 🍧 ROLE
+### 🍧 RÔLE
 
 - Appliquer automatiquement les formats d’affichage adaptés (ex. décimales pour Amount, case à cocher pour Indicator).
 - Faciliter la validation des données selon leur signification métier.
@@ -81,7 +97,7 @@ La colonne `Semantics` définit le rôle fonctionnel ou le type métier d’une 
 | wholeday         | “true” or “false”: Calendar event scheduled for whole day    |
 | zip              | Address: postal/ZIP code                                     |
 
-### 🍧 ERRORS
+### 🍧 ERREURS
 
 | 🍧 Erreur                            | 🍧 Pourquoi c’est un problème                                       |
 | ------------------------------------ | ------------------------------------------------------------------- |
@@ -89,3 +105,17 @@ La colonne `Semantics` définit le rôle fonctionnel ou le type métier d’une 
 | Incohérence avec le type EDM         | Affichage ou validation échouent                                    |
 | Changement après livraison           | Applications clientes risquent d’afficher ou valider incorrectement |
 | Combinaison de plusieurs sémantiques | Confusion dans le traitement automatique par UI5/Fiori              |
+
+## 🌺 RÉSUMÉ
+
+> - **Sap gateway datamodel - semantics :** La colonne Semantics définit le rôle fonctionnel ou le type métier d’une Property dans l'OData Service.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **ENTITYTYPE - SEMANTICS (OPTIONAL)** avec mes propres mots.
+- [ ] Je peux expliquer **sap gateway datamodel - semantics** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

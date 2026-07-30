@@ -1,10 +1,24 @@
 # 🌸 CONSULTANT BINDING
 
-> 🌺 Objectifs
->
-> - [ ] exploiter le data binding UI5 pour piloter les opérations CRUD Consultant via UI.
+## 🌺 OBJECTIFS
 
-## 🧩 1. CREATION D'UN MODEL JSON
+- [ ] Expliquer le rôle de **CONSULTANT BINDING** dans le contexte présenté.
+- [ ] Comprendre **1. création d'un model json**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CONSULTANT BINDING"]
+    A --> B["1. CREATION D'UN MODEL JSON"]
+```
+
+> [!IMPORTANT]
+> Vérifier la version SAPUI5 ciblée par l’application. La disponibilité d’une API, d’une propriété ou d’un événement peut dépendre de cette version.
+
+
+## 🌺 1. CRÉATION D'UN MODEL JSON
 
 Path :
 
@@ -29,12 +43,12 @@ sap.ui.define(
       {
         formatter: Formatter,
 
-        _oDataServices: null,
+        _ODataServices: null,
 
         onInit: function () {
           const oModel = this.getOwnerComponent().getModel();
 
-          this._oDataServices = new DataServices(oModel);
+          this._ODataServices = new DataServices(oModel);
 
           this._oViewModel = new JSONModel({
             selectedSession: null,
@@ -71,7 +85,7 @@ sap.ui.define(
 
           const sId = oViewModel.getProperty("/sessionForm/IdSession");
 
-          this._oDataServices
+          this._ODataServices
             .getSessionById(sId)
             .then((res) => {
               oViewModel.setProperty("/sessionForm", res.data);
@@ -86,10 +100,10 @@ sap.ui.define(
 
           const oPayload = oViewModel.getProperty("/sessionForm");
 
-          this._oDataServices
+          this._ODataServices
             .createSession(oPayload)
             .then(() => {
-              return this._oDataServices.getSessions();
+              return this._ODataServices.getSessions();
             })
             .then(() => {
               this.getView().getModel().refresh(true);
@@ -108,10 +122,10 @@ sap.ui.define(
 
           const sId = oPayload.IdSession;
 
-          this._oDataServices
+          this._ODataServices
             .updateSession(sId, oPayload)
             .then(() => {
-              return this._oDataServices.getSessions();
+              return this._ODataServices.getSessions();
             })
             .then(() => {
               this.getView().getModel().refresh(true);
@@ -128,10 +142,10 @@ sap.ui.define(
 
           const sId = oViewModel.getProperty("/sessionForm/IdSession");
 
-          this._oDataServices
+          this._ODataServices
             .deleteSession(sId)
             .then(() => {
-              return this._oDataServices.getSessions();
+              return this._ODataServices.getSessions();
             })
             .then(() => {
               this.getView().getModel().refresh(true);
@@ -158,7 +172,7 @@ sap.ui.define(
             "/consultantForm/IdConsultant",
           );
 
-          this._oDataServices
+          this._ODataServices
             .getConsultantById(sSessionId, sConsultantId)
             .then((res) => {
               oViewModel.setProperty("/consultantForm", res.data);
@@ -173,10 +187,10 @@ sap.ui.define(
 
           const oPayload = oViewModel.getProperty("/consultantForm");
 
-          this._oDataServices
+          this._ODataServices
             .createConsultant(oPayload)
             .then(() => {
-              return this._oDataServices.getConsultants();
+              return this._ODataServices.getConsultants();
             })
             .then(() => {
               this.getView().getModel().refresh(true);
@@ -197,10 +211,10 @@ sap.ui.define(
 
           const sConsultantId = oPayload.IdConsultant;
 
-          this._oDataServices
+          this._ODataServices
             .updateConsultant(sSessionId, sConsultantId, oPayload)
             .then(() => {
-              return this._oDataServices.getConsultants();
+              return this._ODataServices.getConsultants();
             })
             .then(() => {
               this.getView().getModel().refresh(true);
@@ -223,10 +237,10 @@ sap.ui.define(
             "/consultantForm/IdConsultant",
           );
 
-          this._oDataServices
+          this._ODataServices
             .deleteConsultant(sSessionId, sConsultantId)
             .then(() => {
-              return this._oDataServices.getConsultants();
+              return this._ODataServices.getConsultants();
             })
             .then(() => {
               this.getView().getModel().refresh(true);
@@ -242,3 +256,17 @@ sap.ui.define(
   },
 );
 ```
+
+## 🌺 RÉSUMÉ
+
+> - **1. création d'un model json :** webapp/controller/Home.controller.js
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CONSULTANT BINDING** avec mes propres mots.
+- [ ] Je peux expliquer **1. creation d'un model json** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

@@ -1,8 +1,21 @@
 # 🌸 UNIT TEST CLASS DEFINITION SECTION
 
-- [ ] Comprendre la logique de la `DEFINITION SECTION`
+## 🌺 OBJECTIFS
 
-## 🧩 STRUCTURE DE BASE
+- [ ] Expliquer le rôle de **UNIT TEST CLASS DEFINITION SECTION** dans le contexte présenté.
+- [ ] Comprendre **structure de base**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["UNIT TEST CLASS DEFINITION SECTION"]
+    A --> B["STRUCTURE DE BASE"]
+```
+
+
+## 🌺 STRUCTURE DE BASE
 
 ```abap
 *"* use this source file for your ABAP unit test classes
@@ -47,7 +60,6 @@ CLASS ltc_Customer_Orders DEFINITION FOR TESTING
 ENDCLASS.       "ltc_Customer_Orders
 
 
-
 CLASS ltc_Customer_Orders IMPLEMENTATION.
 
   METHOD class_Setup.
@@ -82,7 +94,7 @@ CLASS ltc_Customer_Orders IMPLEMENTATION.
 ENDCLASS.
 ```
 
-### 🍧 CLASS DEFINITION
+### 🍧 CLASS DÉFINITION
 
 ```abap
 CLASS ltc_customer_orders DEFINITION
@@ -91,10 +103,9 @@ CLASS ltc_customer_orders DEFINITION
  RISK LEVEL HARMLESS.
 ```
 
-> [!IMPORTANT] >
+> [!IMPORTANT]
 > Le paramètre `FOR TESTING` : la classe est déclarée comme une classe de test ABAP Unit, exécutée par le framework de test.
 > `FOR TESTING` peut être utilisé à de multiples fins :
->
 > - Création d'une classe de test contenant des méthodes de test
 > - Création d'un double de test
 > - Création de méthodes auxiliaires pour les tests unitaires ABAP
@@ -102,7 +113,6 @@ CLASS ltc_customer_orders DEFINITION
 > [!IMPORTANT]
 > Le paramètre `DURATION SHORT` : indique que les tests sont rapides, pas de préparation longue nécessaire.
 > `DURATION` (Optional addition)
->
 > - `SHORT`: On s'attend à un temps d'exécution de quelques secondes seulement.
 > - `MEDIUM`: Un temps d'exécution d'environ une minute est prévu.
 > - `LONG`: Un temps d'exécution supérieur à une minute est prévu.
@@ -110,7 +120,6 @@ CLASS ltc_customer_orders DEFINITION
 > [!IMPORTANT]
 > Le paramètre `RISK LEVEL HARMLESS` : précise que le test n’a pas d’impact sur la base de données (lecture seule ou rollback automatique).
 > `RISK LEVEL HARMLESS` (Optional addition)
->
 > - `CRITICAL`: le test modifie les paramètres système ou les données de personnalisation (par défaut)
 > - `DANGEROUS`: le test modifie les données persistantes
 > - `HARMLESS`: le test ne modifie ni les paramètres système ni les données persistantes
@@ -156,26 +165,20 @@ CLASS ltc_customer_orders DEFINITION
 
 > [!IMPORTANT]
 > Méthode `SETUP` :
->
 > Méthode d'instance appelée avant chaque test de la classe. Utilisée pour préparer les données de test et créer les objets nécessaires.
->
 > - Exécutée avant chaque test → initialise les objets nécessaires
 
 > [!IMPORTANT]
 > Méthode `CLASS_SETUP` :
->
 > Méthode statique exécutée une fois avant le premier test de la classe
 
 > [!IMPORTANT]
 > Méthode `TEARDOWN` :
->
 > Méthode d'instance appelée après chaque test. Utilisée pour nettoyer les données et libérer les ressources
->
 > - Exécutée après chaque test → nettoyage si nécessaire
 
 > [!IMPORTANT]
 > Méthode `CLASS_TEARDOWN` :
->
 > Méthode statique exécutée une fois après le dernier test de la classe
 
 ### 🍧 TEST METHODS
@@ -188,3 +191,17 @@ CLASS ltc_customer_orders DEFINITION
 
 > [!WARNING]
 > Lors de la génération de la classe de test, le `Workbench` va créer une (ou plusieurs) méthode(s) en fonction du nombre de méthode sélectionnée de la classe à tester durant la phase de création. Ces méthodes porteront le même intitulé et devront être changé pour respecter les conventions.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **structure de base** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **UNIT TEST CLASS DEFINITION SECTION** avec mes propres mots.
+- [ ] Je peux expliquer **structure de base** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

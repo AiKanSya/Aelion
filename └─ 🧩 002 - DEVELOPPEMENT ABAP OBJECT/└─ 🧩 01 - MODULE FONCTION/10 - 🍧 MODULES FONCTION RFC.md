@@ -8,10 +8,9 @@
 - [ ] Utiliser `DESTINATION`
 - [ ] Distinguer RFC synchrone et variantes asynchrones
 
-## 🌺 DEFINITION
+## 🌺 DÉFINITION
 
 > Un module fonction RFC est un module marqué comme compatible avec le mécanisme Remote Function Call.
->
 > Il peut être appelé depuis un autre système ou un autre contexte technique autorisé.
 
 Dans `SE37`, le type de traitement est :
@@ -142,13 +141,23 @@ Contrôles nécessaires :
 4. Traiter `SYSTEM_FAILURE` et `COMMUNICATION_FAILURE`.
 5. Expliquer pourquoi une popup est incompatible avec un appel distant fiable.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Un module RFC est explicitement marqué comme remote-enabled.
 > - L’appel distant utilise notamment `DESTINATION` dans le modèle classique.
 > - L’interface doit être sérialisable et stable.
 > - Les erreurs de communication sont distinctes des erreurs métier.
 > - Sécurité, volume et transaction font partie du contrat RFC.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **MODULES FONCTION RFC** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **appel local** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>
 
 ## 🌺 SOURCES OFFICIELLES
 

@@ -8,15 +8,30 @@
 - [ ] Prévenir les erreurs et comportements inattendus (ex : division par zéro)
 - [ ] Savoir organiser correctement les conditions pour respecter la priorité `AND` / `OR`
 
-## 🌺 DEFINITION
 
-> L’instruction `IF` permet de tester une condition sur une variable et d’exécuter un traitement uniquement si cette condition est vraie.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["IF ... ENDIF"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLES"]
+    D --> E["PRIORITE AND / OR"]
+    E --> F["EVITER UN DUMP"]
+```
+
+
+## 🌺 DÉFINITION
+
+> L’instruction `IF` permet de tester une condition sur une variable et d’exécuter un traitement uniquement si cette condition est vraie.
 > Elle peut être complétée par `ELSEIF` pour tester d’autres conditions et `ELSE` pour gérer tous les cas restants.
 
 > [!TIP]
 > Comme un passage piéton : si le feu est vert, vous traversez ; si le feu est orange, vous ralentissez ; sinon vous attendez.
 
-> [!IMPORTANT] > `IF` est la structure de contrôle la plus simple pour gérer une logique conditionnelle dans ABAP.  
+> [!IMPORTANT]
+> `IF` est la structure de contrôle la plus simple pour gérer une logique conditionnelle dans ABAP.
 > La bonne utilisation de `AND` et `OR` permet de combiner plusieurs conditions logiques efficacement.
 
 ## 🌺 SYNTAXE
@@ -39,7 +54,7 @@
 
 ## 🌺 EXEMPLES
 
-### EXEMPLE SIMPLE
+### 🍧 EXEMPLE SIMPLE
 
     WRITE:/ '     - IF SIMPLE...'.
 
@@ -58,7 +73,7 @@
 > [!TIP]
 > Vérifier si un objet a la valeur attendue avant de passer à l’action suivante.
 
-### AVEC ELSEIF ET ELSE
+### 🍧 AVEC ELSEIF ET ELSE
 
     WRITE:/ '     - IF ELSEIF...'.
 
@@ -79,9 +94,10 @@
       WRITE:/'Autre mois de l''année'.
     ENDIF.
 
-> [!TIP] > `ELSEIF` permet d'éviter d'empiler plusieurs IF imbriqués et rend le code plus lisible.
+> [!TIP]
+> `ELSEIF` permet d'éviter d'empiler plusieurs IF imbriqués et rend le code plus lisible.
 
-### UTILISATION DE AND / OR
+### 🍧 UTILISATION DE AND / OR
 
     WRITE:/ '     - IF ELSEIF AND/OR...'.
 
@@ -116,7 +132,7 @@
 
 ## 🌺 PRIORITE AND / OR
 
-> L’opérateur `AND` a toujours la priorité sur `OR`.  
+> L’opérateur `AND` a toujours la priorité sur `OR`.
 > Pour éviter toute ambiguïté, utilisez des parenthèses.
 
     WRITE:/ '     - IF PRIORITY...'.
@@ -149,13 +165,22 @@
 > [!IMPORTANT]
 > Vérifiez les conditions pour éviter des erreurs runtime, comme la division par zéro.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `IF` teste une condition et exécute le bloc si elle est vraie.
 > - `ELSEIF` permet de tester des conditions alternatives.
 > - `ELSE` capture tous les autres cas non couverts.
 > - `AND` / `OR` permettent de combiner plusieurs conditions.
 > - Utiliser toujours un contrôle pour éviter les erreurs comme la division par zéro.
->
 > [!TIP]
 > Comme des feux de circulation et panneaux : selon la situation, l’action change.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **IF ... ENDIF** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

@@ -1,20 +1,37 @@
 # 🌸 IMPLEMENTING \*\_GET_ENTITYSET OPERATION
 
-## 🧩 METHOD \*\_GET_ENTITYSET IMPLEMENTATION
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **IMPLEMENTING \*\_GET_ENTITYSET OPERATION** dans le contexte présenté.
+- [ ] Comprendre **method \_get_entityset implémentation**.
+- [ ] Mettre en œuvre **logique d'implémentation** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["IMPLEMENTING \\GETENTITYSET OPERATION"]
+    A --> B["METHOD \\GETENTITYSET IMPLEMENTATION"]
+    B --> C["LOGIQUE D'IMPLEMENTATION"]
+    C --> D["TRANSACTION SE24"]
+```
+
+
+## 🌺 METHOD \*\_GET_ENTITYSET IMPLÉMENTATION
 
 ![](./assets/Capture%20d’écran%202026-02-09%20073729.png)
 
-### 🍧 PREREQUISITES - TRANSACTION SEGW
+### 🍧 PRÉREQUIS - TRANSACTION SEGW
 
 > [!WARNING]
 > L'`EntitySet` ciblée doit être `Addressable` dans la `SEGW` !
 
-### 🍧 PREREQUISITES - TRANSACTION SE80
+### 🍧 PRÉREQUIS - TRANSACTION SE80
 
 > [!WARNING]
 > La méthode ciblée doit avoir été `Redefined` !
 
-## 🧩 LOGIQUE D'IMPLEMENTATION
+## 🌺 LOGIQUE D'IMPLÉMENTATION
 
 L'implémentation des méthodes dans `DPC_EXT` implique la `redéfinition` des méthodes correspondantes du `DPC`. Les méthodes les plus fréquemment redéfinies sont les suivantes :
 
@@ -28,7 +45,7 @@ L'implémentation des méthodes dans `DPC_EXT` implique la `redéfinition` des m
 
 - `<Entity Set>_UPDATE_ENTITY` – modifie une ressource d'un type d'entité spécifié
 
-## 🧩 TRANSACTION SE24
+## 🌺 TRANSACTION SE24
 
 > [!NOTE]
 > Classe ciblée : `ZCL_<PROJECTNAME>_DPC_EXT`
@@ -57,90 +74,77 @@ L'implémentation des méthodes dans `DPC_EXT` implique la `redéfinition` des m
 
 > [!NOTE]
 > 🍧 `IV_ENTITY_NAME` (STRING)
->
 > - Nom de l’Entity OData appelée.
 > - Exemple : `Product`.
 > - Utile quand une même méthode gère plusieurs entités.
 
 > [!NOTE]
 > 🍧 `IV_ENTITY_SET_NAME` (STRING)
->
 > - Nom de l’EntitySet appelée.
 > - Exemple : `ProductSet`.
 > - C’est le nom réellement appelé dans l’URL OData. Le plus utilisé pour identifier le contexte.
 
 > [!NOTE]
 > 🍧 `IV_SOURCE_NAME` (STRING)
->
 > - Nom de la source (utilisé surtout pour navigation ou alias).
 > - Peu utilisé en pratique dans les cas simples.
 
 > [!NOTE]
 > 🍧 `IT_FILTER_SELECT_OPTIONS` (`/IWBEP/T_MGW_SELECT_OPTION`)
->
 > - Filtres OData structurés (`$filter`). C’est le filtre principal à utiliser.
 > - Exemple URL : `?$filter=Category eq 'A'`
 > - Transformé en options exploitables côté ABAP.
 
 > [!NOTE]
 > 🍧 `IS_PAGING` (`/IWBEP/S_MGW_PAGING`)
->
 > - Gestion de la pagination (`$top`, `$skip`).
 > - Exemple : `?$top=10&$skip=20`
 > - Indique combien de lignes retourner et à partir d’où.
 
 > [!NOTE]
 > 🍧 `IT_KEY_TAB` (`/IWBEP/T_MGW_NAME_VALUE_PAIR`)
->
 > - Clés techniques passées dans l’URL.
 > - Exemple : `Products(ProductID='100')`
 > - Contient les paires nom / valeur des clés.
 
 > [!NOTE]
 > 🍧 `IT_NAVIGATION_PATH` (`/IWBEP/T_MGW_NAVIGATION_PATH`)
->
 > - Chemin de navigation OData.
 > - Exemple : `Orders('1')/Items`
 > - Indique depuis quelle entité on navigue.
 
 > [!NOTE]
 > 🍧 `IT_ORDER` (`/IWBEP/T_MGW_SORTING_ORDER`)
->
 > - Tri (`$orderby`).
 > - Exemple : `?$orderby=Price desc`
 > - Indique les champs et le sens de tri.
 
 > [!NOTE]
 > 🍧 `IV_FILTER_STRING` (STRING)
->
 > - Filtre OData brut, non structuré. Peu utilisé.
 > - À éviter pour les débutants.
 > - Préférer IT_FILTER_SELECT_OPTIONS.
 
 > [!NOTE]
 > 🍧 `IV_SEARCH_STRING` (STRING)
->
 > - Recherche texte libre (`$search`).
 > - Exemple : `?$search=laptop`
 > - À interpréter manuellement dans le code.
 
 > [!NOTE]
 > 🍧 `IO_TECH_REQUEST_CONTEXT` (`/IWBEP/IF_MGW_REQ_ENTITYSET`)
->
 > - Contexte technique complet de la requête OData.
 > - Donne accès : aux headers, à l’utilisateur, aux options techniques
 > - Usage avancé uniquement.
 
 > [!NOTE]
 > 🍧 `ET_ENTITYSET` (Type spécifique MPC)
->
 > - Table des données retournées au consumer OData.
 > - C’est le résultat principal de la méthode.
 > - Chaque ligne = une entité.
 
 > [!NOTE]
 > 🍧 `ES_RESPONSE_CONTEXT` (/IWBEP/...RESPONSE_CONTEXT)
->
 > - Métadonnées de la réponse.
 > - Exemples : nombre total de lignes, informations pagination
 > - Optionnel pour les scénarios simples.
@@ -173,7 +177,7 @@ L'implémentation des méthodes dans `DPC_EXT` implique la `redéfinition` des m
   ENDMETHOD.
 ```
 
-### 🍧 PRODUCTSET_GET_ENTITYSET METHOD IMPLEMENTATION
+### 🍧 PRODUCTSET_GET_ENTITYSET METHOD IMPLÉMENTATION
 
 ```abap
 METHOD productset_get_entityset.
@@ -213,16 +217,30 @@ ENDMETHOD.
 ### 🍧 METHOD EXCEPTION
 
 > [!IMPORTANT]
-> Les `Errors` d'une class method doivent être `Raise` à l'aide des `Exception Classes`
->
-> - `/IWBEP/CX_MGW_BUSI_EXCEPTION` pour les `Errors` de `logique métier`
+> Les erreurs d'une class method doivent être `Raise` à l'aide des `Exception Classes`
+> - `/IWBEP/CX_MGW_BUSI_EXCEPTION` pour les erreurs de `logique métier`
 > - `/IWBEP/CX_MGW_TECH_EXCEPTION` pour les `exceptions techniques`
 
 > [!IMPORTANT]
 > Les `Exception Classes` offrent plusieurs paramètres pour fournir des informations plus détaillées sur l'erreur.
->
 > Par exemple, le paramètre `message_container` permet de regrouper plusieurs messages dans un seul objet. L'attribut `mo_context` de la `DPC` fournit un tel conteneur de messages, qui peut être rempli à l'aide de différentes Methods, comme `add_message_from_bapi()`, en attendant le paramètre de retour d'une BAPI.
 
 ---
 
 [^1]: Un Reuse Unit est une implémentation standard encapsulée (méthodes utilitaires, classes framework, routines générées) que le runtime Gateway peut appeler pour exécuter une opération OData sans code spécifique.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **method \*\_get_entityset implémentation** dans le contexte présenté.
+> - **Logique d'implémentation :** L'implémentation des méthodes dans DPCEXT implique la redéfinition des méthodes correspondantes du DPC.
+> - Savoir utiliser **transaction se24** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **IMPLEMENTING \*\_GET_ENTITYSET OPERATION** avec mes propres mots.
+- [ ] Je peux expliquer **method \*\_get_entityset implementation** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **logique d'implementation** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

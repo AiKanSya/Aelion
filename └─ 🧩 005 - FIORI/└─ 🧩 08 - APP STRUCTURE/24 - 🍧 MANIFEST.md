@@ -1,6 +1,21 @@
 # 🌸 MANIFEST
 
-## 🧩 MANIFEST.JSON (MÉTADONNÉES DE L’APPLICATION)
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **MANIFEST** dans le contexte présenté.
+- [ ] Comprendre **manifest.json (métadonnées de l’application)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["MANIFEST"]
+    A --> B["MANIFEST.JSON (MÉTADONNÉES DE L’APPLICATION)"]
+```
+
+
+## 🌺 MANIFEST.JSON (MÉTADONNÉES DE L’APPLICATION)
 
 ```
 fgifirstappmodulename/
@@ -30,11 +45,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Décrire toute la configuration Fiori de l’application.
->
 > - 🔨 Utilité : Définir routes, modèles, data sources, titres, icônes et namespace.
 > - ⌚ Quand utilisé ? En permanence par UI5 pour initialiser et orchestrer l’application.
 
@@ -252,3 +264,17 @@ fgifirstappmodulename/
   }
 }
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **manifest.json (métadonnées de l’application)** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **MANIFEST** avec mes propres mots.
+- [ ] Je peux expliquer **manifest.json (métadonnées de l’application)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

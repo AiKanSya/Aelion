@@ -7,18 +7,31 @@
 - [ ] Savoir combiner plusieurs tables sources vers une même table cible
 - [ ] Apprendre à manipuler des structures différentes sans erreur de type
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["MOVE CORRESPONDING"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE 1 – COPIE ENTRE TABLES DIFFERENTES"]
+    C --> D["EXEMPLE 2 – FUSION DE PLUSIEURS TABLES"]
+    D --> E["EXEMPLE 3 – AVEC DECLARATIONS DYNAMIQUES"]
+    E --> F["DIFFERENCE AVEC COPY TABLE"]
+```
+
+
+## 🌺 DÉFINITION
 
     MOVE-CORRESPONDING itab_src TO itab_dest.
 
 > L’instruction `MOVE-CORRESPONDING` permet de copier seulement les champs portant le même nom entre une table interne source et une table interne destination.
 
 > [!TIP]
-> Imaginez deux formulaires avec des rubriques similaires (par exemple : _Nom_, _Pays_, _Âge_).  
+> Imaginez deux formulaires avec des rubriques similaires (par exemple : _Nom_, _Pays_, _Âge_).
 > `MOVE-CORRESPONDING` copie seulement les rubriques ayant le même intitulé, sans toucher aux autres champs.
 
 > [!IMPORTANT]
->
 > - Si la source et la destination ont des champs différents, seuls les champs correspondants sont copiés.
 > - Les champs qui n’existent pas dans l’autre structure sont ignorés sans erreur.
 > - L’opération peut être répétée pour fusionner plusieurs tables dans la même cible.
@@ -60,11 +73,10 @@
     ENDLOOP.
 
 > [!IMPORTANT]
->
 > - `lt_citizen_src` contient un champ `age` absent dans `lt_citizen_dest`.
 > - `MOVE-CORRESPONDING` ne copie que les champs `country` et `name`, car ils existent dans les deux structures.
 
-> [!NOTE]  
+> [!NOTE]
 > Le système gère automatiquement la correspondance des noms sans tenir compte de l’ordre des champs.
 
 ## 🌺 EXEMPLE 2 – FUSION DE PLUSIEURS TABLES
@@ -82,11 +94,11 @@
     MOVE-CORRESPONDING lt_additional  TO lt_citizen_dest.
 
 > [!TIP]
-> Comme remplir un registre commun à partir de plusieurs listes :  
+> Comme remplir un registre commun à partir de plusieurs listes :
 > chaque `MOVE-CORRESPONDING` ajoute les lignes compatibles sans provoquer d’erreur.
 
 > [!CAUTION]
-> Les lignes ne sont pas fusionnées champ par champ, mais ajoutées à la table destination.  
+> Les lignes ne sont pas fusionnées champ par champ, mais ajoutées à la table destination.
 > Cela peut créer des doublons si les données se répètent.
 
 ## 🌺 EXEMPLE 3 – AVEC DECLARATIONS DYNAMIQUES
@@ -110,7 +122,7 @@
 > [!IMPORTANT]
 > Préférer cette approche quand le programme doit traiter plusieurs types de tables internes avec des champs similaires.
 
-## DIFFERENCE AVEC COPY TABLE
+## 🌺 DIFFERENCE AVEC COPY TABLE
 
 | 🍧 Instruction                      | 🍧 Description                                                            | 🍧 Type de correspondance |
 | ----------------------------------- | ------------------------------------------------------------------------- | ------------------------- |
@@ -118,7 +130,6 @@
 | `MOVE-CORRESPONDING itab2 TO itab1` | Copie uniquement les champs de même nom, structures différentes acceptées | Correspondance partielle  |
 
 > [!IMPORTANT]
->
 > - `COPY TABLE` = copie brute (toutes les colonnes doivent exister).
 > - `MOVE-CORRESPONDING` = copie intelligente (seules les colonnes communes sont transférées).
 
@@ -131,9 +142,18 @@
 | Vérifier les doublons lors de fusions                   | Plusieurs `MOVE-CORRESPONDING` peuvent ajouter des lignes identiques |
 | Préférer les FIELD-SYMBOLS pour programmes génériques   | Permet de manipuler des structures inconnues à l’avance              |
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > `MOVE-CORRESPONDING` permet de transférer uniquement les champs communs entre deux structures ou tables internes.
->
 > - Idéal pour les structures différentes mais similaires
 > - Ignore les champs inexistants sans erreur
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **MOVE CORRESPONDING** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemple 1 – copie entre tables differentes** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

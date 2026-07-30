@@ -6,9 +6,23 @@
 - [ ] RECUPERER ET UTILISER LES VALEURS SAISIES DANS LE PROGRAMME ABAP
 - [ ] PERMETTRE A L’UTILISATEUR DE FILTRER SUR DES PLAGES DE DONNEES
 
-## 🌺 DEFINITION
 
-> Les `SELECT-OPTIONS` créent des champs de saisie doubles pour l’utilisateur afin de récupérer une plage de valeurs.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["SELECT-OPTIONS"]
+    A --> B["DEFINITION"]
+    B --> C["DECLARATION DES TABLES AFFECTEES"]
+    C --> D["DECLARATION DES SELECT-OPTIONS"]
+    D --> E["COMPORTEMENTS SPECIFIQUES"]
+    E --> F["PARAMETRES D'INSTRUCTION"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Les `SELECT-OPTIONS` créent des champs de saisie doubles pour l’utilisateur afin de récupérer une plage de valeurs.
 > Contrairement aux `PARAMETERS`, un `SELECT-OPTIONS` peut contenir plusieurs lignes correspondant à une plage ou à plusieurs entrées distinctes.
 
 > [!TIP]
@@ -24,7 +38,6 @@ _Exemple de déclaration_
     TABLES: vbak, vbap.
 
 > [!CAUTION]
->
 > - Obligatoire pour indiquer quelles tables seront utilisées avec les `SELECT-OPTIONS`.
 > - Généralement placé au début du programme avec les variables et constantes.
 > - Permet de lier le type du champ et d’activer automatiquement le match-code.
@@ -37,7 +50,6 @@ _Exemple de déclaration_
                     s_posnr FOR vbap-posnr.
 
 > [!IMPORTANT]
->
 > - `SELECT-OPTIONS:` obligatoire pour déclarer un ou plusieurs champs.
 > - `s_vbeln` : nom du champ, convention `s_` pour SELECT-OPTIONS, ici pour le numéro de document commercial.
 > - `FOR` : indique la table et le champ pour définir le type et générer le match-code.
@@ -46,32 +58,30 @@ _Exemple de déclaration_
 
 ## 🌺 COMPORTEMENTS SPECIFIQUES
 
-### UNE SEULE ENTREE
+### 🍧 UNE SEULE ENTREE
 
 - Si une seule valeur est saisie, le `SELECT-OPTIONS` se comporte comme un `PARAMETERS`.
 
-### ABSENCE D'ENTREE
+### 🍧 ABSENCE D'ENTREE
 
 - Si aucun champ n’est rempli, le programme considérera toutes les valeurs possibles du champ indiqué dans `FOR`.
 
 > [!CAUTION]
 > Ne pas oublier de vérifier la table affectée si vous utilisez `SELECT-OPTIONS` pour filtrer les données, sinon des valeurs inattendues peuvent être considérées comme valides.
 
-## 🌺 PARAMETRES D'INSTRUCTION
+## 🌺 PARAMÈTRES D'INSTRUCTION
 
-### CHAMP TYPE OBLIGATOIRE
+### 🍧 CHAMP TYPE OBLIGATOIRE
 
 > [!IMPORTANT]
->
 > Le paramètre `OBLIGATORY` de l'instruction `PARAMETERS` rend obligatoire le champ.
 
     SELECT-OPTIONS: s_vbeln FOR vbak-vbeln OBLIGATORY,
                     s_posnr FOR vbap-posnr.
 
-### CHAMP AVEC VALEUR PAR DEFAUT
+### 🍧 CHAMP AVEC VALEUR PAR DEFAUT
 
 > [!IMPORTANT]
->
 > Le paramètre `DEFAULT` suivie de la valeur applique une valeur par défaut sur le champ au niveau de la valeur Low.
 
     SELECT-OPTIONS: s_vbeln FOR vbak-vbeln OBLIGATORY,
@@ -89,10 +99,20 @@ _Exemple de déclaration_
 - Prévoir des textes d’input clairs pour chaque champ.
 - Tester les différentes saisies possibles : plage, valeur unique, aucune valeur.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `SELECT-OPTIONS` crée des champs de saisie pour des plages ou plusieurs valeurs.
 > - Chaque entrée peut contenir une ou plusieurs lignes.
 > - Tables affectées doivent être déclarées avec `TABLES`.
 > - Noms commencent par `s_` par convention.
 > - Permet un filtrage flexible et puissant dans un programme ABAP.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **SELECT-OPTIONS** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **declaration des tables affectees** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

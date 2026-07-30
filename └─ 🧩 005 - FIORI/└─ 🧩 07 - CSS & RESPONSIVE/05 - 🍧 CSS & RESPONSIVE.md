@@ -1,14 +1,28 @@
 # 🌸 CSS & RESPONSIVE
 
-> 🌺 Objectifs
->
-> - [ ] Comprendre comment SAP Fiori/UI5 adapte une application à différents écrans :
->   - smartphone
->   - tablette
->   - desktop
-> - [ ] Comprendre les layouts UI5 responsives
+## 🌺 OBJECTIFS
 
-## 🧩 RESPONSIVE DESIGN
+- [ ] Expliquer le rôle de **CSS & RESPONSIVE** dans le contexte présenté.
+- [ ] Comprendre **responsive design**.
+- [ ] Mettre en œuvre **comment ui5 gère le responsive** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CSS & RESPONSIVE"]
+    A --> B["RESPONSIVE DESIGN"]
+    B --> C["COMMENT UI5 GÈRE LE RESPONSIVE"]
+    C --> D["MOBILE FIRST"]
+    D --> E["LIBRARY PRINCIPALE : sap.m"]
+    E --> F["HBOX ET VBOX"]
+```
+
+> [!IMPORTANT]
+> Vérifier la version SAPUI5 ciblée par l’application. La disponibilité d’une API, d’une propriété ou d’un événement peut dépendre de cette version.
+
+
+## 🌺 RESPONSIVE DESIGN
 
 Le responsive design est un système qui permet à une interface de :
 
@@ -26,7 +40,7 @@ Objectif :
 - éviter les débordements
 - améliorer l'expérience utilisateur
 
-## 🧩 COMMENT UI5 GÈRE LE RESPONSIVE
+## 🌺 COMMENT UI5 GÈRE LE RESPONSIVE
 
 SAPUI5 est conçu pour être responsive par défaut.
 
@@ -45,7 +59,7 @@ Cela repose sur :
 - layouts responsives
 - CSS standard Fiori
 
-## 🧩 MOBILE FIRST
+## 🌺 MOBILE FIRST
 
 SAPUI5 suit le principe :
 
@@ -57,7 +71,7 @@ SAPUI5 suit le principe :
 
 Le développement commence pour les petits écrans puis s'étend aux grands écrans.
 
-## 🧩 LIBRARY PRINCIPALE : sap.m
+## 🌺 LIBRARY PRINCIPALE : sap.m
 
 sap.m contient les contrôles Fiori responsives.
 
@@ -69,9 +83,9 @@ sap.m contient les contrôles Fiori responsives.
 | sap.m.Page   |               page |
 | sap.m.List   |              liste |
 
-## 🧩 HBOX ET VBOX
+## 🌺 HBOX ET VBOX
 
-#### 🌺 HBox :
+#### 💮 HBox :
 
 Disposition horizontale :
 
@@ -89,7 +103,7 @@ Exemple :
 </HBox>
 ```
 
-#### 🌺 VBox :
+#### 💮 VBox :
 
 Disposition verticale :
 
@@ -119,7 +133,7 @@ Si un comportement dynamique est souhaité :
 - ResponsiveGridLayout
 - GridData
 
-## 🧩 FLEXBOX
+## 🌺 FLEXBOX
 
 FlexBox permet une disposition dynamique.
 
@@ -147,7 +161,7 @@ Comportement :
       [Ville]
       [Valider]
 
-## 🧩 CSS DANS SAPUI5
+## 🌺 CSS DANS SAPUI5
 
 Le CSS sert principalement à :
 
@@ -173,7 +187,7 @@ Dans XML :
     class="myButton"/>
 ```
 
-## 🧩 CLASSES CSS FOURNIES PAR UI5
+## 🌺 CLASSES CSS FOURNIES PAR UI5
 
 UI5 fournit déjà beaucoup de classes CSS.
 
@@ -196,7 +210,7 @@ Exemple :
     class="sapUiResponsiveMargin"/>
 ```
 
-## 🧩 BREAKPOINTS
+## 🌺 BREAKPOINTS
 
 UI5 adapte automatiquement selon la largeur :
 
@@ -206,7 +220,7 @@ UI5 adapte automatiquement selon la largeur :
 | Medium |   tablette |
 | Large  | ordinateur |
 
-## 🧩 TESTER LE RESPONSIVE DANS LE NAVIGATEUR
+## 🌺 TESTER LE RESPONSIVE DANS LE NAVIGATEUR
 
 Pendant le développement, il est inutile d'utiliser un vrai téléphone ou une vraie tablette.
 
@@ -226,7 +240,7 @@ Exemple :
 
 Ouvrir les outils développeur :
 
-#### 🌺 Windows / Linux
+#### 💮 Windows / Linux
 
      F12
 
@@ -234,7 +248,7 @@ ou
 
      Ctrl + Shift + I
 
-#### 🌺 Mac
+#### 💮 Mac
 
      Cmd + Option + I
 
@@ -261,7 +275,7 @@ Exemples disponibles :
 
 Exemple :
 
-#### 🌺 Desktop :
+#### 💮 Desktop :
 
      -------------------------------------
      | Nom | Ville | Pays | Valider |
@@ -295,7 +309,7 @@ Exemple :
 
 Très utile pour observer les changements de comportement UI5.
 
-## 🧩 OBSERVATIONS À FAIRE
+## 🌺 OBSERVATIONS À FAIRE
 
 Pendant les tests vérifier :
 
@@ -306,7 +320,7 @@ Pendant les tests vérifier :
 - Les tableaux s'adaptent correctement
 - Les marges restent cohérentes
 
-## 🧩 BONNES PRATIQUES
+## 🌺 BONNES PRATIQUES
 
 - Utiliser sap.m autant que possible
 - Utiliser ResponsiveGridLayout
@@ -314,3 +328,19 @@ Pendant les tests vérifier :
 - Éviter tailles fixes
 - Tester téléphone + desktop
 - Utiliser les classes CSS UI5 avant CSS personnalisé
+
+## 🌺 RÉSUMÉ
+
+> - **Responsive design :** Le responsive design est un système qui permet à une interface de :
+> - **Comment ui5 gère le responsive :** SAPUI5 est conçu pour être responsive par défaut.
+> - **Mobile first :** SAPUI5 suit le principe :
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CSS & RESPONSIVE** avec mes propres mots.
+- [ ] Je peux expliquer **responsive design** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **comment ui5 gère le responsive** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

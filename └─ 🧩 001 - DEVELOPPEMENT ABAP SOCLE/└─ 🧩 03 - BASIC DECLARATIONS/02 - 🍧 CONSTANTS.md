@@ -8,22 +8,36 @@
 - [ ] Identifier les types de données possibles
 - [ ] Différencier CONSTANTES et VARIABLES
 
-## 🌺 DEFINITION
 
-> Une `CONSTANTE` est une valeur fixe associée à un nom.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CONSTANTES"]
+    A --> B["DEFINITION"]
+    B --> C["DECLARATION AVEC CONSTANTS"]
+    C --> D["CONVENTIONS DE NOMMAGE"]
+    D --> E["TYPE VS LIKE"]
+    E --> F["TYPES DE DONNÉES POUR CONSTANTES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Une `CONSTANTE` est une valeur fixe associée à un nom.
 > Contrairement à une variable, sa valeur ne change jamais pendant l’exécution du programme.
 
 > [!TIP]
-> Une `CONSTANTE`, c’est comme un repère fixé sur une carte : il ne bouge pas.  
+> Une `CONSTANTE`, c’est comme un repère fixé sur une carte : il ne bouge pas.
 > Une variable, elle, peut se déplacer.
 
 > [!TIP]
-> Imagine une montre dont la pile est KO : la valeur reste figée.  
+> Imagine une montre dont la pile est KO : la valeur reste figée.
 > Une variable serait un thermomètre normal, qui change avec la température.
 
 ## 🌺 DECLARATION AVEC CONSTANTS
 
-### SYNTAXE SIMPLE
+### 🍧 SYNTAXE SIMPLE
 
     WRITE:/ '     - DECLARATION SIMPLE...'.
 
@@ -40,7 +54,7 @@
 > [!NOTE]
 > le mot-clé `CONSTANTS` accepte la liste séparée par `:` pour déclarer plusieurs `CONSTANTES` consécutives.
 
-### DECLARATIONS SUCCESSIVES
+### 🍧 DECLARATIONS SUCCESSIVES
 
     WRITE:/ '     - DECLARATION SUCCESSIVE...'.
 
@@ -69,13 +83,13 @@
 
 ## 🌺 TYPE VS LIKE
 
-### TYPE
+### 🍧 TYPE
 
     CONSTANTS: lc_valeur_const TYPE i VALUE 10.
 
 - Définit le type explicitement.
 
-### LIKE
+### 🍧 LIKE
 
     DATA: lv_variable TYPE i VALUE 5.
     CONSTANTS: lc_valeur_const LIKE lv_variable VALUE 20.
@@ -83,12 +97,12 @@
 - Copie le type d’une autre variable, mais reste immuable.
 
 > [!TIP]
-> TYPE → tu choisis la forme de ta boîte.  
+> TYPE → tu choisis la forme de ta boîte.
 > LIKE → tu copies la boîte d’un autre, mais tu ne peux plus l’ouvrir.
 
 ## 🌺 TYPES DE DONNÉES POUR CONSTANTES
 
-### INTEGER / NUMERIC / NUMC
+### 🍧 INTEGER / NUMERIC / NUMC
 
     WRITE:/ '     - TYPE INTEGER, N, NUMC...'.
 
@@ -99,7 +113,7 @@
 - I → nombres entiers pour calculs
 - N / NUMC → texte numérique (ex: code postal)
 
-### FLOAT / F
+### 🍧 FLOAT / F
 
     WRITE:/ '     - TYPE F, FLOAT...'.
 
@@ -109,7 +123,7 @@
 - F → décimales fixes
 - FLOAT → précision variable (scientifique)
 
-### DECFLOAT
+### 🍧 DECFLOAT
 
     WRITE:/ '     - TYPE F, FLOAT...'.
 
@@ -117,7 +131,7 @@
 
 - Haute précision, utile pour calculs financiers.
 
-### STRING
+### 🍧 STRING
 
     WRITE:/ '     - TYPE STRING...'.
 
@@ -125,7 +139,7 @@
 
 - Texte de longueur variable, non modifiable.
 
-### CHARACTER
+### 🍧 CHARACTER
 
     WRITE:/ '     - TYPE CHAR...'.
 
@@ -133,7 +147,7 @@
 
 - Caractère fixe (ex: initiale, statut).
 
-### BOOLEAN / ABAP_BOOL
+### 🍧 BOOLEAN / ABAP_BOOL
 
     WRITE:/ '     - TYPE BOOLEAN...'.
 
@@ -142,7 +156,7 @@
 
 - Valeurs logiques : vrai ou faux.
 
-### DATE (D) ET SY-DATUM
+### 🍧 DATE (D) ET SY-DATUM
 
     WRITE:/ '     - TYPE DATE...'.
 
@@ -151,7 +165,7 @@
 
 - Format AAAAMMJJ.
 
-### TIME (T) ET SY-UZEIT
+### 🍧 TIME (T) ET SY-UZEIT
 
     WRITE:/ '     - TYPE TIME...'.
 
@@ -160,7 +174,7 @@
 
 - Format HHMMSS.
 
-### PACKED DECIMAL (P)
+### 🍧 PACKED DECIMAL (P)
 
     WRITE:/ '     - TYPE PACKED...'.
 
@@ -168,7 +182,7 @@
 
 - Valeur fixe pour montants ou calculs financiers.
 
-### XFELD
+### 🍧 XFELD
 
     WRITE:/ '     - TYPE XFELD...'.
 
@@ -176,7 +190,7 @@
 
 - 'X' = cochée / ' ' = décochée.
 
-## BONNES PRATIQUES
+## 🌺 BONNES PRATIQUES
 
 | 🍧 Bonne pratique                                   | 🍧 Explication                                    |
 | --------------------------------------------------- | ------------------------------------------------- |
@@ -189,7 +203,7 @@
 > [!TIP]
 > Remplace toujours les chiffres ou textes répétés par une `CONSTANTE` : ton code sera plus clair et plus facile à maintenir.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Une `CONSTANTE` garde une valeur fixe pendant tout le programme.
 > - Se déclare avec `CONSTANTS ... VALUE`.
@@ -197,3 +211,13 @@
 > - Types principaux : I, N, NUMC, F, DECFLOAT, STRING, C, BOOLEAN, D, T, P, XFELD.
 > - Toujours préférer une `CONSTANTE` à une valeur “en dur”.
 > - Les `CONSTANTES` améliorent la clarté, la sécurité et la maintenabilité du code ABAP.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CONSTANTES** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **declaration avec constants** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

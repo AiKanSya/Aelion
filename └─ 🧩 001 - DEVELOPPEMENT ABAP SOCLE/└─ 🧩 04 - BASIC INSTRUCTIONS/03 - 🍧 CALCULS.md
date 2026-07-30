@@ -7,7 +7,21 @@
 - [ ] Connaître les instructions correspondantes `MOVE`, `ADD`, `SUBTRACT`, `MULTIPLY`, `DIVIDE`
 - [ ] Visualiser et appliquer les calculs dans un programme ABAP
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["INSTRUCTION DE CALCUL"]
+    A --> B["DEFINITION"]
+    B --> C["OPERATEURS ARITHMETIQUES"]
+    C --> D["= (EGAL) OU MOVE ... TO ..."]
+    D --> E["MOVE MULTIPLE"]
+    E --> F["+ (PLUS) OU ADD ... TO ..."]
+```
+
+
+## 🌺 DÉFINITION
 
 > Comme dans tout langage de programmation, les variables numériques (`N`, `I`, `P`, etc.) peuvent être utilisEes dans des opérations arithmétiques.
 
@@ -50,10 +64,10 @@
 - `=` et `MOVE` permettent d’assigner une valeur à une variable
 
 > [!TIP]
-> Le `=` = mettre directement un objet dans une boîte  
+> Le `=` = mettre directement un objet dans une boîte
 > `MOVE` = déplacer l’objet d’une boîte à une autre
 
-## 🍧 MOVE MULTIPLE
+## 🌺 MOVE MULTIPLE
 
     WRITE:/ '     - MOVE TO MULTIPLE...'.
 
@@ -111,7 +125,6 @@
     DIVIDE lv_d BY 7.
 
 > [!TIP]
->
 > - Visualiser chaque variable comme une boîte contenant un nombre
 > - Chaque opération = action sur la boîte : ajouter, retirer, multiplier ou partager
 > - Préférer les expressions (`+`, `-`, `*`, `/`) pour plus de lisibilité
@@ -126,10 +139,20 @@
 | Vérifier les types de données                                   | Pour les éviter erreurs lors de division ou multiplication |
 | Utiliser MOVE / ADD ... pour clarifier l’historique des calculs | Utile en maintenance et pour code lisible                  |
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Les variables numériques (`I`, `N`, `P`, `F`, `DECFLOAT`) peuvent subir des opérations arithmétiques
 > - Opérateurs : `=`, `+`, `-`, `*`, `/`
 > - Instructions historiques : `MOVE`, `ADD`, `SUBTRACT`, `MULTIPLY`, `DIVIDE`
 > - Préférer les expressions pour plus de lisibilité
 > - Toujours initialiser les variables et vérifier leur type avant les calculs
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **INSTRUCTION DE CALCUL** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **operateurs arithmetiques** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

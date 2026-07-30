@@ -123,13 +123,23 @@ Chaque appel reçoit explicitement le centre nécessaire.
 3. Décrire un défaut provoqué par une table globale non vidée.
 4. Expliquer pourquoi une donnée globale de groupe n’est pas une persistance fiable.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Le groupe de fonctions est un programme de type fonction pool.
 > - L’include TOP contient les déclarations globales du groupe.
 > - Tous les modules du groupe peuvent accéder à ces données.
 > - Cet état partagé crée des dépendances implicites.
 > - Les paramètres et variables locales doivent être privilégiés.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **DONNEES GLOBALES DU GROUPE** avec mes propres mots.
+- [ ] Je peux expliquer **function pool** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **include top** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>
 
 ## 🌺 SOURCES OFFICIELLES
 

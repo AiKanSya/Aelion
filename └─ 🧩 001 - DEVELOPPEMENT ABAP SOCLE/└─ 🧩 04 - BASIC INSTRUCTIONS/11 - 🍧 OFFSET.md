@@ -1,72 +1,135 @@
-# 🌸 OFFSET (REORGANISATION)
+# 🌸 ACCÈS PAR OFFSET ET LONGUEUR
 
 ## 🌺 OBJECTIFS
 
-- [ ] Comprendre le fonctionnement de l’`OFFSET` pour extraire des sous-chaînes
-- [ ] Savoir manipuler la position de départ et le nombre de caractères à extraire
-- [ ] Appliquer l’`OFFSET` pour réorganiser des chaînes, par exemple des dates
+- [ ] Extraire une sous-partie d’un champ caractère avec un offset et une longueur.
+- [ ] Comprendre que l’offset commence à zéro.
+- [ ] Utiliser une longueur statique ou dynamique.
+- [ ] Éviter un accès au-delà des limites du champ.
 
-## 🌺 DEFINITION
+## 🌺 VUE D’ENSEMBLE
 
-> L’`OFFSET` permet de sélectionner une portion spécifique d’une chaîne de caractères à partir d’une position donnée et sur un nombre de caractères défini.
+```mermaid
+flowchart LR
+    F["Champ complet"] --> O["Offset : position de départ"]
+    O --> L["Longueur : nombre de caractères"]
+    L --> S["Sous-champ obtenu"]
+```
 
-> [!TIP]
-> Prendre un morceau d’une baguette à partir d’une certaine position et d’une certaine longueur.
+## 🌺 DÉFINITION
+
+ABAP permet d’adresser une partie d’un objet caractère avec la forme suivante :
+
+```abap
+<objet>+<offset>(<longueur>)
+```
+
+- `offset` indique la position de départ ; la première position vaut `0` ;
+- `longueur` indique le nombre de caractères à traiter ;
+- l’expression obtenue peut être lue ou utilisée comme cible d’une affectation lorsque le contexte le permet.
 
 > [!IMPORTANT]
-> Chaque caractère d’une chaîne a une position, en commençant à 0. L’`OFFSET` permet de dire : "Je veux commencer ici et prendre tant de caractères."
+> Les crochets utilisés dans certaines documentations, comme `f[+off][(len)]`, indiquent des parties optionnelles de la syntaxe. Ils ne doivent pas être saisis dans le programme.
 
-## 🌺 SYNTAXE
+## 🌺 EXTRAIRE UNE SOUS-CHAÎNE
 
-    Variable[+pos](nbre)
+```abap
+DATA lv_text   TYPE c LENGTH 10 VALUE 'ABCDEFGHIJ'.
+DATA lv_part   TYPE c LENGTH 3.
 
-- pos : position de départ dans la chaîne (0 = première position)
-- nbre : nombre de caractères à extraire
+lv_part = lv_text+2(3). "CDE
+```
+
+```mermaid
+flowchart LR
+    A["A : 0"] --> B["B : 1"] --> C["C : 2"] --> D["D : 3"] --> E["E : 4"]
+    C -. "offset 2, longueur 3" .-> R["CDE"]
+```
+
+## 🌺 RÉORGANISER UNE DATE TECHNIQUE
+
+```abap
+DATA lv_date_internal TYPE d VALUE '20260730'.
+DATA lv_date_display  TYPE c LENGTH 10.
+
+lv_date_display = |{ lv_date_internal+6(2) }/{ lv_date_internal+4(2) }/{ lv_date_internal(4) }|.
+
+WRITE lv_date_display. "30/07/2026
+```
+
+Dans `lv_date_internal(4)`, l’absence d’offset signifie que la lecture commence à la position zéro.
 
 > [!TIP]
-> Comme découper une phrase à partir d’un mot précis et ne prendre que quelques lettres ou mots.
+> Pour formater une date à destination de l’utilisateur, les options de formatage ABAP et les API de conversion sont souvent préférables. L’offset reste utile pour comprendre et manipuler un format technique connu et stable.
+
+## 🌺 OFFSET OU LONGUEUR DYNAMIQUE
+
+```abap
+DATA lv_text   TYPE string VALUE `ABCDEFGHIJ`.
+DATA lv_offset TYPE i VALUE 2.
+DATA lv_length TYPE i VALUE 4.
+DATA lv_part   TYPE string.
+
+lv_part = lv_text+lv_offset(lv_length). "CDEF
+```
+
+> [!WARNING]
+> La compatibilité exacte dépend du type de l’objet et de la position syntaxique. Les accès par sous-champ concernent principalement les objets caractère ou octet et certaines structures plates.
+
+## 🌺 RISQUE DE DÉPASSEMENT
+
+```abap
+DATA lv_code TYPE c LENGTH 4 VALUE 'ABCD'.
+
+"Accès invalide : 3 + 2 dépasse la longueur 4
+"DATA(lv_invalid) = lv_code+3(2).
+```
+
+Un offset ou une longueur hors limites peut provoquer une erreur de syntaxe ou une exception à l’exécution selon que les valeurs sont statiques ou dynamiques.
 
 > [!CAUTION]
-> La position commence toujours à 0, sinon vous risquez de récupérer le mauvais caractère.
+> Contrôler la longueur avant un accès dynamique. Ne jamais supposer qu’une donnée externe possède toujours le format attendu.
 
-## 🌺 EXEMPLE : REORGANISER UNE DATE
+```abap
+IF strlen( lv_text ) >= lv_offset + lv_length.
+  lv_part = lv_text+lv_offset(lv_length).
+ENDIF.
+```
 
-    WRITE:/ '     - OFFSET...'.
+## 🌺 EXERCICE
 
-    DATA: lv_date(10) TYPE C.
+À partir de la valeur `FR-75001-PARIS`, extraire :
 
-    CONCATENATE SY-DATUM+6(2)
-                SY-DATUM+4(2)
-                SY-DATUM(4)
-      INTO lv_date
-      SEPARATED BY '-'.
+1. le code pays ;
+2. le code postal ;
+3. la ville.
 
-    CONDENSE lv_date NO-GAPS.
+<details>
+<summary>💮 Afficher la correction</summary>
 
-    WRITE:/ SY-DATUM,
-          / lv_date.
+```abap
+DATA lv_value       TYPE c LENGTH 14 VALUE 'FR-75001-PARIS'.
+DATA lv_country     TYPE c LENGTH 2.
+DATA lv_postal_code TYPE c LENGTH 5.
+DATA lv_city        TYPE c LENGTH 5.
 
-> [!IMPORTANT]
->
-> - `SY-DATUM+6(2)` : à partir de la 6ème position, prendre 2 caractères → jour
-> - `SY-DATUM+4(2)` : à partir de la 4ème position, prendre 2 caractères → mois
-> - `SY-DATUM(4)` : prendre les 4 premiers caractères → année
+lv_country     = lv_value(2).
+lv_postal_code = lv_value+3(5).
+lv_city        = lv_value+9(5).
+```
 
-> [!TIP]
-> Prendre une date au format `AAAAMMJJ`, découper les morceaux correspondants au jour, mois et année, puis les remettre dans un nouvel ordre dans une nouvelle boîte.
+Cette solution repose sur un format fixe. Pour une chaîne dont les segments ont une longueur variable, utiliser plutôt `SPLIT`.
 
-> [!TIP]
->
-> - La première position dans une chaîne commence toujours à 0
-> - Très utile pour reformater des chaînes, extraire des sous-chaînes ou manipuler des dates
-> - Souvent combiné avec `CONCATENATE` pour reconstruire une chaîne dans un nouvel ordre
+</details>
 
-> [!TIP]
-> Comme découper des éléments d’un puzzle pour les remettre dans l’ordre que vous souhaitez.
+## 🌺 RÉSUMÉ
 
-## 🌺 RESUME
+> - La syntaxe réelle est `<objet>+<offset>(<longueur>)`.
+> - La première position possède l’offset `0`.
+> - Un accès hors limites peut provoquer une erreur.
+> - `SPLIT`, les templates de chaîne ou les API de conversion sont souvent plus adaptés aux formats variables.
 
-> - Variable[+pos](nbre) permet d’extraire une portion d’une chaîne
-> - pos indique la position de départ
-> - nbre indique le nombre de caractères à prendre
-> - Très utile pour réorganiser et reformater des chaînes, notamment les dates ou codes
+## 🌺 SOURCES
+
+- [SAP Help Portal — Processing Subfields](https://help.sap.com/saphelp_gbt10/helpdata/en/fc/eb341a358411d1829f0000e829fbfe/content.htm)
+- [SAP Help Portal — Basic Forms of the ASSIGN Statement](https://help.sap.com/docs/SAP_NETWEAVER_700/10a002cd6c531014b5e1cb16d2455072/fceb38d5358411d1829f0000e829fbfe.html)

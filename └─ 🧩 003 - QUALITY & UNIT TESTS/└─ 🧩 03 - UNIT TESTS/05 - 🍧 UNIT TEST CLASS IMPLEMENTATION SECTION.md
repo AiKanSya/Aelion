@@ -1,8 +1,22 @@
 # 🌸 UNIT TEST CLASS IMPLEMENTATION SECTION
 
-- [ ] Comprendre la logique de l'`IMPLEMENTATION SECTION`
+## 🌺 OBJECTIFS
 
-## 🧩 STRUCTURE DE BASE
+- [ ] Expliquer le rôle de **UNIT TEST CLASS IMPLEMENTATION SECTION** dans le contexte présenté.
+- [ ] Comprendre **structure de base**.
+- [ ] Mettre en œuvre **implémentation de la methode de test** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["UNIT TEST CLASS IMPLEMENTATION SECTION"]
+    A --> B["STRUCTURE DE BASE"]
+    B --> C["IMPLEMENTATION DE LA METHODE DE TEST"]
+```
+
+
+## 🌺 STRUCTURE DE BASE
 
 ```abap
 *"* use this source file for your ABAP unit test classes
@@ -83,7 +97,7 @@ CLASS ltc_Customer_Orders IMPLEMENTATION.
 ENDCLASS.
 ```
 
-### 🍧 CLASS IMPLEMENTATION
+### 🍧 CLASS IMPLÉMENTATION
 
 ```abap
 METHOD class_setup.
@@ -113,11 +127,10 @@ METHOD get_order_count.
 > [!NOTE]
 > La méthode `get_order_count` est une méthode créé à partir de la méthode sélectionnée lors de la création par le `Wizard`.
 
-## 🧩 IMPLEMENTATION DE LA METHODE DE TEST
+## 🌺 IMPLÉMENTATION DE LA METHODE DE TEST
 
 > [!CAUTION]
 > Nommer les méthodes :
->
 > - Méthodes : convention `test_<fonction>`
 > - Objectif : identifier facilement le test et savoir quelle méthode métier est testée
 
@@ -157,7 +170,7 @@ CLASS ltc_customer_orders IMPLEMENTATION.
 ENDCLASS.
 ```
 
-### 🍧 IMPLEMENTATION
+### 🍧 IMPLÉMENTATION
 
 ```abap
 METHOD setup.
@@ -199,10 +212,24 @@ METHOD test_get_order_count.
 > [!IMPORTANT]
 > Il s'agit de la méthode de test. Cette dernière vérifie une égalité. Il existe d'autres méthodes d'Assertion.
 
-### 🍧 RESUME FONCTIONNEL
+### 🍧 RÉSUMÉ FONCTIONNEL
 
 > [!IMPORTANT]
->
 > - `ltc_customer_orders` est une classe de test `ABAP Unit`.
 > - `setup` prépare l’environnement (instanciation de l’objet à tester).
 > - `test_get_order_count` exécute le test fonctionnel, compare le résultat réel au résultat attendu, et signale toute divergence via l’assertion.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **structure de base** dans le contexte présenté.
+> - Savoir utiliser **implémentation de la methode de test** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **UNIT TEST CLASS IMPLEMENTATION SECTION** avec mes propres mots.
+- [ ] Je peux expliquer **structure de base** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **implementation de la methode de test** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

@@ -1,6 +1,21 @@
 # 🌸 APP.VIEW
 
-## 🧩 APP.VIEW.XML (VUE RACINE DE L’APPLICATION)
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **APP.VIEW** dans le contexte présenté.
+- [ ] Comprendre **app.view.xml (vue racine de l’application)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["APP.VIEW"]
+    A --> B["APP.VIEW.XML (VUE RACINE DE L’APPLICATION)"]
+```
+
+
+## 🌺 APP.VIEW.XML (VUE RACINE DE L’APPLICATION)
 
 ```
 fgifirstappmodulename/
@@ -37,11 +52,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Définir le conteneur principal de l’application.
->
 > - 🔨 Utilité : Héberger le NavContainer ou Router qui gère la navigation entre les vues.
 > - ⌚ Quand utilisé ? Chargée une seule fois au démarrage de l’application.
 
@@ -105,3 +117,17 @@ OBJECTIF GLOBAL :
 
 </mvc:View>
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **app.view.xml (vue racine de l’application)** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **APP.VIEW** avec mes propres mots.
+- [ ] Je peux expliquer **app.view.xml (vue racine de l’application)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

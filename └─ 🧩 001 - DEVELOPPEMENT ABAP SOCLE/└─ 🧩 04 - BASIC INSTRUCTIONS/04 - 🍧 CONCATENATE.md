@@ -7,7 +7,19 @@
 - [ ] Utiliser les options `SEPARATED BY` et `RESPECTING BLANKS`
 - [ ] Stocker le résultat dans une variable
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CONCATENATE"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLE"]
+```
+
+
+## 🌺 DÉFINITION
 
 > `CONCATENATE` permet de fusionner plusieurs chaînes de caractères ou lignes d’une table interne et de stocker le résultat dans une variable cible.
 
@@ -30,7 +42,6 @@
 - RESPECTING BLANKS : conserve les espaces de chaque chaîne
 
 > [!TIP]
->
 > - `IN BYTE MODE` = travailler en mode "octet pur", comme manipuler les lettres en binaire
 > - `SEPARATED BY` = ajouter un petit séparateur entre chaque mot, comme un tiret ou une virgule
 > - `RESPECTING BLANKS` = conserver exactement l’espace prévu pour chaque mot, utile pour les fichiers plats ou formats bancaires
@@ -68,22 +79,29 @@
           / 'RESPECTING BLANKS:', lv_resul3.
 
 > [!IMPORTANT]
->
 > - Premier `CONCATENATE` : coller les mots bout à bout sans espace supplémentaire
 > - Deuxième : coller les mots avec un tiret entre chaque mot
 > - Troisième : coller les mots en conservant tous les espaces définis, comme des cases fixes sur une feuille
 
 > [!TIP]
 > Visualiser chaque mot comme une carte à coller sur une feuille
->
 > - `SEPARATED BY` = ajouter un espace ou un séparateur visible
 > - `RESPECTING BLANKS` = respecter exactement la largeur de chaque mot
 > - Les tables internes peuvent être fusionnées automatiquement ligne par ligne avec LINES OF itab
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `CONCATENATE` = fusionner plusieurs chaînes dans une variable
 > - Options importantes : `SEPARATED BY`, `RESPECTING BLANKS`
->
 > [!TIP]
 > coller des cartes ou des mots sur une feuille pour former un texte complet
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CONCATENATE** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

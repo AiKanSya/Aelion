@@ -1,12 +1,30 @@
 # 🌸 ENTITYTYPE - NAME
 
-## 🧩 SAP GATEWAY DATAMODEL - NAME
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **ENTITYTYPE - NAME** dans le contexte présenté.
+- [ ] Comprendre **sap gateway datamodel - name**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["ENTITYTYPE - NAME"]
+    A --> B["SAP GATEWAY DATAMODEL - NAME"]
+```
+
+> [!IMPORTANT]
+> Une modification du modèle OData peut nécessiter une nouvelle génération des artefacts d’exécution et une vérification du document `$metadata` consommé par les clients.
+
+
+## 🌺 SAP GATEWAY DATAMODEL - NAME
 
 👉 Le champ `Name` est l’identifiant officiel de la `Property` dans tout l'`OData Service` : côté backend, côté `metadata` et côté `Clients`. Il doit être stable, clair et unique.
 
 ![](.././assets/Capture%20d’écran%202026-01-16%20114136.png)
 
-### 🍧 DEFINITION
+### 🍧 DÉFINITION
 
 Le champ `Name` est le nom de la `Property` telle qu’elle apparaîtra :
 
@@ -16,12 +34,12 @@ Le champ `Name` est le nom de la `Property` telle qu’elle apparaîtra :
 
 C’est donc l’identifiant unique de cette `Property` au sein de l’`EntityType`.
 
-### 🍧 ROLE
+### 🍧 RÔLE
 
 - Sert de `Key` de référence pour toutes les autres parties du `Service` ;
 - Est utilisé par les applications consommatrices pour lire la donnée (`UI5`, `Postman`, `mobile`, `API` ...).
 
-### 🍧 RULES
+### 🍧 RÈGLES
 
 | 🍧 Règle                                             | 🍧 Explication                                                              |
 | ---------------------------------------------------- | --------------------------------------------------------------------------- |
@@ -49,3 +67,17 @@ C’est donc l’identifiant unique de cette `Property` au sein de l’`EntityTy
 | Nom trop générique ("Value", "Code")        | Illisible pour les consommateurs du Service              |
 | Changer un Name après livraison             | Potentiellement catastrophique : toutes les apps cassent |
 | Mettre des caractères spéciaux (é, è, -, /) | Non conforme EDM, risque d’erreurs XML                   |
+
+## 🌺 RÉSUMÉ
+
+> - **Sap gateway datamodel - name :** 👉 Le champ Name est l’identifiant officiel de la Property dans tout l'OData Service : côté backend, côté metadata et côté Clients.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **ENTITYTYPE - NAME** avec mes propres mots.
+- [ ] Je peux expliquer **sap gateway datamodel - name** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

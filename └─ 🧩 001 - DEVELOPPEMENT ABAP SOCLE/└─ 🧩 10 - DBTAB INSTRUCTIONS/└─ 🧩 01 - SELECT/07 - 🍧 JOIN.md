@@ -7,24 +7,34 @@
 - [ ] Appliquer les alias pour simplifier les références aux tables
 - [ ] Utiliser les tables internes pour stocker et parcourir les résultats
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["JOIN – COMBINER DES TABLES SAP"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE"]
+    C --> D["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
 
 > Un JOIN permet de sélectionner des données de plusieurs tables associées par un ou plusieurs champs communs (`ON`).
->
 > - INNER JOIN : sélectionne uniquement les lignes présentes dans les deux tables.
 > - LEFT JOIN : sélectionne toutes les lignes de la table de gauche, en ajoutant les lignes correspondantes de la table de droite ou des valeurs nulles si absence de correspondance.
 > - RIGHT JOIN : sélectionne toutes les lignes de la table de droite, avec les valeurs de la table de gauche ou nulles si absence de correspondance.
 
 > [!TIP]
 > Imaginez deux classeurs Excel : l’un pour les modèles de voitures, l’autre pour les conducteurs.
->
 > - INNER JOIN : seules les combinaisons voiture/conducteur existantes dans les deux classeurs sont conservées.
 > - LEFT JOIN : toutes les voitures apparaissent, même si aucun conducteur n’est associé.
 > - RIGHT JOIN : tous les conducteurs apparaissent, même si aucune voiture ne leur correspond.
 
 ## 🌺 EXEMPLE
 
-### INNER JOIN
+### 🍧 INNER JOIN
 
     TYPES: BEGIN OF ty_ekko_ekpo,
             ebeln TYPE ekko-ebeln,
@@ -50,7 +60,7 @@
       MESSAGE 'Error select_join' TYPE 'E'.
     ENDIF.
 
-### INNER JOIN AS ALIAS
+### 🍧 INNER JOIN AS ALIAS
 
     TYPES: BEGIN OF ty_ekko_ekpo,
             ebeln TYPE ekko-ebeln,
@@ -77,7 +87,7 @@
       MESSAGE 'Error select_join' TYPE 'E'.
     ENDIF.
 
-### LEFT JOIN
+### 🍧 LEFT JOIN
 
     TYPES: BEGIN OF ty_ekko_ekpo,
             ebeln TYPE ekko-ebeln,
@@ -104,7 +114,7 @@
       MESSAGE 'Error select_join' TYPE 'E'.
     ENDIF.
 
-### RIGHT JOIN
+### 🍧 RIGHT JOIN
 
     TYPES: BEGIN OF ty_ekko_ekpo,
             ebeln TYPE ekko-ebeln,
@@ -142,5 +152,21 @@
 | Documenter les conditions de jointure                        | Facilite la compréhension des relations entre tables |
 
 > [!TIP]
-> Les alias simplifient les colonnes dans les SELECT complexes.  
+> Les alias simplifient les colonnes dans les SELECT complexes.
 > Les exercices permettent de comprendre l’impact des différents types de JOIN sur les résultats.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - **Exemple :** TYPES: BEGIN OF tyekkoekpo,
+> - Savoir utiliser **bonnes pratiques** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **JOIN – COMBINER DES TABLES SAP** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemple** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

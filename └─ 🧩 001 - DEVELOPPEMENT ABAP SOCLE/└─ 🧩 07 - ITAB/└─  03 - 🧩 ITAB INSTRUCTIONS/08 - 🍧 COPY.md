@@ -8,7 +8,19 @@
 - [ ] Connaître les précautions à prendre avant une copie
 - [ ] Être capable de vérifier la réussite d’une copie
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["COPY TABLE"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLES"]
+    C --> D["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
 
     itab_dest[] = itab_src[]
 
@@ -16,14 +28,13 @@
 
 > [!TIP]
 > Imaginez deux classeurs
->
 > - `itab_src` = classeur d’origine rempli de fiches
-> - `itab_dest` = classeur vide  
+> - `itab_dest` = classeur vide
 >   Copier `itab_src[]` vers `itab_dest[]` revient à photocopier toutes les fiches du premier pour les ranger dans le second.
 
 ## 🌺 EXEMPLES
 
-### 1 – COPIE COMPLETE D’UNE TABLE INTERNE
+### 🍧 1 – COPIE COMPLETE D’UNE TABLE INTERNE
 
     TYPES: BEGIN OF ty_citizen,
              country TYPE char3,
@@ -60,7 +71,7 @@
 > [!CAUTION]
 > Si `lt_citizen_dest` contenait déjà des données, elles seront remplacées (pas ajoutées).
 
-### 2 – COPIE AVEC STRUCTURE IDENTIQUE MAIS VIDE
+### 🍧 2 – COPIE AVEC STRUCTURE IDENTIQUE MAIS VIDE
 
     DATA: lt_empty_src TYPE STANDARD TABLE OF ty_citizen,
           lt_copy     TYPE STANDARD TABLE OF ty_citizen.
@@ -68,10 +79,10 @@
     lt_copy[] = lt_empty_src[].
 
 > [!TIP]
-> Si la table source est vide, la table de destination sera vide aussi.  
+> Si la table source est vide, la table de destination sera vide aussi.
 > Cela peut être utile pour réinitialiser une table sans utiliser `CLEAR`.
 
-### 3 – COPIE AVEC DECLARATION DYNAMIQUE
+### 🍧 3 – COPIE AVEC DECLARATION DYNAMIQUE
 
     FIELD-SYMBOLS: <lfs_src>  TYPE STANDARD TABLE,
                    <lfs_dest> TYPE STANDARD TABLE.
@@ -86,7 +97,7 @@
     ENDIF.
 
 > [!IMPORTANT]
-> Cette méthode est utilisée dans les programmes où les noms de tables varient selon les contextes.  
+> Cette méthode est utilisée dans les programmes où les noms de tables varient selon les contextes.
 > Elle permet de copier dynamiquement sans connaître le nom exact des tables.
 
 > [!IMPORTANT]
@@ -102,14 +113,22 @@
 | Eviter les copies inutiles                   | Pour des grandes tables, cela peut ralentir le programme                     |
 | Favoriser les FIELD-SYMBOLS pour modifier    | Si le but est de manipuler directement, pas besoin de dupliquer les données  |
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > `itab_dest[] = itab_src[]` est la méthode la plus simple pour copier intégralement une table interne.
->
 > - Les crochets `[]` signifient “copie de tout le contenu”
 > - Les données sont dupliquées, pas seulement la référence
 > - Les anciennes lignes sont remplacées
 > - Possibilité d’utiliser des FIELD-SYMBOLS pour un traitement dynamique
->
 > [!TIP]
 > Copier une table, c’est comme scanner un classeur entier pour en faire une copie fidèle, sans toucher à l’original.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **COPY TABLE** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemples** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

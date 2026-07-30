@@ -1,6 +1,21 @@
 # 🌸 ANNOTATIONS
 
-## 🧩 ANNOTATIONS/ (ANNOTATIONS ODATA)
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **ANNOTATIONS** dans le contexte présenté.
+- [ ] Comprendre **annotations/ (annotations odata)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["ANNOTATIONS"]
+    A --> B["ANNOTATIONS/ (ANNOTATIONS ODATA)"]
+```
+
+
+## 🌺 ANNOTATIONS/ (ANNOTATIONS ODATA)
 
 ```
 fgifirstappmodulename/
@@ -28,15 +43,11 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Centraliser les dossier d’annotations OData utilisés par l’application.
->
 > - 🔨 Utilité : Enrichir le modèle OData avec des informations supplémentaires (UI, labels, champs obligatoires, comportements).
 > - ⌚ Quand utilisé ? Lorsqu’on souhaite influencer l’affichage ou le comportement UI sans modifier le service backend.
 > - 📌 Exemple :
->
 >   Ajouter un libellé lisible à un champ OData pour l’affichage dans l’UI.
 
 ### 🍧 ANNOTATION.XML (DESCRIPTIONS UI ODATA)
@@ -68,11 +79,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Décrire des métadonnées complémentaires pour un service OData.
->
 > - 🔨 Utilité : Contrôler l’affichage UI (labels, champs visibles, sections, importance) via des annotations standards SAP (niveau avancé).
 > - ⌚ Quand utilisé ? Quand on développe une application Fiori utilisant OData et que l'on veut enrichir le modèle sans toucher au backend ABAP.
 
@@ -385,3 +393,17 @@ fgifirstappmodulename/
 
 </edmx:Edmx>
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **annotations/ (annotations odata)** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **ANNOTATIONS** avec mes propres mots.
+- [ ] Je peux expliquer **annotations/ (annotations odata)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

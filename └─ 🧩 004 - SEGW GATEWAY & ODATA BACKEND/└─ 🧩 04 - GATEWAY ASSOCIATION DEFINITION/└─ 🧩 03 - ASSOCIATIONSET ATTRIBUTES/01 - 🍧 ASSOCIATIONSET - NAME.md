@@ -1,24 +1,40 @@
 # 🌸 ASSOCIATIONSET - NAME
 
-![](../assets/Capture%20d’écran%202026-01-16%20125926.png)
+## 🌺 OBJECTIFS
 
-## 🧩 NAME
+- [ ] Expliquer le rôle de **ASSOCIATIONSET - NAME** dans le contexte présenté.
+- [ ] Comprendre **name**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["ASSOCIATIONSET - NAME"]
+    A --> B["NAME"]
+```
+
+> [!IMPORTANT]
+> Une modification du modèle OData peut nécessiter une nouvelle génération des artefacts d’exécution et une vérification du document `$metadata` consommé par les clients.
+
+
+## 🌺 NAME
 
 Le `Name` d’un `AssociationSet` est l’identifiant technique de l’instance d’`Association` exposée dans l'`OData Service`. Il relie concrètement deux `EntitySets` via une `Association`.
 
-### 🍧 DEFINITION
+### 🍧 DÉFINITION
 
 - Nom technique de l’`AssociationSet` dans l'`OData Service`.
 - Représente l’instance d’une `Association` entre deux `EntitySets`.
 - Apparaît dans le `$metadata` sous le `node` `<AssociationSet>`.
 
-### 🍧 ROLE
+### 🍧 RÔLE
 
 - Lier une `Association` à des `EntitySets` concrets.
 - Permettre aux `OData Navigations` de fonctionner entre `EntitySets`.
 - Servir de point de résolution entre modèle conceptuel (`Association`) et `Exposition` du service.
 
-### 🍧 RULES
+### 🍧 RÈGLES
 
 | 🍧 Règle                                  | 🍧 Explication                                        |
 | ----------------------------------------- | ----------------------------------------------------- |
@@ -42,7 +58,7 @@ Conventions courantes :
 </AssociationSet>
 ```
 
-### 🍧 ERRORS
+### 🍧 ERREURS
 
 | 🍧 Erreur                       | 🍧 Pourquoi c’est un problème     |
 | ------------------------------- | --------------------------------- |
@@ -50,3 +66,17 @@ Conventions courantes :
 | Association inexistante         | Service OData invalide            |
 | Incohérence avec les EntitySets | Navigation impossible             |
 | Changer le Name après livraison | Rupture des applications clientes |
+
+## 🌺 RÉSUMÉ
+
+> - **Name :** Le Name d’un AssociationSet est l’identifiant technique de l’instance d’Association exposée dans l'OData Service.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **ASSOCIATIONSET - NAME** avec mes propres mots.
+- [ ] Je peux expliquer **name** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

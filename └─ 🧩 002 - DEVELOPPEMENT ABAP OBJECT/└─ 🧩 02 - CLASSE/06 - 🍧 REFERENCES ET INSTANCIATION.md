@@ -1,180 +1,86 @@
-# 🌸 REFERENCES ET INSTANCIATION
+# 🌸 RÉFÉRENCES ET INSTANCIATION
 
 ## 🌺 OBJECTIFS
 
-- [ ] Déclarer une référence objet
-- [ ] Créer un objet avec `NEW`
-- [ ] Créer un objet avec `CREATE OBJECT`
-- [ ] Vérifier qu’une référence est liée avec `IS BOUND`
-- [ ] Comprendre la différence entre référence initiale et objet créé
-- [ ] Appeler une méthode d’instance avec `->`
+- [ ] Déclarer une référence vers une classe globale.
+- [ ] Créer un objet avec `NEW`.
+- [ ] Distinguer référence initiale et objet existant.
+- [ ] Comprendre l’affectation entre références.
 
-## 🌺 DECLARATION D'UNE REFERENCE
+## 🌺 DÉFINITION
 
-    DATA lo_service TYPE REF TO lcl_service.
+Une référence objet contient l’accès à une instance. Avant l’instanciation, elle est initiale et ne désigne aucun objet.
 
-Cette instruction déclare une référence capable de pointer vers un objet de type `lcl_service`.
+```abap
+DATA lo_service TYPE REF TO zcl_aelion_service.
+```
 
-A ce stade, aucun objet n’est créé.
+## 🌺 VUE D'ENSEMBLE
 
-> [!IMPORTANT]
-> Déclarer une référence ne crée pas automatiquement un objet.
+```mermaid
+stateDiagram-v2
+    [*] --> ReferenceInitiale
+    ReferenceInitiale --> ObjetCree: NEW ZCL_AELION_SERVICE
+    ObjetCree --> ReferencePartagee: affectation à une autre référence
+    ObjetCree --> [*]: aucune référence restante
+```
 
-## 🌺 REFERENCE INITIALE
+## 🌺 INSTANCIATION PUBLIQUE
 
-Après la déclaration :
+La propriété d’instanciation de la classe est configurée dans `SE24`.
 
-    DATA lo_service TYPE REF TO lcl_service.
+```abap
+DATA(lo_service) = NEW zcl_aelion_service( ).
+```
 
-la référence est initiale et ne pointe vers aucun objet.
+L’expression réalise deux opérations : création de l’objet et affectation de sa référence.
 
-Un appel immédiat provoquerait une erreur d’exécution :
+> [!CAUTION]
+> Appeler une méthode d’instance sur une référence initiale provoque une exception d’exécution liée à une référence objet non affectée.
 
-    " Interdit tant que l'objet n'a pas été créé
-    lo_service->execute( ).
+## 🌺 TEST DE LA RÉFÉRENCE
 
-## 🌺 CREATION AVEC NEW
+```abap
+IF lo_service IS BOUND.
+  lo_service->execute( ).
+ENDIF.
+```
 
-    lo_service = NEW lcl_service( ).
+`IS BOUND` vérifie que la référence désigne un objet valide.
 
-La forme avec déclaration en ligne :
+## 🌺 DEUX RÉFÉRENCES, UN OBJET
 
-    DATA(lo_service) = NEW lcl_service( ).
+```abap
+DATA(lo_first) = NEW zcl_aelion_counter( ).
+DATA lo_second TYPE REF TO zcl_aelion_counter.
 
-`NEW` crée l’objet et retourne sa référence.
+lo_second = lo_first.
+lo_second->increment( ).
+```
 
-## 🌺 CREATION AVEC CREATE OBJECT
+Les deux références désignent la même instance. Une modification effectuée par l’une est visible par l’autre.
 
-    DATA lo_service TYPE REF TO lcl_service.
+## 🌺 EXERCICE
 
-    CREATE OBJECT lo_service.
+Créer deux instances de `ZCL_AELION_COUNTER`, puis une troisième référence désignant la première instance. Comparer les effets des appels.
 
-`CREATE OBJECT` est une syntaxe historique toujours disponible.
-Pour les nouveaux développements, `NEW` est généralement plus concis.
+<details>
+<summary>Afficher la correction et les points de contrôle</summary>
 
-## 🌺 VERIFICATION AVEC IS BOUND
+- [ ] Deux appels à NEW créent deux objets distincts.
+- [ ] Une affectation de référence ne duplique pas l’objet.
+- [ ] IS BOUND est utilisé avant un appel incertain.
+- [ ] Les sélecteurs -> et => ne sont pas confondus.
 
-    IF lo_service IS BOUND.
-      lo_service->execute( ).
-    ENDIF.
+</details>
 
-`IS BOUND` vérifie que la référence pointe vers un objet valide.
+## 🌺 RÉSUMÉ
 
-Test inverse :
-
-    IF lo_service IS NOT BOUND.
-      lo_service = NEW lcl_service( ).
-    ENDIF.
-
-## 🌺 EXEMPLE COMPLET
-
-    REPORT zaelion_oo_06.
-
-    CLASS lcl_light DEFINITION.
-      PUBLIC SECTION.
-        METHODS switch_on.
-        METHODS switch_off.
-        METHODS get_status
-          RETURNING
-            VALUE(rv_status) TYPE string.
-
-      PRIVATE SECTION.
-        DATA mv_is_on TYPE abap_bool.
-    ENDCLASS.
-
-    CLASS lcl_light IMPLEMENTATION.
-      METHOD switch_on.
-        mv_is_on = abap_true.
-      ENDMETHOD.
-
-      METHOD switch_off.
-        mv_is_on = abap_false.
-      ENDMETHOD.
-
-      METHOD get_status.
-        IF mv_is_on = abap_true.
-          rv_status = 'ALLUMEE'.
-        ELSE.
-          rv_status = 'ETEINTE'.
-        ENDIF.
-      ENDMETHOD.
-    ENDCLASS.
-
-    START-OF-SELECTION.
-
-      DATA lo_light TYPE REF TO lcl_light.
-
-      IF lo_light IS NOT BOUND.
-        lo_light = NEW lcl_light( ).
-      ENDIF.
-
-      lo_light->switch_on( ).
-      WRITE: / lo_light->get_status( ).
-
-      lo_light->switch_off( ).
-      WRITE: / lo_light->get_status( ).
-
-## 🌺 PLUSIEURS REFERENCES
-
-Deux références peuvent pointer vers le même objet.
-
-    DATA(lo_light_1) = NEW lcl_light( ).
-    DATA lo_light_2 TYPE REF TO lcl_light.
-
-    lo_light_2 = lo_light_1.
-
-    lo_light_1->switch_on( ).
-
-    WRITE: / lo_light_2->get_status( ).
-
-Le statut affiché est `ALLUMEE`, car les deux références accèdent au même objet.
-
-## 🌺 PLUSIEURS OBJETS
-
-    DATA(lo_light_1) = NEW lcl_light( ).
-    DATA(lo_light_2) = NEW lcl_light( ).
-
-Deux appels à `NEW` créent deux objets indépendants.
-
-## 🌺 LIBERATION D'UNE REFERENCE
-
-    CLEAR lo_light.
-
-La référence devient initiale.
-L’objet est supprimé automatiquement lorsqu’il n’est plus référencé et que le système peut récupérer sa mémoire.
-
-> [!NOTE]
-> `CLEAR` agit sur la référence.
-> Il ne faut pas confondre la référence et l’objet.
-
-## 🌺 BONNES PRATIQUES
-
-- Créer l’objet avant tout appel d’une méthode d’instance.
-- Utiliser `IS BOUND` lorsque la référence peut ne pas être initialisée.
-- Préférer `NEW` pour une syntaxe courte et lisible.
-- Eviter de multiplier les références vers le même objet sans nécessité.
-- Utiliser des noms `lo_` pour les références locales et `ro_` pour les références retournées.
-
-## 🌺 EXERCICES
-
-1. Créer une classe `lcl_door` avec les méthodes `open`, `close` et `get_status`.
-2. Déclarer une référence sans créer l’objet.
-3. Vérifier la référence avec `IS NOT BOUND`.
-4. Créer l’objet avec `NEW`.
-5. Créer une deuxième référence vers le même objet.
-6. Prouver que les deux références accèdent au même état.
-
-## 🌺 RESUME
-
-> - `TYPE REF TO` déclare une référence objet.
-> - Une référence déclarée ne contient pas encore d’objet.
-> - `NEW` et `CREATE OBJECT` créent une instance.
-> - `IS BOUND` vérifie la validité de la référence.
-> - `->` appelle un composant d’instance.
+> - Une référence n’est pas l’objet lui-même.
+> - `NEW` crée une instance et retourne sa référence.
 > - Plusieurs références peuvent désigner le même objet.
+> - `IS BOUND` protège les appels lorsque l’affectation n’est pas garantie.
 
 ## 🌺 SOURCES OFFICIELLES
 
-- SAP ABAP Keyword Documentation — Object References : https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/abenobject_reference.htm
-- SAP ABAP Keyword Documentation — Instance Operator `NEW` : https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/abenconstructor_expression_new.htm
-- SAP ABAP Keyword Documentation — `CREATE OBJECT` : https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/abapcreate_object.htm
+- [Documentation SAP — Classes](https://help.sap.com/doc/abapdocu_cp_index_htm/CLOUD/en-US/ABENCLASSES.html)

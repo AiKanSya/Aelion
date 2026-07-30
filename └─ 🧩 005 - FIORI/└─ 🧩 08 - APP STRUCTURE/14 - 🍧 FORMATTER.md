@@ -1,6 +1,21 @@
 # 🌸 FORMATTER
 
-## 🧩 FORMATTER.JS (FORMATAGE DES DONNÉES UI)
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **FORMATTER** dans le contexte présenté.
+- [ ] Comprendre **formatter.js (formatage des données ui)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["FORMATTER"]
+    A --> B["FORMATTER.JS (FORMATAGE DES DONNÉES UI)"]
+```
+
+
+## 🌺 FORMATTER.JS (FORMATAGE DES DONNÉES UI)
 
 ```
 fgifirstappmodulename/
@@ -32,11 +47,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Adapter l’affichage des données dans l’interface utilisateur.
->
 > - 🔨 Utilité : Transformer des données brutes (dates, statuts, montants) en valeurs lisibles.
 > - ⌚ Quand utilisé ? Lorsqu’un champ doit être affiché différemment de sa valeur technique.
 
@@ -121,7 +133,7 @@ sap.ui.define(
             case "Success":
               // pris en compte uniquement si rien de plus grave
               sHighestSeverityIcon =
-                sHighestSeverityIcon !== "Negative" &&
+                sHighestSeverityIcon !== "Negative" &
                 sHighestSeverityIcon !== "Critical"
                   ? "Success"
                   : sHighestSeverityIcon;
@@ -159,7 +171,7 @@ sap.ui.define(
 
             case "Success":
               sIcon =
-                sIcon !== "sap-icon://error" && sIcon !== "sap-icon://alert"
+                sIcon !== "sap-icon://error" & sIcon !== "sap-icon://alert"
                   ? "sap-icon://sys-enter-2"
                   : sIcon;
               break;
@@ -353,3 +365,17 @@ sap.ui.define(
   },
 );
 ```
+
+## 🌺 RÉSUMÉ
+
+> - **Formatter.js (formatage des données ui) :** 📌 Exemple Formatter.js :
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **FORMATTER** avec mes propres mots.
+- [ ] Je peux expliquer **formatter.js (formatage des données ui)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

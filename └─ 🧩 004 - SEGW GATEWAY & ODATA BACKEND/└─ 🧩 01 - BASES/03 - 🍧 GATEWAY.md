@@ -1,26 +1,38 @@
 # 🌸 GATEWAY
 
-## 🧩 OBJECTIVES
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["GATEWAY"]
+    A --> B["DEFINITION"]
+    B --> C["SAP GATEWAY FLEXIBLE DEPLOYMENT (OPTIONAL)"]
+    C --> D["DEPLOYMENT SCENARIOS"]
+    D --> E["KEY POINTS"]
+    E --> F["EXAMPLES OF SAP PRODUCTS USING SAP GATEWAY (OPTIONAL)"]
+```
+
+
+## 🌺 OBJECTIFS
 
 - [ ] Comprendre la `SAP Gateway` (Server).
 - [ ] (Optionnel) Identifier les choix de `Deployment`
 - [ ] (Optionnel) Identifier les produits SAP qui utilisent `SAP Gateway`.
 
-## 🧩 DEFINITION
+## 🌺 DÉFINITION
 
 > [!IMPORTANT]
-> La `SAP Gateway` est un `Server` (Barman de la Brasserie ou Chef de Cuisine) qui permet d’exposer les données SAP (Plats et Boissons) via `OData` (la carte de la Brasserie), facilitant ainsi l’accès aux informations (menus, plats, boissons ...) depuis des `Clients` (applications, mobiles ou web - Chef de Rang).  
+> La `SAP Gateway` est un `Server` (Barman de la Brasserie ou Chef de Cuisine) qui permet d’exposer les données SAP (Plats et Boissons) via `OData` (la carte de la Brasserie), facilitant ainsi l’accès aux informations (menus, plats, boissons ...) depuis des `Clients` (applications, mobiles ou web - Chef de Rang).
 > Il sert de pont entre le `Front-End` (applications) et le `Back-End` (données SAP).
 
 > [!TIP]
 > Imaginez `SAP Gateway` comme un Chef de Rang : il prend la `Request` (commande) du `Client` (application), la transmet au back-end (Barman/Chef de Cuisine), et renvoie les données (Plats et Boissons) au `Client` (application) pour être `consumed` (consommé) par les `Users` (fétards).
 
-## 🧩 SAP GATEWAY FLEXIBLE DEPLOYMENT (OPTIONAL)
+## 🌺 SAP GATEWAY FLEXIBLE DEPLOYMENT (OPTIONAL)
 
 `SAP Gateway` peut être déployé de deux façons :
 
 > [!TIP]
->
 > - `Hub Deployment` = deux lieux : salle (`FES`) et cuisine/bar (`BES`).
 > - `Embedded Development` = tout dans un même lieu, plus rapide et simple.
 
@@ -38,14 +50,13 @@ Le Front-End et le Back-End peuvent être exécutés dans le même système ABAP
 > [!IMPORTANT]
 > L'Embedded Development est recommandé pour SAP S/4HANA.
 
-## 🧩 DEPLOYMENT SCENARIOS
+## 🌺 DEPLOYMENT SCENARIOS
 
 > [!NOTE]
 > les 3 principaux.
 
-> [!TIP]  
+> [!TIP]
 > Pour se souvenir :
->
 > - Embedded Development = tout dans le même bâtiment (rapide, simple).
 > - Hub = lieux séparés (plus de flexibilité et sécurité pour multi-backends).
 
@@ -55,7 +66,7 @@ Le Front-End et le Back-End peuvent être exécutés dans le même système ABAP
 - Avantages : administration centralisée, sécurité, composition multi-origine, bon pour Business Suite.
 - Inconvénients : Server supplémentaire (`FES`), communication RFC nécessaire.
 
-> [!TIP]  
+> [!TIP]
 > Hub (`BES` dev) = plusieurs parties en cuisine (`BES`) préparant des entrées, plats et desserts, la salle (`FES`) centralise l’accès.
 
 ### 🍧 DEPLOYMENT IN THE FES (FRONT-END)
@@ -64,7 +75,7 @@ Le Front-End et le Back-End peuvent être exécutés dans le même système ABAP
 - Avantages : centralisation frontale, simplifie administration et versioning du front.
 - Inconvénients : séparation logique entre implémentation et données (RFC), Server supplémentaire, complexité si logique métier doit rester dans `BES`.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Option choisie quand le `BES` est contraint (versions anciennes, restrictions d’install).
 
 ### 🍧 EMBEDDED DEPLOYMENT (INTEGRATED)
@@ -73,16 +84,16 @@ Le Front-End et le Back-End peuvent être exécutés dans le même système ABAP
 - Avantages : déploiement plus simple, meilleures performances (pas d’aller-retour RFC pour chaque opération), exposition rapide des services.
 - Inconvénients : moins adapté si on doit combiner plusieurs `BES`/version différentes ; mises à niveau du système peuvent impacter les services exposés.
 
-> [!CAUTION]  
+> [!CAUTION]
 > Si le système est exposé à Internet en embedded, prévoir des mesures de sécurité renforcées !
 
-## 🧩 KEY POINTS
+## 🌺 KEY POINTS
 
 - `SAP Gateway` = pont entre applications et données SAP via `OData`.
 - `Déploiement flexible` : `FES`/`BES` deployment ou Embedded Development selon les `bes`oins.
 - De nombreux produits SAP utilisent SAP Gateway, comme Fiori Launchpad, Multichannel Foundation, Mobile Start, Mobile Services Client.
 
-## 🧩 EXAMPLES OF SAP PRODUCTS USING SAP GATEWAY (OPTIONAL)
+## 🌺 EXAMPLES OF SAP PRODUCTS USING SAP GATEWAY (OPTIONAL)
 
 ### 🍧 SAP FIORI LAUNCHPAD
 
@@ -127,3 +138,19 @@ Le Front-End et le Back-End peuvent être exécutés dans le même système ABAP
 
 - Plateforme pour exécuter des applications créées avec Mobile Development Toolkit (MDK).
 - Fournit un Client multi-plateforme pour Apple iOS et Android.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - **Sap gateway flexible deployment (optional) :** FES (Front-End Server) et BES (Back-End Server) sont sur des systèmes séparés.
+> - Savoir utiliser **deployment scenarios** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **GATEWAY** avec mes propres mots.
+- [ ] Je peux expliquer **objectives** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **definition** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

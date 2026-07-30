@@ -8,7 +8,19 @@
 - [ ] Identifier les situations pratiques : noms de fichiers, extensions, formats textuels
 - [ ] Reconnaître la sensibilité à la casse et les types de `VARIABLES` compatibles (C ou STRING)
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["COVERS PATTERN (CP)"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLES"]
+```
+
+
+## 🌺 DÉFINITION
 
 > L'opérateur `CP` (Covers Pattern) permet de tester si une chaîne (oper1) correspond à un PATTERN (oper2) qui peut contenir des caracteres generiques (\* et +).
 
@@ -52,7 +64,7 @@ Explication :
 - Le "\*" signifie "peu importe ce qu'il y a avant .png".
 - Résultat : "Le fichier lu est au format PNG"
 
-### AUTRES EXEMPLES
+### 🍧 AUTRES EXEMPLES
 
 - 'abc123' CP 'abc\*' → VRAI (commence par "abc")
 - 'abc123' CP '\*123' → VRAI (finit par "123")
@@ -60,15 +72,25 @@ Explication :
 - 'hello' CP '\*o' → VRAI (se termine par "o")
 - 'hello' CP '\*x' → FAUX (ne finit pas par "x")
 
-> [!NOTE] > `CP` fonctionne uniquement avec les types de `VARIABLES` `C` ou `STRING`.
+> [!NOTE]
+> `CP` fonctionne uniquement avec les types de `VARIABLES` `C` ou `STRING`.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `CP` = `COVERS PATTERN` → teste la correspondance d'une `CHAINE` avec un `PATTERN`.
 > - Caractères generiques - - → plusieurs caracteres
 >   - - → un caractere
 > - Sensible à la casse
 > - Très utile pour filtrer fichiers, extensions ou formats textuels
->
 > [!TIP]
 > Comme un filtre de recherche avancé : on peut dire "montre-moi tous les fichiers commençant par 'abc' et finissant par '.txt'".
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **COVERS PATTERN (CP)** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

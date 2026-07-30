@@ -1,180 +1,101 @@
-# 🌸 ATTRIBUTS
+# 🌸 ATTRIBUTS D’INSTANCE ET STATIQUES
 
 ## 🌺 OBJECTIFS
 
-- [ ] Comprendre le rôle d’un attribut
-- [ ] Déclarer un attribut d’instance avec `DATA`
-- [ ] Déclarer un attribut statique avec `CLASS-DATA`
-- [ ] Distinguer état individuel et état partagé
-- [ ] Accéder correctement aux attributs depuis les méthodes
+- [ ] Créer un attribut dans `SE24`.
+- [ ] Distinguer un attribut d’instance d’un attribut statique.
+- [ ] Choisir une visibilité cohérente.
+- [ ] Accéder aux attributs depuis les méthodes.
 
-## 🌺 DEFINITION
+## 🌺 DÉFINITION
 
-> Un `ATTRIBUT` est une donnée déclarée dans une classe.
-> Il représente une partie de l’état de l’objet ou de la classe.
+Un attribut représente une donnée appartenant à un objet ou à la classe entière.
 
-Deux catégories principales existent :
+| Catégorie | Déclaration conceptuelle | Nombre de valeurs |
+|---|---|---|
+| Instance | `DATA` | Une valeur par objet |
+| Statique | `CLASS-DATA` | Une valeur partagée par la classe dans la session interne |
 
-- attribut d’instance ;
-- attribut statique, aussi appelé attribut de classe.
+## 🌺 VUE D'ENSEMBLE
 
-## 🌺 ATTRIBUT D'INSTANCE
+```mermaid
+flowchart TD
+    A["ZCL_AELION_PERSON"] --> B["Attribut statique GV_OBJECT_COUNT"]
+    A --> C["Objet Alice"]
+    A --> D["Objet Karim"]
+    C --> E["MV_NAME = Alice"]
+    D --> F["MV_NAME = Karim"]
+```
 
-Un attribut d’instance est déclaré avec `DATA` dans une classe.
+## 🌺 CRÉATION DANS SE24
 
-    PRIVATE SECTION.
-      DATA mv_name TYPE string.
+Dans l’onglet **Attributs** :
 
-Chaque objet possède sa propre valeur.
+1. créer `MV_NAME` ;
+2. sélectionner un attribut d’instance ;
+3. choisir le type `STRING` ;
+4. définir la visibilité privée ;
+5. créer `GV_OBJECT_COUNT` ;
+6. sélectionner un attribut statique ;
+7. choisir le type `I` et la visibilité privée.
 
-    DATA(lo_person_1) = NEW lcl_person( ).
-    DATA(lo_person_2) = NEW lcl_person( ).
+> [!WARNING]
+> Un attribut statique introduit un état partagé. Il ne doit pas servir à contourner une transmission normale des données entre objets.
 
-`lo_person_1` et `lo_person_2` possèdent chacun leur propre `mv_name`.
+## 🌺 ACCÈS DEPUIS LES MÉTHODES
 
-## 🌺 ATTRIBUT STATIQUE
+```abap
+METHOD constructor.
+  mv_name = iv_name.
+  gv_object_count = gv_object_count + 1.
+ENDMETHOD.
 
-Un attribut statique est déclaré avec `CLASS-DATA`.
+METHOD get_name.
+  rv_name = mv_name.
+ENDMETHOD.
 
-    PRIVATE SECTION.
-      CLASS-DATA gv_object_count TYPE i.
+METHOD get_object_count.
+  rv_count = gv_object_count.
+ENDMETHOD.
+```
 
-Une seule valeur est partagée par toutes les instances de la classe dans le contexte d’exécution.
+Appel :
 
-> [!IMPORTANT]
-> `DATA` dans une classe → une valeur par objet.
-> `CLASS-DATA` → une valeur partagée par la classe.
+```abap
+DATA(lo_person) = NEW zcl_aelion_person( iv_name = 'Alice' ).
+DATA(lv_name) = lo_person->get_name( ).
+DATA(lv_count) = zcl_aelion_person=>get_object_count( ).
+```
 
-## 🌺 EXEMPLE COMPLET
+## 🌺 CONVENTIONS
 
-    REPORT zaelion_oo_04.
+- `MV_` : attribut d’instance privé ;
+- `GV_` : attribut statique privé, selon convention projet ;
+- `MO_` : référence objet d’instance ;
+- `MT_` : table interne d’instance.
 
-    CLASS lcl_person DEFINITION.
-      PUBLIC SECTION.
-        METHODS constructor
-          IMPORTING
-            iv_name TYPE string.
+## 🌺 EXERCICE
 
-        METHODS get_name
-          RETURNING
-            VALUE(rv_name) TYPE string.
+Créer `ZCL_AELION_PRODUCT` avec les attributs privés `MV_NAME`, `MV_PRICE` et l’attribut statique privé `GV_PRODUCT_COUNT`.
 
-        CLASS-METHODS get_object_count
-          RETURNING
-            VALUE(rv_count) TYPE i.
+<details>
+<summary>Afficher la correction et les points de contrôle</summary>
 
-      PRIVATE SECTION.
-        DATA mv_name TYPE string.
-        CLASS-DATA gv_object_count TYPE i.
-    ENDCLASS.
+- [ ] Chaque objet possède son propre nom et son propre prix.
+- [ ] Le compteur est partagé.
+- [ ] Les attributs sont privés.
+- [ ] Les valeurs sont accessibles par des méthodes publiques.
 
-    CLASS lcl_person IMPLEMENTATION.
-      METHOD constructor.
-        mv_name = iv_name.
-        gv_object_count = gv_object_count + 1.
-      ENDMETHOD.
+</details>
 
-      METHOD get_name.
-        rv_name = mv_name.
-      ENDMETHOD.
+## 🌺 RÉSUMÉ
 
-      METHOD get_object_count.
-        rv_count = gv_object_count.
-      ENDMETHOD.
-    ENDCLASS.
-
-    START-OF-SELECTION.
-
-      DATA(lo_person_1) = NEW lcl_person( iv_name = 'Alice' ).
-      DATA(lo_person_2) = NEW lcl_person( iv_name = 'Karim' ).
-
-      WRITE: / lo_person_1->get_name( ).
-      WRITE: / lo_person_2->get_name( ).
-      WRITE: / lcl_person=>get_object_count( ).
-
-## 🌺 RESULTAT ATTENDU
-
-    Alice
-    Karim
-    2
-
-## 🌺 SELECTEURS
-
-| 🍧 Sélecteur | 🍧 Usage             | 🍧 Exemple                        |
-| ------------ | -------------------- | --------------------------------- |
-| `->`         | Composant d’instance | `lo_person->get_name( )`          |
-| `=>`         | Composant statique   | `lcl_person=>get_object_count( )` |
-
-Dans les méthodes de la classe :
-
-- un attribut d’instance peut être utilisé directement par son nom ;
-- `me->mv_name` désigne explicitement l’attribut de l’instance courante ;
-- un attribut statique peut être utilisé directement ou avec le sélecteur de classe.
-
-## 🌺 ME
-
-> `me` représente la référence vers l’objet courant dans une méthode d’instance.
-
-    METHOD set_name.
-      me->mv_name = iv_name.
-    ENDMETHOD.
-
-L’écriture avec `me->` est particulièrement utile lorsqu’un paramètre et un attribut ont des noms proches.
-
-## 🌺 VALEURS INITIALES
-
-    DATA mv_status TYPE string VALUE 'NEW'.
-    CLASS-DATA gv_count TYPE i VALUE 0.
-
-Une valeur initiale peut être fournie dans la déclaration.
-
-## 🌺 ATTRIBUT PUBLIC OU PRIVE
-
-Syntaxiquement, un attribut peut être public.
-
-    PUBLIC SECTION.
-      DATA mv_text TYPE string.
-
-Cette approche permet au programme extérieur de modifier directement la valeur.
-Elle réduit le contrôle exercé par la classe.
-
-Approche recommandée :
-
-    PRIVATE SECTION.
-      DATA mv_text TYPE string.
-
-    PUBLIC SECTION.
-      METHODS set_text IMPORTING iv_text TYPE string.
-      METHODS get_text RETURNING VALUE(rv_text) TYPE string.
-
-## 🌺 BONNES PRATIQUES
-
-- Utiliser `mv_` pour un attribut d’instance privé.
-- Utiliser `gv_` ou une convention projet claire pour un attribut statique.
-- Déclarer les attributs privés par défaut.
-- Utiliser `CLASS-DATA` uniquement pour un état réellement partagé.
-- Eviter les attributs publics modifiables.
-- Ne pas utiliser un attribut statique pour remplacer une transmission correcte de données.
-
-## 🌺 EXERCICES
-
-1. Créer une classe `lcl_product`.
-2. Ajouter deux attributs d’instance privés : nom et prix.
-3. Ajouter un attribut statique privé comptant les produits créés.
-4. Initialiser les attributs dans le constructeur.
-5. Ajouter des getters publics.
-6. Afficher les deux produits et le nombre total d’instances.
-
-## 🌺 RESUME
-
-> - Un attribut représente l’état.
-> - `DATA` déclare un attribut propre à chaque objet.
-> - `CLASS-DATA` déclare un attribut partagé.
-> - `->` accède aux composants d’instance.
-> - `=>` accède aux composants statiques.
-> - Les attributs doivent généralement rester privés.
+> - Un attribut d’instance appartient à un objet.
+> - Un attribut statique appartient à la classe.
+> - Les attributs privés protègent l’état interne.
+> - `->` cible une instance ; `=>` cible un composant statique.
 
 ## 🌺 SOURCES OFFICIELLES
 
-- SAP ABAP Keyword Documentation — Attributes of Classes : https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/abenclass_attributes.htm
-- SAP ABAP Keyword Documentation — `CLASS-DATA` : https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/abapclass-data.htm
+- [Documentation SAP — Attributes](https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/ABENCLASS_ATTRIBUTES.html)
+- [Documentation SAP — Classes](https://help.sap.com/doc/abapdocu_cp_index_htm/CLOUD/en-US/ABENCLASSES.html)

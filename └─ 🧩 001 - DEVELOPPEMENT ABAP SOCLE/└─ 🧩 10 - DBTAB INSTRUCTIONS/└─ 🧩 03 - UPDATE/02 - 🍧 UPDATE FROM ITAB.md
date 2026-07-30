@@ -7,31 +7,40 @@
 - [ ] Comprendre l’impact de la clé primaire sur la mise à jour multiple
 - [ ] Manipuler les données via field symbols pour modifier la table interne
 
-## 🌺 DEFINITION
 
-> `UPDATE dbtab FROM TABLE itab`  
-> Met à jour la table `dbtab` avec les valeurs contenues dans la table interne `itab`.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["UPDATE DBTAB FROM ITAB"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE"]
+    C --> D["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> `UPDATE dbtab FROM TABLE itab`
+> Met à jour la table `dbtab` avec les valeurs contenues dans la table interne `itab`.
 > Pour chaque ligne de `itab`, le système recherche un enregistrement dans `dbtab` ayant la même clé primaire.
 
 > Variables système mises à jour :
->
 > - `SY-SUBRC = 0` → toutes les lignes ont été mises à jour correctement
 > - `SY-SUBRC = 4` → aucun enregistrement correspondant trouvé
 
-> [!TIP]  
+> [!TIP]
 > Imaginez un classeur Excel et une feuille temporaire :
->
 > - Vous modifiez plusieurs lignes sur votre feuille temporaire
 > - Puis vous appliquez toutes les modifications au classeur principal en une seule fois
 > - Les lignes sont mises à jour uniquement si l’ID correspond
 
 > [!TIP]
->
 > Toujours préparer la table interne avant l’instruction `UPDATE FROM TABLE`, par exemple via un `SELECT` ou en remplissant les données manuellement.
 
 ## 🌺 EXEMPLE
 
-### Mise à jour d'une table via table interne
+### 🍧 Mise à jour d'une table via table interne
 
     DATA: lt_travel TYPE TABLE OF ztravel.
     FIELD-SYMBOLS: <lfs_travel> TYPE ztravel.
@@ -64,14 +73,14 @@
       WRITE 'Aucun enregistrement trouvé pour ce conducteur'.
     ENDIF.
 
-### ENREGISTREMENTS AVANT UPDATE
+### 🍧 ENREGISTREMENTS AVANT UPDATE
 
 | 🍧 ID_DRIVER | 🍧 TOLL | 🍧 GAZOL |
 | ------------ | ------- | -------- |
 | C0003        | 21.00   | 45.40    |
 | C0003        | 22.00   | 50.40    |
 
-### ENREGISTREMENTS APRES UPDATE
+### 🍧 ENREGISTREMENTS APRES UPDATE
 
 | 🍧 ID_DRIVER | 🍧 TOLL | 🍧 GAZOL |
 | ------------ | ------- | -------- |
@@ -85,3 +94,19 @@
 3. Vérifier `SY-SUBRC` après l’`UPDATE` pour confirmer la réussite.
 4. Cette méthode permet de mettre à jour plusieurs enregistrements en une seule instruction.
 5. Attention : la clé primaire doit être correctement remplie dans chaque ligne de la table interne pour que la mise à jour fonctionne.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - **Exemple :** DATA: lttravel TYPE TABLE OF ztravel.
+> - **Bonnes pratiques :** 1.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **UPDATE DBTAB FROM ITAB** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemple** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

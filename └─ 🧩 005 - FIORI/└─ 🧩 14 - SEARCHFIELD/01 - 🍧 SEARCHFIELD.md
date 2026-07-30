@@ -1,10 +1,28 @@
 # 🌸 FILTERS
 
-> 🌺 Objectifs
->
-> - [ ] exploiter les données affichées dans les tables via des filtres
+## 🌺 OBJECTIFS
 
-## 🧩 PRINCIPE
+- [ ] Expliquer le rôle de **FILTERS** dans le contexte présenté.
+- [ ] Comprendre **principe**.
+- [ ] Mettre en œuvre **1. ajouter un champ de recherche** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["FILTERS"]
+    A --> B["PRINCIPE"]
+    B --> C["OBJECTIF"]
+    C --> D["1. AJOUTER UN CHAMP DE RECHERCHE"]
+    D --> E["2. IMPORTER FILTER & FILTEROPERATOR"]
+    E --> F["3. RECUPERER LA VALEUR SAISIE & APPLIQUER LES FILTRES"]
+```
+
+> [!IMPORTANT]
+> Vérifier la version SAPUI5 ciblée par l’application. La disponibilité d’une API, d’une propriété ou d’un événement peut dépendre de cette version.
+
+
+## 🌺 PRINCIPE
 
 Sans filtre :
 
@@ -24,7 +42,7 @@ résultat :
      ├─ Dupont
      └─ Martin
 
-## 🧩 OBJECTIF
+## 🌺 OBJECTIF
 
 Path :
 
@@ -48,7 +66,7 @@ par exemple sur :
      Ville
      Pays
 
-## 🧩 1. AJOUTER UN CHAMP DE RECHERCHE
+## 🌺 1. AJOUTER UN CHAMP DE RECHERCHE
 
 Au-dessus de la table Consultant :
 
@@ -68,7 +86,7 @@ Au-dessus de la table Consultant :
 />
 ```
 
-## 🧩 2. IMPORTER FILTER & FILTEROPERATOR
+## 🌺 2. IMPORTER FILTER & FILTEROPERATOR
 
 Path :
 
@@ -103,7 +121,7 @@ sap.ui.define(
 );
 ```
 
-## 🧩 3. RECUPERER LA VALEUR SAISIE & APPLIQUER LES FILTRES
+## 🌺 3. RECUPERER LA VALEUR SAISIE & APPLIQUER LES FILTRES
 
 Path :
 
@@ -244,3 +262,19 @@ onFilterConsultant: function (oEvent) {
 
 }
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **principe** dans le contexte présenté.
+> - **1. ajouter un champ de recherche :** Au-dessus de la table Consultant :
+> - **2. importer filter & filteroperator :** webapp/controller/Home.controller.js
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **FILTERS** avec mes propres mots.
+- [ ] Je peux expliquer **principe** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **objectif** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

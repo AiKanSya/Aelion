@@ -8,23 +8,35 @@
 - [ ] Comprendre la différence entre `MOVE` et `MOVE-CORRESPONDING`
 - [ ] Utiliser `MOVE-CORRESPONDING` avec des structures dynamiques
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["MOVE CORRESPONDING (STRUCTURES)"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE 1 – STRUCTURES AVEC CHAMPS COMMUNS"]
+    C --> D["EXEMPLE 2 – DIFFERENCE ENTRE MOVE ET MOVE-CORRESPONDIN"]
+    D --> E["EXEMPLE 3 – STRUCTURES DYNAMIQUES AVEC FIELD-SYMBOLS"]
+    E --> F["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
 
     MOVE-CORRESPONDING struc_source TO struc_target.
 
 > L’instruction `MOVE-CORRESPONDING` permet de copier uniquement les champs de même nom entre deux structures.
 
 > [!IMPORTANT]
->
 > - Les champs doivent avoir le même nom (la casse n’a pas d’importance).
 > - Les champs non présents dans la destination sont ignorés.
 > - Les champs non présents dans la source restent inchangés dans la destination.
 
 > [!TIP]
 > Imaginez deux fiches administratives
->
 > - La première contient _Nom, Prénom, Pays, Âge_
-> - La seconde contient _Nom, Pays, Code postal_  
+> - La seconde contient _Nom, Pays, Code postal_
 >   → `MOVE-CORRESPONDING` ne copiera que Nom et Pays.
 
 ## 🌺 EXEMPLE 1 – STRUCTURES AVEC CHAMPS COMMUNS
@@ -61,7 +73,6 @@
     WRITE:/ 'CodeZip :', ls_person_dest-zipcode.
 
 > [!IMPORTANT]
->
 > - `name` et `country` sont copiés car ils existent dans les deux structures.
 > - `zipcode` reste inchangé, car il n’existe pas dans la source.
 > - `age` n’est pas transféré car il n’existe pas dans la destination.
@@ -105,7 +116,6 @@
              'ID:', ls_emp_dest-id.
 
 > [!IMPORTANT]
->
 > - `MOVE` copie les valeurs champ par champ dans l’ordre de déclaration → erreur si structures incompatibles.
 > - `MOVE-CORRESPONDING` copie par nom → plus sûr et plus souple.
 
@@ -151,7 +161,7 @@
 
 ## 🌺 EXERCICES
 
-### 🔹 1 – COPIER LES CHAMPS COMMUNS ENTRE DEUX STRUCTURES
+### 🍧 1 – COPIER LES CHAMPS COMMUNS ENTRE DEUX STRUCTURES
 
 > [!IMPORTANT]
 > Copier uniquement les champs `name` et `country` de `ls_person_src` vers `ls_person_dest`.
@@ -166,7 +176,7 @@
 
 ---
 
-### 🔹 2 – STRUCTURES AVEC CHAMP INEXISTANT
+### 🍧 2 – STRUCTURES AVEC CHAMP INEXISTANT
 
 > [!IMPORTANT]
 > Ajouter un champ `zipcode` dans la destination et observer que sa valeur reste inchangée.
@@ -192,7 +202,7 @@
 
 ---
 
-### 🔹 3 – UTILISER DES FIELD-SYMBOLS DYNAMIQUES
+### 🍧 3 – UTILISER DES FIELD-SYMBOLS DYNAMIQUES
 
 > [!IMPORTANT]
 > Copier le contenu d’une structure vers une autre via des FIELD-SYMBOLS.
@@ -214,14 +224,12 @@
 
 ---
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > `MOVE-CORRESPONDING` entre structures permet de transférer uniquement les champs portant le même nom.
->
 > - Ignore les champs non communs
 > - Copie sûre, sans erreur de type
 > - Compatible avec structures dynamiques via FIELD-SYMBOLS
 > - Alternative plus flexible à `MOVE`
->
 > [!TIP]
 > Copier les informations communes entre deux formulaires différents, sans toucher à ce qui ne correspond pas.

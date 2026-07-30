@@ -1,16 +1,34 @@
 # 🌸 SAP FIORI
 
-> 🌺 Objectifs
->
-> - [ ] Comprendre le concept de SAP FIORI
+## 🌺 OBJECTIFS
 
-## 🧩 DÉFINITION
+- [ ] Expliquer le rôle de **SAP FIORI** dans le contexte présenté.
+- [ ] Comprendre **définition**.
+- [ ] Mettre en œuvre **idée principale** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["SAP FIORI"]
+    A --> B["DÉFINITION"]
+    B --> C["IDÉE PRINCIPALE"]
+    C --> D["STRUCTURE DU CONCEPT FIORI"]
+    D --> E["RELATION ENTRE FIORI ET UI5"]
+    E --> F["IMAGE MENTALE SIMPLE"]
+```
+
+> [!IMPORTANT]
+> Vérifier la version SAPUI5 ciblée par l’application. La disponibilité d’une API, d’une propriété ou d’un événement peut dépendre de cette version.
+
+
+## 🌺 DÉFINITION
 
 SAP Fiori est un système de conception (design system) et un concept d’UX pour les applications SAP.
 
 Il ne s’agit pas d’un framework technique.
 
-## 🧩 IDÉE PRINCIPALE
+## 🌺 IDÉE PRINCIPALE
 
 SAP Fiori vise à créer des applications :
 
@@ -19,7 +37,7 @@ SAP Fiori vise à créer des applications :
      centrées utilisateur
      accessibles sur tous les devices
 
-## 🧩 STRUCTURE DU CONCEPT FIORI
+## 🌺 STRUCTURE DU CONCEPT FIORI
 
 SAP Fiori repose sur 3 piliers :
 
@@ -38,7 +56,7 @@ SAP Fiori repose sur 3 piliers :
 
         SAPUI5 (framework technique)
 
-## 🧩 RELATION ENTRE FIORI ET UI5
+## 🌺 RELATION ENTRE FIORI ET UI5
 
 | Élément   | Rôle                           |
 | --------- | ------------------------------ |
@@ -46,13 +64,13 @@ SAP Fiori repose sur 3 piliers :
 | SAPUI5    | framework technique            |
 | sap.m     | library UI utilisée pour Fiori |
 
-## 🧩 IMAGE MENTALE SIMPLE
+## 🌺 IMAGE MENTALE SIMPLE
 
      SAPUI5 = moteur
      SAP Fiori = design + règles d’utilisation du moteur
      Applications Fiori = voitures construites avec ce moteur
 
-## 🧩 PRINCIPES FIORI
+## 🌺 PRINCIPES FIORI
 
 SAP Fiori suit des principes clés :
 
@@ -76,7 +94,7 @@ SAP Fiori suit des principes clés :
         tablette
         mobile
 
-## 🧩 TYPES D’APPLICATIONS FIORI
+## 🌺 TYPES D’APPLICATIONS FIORI
 
 1.  Transactional apps
 
@@ -92,7 +110,7 @@ SAP Fiori suit des principes clés :
 
         consultation d’informations détaillées
 
-## 🧩 EXEMPLE CONCRET
+## 🌺 EXEMPLE CONCRET
 
 Ancien SAP GUI :
 
@@ -106,7 +124,7 @@ SAP Fiori :
      bouton clair
      logique utilisateur directe
 
-## 🧩 SAP FIORI LAUNCHPAD
+## 🌺 SAP FIORI LAUNCHPAD
 
 Point d’entrée des applications Fiori :
 
@@ -114,7 +132,7 @@ Point d’entrée des applications Fiori :
      navigation vers apps
      gestion rôles utilisateurs
 
-## 🧩 RÔLE DE SAPUI5 DANS FIORI
+## 🌺 RÔLE DE SAPUI5 DANS FIORI
 
 SAPUI5 sert à :
 
@@ -123,7 +141,7 @@ SAPUI5 sert à :
      gérer navigation
      gérer interaction utilisateur
 
-## 🧩 POINT IMPORTANT
+## 🌺 POINT IMPORTANT
 
 SAP Fiori ≠ technologie
 
@@ -132,3 +150,19 @@ C’est :
      une expérience utilisateur
      un standard de design
      une manière de construire des apps SAP
+
+## 🌺 RÉSUMÉ
+
+> - **Définition :** SAP Fiori est un système de conception (design system) et un concept d’UX pour les applications SAP.
+> - **Idée principale :** SAP Fiori vise à créer des applications :
+> - **Structure du concept fiori :** SAP Fiori repose sur 3 piliers :
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **SAP FIORI** avec mes propres mots.
+- [ ] Je peux expliquer **définition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **idée principale** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

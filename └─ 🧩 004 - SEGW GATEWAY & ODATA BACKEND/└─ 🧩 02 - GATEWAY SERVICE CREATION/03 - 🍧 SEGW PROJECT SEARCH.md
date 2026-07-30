@@ -1,11 +1,20 @@
 # 🌸 GATEWAY SERVICE SEARCH
 
-## 🧩 OBJECTIVES
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["GATEWAY SERVICE SEARCH"]
+    A --> B["SEARCH FOR A SERVICE"]
+```
+
+
+## 🌺 OBJECTIFS
 
 - [ ] Rechercher un `Gateway Service` en `SEGW`
 - [ ] Passer en modification dessus
 
-## 🧩 SEARCH FOR A SERVICE
+## 🌺 SEARCH FOR A SERVICE
 
 ![](./assets/Capture%20d’écran%202026-01-16%20102512.png)
 
@@ -22,3 +31,17 @@
 
 > [!CAUTION]
 > Pour modifier un `Gateway Service`, vous devez au préalable avoir sélectionner soit le `Service` dans l'arborescence de gauche, soit un élément qui le concerne avant de cliquer sur `Afficher <-> Modifier`.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **search for a service** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **GATEWAY SERVICE SEARCH** avec mes propres mots.
+- [ ] Je peux expliquer **objectives** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **search for a service** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

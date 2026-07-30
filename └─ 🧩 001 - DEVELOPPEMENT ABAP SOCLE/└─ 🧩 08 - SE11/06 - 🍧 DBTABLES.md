@@ -9,12 +9,26 @@
 - [ ] Comprendre INCLUDE et APPEND
 - [ ] Créer une table avec INCLUDE ou APPEND
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["TABLES"]
+    A --> B["DEFINITION"]
+    B --> C["TYPES DE TABLES"]
+    C --> D["CLES PRIMAIRES"]
+    D --> E["CREATION D’UNE TABLE"]
+    E --> F["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
 
 > [!TIP]
 > Imaginez une fiche Excel complète : chaque colonne est un champ, chaque ligne est un enregistrement. Contrairement à une structure, les données sont réellement stockées dans la base.
 
-> Une table est un objet de stockage physique dans SAP, composée de champs (ou colonnes) définis par des éléments de données.  
+> Une table est un objet de stockage physique dans SAP, composée de champs (ou colonnes) définis par des éléments de données.
 > Elle permet de stocker, organiser et gérer les données de manière structurée.
 
 ## 🌺 TYPES DE TABLES
@@ -26,7 +40,6 @@
 | Table cluster    | Regroupe des tables liées dans une table physique pour optimiser le stockage    |
 
 > [!TIP]
->
 > - Table transparente : une fiche individuelle pour chaque enregistrement.
 > - Table pool : plusieurs mini-fiches stockées dans un classeur unique.
 > - Table cluster : plusieurs fiches liées combinées dans une enveloppe.
@@ -47,7 +60,7 @@ Les `clés primaires`, souvent abrégées en "PK" pour "Primary Key" en anglais,
 
 - `Types de clés primaires` : Une `clé primaire` peut être composée d'un seul fields (`clé primaire simple`) ou de plusieurs fields combinés (`clé primaire composite`). Dans le cas d'une `clé primaire composite`, l'ensemble des valeurs de tous les fields formant la clé doit être unique.
 
-## 🌺 CREATION D’UNE TABLE
+## 🌺 CRÉATION D’UNE TABLE
 
 > [!TIP]
 > Créer une table revient à préparer un classeur Excel avec colonnes et lignes, où chaque cellule est prête à recevoir des données.
@@ -124,17 +137,11 @@ Les `clés primaires`, souvent abrégées en "PK" pour "Primary Key" en anglais,
 
 > [!NOTE]
 > Pour information
->
 > - Extensible sans restriction : pas de règle pour l’extension de la table ou de la structure.
->
 > - Extensible et alphanumérique ou numérique : tous les champs devront être soit alphanumériques, soit numériques. La différence avec Extensible sans restriction est qu’il ne sera pas possible d’ajouter des champs de type date ou heure (par exemple) dans un append ou un include.
->
 > - Extensible et alphanumérique : la table ou la structure ne sera composée que de champs alphanumériques et une erreur sera retournée si un champ est défini comme numérique (il sera alors possible de modifier le type d’extension).
->
 > - Non extensible : il sera possible d’ajouter un champ directement à la table ou la structure initiale, mais impossible via un append. Ainsi, comme l’append est l’unique moyen d’ajouter un champ à une table standard, il n’y aura aucune possibilité pour accomplir cette tâche.
->
 > - Non classifié (par défaut), aucune extension n’a été définie pour la table ou la structure.
->
 > Dans le cas de notre table, il n’y aura pas besoin de restriction, l’option Extensible sans restriction sera donc choisie.
 
 12. Onglet `Aide/contrôle de saisie`
@@ -174,13 +181,12 @@ Les `clés primaires`, souvent abrégées en "PK" pour "Primary Key" en anglais,
 | Documenter les tables                                  | Facilite la compréhension et la maintenance    |
 
 > [!IMPORTANT]
->
 > - Définir toujours la clé primaire avant de remplir la table
 > - Réutiliser les éléments de données et domaines pour assurer l’homogénéité
 
 ## 🌺 INCLUDE ET APPEND
 
-### INCLUDE
+### 🍧 INCLUDE
 
 > - Permet de réutiliser des champs existants d’une structure ou d’une table dans une nouvelle table ou structure
 > - Évite de recréer les mêmes champs à plusieurs endroits
@@ -191,26 +197,25 @@ Les `clés primaires`, souvent abrégées en "PK" pour "Primary Key" en anglais,
 > Copier un patron prêt à l’emploi dans une nouvelle fiche, au lieu de réécrire toutes les colonnes.
 
 > [!IMPORTANT]
->
 > - Réutiliser pour harmoniser des champs communs dans plusieurs tables
 > - Assure la cohérence des données
 
-### APPEND
+### 🍧 APPEND
 
 > - Permet d’ajouter des champs supplémentaires à une table ou structure sans modifier l’original
 > - Très utile pour adapter une table standard SAP aux besoins spécifiques
 > - Les champs ajoutés sont propres à votre développement
 
 > [!TIP]
-> Ajouter une extension à une fiche standard, sans toucher à la fiche originale.  
+> Ajouter une extension à une fiche standard, sans toucher à la fiche originale.
 > Ex : ajouter un champ “Numéro d’employé interne” à une table client standard.
 
 > [!CAUTION]
 > Les champs append ne doivent pas entrer en conflit avec les champs existants. Toujours vérifier la cohérence.
 
-## 🌺 CREATION D’UNE TABLE AVEC INCLUDE OU APPEND
+## 🌺 CRÉATION D’UNE TABLE AVEC INCLUDE OU APPEND
 
-### CREATION AVEC INCLUDE
+### 🍧 CRÉATION AVEC INCLUDE
 
 1. Créer une structure réutilisable (ex : `ZST_ADRESSE` avec VILLE, PAYS, CODE_POSTAL)
 2. Ouvrir SE11 pour créer la table
@@ -221,7 +226,7 @@ Les `clés primaires`, souvent abrégées en "PK" pour "Primary Key" en anglais,
 > [!TIP]
 > Copier un patron prêt à l’emploi dans une nouvelle fiche au lieu de réécrire toutes les colonnes.
 
-### CREATION AVEC APPEND
+### 🍧 CRÉATION AVEC APPEND
 
 1. Ouvrir la table existante (standard ou spécifique) dans SE11
 2. Cliquer sur Créer Append Structure
@@ -233,7 +238,7 @@ Les `clés primaires`, souvent abrégées en "PK" pour "Primary Key" en anglais,
 > [!TIP]
 > Ajouter une fiche supplémentaire à un classeur existant, sans toucher aux fiches originales.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Une table est un objet de stockage physique dans SAP
 > - Chaque table est composée de champs définis par des éléments de données
@@ -242,3 +247,13 @@ Les `clés primaires`, souvent abrégées en "PK" pour "Primary Key" en anglais,
 > - INCLUDE = réutilisation de champs existants
 > - APPEND = ajout de nouveaux champs sans toucher à la table originale
 > - Créer une table avec INCLUDE ou APPEND permet de gagner du temps, personnaliser les tables SAP et maintenir la cohérence
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **TABLES** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **types de tables** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

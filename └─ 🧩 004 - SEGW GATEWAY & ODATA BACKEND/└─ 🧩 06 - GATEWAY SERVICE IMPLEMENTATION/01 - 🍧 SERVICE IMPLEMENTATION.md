@@ -1,6 +1,18 @@
 # 🌸 SERVICE IMPLEMENTATION
 
-## 🧩 OBJECTIVES
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["SERVICE IMPLEMENTATION"]
+    A --> B["SERVICE IMPLEMENTATION"]
+```
+
+> [!IMPORTANT]
+> Une modification du modèle OData peut nécessiter une nouvelle génération des artefacts d’exécution et une vérification du document `$metadata` consommé par les clients.
+
+
+## 🌺 OBJECTIFS
 
 - [ ] Identifier les méthodes natives
 
@@ -8,7 +20,7 @@
 
 ![](./assets/Capture%20d’écran%202026-01-16%20131726.png)
 
-## 🧩 SERVICE IMPLEMENTATION
+## 🌺 SERVICE IMPLÉMENTATION
 
 Dans la branche `Service Implementation`, le `SAP Gateway Service Builder` permet d'accéder facilement à l'`implémentation ABAP` dans l'`ABAP Workbench` (`SE80`), prenant en charge les différentes `OData Operations` d'un `EntitySet`.
 
@@ -42,4 +54,18 @@ Par exemple, pour un `EntitySet` nommé `ProductSet`, les méthodes suivantes so
 
 ![](./assets/Capture%20d’écran%202026-01-16%20132334.png)
 
-Chaque `Method` correspond directement aux actions exposées dans le `$metadata`.
+Chaque méthode correspond directement aux actions exposées dans le `$metadata`.
+
+## 🌺 RÉSUMÉ
+
+> - **Service implémentation :** Dans la branche Service Implementation, le SAP Gateway Service Builder permet d'accéder facilement à l'implémentation ABAP dans l'ABAP Workbench (SE80), prenant en charge les différentes OData Operations d'un EntitySet.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **SERVICE IMPLEMENTATION** avec mes propres mots.
+- [ ] Je peux expliquer **objectives** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **service implementation** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

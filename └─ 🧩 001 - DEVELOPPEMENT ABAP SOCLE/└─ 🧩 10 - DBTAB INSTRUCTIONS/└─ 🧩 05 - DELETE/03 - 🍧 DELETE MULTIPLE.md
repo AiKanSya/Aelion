@@ -5,19 +5,29 @@
 - [ ] Supprimer un ou plusieurs enregistrements d'une table de base de données en fonction d'une condition `WHERE`.
 - [ ] Vérifier la réussite de l’opération via `SY-SUBRC` et connaître le nombre de lignes supprimées avec `SY-DBCNT`.
 
-## 🌺 DEFINITION
 
-> `DELETE FROM dbtab WHERE condition`  
-> Supprime les enregistrements de la table `dbtab` qui répondent à la `condition`.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["DELETE MULTIPLE"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE"]
+```
+
+
+## 🌺 DÉFINITION
+
+> `DELETE FROM dbtab WHERE condition`
+> Supprime les enregistrements de la table `dbtab` qui répondent à la `condition`.
 > Variables système mises à jour :
->
 > - `SY-SUBRC = 0` si au moins un enregistrement a été supprimé
 > - `SY-SUBRC = 4` si aucun enregistrement correspondant n’a été trouvé
 > - `SY-DBCNT` retourne le nombre de lignes supprimées
 
 ## 🌺 EXEMPLE
 
-### Suppression d’un passager
+### 🍧 Suppression d’un passager
 
     CONSTANTS: lc_user_id TYPE zpassenger_id VALUE 'P0005'.
 
@@ -32,21 +42,35 @@
     ENDIF.
 
 > [!IMPORTANT]
->
 > 1.  Déclaration de la constante `lc_user_id` contenant l'identifiant du passager à supprimer.
 > 2.  La commande `DELETE FROM ... WHERE` supprime la ou les lignes correspondant à l’ID dans la table `ZPASSENGER`.
 > 3.  Vérification de la réussite via `SY-SUBRC` et affichage d’un message.
 > 4.  `SY-DBCNT` contient le nombre de lignes supprimées.
 
-### ENREGISTREMENTS AVANT DELETE
+### 🍧 ENREGISTREMENTS AVANT DELETE
 
 | 🍧 ID_PASS | 🍧 SURNAME | 🍧 NAME |
 | ---------- | ---------- | ------- |
 | P0005      | THIERRY    | ROMAIN  |
 | P0004      | DUPONT     | MARIE   |
 
-### ENREGISTREMENTS APRES DELETE
+### 🍧 ENREGISTREMENTS APRES DELETE
 
 | 🍧 ID_PASS | 🍧 SURNAME | 🍧 NAME |
 | ---------- | ---------- | ------- |
 | P0004      | DUPONT     | MARIE   |
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - **Exemple :** CONSTANTS: lcuserid TYPE zpassengerid VALUE 'P0005'.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **DELETE MULTIPLE** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemple** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

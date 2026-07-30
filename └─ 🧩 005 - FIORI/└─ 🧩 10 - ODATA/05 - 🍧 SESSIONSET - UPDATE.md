@@ -1,10 +1,24 @@
 # 🌸 UPDATE
 
-> 🌺 Objectifs
->
-> - [ ] Mettre à jour une Session.
+## 🌺 OBJECTIFS
 
-## 🧩 APPEL DIRECT ODATA
+- [ ] Expliquer le rôle de **UPDATE** dans le contexte présenté.
+- [ ] Comprendre **appel direct odata**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["UPDATE"]
+    A --> B["APPEL DIRECT ODATA"]
+```
+
+> [!IMPORTANT]
+> Vérifier la version SAPUI5 ciblée par l’application. La disponibilité d’une API, d’une propriété ou d’un événement peut dépendre de cette version.
+
+
+## 🌺 APPEL DIRECT ODATA
 
 Path :
 
@@ -79,9 +93,9 @@ sap.ui.define(
 
         readSessions: function (oModel) {
           oModel.read("/SessionSet", {
-            success: function (oData) {
+            success: function (OData) {
               console.log("READ SessionSet OK");
-              console.table(oData.results);
+              console.table(OData.results);
             },
             error: function (oError) {
               console.error("READ SessionSet ERROR", oError);
@@ -95,9 +109,9 @@ sap.ui.define(
 
         readSessionById: function (oModel, sSessionId) {
           oModel.read("/SessionSet('" + sSessionId + "')", {
-            success: function (oData) {
+            success: function (OData) {
               console.log("READ ONE Session OK");
-              console.log(oData);
+              console.log(OData);
             },
             error: function (oError) {
               console.error("READ ONE Session ERROR", oError);
@@ -118,8 +132,8 @@ sap.ui.define(
           };
 
           oModel.create("/SessionSet", oPayload, {
-            success: function (oData) {
-              console.log("CREATE Session OK", oData);
+            success: function (OData) {
+              console.log("CREATE Session OK", OData);
             },
             error: function (oError) {
               console.error("CREATE Session ERROR", oError);
@@ -158,3 +172,17 @@ sap.ui.define(
   },
 );
 ```
+
+## 🌺 RÉSUMÉ
+
+> - **Appel direct odata :** webapp/controller/Home.controller.js
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **UPDATE** avec mes propres mots.
+- [ ] Je peux expliquer **appel direct odata** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

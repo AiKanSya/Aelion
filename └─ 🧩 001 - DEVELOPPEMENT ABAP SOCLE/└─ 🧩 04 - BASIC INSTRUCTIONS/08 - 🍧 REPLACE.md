@@ -7,7 +7,21 @@
 - [ ] Utiliser les options `FIRST OCCURRENCE` ou `ALL OCCURRENCES`
 - [ ] Maîtriser les paramètres `REPLACEMENT COUNT`, `REPLACEMENT OFFSET`, `REPLACEMENT LENGTH` et `RESULTS`
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["REPLACE"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLE BASIQUE"]
+    D --> E["EXEMPLE - REPLACEMENT COUNT"]
+    E --> F["EXEMPLE - REPLACEMENT OFFSET"]
+```
+
+
+## 🌺 DÉFINITION
 
 > `REPLACE` sert à trouver un mot ou motif dans une chaîne et le remplacer par un autre.
 
@@ -38,7 +52,7 @@
 - RESULTS result_tab|result_wa : stocke le résultat dans une table ou structure
 
 > [!TIP]
-> Visualisez votre chaîne comme une feuille de texte où chaque mot peut être corrigé ou remplacé.  
+> Visualisez votre chaîne comme une feuille de texte où chaque mot peut être corrigé ou remplacé.
 > `FIRST OCCURRENCE` = changer le premier mot trouvé, `ALL OCCURRENCES` = tous les mots identiques.
 
 ## 🌺 EXEMPLE BASIQUE
@@ -115,11 +129,20 @@
 > [!IMPORTANT]
 > Pour modifier une chaîne tout en suivant le nombre de remplacements et la position du dernier changement.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `REPLACE` = rechercher et remplacer un motif dans une chaîne
 > - Peut modifier la première occurrence ou toutes les occurrences
 > - Paramètres utiles : `REPLACEMENT COUNT`, `REPLACEMENT OFFSET`, `LENGTH`, `RESULTS`
->
 > [!TIP]
 > corriger un texte et suivre les modifications effectuées
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **REPLACE** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

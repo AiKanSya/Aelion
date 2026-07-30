@@ -1,16 +1,33 @@
 # 🌸 UNIT TEST CLASS ASSERTIONS
 
+## 🌺 OBJECTIFS
+
+
 - [ ] Comprendre le rôle des `assertions` dans les tests unitaires
 - [ ] Savoir écrire des `assertions` simples et lisibles
 - [ ] Appliquer des bonnes pratiques pour des tests clairs et maintenables
 
-## 🧩 DÉFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["UNIT TEST CLASS ASSERTIONS"]
+    A --> B["DÉFINITION"]
+    B --> C["MOST USED ASSERTIONS"]
+    C --> D["GOOD PRACTICES"]
+    D --> E["EXEMPLES SIMPLES"]
+    E --> F["ASSERTION LIST"]
+```
+
+
+## 🌺 DÉFINITION
 
 - Une `assertion` vérifie qu’une condition est vraie dans un test unitaire
 - Si la condition échoue → le test est considéré comme échoué
 - Exemple : vérifier qu’une méthode retourne le bon résultat
 
-## 🧩 MOST USED ASSERTIONS
+## 🌺 MOST USED ASSERTIONS
 
 - `assert_equals` : compare une valeur réelle (`act`) à une valeur attendue (`exp`)
 
@@ -49,17 +66,16 @@
   ).
 ```
 
-## 🧩 GOOD PRACTICES
+## 🌺 GOOD PRACTICES
 
 > [!IMPORTANT]
->
 > - Toujours comparer réel vs attendu (`act` vs `exp`)
 > - Fournir un message clair pour comprendre l’échec
 > - Éviter les assertions tautologiques (`act = act`)
 > - Tester un seul résultat par assertion pour simplifier la lecture
 > - Regrouper les assertions logiquement dans la méthode de test
 
-## 🧩 EXEMPLES SIMPLES
+## 🌺 EXEMPLES SIMPLES
 
 - Tester le nombre de commandes d’un client
 
@@ -112,7 +128,7 @@ CLASS ltc_customer_orders IMPLEMENTATION.
 ENDCLASS.
 ```
 
-## 🧩 ASSERTION LIST
+## 🌺 ASSERTION LIST
 
 > [!NOTE]
 > Pour rappel, vous pouvez accéder à cette liste en allant dans la classe cl_abap_unit_assert.
@@ -145,3 +161,19 @@ ENDCLASS.
 | ASSUME_TRUE               | Static Method | Public        | Ensures boolean equals ABAP_TRUE, skip test else            |
 | FAIL                      | Static Method | Public        | Unconditional assertion                                     |
 | SKIP                      | Static Method | Public        | Unconditional skipping test                                 |
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - Savoir utiliser **most used assertions** dans le contexte présenté.
+> - Savoir utiliser **good practices** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **UNIT TEST CLASS ASSERTIONS** avec mes propres mots.
+- [ ] Je peux expliquer **définition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **most used assertions** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

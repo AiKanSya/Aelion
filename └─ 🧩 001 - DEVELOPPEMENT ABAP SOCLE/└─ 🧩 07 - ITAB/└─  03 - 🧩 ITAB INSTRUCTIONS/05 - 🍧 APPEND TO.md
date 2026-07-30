@@ -7,17 +7,29 @@
 - [ ] Identifier les limitations selon le type de table interne
 - [ ] Comparer `APPEND` et `INSERT` selon le type de table
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["APPEND TO ITAB"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE STANDARD TABLE"]
+    C --> D["LIMITATIONS POUR SORTED ET HASHED TABLE"]
+    D --> E["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
 
        APPEND { ls | {INITIAL LINE} | {LINES OF jtab [FROM idx1] [TO idx2]} }
               TO itab.
 
-> L’instruction `APPEND` ajoute des données toujours à la fin d’une table interne (`itab`).  
+> L’instruction `APPEND` ajoute des données toujours à la fin d’une table interne (`itab`).
 > Elle fonctionne comme `INSERT`, mais le paramètre de destination est toujours `TO itab`.
 
 > [!TIP]
 > Imaginez un classeur :
->
 > - Vous collez toujours les nouvelles fiches à la fin.
 > - Vous pouvez :
 >   - Ajouter une fiche complète (`STRUCTURE`)
@@ -25,7 +37,6 @@
 >   - Copier des pages d’une autre table interne (`LINES OF itab`)
 
 > [!TIP]
->
 > - `APPEND` est simple et rapide pour `STANDARD` et `RANGE TABLE`.
 > - Pour `HASHED` ou `SORTED TABLE`, il faut utiliser `INSERT INTO TABLE` pour respecter les contraintes.
 
@@ -55,12 +66,11 @@
 ## 🌺 LIMITATIONS POUR SORTED ET HASHED TABLE
 
 > [!CAUTION]
->
 > - `APPEND` fonctionne uniquement pour `STANDARD` et `RANGE TABLE`.
 > - Pour `HASHED` ou `SORTED TABLE`, il faut `INSERT INTO TABLE`.
 > - Sur une `SORTED TABLE`, ajouter en fin peut violé l’ordre défini par la clé → `DUMP`.
 
-### EXEMPLE SORTED TABLE – DUMP
+### 🍧 EXEMPLE SORTED TABLE – DUMP
 
     TYPES: BEGIN OF ty_country,
              land TYPE char3,
@@ -75,7 +85,7 @@
     ls_country-land = 'BR'.
     APPEND ls_country TO lt_country.  " DUMP : ordre non respecté
 
-### EXEMPLE SORTED TABLE – PAS DE DUMP
+### 🍧 EXEMPLE SORTED TABLE – PAS DE DUMP
 
     ls_country-land = 'BR'.
     APPEND ls_country TO lt_country.
@@ -84,7 +94,6 @@
     APPEND ls_country TO lt_country.  " Ordre respecté, pas de DUMP
 
 > [!IMPORTANT]
->
 > - APPEND ne contrôle pas l’ordre sur SORTED TABLE.
 > - L’usage correct dépend de la clé et de l’ordre défini.
 > - HASHED TABLE ne peut jamais utiliser APPEND car il n’y a pas d’ordre séquentiel.
@@ -100,15 +109,13 @@
 
 ## 🌺 EXERCICES
 
-### 🔹 1 – AJOUTER DES EMPLOYES A UNE STANDARD TABLE
+### 🍧 1 – AJOUTER DES EMPLOYES A UNE STANDARD TABLE
 
 > [!IMPORTANT]
 > Déclarer `lt_employees` avec la structure `ty_employee` :
->
 > - id (CHAR5)
 > - nom (CHAR20)
 > - departement (CHAR10)
->
 > Ajouter deux employés avec APPEND et afficher la table.
 
 <details>
@@ -135,7 +142,7 @@
 
 ---
 
-### 🔹 2 – AJOUTER UNE LIGNE VIDE
+### 🍧 2 – AJOUTER UNE LIGNE VIDE
 
 > [!IMPORTANT]
 > Ajouter une ligne vide à la fin de `lt_employees` et afficher la table.
@@ -153,9 +160,9 @@
 
 ---
 
-### 🔹 3 – COPIER DES LIGNES D’UNE AUTRE TABLE
+### 🍧 3 – COPIER DES LIGNES D’UNE AUTRE TABLE
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Copier toutes les lignes de `lt_new_employees` à la fin de `lt_employees`.
 
 <details>
@@ -165,16 +172,13 @@
 
 </details>
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `APPEND` → ajoute toujours à la fin d’une table interne.
 > - Compatible avec `STANDARD` et `RANGE`, interdit sur `SORTED`/`HASHED` sauf précaution.
->
 > [!CAUTION]
 > DUMP si l’ordre est violé sur `SORTED TABLE`.
->
 > [!TIP]
 > coller de nouvelles fiches à la fin d’un classeur, en respectant l’ordre si nécessaire.
->
 > [!IMPORTANT]
 > vérifier le type de table et utiliser `INSERT` pour `SORTED`/`HASHED`.

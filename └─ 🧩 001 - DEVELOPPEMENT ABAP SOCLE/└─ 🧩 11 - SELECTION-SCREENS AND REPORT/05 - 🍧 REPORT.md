@@ -6,11 +6,24 @@
 - [ ] UTILISER LA CLASSE `CL_SALV_TABLE` POUR CREER UN TABLEAU DYNAMIQUE
 - [ ] OFFRIR A L’UTILISATEUR DES FONCTIONNALITES DE TRI, FILTRAGE ET EXPORTATION
 
-## 🌺 DEFINITION
 
-> Un `ALV` (ABAP List Viewer) est un outil SAP qui permet d’afficher des listes et tables de données de manière claire, structurée et interactive.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["ALV (ABAP LIST VIEWER)"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE D’IMPLEMENTATION SIMPLE"]
+    C --> D["EXPLICATION"]
+    D --> E["AIDE"]
+    E --> F["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Un `ALV` (ABAP List Viewer) est un outil SAP qui permet d’afficher des listes et tables de données de manière claire, structurée et interactive.
 > Il offre des fonctions intégrées telles que :
->
 > - le tri automatique des colonnes,
 > - le filtrage,
 > - les totaux et sous-totaux,
@@ -18,10 +31,10 @@
 > - et des options de personnalisation (largeur de colonne, tri multiple, etc.).
 
 > [!TIP]
-> Imaginez un tableau Excel directement intégré dans SAP, mais généré automatiquement à partir de votre code.  
+> Imaginez un tableau Excel directement intégré dans SAP, mais généré automatiquement à partir de votre code.
 > C’est exactement ce que fait l’ALV : il transforme une table interne en tableau dynamique interactif.
 
-## 🌺 EXEMPLE D’IMPLEMENTATION SIMPLE
+## 🌺 EXEMPLE D’IMPLÉMENTATION SIMPLE
 
     DATA: r_salv_table TYPE REF TO cl_salv_table,
           lt_mara      TYPE TABLE OF mara.
@@ -82,12 +95,22 @@
 - Penser à ajouter des totaux ou des tris par défaut selon le besoin utilisateur.
 
 > [!CAUTION]
-> Si votre table interne est vide, l’ALV s’affichera sans colonnes visibles.  
+> Si votre table interne est vide, l’ALV s’affichera sans colonnes visibles.
 > Toujours vérifier le contenu avant d’appeler `display( )`.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - L’ALV (ABAP List Viewer) permet d’afficher des données de manière claire, rapide et interactive.
 > - La classe `CL_SALV_TABLE` facilite la création d’un tableau dynamique.
 > - Il s’agit d’un outil essentiel pour la visualisation, le contrôle et la validation des données.
 > - Les fonctionnalités intégrées (tri, filtre, export) rendent l’ALV très puissant et convivial.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **ALV (ABAP LIST VIEWER)** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemple d’implementation simple** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

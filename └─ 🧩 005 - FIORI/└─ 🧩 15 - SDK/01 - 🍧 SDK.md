@@ -1,15 +1,27 @@
 # 🌸 SDK
 
-> 🌺 Objectifs
->
-> - [ ] Comprendre :
->   - [ ] ce qu'est le SDK SAPUI5
->   - [ ] comment rechercher un contrôle
->   - [ ] comment lire la documentation
->   - [ ] comment trouver les événements, propriétés et agrégations
->   - [ ] comment utiliser les exemples fournis par SAP
+## 🌺 OBJECTIFS
 
-## 🧩 QU'EST CE QUE LE SDK SAP UI5
+- [ ] Expliquer le rôle de **SDK** dans le contexte présenté.
+- [ ] Comprendre **qu'est ce que le sdk sap ui5**.
+- [ ] Mettre en œuvre **acces au sdk** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["SDK"]
+    A --> B["QU'EST CE QUE LE SDK SAP UI5"]
+    B --> C["ACCES AU SDK"]
+    C --> D["STRUCTURE DU SDK"]
+    D --> E["REFLEXE D'UN DEVELOPPEUR FIORI"]
+```
+
+> [!IMPORTANT]
+> Vérifier la version SAPUI5 ciblée par l’application. La disponibilité d’une API, d’une propriété ou d’un événement peut dépendre de cette version.
+
+
+## 🌺 QU'EST CE QUE LE SDK SAP UI5
 
 Le SDK (Software Development Kit) est :
 
@@ -20,13 +32,13 @@ Le SDK (Software Development Kit) est :
 
 C'est l'outil principal du développeur Fiori.
 
-## 🧩 ACCES AU SDK
+## 🌺 ACCES AU SDK
 
 Version publique :
 
 [SAPUI5 SDK Demo Kit](https://ui5.sap.com/)
 
-## 🧩 STRUCTURE DU SDK
+## 🌺 STRUCTURE DU SDK
 
 ### 🍧 1. Demo Kit
 
@@ -136,7 +148,7 @@ Résultat :
     title="Information">
 </Dialog>
 
-## 🧩 REFLEXE D'UN DEVELOPPEUR FIORI
+## 🌺 REFLEXE D'UN DEVELOPPEUR FIORI
 
 Avant de coder :
 
@@ -148,3 +160,19 @@ Avant de coder :
      Adapter le code
 
 C'est exactement la méthode utilisée sur les projets SAPUI5 réels.
+
+## 🌺 RÉSUMÉ
+
+> - **Qu'est ce que le sdk sap ui5 :** Le SDK (Software Development Kit) est :
+> - Savoir utiliser **acces au sdk** dans le contexte présenté.
+> - **Structure du sdk :** découvrir les contrôles
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **SDK** avec mes propres mots.
+- [ ] Je peux expliquer **qu'est ce que le sdk sap ui5** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **acces au sdk** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

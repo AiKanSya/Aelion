@@ -8,17 +8,28 @@
 - [ ] Apprendre à utiliser `IF ... CS ... ENDIF` pour des contrôles simples
 - [ ] Identifier quand utiliser `FIND` pour obtenir la position exacte ou faire des recherches avancées
 
-## 🌺 DEFINITION
 
-> L’opérateur `CS` (Contains String) permet de vérifier si une chaîne de caractères (`oper1`) contient une sous-chaîne complète (`oper2`).  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CONTAINS STRING (CS)"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLE"]
+```
+
+
+## 🌺 DÉFINITION
+
+> L’opérateur `CS` (Contains String) permet de vérifier si une chaîne de caractères (`oper1`) contient une sous-chaîne complète (`oper2`).
 > Contrairement à `CA` (Contains Any), qui ne recherche qu’un caractère, `CS` recherche une séquence entière de caractères dans une autre chaîne.
 
 > [!TIP]
-> Imagine `oper1` comme un livre et `oper2` comme une phrase précise que tu veux retrouver.  
+> Imagine `oper1` comme un livre et `oper2` comme une phrase précise que tu veux retrouver.
 > Si la phrase exacte est présente, la condition `CS` est vraie.
 
 > [!NOTE]
->
 > - "HELLO WORLD" CS "WORLD" → vrai
 > - "HELLO WORLD" CS "WOR" → vrai
 > - "HELLO WORLD" CS "WORD" → faux (lettres hors séquence)
@@ -58,12 +69,21 @@
 > [!TIP]
 > Pour obtenir la position exacte de la sous-chaîne ou effectuer des recherches plus complexes (insensible à la casse, mot complet…), utiliser plutôt `FIND`.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `CS` = Contains String → vérifie si `oper1` contient la sous-chaîne exacte `oper2`.
 > - Sensible à la casse.
 > - Condition vraie si la séquence complète est présente.
 > - Pour des recherches plus détaillées, utiliser `FIND`.
->
 > [!TIP]
 > c’est comme chercher une phrase exacte dans un livre plutôt que vérifier lettre par lettre
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CONTAINS STRING (CS)** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

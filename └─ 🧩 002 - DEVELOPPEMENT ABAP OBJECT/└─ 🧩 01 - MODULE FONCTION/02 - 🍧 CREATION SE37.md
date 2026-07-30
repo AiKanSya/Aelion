@@ -7,6 +7,20 @@
 - [ ] Identifier les principaux onglets de `SE37`
 - [ ] Activer et documenter l’objet
 
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CREATION DANS SE37"]
+    A --> B["TRANSACTION SE37"]
+    B --> C["ETAPE 1 — CREER LE GROUPE DE FONCTIONS"]
+    C --> D["ETAPE 2 — CREER LE MODULE FONCTION"]
+    D --> E["ONGLETS PRINCIPAUX"]
+    E --> F["TYPE DE TRAITEMENT"]
+```
+
+
 ## 🌺 TRANSACTION SE37
 
 > La transaction `SE37`, appelée Function Builder, permet de créer, afficher, modifier, tester et documenter les modules fonction.
@@ -107,13 +121,23 @@ La documentation doit au minimum préciser :
 4. Identifier les onglets nécessaires pour une entrée, une sortie et une exception.
 5. Activer le module sans encore écrire son traitement.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `SE37` gère les modules fonction.
 > - Un groupe de fonctions est obligatoire.
 > - L’interface est définie dans des onglets distincts.
 > - Le type de traitement détermine le mode d’exécution.
 > - La documentation et l’activation font partie de la création.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CREATION DANS SE37** avec mes propres mots.
+- [ ] Je peux expliquer **transaction se37** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **etape 1 — creer le groupe de fonctions** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>
 
 ## 🌺 SOURCES OFFICIELLES
 

@@ -1,10 +1,26 @@
 # 🌸 IMPLEMENTATION DIALOG
 
-> 🌺 Objectifs
->
-> - [ ] Créer un Fragment Type Dialog Box
+## 🌺 OBJECTIFS
 
-## 🧩 1. CREATION D'UN BOUTON D'APPEL DU FRAGMENT
+- [ ] Expliquer le rôle de **IMPLEMENTATION DIALOG** dans le contexte présenté.
+- [ ] Comprendre **1. création d'un bouton d'appel du fragment**.
+- [ ] Mettre en œuvre **2. création du fragment** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["IMPLEMENTATION DIALOG"]
+    A --> B["1. CREATION D'UN BOUTON D'APPEL DU FRAGMENT"]
+    B --> C["2. CREATION DU FRAGMENT"]
+    C --> D["3. ADAPTER LE CONTROLLER"]
+```
+
+> [!IMPORTANT]
+> Vérifier la version SAPUI5 ciblée par l’application. La disponibilité d’une API, d’une propriété ou d’un événement peut dépendre de cette version.
+
+
+## 🌺 1. CRÉATION D'UN BOUTON D'APPEL DU FRAGMENT
 
 Créer :
 
@@ -16,7 +32,7 @@ Code :
 <Button text="Créer une session" press="onOpenSessionDialog" />
 ```
 
-## 🧩 2. CREATION DU FRAGMENT
+## 🌺 2. CRÉATION DU FRAGMENT
 
 Path :
 
@@ -70,7 +86,7 @@ Code :
 </core:FragmentDefinition>
 ```
 
-## 🧩 3. ADAPTER LE CONTROLLER
+## 🌺 3. ADAPTER LE CONTROLLER
 
 Path :
 
@@ -104,7 +120,7 @@ sap.ui.define(
 En dessous de
 
 ```js
- _oDataServices: null,
+ _ODataServices: null,
 ```
 
 Ajouter :
@@ -200,3 +216,19 @@ onCloseSessionDialog: function () {
 
 },
 ```
+
+## 🌺 RÉSUMÉ
+
+> - **1. création d'un bouton d'appel du fragment :** webapp/view/Home.view.xml
+> - **2. création du fragment :** webapp/view/fragments/SessionDialog.fragment.xml
+> - **3. adapter le controller :** webapp/controller/Home.controller.js
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **IMPLEMENTATION DIALOG** avec mes propres mots.
+- [ ] Je peux expliquer **1. creation d'un bouton d'appel du fragment** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **2. creation du fragment** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

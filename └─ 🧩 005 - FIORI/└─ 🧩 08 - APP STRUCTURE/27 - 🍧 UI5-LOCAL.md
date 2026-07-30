@@ -1,6 +1,21 @@
 # 🌸 UI5-LOCAL
 
-## 🧩 UI5-LOCAL.YAML (CONFIGURATION POUR START-LOCAL)
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **UI5-LOCAL** dans le contexte présenté.
+- [ ] Comprendre **ui5-local.yaml (configuration pour start-local)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["UI5-LOCAL"]
+    A --> B["UI5-LOCAL.YAML (CONFIGURATION POUR START-LOCAL)"]
+```
+
+
+## 🌺 UI5-LOCAL.YAML (CONFIGURATION POUR START-LOCAL)
 
 ```
 fgifirstappmodulename/
@@ -31,11 +46,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Configurer l’environnement pour se connecter à un backend réel.
->
 > - 🔨 Utilité : Permettre à l’application de récupérer des données depuis un système SAP local ou distant.
 > - ⌚ Quand utilisé ? Avec la commande `npm run start-local` ou `fiori run --config ui5-local.yaml`.
 
@@ -164,3 +176,17 @@ server:
 
         annotations: []
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **ui5-local.yaml (configuration pour start-local)** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **UI5-LOCAL** avec mes propres mots.
+- [ ] Je peux expliquer **ui5-local.yaml (configuration pour start-local)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

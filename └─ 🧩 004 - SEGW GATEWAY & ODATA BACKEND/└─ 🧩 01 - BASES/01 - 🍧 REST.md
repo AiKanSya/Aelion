@@ -1,17 +1,26 @@
-# 🌸 REST (REPRESENTATIONAL STATE TRANSFERT)
+# 🌸 REST (REPRESENTATIONAL STATE TRANSFER)
 
-## 🧩 OBJECTIVES
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["REST (REPRESENTATIONAL STATE TRANSFER)"]
+    A --> B["DEFINITION"]
+    B --> C["6 REST ARCHITECTURAL CONSTRAINTS"]
+```
+
+
+## 🌺 OBJECTIFS
 
 - [ ] Comprendre ce qu’est `REST`
 - [ ] Savoir pourquoi `REST` est utilisé dans `OData` et `Gateway`
 
-## 🧩 DEFINITION
+## 🌺 DÉFINITION
 
 > [!IMPORTANT]
 > Le `REST` est une manière simple et standardisée pour deux systèmes de communiquer via `HTTP`.
-> On utilise `REST` pour créer des services simples, rapides et compatibles avec tout (applications web, mobiles, SAP, etc.).  
+> On utilise `REST` pour créer des services simples, rapides et compatibles avec tout (applications web, mobiles, SAP, etc.).
 > L'`OData` est bâti sur `REST`, donc comprendre `REST` = comprendre la base d’`OData`.
->
 > Le `REST` est basé sur 6 contraintes
 
 > [!TIP]
@@ -20,7 +29,7 @@
 > [!NOTE]
 > Le `REST` ne veut pas dire "utiliser HTTP simplement" mais "utiliser HTTP correctement", selon 6 règles appelées `REST Architectural Constraints`.
 
-## 🧩 6 REST ARCHITECTURAL CONSTRAINTS
+## 🌺 6 REST ARCHITECTURAL CONSTRAINTS
 
 ### 🍧 CLIENT/SERVER
 
@@ -28,10 +37,8 @@
 > "Chacun son `Role`"
 
 > [!TIP]
->
 > - Le `Client` = le Chef de rang d'une Brasserie à l'Oktoberfest
 > - Le `Server` = le Barman de cette Brasserie tout comme le Chef de cuisne
->
 > le Barman ne s’occupe pas d’apporter les boissons, et le Chef de rang ne les prépare pas, ni le Chef de cuisine.
 
 - Le `Client` (navigateur, app mobile…) affiche les données.
@@ -54,9 +61,8 @@
 > [!NOTE]
 > "Pas de mémoire côté `Server`"
 
-> [!TIP]  
+> [!TIP]
 > Le `Server` (Barman) peut recevoir de multiples `Requests` (Commandes). Afin de faciliter son travail, il compte sur le `Client` (Chef de rang) pour récupérer les informations pour répondre à chaque `Request`.
->
 > - La première `Request` (1ère tournée) émise par le `User` (les fétards) et transmise par le `Client` (Chef de rang) va contenir les informations nécessaires au traitement de la `Response` (boissons de la 1ère tournée). le `Client` (Barman) va alors préparer la `Response` (boissons de la 1ère tournée) et la transmettre au `Client` (Chef de rang) afin qu'elle soit `Consumed` (consommées) par le `User` (les fétards).
 > - La seconde `Request` (2e tournée) devra contenir les informations nécessaires à son traitement.
 
@@ -65,22 +71,22 @@
 
 ### 🍧 LAYERED SYSTEM
 
-> [!NOTE]  
+> [!NOTE]
 > "Plusieurs couches possibles"
 
-> [!TIP]  
-> Le `Client` (Chef de Rang) peut être surchargé avec des `Users` (des "Karens" ?) un peu excités, leur `Request` (Commande) pourrait alors passer par la `Security` (Agent de sécurité du festival) ou par un `Proxy` (Manager) afin d'authentifier (légitimité de leur présence) et autoriser la `Request` (Commande).
+> [!TIP]
+> Le `Client` (Chef de Rang) peut être surchargé avec des `Users` (des "Karens" ) un peu excités, leur `Request` (Commande) pourrait alors passer par la `Security` (Agent de sécurité du festival) ou par un `Proxy` (Manager) afin d'authentifier (légitimité de leur présence) et autoriser la `Request` (Commande).
 
 - Le `Client` ne sait pas s’il parle à un `Server` direct ou à un `intermédiaire` (`Proxy`, `Cache`, `Security`).
 - Cela permet au système d’être plus robuste et Scalable (capacité de s'adapter à la demande, principalement d'augmenter cette capacité selon les besoins des utilisateurs).
 
 ### 🍧 UNIFORM INTERFACE
 
-> [!NOTE]  
+> [!NOTE]
 > "Tout doit être cohérent"
 
-> [!TIP]  
-> Admettons que le `Client` (Chef de Rang) transmette des informations erronées, incomplètes ou incohérentes (Chef de Rang saoul ?), le Server (Barman) ne traitera pas/traitera mal la Request (commande) et inversement.
+> [!TIP]
+> Admettons que le `Client` (Chef de Rang) transmette des informations erronées, incomplètes ou incohérentes (Chef de Rang saoul ), le Server (Barman) ne traitera pas/traitera mal la Request (commande) et inversement.
 
 Le `Client` parle au `Server` grâce à une interface simple et uniforme.
 
@@ -97,10 +103,10 @@ Cela implique :
 
 ### 🍧 CODE ON DEMAND
 
-> [!NOTE]  
+> [!NOTE]
 > "Optionnel"
 
-> [!TIP]  
+> [!TIP]
 > Il est possible que certaines `Responses` (boissons) nécessitent un traitement spécifique côté Client (Chef de Rang) comme par exemple injecter un script (exemple : prévenir les fétards de la rupture de stock, allumer des bougies, etc).
 
 - Le `Server` peut envoyer du code que le `Client` exécute.
@@ -108,3 +114,18 @@ Cela implique :
 
 > [!TIP]
 > Cela est rare en `OData`, mais le principe existe.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - **6 rest architectural constraints :** Le Client parle au Server grâce à une interface simple et uniforme.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **REST (REPRESENTATIONAL STATE TRANSFER)** avec mes propres mots.
+- [ ] Je peux expliquer **objectives** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **definition** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

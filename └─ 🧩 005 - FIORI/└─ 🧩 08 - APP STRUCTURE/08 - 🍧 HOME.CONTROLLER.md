@@ -1,6 +1,21 @@
 # 🌸 HOME.CONTROLLER
 
-## 🧩 HOME.CONTROLLER.JS
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **HOME.CONTROLLER** dans le contexte présenté.
+- [ ] Comprendre **home.controller.js**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["HOME.CONTROLLER"]
+    A --> B["HOME.CONTROLLER.JS"]
+```
+
+
+## 🌺 HOME.CONTROLLER.JS
 
 ```
 fgifirstappmodulename/
@@ -36,11 +51,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Gérer la logique métier de la vue Home.
->
 > - 🔨 Utilité : Réagir aux actions utilisateur sur l’écran principal/la vue principale (sélection, navigation, chargement initial).
 > - ⌚ Quand utilisé ? Lors de l’affichage ou de l’interaction avec la vue Home.
 
@@ -178,3 +190,17 @@ sap.ui.define(
   },
 );
 ```
+
+## 🌺 RÉSUMÉ
+
+> - **Home.controller.js :** 📌 Exemple avec héritage du BaseController :
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **HOME.CONTROLLER** avec mes propres mots.
+- [ ] Je peux expliquer **home.controller.js** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

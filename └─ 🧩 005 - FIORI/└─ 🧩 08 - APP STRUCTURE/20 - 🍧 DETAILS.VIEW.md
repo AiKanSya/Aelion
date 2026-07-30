@@ -1,6 +1,21 @@
 # 🌸 HOME.VIEW
 
-## 🧩 DETAIL.VIEW.XML (VUE DE DÉTAIL)
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **HOME.VIEW** dans le contexte présenté.
+- [ ] Comprendre **detail.view.xml (vue de détail)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["HOME.VIEW"]
+    A --> B["DETAIL.VIEW.XML (VUE DE DÉTAIL)"]
+```
+
+
+## 🌺 DETAIL.VIEW.XML (VUE DE DÉTAIL)
 
 ```
 fgifirstappmodulename/
@@ -37,11 +52,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Afficher les informations détaillées d’un élément sélectionné.
->
 > - 🔨 Utilité : Montrer les données complètes liées à un objet métier.
 > - ⌚ Quand utilisé ? Après une navigation depuis la vue Home
 >   vers un élément précis.
@@ -144,3 +156,17 @@ Elle est pilotée par un controller JavaScript.
 
 </mvc:View>
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **detail.view.xml (vue de détail)** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **HOME.VIEW** avec mes propres mots.
+- [ ] Je peux expliquer **detail.view.xml (vue de détail)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

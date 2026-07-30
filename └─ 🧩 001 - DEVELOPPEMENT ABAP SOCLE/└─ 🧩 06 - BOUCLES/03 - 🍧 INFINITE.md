@@ -7,16 +7,28 @@
 - [ ] Apprendre à interrompre manuellement une boucle infinie via la transaction /oSM50
 - [ ] Toujours prévoir une condition de sortie pour éviter des blocages du programme
 
-## 🌺 DEFINITION
 
-> Une boucle infinie se produit lorsqu’une instruction de boucle (DO, WHILE) n’a aucune condition de sortie.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["BOUCLE INFINIE - SM50"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE"]
+    C --> D["COMMENT INTERROMPRE UNE BOUCLE INFINIE"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Une boucle infinie se produit lorsqu’une instruction de boucle (DO, WHILE) n’a aucune condition de sortie.
 > Le programme continue à s’exécuter sans jamais s’arrêter, pouvant entraîner un `DUMP` de type `TIMEOUT`.
 
 > [!TIP]
 > Marcher en rond dans un couloir sans jamais atteindre la sortie.
 
 > [!CAUTION]
-> Les boucles infinies peuvent bloquer SAP et générer un `DUMP TIMEOUT`.  
+> Les boucles infinies peuvent bloquer SAP et générer un `DUMP TIMEOUT`.
 > Toujours prévoir une condition de sortie dans vos boucles.
 
 ## 🌺 EXEMPLE
@@ -38,12 +50,22 @@
 5. Rafraîchir l’écran (touche [F8] ou bouton flèches) pour vérifier que le programme est arrêté
 
 > [!TIP]
-> Cette procédure ne corrige pas la boucle dans le code, elle arrête simplement le programme en cours.  
+> Cette procédure ne corrige pas la boucle dans le code, elle arrête simplement le programme en cours.
 > Il faut ensuite corriger le code pour ajouter une condition de sortie.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Toujours prévoir une condition de sortie pour une boucle
-> - Les boucles sans sortie peuvent provoquer des DUMPs TIMEOUT et bloquer l’exécution
+> - Les boucles sans sortie peuvent provoquer des dumps TIMEOUT et bloquer l’exécution
 > - `SM50` permet d’interrompre manuellement un programme bloqué
 > - Astuce : utilisez `EXIT`, `CHECK` ou `SY-INDEX` pour contrôler la durée des boucles
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **BOUCLE INFINIE - SM50** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemple** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

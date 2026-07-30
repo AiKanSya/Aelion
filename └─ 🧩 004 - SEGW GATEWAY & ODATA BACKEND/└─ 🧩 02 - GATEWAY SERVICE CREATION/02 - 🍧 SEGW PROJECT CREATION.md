@@ -1,10 +1,19 @@
 # 🌸 GATEWAY SERVICE CREATION
 
-## 🧩 OBJECTIVES
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["GATEWAY SERVICE CREATION"]
+    A --> B["SERVICE/PROJECT CREATION"]
+```
+
+
+## 🌺 OBJECTIFS
 
 - [ ] Créer un `Gateway Service` en `SEGW`
 
-## 🧩 SERVICE/PROJECT CREATION
+## 🌺 SERVICE/PROJECT CRÉATION
 
 > [!IMPORTANT]
 > La première étape du développement consiste à créer un `SAP Gateway project` dans le `SAP Gateway Service Builder`. Vous ouvrez le `SAP Gateway Service Builder` à l'aide du code de transaction `SEGW`.
@@ -16,7 +25,6 @@
 
 > [!WARNING]
 > Le nom du `Project` ne doit pas dépasser `18 caractères` !
->
 > Le nom du `Project` est inclus dans le nom des `Runtime Artefacts` (artefacts d'exécution) générés. Les noms plus longs seront donc tronqués, les caractères manquants étant remplacés par un chiffre. Si le nom du `Project` est parfaitement lisible dans les `Runtime Artefacts`, il est plus facile d'associer ces `Artefacts` au `Project`.
 
 > [!CAUTION]
@@ -26,3 +34,17 @@
 
 > [!CAUTION]
 > Pour modifier un `Gateway Service`, vous devez au préalable avoir sélectionner soit le `Service` dans l'arborescence de gauche, soit un élément qui le concerne avant de cliquer sur `Afficher <-> Modifier`.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **service/project création** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **GATEWAY SERVICE CREATION** avec mes propres mots.
+- [ ] Je peux expliquer **objectives** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **service/project creation** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

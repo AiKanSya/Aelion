@@ -8,6 +8,20 @@
 - [ ] Encapsuler la logique métier dans une classe lorsque pertinent
 - [ ] Maintenir la compatibilité des appelants
 
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["BONNES PRATIQUES ET LIMITES"]
+    A --> B["RESPONSABILITE UNIQUE"]
+    B --> C["INTERFACE MINIMALE"]
+    C --> D["COMPATIBILITE"]
+    D --> E["EFFETS DE BORD"]
+    E --> F["MODULE FONCTION COMME ADAPTATEUR"]
+```
+
+
 ## 🌺 RESPONSABILITE UNIQUE
 
 Un module doit répondre à une finalité claire.
@@ -159,13 +173,23 @@ Règle :
 4. Conserver le module comme adaptateur.
 5. Rechercher les programmes appelants avant de modifier son interface.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Une interface globale doit rester stable et minimale.
 > - Les effets de bord doivent être explicites.
 > - `TABLES` doit rester limité au code historique.
 > - La logique métier nouvelle est plus testable dans une classe.
 > - Le module fonction peut rester une frontière technique ou de compatibilité.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **BONNES PRATIQUES ET LIMITES** avec mes propres mots.
+- [ ] Je peux expliquer **responsabilite unique** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **interface minimale** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>
 
 ## 🌺 SOURCES OFFICIELLES
 

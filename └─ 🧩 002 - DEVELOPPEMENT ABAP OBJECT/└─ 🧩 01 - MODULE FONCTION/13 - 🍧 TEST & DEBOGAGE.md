@@ -8,6 +8,20 @@
 - [ ] Déboguer un appel local, RFC ou Update Task
 - [ ] Contrôler les résultats et exceptions
 
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["TEST ET DEBOGAGE"]
+    A --> B["TEST UNITAIRE MANUEL DANS SE37"]
+    B --> C["TEST D'UNE TABLE"]
+    C --> D["VARIANTES DE TEST"]
+    D --> E["POINT D'ARRET"]
+    E --> F["DEBOGAGE DE L'APPEL"]
+```
+
+
 ## 🌺 TEST UNITAIRE MANUEL DANS SE37
 
 Dans `SE37` :
@@ -129,13 +143,23 @@ Exemple :
 4. Observer `SY-SUBRC` dans le programme appelant.
 5. Tester deux appels successifs pour vérifier l’absence d’état global résiduel.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `SE37` permet le test manuel direct.
 > - Les cas limites et d’erreur sont obligatoires.
 > - Le débogage doit tenir compte du contexte RFC ou Update Task.
 > - `SY-SUBRC` doit être contrôlé immédiatement après l’appel.
 > - La logique métier placée dans une classe est plus simple à tester automatiquement.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **TEST ET DEBOGAGE** avec mes propres mots.
+- [ ] Je peux expliquer **test unitaire manuel dans se37** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **test d'une table** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>
 
 ## 🌺 SOURCES OFFICIELLES
 

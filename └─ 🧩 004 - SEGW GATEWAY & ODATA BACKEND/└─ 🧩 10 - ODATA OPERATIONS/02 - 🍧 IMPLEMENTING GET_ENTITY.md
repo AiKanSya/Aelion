@@ -1,10 +1,25 @@
 # 🌸 IMPLEMENTING \*\_GET_ENTITY OPERATION
 
-## 🧩 METHOD \*\_GET_ENTITY IMPLEMENTATION
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **IMPLEMENTING \*\_GET_ENTITY OPERATION** dans le contexte présenté.
+- [ ] Comprendre **method \_get_entity implémentation**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["IMPLEMENTING \\GETENTITY OPERATION"]
+    A --> B["METHOD \\GETENTITY IMPLEMENTATION"]
+```
+
+
+## 🌺 METHOD \*\_GET_ENTITY IMPLÉMENTATION
 
 ![](./assets/Capture%20d’écran%202026-02-09%20073729.png)
 
-### 🍧 PREREQUISITES - TRANSACTION SE80
+### 🍧 PRÉREQUIS - TRANSACTION SE80
 
 > [!WARNING]
 > La méthode ciblée doit avoir été `Redefined` !
@@ -34,28 +49,24 @@
 
 > [!NOTE]
 > 🍧 `IV_ENTITY_NAME` (STRING)
->
 > - Nom de l’Entity OData ciblée.
 > - Exemple : `Product`.
 > - Indique le type logique de l’entité demandée.
 
 > [!NOTE]
 > 🍧 `IV_ENTITY_SET_NAME` (STRING)
->
 > - Nom de l’EntitySet appelée.
 > - Exemple : `Products`.
 > - Correspond directement au segment utilisé dans l’URL OData.
 
 > [!NOTE]
 > 🍧 `IV_SOURCE_NAME` (STRING)
->
 > - Nom de la source d’appel.
 > - Utilisé principalement dans les scénarios de navigation ou de réutilisation.
 > - Rarement exploité dans les cas simples.
 
 > [!NOTE]
 > 🍧 `IT_KEY_TAB` (`/IWBEP/T_MGW_NAME_VALUE_PAIR`)
->
 > - Contient les clés de l’entité demandée.
 > - Exemple URL : `Products(ProductID='100')`
 > - Chaque entrée représente une paire clé / valeur.
@@ -63,35 +74,30 @@
 
 > [!NOTE]
 > 🍧 `IO_REQUEST_OBJECT` (`/IWBEP/IF_MGW_REQ_ENTITY`)
->
 > - Objet représentant la requête OData fonctionnelle.
 > - Permet l’accès aux paramètres métier de la requête.
 > - Usage avancé.
 
 > [!NOTE]
 > 🍧 `IO_TECH_REQUEST_CONTEXT` (`/IWBEP/IF_MGW_REQ_ENTITY`)
->
 > - Contexte technique complet de la requête.
 > - Donne accès aux headers HTTP, utilisateur, options techniques.
 > - Usage strictement technique.
 
 > [!NOTE]
 > 🍧 `IT_NAVIGATION_PATH` (`/IWBEP/T_MGW_NAVIGATION_PATH`)
->
 > - Chemin de navigation OData.
 > - Exemple : `Orders('1')/Items('10')`
 > - Indique depuis quelle entité parente la requête est effectuée.
 
 > [!NOTE]
 > 🍧 `ER_ENTITY` (Type spécifique MPC)
->
 > - Structure représentant l’entité retournée.
 > - Contient exactement une instance métier.
 > - Résultat principal de la méthode GET_ENTITY.
 
 > [!NOTE]
 > 🍧 `ES_RESPONSE_CONTEXT` (`/IWBEP/...RESPONSE_ENTITY_CNTXT`)
->
 > - Métadonnées associées à la réponse.
 > - Utilisé pour informations complémentaires (techniques).
 > - Optionnel pour les scénarios standards.
@@ -120,7 +126,7 @@
   ENDMETHOD.
 ```
 
-### 🍧 PRODUCTSET_GET_ENTITY METHOD IMPLEMENTATION
+### 🍧 PRODUCTSET_GET_ENTITY METHOD IMPLÉMENTATION
 
 ```abap
 METHOD productset_get_entity.
@@ -173,16 +179,28 @@ ENDMETHOD.
 ### 🍧 METHOD EXCEPTION
 
 > [!IMPORTANT]
-> Les `Errors` d'une class method doivent être `Raise` à l'aide des `Exception Classes`
->
-> - `/IWBEP/CX_MGW_BUSI_EXCEPTION` pour les `Errors` de `logique métier`
+> Les erreurs d'une class method doivent être `Raise` à l'aide des `Exception Classes`
+> - `/IWBEP/CX_MGW_BUSI_EXCEPTION` pour les erreurs de `logique métier`
 > - `/IWBEP/CX_MGW_TECH_EXCEPTION` pour les `exceptions techniques`
 
 > [!IMPORTANT]
 > Les `Exception Classes` offrent plusieurs paramètres pour fournir des informations plus détaillées sur l'erreur.
->
 > Par exemple, le paramètre `message_container` permet de regrouper plusieurs messages dans un seul objet. L'attribut `mo_context` de la `DPC` fournit un tel conteneur de messages, qui peut être rempli à l'aide de différentes Methods, comme `add_message_from_bapi()`, en attendant le paramètre de retour d'une BAPI.
 
 ---
 
 [^1]: Un Reuse Unit est une implémentation standard encapsulée (méthodes utilitaires, classes framework, routines générées) que le runtime Gateway peut appeler pour exécuter une opération OData sans code spécifique.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **method \*\_get_entity implémentation** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **IMPLEMENTING \*\_GET_ENTITY OPERATION** avec mes propres mots.
+- [ ] Je peux expliquer **method \*\_get_entity implementation** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

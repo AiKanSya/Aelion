@@ -1,10 +1,25 @@
 # 🌸 MOCK SERVER
 
-> 🌺 Objectifs
->
-> - [ ] Mettre en place un MockServer UI5 complet pour remplacer le backend SAP et permettre à tous de travailler sans VPN ni système distant avec les même données.
+## 🌺 OBJECTIFS
 
-## 🧩 PRINCIPES
+- [ ] Expliquer le rôle de **MOCK SERVER** dans le contexte présenté.
+- [ ] Comprendre **principes**.
+- [ ] Mettre en œuvre **nouveaux fichiers** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["MOCK SERVER"]
+    A --> B["PRINCIPES"]
+    B --> C["NOUVEAUX FICHIERS"]
+    C --> D["ETAPE 1 - METADATA.XML"]
+    D --> E["ETAPE 2 - DONNEES SIMULEES (MOCKDATA)"]
+    E --> F["ETAPE 3 - MOCKSERVER (COEUR DU SYSTEME)"]
+```
+
+
+## 🌺 PRINCIPES
 
 Un MockServer :
 
@@ -23,7 +38,7 @@ Flux :
     ↓
     metadata.xml + mockdata JSON
 
-## 🧩 NOUVEAUX FICHIERS
+## 🌺 NOUVEAUX FICHIERS
 
 Ce que le mock va nécessiter de créer/modifier :
 
@@ -43,7 +58,7 @@ Ce que le mock va nécessiter de créer/modifier :
     │
     └── Component.js
 
-## 🧩 ETAPE 1 - METADATA.XML
+## 🌺 ETAPE 1 - METADATA.XML
 
 > [!IMPORTANT]
 > Le metadata = contrat entre UI5 et backend
@@ -115,7 +130,7 @@ Points importants :
 - définit les relations
 - ne contient aucune donnée
 
-## 🧩 ETAPE 2 - DONNEES SIMULEES (MOCKDATA)
+## 🌺 ETAPE 2 - DONNEES SIMULEES (MOCKDATA)
 
 > [!IMPORTANT]
 > Simuler les données issues des tables SAP
@@ -486,10 +501,9 @@ Contenu :
 ]
 ```
 
-## 🧩 ETAPE 3 - MOCKSERVER (COEUR DU SYSTEME)
+## 🌺 ETAPE 3 - MOCKSERVER (COEUR DU SYSTEME)
 
 > [!IMPORTANT]
->
 > - intercepte toutes les requêtes /sap/opu/odata/...
 > - remplace backend SAP
 > - utilise metadata + JSON
@@ -586,7 +600,7 @@ sap.ui.define(["sap/ui/core/util/MockServer"], function (MockServer) {
 > [!CAUTION]
 > Remplacer `fgifirstappmodulename` par le namespace de votre application !
 
-## 🧩 ETAPE 4 - DATASERVICES.JS
+## 🌺 ETAPE 4 - DATASERVICES.JS
 
 Créer :
 
@@ -687,7 +701,7 @@ sap.ui.define(
 > [!CAUTION]
 > Remplacer `fgifirstappmodulename` par le namespace de votre application !
 
-## 🧩 ETAPE 5 - ACTIVATION MOCKSERVER & RECUPERATION DES DATASERVICES
+## 🌺 ETAPE 5 - ACTIVATION MOCKSERVER & RECUPERATION DES DATASERVICES
 
     webapp/Component.js
 
@@ -949,24 +963,24 @@ sap.ui.define(
         /****************************************************************
          * Vérification existence instance
          *
-         * !this.oDataServices
+         * !this.ODataServices
          * => signifie :
          * "l’instance n’existe pas encore"
          ****************************************************************/
-        if (!this.oDataServices) {
+        if (!this.ODataServices) {
           /**************************************************************
            * Création du service métier
            *
            * this.getModel()
            * retourne le ODataModel principal défini dans le manifest.
            **************************************************************/
-          this.oDataServices = new DataServices(this.getModel());
+          this.ODataServices = new DataServices(this.getModel());
         }
 
         /****************************************************************
          * Retour de l’instance unique
          ****************************************************************/
-        return this.oDataServices;
+        return this.ODataServices;
       },
     });
   },
@@ -976,7 +990,7 @@ sap.ui.define(
 > [!CAUTION]
 > Remplacer `fgifirstappmodulename` par le namespace de votre application !
 
-## 🧩 ETAPE 6 - MANIFEST.JSON
+## 🌺 ETAPE 6 - MANIFEST.JSON
 
 Vérifier le `datasource` dans le manifest.json :
 
@@ -999,12 +1013,11 @@ Il doit avoir :
 ```
 
 > [!IMPORTANT]
->
 > - intercepte toutes les requêtes /sap/opu/odata/...
 > - remplace backend SAP
 > - utilise metadata + JSON
 
-## 🧩 ETAPE 7 - PACKAGE.JSON
+## 🌺 ETAPE 7 - PACKAGE.JSON
 
 Remplacer :
 
@@ -1014,7 +1027,7 @@ par :
 
     "start-mock": "fiori run --config ./ui5-mock.yaml --open \"test/flp.html?mock=true#app-preview\"",
 
-## 🧩 ETAPE 8 - TESTER
+## 🌺 ETAPE 8 - TESTER
 
 Lancer :
 
@@ -1025,8 +1038,24 @@ Vérifier les logs dans la console. Vous devriez voir :
     Mock server started
     DataServices READY
 
-## 🧩 ERREURS POSSIBLES
+## 🌺 ERREURS POSSIBLES
 
 fe-mockserver manquant (package)
 
     npm install --save-dev @sap-ux/ui5-middleware-fe-mockserver
+
+## 🌺 RÉSUMÉ
+
+> - **Principes :** metadata.xml + mockdata JSON
+> - **Nouveaux fichiers :** Ce que le mock va nécessiter de créer/modifier :
+> - **Etape 1 - metadata.xml :** webapp/localService/metadata.xml
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **MOCK SERVER** avec mes propres mots.
+- [ ] Je peux expliquer **principes** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **nouveaux fichiers** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

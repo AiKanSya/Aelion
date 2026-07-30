@@ -1,8 +1,23 @@
 # 🌸 IMPLEMENTING \*\_UPDATE_ENTITY OPERATION
 
-## 🧩 METHOD \*\_UPDATE_ENTITY IMPLEMENTATION
+## 🌺 OBJECTIFS
 
-### 🍧 PREREQUISITES - TRANSACTION SEGW
+- [ ] Expliquer le rôle de **IMPLEMENTING \*\_UPDATE_ENTITY OPERATION** dans le contexte présenté.
+- [ ] Comprendre **method \_update_entity implémentation**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["IMPLEMENTING \\UPDATEENTITY OPERATION"]
+    A --> B["METHOD \\UPDATEENTITY IMPLEMENTATION"]
+```
+
+
+## 🌺 METHOD \*\_UPDATE_ENTITY IMPLÉMENTATION
+
+### 🍧 PRÉREQUIS - TRANSACTION SEGW
 
 > [!WARNING]
 > L'`EntitySet` ciblée doit être `Updatable` !
@@ -31,56 +46,48 @@
 
 > [!NOTE]
 > 🍧 `IV_ENTITY_NAME` (STRING)
->
 > - Nom de l’Entity OData cible pour la mise à jour.
 > - Exemple : `Product`.
 > - Identification logique de l’entité à modifier.
 
 > [!NOTE]
 > 🍧 `IV_ENTITY_SET_NAME` (STRING)
->
 > - Nom de l’EntitySet sur laquelle le PATCH/PUT est exécuté.
 > - Exemple : `Products`.
 > - Correspond au segment de l’URL utilisé pour la requête UPDATE.
 
 > [!NOTE]
 > 🍧 `IV_SOURCE_NAME` (STRING)
->
 > - Nom de la source d’appel.
 > - Utilisé surtout pour les scénarios de navigation ou de réutilisation.
 > - Rarement exploité dans un UPDATE simple.
 
 > [!NOTE]
 > 🍧 `IT_KEY_TAB` (`/IWBEP/T_MGW_NAME_VALUE_PAIR`)
->
 > - Contient les clés de l’entité à mettre à jour.
 > - Exemple URL : `Products(ProductID='100')`
 > - Paramètre central pour identifier la ligne à modifier.
 
 > [!NOTE]
 > 🍧 `IO_TECH_REQUEST_CONTEXT` (`/IWBEP/IF_MGW_REQ_ENTITY_U`)
->
 > - Contexte technique de la requête UPDATE.
 > - Permet l’accès aux headers HTTP, utilisateur, et autres informations techniques.
 > - Usage strictement technique.
 
 > [!NOTE]
 > 🍧 `IT_NAVIGATION_PATH` (`/IWBEP/T_MGW_NAVIGATION_PATH`)
->
 > - Chemin de navigation OData.
 > - Exemple : `Orders('1')/Items('10')`
 > - Indique depuis quelle entité parente la modification est effectuée.
 
 > [!NOTE]
 > 🍧 `IO_DATA_PROVIDER` (`/IWBEP/IF_MGW_ENTRY_PROVIDER`)
->
 > - Fournisseur des données envoyées par le client.
 > - Contient le payload PATCH/PUT avec les champs à modifier.
 > - Source principale des valeurs de mise à jour.
 
 > [!NOTE]
 > 🍧 `ER_ENTITY` (Type spécifique MPC)
->
 > - Entité mise à jour et retournée au consumer OData.
 > - Contient les valeurs finales après modification.
 > - Résultat principal de la méthode UPDATE_ENTITY.
@@ -108,7 +115,7 @@
   ENDMETHOD.
 ```
 
-### 🍧 METHOD IMPLEMENTATION
+### 🍧 METHOD IMPLÉMENTATION
 
 ```abap
 METHOD businesspartners_update_entity.
@@ -186,16 +193,28 @@ ENDMETHOD.
 ### 🍧 METHOD EXCEPTION
 
 > [!IMPORTANT]
-> Les `Errors` d'une class method doivent être `Raise` à l'aide des `Exception Classes`
->
-> - `/IWBEP/CX_MGW_BUSI_EXCEPTION` pour les `Errors` de `logique métier`
+> Les erreurs d'une class method doivent être `Raise` à l'aide des `Exception Classes`
+> - `/IWBEP/CX_MGW_BUSI_EXCEPTION` pour les erreurs de `logique métier`
 > - `/IWBEP/CX_MGW_TECH_EXCEPTION` pour les `exceptions techniques`
 
 > [!IMPORTANT]
 > Les `Exception Classes` offrent plusieurs paramètres pour fournir des informations plus détaillées sur l'erreur.
->
 > Par exemple, le paramètre `message_container` permet de regrouper plusieurs messages dans un seul objet. L'attribut `mo_context` de la `DPC` fournit un tel conteneur de messages, qui peut être rempli à l'aide de différentes Methods, comme `add_message_from_bapi()`, en attendant le paramètre de retour d'une BAPI.
 
 ---
 
 [^1]: Un Reuse Unit est une implémentation standard encapsulée (méthodes utilitaires, classes framework, routines générées) que le runtime Gateway peut appeler pour exécuter une opération OData sans code spécifique.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **method \*\_update_entity implémentation** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **IMPLEMENTING \*\_UPDATE_ENTITY OPERATION** avec mes propres mots.
+- [ ] Je peux expliquer **method \*\_update_entity implementation** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

@@ -1,13 +1,28 @@
 # 🌸 ODATA
 
-> 🌺 Objectifs
->
-> - [ ] Comprendre le rôle d'OData côté Fiori/UI5
-> - [ ] Comprendre comment une application récupère automatiquement ses données
-> - [ ] Comprendre le lien entre manifest, ODataModel et View
-> - [ ] Comprendre les opérations CRUD côté Fiori
+## 🌺 OBJECTIFS
 
-## 🧩 FIORI ODATA
+- [ ] Expliquer le rôle de **ODATA** dans le contexte présenté.
+- [ ] Comprendre **fiori odata**.
+- [ ] Mettre en œuvre **pourquoi utiliser odata dans fiori** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["ODATA"]
+    A --> B["FIORI ODATA"]
+    B --> C["POURQUOI UTILISER ODATA DANS FIORI"]
+    C --> D["LE MODÈLE ODATA DANS UI5"]
+    D --> E["QUE FAIT UI5 AU DÉMARRAGE ?"]
+    E --> F["BINDING AUTOMATIQUE"]
+```
+
+> [!IMPORTANT]
+> Vérifier la version SAPUI5 ciblée par l’application. La disponibilité d’une API, d’une propriété ou d’un événement peut dépendre de cette version.
+
+
+## 🌺 FIORI ODATA
 
 Dans SAP Fiori :
 
@@ -24,7 +39,7 @@ Explication :
 | Service OData | Expose les données       |
 | Backend SAP   | Fournit les données      |
 
-## 🧩 POURQUOI UTILISER ODATA DANS FIORI
+## 🌺 POURQUOI UTILISER ODATA DANS FIORI
 
 Sans OData :
 
@@ -53,7 +68,7 @@ Avantages :
 - moins de code
 - réutilisable
 
-## 🧩 LE MODÈLE ODATA DANS UI5
+## 🌺 LE MODÈLE ODATA DANS UI5
 
 Cette configuration se trouve généralement dans :
 
@@ -71,7 +86,7 @@ Le modèle OData est généralement déclaré dans :
 }
 ```
 
-## 🧩 QUE FAIT UI5 AU DÉMARRAGE ?
+## 🌺 QUE FAIT UI5 AU DÉMARRAGE ?
 
 Lorsque l'application démarre :
 
@@ -87,7 +102,7 @@ Lorsque l'application démarre :
 
 Le développeur n'a généralement rien à créer manuellement.
 
-## 🧩 BINDING AUTOMATIQUE
+## 🌺 BINDING AUTOMATIQUE
 
 Exemple View :
 
@@ -193,3 +208,19 @@ UI5 fait automatiquement :
      GET /SessionSet
 
 Aucun read() manuel n'est nécessaire.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **fiori odata** dans le contexte présenté.
+> - **Pourquoi utiliser odata dans fiori :** Traitement manuel JSON
+> - **Le modèle odata dans ui5 :** Cette configuration se trouve généralement dans :
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **ODATA** avec mes propres mots.
+- [ ] Je peux expliquer **fiori odata** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **pourquoi utiliser odata dans fiori** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

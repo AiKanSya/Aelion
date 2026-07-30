@@ -1,186 +1,85 @@
-# 🌸 TYPES ET CONSTANTES DANS UNE CLASSE
+# 🌸 TYPES ET CONSTANTES DE CLASSE
 
 ## 🌺 OBJECTIFS
 
-- [ ] Déclarer un type dans une classe
-- [ ] Déclarer une structure et une table interne spécifiques
-- [ ] Distinguer type public et type privé
-- [ ] Utiliser un type public depuis l’extérieur
-- [ ] Déclarer et utiliser une constante de classe
+- [ ] Créer un type interne dans `SE24`.
+- [ ] Choisir une visibilité publique, protégée ou privée.
+- [ ] Déclarer une constante de classe.
+- [ ] Utiliser un type public depuis un programme.
 
-## 🌺 DEFINITION
+## 🌺 DÉFINITION
 
-> Une classe peut déclarer ses propres types avec `TYPES`.
-> Ces types décrivent les données utilisées par son interface publique ou par son traitement interne.
+Les types internes décrivent des structures de données propres à la responsabilité de la classe. Les constantes représentent des valeurs immuables.
 
-Les types ne sont pas des attributs.
-Ils décrivent une forme de donnée, mais ne stockent aucune valeur.
+## 🌺 VUE D'ENSEMBLE
 
-## 🌺 TYPE PUBLIC
+```mermaid
+flowchart TD
+    A["ZCL_AELION_ORDER"] --> B["Type public TY_ITEM"]
+    A --> C["Type privé TY_INTERNAL_CACHE"]
+    A --> D["Constante publique GC_STATUS_OPEN"]
+    B --> E["Utilisable par les appelants"]
+    C --> F["Utilisable uniquement dans la classe"]
+```
 
-    PUBLIC SECTION.
-      TYPES ty_amount TYPE decfloat34.
+## 🌺 CRÉATION DANS SE24
 
-Un type public peut être utilisé depuis l’extérieur de la classe.
+Dans l’onglet **Types**, créer :
 
-    DATA lv_amount TYPE lcl_payment=>ty_amount.
+- `TY_ITEM`, type structuré public ;
+- `TT_ITEM`, type table public basé sur `TY_ITEM` ;
+- `TY_INTERNAL_CACHE`, type privé.
 
-Le sélecteur `=>` permet d’accéder au type déclaré par la classe.
+Dans l’onglet **Attributs**, créer une constante publique `GC_STATUS_OPEN` de type `CHAR1`, valeur `O`.
 
-## 🌺 STRUCTURE PUBLIQUE
+> [!NOTE]
+> Selon la version du Class Builder, les types structurés complexes peuvent être maintenus dans l’éditeur source de la section correspondante. La classe reste globale et créée dans `SE24`.
 
-    PUBLIC SECTION.
-      TYPES:
-        BEGIN OF ty_product,
-          id    TYPE string,
-          name  TYPE string,
-          price TYPE decfloat34,
-        END OF ty_product.
+## 🌺 UTILISATION D’UN TYPE PUBLIC
 
-Utilisation extérieure :
+```abap
+DATA ls_item TYPE zcl_aelion_order=>ty_item.
+DATA lt_item TYPE zcl_aelion_order=>tt_item.
 
-    DATA ls_product TYPE lcl_catalog=>ty_product.
+ls_item-product_id = 'P100'.
+APPEND ls_item TO lt_item.
+```
 
-## 🌺 TABLE INTERNE PUBLIQUE
+Utilisation d’une constante :
 
-    PUBLIC SECTION.
-      TYPES tt_product TYPE STANDARD TABLE OF ty_product WITH EMPTY KEY.
+```abap
+IF lv_status = zcl_aelion_order=>gc_status_open.
+  " Traitement
+ENDIF.
+```
 
-Utilisation :
+## 🌺 CHOIX DE VISIBILITÉ
 
-    DATA lt_product TYPE lcl_catalog=>tt_product.
+- public : le type fait partie du contrat de la classe ;
+- protected : le type sert à la classe et à ses sous-classes ;
+- private : le type est un détail d’implémentation.
 
-## 🌺 TYPE PRIVE
+## 🌺 EXERCICE
 
-    PRIVATE SECTION.
-      TYPES:
-        BEGIN OF ty_internal_log,
-          timestamp TYPE timestampl,
-          message   TYPE string,
-        END OF ty_internal_log.
+Créer dans `ZCL_AELION_ORDER` un type public de ligne de commande, un type table public et deux constantes de statut.
 
-Ce type peut être utilisé uniquement dans la classe.
+<details>
+<summary>Afficher la correction et les points de contrôle</summary>
 
-> [!IMPORTANT]
-> Un type privé ne doit pas apparaître dans la signature publique d’une méthode.
-> Le programme extérieur ne pourrait pas le déclarer ni l’utiliser.
+- [ ] Les types publics sont accessibles avec =>.
+- [ ] Le type privé n’est pas utilisable dans le report.
+- [ ] Les constantes ont une valeur fixe.
+- [ ] Les noms expriment clairement leur usage.
 
-## 🌺 CONSTANTE DE CLASSE
+</details>
 
-    PUBLIC SECTION.
-      CONSTANTS gc_status_active TYPE string VALUE 'ACTIVE'.
+## 🌺 RÉSUMÉ
 
-Utilisation extérieure :
-
-    IF lv_status = lcl_product=>gc_status_active.
-      WRITE: / 'Produit actif'.
-    ENDIF.
-
-Les constantes sont liées à la classe et sont accessibles avec `=>` lorsqu’elles sont publiques.
-
-## 🌺 EXEMPLE COMPLET
-
-    REPORT zaelion_oo_08.
-
-    CLASS lcl_catalog DEFINITION.
-      PUBLIC SECTION.
-        TYPES:
-          BEGIN OF ty_product,
-            id     TYPE string,
-            name   TYPE string,
-            status TYPE string,
-          END OF ty_product.
-
-        TYPES tt_product TYPE STANDARD TABLE OF ty_product WITH EMPTY KEY.
-
-        CONSTANTS gc_status_active   TYPE string VALUE 'ACTIVE'.
-        CONSTANTS gc_status_inactive TYPE string VALUE 'INACTIVE'.
-
-        METHODS add_product
-          IMPORTING
-            is_product TYPE ty_product.
-
-        METHODS get_products
-          RETURNING
-            VALUE(rt_products) TYPE tt_product.
-
-      PRIVATE SECTION.
-        TYPES:
-          BEGIN OF ty_internal_counter,
-            added TYPE i,
-          END OF ty_internal_counter.
-
-        DATA mt_products TYPE tt_product.
-        DATA ms_counter  TYPE ty_internal_counter.
-    ENDCLASS.
-
-    CLASS lcl_catalog IMPLEMENTATION.
-      METHOD add_product.
-        APPEND is_product TO mt_products.
-        ms_counter-added = ms_counter-added + 1.
-      ENDMETHOD.
-
-      METHOD get_products.
-        rt_products = mt_products.
-      ENDMETHOD.
-    ENDCLASS.
-
-    START-OF-SELECTION.
-
-      DATA(lo_catalog) = NEW lcl_catalog( ).
-
-      DATA(ls_product) = VALUE lcl_catalog=>ty_product(
-        id     = 'P100'
-        name   = 'Ecran'
-        status = lcl_catalog=>gc_status_active ).
-
-      lo_catalog->add_product( is_product = ls_product ).
-
-      DATA(lt_products) = lo_catalog->get_products( ).
-
-      LOOP AT lt_products INTO ls_product.
-        WRITE: / ls_product-id,
-                 ls_product-name,
-                 ls_product-status.
-      ENDLOOP.
-
-## 🌺 VISIBILITE ET CONTRAT
-
-| 🍧 Élément                     | 🍧 Visibilité recommandée |
-| ------------------------------ | ------------------------- |
-| Type utilisé par les appelants | Public                    |
-| Type d’un paramètre public     | Public                    |
-| Type purement technique        | Privé                     |
-| Constante métier partagée      | Publique si nécessaire    |
-| Constante d’implémentation     | Privée                    |
-
-## 🌺 BONNES PRATIQUES
-
-- Déclarer publiquement uniquement les types nécessaires aux appelants.
-- Conserver les structures techniques en privé.
-- Utiliser `ty_` pour un type élémentaire ou structuré.
-- Utiliser `tt_` pour un type de table interne.
-- Utiliser `gc_` pour une constante publique ou statique selon la convention projet.
-- Préférer une constante nommée à une valeur littérale répétée.
-
-## 🌺 EXERCICES
-
-1. Créer une classe `lcl_order_service`.
-2. Déclarer un type public `ty_order` avec numéro, client et montant.
-3. Déclarer un type public de table `tt_order`.
-4. Déclarer deux constantes publiques de statut.
-5. Déclarer un type privé pour un journal technique.
-6. Ajouter une méthode retournant une table de commandes.
-
-## 🌺 RESUME
-
-> - `TYPES` déclare un modèle de donnée dans une classe.
-> - Un type public est accessible avec `classe=>type`.
-> - Un type privé reste limité à l’implémentation.
-> - Les types publics font partie du contrat de la classe.
-> - Les constantes évitent les valeurs littérales dispersées.
+> - Les types de classe structurent les données propres à un service.
+> - La visibilité détermine si le type appartient au contrat public.
+> - Les constantes sont des composants statiques immuables.
+> - Les composants publics s’utilisent avec `=>`.
 
 ## 🌺 SOURCES OFFICIELLES
 
-- SAP ABAP Keyword Documentation — Data Types and Constants of Classes : https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/abenclass_types_constants.htm
-- SAP ABAP Keyword Documentation — Class Component Selector : https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/abenclass_component_selector.htm
+- [Documentation SAP — Classes](https://help.sap.com/doc/abapdocu_cp_index_htm/CLOUD/en-US/ABENCLASSES.html)

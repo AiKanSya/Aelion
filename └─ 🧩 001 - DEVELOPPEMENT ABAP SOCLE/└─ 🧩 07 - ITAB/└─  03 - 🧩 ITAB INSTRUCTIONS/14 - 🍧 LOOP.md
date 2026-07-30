@@ -11,7 +11,20 @@
 - [ ] Utiliser les ruptures `AT FIRST`, `AT NEW`, `AT END OF`, `AT LAST`
 - [ ] Utiliser des filtres complexes avec `WHERE` sur un ou plusieurs champs
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["LOOP AT"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLES SIMPLES"]
+    C --> D["EXEMPLES AVANCES – WHERE"]
+    D --> E["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
 
     LOOP AT itab
       { INTO ls | ASSIGNING <lfs_> | TRANSPORTING NO FIELDS }
@@ -24,19 +37,18 @@
       ...
     ENDLOOP.
 
-> L’instruction `LOOP AT` permet de parcourir une table interne (`itab`) ligne par ligne.  
+> L’instruction `LOOP AT` permet de parcourir une table interne (`itab`) ligne par ligne.
 > Les données peuvent être copiées (`INTO`), référencées en mémoire (`ASSIGNING <fs>`) ou simplement vérifiées (`TRANSPORTING NO FIELDS`).
 
 > [!TIP]
 > Parcourir un classeur ligne par ligne
->
 > - `INTO` = photocopier la fiche
 > - `ASSIGNING <lfs\_>` = pointer directement sur la fiche pour modifier
 > - `TRANSPORTING NO FIELDS` = juste vérifier si la fiche existe
 
 ## 🌺 EXEMPLES SIMPLES
 
-### LOOP AVEC INTO
+### 🍧 LOOP AVEC INTO
 
     DATA: ls_citizen TYPE ty_citizen.
 
@@ -47,7 +59,7 @@
 > [!IMPORTANT]
 > Copie de la ligne dans `ls_citizen`. Modification de `ls_citizen` n’affectera pas `lt_citizen`.
 
-### LOOP AVEC ASSIGNING FIELD-SYMBOL
+### 🍧 LOOP AVEC ASSIGNING FIELD-SYMBOL
 
     FIELD-SYMBOLS: <lfs_citizen> TYPE ty_citizen.
 
@@ -59,7 +71,7 @@
 > [!NOTE]
 > Modification directe dans la table sans utiliser `MODIFY`.
 
-### LOOP AVEC TRANSPORTING NO FIELDS
+### 🍧 LOOP AVEC TRANSPORTING NO FIELDS
 
     LOOP AT lt_citizen TRANSPORTING NO FIELDS WHERE name = 'Renata'.
       IF sy-subrc = 0.
@@ -70,7 +82,7 @@
 > [!TIP]
 > Vérifier simplement l’existence sans copier ni modifier la ligne.
 
-### LOOP AVEC FROM / TO
+### 🍧 LOOP AVEC FROM / TO
 
     LOOP AT lt_citizen INTO ls_citizen FROM 2 TO 3.
       WRITE:/ 'Pays:', ls_citizen-country, 'Nom:', ls_citizen-name.
@@ -79,7 +91,7 @@
 > [!IMPORTANT]
 > Limite la boucle aux lignes 2 et 3 pour traiter une plage précise.
 
-### LOOP AVEC DECLARATION DYNAMIQUE
+### 🍧 LOOP AVEC DECLARATION DYNAMIQUE
 
     DATA: lt_dyn TYPE STANDARD TABLE OF ty_citizen.
 
@@ -96,7 +108,7 @@
 > [!TIP]
 > Utile pour créer ou manipuler des structures au fur et à mesure, et pour éviter les conflits de `FIELD-SYMBOLS`.
 
-### LOOP AVEC AT FIRST / AT NEW / AT END OF / AT LAST
+### 🍧 LOOP AVEC AT FIRST / AT NEW / AT END OF / AT LAST
 
     SORT lt_citizen BY country.
 
@@ -127,7 +139,7 @@
 
 ## 🌺 EXEMPLES AVANCES – WHERE
 
-### 1 – WHERE SUR UN CHAMP
+### 🍧 1 – WHERE SUR UN CHAMP
 
     LOOP AT lt_citizen INTO ls_citizen WHERE country = 'FR'.
       WRITE:/ 'Pays:', ls_citizen-country, 'Nom:', ls_citizen-name.
@@ -136,7 +148,7 @@
 > [!TIP]
 > Vérifie toutes les lignes dont le champ `country` = 'FR'.
 
-### 2 – WHERE SUR DEUX CHAMPS (clé et non-clé)
+### 🍧 2 – WHERE SUR DEUX CHAMPS (clé et non-clé)
 
     LOOP AT lt_citizen ASSIGNING <lfs_citizen> WHERE country = 'ES' AND age > '30'.
       WRITE:/ 'Pays:', <lfs_citizen>-country, 'Nom:', <lfs_citizen>-name, 'Âge:', <lfs_citizen>-age.
@@ -148,7 +160,7 @@
 > [!CAUTION]
 > les champs non-clés peuvent être utilisés pour filtrer.
 
-### 3 – WHERE AVEC COMPARAISONS MULTIPLES
+### 🍧 3 – WHERE AVEC COMPARAISONS MULTIPLES
 
     LOOP AT lt_citizen INTO ls_citizen WHERE age >= '25' AND age <= '32'.
       WRITE:/ 'Nom:', ls_citizen-name, 'Âge:', ls_citizen-age.
@@ -160,7 +172,7 @@
 > [!TIP]
 > chercher toutes les fiches entre 25 et 32 ans.
 
-### 4 – WHERE SUR PLUSIEURS CHAMPS CLÉS ET NON-CLÉS
+### 🍧 4 – WHERE SUR PLUSIEURS CHAMPS CLÉS ET NON-CLÉS
 
     LOOP AT lt_citizen ASSIGNING <lfs_citizen> WHERE country = 'FR' AND age = '24' AND name = 'Thierry'.
       WRITE:/ 'Citoyen trouvé:', <lfs_citizen>-name, 'Pays:', <lfs_citizen>-country.
@@ -169,7 +181,7 @@
 > [!CAUTION]
 > Si la table n’est pas triée correctement pour les clés, l’utilisation d’`AT NEW` avec ce filtre pourrait ne pas fonctionner comme attendu.
 
-### 5 – WHERE AVEC CONDITIONS COMPLEXES
+### 🍧 5 – WHERE AVEC CONDITIONS COMPLEXES
 
     LOOP AT lt_citizen INTO ls_citizen WHERE (country = 'BR' OR country = 'IT') AND age < '30'.
       WRITE:/ 'Nom:', ls_citizen-name, 'Pays:', ls_citizen-country, 'Âge:', ls_citizen-age.
@@ -178,7 +190,7 @@
 > [!IMPORTANT]
 > On peut combiner `AND` et `OR` en respectant la priorité des parenthèses.
 
-### 6 – WHERE DYNAMIQUE (avec FIELD-SYMBOL)
+### 🍧 6 – WHERE DYNAMIQUE (avec FIELD-SYMBOL)
 
     DATA: lv_country TYPE char3 VALUE 'ES'.
 
@@ -203,7 +215,7 @@
 
 ## 🌺 EXERCICES
 
-### 🔹 1 – WHERE SUR UN SEUL CHAMP
+### 🍧 1 – WHERE SUR UN SEUL CHAMP
 
 > [!IMPORTANT]
 > Parcourir `lt_citizen` et afficher les citoyens dont `country = 'FR'`.
@@ -219,7 +231,7 @@
 
 ---
 
-### 🔹 2 – WHERE SUR PLUSIEURS CHAMPS
+### 🍧 2 – WHERE SUR PLUSIEURS CHAMPS
 
 > [!IMPORTANT]
 > Afficher les citoyens dont `country = 'ES'` et `age > 30`.
@@ -235,7 +247,7 @@
 
 ---
 
-### 🔹 3 – WHERE AVEC PLAGE D’AGE
+### 🍧 3 – WHERE AVEC PLAGE D’AGE
 
 > [!IMPORTANT]
 > Afficher les citoyens âgés entre 25 et 32 ans.
@@ -251,7 +263,7 @@
 
 ---
 
-### 🔹 4 – WHERE DYNAMIQUE
+### 🍧 4 – WHERE DYNAMIQUE
 
 > [!IMPORTANT]
 > Afficher tous les citoyens dont `country = lv_country` et `age > 30`.
@@ -269,7 +281,7 @@
 
 ---
 
-### 🔹 5 – WHERE COMPLEXE AVEC OR ET AND
+### 🍧 5 – WHERE COMPLEXE AVEC OR ET AND
 
 > [!IMPORTANT]
 > Afficher tous les citoyens dont `country = 'BR'` ou `country = 'IT'` et `age < 30`.
@@ -285,10 +297,9 @@
 
 ---
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > `LOOP AT` permet de parcourir les tables internes ligne par ligne.
->
 > - `INTO` : copie de la ligne
 > - `ASSIGNING` : référence directe en mémoire
 > - `TRANSPORTING NO FIELDS` : vérification uniquement

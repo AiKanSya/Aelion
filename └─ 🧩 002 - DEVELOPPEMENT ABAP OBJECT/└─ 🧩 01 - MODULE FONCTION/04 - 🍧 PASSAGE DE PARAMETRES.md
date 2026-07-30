@@ -8,6 +8,20 @@
 - [ ] Déclarer une valeur par défaut
 - [ ] Éviter les modifications involontaires
 
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["PASSAGE DES PARAMETRES"]
+    A --> B["PASSAGE PAR REFERENCE"]
+    B --> C["PASSAGE PAR VALEUR"]
+    C --> D["COMPARAISON"]
+    D --> E["PARAMETRE FACULTATIF"]
+    E --> F["VALEUR PAR DEFAUT"]
+```
+
+
 ## 🌺 PASSAGE PAR REFERENCE
 
 > Lors d’un passage par référence, le paramètre formel du module fonction référence la donnée réelle du programme appelant.
@@ -135,13 +149,23 @@ Le sens de la donnée est explicite.
 4. Retourner le texte transformé dans `EV_TEXT`.
 5. Tester les trois combinaisons d’appel.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `VALUE(...)` indique le passage par valeur.
 > - Sans passage par valeur, le paramètre peut être transmis par référence.
 > - `OPTIONAL` autorise l’absence du paramètre.
 > - `DEFAULT` fournit une valeur lorsque le paramètre est omis.
 > - Le sens de l’interface doit rester explicite.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **PASSAGE DES PARAMETRES** avec mes propres mots.
+- [ ] Je peux expliquer **passage par reference** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **passage par valeur** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>
 
 ## 🌺 SOURCES OFFICIELLES
 

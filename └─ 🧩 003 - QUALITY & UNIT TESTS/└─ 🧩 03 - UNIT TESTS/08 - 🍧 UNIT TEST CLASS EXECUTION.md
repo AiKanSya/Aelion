@@ -1,10 +1,26 @@
 # 🌸 UNIT TEST CLASS EXECUTION
 
-## 🧩 TESTS DE MODULE
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **UNIT TEST CLASS EXECUTION** dans le contexte présenté.
+- [ ] Comprendre **tests de module**.
+- [ ] Mettre en œuvre **tests de module avec → couverture** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["UNIT TEST CLASS EXECUTION"]
+    A --> B["TESTS DE MODULE"]
+    B --> C["TESTS DE MODULE AVEC → COUVERTURE"]
+    C --> D["DANS L'ENVIRONNEMENT DE TEST"]
+```
+
+
+## 🌺 TESTS DE MODULE
 
 > [!NOTE]
 > Tests de modules
->
 > - Lancer `ABAP Unit` sur la classe sélectionnée.
 > - Exécuter toutes les méthodes FOR TESTING.
 > - Afficher succès / échecs / messages.
@@ -20,11 +36,8 @@
 
 > [!NOTE]
 > Pour tester les échecs dans la cadre de la démo, nous allons ajouter volontairement des erreurs :
->
 > - DEFINITION SECTION
->
 >   - (+)Déclaration de `f_cut_not_created TYPE REF TO zcl_customer_orders_fgi`
->
 > - IMPLEMENTATION SECTION
 >   - (+)Implémentation de la méthode `assert_not_initial` sur `f_cut_not_created` (sans pour autant avoir créer cet objet)
 >   - (+)Implémentation de la méthode `assert_equals` avec un résultat espérer de `10`
@@ -86,11 +99,10 @@ ENDCLASS.
 
 ![](../assets/Capture%20d’écran%202026-01-15%20095516.png)
 
-## 🧩 TESTS DE MODULE AVEC → COUVERTURE
+## 🌺 TESTS DE MODULE AVEC → COUVERTURE
 
 > [!NOTE]
 > Tests de modules avec → `Couverture`
->
 > - Identique à Tests de modules.
 > - Ajoute l’analyse de `couverture` de code :
 >   - quelles méthodes / lignes ont été exécutées.
@@ -99,23 +111,18 @@ ENDCLASS.
 
 > [!WARNING]
 > Le `Coverage Analyzer` ne supporte pas :
->
 > - Classes `FINAL`
 > - avec accès `DB direct`
 > - exécutées via `SE24`
 > - dans certaines versions SAP (`ECC` / `S-4` anciens).
->
 > Lancer cette version avec une classe répondant à au un de ces critères engendrera un Dump :
->
 > ![](../assets/Capture%20d’écran%202026-01-14%20163234.png)
->
 > Pour info, le dump ci-dessus ne signale pas une erreur logique, mais une politique système. Ce n’est pas une erreur fonctionnelle, ni une erreur ABAP Unit, ni un cas limite.
 
-## 🧩 DANS L'ENVIRONNEMENT DE TEST
+## 🌺 DANS L'ENVIRONNEMENT DE TEST
 
 > [!NOTE]
 > Dans l’environnement de test
->
 > - Exécute la classe comme un programme.
 > - Ignore `ABAP Unit`.
 > - Nécessite une méthode statique exécutable (`IF_OO_ADT_CLASSRUN` ou équivalent).
@@ -128,3 +135,19 @@ ENDCLASS.
 ![](../assets/Capture%20d’écran%202026-01-14%20165727.png)
 
 ![](../assets/Capture%20d’écran%202026-01-14%20165803.png)
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **tests de module** dans le contexte présenté.
+> - Savoir utiliser **tests de module avec → couverture** dans le contexte présenté.
+> - Savoir utiliser **dans l'environnement de test** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **UNIT TEST CLASS EXECUTION** avec mes propres mots.
+- [ ] Je peux expliquer **tests de module** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **tests de module avec → couverture** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

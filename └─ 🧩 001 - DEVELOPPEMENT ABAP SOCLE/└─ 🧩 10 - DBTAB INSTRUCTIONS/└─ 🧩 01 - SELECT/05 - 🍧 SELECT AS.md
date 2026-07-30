@@ -7,13 +7,25 @@
 - [ ] Appliquer les alias dans une sélection DISTINCT ou normale
 - [ ] Stocker les résultats dans une table interne avec les nouveaux noms
 
-## 🌺 DEFINITION
 
-> L’instruction `AS alias` permet de renommer une colonne dans le résultat d’une requête ABAP.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["COL AS ALIAS – RENOMMER LES CHAMPS"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE"]
+    C --> D["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> L’instruction `AS alias` permet de renommer une colonne dans le résultat d’une requête ABAP.
 > Cela rend le titre des colonnes plus significatif ou plus lisible dans le programme.
 
 > [!TIP]
-> Imaginez un classeur Excel où les colonnes ont des noms techniques (ex : `CAR_BRAND`).  
+> Imaginez un classeur Excel où les colonnes ont des noms techniques (ex : `CAR_BRAND`).
 > Vous pouvez créer un titre simplifié (`Marque`) pour chaque colonne, sans modifier la table originale.
 
 > [!IMPORTANT]
@@ -24,7 +36,7 @@
 
 ## 🌺 EXEMPLE
 
-### PERFORM SELECT_AS
+### 🍧 PERFORM SELECT_AS
 
     TYPES: BEGIN OF ty_ekpo,
             doc_achat    TYPE ekpo-ebeln,
@@ -56,9 +68,24 @@
 | Utiliser les alias dans les rapports | Les noms personnalisés améliorent la lisibilité des résultats |
 
 > [!IMPORTANT]
->
 > - Pour renommer des colonnes dans des requêtes complexes
 > - Pour améliorer la lisibilité des résultats dans les tables internes ou les rapports ABAP
 
 > [!TIP]
 > Les alias peuvent être utilisés avec n’importe quel SELECT, y compris ceux utilisant JOIN ou WHERE. Cela améliore la clarté et évite les confusions lors du traitement des données.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - **Exemple :** TYPES: BEGIN OF tyekpo,
+> - Savoir utiliser **bonnes pratiques** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **COL AS ALIAS – RENOMMER LES CHAMPS** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemple** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

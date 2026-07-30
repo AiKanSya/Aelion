@@ -7,20 +7,30 @@
 - [ ] Vérifier l’état de l’insertion via les variables système `SY-SUBRC` et `SY-DBCNT`
 - [ ] Comprendre l’impact des clés primaires sur l’insertion
 
-## 🌺 DEFINITION
 
-> `INSERT INTO dbtab VALUES struct`  
-> Insère l’enregistrement contenu dans `struct` dans la table de base de données `dbtab`.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["INSERT INTO DBTAB VIA STRUCTURE"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE"]
+    C --> D["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> `INSERT INTO dbtab VALUES struct`
+> Insère l’enregistrement contenu dans `struct` dans la table de base de données `dbtab`.
 > Le système vérifie la clé primaire :
->
 > - Si elle existe déjà → l’insertion échoue (`SY-SUBRC = 4`)
-> - Si elle n’existe pas → l’insertion réussit (`SY-SUBRC = 0`)  
+> - Si elle n’existe pas → l’insertion réussit (`SY-SUBRC = 0`)
 >   `SY-DBCNT` indique le nombre de lignes insérées.
 
 > [!TIP]
-> Imaginez un classeur Excel avec une colonne "ID" unique.  
+> Imaginez un classeur Excel avec une colonne "ID" unique.
 > Vous voulez ajouter une nouvelle ligne :
->
 > - Si l’ID existe déjà → Excel refuse d’ajouter la ligne
 > - Si l’ID est nouveau → la ligne est ajoutée, et vous savez combien ont été ajoutées.
 
@@ -29,7 +39,7 @@
 
 ## 🌺 EXEMPLE
 
-### Insérer un nouveau passager
+### 🍧 Insérer un nouveau passager
 
     DATA: ls_passager TYPE zpassenger.
 
@@ -55,7 +65,7 @@ _Résultat de l’insertion_
 | ---------- | ---------- | ------- | ------------- | ----------- | ---------- | ------- |
 | P0005      | THIERRY    | ROMAIN  | 19930324      | MONTPELLIER | FR         | F       |
 
-### Insérer plusieurs enregistrements via table interne
+### 🍧 Insérer plusieurs enregistrements via table interne
 
     DATA: lt_passager TYPE TABLE OF zpassenger,
           ls_passager TYPE zpassenger.
@@ -75,7 +85,7 @@ _Résultat de l’insertion_
     WRITE: / 'Nombre de lignes insérées :', sy-dbcnt.
 
 > [!IMPORTANT]
-> le `INSERT ... FROM TABLE` permet d’insérer tous les enregistrements de la table interne en une seule instruction.  
+> le `INSERT ... FROM TABLE` permet d’insérer tous les enregistrements de la table interne en une seule instruction.
 > Le `SY-DBCNT` indique combien de lignes ont été insérées avec succès.
 
 ## 🌺 BONNES PRATIQUES
@@ -85,3 +95,19 @@ _Résultat de l’insertion_
 3. Vérifier `SY-DBCNT` si plusieurs enregistrements sont insérés.
 4. Éviter d’insérer des doublons sur la clé primaire pour ne pas générer d’erreurs.
 5. Utiliser `INSERT ... FROM TABLE` pour optimiser les performances lors de l’insertion multiple.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - **Exemple :** DATA: lspassager TYPE zpassenger.
+> - **Bonnes pratiques :** 1.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **INSERT INTO DBTAB VIA STRUCTURE** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemple** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

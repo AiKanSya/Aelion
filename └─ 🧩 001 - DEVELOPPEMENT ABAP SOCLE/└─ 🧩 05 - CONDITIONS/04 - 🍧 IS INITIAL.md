@@ -8,10 +8,21 @@
 - [ ] Appliquer `IS INITIAL` avec `CASE` pour gérer plusieurs cas
 - [ ] Simplifier les tests de variables non initialisées ou vides
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["IS INITIAL"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["IF IS INITIAL"]
+```
+
+
+## 🌺 DÉFINITION
 
 > L’instruction `IS INITIAL` permet de tester si une variable est initialisée ou non.
->
 > - `IS INITIAL` retourne vrai si la variable est vide ou contient la valeur par défaut pour son type.
 > - `IS NOT INITIAL` retourne vrai si la variable contient une valeur.
 
@@ -23,13 +34,13 @@
 
 ## 🌺 SYNTAXE
 
-### AVEC IF
+### 🍧 AVEC IF
 
     IF operand IS [NOT] INITIAL.
       [statement_block]
     ENDIF.
 
-### AVEC CASE
+### 🍧 AVEC CASE
 
     CASE operand.
       [WHEN IS [NOT] INITIAL].
@@ -63,11 +74,20 @@
 > [!TIP]
 > vérifier une boîte avant de l’utiliser : si elle est vide, on peut la remplir, sinon on lit son contenu
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `IS INITIAL` teste si une variable est vide ou contient sa valeur par défaut.
 > - `IS NOT INITIAL` teste si la variable contient une valeur.
 > - Fonctionne pour tous les types de variables : chaînes, nombres, dates, tables internes.
->
 > [!TIP]
 > comme vérifier si une boîte est vide ou remplie avant d’agir sur son contenu
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **IS INITIAL** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

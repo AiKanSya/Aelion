@@ -1,6 +1,21 @@
 # 🌸 DATASERVICES
 
-## 🧩 DATASERVICES.JS (SERVICES DE DONNÉES)
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **DATASERVICES** dans le contexte présenté.
+- [ ] Comprendre **dataservices.js (services de données)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["DATASERVICES"]
+    A --> B["DATASERVICES.JS (SERVICES DE DONNÉES)"]
+```
+
+
+## 🌺 DATASERVICES.JS (SERVICES DE DONNÉES)
 
 ```
 fgifirstappmodulename/
@@ -32,11 +47,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Centraliser les appels aux services backend.
->
 > - 🔨 Utilité : Encapsuler la logique d’accès aux données (OData, REST, gestion des erreurs).
 > - ⌚ Quand utilisé ? Lorsqu’un contrôleur doit lire ou écrire des données sans gérer directement la complexité technique.
 
@@ -118,3 +130,17 @@ sap.ui.define(
   },
 );
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **dataservices.js (services de données)** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **DATASERVICES** avec mes propres mots.
+- [ ] Je peux expliquer **dataservices.js (services de données)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

@@ -8,6 +8,20 @@
 - [ ] Utiliser une génération d’appel depuis l’éditeur
 - [ ] Contrôler `SY-SUBRC`
 
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["APPEL AVEC CALL FUNCTION"]
+    A --> B["SYNTAXE GENERALE"]
+    B --> C["POURQUOI IMPORT ET EXPORT SEMBLENT INVERSES"]
+    C --> D["EXEMPLE COMPLET"]
+    D --> E["PARAMETRES NOMMES"]
+    E --> F["GENERATION DE L'APPEL"]
+```
+
+
 ## 🌺 SYNTAXE GENERALE
 
     CALL FUNCTION 'NOM_DU_MODULE'
@@ -69,7 +83,7 @@ L’appel est écrit du point de vue du programme appelant.
         WRITE / 'Erreur non prévue'.
     ENDCASE.
 
-## 🌺 PARAMETRES NOMMES
+## 🌺 PARAMÈTRES NOMMES
 
 Le mapping explicite améliore la lisibilité :
 
@@ -127,13 +141,23 @@ ABAP permet techniquement un nom dynamique :
 4. Omettre un paramètre facultatif puis le fournir dans un second test.
 5. Expliquer l’inversion entre l’interface et l’appel.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - L’appel utilise `CALL FUNCTION`.
 > - Les imports du module sont placés sous `EXPORTING` dans l’appel.
 > - Les exports du module sont placés sous `IMPORTING` dans l’appel.
 > - `CHANGING` reste `CHANGING`.
 > - Les exceptions classiques sont généralement contrôlées avec `SY-SUBRC`.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **APPEL AVEC CALL FUNCTION** avec mes propres mots.
+- [ ] Je peux expliquer **syntaxe generale** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **pourquoi import et export semblent inverses** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>
 
 ## 🌺 SOURCES OFFICIELLES
 

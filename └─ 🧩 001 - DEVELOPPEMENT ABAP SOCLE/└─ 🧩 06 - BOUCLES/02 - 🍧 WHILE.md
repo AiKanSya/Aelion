@@ -9,13 +9,27 @@
 - [ ] Concevoir des boucles conditionnelles avec gestion dynamique du flux
 - [ ] Identifier les erreurs fréquentes et leurs causes
 
-## 🌺 DEFINITION
 
-> L’instruction `WHILE` exécute un bloc d’instructions tant qu’une condition logique est vraie.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["WHILE ENDWHILE - CONTROLE DES BOUCLES CONDITIONNELLES"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE GENERALE"]
+    C --> D["DIFFERENCE AVEC DO ... ENDDO"]
+    D --> E["WHILE SIMPLE"]
+    E --> F["WHILE AVEC EXIT"]
+```
+
+
+## 🌺 DÉFINITION
+
+> L’instruction `WHILE` exécute un bloc d’instructions tant qu’une condition logique est vraie.
 > À chaque itération, la condition est réévaluée. Lorsque celle-ci devient fausse, la boucle s’arrête.
 
 > [!TIP]
-> On verse de l’eau tant que le verre n’est pas plein.  
+> On verse de l’eau tant que le verre n’est pas plein.
 > Dès que le verre déborde, on arrête de verser.
 
 > [!CAUTION]
@@ -31,7 +45,7 @@
 - `bloc_instructions` → instructions exécutées tant que la condition est vraie
 
 > [!IMPORTANT]
-> La vérification de la condition se fait avant chaque itération.  
+> La vérification de la condition se fait avant chaque itération.
 > Si elle est fausse dès le départ, la boucle ne s’exécute jamais.
 
 > [!IMPORTANT]
@@ -57,7 +71,7 @@
     ENDWHILE.
 
 > [!IMPORTANT]
-> La boucle s’exécute tant que `lv_index` est inférieur ou égal à 5.  
+> La boucle s’exécute tant que `lv_index` est inférieur ou égal à 5.
 > Elle s’arrête naturellement quand la condition devient fausse.
 
 > [!TIP]
@@ -85,7 +99,7 @@
 
 ## 🌺 WHILE AVEC CHECK
 
-> `CHECK` vérifie une condition interne.  
+> `CHECK` vérifie une condition interne.
 > Si la condition est fausse, l’itération courante s’interrompt immédiatement.
 
     DATA lv_index TYPE i VALUE 0.
@@ -97,7 +111,7 @@
     ENDWHILE.
 
 > [!IMPORTANT]
-> Les deux premières valeurs (1 et 2) sont ignorées.  
+> Les deux premières valeurs (1 et 2) sont ignorées.
 > À partir de 3, la boucle exécute le reste du bloc.
 
 > [!IMPORTANT]
@@ -120,7 +134,8 @@
 > [!IMPORTANT]
 > Les valeurs paires sont ignorées, seules les valeurs impaires sont affichées.
 
-> [!CAUTION] > `CONTINUE` ne sort pas de la boucle, il passe seulement à l’itération suivante.
+> [!CAUTION]
+> `CONTINUE` ne sort pas de la boucle, il passe seulement à l’itération suivante.
 
 > [!TIP]
 > Comme un joueur qui saute un tour sans quitter la partie.
@@ -142,15 +157,14 @@
     ENDWHILE.
 
 > [!IMPORTANT]
->
 > - `CHECK` ignore les valeurs jusqu’à 3
 > - `CONTINUE` saute les nombres pairs
-> - `EXIT` interrompt la boucle après 10  
+> - `EXIT` interrompt la boucle après 10
 >   Résultat : 5, 7, 9
 
 ## 🌺 EXERCICES
 
-### 🔹 1 – BOUCLE SIMPLE
+### 🍧 1 – BOUCLE SIMPLE
 
 > [!IMPORTANT]
 > Afficher les nombres de 1 à 10 avec une boucle `WHILE`.
@@ -169,7 +183,7 @@
 
 ---
 
-### 🔹 2 – BOUCLE AVEC CONTINUE
+### 🍧 2 – BOUCLE AVEC CONTINUE
 
 > [!IMPORTANT]
 > Afficher les nombres de 1 à 10 en sautant les multiples de 3.
@@ -191,7 +205,7 @@
 
 ---
 
-### 🔹 3 – BOUCLE AVEC CHECK
+### 🍧 3 – BOUCLE AVEC CHECK
 
 > [!IMPORTANT]
 > Afficher uniquement les nombres supérieurs ou égaux à 5.
@@ -211,7 +225,7 @@
 
 ---
 
-### 🔹 4 – BOUCLE AVEC EXIT
+### 🍧 4 – BOUCLE AVEC EXIT
 
 > [!IMPORTANT]
 > Afficher les nombres de 1 à 20 et arrêter la boucle dès que `lv_index` atteint 8.
@@ -233,7 +247,7 @@
 
 ---
 
-### 🔹 5 – BOUCLE COMPLETE (CHECK + CONTINUE + EXIT)
+### 🍧 5 – BOUCLE COMPLETE (CHECK + CONTINUE + EXIT)
 
 > [!IMPORTANT]
 > Afficher les nombres impairs à partir de 3, mais arrêter après 11.
@@ -259,17 +273,15 @@
 
 ---
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `WHILE ... ENDWHILE` → exécute tant que la condition reste vraie
 > - `EXIT` → quitte la boucle immédiatement
 > - `CHECK` → saute les itérations non conformes à une condition
 > - `CONTINUE` → passe à l’itération suivante
 > - La condition doit être modifiée à chaque tour pour éviter les boucles infinies
->
 > [!TIP]
 > Remplir un verre
->
 > - `WHILE` → tant que le verre n’est pas plein
 > - `EXIT` → arrêter de verser même si le verre n’est pas encore rempli
 > - `CHECK` → ne pas verser si le verre est déjà trop chaud

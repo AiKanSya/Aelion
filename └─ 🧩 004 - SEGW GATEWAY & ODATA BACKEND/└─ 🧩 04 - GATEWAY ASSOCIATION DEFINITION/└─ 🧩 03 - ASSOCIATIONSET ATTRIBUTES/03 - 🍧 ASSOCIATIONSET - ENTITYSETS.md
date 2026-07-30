@@ -1,12 +1,28 @@
 # 🌸 GATEWAY DATA MODEL DEFINITION - ASSOCIATIONSET ENTITYSET NAMES
 
-![](../assets/Capture%20d’écran%202026-01-16%20130120.png)
+## 🌺 OBJECTIFS
 
-## 🧩 SAP GATEWAY DATAMODEL - ASSOCIATIONSET PRINCIPAL / DEPENDANT ENTITYSET
+- [ ] Expliquer le rôle de **GATEWAY DATA MODEL DEFINITION - ASSOCIATIONSET ENTITYSET NAMES** dans le contexte présenté.
+- [ ] Comprendre **sap gateway datamodel - associationset principal / dependant entityset**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["GATEWAY DATA MODEL DEFINITION - ASSOCIATIONSET ENTITYS"]
+    A --> B["SAP GATEWAY DATAMODEL - ASSOCIATIONSET PRINCIPAL / DEP"]
+```
+
+> [!IMPORTANT]
+> Une modification du modèle OData peut nécessiter une nouvelle génération des artefacts d’exécution et une vérification du document `$metadata` consommé par les clients.
+
+
+## 🌺 SAP GATEWAY DATAMODEL - ASSOCIATIONSET PRINCIPAL / DEPENDANT ENTITYSET
 
 Les champs `Principal EntitySet Name` et `Dependant EntitySet Name` définissent quels `EntitySets` concrets sont liés par l’`AssociationSet`. Ils matérialisent la relation au niveau exposé de l'`OData Service`.
 
-### 🍧 DEFINITION
+### 🍧 DÉFINITION
 
 - `Principal EntitySet Name` :
   `EntitySet` correspondant à la `Principal Entity` de l’`Association`.
@@ -16,14 +32,14 @@ Les champs `Principal EntitySet Name` et `Dependant EntitySet Name` définissent
 
 Ces deux champs relient une `Association` (conceptuelle) à des `EntitySets` réellement exposés.
 
-### 🍧 ROLE
+### 🍧 RÔLE
 
 - Déterminer le point de départ et le point d’arrivée des `OData Navigations`.
 - Relier le modèle `Conceptuel` (`EntityType`) à l’`Exposition` réelle (`EntitySet`).
 - Permettre les accès du type :
   `/PrincipalEntitySet(key)/NavigationProperty`
 
-### 🍧 RULES
+### 🍧 RÈGLES
 
 | 🍧 Règle                                                      | 🍧 Explication                                                     |
 | ------------------------------------------------------------- | ------------------------------------------------------------------ |
@@ -42,7 +58,7 @@ Ces deux champs relient une `Association` (conceptuelle) à des `EntitySets` ré
 </AssociationSet>
 ```
 
-### 🍧 ERRORS
+### 🍧 ERREURS
 
 | 🍧 Erreur                              | 🍧 Pourquoi c’est un problème     |
 | -------------------------------------- | --------------------------------- |
@@ -50,3 +66,17 @@ Ces deux champs relient une `Association` (conceptuelle) à des `EntitySets` ré
 | Mauvais mapping EntityType / EntitySet | Navigation impossible             |
 | Inversion Principal / Dependant        | Modèle incohérent                 |
 | Changement après livraison             | Rupture des applications clientes |
+
+## 🌺 RÉSUMÉ
+
+> - **Sap gateway datamodel - associationset principal / dependant entityset :** Les champs Principal EntitySet Name et Dependant EntitySet Name définissent quels EntitySets concrets sont liés par l’AssociationSet.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **GATEWAY DATA MODEL DEFINITION - ASSOCIATIONSET ENTITYSET NAMES** avec mes propres mots.
+- [ ] Je peux expliquer **sap gateway datamodel - associationset principal / dependant entityset** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

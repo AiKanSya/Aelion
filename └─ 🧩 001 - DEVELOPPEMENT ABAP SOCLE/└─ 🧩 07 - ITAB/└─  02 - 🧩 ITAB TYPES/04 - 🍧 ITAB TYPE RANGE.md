@@ -6,19 +6,30 @@
 - [ ] Identifier les champs prédéfinis : `SIGN`, `OPTION`, `LOW`, `HIGH`
 - [ ] Comprendre la notion d’inclusion/exclusion et d’intervalles
 
-## 🌺 DEFINITION
 
-> Une `RANGE TABLE` est une table interne spéciale pour définir des intervalles de valeurs.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["TYPE RANGE OF"]
+    A --> B["DEFINITION"]
+    B --> C["DECLARATION"]
+    C --> D["ALIMENTATION"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Une `RANGE TABLE` est une table interne spéciale pour définir des intervalles de valeurs.
 > Elle est utilisée pour filtrer des données dans les `requêtes SQL` et les `écrans de sélection`.
 
 > [!TIP]
 > Imaginez un filtre de recherche avancé
->
 > - Vous indiquez ce que vous voulez inclure ou exclure
 > - Vous précisez des intervalles de valeurs
 > - La table RANGE stocke toutes ces informations de manière structurée pour la requête
 
-### CHAMPS PREDEFINIS
+### 🍧 CHAMPS PREDEFINIS
 
 - `SIGN` (C, 1) → Incluse (I) ou Exclue (E)
 - `OPTION` (C, 2) → opérateur : EQ, BT…
@@ -55,17 +66,16 @@
     APPEND ls_matnr TO lr_matnr.
 
 > [!IMPORTANT]
-> Le `SIGN` = I → inclusion, E → exclusion  
+> Le `SIGN` = I → inclusion, E → exclusion
 > Le `OPTION` = BT → entre deux valeurs, EQ → valeur unique
->
 > Les `RANGE TABLE` simplifient le filtrage complexe sans écrire de multiples conditions `IF`.
 
 ## 🌺 EXERCICES
 
-### 🔹 1 – CREER UNE RANGE TABLE DE PRODUITS
+### 🍧 1 – CREER UNE RANGE TABLE DE PRODUITS
 
 > [!IMPORTANT]
-> Déclarer une `RANGE TABLE` `lr_prod` pour le type `matnr`.  
+> Déclarer une `RANGE TABLE` `lr_prod` pour le type `matnr`.
 > Ajouter un intervalle inclus de 500 à 1000 et une exclusion pour 750.
 
 <details>
@@ -92,7 +102,7 @@
 
 ---
 
-### 🔹 2 – AJOUTER UN NOUVEL INTERVALLE
+### 🍧 2 – AJOUTER UN NOUVEL INTERVALLE
 
 > [!IMPORTANT]
 > Ajouter un intervalle inclus de 1100 à 1200 et afficher la `RANGE TABLE`.
@@ -117,7 +127,7 @@
 
 ---
 
-### 🔹 3 – AJOUTER UNE EXCLUSION
+### 🍧 3 – AJOUTER UNE EXCLUSION
 
 > [!IMPORTANT]
 > Exclure le produit 1120 et afficher toute la `RANGE TABLE`.
@@ -143,7 +153,7 @@
 > [!CAUTION]
 > L’ordre des lignes n’a pas d’importance. Chaque ligne est évaluée lors du filtrage.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `TYPE RANGE OF` → table interne pour stocker intervalles et exclusions.
 > - Champs : `SIGN`, `OPTION`, `LOW`, `HIGH`

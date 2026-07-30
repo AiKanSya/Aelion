@@ -1,13 +1,29 @@
 # 🌸 ENTITYTYPE – KEY
 
-![](.././assets/Capture%20d’écran%202026-01-16%20114437.png)
+## 🌺 OBJECTIFS
 
-## 🧩 SAP GATEWAY DATA MODEL – KEY
+- [ ] Expliquer le rôle de **ENTITYTYPE – KEY** dans le contexte présenté.
+- [ ] Comprendre **sap gateway data model – key**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
 
-👉 La `Key` (ou `Primary Key`) identifie de manière unique chaque instance d’un `EntityType` dans un `OData Service`.  
+```mermaid
+flowchart TD
+    A["ENTITYTYPE – KEY"]
+    A --> B["SAP GATEWAY DATA MODEL – KEY"]
+```
+
+> [!IMPORTANT]
+> Une modification du modèle OData peut nécessiter une nouvelle génération des artefacts d’exécution et une vérification du document `$metadata` consommé par les clients.
+
+
+## 🌺 SAP GATEWAY DATA MODEL – KEY
+
+👉 La `Key` (ou `Primary Key`) identifie de manière unique chaque instance d’un `EntityType` dans un `OData Service`.
 Sans `Key`, une `Entity` n’existe pas du point de vue `OData`.
 
-### 🍧 DEFINITION
+### 🍧 DÉFINITION
 
 La `Key` est l’ensemble d’une ou plusieurs propriétés qui permettent :
 
@@ -17,11 +33,11 @@ La `Key` est l’ensemble d’une ou plusieurs propriétés qui permettent :
 
 Elle s’apparente à la `Primary Key` d’une table `ABAP`.
 
-### 🍧 ROLE
+### 🍧 RÔLE
 
 La `Key` :
 
-- sert à créer l’`URI` unique de chaque `Entity`  
+- sert à créer l’`URI` unique de chaque `Entity`
   → ex : `/ProdOrderSet('30001234')`
 - est utilisée par `SAP Gateway` pour :
   - chercher la bonne entrée dans le `Back-end`,
@@ -29,7 +45,7 @@ La `Key` :
   - valider les `Requests`.
 - permet de `naviguer` d’une `Entity` vers une autre via les `Associations`.
 
-### 🍧 RULES
+### 🍧 RÈGLES
 
 | 🍧 Règle                                                | 🍧 Explication                                                              |
 | ------------------------------------------------------- | --------------------------------------------------------------------------- |
@@ -43,7 +59,7 @@ La `Key` :
 
 ### 🍧 $METADATA EXAMPLES
 
-#### SIMPLE KEY
+#### 💮 SIMPLE KEY
 
 ```xml
 <EntityType Name="ProdOrder">
@@ -56,7 +72,7 @@ La `Key` :
 
 `URI` généré : `/ProdOrderSet('300012345678')`
 
-#### COMPOSITE KEY
+#### 💮 COMPOSITE KEY
 
 ```xml
 <EntityType Name="Um">
@@ -71,7 +87,7 @@ La `Key` :
 
 `URI` généré : `/UmSet(Aufnr='300012345678',Huident='40000001234567890000')`
 
-### 🍧 ERRORS
+### 🍧 ERREURS
 
 | 🍧 Erreur                                                                        | 🍧 Pourquoi c’est un problème                                |
 | -------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -81,3 +97,17 @@ La `Key` :
 | Key trop longue ou inutilement composite                                         | Complexifie les URI, les tests, le code UI5.                 |
 | Utiliser une propriété technique volatile (GUID généré à la volée hors Back-end) | Difficile à prédire, difficile à tester, instable.           |
 | Ne pas respecter l’ordre des Key Properties                                      | Impact sur le code généré et les outils de consommation.     |
+
+## 🌺 RÉSUMÉ
+
+> - **Sap gateway data model – key :** 👉 La Key (ou Primary Key) identifie de manière unique chaque instance d’un EntityType dans un OData Service.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **ENTITYTYPE – KEY** avec mes propres mots.
+- [ ] Je peux expliquer **sap gateway data model – key** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

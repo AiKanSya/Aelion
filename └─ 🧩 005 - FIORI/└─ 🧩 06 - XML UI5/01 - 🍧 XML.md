@@ -1,13 +1,25 @@
 # 🌸 XML
 
-> 🌺 Objectifs
->
-> - [ ] Comprendre ce qu'est XML
-> - [ ] Lire une structure XML simple
-> - [ ] Comprendre balises, attributs et hiérarchie
-> - [ ] Comprendre comment UI5 utilise XML
+## 🌺 OBJECTIFS
 
-## 🧩 QU'EST-CE QUE XML ?
+- [ ] Expliquer le rôle de **XML** dans le contexte présenté.
+- [ ] Comprendre **qu'est-ce que xml ?**.
+- [ ] Mettre en œuvre **balises xml** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["XML"]
+    A --> B["QU'EST-CE QUE XML ?"]
+    B --> C["BALISES XML"]
+    C --> D["BALISES IMBRIQUEES"]
+    D --> E["ATTRIBUTS XML"]
+    E --> F["BALISE AUTO-FERMANTE"]
+```
+
+
+## 🌺 QU'EST-CE QUE XML ?
 
 XML signifie :
 
@@ -32,7 +44,7 @@ Signification :
         ├── Nom : Martin
         └── Ville : Paris
 
-## 🧩 BALISES XML
+## 🌺 BALISES XML
 
 Un élément XML est appelé une balise.
 
@@ -53,7 +65,7 @@ Décomposition :
     </Nom>
         fermeture
 
-## 🧩 BALISES IMBRIQUEES
+## 🌺 BALISES IMBRIQUEES
 
 Une balise peut contenir d'autres balises.
 
@@ -76,7 +88,7 @@ La balise `Personne` est le parent.
 
 `Nom` et `Ville` sont des enfants.
 
-## 🧩 ATTRIBUTS XML
+## 🌺 ATTRIBUTS XML
 
 Une balise peut posséder des attributs.
 
@@ -96,7 +108,7 @@ Ici :
     ↓
     25
 
-## 🧩 BALISE AUTO-FERMANTE
+## 🌺 BALISE AUTO-FERMANTE
 
 Certaines balises n'ont pas de contenu.
 
@@ -114,9 +126,9 @@ Equivalent :
 
 UI5 utilise souvent cette écriture courte.
 
-## 🧩 RÈGLES XML IMPORTANTES
+## 🌺 RÈGLES XML IMPORTANTES
 
-#### 🌺 Fermeture
+#### 💮 Fermeture
 
 Une balise ouverte doit être fermée
 
@@ -132,7 +144,7 @@ Une balise ouverte doit être fermée
 <Text>Bonjour
 ```
 
-#### 🌺 Imbrication
+#### 💮 Imbrication
 
 Respecter l'imbrication
 
@@ -155,7 +167,7 @@ Respecter l'imbrication
 </content>
 ```
 
-#### 🌺 Casse
+#### 💮 Casse
 
 UI5 est sensible à la casse.
 
@@ -171,7 +183,7 @@ UI5 est sensible à la casse.
 <button />
 ```
 
-## 🧩 XML DANS SAPUI5
+## 🌺 XML DANS SAPUI5
 
 Dans UI5, les balises XML représentent des composants.
 
@@ -197,7 +209,7 @@ Interprétation :
     ↓
     valeur
 
-## 🧩 EXEMPLE UI5 COMPLET
+## 🌺 EXEMPLE UI5 COMPLET
 
 ```xml
 <mvc:View
@@ -221,7 +233,7 @@ Structure :
         ├── Text
         └── Button
 
-## 🧩 A RETENIR
+## 🌺 A RETENIR
 
 - XML décrit une structure
 - Une balise possède une ouverture et fermeture
@@ -231,6 +243,21 @@ Structure :
 
 > [!TIP]
 > Dans une View UI5 :
->
 > - Balise XML = composant UI5
 > - Attribut = propriété
+
+## 🌺 RÉSUMÉ
+
+> - **Qu'est-ce que xml ? :** eXtensible Markup Language
+> - **Balises xml :** Un élément XML est appelé une balise.
+> - **Balises imbriquees :** Une balise peut contenir d'autres balises.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **XML** avec mes propres mots.
+- [ ] Je peux expliquer **qu'est-ce que xml ?** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **balises xml** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

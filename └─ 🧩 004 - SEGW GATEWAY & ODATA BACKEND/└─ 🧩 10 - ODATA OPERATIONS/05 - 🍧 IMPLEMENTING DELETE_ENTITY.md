@@ -1,8 +1,23 @@
 # 🌸 IMPLEMENTING \*\_DELETE_ENTITY OPERATION
 
-## 🧩 METHOD \*\_DELETE_ENTITY IMPLEMENTATION
+## 🌺 OBJECTIFS
 
-### 🍧 PREREQUISITES - TRANSACTION SEGW
+- [ ] Expliquer le rôle de **IMPLEMENTING \*\_DELETE_ENTITY OPERATION** dans le contexte présenté.
+- [ ] Comprendre **method \_delete_entity implémentation**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["IMPLEMENTING \\DELETEENTITY OPERATION"]
+    A --> B["METHOD \\DELETEENTITY IMPLEMENTATION"]
+```
+
+
+## 🌺 METHOD \*\_DELETE_ENTITY IMPLÉMENTATION
+
+### 🍧 PRÉREQUIS - TRANSACTION SEGW
 
 > [!WARNING]
 > L'`EntitySet` ciblée doit être `Deletable` !
@@ -29,42 +44,36 @@
 
 > [!NOTE]
 > 🍧 `IV_ENTITY_NAME` (STRING)
->
 > - Nom de l’Entity OData ciblée pour la suppression.
 > - Exemple : `Product`.
 > - Identification logique de l’entité à supprimer.
 
 > [!NOTE]
 > 🍧 `IV_ENTITY_SET_NAME` (STRING)
->
 > - Nom de l’EntitySet sur laquelle la suppression est exécutée.
 > - Exemple : `Products`.
 > - Correspond au segment DELETE de l’URL OData.
 
 > [!NOTE]
 > 🍧 `IV_SOURCE_NAME` (STRING)
->
 > - Nom de la source d’appel.
 > - Utilisé pour navigation ou réutilisation.
 > - Rarement nécessaire dans une suppression simple.
 
 > [!NOTE]
 > 🍧 `IT_KEY_TAB` (`/IWBEP/T_MGW_NAME_VALUE_PAIR`)
->
 > - Contient les clés de l’entité à supprimer.
 > - Exemple URL : `Products(ProductID='100')`
 > - Paramètre central pour identifier la ligne à supprimer.
 
 > [!NOTE]
 > 🍧 `IO_TECH_REQUEST_CONTEXT` (`/IWBEP/IF_MGW_REQ_ENTITY_D`)
->
 > - Contexte technique de la requête DELETE.
 > - Permet l’accès aux headers HTTP, utilisateur et informations techniques.
 > - Strictement technique.
 
 > [!NOTE]
 > 🍧 `IT_NAVIGATION_PATH` (`/IWBEP/T_MGW_NAVIGATION_PATH`)
->
 > - Chemin de navigation OData.
 > - Exemple : `Orders('1')/Items('10')`
 > - Indique depuis quelle entité parente la suppression est effectuée.
@@ -89,7 +98,7 @@
   ENDMETHOD.
 ```
 
-### 🍧 BUSINESSPARTNERS_DELETE_ENTITY METHOD IMPLEMENTATION
+### 🍧 BUSINESSPARTNERS_DELETE_ENTITY METHOD IMPLÉMENTATION
 
 ```abap
 METHOD businesspartners_delete_entity.
@@ -135,16 +144,28 @@ ENDMETHOD.
 ### 🍧 METHOD EXCEPTION
 
 > [!IMPORTANT]
-> Les `Errors` d'une class method doivent être `Raise` à l'aide des `Exception Classes`
->
-> - `/IWBEP/CX_MGW_BUSI_EXCEPTION` pour les `Errors` de `logique métier`
+> Les erreurs d'une class method doivent être `Raise` à l'aide des `Exception Classes`
+> - `/IWBEP/CX_MGW_BUSI_EXCEPTION` pour les erreurs de `logique métier`
 > - `/IWBEP/CX_MGW_TECH_EXCEPTION` pour les `exceptions techniques`
 
 > [!IMPORTANT]
 > Les `Exception Classes` offrent plusieurs paramètres pour fournir des informations plus détaillées sur l'erreur.
->
 > Par exemple, le paramètre `message_container` permet de regrouper plusieurs messages dans un seul objet. L'attribut `mo_context` de la `DPC` fournit un tel conteneur de messages, qui peut être rempli à l'aide de différentes Methods, comme `add_message_from_bapi()`, en attendant le paramètre de retour d'une BAPI.
 
 ---
 
 [^1]: Un Reuse Unit est une implémentation standard encapsulée (méthodes utilitaires, classes framework, routines générées) que le runtime Gateway peut appeler pour exécuter une opération OData sans code spécifique.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **method \*\_delete_entity implémentation** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **IMPLEMENTING \*\_DELETE_ENTITY OPERATION** avec mes propres mots.
+- [ ] Je peux expliquer **method \*\_delete_entity implementation** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

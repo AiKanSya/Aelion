@@ -7,35 +7,41 @@
 - [ ] VERIFIER LE SUCCES VIA SY-SUBRC ET SY-DBCNT
 - [ ] UTILISER MODIFY AVEC UNE STRUCTURE OU UNE TABLE INTERNE
 
-## 🌺 DEFINITION
 
-> MODIFY dbtab FROM struct  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["MODIFY"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE"]
+    C --> D["UTILISATION CONSEILLEE"]
+```
+
+
+## 🌺 DÉFINITION
+
+> MODIFY dbtab FROM struct
 > MODIFY dbtab FROM TABLE itab
->
 > Permet de mettre à jour ou d’insérer des enregistrements dans la table `dbtab` depuis :
->
 > - Une structure ABAP (`struct`)
 > - Une table interne (`itab`)
 
 > [!IMPORTANT]
->
 > - Si la clé primaire existe → mise à jour de la ligne
 > - Sinon → insertion de la ligne
->
 > [!NOTE]
->
 > - SY-SUBRC = 0 → opération réussie
 > - SY-DBCNT → nombre de lignes insérées ou modifiées
 
 > [!TIP]
 > Imaginez un classeur Excel :
->
 > - Si l’ID existe déjà → vous remplacez la ligne (update)
 > - Sinon → vous ajoutez une nouvelle ligne (insert)
 
 ## 🌺 EXEMPLE
 
-### Modification ou Insertion via structure
+### 🍧 Modification ou Insertion via structure
 
     DATA: ls_passager TYPE zpassenger.
 
@@ -58,21 +64,20 @@
 
 > [!IMPORTANT]
 > La commande `MODIFY FROM` vérifie la présence de la clé primaire.
->
 > - Si la clé existe → mise à jour des champs
 > - Sinon → insertion d’une nouvelle ligne
 
 > [!NOTE]
 > Toujours vérifier SY-SUBRC et SY-DBCNT pour contrôler l’opération
 
-### ENREGISTREMENTS AVANT MODIFY
+### 🍧 ENREGISTREMENTS AVANT MODIFY
 
 | 🍧 ID_PASS | 🍧 SURNAME | 🍧 NAME | 🍧 CITY | 🍧 COUNTRY |
 | ---------- | ---------- | ------- | ------- | ---------- |
 | P0006      | DUPUIS     | LUC     | LYON    | FR         |
 | P0007      | DUPONT     | PAUL    | PARIS   | FR         |
 
-### ENREGISTREMENTS APRES MODIFY
+### 🍧 ENREGISTREMENTS APRES MODIFY
 
 | 🍧 ID_PASS | 🍧 SURNAME | 🍧 NAME | 🍧 CITY   | 🍧 COUNTRY |
 | ---------- | ---------- | ------- | --------- | ---------- |
@@ -82,7 +87,7 @@
 
 ## 🌺 EXEMPLE
 
-### Modification ou Insertion via table interne
+### 🍧 Modification ou Insertion via table interne
 
     DATA: lt_passager TYPE TABLE OF zpassenger.
     DATA: ls_passager TYPE zpassenger.
@@ -117,7 +122,6 @@
 
 > [!IMPORTANT]
 > La commande `MODIFY FROM TABLE` traite toutes les lignes de la table interne :
->
 > - Mise à jour si clé primaire existante
 > - Insertion sinon
 
@@ -130,3 +134,19 @@
 - Utiliser avec des structures ou tables internes bien initialisées
 - Vérifier systématiquement SY-SUBRC et SY-DBCNT
 - Eviter d’envoyer des tables internes trop volumineuses sans filtrage
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - **Exemple :** DATA: lspassager TYPE zpassenger.
+> - **Exemple :** DATA: ltpassager TYPE TABLE OF zpassenger.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **MODIFY** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemple** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

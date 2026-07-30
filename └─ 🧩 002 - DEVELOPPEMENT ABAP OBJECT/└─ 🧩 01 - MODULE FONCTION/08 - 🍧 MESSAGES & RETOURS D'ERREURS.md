@@ -8,6 +8,20 @@
 - [ ] Éviter les sorties écran dans une API réutilisable
 - [ ] Définir un contrat d’erreur cohérent
 
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["MESSAGES ET RETOURS D'ERREUR"]
+    A --> B["DEUX FAMILLES D'ERREURS"]
+    B --> C["MESSAGE DIRECT"]
+    C --> D["RETOUR STRUCTURE"]
+    D --> E["TABLE DE MESSAGES"]
+    E --> F["EXCEPTION OU STRUCTURE DE RETOUR ?"]
+```
+
+
 ## 🌺 DEUX FAMILLES D'ERREURS
 
 | 🍧 Famille    | 🍧 Exemple                                                  | 🍧 Traitement possible                |
@@ -126,13 +140,23 @@ Bon contrat :
 4. Tester l’appel sans produire de `MESSAGE E` direct.
 5. Ajouter le nom du champ en erreur dans le message.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Une exception modifie le flux d’exécution.
 > - Une structure de retour transporte une information d’erreur ou de succès.
 > - `BAPIRET2` est un format standard fréquent.
 > - Une API réutilisable doit éviter les sorties écran cachées.
 > - Le contrat d’erreur doit être unique, explicite et documenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **MESSAGES ET RETOURS D'ERREUR** avec mes propres mots.
+- [ ] Je peux expliquer **deux familles d'erreurs** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **message direct** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>
 
 ## 🌺 SOURCES OFFICIELLES
 

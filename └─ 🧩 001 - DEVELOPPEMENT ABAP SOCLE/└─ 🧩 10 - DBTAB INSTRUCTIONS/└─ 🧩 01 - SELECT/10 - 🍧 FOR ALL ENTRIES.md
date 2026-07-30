@@ -6,16 +6,29 @@
 - [ ] Utiliser une table interne pour filtrer une sélection sur une table de base
 - [ ] Vérifier que la table interne n’est pas vide avant la requête
 
-## 🌺 DEFINITION
 
-> `FOR ALL ENTRIES IN itab`  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["FOR ALL ENTRIES IN – UTILISER UNE TABLE INTERNE COMME "]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLE"]
+    D --> E["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> `FOR ALL ENTRIES IN itab`
 > Permet d’effectuer une sélection dans une table de base en utilisant les valeurs contenues dans une table interne `itab` comme filtre.
 
 > [!CAUTION]
 > Si la table interne est vide, tous les enregistrements de la table de base seront sélectionnés, ce qui peut fortement impacter les performances.
 
 > [!TIP]
-> Imaginez que vous ayez un filtre Excel avec une liste de modèles de voitures.  
+> Imaginez que vous ayez un filtre Excel avec une liste de modèles de voitures.
 > `FOR ALL ENTRIES` revient à ne sélectionner que les lignes correspondant aux valeurs présentes dans cette liste.
 
 ## 🌺 SYNTAXE
@@ -27,7 +40,7 @@
       WHERE colonne1 = @itab-champ1
         AND colonne2 = @itab-champ2.
 
-> [!NOTE]  
+> [!NOTE]
 > Les colonnes utilisées dans le WHERE doivent correspondre aux champs de la table interne.
 
 ## 🌺 EXEMPLE
@@ -86,3 +99,19 @@
 
 - Préférer un `INNER JOIN` si possible, surtout avec une base HANA, pour de meilleures performances.
 - `FOR ALL ENTRIES IN` reste moins performant qu’un `JOIN`, surtout sur de grandes tables.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - **Syntaxe :** INTO TABLE @DATA(tableresultat)
+> - **Exemple :** TYPES: BEGIN OF tyekko,
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **FOR ALL ENTRIES IN – UTILISER UNE TABLE INTERNE COMME FILTRE** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

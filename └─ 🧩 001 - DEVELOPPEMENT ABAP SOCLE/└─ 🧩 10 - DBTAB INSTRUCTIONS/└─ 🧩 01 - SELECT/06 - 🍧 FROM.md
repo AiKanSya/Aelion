@@ -7,16 +7,28 @@
 - [ ] Utiliser les alias dans la sélection de colonnes
 - [ ] Stocker les résultats dans une table interne et les parcourir
 
-## 🌺 DEFINITION
 
-> L’instruction `FROM` indique la table source à partir de laquelle les données seront récupérées.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["FROM (AS ALIAS) – TABLE SOURCE ET ALIAS"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE"]
+    C --> D["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> L’instruction `FROM` indique la table source à partir de laquelle les données seront récupérées.
 > L’option `AS alias` permet de donner un nom court à la table dans la requête, facilitant la lecture et la référence dans les conditions.
 
 > [!TIP]
-> Imaginez un classeur Excel appelé `ekpo`.  
+> Imaginez un classeur Excel appelé `ekpo`.
 > Vous pouvez lui donner temporairement un surnom `a` pour simplifier vos formules ou filtres, sans changer le nom réel du classeur.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > L’alias est particulièrement utile pour raccourcir le code et rendre les références aux colonnes plus lisibles.
 
 ## 🌺 EXEMPLE
@@ -42,7 +54,7 @@
       MESSAGE 'Error select_from_as' TYPE 'E'.
     ENDIF.
 
-> [!NOTE]  
+> [!NOTE]
 > L’alias ne modifie pas la table source, il simplifie seulement l’écriture et la lecture dans le programme.
 
 > [!CAUTION]
@@ -58,7 +70,22 @@
 | Documenter les alias                                     | Indiquer ce que chaque alias représente      |
 
 > [!IMPORTANT]
->
 > - Simplifier les requêtes avec plusieurs colonnes
 > - Faciliter la lecture du code pour les débutants
 > - Préparer le terrain avant d’aborder les sous-requêtes et les JOIN
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - **Exemple :** TYPES: BEGIN OF tyekpo,
+> - Savoir utiliser **bonnes pratiques** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **FROM (AS ALIAS) – TABLE SOURCE ET ALIAS** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemple** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

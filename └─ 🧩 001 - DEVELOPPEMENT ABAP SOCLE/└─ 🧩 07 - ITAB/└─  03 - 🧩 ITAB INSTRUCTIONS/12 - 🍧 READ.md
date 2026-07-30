@@ -8,7 +8,20 @@
 - [ ] Maîtriser l’usage de FIELD-SYMBOLS pour manipuler directement la mémoire
 - [ ] Vérifier les retours avec `SY-SUBRC` et connaître l’index via `SY-TABIX`
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["READ TABLE"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLES AVEC STRUCTURE"]
+    C --> D["EXEMPLES AVEC FIELD-SYMBOL"]
+    D --> E["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
 
     READ TABLE itab
       { INTO ls | ASSIGNING <lfs_> | TRANSPORTING NO FIELDS }
@@ -21,7 +34,7 @@
 
 ## 🌺 EXEMPLES AVEC STRUCTURE
 
-### READ AVEC UNE STRUCTURE ET CONDITION
+### 🍧 READ AVEC UNE STRUCTURE ET CONDITION
 
 > [!TIP]
 > Version simple du READ avec une condition où les données de la ligne trouvée/lue sont stockées dans une structure déclarée en amont.
@@ -36,7 +49,7 @@
       WRITE:/ 'READ FROM structure :', ls_struct-country, ls_struct-name, ls_struct-age.
     ENDIF.
 
-### READ AVEC UNE STRUCTURE ET CONDITIONS
+### 🍧 READ AVEC UNE STRUCTURE ET CONDITIONS
 
 > [!TIP]
 > Version simple du READ avec plusieurs conditions où les données de la ligne trouvée/lue sont stockées dans une structure déclarée en amont.
@@ -51,7 +64,7 @@
       WRITE:/ 'READ FROM structure :', ls_struct-country, ls_struct-name, ls_struct-age.
     ENDIF.
 
-### READ AVEC UNE STRUCTURE SUR LA 1ERE LIGNE (INDEX 1)
+### 🍧 READ AVEC UNE STRUCTURE SUR LA 1ERE LIGNE (INDEX 1)
 
 > [!TIP]
 > Version du READ ciblant la 1ère ligne où les données de cette ligne sont pointées dans un field-symbol déclaré en amont.
@@ -63,7 +76,7 @@
       WRITE:/ 'READ FROM structure :', ls_struct-country, ls_struct-name, ls_struct-age.
     ENDIF.
 
-### READ AVEC UNE STRUCTURE ET CONDITION + PARAMETRE TRANSPORTING NO FIELDS
+### 🍧 READ AVEC UNE STRUCTURE ET CONDITION + PARAMETRE TRANSPORTING NO FIELDS
 
 > [!TIP]
 > Version simple du READ avec une condition où aucune donnée n'est récupérée. Ici le READ sert avant tout a vérifier la présence d'une entrée correspondante.
@@ -78,7 +91,7 @@
       WRITE:/ 'Nous avons bien trouvé une ligne !'.
     ENDIF.
 
-### READ AVEC STRUCTURE DECLAREE DYNAMIQUEMENT
+### 🍧 READ AVEC STRUCTURE DECLAREE DYNAMIQUEMENT
 
 > [!TIP]
 > Version simple du READ avec plusieurs conditions où les données de la ligne trouvée/lue sont stockées dans une structure déclarée dynamiquement.
@@ -93,7 +106,7 @@
 
 ## 🌺 EXEMPLES AVEC FIELD-SYMBOL
 
-### READ AVEC FIELD-SYMBOL ET CONDITION
+### 🍧 READ AVEC FIELD-SYMBOL ET CONDITION
 
 > [!TIP]
 > Version du READ ciblant une ligne via condition et où les données de cette ligne sont pointées dans un field-symbol déclaré en amont.
@@ -108,7 +121,7 @@
       WRITE:/ 'READ FROM structure :', <lfs_citizen>-country, <lfs_citizen>-name, <lfs_citizen>-age.
     ENDIF.
 
-### READ AVEC FIELD-SYMBOL ET CONDITIONS
+### 🍧 READ AVEC FIELD-SYMBOL ET CONDITIONS
 
 > [!TIP]
 > Version du READ ciblant une ligne via conditions et où les données de cette ligne sont pointées dans un field-symbol déclaré en amont.
@@ -123,7 +136,7 @@
       WRITE:/ 'READ FROM structure :', <lfs_citizen>-country, <lfs_citizen>-name, <lfs_citizen>-age.
     ENDIF.
 
-### READ AVEC FIELD-SYMBOL SUR LA 1ERE LIGNE (INDEX 1)
+### 🍧 READ AVEC FIELD-SYMBOL SUR LA 1ERE LIGNE (INDEX 1)
 
 > [!TIP]
 > Version du READ ciblant la 1ère ligne où les données de cette ligne sont pointées dans un field-symbol déclaré en amont.
@@ -135,7 +148,7 @@
       WRITE:/ 'READ FROM structure :', <lfs_citizen>-country, <lfs_citizen>-name, <lfs_citizen>-age.
     ENDIF.
 
-### READ AVEC FIELD-SYMBOL AVEC CONDITION + PARAMETRE TRANSPORTING NO FIELDS
+### 🍧 READ AVEC FIELD-SYMBOL AVEC CONDITION + PARAMETRE TRANSPORTING NO FIELDS
 
 > [!TIP]
 > Version du READ avec une condition où aucune donnée n'est récupérée. Ici le READ sert avant tout a vérifier la présence d'une entrée correspondante.
@@ -150,7 +163,7 @@
       WRITE:/ 'Nous avons bien trouvé une ligne !'.
     ENDIF.
 
-### READ AVEC FIELD-SYMBOL DECLAREE DYNAMIQUEMENT
+### 🍧 READ AVEC FIELD-SYMBOL DECLAREE DYNAMIQUEMENT
 
 > [!TIP]
 > Version simple du READ avec plusieurs conditions où les données de la ligne trouvée/lue sont pointées dans une structure déclarée dynamiquement.
@@ -172,13 +185,21 @@
 | `TRANSPORTING NO FIELDS` pour vérification | Vérifie juste l’existence sans copier ni modifier              |
 | Comparer avec READ TABLE INDEX et KEY      | Savoir choisir la méthode adaptée au type de table et à la clé |
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > `READ TABLE` permet de localiser et accéder à une ligne dans une table interne.
->
 > - Options de recherche : `WITH KEY`, `INDEX`
 > - Options de récupération : `INTO`, `ASSIGNING`, `TRANSPORTING NO FIELDS`
 > - Variables système : `SY-SUBRC` et `SY-TABIX`
->
 > [!TIP]
 > rechercher une fiche dans un classeur et pointer directement dessus pour modification.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **READ TABLE** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemples avec structure** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

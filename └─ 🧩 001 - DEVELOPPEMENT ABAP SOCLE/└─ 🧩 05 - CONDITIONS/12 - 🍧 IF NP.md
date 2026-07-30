@@ -8,14 +8,26 @@
 - [ ] Identifier les applications pratiques : exclure des fichiers, formats ou motifs textuels
 - [ ] Reconnaître la sensibilité à la casse et les types de VARIABLES compatibles (C ou STRING)
 
-## 🌺 DEFINITION
 
-> l'opérateur `NP` (No Pattern) est l’inverse de `CP` (Covers Pattern).  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["NO PATTERN (NP)"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> l'opérateur `NP` (No Pattern) est l’inverse de `CP` (Covers Pattern).
 > Il permet de vérifier si une CHAINE (oper1) ne correspond pas au `PATTERN` (oper2) contenant des caractères génériques (\* et +).
 
 > [!TIP]
-> Si `CP` est comme un filtre qui sélectionne les fichiers correspondants (ex : "\*.png" pour ne garder que les images),  
-> alors `NP` est son opposé — il exclut tout ce qui correspond à ce modèle.  
+> Si `CP` est comme un filtre qui sélectionne les fichiers correspondants (ex : "\*.png" pour ne garder que les images),
+> alors `NP` est son opposé — il exclut tout ce qui correspond à ce modèle.
 > C’est comme dire : “je veux tout sauf les fichiers .png”.
 
 > [!CAUTION]
@@ -53,7 +65,7 @@ Explication :
 - Le programme teste si "texte.txt" NE correspond PAS au modèle "\*.png".
 - Résultat : "Le fichier lu n'est pas au format PNG"
 
-### AUTRES EXEMPLES
+### 🍧 AUTRES EXEMPLES
 
 - 'photo.jpg' NP '\*.png' → VRAI (ne correspond pas au modèle)
 - 'photo.png' NP '\*.png' → FAUX (correspond au modèle)
@@ -63,13 +75,22 @@ Explication :
 > [!NOTE]
 > Le motif (oper2) doit être une chaîne de type `C` ou `STRING`.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `NP` = `NO PATTERN` → teste qu’une chaîne ne correspond pas à un `PATTERN` donné.
 > - Opposé de `CP` (Covers Pattern).
 > - Caractères génériques : \* pour plusieurs caractères, + pour un seul.
 > - Sensible à la casse.
 > - Très utile pour exclure des fichiers, formats ou motifs textuels indésirables.
->
 > [!TIP]
 > Comme dire “je veux tout sauf ce type de fichier ou ce motif précis”.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **NO PATTERN (NP)** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

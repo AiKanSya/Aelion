@@ -1,6 +1,21 @@
 # 🌸 FRAGMENTS
 
-## 🧩 FRAGMENTS/ (COMPOSANTS UI RÉUTILISABLES)
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **FRAGMENTS** dans le contexte présenté.
+- [ ] Comprendre **fragments/ (composants ui réutilisables)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["FRAGMENTS"]
+    A --> B["FRAGMENTS/ (COMPOSANTS UI RÉUTILISABLES)"]
+```
+
+
+## 🌺 FRAGMENTS/ (COMPOSANTS UI RÉUTILISABLES)
 
 ```
 fgifirstappmodulename/
@@ -37,11 +52,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Factoriser des morceaux d’interface réutilisables.
->
 > - 🔨 Utilité : Éviter la duplication de code UI dans plusieurs vues.
 > - ⌚ Quand utilisé ? Lorsqu’un même bloc d’interface est utilisé dans plusieurs vues.
 
@@ -175,3 +187,17 @@ UTILISATION TYPIQUE :
 
 </core:FragmentDefinition>
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **fragments/ (composants ui réutilisables)** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **FRAGMENTS** avec mes propres mots.
+- [ ] Je peux expliquer **fragments/ (composants ui réutilisables)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

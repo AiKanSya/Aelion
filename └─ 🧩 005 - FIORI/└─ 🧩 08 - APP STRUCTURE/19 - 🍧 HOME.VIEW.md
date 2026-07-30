@@ -1,6 +1,21 @@
 # 🌸 HOME.VIEW
 
-## 🧩 HOME.VIEW.XML (VUE PRINCIPALE)
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **HOME.VIEW** dans le contexte présenté.
+- [ ] Comprendre **home.view.xml (vue principale)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["HOME.VIEW"]
+    A --> B["HOME.VIEW.XML (VUE PRINCIPALE)"]
+```
+
+
+## 🌺 HOME.VIEW.XML (VUE PRINCIPALE)
 
 ```
 fgifirstappmodulename/
@@ -37,11 +52,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Afficher l’écran d’accueil de l’application.
->
 > - 🔨 Utilité : Présenter une liste, un tableau ou un résumé des données principales.
 > - ⌚ Quand utilisé ? Lorsqu’un utilisateur ouvre l’application.
 
@@ -140,3 +152,17 @@ Important :
 
 </mvc:View>
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **home.view.xml (vue principale)** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **HOME.VIEW** avec mes propres mots.
+- [ ] Je peux expliquer **home.view.xml (vue principale)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

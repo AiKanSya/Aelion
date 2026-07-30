@@ -9,18 +9,29 @@
 - [ ] Utiliser `SY-FDPOS` pour localiser le dernier caractère valide
 - [ ] Appliquer `CN` pour détecter des caractères indésirables dans une entrée utilisateur
 
-## 🌺 DEFINITION
 
-> L’opérateur `CN` (Contains Not Only) est l’opposé de `CO`.  
-> Il permet de vérifier qu’une chaîne de caractères contient autre chose que les caractères d’une autre chaîne.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CONTAINS NOT ONLY (CN)"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLE BASIQUE"]
+```
+
+
+## 🌺 DÉFINITION
+
+> L’opérateur `CN` (Contains Not Only) est l’opposé de `CO`.
+> Il permet de vérifier qu’une chaîne de caractères contient autre chose que les caractères d’une autre chaîne.
 > La condition est vraie si `oper1` contient au moins un caractère absent de `oper2`.
 
 > [!TIP]
-> Imaginez `oper2` comme une "liste de caractères autorisés".  
+> Imaginez `oper2` comme une "liste de caractères autorisés".
 > Si `oper1` contient un caractère hors de cette liste, la condition `CN` est vraie.
 
 > [!NOTE]
->
 > - "HELLO" `CN` "HELL" → vrai (il y a un "O" supplémentaire)
 > - "HELLO" `CN` "HELLO" → faux (tous les caractères sont autorisés)
 
@@ -38,7 +49,7 @@
 - La condition est vraie si `oper1` contient au moins un caractère non présent dans `oper2`.
 
 > [!NOTE]
-> L’opérateur `CN` parcourt `oper1` et détecte le premier caractère qui n’est pas dans `oper2`.  
+> L’opérateur `CN` parcourt `oper1` et détecte le premier caractère qui n’est pas dans `oper2`.
 > La position du dernier caractère valide trouvé est stockée dans `SY-FDPOS`.
 
 ## 🌺 EXEMPLE BASIQUE
@@ -55,7 +66,7 @@
       WRITE:/ 'lc_oper1 contient uniquement les caractères de ', lc_oper2.
     ENDIF.
 
-### EXPLICATION :
+### 🍧 EXPLICATION :
 
 - `lc_oper1 = 'Hello'` et `lc_oper2 = 'Hell'`
 - `IF lc_oper1 CN lc_oper2.` détecte le caractère supplémentaire "o"
@@ -63,16 +74,24 @@
 - La condition retourne TRUE car `lc_oper1` contient un caractère non autorisé
 
 > [!TIP]
->
 > - `CN` est sensible à la casse : `'HELLO'` ≠ `'Hello'`.
 > - Utile pour valider que des codes ou champs texte ne contiennent aucun caractère interdit.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `CN` = Contains Not Only → teste si une chaîne contient au moins un caractère non autorisé.
 > - Retourne TRUE si `oper1` contient autre chose que les caractères de `oper2`.
 > - `SY-FDPOS` indique la position du dernier caractère conforme à `oper2`.
 > - Idéal pour filtrer ou contrôler les saisies utilisateur.
->
-> [!TIP]  
+> [!TIP]
 > vérifier qu’une liste contient au moins un ingrédient non autorisé dans une recette, pour détecter les erreurs ou intrus.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CONTAINS NOT ONLY (CN)** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

@@ -1,6 +1,21 @@
 # 🌸 LOCALSERVICE & METADATA
 
-## 🧩 LOCALSERVICE/ (SERVICES LOCAUX / MOCK)
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **LOCALSERVICE & METADATA** dans le contexte présenté.
+- [ ] Comprendre **localservice/ (services locaux / mock)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["LOCALSERVICE & METADATA"]
+    A --> B["LOCALSERVICE/ (SERVICES LOCAUX / MOCK)"]
+```
+
+
+## 🌺 LOCALSERVICE/ (SERVICES LOCAUX / MOCK)
 
 ```
 fgifirstappmodulename/
@@ -30,15 +45,11 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Simuler un service backend sans dépendre d’un système SAP réel.
->
 > - 🔨 Utilité : Permettre le développement et les tests de l’application sans connexion au backend.
 > - ⌚ Quand utilisé ? Lors du développement local ou en l’absence de backend disponible.
 > - 📌 Exemple :
->
 >   Utiliser le mockserver avec la commande start-mock.
 
 ### 🍧 MAINSERVICE/ (SERVICE ODATA MOCKÉ PAR DEFAUT)
@@ -72,15 +83,11 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Représenter un service OData fictif pour l’application.
->
 > - 🔨 Utilité : Simuler la structure d’un vrai service backend (entités, propriétés, relations).
 > - ⌚ Quand utilisé ? Lorsque l’application doit fonctionner sans accès à un système SAP.
 > - 📌 Exemple :
->
 >   Simuler un service client ou commande
 >   utilisé par les vues Fiori.
 
@@ -116,11 +123,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Décrire la structure du service OData simulé.
->
 > - 🔨 Utilité : Fournir au mockserver les entités, champs et types attendus par l’application.
 > - ⌚ Quand utilisé ? Lors du lancement de l’application en mode mock (start-mock).
 > - 📌 Exemple :
@@ -178,3 +182,17 @@ fgifirstappmodulename/
 	</edmx:DataServices>
 </edmx:Edmx>
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **localservice/ (services locaux / mock)** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **LOCALSERVICE & METADATA** avec mes propres mots.
+- [ ] Je peux expliquer **localservice/ (services locaux / mock)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

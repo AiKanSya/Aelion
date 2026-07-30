@@ -6,20 +6,33 @@
 - [ ] Identifier les informations essentielles qu’elle contient
 - [ ] Savoir structurer et rédiger une `CARTOUCHE` correctement
 
-## 🌺 DEFINITION
 
-> Une `CARTOUCHE` est un bloc de texte placé au tout début d’un `REPORT` ABAP, d'une `METHOD` de `CLASS`, d'un `MODULE FUNCTION` etc.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CARTOUCHE (ENTETE DE PROGRAMME ABAP)"]
+    A --> B["DEFINITION"]
+    B --> C["POURQUOI UTILISER UNE CARTOUCHE ?"]
+    C --> D["STRUCTURE STANDARD D’UNE CARTOUCHE"]
+    D --> E["EXEMPLE TYPE DE CARTOUCHE STANDARD"]
+    E --> F["EXEMPLE COMPLET DANS UN PROGRAMME"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Une `CARTOUCHE` est un bloc de texte placé au tout début d’un `REPORT` ABAP, d'une `METHOD` de `CLASS`, d'un `MODULE FUNCTION` etc.
 > Elle décrit le contexte : son nom, son auteur, sa fonction, et son historique.
 
 > [!TIP]
-> La `CARTOUCHE`, c’est la carte d’identité du programme.  
+> La `CARTOUCHE`, c’est la carte d’identité du programme.
 > Elle indique qui l’a créé, quand, pour quoi faire, et où en est la version.
->
-> Elle [!TIP] les développeurs, les administrateurs et les équipes de maintenance à comprendre rapidement l’origine et le but du programme.
+> Elle aide les développeurs, les administrateurs et les équipes de maintenance à comprendre rapidement l’origine et le but du programme.
 
 ## 🌺 POURQUOI UTILISER UNE CARTOUCHE ?
 
-> Sans `CARTOUCHE`, il devient difficile de savoir à quoi sert un programme ou qui l’a développé.  
+> Sans `CARTOUCHE`, il devient difficile de savoir à quoi sert un programme ou qui l’a développé.
 > Dans un environnement où plusieurs personnes travaillent sur le même système, la `CARTOUCHE` est un repère indispensable.
 
 Elle permet de :
@@ -45,7 +58,7 @@ Elle permet de :
 | Organisation / Département    | Service responsable du développement                              |
 
 > [!TIP]
-> SAP GUI ne valide pas automatiquement le contenu de la `CARTOUCHE`.  
+> SAP GUI ne valide pas automatiquement le contenu de la `CARTOUCHE`.
 > C’est à toi (ou à ton équipe) de respecter la convention commune.
 
 ## 🌺 EXEMPLE TYPE DE CARTOUCHE STANDARD
@@ -124,7 +137,6 @@ Elle permet de :
             / '-------------------------------------------------'.
 
 > [!IMPORTANT]
->
 > - Le bloc supérieur (`CARTOUCHE`) présente le programme.
 > - Les blocs suivants (SELECTION-SCREEN, START-OF-SELECTION, etc.) structurent le code.
 > - Chaque section est visuellement délimitée pour une lecture fluide et rapide.
@@ -143,7 +155,7 @@ Elle permet de :
 > [!WARNING]
 > Un champ vide dans une `cartouche` peut compliquer la recherche d’un incident ou la gestion d’un correctif.
 
-## 🌺 [!TIP] MÉMOIRE VISUEL
+## 🌺 AIDE-MÉMOIRE VISUEL
 
 Une `cartouche`, c’est :
 
@@ -156,10 +168,20 @@ Une `cartouche`, c’est :
 > [!TIP]
 > Lors de la création d’un nouveau programme dans `SE38` ou `SE80`, copie toujours une `cartouche` type fournie par ton équipe avant de commencer ton code.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - La `CARTOUCHE` est l’en-tête descriptive de chaque programme ABAP.
 > - Elle sert à identifier rapidement le quoi, qui, quand, et pourquoi du code.
 > - Toujours placée au début du programme, elle garantit la traçabilité et la cohérence.
 > - Elle doit être complète, à jour, et homogène dans tout le système SAP.
 > - Un programme sans `cartouche` est comme un document sans titre : difficile à comprendre et à maintenir.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CARTOUCHE (ENTETE DE PROGRAMME ABAP)** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **pourquoi utiliser une cartouche ?** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

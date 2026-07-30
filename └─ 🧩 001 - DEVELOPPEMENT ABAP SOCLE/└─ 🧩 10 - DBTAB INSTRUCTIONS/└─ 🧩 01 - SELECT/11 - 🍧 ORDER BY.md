@@ -7,19 +7,31 @@
 - [ ] Combiner `ORDER BY` avec `GROUP BY` et des fonctions d’agrégat
 - [ ] Afficher les résultats dans un ordre clair et lisible
 
-## 🌺 DEFINITION
 
-> `ORDER BY col1 [ASCENDING|DESCENDING], col2 [ASCENDING|DESCENDING], …`  
-> Permet de trier les résultats d’un SELECT selon une ou plusieurs colonnes.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["ORDER BY – TRI DES RESULTATS"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE"]
+    C --> D["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> `ORDER BY col1 [ASCENDING|DESCENDING], col2 [ASCENDING|DESCENDING], …`
+> Permet de trier les résultats d’un SELECT selon une ou plusieurs colonnes.
 > `PRIMARY KEY` trie automatiquement selon la clé primaire de la table.
 
 > [!TIP]
 > Comme dans Excel, on peut trier les lignes d’un tableau par colonne : alphabétiquement ou du plus grand au plus petit.
 
-> [!NOTE]  
+> [!NOTE]
 > `ASCENDING` est le tri par défaut ; `DESCENDING` inverse l’ordre.
 
-## EXEMPLE
+## 🌺 EXEMPLE
 
     TYPES: BEGIN OF ty_ekko,
             ebeln TYPE ekko-ebeln,
@@ -73,3 +85,19 @@
 - Prioriser les colonnes dans `ORDER BY` selon la logique métier.
 - Combiner avec `GROUP BY` pour présenter les résultats agrégés de façon lisible.
 - Éviter de trier sur des colonnes volumineuses pour ne pas ralentir le SELECT.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - **Exemple :** TYPES: BEGIN OF tyekko,
+> - Savoir utiliser **bonnes pratiques** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **ORDER BY – TRI DES RESULTATS** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemple** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

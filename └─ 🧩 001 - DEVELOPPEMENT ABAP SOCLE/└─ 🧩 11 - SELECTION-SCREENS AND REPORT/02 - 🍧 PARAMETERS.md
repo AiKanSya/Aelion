@@ -6,10 +6,24 @@
 - [ ] RECUPERER ET UTILISER LA VALEUR SAISIE DANS LE PROGRAMME ABAP
 - [ ] FACILITER LA NAVIGATION ET LA COMPREHENSION GRACE A DES TEXTES D'INPUT
 
-## 🌺 DEFINITION
 
-> Les `PARAMETERS` permettent de créer des champs de saisie simples pour l’utilisateur, comme dans un formulaire papier ou Excel.  
-> Chaque `PARAMETER` ne peut contenir qu’une seule valeur.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["PARAMETERS"]
+    A --> B["DEFINITION"]
+    B --> C["INSTRUCTION PARAMETERS"]
+    C --> D["PARAMETRES D'INSTRUCTION"]
+    D --> E["TEXTES D'INPUTS"]
+    E --> F["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Les `PARAMETERS` permettent de créer des champs de saisie simples pour l’utilisateur, comme dans un formulaire papier ou Excel.
+> Chaque `PARAMETER` ne peut contenir qu’une seule valeur.
 > Utilisation : récupérer des données saisies par l’utilisateur pour filtrer, calculer ou traiter des enregistrements.
 
 > [!TIP]
@@ -26,28 +40,25 @@ _Exemple de déclaration simple_
                 p_posnr TYPE vbap-posnr.
 
 > [!IMPORTANT]
->
 > - `PARAMETERS:` obligatoire pour déclarer un ou plusieurs champs de saisie.
 > - `p_vbeln` : nom du paramètre (par convention, commence par `p_`), ici pour saisir le numéro de document commercial.
 > - `TYPE` : définit le type attendu et permet la génération automatique du match-code.
 > - `vbak-vbeln` : référence à la table et au champ dans le dictionnaire DDIC.
 > - `p_posnr` : deuxième paramètre pour saisir le numéro de poste, même principe que `p_vbeln`.
 
-## 🌺 PARAMETRES D'INSTRUCTION
+## 🌺 PARAMÈTRES D'INSTRUCTION
 
-### CHAMP TYPE OBLIGATOIRE
+### 🍧 CHAMP TYPE OBLIGATOIRE
 
 > [!IMPORTANT]
->
 > Le paramètre `OBLIGATORY` de l'instruction `PARAMETERS` rend obligatoire le champ.
 
     PARAMETERS: p_vbeln TYPE vbak-vbeln OBLIGATORY,
                 p_posnr TYPE vbap-posnr.
 
-### CHAMP AVEC VALEUR PAR DEFAUT
+### 🍧 CHAMP AVEC VALEUR PAR DEFAUT
 
 > [!IMPORTANT]
->
 > Le paramètre `DEFAULT` suivie de la valeur applique une valeur par défaut sur le champ.
 
     PARAMETERS: p_vbeln TYPE vbak-vbeln OBLIGATORY,
@@ -67,9 +78,19 @@ _Exemple de déclaration simple_
 - Prévoir des valeurs par défaut si nécessaire pour guider l’utilisateur.
 - Vérifier la valeur saisie dans le programme avant de l’utiliser pour éviter des erreurs.
 
-## RESUME
+## 🌺 RÉSUMÉ
 
 > - `PARAMETERS` crée un champ de saisie unique pour l’utilisateur.
 > - Le champ est typé via `TYPE` et peut générer un match-code automatiquement.
 > - Les textes d’input peuvent être personnalisés pour améliorer l’expérience utilisateur.
 > - Convention : noms de paramètres commençant par `p_` pour identification facile.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **PARAMETERS** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **instruction parameters** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

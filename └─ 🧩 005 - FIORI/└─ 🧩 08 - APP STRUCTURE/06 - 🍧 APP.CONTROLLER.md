@@ -1,6 +1,21 @@
 # 🌸 APP.CONTROLLER
 
-## 🧩 APP.CONTROLLER.JS (CONTROLLER PRINCIPAL)
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **APP.CONTROLLER** dans le contexte présenté.
+- [ ] Comprendre **app.controller.js (controller principal)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["APP.CONTROLLER"]
+    A --> B["APP.CONTROLLER.JS (CONTROLLER PRINCIPAL)"]
+```
+
+
+## 🌺 APP.CONTROLLER.JS (CONTROLLER PRINCIPAL)
 
 ```
 fgifirstappmodulename/
@@ -36,11 +51,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Gérer le cycle de vie global de l’application.
->
 > - 🔨 Utilité : Initialiser l’application et gérer les événements globaux.
 > - ⌚ Quand utilisé ? Au démarrage de l’application ou pour des comportements transverses.
 >   📌 Exemple :
@@ -117,3 +129,17 @@ sap.ui.define(
   },
 );
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **app.controller.js (controller principal)** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **APP.CONTROLLER** avec mes propres mots.
+- [ ] Je peux expliquer **app.controller.js (controller principal)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

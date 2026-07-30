@@ -1,10 +1,24 @@
 # 🌸 GET ONE
 
-> 🌺 Objectifs
->
-> - [ ] Récupérer une session avec son ID.
+## 🌺 OBJECTIFS
 
-## 🧩 APPEL DIRECT ODATA
+- [ ] Expliquer le rôle de **GET ONE** dans le contexte présenté.
+- [ ] Comprendre **appel direct odata**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["GET ONE"]
+    A --> B["APPEL DIRECT ODATA"]
+```
+
+> [!IMPORTANT]
+> Vérifier la version SAPUI5 ciblée par l’application. La disponibilité d’une API, d’une propriété ou d’un événement peut dépendre de cette version.
+
+
+## 🌺 APPEL DIRECT ODATA
 
 Path :
 
@@ -105,12 +119,12 @@ sap.ui.define(
             /****************************************************************
              * SUCCESS CALLBACK
              * --------------------------------------------------------------
-             * oData.results = tableau d'entités retournées par OData
+             * OData.results = tableau d'entités retournées par OData
              ****************************************************************/
-            success: function (oData) {
+            success: function (OData) {
               console.log("READ SessionSet OK");
 
-              console.table(oData.results);
+              console.table(OData.results);
             },
 
             /****************************************************************
@@ -142,10 +156,10 @@ sap.ui.define(
            * /EntitySet('ID')
            ******************************************************************/
           oModel.read("/SessionSet('" + sSessionId + "')", {
-            success: function (oData) {
+            success: function (OData) {
               console.log("READ ONE Session OK");
 
-              console.log(oData);
+              console.log(OData);
             },
 
             error: function (oError) {
@@ -158,3 +172,17 @@ sap.ui.define(
   },
 );
 ```
+
+## 🌺 RÉSUMÉ
+
+> - **Appel direct odata :** webapp/controller/Home.controller.js
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **GET ONE** avec mes propres mots.
+- [ ] Je peux expliquer **appel direct odata** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

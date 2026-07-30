@@ -1,15 +1,27 @@
 # 🌸 EXTENDED CHECK
 
+## 🌺 OBJECTIFS
+
+
 - [ ] Accéder et exécuter l'`Extended Check`
 - [ ] Localiser l'origine de l'erreur, la mauvaise pratique etc
 
-## 🧩 EXTENDED CHECK (SLIN)
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["EXTENDED CHECK"]
+    A --> B["EXTENDED CHECK (SLIN)"]
+```
+
+
+## 🌺 EXTENDED CHECK (SLIN)
 
 ### 🍧 DÉFINITION
 
 > [!IMPORTANT]
 > détecte au niveau du Code :
->
 > - erreurs potentielles
 > - mauvaises pratiques
 > - risques techniques
@@ -35,7 +47,7 @@
 
 ![](../assets/Capture%20d’écran%202026-01-14%20112257.png)
 
-### INTERFACE EXTENDED CHECK
+### 🍧 INTERFACE EXTENDED CHECK
 
 > [!IMPORTANT]
 > Au niveau de l'interface, `Extended Check` permet de sélectionner les critères de vérification.
@@ -49,7 +61,7 @@
 
 ![](../assets/Capture%20d’écran%202026-01-14%20112632.png)
 
-### CHECK
+### 🍧 CHECK
 
 > [!IMPORTANT]
 > Pour accéder aux informations, double-cliquer sur la ligne ciblée.
@@ -60,7 +72,6 @@
 
 > [!IMPORTANT]
 > Nous pouvons ici lire et comprendre le message.
->
 >         This warning is only displayed in SLIN
 >         In the case of JOINs, the addition SINGLE can only be executed as UP TO 1 ROWS, so use the addition UP
 >         TO 1 ROWS instead of SINGLE.
@@ -102,7 +113,6 @@ Ce SELECT SINGLE sera remplacé par :
 
 > [!NOTE]
 > Une fois les corrections implémentées, relancer un `Extended Check` pour vérifier que les correctifs sont valides et n'ont pas généré d'autres erreurs.
->
 > Dans notre exemple, les correctifs sont valides et ont disparu de la liste :
 
 ![](../assets/Capture%20d’écran%202026-01-14%20113814.png)
@@ -111,3 +121,17 @@ Ce SELECT SINGLE sera remplacé par :
 > Une fois toutes les corrections effectuées, vous devriez avoir une liste vide :
 
 ![](../assets/Capture%20d’écran%202026-01-14%20114225.png)
+
+## 🌺 RÉSUMÉ
+
+> - **Extended check (slin) :** Ce SELECT SINGLE sera remplacé par :
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **EXTENDED CHECK** avec mes propres mots.
+- [ ] Je peux expliquer **extended check (slin)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

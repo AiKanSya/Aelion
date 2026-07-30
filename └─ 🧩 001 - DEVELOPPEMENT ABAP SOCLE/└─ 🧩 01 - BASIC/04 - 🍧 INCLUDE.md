@@ -10,9 +10,23 @@
 > [!IMPORTANT]
 > L’objectif est de modulariser le code ABAP afin de le rendre plus lisible, réutilisable et facile à maintenir, tout en permettant le travail collaboratif.
 
-## 🌺 DEFINITION
 
-> Un `INCLUDE` est un fichier de code réutilisable inséré dans un ou plusieurs programmes ABAP.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CREATION D’UN INCLUDE – SE38 / SE80"]
+    A --> B["DEFINITION"]
+    B --> C["POURQUOI UTILISER DES INCLUDES ?"]
+    C --> D["TYPES D’INCLUDES"]
+    D --> E["CREATION D’UN INCLUDE VIA SE80"]
+    E --> F["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Un `INCLUDE` est un fichier de code réutilisable inséré dans un ou plusieurs programmes ABAP.
 > Il permet de séparer le code pour le rendre plus lisible et modulaire.
 
 > [!TIP]
@@ -44,7 +58,7 @@
 > [!NOTE]
 > Le type n’est pas imposé par SAP, c’est une convention pour structurer votre programme ABAP.
 
-## 🌺 CREATION D’UN INCLUDE VIA SE80
+## 🌺 CRÉATION D’UN INCLUDE VIA SE80
 
       *&---------------------------------------------------------------------*
       *& Report ZAELION_TRI_HELLOWORLD
@@ -111,7 +125,7 @@
 
 ## 🌺 BONNES PRATIQUES
 
-| 🍧 Bonne pratique                                  | 🍧 [!IMPORTANT]                                           |
+| 🍧 Bonne pratique                                  | 🍧 Pourquoi                                              |
 | -------------------------------------------------- | --------------------------------------------------------- |
 | Nommer les `INCLUDES` avec le préfixe du programme | Identifier facilement l’`INCLUDE` et son programme parent |
 | Regrouper les `INCLUDES` par fonction              | Ex : ...\_TOP, ...\_SCR, ...\_F01                         |
@@ -187,7 +201,7 @@ Exécution :
 
 </details>
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Un `INCLUDE` contient du code réutilisable dans un ou plusieurs programmes
 > - Se crée via `SE38` ou `SE80` et s’intègre dans un programme avec `INCLUDE`

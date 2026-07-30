@@ -8,7 +8,21 @@
 - [ ] Comprendre le contrôle du commit par l’appelant
 - [ ] Utiliser `BAPI_TRANSACTION_COMMIT` et `BAPI_TRANSACTION_ROLLBACK`
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["BAPI ET GESTION DE TRANSACTION"]
+    A --> B["DEFINITION"]
+    B --> C["COMPARAISON"]
+    C --> D["PARAMETRE RETURN"]
+    D --> E["COMMIT APRES UNE BAPI D'ECRITURE"]
+    E --> F["POURQUOI LE COMMIT APPARTIENT A L'APPELANT"]
+```
+
+
+## 🌺 DÉFINITION
 
 > Une BAPI est une API métier standardisée liée au modèle d’objet métier SAP. Son implémentation technique repose généralement sur un module fonction compatible RFC, mais tout module fonction RFC n’est pas une BAPI.
 
@@ -127,13 +141,23 @@ Un commit caché dans la première opération empêcherait l’annulation cohér
 4. Appeler le commit seulement en absence d’erreur.
 5. Expliquer pourquoi tout module RFC n’est pas une BAPI.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Une BAPI est une API métier standardisée.
 > - Son module technique est généralement RFC-enabled.
 > - Les erreurs sont souvent retournées dans `BAPIRET2`.
 > - L’appelant contrôle la validation ou l’annulation de la transaction.
 > - Le succès de l’appel technique ne garantit pas le succès métier.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **BAPI ET GESTION DE TRANSACTION** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **comparaison** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>
 
 ## 🌺 SOURCES OFFICIELLES
 

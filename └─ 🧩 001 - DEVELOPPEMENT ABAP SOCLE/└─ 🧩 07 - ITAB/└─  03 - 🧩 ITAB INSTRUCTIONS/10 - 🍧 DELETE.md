@@ -7,7 +7,19 @@
 - [ ] Identifier les limitations selon le type de table interne
 - [ ] Utiliser DELETE de manière sûre et performante
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["DELETE"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLES"]
+    C --> D["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
 
     DELETE { TABLE itab { FROM ls }
             | { WITH TABLE KEY [keyname COMPONENTS]
@@ -16,44 +28,40 @@
             | itab INDEX idx
             | itab WHERE cond }.
 
-> L’instruction `DELETE` retire des lignes d’une table interne (`itab`).  
+> L’instruction `DELETE` retire des lignes d’une table interne (`itab`).
 > Trois formes principales
->
 > - `DELETE itab INDEX idx` : supprime la ligne à l’index spécifié
 > - `DELETE itab FROM ls` : supprime la ligne correspondant à la structure / clé
 > - `DELETE itab WHERE cond` : supprime toutes les lignes respectant la condition
 
 > [!TIP]
 > Imaginez un classeur
->
 > - Retirer une fiche à une position précise
 > - Supprimer la fiche correspondant à un identifiant
 > - Retirer toutes les fiches correspondant à un critère spécifique
 
 > [!NOTE]
->
 > - Les lignes supprimées disparaissent définitivement
 > - Les index des lignes suivantes sont ajustés automatiquement pour les STANDARD TABLE
 > - HASHED TABLE et SORTED TABLE gèrent la suppression via clé ou condition
 
 ## 🌺 EXEMPLES
 
-### DELETE PAR INDEX
+### 🍧 DELETE PAR INDEX
 
     " Supprimer la première ligne de lt_country (STANDARD TABLE uniquement)
     DELETE lt_country INDEX 1.
 
-### DELETE PAR STRUCTURE / CLE
+### 🍧 DELETE PAR STRUCTURE / CLE
 
     ls_country-land = 'FR'.
     DELETE lt_country FROM ls_country.  " Supprime la ligne dont la clé LAND = 'FR'
 
-### DELETE AVEC WHERE
+### 🍧 DELETE AVEC WHERE
 
     DELETE lt_country WHERE age < 30.  " Supprime toutes les lignes avec age < 30
 
 > [!IMPORTANT]
->
 > - `INDEX` : applicable uniquement aux `STANDARD TABLE`
 > - `FROM` / clé : fonctionne pour `STANDARD` et `HASHED TABLE` (basé sur la clé)
 > - `WHERE` : applicable à toutes les tables, permet de supprimer plusieurs lignes selon un critère
@@ -71,9 +79,9 @@
 
 ## 🌺 EXERCICES
 
-### 🔹 1 – DELETE PAR INDEX
+### 🍧 1 – DELETE PAR INDEX
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > supprimer la première ligne de lt_country.
 
 <details>
@@ -85,9 +93,9 @@
 
 ---
 
-### 🔹 2 – DELETE PAR STRUCTURE / CLE
+### 🍧 2 – DELETE PAR STRUCTURE / CLE
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > supprimer la ligne avec LAND = 'IT'.
 
 <details>
@@ -101,9 +109,9 @@
 
 ---
 
-### 🔹 3 – DELETE AVEC WHERE
+### 🍧 3 – DELETE AVEC WHERE
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > supprimer toutes les lignes où AGE < 25.
 
 <details>
@@ -115,9 +123,9 @@
 
 ---
 
-### 🔹 4 – COMPARAISON DES METHODES
+### 🍧 4 – COMPARAISON DES METHODES
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > expliquer quand utiliser INDEX, FROM, WHERE.
 
 <details>
@@ -130,12 +138,10 @@
 
 </details>
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `DELETE` supprime une ou plusieurs lignes d’une table interne selon l’index, la clé ou une condition WHERE
->
 > [!TIP]
 > retirer des fiches d’un classeur soit par position, soit par identifiant, soit par critère spécifique
->
 > [!IMPORTANT]
 > vérifier le type de table, initialiser la structure, utiliser WHERE pour plusieurs lignes et éviter les suppressions inutiles en boucle

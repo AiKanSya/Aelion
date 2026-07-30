@@ -7,19 +7,31 @@
 - [ ] Assimiler le comportement spécifique d’une table standard (index implicite, ordre d’insertion)
 - [ ] Identifier les cas d’usage pertinents
 
-## 🌺 DEFINITION
 
-> Une table interne standard (`TYPE STANDARD TABLE OF`) est une table indexée automatiquement par ABAP.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["ITAB TYPE STANDARD TABLE OF"]
+    A --> B["DEFINITION"]
+    B --> C["DECLARATION"]
+    C --> D["INSERTION D’UNE LIGNE"]
+    D --> E["ACCES AUX DONNÉES"]
+    E --> F["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Une table interne standard (`TYPE STANDARD TABLE OF`) est une table indexée automatiquement par ABAP.
 > Chaque ligne est accessible par un indice numérique (1, 2, 3, ...), représentant l’ordre d’insertion.
 
 > [!IMPORTANT]
->
 > - L’ordre d’insertion détermine l’ordre de lecture.
 > - L’accès à une ligne spécifique nécessite souvent une recherche séquentielle (instruction `READ TABLE`).
 > - Une table standard n’impose pas d’unicité sur les lignes.
 
 > [!IMPORTANT]
->
 > | 🍧 Type de table interne | 🍧 Indexée | 🍧 Accès direct | 🍧 Doublons autorisés | 🍧 Tri automatique |
 > | ------------------------ | ---------- | --------------- | --------------------- | ------------------ |
 > | STANDARD TABLE           | ✅ Oui     | ❌ Non          | ✅ Oui                | ❌ Non             |
@@ -28,7 +40,7 @@
 
 ## 🌺 DECLARATION
 
-### 1️⃣ DEFINIR UN TYPE DE LIGNE
+### 🍧 1️⃣ DEFINIR UN TYPE DE LIGNE
 
     TYPES: BEGIN OF ty_person,
              nom    TYPE char20,
@@ -37,16 +49,15 @@
              ville  TYPE char20,
            END OF ty_person.
 
-### 2️⃣ DECLARER UNE TABLE STANDARD
+### 🍧 2️⃣ DECLARER UNE TABLE STANDARD
 
     DATA: lt_persons TYPE STANDARD TABLE OF ty_person.
 
-### 3️⃣ DECLARER UNE STRUCTURE TEMPORAIRE
+### 🍧 3️⃣ DECLARER UNE STRUCTURE TEMPORAIRE
 
     DATA: ls_person TYPE ty_person.
 
 > [!TIP]
->
 > - `ty_person` → modèle de fiche d’identité
 > - `ls_person` → fiche en cours de remplissage
 > - `lt_persons` → carnet de fiches numérotées automatiquement
@@ -61,7 +72,7 @@
     APPEND ls_person TO lt_persons.
 
 > [!IMPORTANT]
-> L’instruction `APPEND` ajoute la ligne à la fin de la table.  
+> L’instruction `APPEND` ajoute la ligne à la fin de la table.
 > La table standard conserve l’ordre chronologique d’insertion.
 
 > [!NOTE]
@@ -69,7 +80,7 @@
 
 ## 🌺 ACCES AUX DONNÉES
 
-### 🔹 LECTURE SEQUENTIELLE
+### 🍧 LECTURE SEQUENTIELLE
 
 - BOUCLE avec stockage des données de la ligne lue dans une structure déjà déclarée en amont
 
@@ -95,7 +106,7 @@
         WRITE: / ls_person-nom, ls_person-prenom.
       ENDLOOP.
 
-### 🔹 LECTURE PAR INDEX
+### 🍧 LECTURE PAR INDEX
 
     READ TABLE lt_persons INDEX 2 INTO ls_person.
     IF sy-subrc = 0.
@@ -103,7 +114,7 @@
     ENDIF.
 
 > [!CAUTION]
-> Une table standard ne garantit pas de tri ou d’accès direct par clé.  
+> Une table standard ne garantit pas de tri ou d’accès direct par clé.
 > L’accès se fait par index ou recherche séquentielle.
 
 ## 🌺 BONNES PRATIQUES
@@ -120,7 +131,7 @@
 
 ## 🌺 EXEMPLES
 
-### 🔹 EXEMPLE 1 – TABLE DE LIVRES
+### 🍧 EXEMPLE 1 – TABLE DE LIVRES
 
     TYPES: BEGIN OF ty_livre,
              titre  TYPE char30,
@@ -144,26 +155,24 @@
     ls_livre-genre  = 'Conte'.
     APPEND ls_livre TO lt_livres.
 
-### 🔹 EXEMPLE 2 – TRI MANUEL D’UNE TABLE STANDARD
+### 🍧 EXEMPLE 2 – TRI MANUEL D’UNE TABLE STANDARD
 
     SORT lt_livres BY auteur.
 
-> [!IMPORTANT]  
-> Une table standard n’est pas triée automatiquement.  
+> [!IMPORTANT]
+> Une table standard n’est pas triée automatiquement.
 > `SORT` est nécessaire pour organiser les lignes par champ.
 
 ## 🌺 EXERCICES
 
-### 🔹 1 – TABLE DE CLIENTS
+### 🍧 1 – TABLE DE CLIENTS
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Déclarer une table standard `lt_clients` avec une structure `ty_client` contenant
->
 > - nom (CHAR20)
 > - prenom (CHAR20)
 > - age (I)
 > - ville (CHAR20)
->
 > Ajouter deux clients et afficher leurs noms.
 
 <details>
@@ -195,7 +204,7 @@
 
 ---
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `TYPE STANDARD TABLE OF` → table interne indexée automatiquement.
 > - Ordre d’insertion conservé.

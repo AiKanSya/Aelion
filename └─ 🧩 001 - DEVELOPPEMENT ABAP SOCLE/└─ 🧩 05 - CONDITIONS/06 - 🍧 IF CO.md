@@ -9,15 +9,27 @@
 - [ ] Utiliser `SY-FDPOS` pour connaître la position du dernier caractère vérifié
 - [ ] Appliquer `CO` pour valider ou filtrer des entrées utilisateur
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CONTAINS ONLY (CO)"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLE BASIQUE"]
+```
+
+
+## 🌺 DÉFINITION
 
 > L’opérateur `CO` (Contains Only) permet de vérifier qu’une chaîne de caractères ne contient que certains caractères définis dans une autre chaîne.
 
 > [!TIP]
 > C’est comme vérifier que les lettres d’un mot appartiennent toutes à un alphabet donné.
 
-> [!NOTE]  
-> "HELLO" ne contient que des lettres de A à Z → vrai.  
+> [!NOTE]
+> "HELLO" ne contient que des lettres de A à Z → vrai.
 > "HELLO1" contient un chiffre → faux.
 
 > [!IMPORTANT]
@@ -34,7 +46,7 @@
 - Si `oper1` contient uniquement des caractères présents dans `oper2`, la condition est vraie.
 
 > [!IMPORTANT]
-> L’opérateur `CO` vérifie chaque caractère de `oper1` et renvoie TRUE uniquement si tous sont présents dans `oper2`.  
+> L’opérateur `CO` vérifie chaque caractère de `oper1` et renvoie TRUE uniquement si tous sont présents dans `oper2`.
 > La position du dernier caractère vérifié est stockée dans `SY-FDPOS`.
 
 ## 🌺 EXEMPLE BASIQUE
@@ -51,7 +63,7 @@
       WRITE:/ 'lc_oper1 ne contient pas uniquement les caractères de ', lc_oper2.
     ENDIF.
 
-### EXPLICATION :
+### 🍧 EXPLICATION :
 
 - `lc_oper1` et `lc_oper2` contiennent `'Hello'`.
 - `IF lc_oper1 CO lc_oper2.` vérifie que tous les caractères de `lc_oper1` sont dans `lc_oper2`.
@@ -59,16 +71,24 @@
 - Si `lc_oper2` valait `'Hell'`, la condition serait fausse.
 
 > [!TIP]
->
 > - `CO` est sensible à la casse : `'HELLO'` ≠ `'Hello'`.
 > - Très utile pour valider que les codes ou chaînes saisies respectent un alphabet ou un ensemble de caractères autorisés.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `CO` = Contains Only → teste si tous les caractères d’une chaîne appartiennent à un ensemble autorisé.
 > - Retourne TRUE si la chaîne respecte l’ensemble, FALSE sinon.
 > - La position du dernier caractère vérifié est disponible dans `SY-FDPOS`.
 > - Idéal pour valider ou filtrer des saisies utilisateur.
->
-> [!TIP]  
+> [!TIP]
 > vérifier que tous les ingrédients d’un plat proviennent d’une seule liste autorisée, sans intrus.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CONTAINS ONLY (CO)** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

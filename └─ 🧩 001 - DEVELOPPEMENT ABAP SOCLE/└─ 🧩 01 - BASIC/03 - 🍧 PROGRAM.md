@@ -7,19 +7,32 @@
 - [ ] Connaître les types de `PROGRAMMES` disponibles
 - [ ] Lancer, sauvegarder et transporter un `PROGRAMME` ABAP
 
-> Explication
+> [!NOTE]
 > L’objectif est de comprendre comment structurer, créer et exécuter un `PROGRAMME` ABAP dans SAP, tout en respectant l’organisation par PACKAGE et OT.
 
-## 🌺 DEFINITION
 
-> Un `PROGRAMME` ABAP est un ensemble d’instructions exécutables par SAP.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CREATION DE PROGRAMME – SE38 / SE80"]
+    A --> B["DEFINITION"]
+    B --> C["TYPES DE PROGRAMMES"]
+    C --> D["CREATION D’UN PROGRAMME AVEC SE80"]
+    D --> E["CREATION D’UN PROGRAMME AVEC SE38"]
+    E --> F["PREMIER PAS DANS LE PROGRAMME"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Un `PROGRAMME` ABAP est un ensemble d’instructions exécutables par SAP.
 > Il sert à traiter des données, afficher des résultats ou automatiser des actions.
 
 > [!TIP]
 > Un `PROGRAMME` est comme une recette : chaque ligne de code est une instruction pour obtenir un résultat final. Le PACKAGE est votre classeur de recettes, et l’OT le carton pour transporter les recettes.
 
 > [!NOTE]
->
 > - Lire une table client
 > - Calculer des totaux, traiter des chaîne de caractère
 > - Afficher un rapport à l’écran
@@ -37,7 +50,7 @@
 > [!NOTE]
 > Le type détermine l’usage et l’interface du `PROGRAMME`.
 
-## 🌺 CREATION D’UN PROGRAMME AVEC SE80
+## 🌺 CRÉATION D’UN PROGRAMME AVEC SE80
 
 1. Entrer `/nSE80`
 
@@ -59,7 +72,7 @@
 
    ![](./assets/images/Capture%20d’écran%202025-10-30%20173746.png)
 
-5. Vvérifier Titre et Type `Programme exécutable` et Sauvegarder
+5. Vérifier Titre et Type `Programme exécutable` et Sauvegarder
 
    ![](./assets/images/Capture%20d’écran%202025-10-30%20173942.png)
 
@@ -69,7 +82,7 @@
 
    ![](./assets/images/Capture%20d’écran%202025-10-30%20174210.png)
 
-7. Ouvrir le `PROGRAMME` (double clique)
+7. Ouvrir le `PROGRAMME` (double-clic)
 
    ![](./assets/images/Capture%20d’écran%202025-10-30%20174402.png)
 
@@ -79,9 +92,10 @@
 
    ![](./assets/images/Capture%20d’écran%202025-10-30%20174530.png)
 
-> [!TIP] > `SE80` offre la visualisation arborescente : `PROGRAMME` → Includes → Tables → Fonctions.
+> [!TIP]
+> `SE80` offre la visualisation arborescente : `PROGRAMME` → Includes → Tables → Fonctions.
 
-## 🌺 CREATION D’UN PROGRAMME AVEC SE38
+## 🌺 CRÉATION D’UN PROGRAMME AVEC SE38
 
 1. Entrer `/nSE38`
 2. Saisir le nom du `PROGRAMME` (ex. ZAELION_TRI_HELLOWORLD)
@@ -123,7 +137,7 @@ Tu devrais avoir :
 > [!IMPORTANT]
 > WRITE affiche du texte à l’écran. Cela permet de vérifier que le `programme` fonctionne avant d’ajouter des traitements complexes.
 
-### ETAPES D’EXECUTION
+### 🍧 ETAPES D’EXECUTION
 
 1. Enregistrer (Ctrl+S)
 
@@ -168,7 +182,7 @@ Tu devrais avoir :
 4. Vérifier le message affiché
 5. Observer la structure PACKAGE + OT dans `SE80`
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Un `PROGRAMME` ABAP est une suite d’instructions exécutables
 > - Sert à traiter des données, afficher des résultats, automatiser des actions
@@ -180,3 +194,13 @@ Tu devrais avoir :
 
 > [!TIP]
 > Le `PROGRAMME` est la recette, le PACKAGE le classeur des recettes, et l’OT le carton pour transporter vos recettes vers d’autres systèmes.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CREATION DE PROGRAMME – SE38 / SE80** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **types de programmes** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

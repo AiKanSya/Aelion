@@ -1,189 +1,86 @@
-# 🌸 SINGLETON
+# 🌸 SINGLETON DANS SE24
 
 ## 🌺 OBJECTIFS
 
-- [ ] Comprendre le besoin d’une instance unique
-- [ ] Empêcher l’instanciation extérieure avec `CREATE PRIVATE`
-- [ ] Stocker l’instance dans un attribut statique privé
-- [ ] Fournir une méthode statique `GET_INSTANCE`
-- [ ] Vérifier que plusieurs appels retournent le même objet
+- [ ] Comprendre le but du pattern Singleton.
+- [ ] Configurer une instanciation privée dans `SE24`.
+- [ ] Créer une méthode statique `GET_INSTANCE`.
+- [ ] Identifier les limites du pattern.
 
-## 🌺 DEFINITION
+## 🌺 DÉFINITION
 
-> Le `SINGLETON` est un patron de conception qui contrôle la création d’une classe afin de fournir une seule instance partagée dans le contexte d’exécution.
+Un Singleton garantit qu’une classe contrôle elle-même la création de son instance et retourne la même référence pendant une session interne.
 
-Il repose généralement sur :
-
-1. une création privée ;
-2. une référence statique privée ;
-3. une méthode statique publique retournant l’instance.
-
-## 🌺 STRUCTURE
-
-    CLASS lcl_configuration DEFINITION CREATE PRIVATE.
-      PUBLIC SECTION.
-        CLASS-METHODS get_instance
-          RETURNING
-            VALUE(ro_instance) TYPE REF TO lcl_configuration.
-
-      PRIVATE SECTION.
-        CLASS-DATA go_instance TYPE REF TO lcl_configuration.
-    ENDCLASS.
-
-## 🌺 LOGIQUE GET_INSTANCE
-
-    METHOD get_instance.
-      IF go_instance IS NOT BOUND.
-        go_instance = NEW lcl_configuration( ).
-      ENDIF.
-
-      ro_instance = go_instance.
-    ENDMETHOD.
-
-Premier appel :
-
-- la référence statique est initiale ;
-- l’objet est créé ;
-- sa référence est mémorisée.
-
-Appels suivants :
-
-- la référence est déjà liée ;
-- aucun nouvel objet n’est créé ;
-- la même référence est retournée.
-
-## 🌺 EXEMPLE COMPLET
-
-    REPORT zaelion_oo_11.
-
-    CLASS lcl_configuration DEFINITION CREATE PRIVATE.
-      PUBLIC SECTION.
-        CLASS-METHODS get_instance
-          RETURNING
-            VALUE(ro_instance) TYPE REF TO lcl_configuration.
-
-        METHODS set_environment
-          IMPORTING
-            iv_environment TYPE string.
-
-        METHODS get_environment
-          RETURNING
-            VALUE(rv_environment) TYPE string.
-
-      PRIVATE SECTION.
-        CLASS-DATA go_instance TYPE REF TO lcl_configuration.
-        DATA mv_environment TYPE string.
-    ENDCLASS.
-
-    CLASS lcl_configuration IMPLEMENTATION.
-      METHOD get_instance.
-        IF go_instance IS NOT BOUND.
-          go_instance = NEW lcl_configuration( ).
-        ENDIF.
-
-        ro_instance = go_instance.
-      ENDMETHOD.
-
-      METHOD set_environment.
-        mv_environment = iv_environment.
-      ENDMETHOD.
-
-      METHOD get_environment.
-        rv_environment = mv_environment.
-      ENDMETHOD.
-    ENDCLASS.
-
-    START-OF-SELECTION.
-
-      DATA(lo_configuration_1) = lcl_configuration=>get_instance( ).
-      DATA(lo_configuration_2) = lcl_configuration=>get_instance( ).
-
-      lo_configuration_1->set_environment( iv_environment = 'DEV' ).
-
-      WRITE: / lo_configuration_2->get_environment( ).
-
-      IF lo_configuration_1 = lo_configuration_2.
-        WRITE: / 'Même instance'.
-      ENDIF.
-
-## 🌺 RESULTAT ATTENDU
-
-    DEV
-    Même instance
-
-La valeur définie par la première référence est visible depuis la seconde, car les deux références pointent vers le même objet.
-
-## 🌺 DIAGRAMME
+## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
-flowchart TD
-    A[Appel GET_INSTANCE] --> B{go_instance IS BOUND ?}
-    B -->|Non| C[Créer l'objet]
-    C --> D[Mémoriser la référence]
-    B -->|Oui| E[Réutiliser la référence]
-    D --> F[Retourner ro_instance]
-    E --> F
+sequenceDiagram
+    participant A as Appelant 1
+    participant S as ZCL_AELION_LOGGER
+    participant B as Appelant 2
+    A->>S: GET_INSTANCE
+    S->>S: créer si référence initiale
+    S-->>A: instance unique
+    B->>S: GET_INSTANCE
+    S-->>B: même instance
 ```
 
-## 🌺 POURQUOI CREATE PRIVATE
+## 🌺 CONFIGURATION DANS SE24
 
-    CLASS lcl_configuration DEFINITION CREATE PRIVATE.
+1. Créer `ZCL_AELION_LOGGER`.
+2. Dans les propriétés, choisir une instanciation **privée**.
+3. Créer l’attribut statique privé `GO_INSTANCE`, type référence vers `ZCL_AELION_LOGGER`.
+4. Créer la méthode statique publique `GET_INSTANCE`.
+5. Définir un paramètre Returning `RO_INSTANCE`, type référence vers la classe.
 
-Cette option empêche le programme extérieur d’exécuter :
+```abap
+METHOD get_instance.
+  IF go_instance IS NOT BOUND.
+    go_instance = NEW zcl_aelion_logger( ).
+  ENDIF.
 
-    " ERREUR : création privée
-    DATA(lo_configuration) = NEW lcl_configuration( ).
+  ro_instance = go_instance.
+ENDMETHOD.
+```
 
-La classe elle-même conserve le droit de créer son instance dans `GET_INSTANCE`.
+Appel :
 
-## 🌺 CAS D'USAGE POSSIBLES
+```abap
+DATA(lo_logger) = zcl_aelion_logger=>get_instance( ).
+lo_logger->add_message( iv_text = 'Traitement démarré' ).
+```
 
-- configuration partagée ;
-- accès centralisé à un cache ;
-- fabrique ou registre unique ;
-- service technique dont l’unicité est réellement requise.
+> [!CAUTION]
+> Un Singleton crée un état global implicite. Il complique les tests et augmente le couplage lorsqu’il est utilisé sans nécessité réelle.
 
-## 🌺 LIMITES
+## 🌺 QUAND L’UTILISER
 
-Le singleton introduit un état partagé globalement accessible.
-Il peut compliquer :
+Cas possible : gestionnaire technique unique dans une session, cache contrôlé ou fabrique centralisée.
 
-- les tests unitaires ;
-- le remplacement d’une dépendance ;
-- l’exécution parallèle ;
-- la compréhension des modifications d’état.
+Ne pas l’utiliser pour partager arbitrairement des données métier entre traitements.
 
-> [!WARNING]
-> Le singleton ne doit pas être utilisé par défaut.
-> Il doit répondre à une exigence réelle d’instance unique.
+## 🌺 EXERCICE
 
-## 🌺 BONNES PRATIQUES
+Créer `ZCL_AELION_SETTINGS` en instanciation privée et vérifier que deux appels à `GET_INSTANCE` retournent la même référence.
 
-- Garder la référence singleton privée.
-- Retourner l’instance uniquement par une méthode contrôlée.
-- Eviter les données métier mutables dans un singleton.
-- Documenter la durée de vie attendue de l’état.
-- Préférer l’injection d’une instance lorsque l’unicité n’est pas obligatoire.
+<details>
+<summary>Afficher la correction et les points de contrôle</summary>
 
-## 🌺 EXERCICES
+- [ ] L’instanciation est privée dans les propriétés SE24.
+- [ ] GO_INSTANCE est statique et privé.
+- [ ] GET_INSTANCE est statique et public.
+- [ ] La création n’a lieu que si GO_INSTANCE n’est pas liée.
 
-1. Créer un singleton `lcl_application_log`.
-2. Ajouter une table interne privée de messages.
-3. Ajouter une méthode d’instance `add_message`.
-4. Ajouter une méthode d’instance `get_messages`.
-5. Récupérer deux fois le singleton.
-6. Ajouter un message avec la première référence.
-7. Lire les messages avec la seconde référence.
+</details>
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
-> - Le singleton contrôle la création d’une instance unique.
-> - `CREATE PRIVATE` interdit la création extérieure.
-> - `CLASS-DATA` conserve la référence partagée.
-> - `GET_INSTANCE` crée l’objet uniquement au premier appel.
-> - Tous les appelants reçoivent ensuite la même instance.
+> - La classe contrôle sa propre instanciation.
+> - `GET_INSTANCE` retourne toujours la référence mémorisée.
+> - L’instanciation privée empêche `NEW` depuis l’extérieur.
+> - Le pattern doit rester exceptionnel et justifié.
 
 ## 🌺 SOURCES OFFICIELLES
 
-- SAP Help — Singleton Classes : https://help.sap.com/docs/SUPPORT_CONTENT/abap/3353524225.html
-- SAP ABAP Keyword Documentation — Class Creation Options : https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/abapclass_options.htm
+- [Documentation SAP — Singleton](https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/ABENSTATIC_CLASS_SINGLETON_GUIDL.html)
+- [Documentation SAP — Constructor](https://help.sap.com/doc/abapdocu_cp_index_htm/CLOUD/en-US/ABENCONSTRUCTOR.html)

@@ -8,7 +8,7 @@
 - [ ] Distinguer enregistrement et exécution
 - [ ] Connaître les restrictions principales
 
-## 🌺 DEFINITION
+## 🌺 DÉFINITION
 
 > Un module fonction de mise à jour est enregistré par le programme appelant, puis exécuté par le système de mise à jour dans le cadre de la SAP LUW.
 
@@ -134,13 +134,23 @@ Transactions classiques utiles selon les autorisations :
 4. Tester sans commit, avec commit, puis avec rollback.
 5. Observer les résultats en base et analyser `SM13` si nécessaire.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Le module de mise à jour est enregistré avec `IN UPDATE TASK`.
 > - L’exécution est liée à la SAP LUW.
 > - `COMMIT WORK` déclenche la finalisation transactionnelle.
 > - Les paramètres de résultat et les exceptions ne sont pas autorisés dans son interface.
 > - Les erreurs doivent être analysées dans les outils de mise à jour.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **MODULES FONCTION DE MISE A JOUR** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **appel** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>
 
 ## 🌺 SOURCES OFFICIELLES
 

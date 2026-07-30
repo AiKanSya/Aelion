@@ -1,157 +1,101 @@
-# 🌸 CLASSES ET OBJETS
+# 🌸 CLASSES GLOBALES ET OBJETS
 
 ## 🌺 OBJECTIFS
 
-- [ ] Comprendre ce qu’est une `CLASSE`
-- [ ] Comprendre ce qu’est un `OBJET`
-- [ ] Comprendre ce qu’est une `REFERENCE OBJET`
-- [ ] Distinguer le modèle de l’élément créé à partir de ce modèle
-- [ ] Identifier l’état et le comportement d’un objet
+- [ ] Distinguer une classe globale, un objet et une référence objet.
+- [ ] Créer une classe globale avec la transaction `SE24`.
+- [ ] Identifier les composants d’une classe.
+- [ ] Instancier la classe depuis un programme ABAP.
 
-## 🌺 DEFINITION D'UNE CLASSE
+## 🌺 DÉFINITION
 
-> Une `CLASSE` décrit un type d’objet.
-> Elle regroupe des données et les traitements qui agissent sur ces données.
+Une **classe globale** est un objet du référentiel ABAP. Elle décrit un type d’objet réutilisable par plusieurs programmes, modules fonction, services ou autres classes.
 
-Une classe contient principalement :
+Une classe regroupe notamment :
 
-- des `ATTRIBUTS` : données décrivant l’état ;
-- des `METHODES` : traitements décrivant le comportement ;
-- des `TYPES` : modèles de données propres à la classe ;
-- des `CONSTANTES` : valeurs fixes ;
-- éventuellement des `EVENEMENTS` et des interfaces.
+- des **attributs**, qui représentent l’état ;
+- des **méthodes**, qui représentent le comportement ;
+- des **types** et des **constantes** ;
+- éventuellement des **événements** et des **interfaces**.
 
-> [!TIP]
-> Une classe peut être comparée au plan de fabrication d’une voiture.
-> Le plan décrit les caractéristiques et les actions possibles, mais il n’est pas lui-même une voiture utilisable.
-
-## 🌺 DEFINITION D'UN OBJET
-
-> Un `OBJET` est une occurrence concrète créée à partir d’une classe.
-> Cette occurrence est aussi appelée `INSTANCE`.
-
-A partir d’une même classe `VEHICULE`, il est possible de créer plusieurs objets :
-
-- un véhicule rouge à 20 km/h ;
-- un véhicule bleu à 50 km/h ;
-- un véhicule blanc à l’arrêt.
-
-Chaque objet possède son propre état si les attributs sont des attributs d’instance.
+Un **objet** est une instance créée à partir de cette classe. Une **référence objet** est la variable utilisée pour accéder à cette instance.
 
 > [!IMPORTANT]
-> Une classe est un modèle.
-> Un objet est une instance créée à partir de ce modèle.
+> La classe est le modèle. L’objet est l’instance en mémoire. La référence permet d’atteindre cet objet.
 
-## 🌺 DEFINITION D'UNE REFERENCE OBJET
-
-> Une `REFERENCE OBJET` est une variable qui permet d’accéder à un objet.
-
-    DATA lo_vehicle TYPE REF TO lcl_vehicle.
-
-- `DATA` déclare une variable.
-- `lo_vehicle` est le nom de la référence.
-- `TYPE REF TO` indique qu’elle peut référencer un objet.
-- `lcl_vehicle` est la classe attendue.
-
-> [!TIP]
-> L’objet peut être comparé à une maison.
-> La référence objet peut être comparée à son adresse.
-> L’adresse permet de retrouver la maison, mais elle n’est pas la maison.
-
-## 🌺 ETAT ET COMPORTEMENT
-
-| 🍧 Notion       | 🍧 Élément ABAP | 🍧 Exemple                   |
-| --------------- | --------------- | ---------------------------- |
-| Etat            | Attribut        | vitesse, couleur, numéro     |
-| Comportement    | Méthode         | accélérer, arrêter, afficher |
-| Modèle          | Classe          | `lcl_vehicle`                |
-| Élément concret | Objet           | véhicule créé avec `NEW`     |
-| Accès à l’objet | Référence       | `lo_vehicle`                 |
-
-## 🌺 REPRESENTATION GLOBALE
+## 🌺 VUE D'ENSEMBLE
 
 ```mermaid
 flowchart LR
-    A[Classe lcl_vehicle] -->|NEW| B[Objet 1]
-    A -->|NEW| C[Objet 2]
-    D[Référence lo_vehicle_1] --> B
-    E[Référence lo_vehicle_2] --> C
+    A["Classe globale ZCL_AELION_VEHICLE"] -->|instanciation| B["Objet véhicule 1"]
+    A -->|instanciation| C["Objet véhicule 2"]
+    D["Référence LO_VEHICLE_1"] --> B
+    E["Référence LO_VEHICLE_2"] --> C
 ```
 
-Lecture textuelle :
+## 🌺 CRÉATION DANS SE24
 
-1. La classe `lcl_vehicle` sert de modèle.
-2. `NEW` crée deux objets distincts.
-3. Chaque objet est accessible par une référence différente.
+1. Ouvrir la transaction `/nSE24`.
+2. Saisir `ZCL_AELION_VEHICLE`.
+3. Sélectionner **Classe**, puis **Créer**.
+4. Renseigner une description claire.
+5. Conserver une instanciation **publique** pour ce premier exemple.
+6. Affecter la classe à un package et à un ordre de transport.
+7. Enregistrer puis activer.
 
-## 🌺 PREMIER EXEMPLE
+> [!NOTE]
+> `SE24` crée une classe globale. Le système gère le class pool associé ; le stagiaire travaille principalement dans les onglets de la classe et dans l’éditeur des méthodes.
 
-    REPORT zaelion_oo_01.
+## 🌺 PREMIER COMPOSANT
 
-    CLASS lcl_vehicle DEFINITION.
-      PUBLIC SECTION.
-        METHODS display_message.
-    ENDCLASS.
+Dans l’onglet **Méthodes**, créer une méthode publique `DISPLAY_MESSAGE`, sans paramètre. Ouvrir ensuite son implémentation et saisir :
 
-    CLASS lcl_vehicle IMPLEMENTATION.
-      METHOD display_message.
-        WRITE: / 'Je suis un objet de type véhicule'.
-      ENDMETHOD.
-    ENDCLASS.
+```abap
+METHOD display_message.
+  WRITE / 'Je suis une instance de ZCL_AELION_VEHICLE'.
+ENDMETHOD.
+```
 
-    START-OF-SELECTION.
+## 🌺 UTILISATION DEPUIS UN PROGRAMME
 
-      DATA lo_vehicle TYPE REF TO lcl_vehicle.
+```abap
+REPORT zaelion_oo_01.
 
-      lo_vehicle = NEW lcl_vehicle( ).
-      lo_vehicle->display_message( ).
+START-OF-SELECTION.
+  DATA lo_vehicle TYPE REF TO zcl_aelion_vehicle.
 
-## 🌺 EXPLICATION
+  lo_vehicle = NEW zcl_aelion_vehicle( ).
+  lo_vehicle->display_message( ).
+```
 
-1. `CLASS lcl_vehicle DEFINITION` décrit la classe.
-2. `METHODS display_message` déclare une méthode d’instance.
-3. `CLASS lcl_vehicle IMPLEMENTATION` contient le code de la méthode.
-4. `TYPE REF TO lcl_vehicle` déclare une référence objet.
-5. `NEW lcl_vehicle( )` crée une instance.
-6. `->` appelle un composant d’instance.
+| Élément | Rôle |
+|---|---|
+| `TYPE REF TO zcl_aelion_vehicle` | Déclare une référence compatible avec la classe |
+| `NEW zcl_aelion_vehicle( )` | Crée une instance |
+| `lo_vehicle->display_message( )` | Appelle une méthode d’instance |
 
-## 🌺 VOCABULAIRE A RETENIR
+## 🌺 EXERCICE
 
-| 🍧 Mot        | 🍧 Définition                                 |
-| ------------- | --------------------------------------------- |
-| Classe        | Modèle décrivant des objets                   |
-| Objet         | Instance concrète d’une classe                |
-| Instance      | Synonyme d’objet créé                         |
-| Référence     | Variable permettant d’accéder à un objet      |
-| Attribut      | Donnée appartenant à une classe ou à un objet |
-| Méthode       | Traitement appartenant à une classe           |
-| Instanciation | Création d’un objet                           |
+Créer la classe globale `ZCL_AELION_PERSON`, ajouter une méthode publique `SAY_HELLO`, puis l’appeler depuis un report.
 
-## 🌺 BONNES PRATIQUES
+<details>
+<summary>Afficher la correction et les points de contrôle</summary>
 
-- Utiliser le préfixe `lcl_` pour une classe locale.
-- Utiliser le préfixe `lo_` pour une référence objet locale.
-- Donner à la classe un nom correspondant à une responsabilité précise.
-- Eviter les classes qui gèrent plusieurs domaines sans lien.
-- Distinguer systématiquement la classe, l’objet et la référence.
+- [ ] La classe est créée et active dans SE24.
+- [ ] La méthode SAY_HELLO est publique et implémentée.
+- [ ] Le report crée une référence puis une instance.
+- [ ] L’appel utilise le sélecteur ->.
 
-## 🌺 EXERCICES
+</details>
 
-1. Déclarer une classe locale `lcl_person`.
-2. Ajouter une méthode publique `say_hello`.
-3. Créer une référence `lo_person`.
-4. Instancier la classe.
-5. Appeler la méthode pour afficher `Bonjour`.
+## 🌺 RÉSUMÉ
 
-## 🌺 RESUME
-
-> - Une classe est un modèle.
+> - Une classe globale est créée et maintenue dans `SE24`.
 > - Un objet est une instance de cette classe.
-> - Une référence permet d’accéder à l’objet.
-> - Les attributs représentent l’état.
-> - Les méthodes représentent le comportement.
-> - `->` permet d’accéder aux composants d’une instance.
+> - Une référence objet permet d’accéder à l’instance.
+> - Les méthodes décrivent les comportements et les attributs décrivent l’état.
 
-## 🌺 SOURCE OFFICIELLE
+## 🌺 SOURCES OFFICIELLES
 
-- SAP ABAP Keyword Documentation — Classes : https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/abenclass_interface_definition.htm
+- [Documentation SAP — Builder](https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/ABENCLASS_BUILDER_GLOSRY.html)
+- [Documentation SAP — Classes](https://help.sap.com/doc/abapdocu_cp_index_htm/CLOUD/en-US/ABENCLASSES.html)

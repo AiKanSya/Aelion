@@ -1,14 +1,21 @@
 # 🌸 APP STRUCTURE
 
-> 🌺 Objectifs
->
-> - [ ] Comprendre la structure principale d’un projet SAP Fiori
-> - [ ] Identifier le rôle des dossiers essentiels : `webapp/`, `controller/`, `view/`, `model/`, `i18n/`, `css/`, `libs/`, `localService/`
-> - [ ] Comprendre l’utilité des fichiers clés : `Component.js`, `manifest.json`, `index.html`, `package.json`, `ui5*.yaml`
-> - [ ] Savoir quand et pourquoi utiliser les vues, controllers et modèles
-> - [ ] Se repérer rapidement dans un projet pour le développement et la preview
+## 🌺 OBJECTIFS
 
-## 🧩 STRUCTURE
+- [ ] Expliquer le rôle de **APP STRUCTURE** dans le contexte présenté.
+- [ ] Comprendre **structure**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["APP STRUCTURE"]
+    A --> B["STRUCTURE"]
+```
+
+
+## 🌺 STRUCTURE
 
 ```
 fgifirstappmodulename/                      # Racine du projet
@@ -68,9 +75,22 @@ fgifirstappmodulename/                      # Racine du projet
 
 > [!CAUTION]
 > Certains fichiers ne doivent généralement pas être modifiés par des débutants car ils contiennent soit des configurations de base du projet, soit des fichiers générés automatiquement par les outils.
->
 > - .gitignore → géré par Git pour ignorer certains fichiers. Modifier peut casser le suivi Git.
 > - package-lock.json → généré automatiquement par NPM, reflète les versions exactes des dépendances. Ne jamais modifier manuellement.
 > - ui5.yaml → configuration du UI5 Tooling pour le build ; modifier sans comprendre peut casser le build.
 > - ui5-local.yaml / ui5-mock.yaml → configurations locales/mocks pour les développeurs ; toucher seulement si on comprend le rôle des middleware.
 > - mta.yaml → configuration MTA pour déploiement BTP/onPremise. Toucher seulement si on déploie ou ajoute des modules/services.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **structure** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **APP STRUCTURE** avec mes propres mots.
+- [ ] Je peux expliquer **structure** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

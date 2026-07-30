@@ -1,10 +1,20 @@
 # 🌸 GENERATE RUNTIME ARTEFACTS
 
-## 🧩 OBJECTIVES
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["GENERATE RUNTIME ARTEFACTS"]
+    A --> B["PREREQUISITES"]
+    B --> C["GENERATE RUNTIME OBJECTS"]
+```
+
+
+## 🌺 OBJECTIFS
 
 - [ ] Générer les `Runtime Artefacts`
 
-## 🧩 PREREQUISITES
+## 🌺 PRÉREQUIS
 
 > [!TIP]
 > Enregistrer le `Project` avant tout.
@@ -17,7 +27,7 @@ Etat actuel du `SAP GAteway Project` :
 
 ![](./assets/Capture%20d’écran%202026-01-16%20130839.png)
 
-## 🧩 GENERATE RUNTIME OBJECTS
+## 🌺 GENERATE RUNTIME OBJECTS
 
 ![](./assets/Capture%20d’écran%202026-01-16%20130921.png)
 
@@ -25,17 +35,12 @@ Etat actuel du `SAP GAteway Project` :
 
 > [!IMPORTANT]
 > Lors de la première utilisation de `Generate Runtime Objects` pour un `SAP Gateway Project`, la fenêtre contextuelle `Model and Service Definition` s'affiche. Vous pouvez y définir les `Runtime Artefacts Names` bien qu'ils soient renseignés par défaut. Les noms proposés sont basés sur le nom du `Project`.
->
 > - Model Provider Class :
->
 >   - ZCL\_<Project_name>\_MPC_EXT
 >   - ZCL\_<Project_name>\_MPC
->
 > - Data Provider Class
->
 >   - ZCL\_<Project_name>\_DPC_EXT
 >   - ZCL\_<Project_name>\_DPC
->
 > - Service Registration
 >   - <Project_name>\_MDL
 >   - <Project_name>\_SRV
@@ -56,3 +61,18 @@ Etat actuel du `SAP GAteway Project` :
 
 > [!IMPORTANT]
 > Le `Generate Runtime Objects` va également générer le `Service implementation`.
+
+## 🌺 RÉSUMÉ
+
+> - **Prérequis :** Etat actuel du SAP GAteway Project :
+> - Savoir utiliser **generate runtime objects** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **GENERATE RUNTIME ARTEFACTS** avec mes propres mots.
+- [ ] Je peux expliquer **objectives** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **prerequisites** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

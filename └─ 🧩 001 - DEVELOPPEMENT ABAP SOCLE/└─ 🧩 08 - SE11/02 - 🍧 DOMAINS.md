@@ -7,14 +7,28 @@
 - [ ] Définir les propriétés techniques et éditoriales d’un `DOMAIN`
 - [ ] Créer un `DOMAIN` dans la transaction `SE11` avec ses plages de valeurs et routines de conversion
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["DOMAINS"]
+    A --> B["DEFINITION"]
+    B --> C["SE11"]
+    C --> D["PROPRIETES PRINCIPALES"]
+    D --> E["PLAGE DE VALEUR"]
+    E --> F["ROUTINE DE CONVERSION"]
+```
+
+
+## 🌺 DÉFINITION
 
 ![](./assets/images/DOMAINES_001.jpg)
 
 > [!TIP]
 > On peut le voir comme le moule dans lequel une donnée doit entrer.
 
-> La définition d’un `DOMAIN` constitue le niveau le plus bas de description d’une donnée dans SAP.  
+> La définition d’un `DOMAIN` constitue le niveau le plus bas de description d’une donnée dans SAP.
 > Il permet de définir les caractéristiques techniques d’un champ contenu dans une TABLE.
 
 ## 🌺 SE11
@@ -26,7 +40,7 @@
 
 ![](./assets/images/DOMAINES_008.jpg)
 
-### MENU
+### 🍧 MENU
 
 ![](./assets/images/DOMAINES_003.jpg)
 
@@ -58,11 +72,11 @@
 
 - `Manuel en ligne` est l’aide SAP disponible [ Ctrl ] + [ F8 ]
 
-### DESCRIPTION
+### 🍧 DESCRIPTION
 
 ![](./assets/images/DOMAINES_004.jpg)
 
-### ONGLET PROPRIETES
+### 🍧 ONGLET PROPRIETES
 
 ![](./assets/images/DOMAINES_005.jpg)
 
@@ -72,7 +86,7 @@
 
 - `Langue d'origine` du domaine (lors de sa création)
 
-### ONGLET DEFINITION
+### 🍧 ONGLET DÉFINITION
 
 ![](./assets/images/DOMAINES_006.jpg)
 
@@ -90,7 +104,7 @@
 
 - `Minuscules` paramètre du domaine
 
-### ONGLET PLAGE DE VALEURS
+### 🍧 ONGLET PLAGE DE VALEURS
 
 ![](./assets/images/DOMAINES_007.jpg)
 
@@ -98,7 +112,7 @@ Une plage de valeur pour un domaine fait référence à une gamme ou à un ensem
 
 Si elle est renseignée lors de la création du `domaine`, lorsqu’un utilisateur emploiera une variable définie par ce `domaine`, SAP ira vérifier si la valeur renseignée existe bien en consultant cette `plage de valeur`. Si elle n’existe pas il renverra un message d’erreur.
 
-### TYPES DE DONNEES DISPONIBLES
+### 🍧 TYPES DE DONNEES DISPONIBLES
 
 - CHAR : chaîne de caractères alphanumériques
 - CURR : devise (EUR, USD…)
@@ -111,11 +125,11 @@ Si elle est renseignée lors de la création du `domaine`, lorsqu’un utilisate
 - XSTRING : chaîne hexadécimale
 
 > [!TIP]
-> Imaginez un moule à biscuits.  
+> Imaginez un moule à biscuits.
 > Le `DOMAIN` définit la forme et la taille du biscuit. Peu importe la garniture (la valeur), elle doit toujours rentrer dans ce moule.
 
 > [!IMPORTANT]
-> Le `DOMAIN` fixe les règles techniques universelles d’un champ (type, longueur, format).  
+> Le `DOMAIN` fixe les règles techniques universelles d’un champ (type, longueur, format).
 > Ainsi, tous les champs basés sur ce `DOMAIN` partageront les mêmes contraintes et comportements.
 
 > [!NOTE]
@@ -132,13 +146,13 @@ Si elle est renseignée lors de la création du `domaine`, lorsqu’un utilisate
 - Minuscules : autorise les lettres minuscules
 
 > [!NOTE]
-> Si un `DOMAIN` définit un identifiant de 5 caractères, et que vous saisissez `123456`, SAP refusera la valeur.  
+> Si un `DOMAIN` définit un identifiant de 5 caractères, et que vous saisissez `123456`, SAP refusera la valeur.
 > Si vous saisissez `123`, la routine de conversion ALPHA peut compléter avec des zéros pour obtenir `00123`.
 
 > [!CAUTION]
 > Une longueur trop courte ou une mauvaise définition du type peut provoquer des erreurs de troncature ou d’incompatibilité avec d’autres objets.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Toujours définir le type et la longueur avec cohérence fonctionnelle (ex : `ZID_CLIENT` → CHAR10 pour permettre un format alphanumérique mixte).
 
 ## 🌺 PLAGE DE VALEUR
@@ -154,7 +168,7 @@ Une plage de valeurs définit un ensemble de valeurs autorisées pour le champ.
 > [!TIP]
 > Les plages de valeurs sont utiles pour restreindre des champs tels que le type de contrat, le code pays, ou le statut.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Définir des plages de valeurs dès que les données sont codifiées ou limitées à une liste fermée (par ex. O/N, A/B/C…).
 
 ## 🌺 ROUTINE DE CONVERSION
@@ -162,20 +176,20 @@ Une plage de valeurs définit un ensemble de valeurs autorisées pour le champ.
 Les routines de conversion permettent de formater automatiquement les données lors de la saisie ou de l’affichage.
 
 > [!IMPORTANT]
-> Un champ de type `MATNR` (numéro de matériel) doit toujours comporter 10 caractères.  
+> Un champ de type `MATNR` (numéro de matériel) doit toujours comporter 10 caractères.
 > Si vous saisissez `12345`, la routine ALPHA le convertira automatiquement en `0000012345`.
 
 > [!IMPORTANT]
-> SAP utilise ces routines pour assurer une uniformité d’affichage entre les écrans, les bases et les rapports.  
+> SAP utilise ces routines pour assurer une uniformité d’affichage entre les écrans, les bases et les rapports.
 > Ainsi, les valeurs sont toujours stockées sous le même format technique, mais affichées sous une forme lisible.
 
 > [!CAUTION]
 > Si une routine de conversion n’est pas adaptée, des erreurs d’affichage ou de comparaison peuvent survenir entre systèmes (ex : entre ECC et S/4HANA).
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Employer les routines standard SAP (ex : ALPHA, CUNIT, CURRENCY) plutôt que d’en créer de nouvelles.
 
-## 🌺 CREATION D’UN DOMAIN
+## 🌺 CRÉATION D’UN DOMAIN
 
 1. Transaction SE11
 
@@ -230,22 +244,31 @@ Les routines de conversion permettent de formater automatiquement les données l
    ![](./assets/images/DOMAINES_021.jpg)
 
 > [!TIP]
-> Créer un `DOMAIN`, c’est comme définir un gabarit officiel pour un formulaire :  
+> Créer un `DOMAIN`, c’est comme définir un gabarit officiel pour un formulaire :
 > chaque champ doit respecter ce gabarit pour garantir l’uniformité des données dans tout le système.
 
 > [!TIP]
-> L’activation du `DOMAIN` vérifie automatiquement les incohérences éventuelles.  
+> L’activation du `DOMAIN` vérifie automatiquement les incohérences éventuelles.
 > En cas d’erreur, SAP indique précisément le champ ou la propriété à corriger.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
-> Un `DOMAIN` définit la structure technique d’un champ SAP : type, longueur, décimales, conversion et plage de valeurs.  
+> Un `DOMAIN` définit la structure technique d’un champ SAP : type, longueur, décimales, conversion et plage de valeurs.
 > Il garantit la cohérence et la qualité des données dans tout le système.
->
 > - Chaque champ d’une table SAP est basé sur un `DOMAIN`.
 > - Le `DOMAIN` assure l’homogénéité et la validation des données.
 > - Les routines de conversion et les plages de valeurs renforcent l’intégrité du modèle de données.
 
-> [!IMPORTANT]  
-> Toujours créer un `DOMAIN` réutilisable plutôt que de définir des types directement dans les champs de table.  
+> [!IMPORTANT]
+> Toujours créer un `DOMAIN` réutilisable plutôt que de définir des types directement dans les champs de table.
 > Cela simplifie la maintenance et la normalisation des données à long terme.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **DOMAINS** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **se11** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

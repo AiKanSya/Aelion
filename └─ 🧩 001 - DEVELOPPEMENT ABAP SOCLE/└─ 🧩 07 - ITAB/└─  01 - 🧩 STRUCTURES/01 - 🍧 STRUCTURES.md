@@ -8,20 +8,30 @@
 - [ ] Accéder aux valeurs des champs pour lecture ou affichage
 - [ ] Appliquer des structures pour organiser des données hétérogènes
 
-## 🌺 DEFINITION
 
-> Une `STRUCTURE` est un regroupement de plusieurs `VARIABLES` de types différents sous un même nom.  
-> Elle peut être vue comme une ligne de table où chaque champ correspond à une colonne.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["STRUCTURE"]
+    A --> B["DEFINITION"]
+    B --> C["DECLARATION"]
+    C --> D["ALIMENTATION DES CHAMPS"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Une `STRUCTURE` est un regroupement de plusieurs `VARIABLES` de types différents sous un même nom.
+> Elle peut être vue comme une ligne de table où chaque champ correspond à une colonne.
 > Cela permet de manipuler des ensembles de données logiquement liés, sans avoir à gérer chaque variable individuellement.
 
 > [!TIP]
 > Pensez à une `STRUCTURE` comme une fiche d’identité d’une personne
->
 > - nom
 > - prénom
 > - date de naissance
 > - adresse
->
 > Chaque information est un champ, et l’ensemble constitue une `STRUCTURE` unique représentant la personne.
 
 > [!NOTE]
@@ -62,25 +72,22 @@ Pour afficher les valeurs :
     WRITE: / ls_person-nom, ls_person-prenom, ls_person-age, ls_person-ville.
 
 > [!IMPORTANT]
->
 > Résultat : Dupont Jean 35 Paris
 
 > [!TIP]
-> On remplit la fiche d’identité avec les informations correspondantes.  
+> On remplit la fiche d’identité avec les informations correspondantes.
 > Chaque champ est indépendant mais appartient à la même `STRUCTURE`.
 
 ## 🌺 EXERCICES
 
-### 🔹 1 – CREER UNE STRUCTURE POUR UN LIVRE
+### 🍧 1 – CREER UNE STRUCTURE POUR UN LIVRE
 
 > [!IMPORTANT]
 > Définir une `STRUCTURE ty_livre` avec les champs
->
 > - titre (CHAR30)
 > - auteur (CHAR30)
 > - annee (I)
 > - genre (CHAR20)
->
 > Déclarer une `VARIABLE ls_livre` et remplir les champs avec vos informations.
 
 <details>
@@ -106,7 +113,7 @@ Pour afficher les valeurs :
 
 ---
 
-### 🔹 2 – ACCEDER A UN CHAMP
+### 🍧 2 – ACCEDER A UN CHAMP
 
 > [!IMPORTANT]
 > Afficher uniquement l’auteur du livre précédemment déclaré.
@@ -117,14 +124,13 @@ Pour afficher les valeurs :
     WRITE: / ls_livre-auteur.
 
 > [!IMPORTANT]
->
 > Résultat : George Orwell
 
 </details>
 
 ---
 
-### 🔹 3 – MODIFIER UN CHAMP
+### 🍧 3 – MODIFIER UN CHAMP
 
 > [!IMPORTANT]
 > Modifier l’année de publication à 1950 et afficher la nouvelle valeur.
@@ -136,19 +142,16 @@ Pour afficher les valeurs :
     WRITE: / ls_livre-annee.
 
 > [!IMPORTANT]
->
 > Résultat : 1950
 
 </details>
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Une `STRUCTURE` regroupe plusieurs champs hétérogènes sous un même nom.
 > - Chaque champ est accessible avec `structure-champ`.
 > - Permet d’organiser les données de manière logique et claire.
->
 > [!TIP]
 > fiche d’identité pour une structure, carnet d’adresses pour une table de structures.
->
 > [!TIP]
 > pour manipuler des données liées, éviter de déclarer des variables individuelles pour chaque information.

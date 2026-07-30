@@ -1,11 +1,25 @@
 # 🌸 FILTER BINDING
 
-> 🌺 Objectifs
->
-> - [ ] Récupérer les données pour les futures implémentations des Opérations CRUD
-> - [ ] Afficher la liste des consultants dans Details.view
+## 🌺 OBJECTIFS
 
-## 🧩 1. ADAPTATION DE LA VIEW DETAILS.VIEW
+- [ ] Expliquer le rôle de **FILTER BINDING** dans le contexte présenté.
+- [ ] Comprendre **1. adaptation de la view details.view**.
+- [ ] Mettre en œuvre **2. details.controller** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["FILTER BINDING"]
+    A --> B["1. ADAPTATION DE LA VIEW DETAILS.VIEW"]
+    B --> C["2. DETAILS.CONTROLLER"]
+```
+
+> [!IMPORTANT]
+> Vérifier la version SAPUI5 ciblée par l’application. La disponibilité d’une API, d’une propriété ou d’un événement peut dépendre de cette version.
+
+
+## 🌺 1. ADAPTATION DE LA VIEW DETAILS.VIEW
 
 Path :
 
@@ -108,7 +122,7 @@ Code :
 </mvc:View>
 ```
 
-## 🧩 2. DETAILS.CONTROLLER
+## 🌺 2. DETAILS.CONTROLLER
 
 Path :
 
@@ -225,3 +239,18 @@ _onObjectMatched: function (oEvent) {
     oBinding.filter([oFilter]);
 }
 ```
+
+## 🌺 RÉSUMÉ
+
+> - **1. adaptation de la view details.view :** webapp/view/Details.view.xml
+> - **2. details.controller :** webapp/controller/Details.controller.js
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **FILTER BINDING** avec mes propres mots.
+- [ ] Je peux expliquer **1. adaptation de la view details.view** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **2. details.controller** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

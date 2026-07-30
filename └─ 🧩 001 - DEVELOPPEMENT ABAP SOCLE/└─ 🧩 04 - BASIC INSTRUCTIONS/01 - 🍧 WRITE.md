@@ -8,12 +8,27 @@
 - [ ] Organiser l’affichage sur plusieurs lignes
 - [ ] Utiliser des options de mise en forme simples (longueur, justification)
 
-## 🌺 DEFINITION
 
-> La commande `WRITE` permet d’afficher des informations dans la fenêtre de sortie ou les rapports SAP.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["INSTRUCTION WRITE"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE DE BASE"]
+    C --> D["AFFICHAGE DE VARIABLES SYSTEM"]
+    D --> E["OPTIONS DE MISE EN FORME"]
+    E --> F["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> La commande `WRITE` permet d’afficher des informations dans la fenêtre de sortie ou les rapports SAP.
 > On peut afficher du texte, des valeurs de variables ou des champs systèmes.
 
-> [!TIP] > `WRITE` agit comme un haut-parleur ou un tableau blansc : il prend ce que vous lui donnez et le montre à l’utilisateur.  
+> [!TIP]
+> `WRITE` agit comme un haut-parleur ou un tableau blansc : il prend ce que vous lui donnez et le montre à l’utilisateur.
 > Les messages et variables sont les contenus que le haut-parleur diffuse.
 
 ## 🌺 EXEMPLE DE BASE
@@ -69,7 +84,7 @@
 > [!TIP]
 > Pensez à `WRITE` comme un tableau blanc où vous placez le texte et les valeurs exactement là où vous voulez qu’elles apparaissent.
 
-## BONNES PRATIQUES
+## 🌺 BONNES PRATIQUES
 
 | 🍧 Bonne pratique                      | 🍧 Explication                                  |
 | -------------------------------------- | ----------------------------------------------- |
@@ -78,12 +93,21 @@
 | Combiner texte et variables clairement | Evite la confusion dans les rapports            |
 | Afficher les champs systèmes si utile  | Fournit un contexte automatique pour le rapport |
 
-## RESUME
+## 🌺 RÉSUMÉ
 
 > - `WRITE` = afficher du texte ou des valeurs dans la sortie SAP
 > - `/` = nouvelle ligne
 > - Peut afficher variables, texte fixe et champs systèmes
 > - Options : justification, longueur, combinaison multiple
->
 > [!TIP]
 > haut-parleur ou tableau blanc, chaque `WRITE` montre directement les informations à l’utilisateur.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **INSTRUCTION WRITE** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemple de base** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

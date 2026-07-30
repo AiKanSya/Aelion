@@ -1,6 +1,17 @@
 # 🌸 ASSOCIATION DEFINITION
 
-## 🧩 OBJECTIVES
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["ASSOCIATION DEFINITION"]
+    A --> B["DEFINITION"]
+    B --> C["PRINCIPLE"]
+    C --> D["ASSOCIATION DEFINITION"]
+```
+
+
+## 🌺 OBJECTIFS
 
 - [ ] Définir une `Association`
 
@@ -13,9 +24,9 @@ Certains éléments d'un `data model` sont souvent créés manuellement. Il s'ag
 - `Navigation properties`
 - `Function imports`
 
-## 🧩 DEFINITION
+## 🌺 DÉFINITION
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Une association est un lien logique entre deux entités OData qui permet de naviguer de l’une vers l’autre.
 
 > [!NOTE]
@@ -23,18 +34,17 @@ Certains éléments d'un `data model` sont souvent créés manuellement. Il s'ag
 
 > [!IMPORTANT]
 > Dans SEGW, une association définit :
->
 > - quelles entités sont liées
 > - sur quelles clés
 > - dans quel sens on peut naviguer
 
-## 🧩 PRINCIPLE
+## 🌺 PRINCIPLE
 
 Pour obtenir ce comportement avec OData, les `EntityTypes` `business partner` et `Product` doivent être liés par une `Association` dans le `Data Model`. La `cardinalité` de l'`association` est définie sur `one (1)` à `at least on or more (n)`.
 
 Chaque `EntityType` peut définir des `Navigation Properties` typées par une `Association`. Ces `navigation properties` se matérialisent sous forme de liens relatifs dans la `payload ` et permettent à l'utilisateur ou au client de naviguer dans les résultats, à la manière d'un site web avec des `hyperlinks`.
 
-## 🧩 ASSOCIATION DEFINITION
+## 🌺 ASSOCIATION DÉFINITION
 
 > [!NOTE]
 > Méthode 1 : Effectuer un Right-Clic sur `Data Model` → `Create` → `Association`
@@ -48,7 +58,6 @@ Chaque `EntityType` peut définir des `Navigation Properties` typées par une `A
 
 > [!IMPORTANT]
 > Lorsque vous sélectionnez `Create` → `Association` sur le `data model node` dans `SAP Gateway Service Builder`, un `wizard` s'ouvre et vous permet de définir tous les éléments nécessaires à la navigation :
->
 > - Une association définissant une entité principale et une entité dépendante avec multiplicité ;
 > - Une contrainte référentielle (referential constraint) reliant la clé principale à la `property` dépendante ;
 > - Un `association set` définissant les `entity sets` principale et dépendante.
@@ -56,16 +65,12 @@ Chaque `EntityType` peut définir des `Navigation Properties` typées par une `A
 Les `navigation properties` doivent avoir des noms explicites afin que l'utilisateur comprenne clairement leur fonctionnement. La définition d'une seule `navigation property` permet une navigation unidirectionnelle. La définition de deux `navigation properties` permet une navigation bidirectionnelle.
 
 > [!NOTE]
->
 > - Association Name : `BusinessPartner_Products` (Convention de nommage : `PrincipalEntity_DependantEntity(s)` ou `PrincipalEntityToDependantEntity(s)` - Mettre un 's' à la `DependantEntity`)
->
 > - Principal Entity
->
 >   - Entity Type Name : `BusinessPartner`
 >   - Cardinality : `1`
 >   - [x] Create related Navigation Property
 >   - Navigation Property : `ProductSet`
->
 > - Dependant Entity
 >   - Entity Type Name : `Product`
 >   - Cardinality : `N`
@@ -85,3 +90,19 @@ Les `navigation properties` doivent avoir des noms explicites afin que l'utilisa
 
 > [!NOTE]
 > Tout ce qui a été créé par le `wizard` peut être adapté ultérieurement dans le `data model`. Les `associations` et les `association sets` possèdent leurs propres node dans le `data model`. Les `navigation properties` font partie des `entity types` correspondants.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - **Principle :** Pour obtenir ce comportement avec OData, les EntityTypes business partner et Product doivent être liés par une Association dans le Data Model.
+> - **Association définition :** Les navigation properties doivent avoir des noms explicites afin que l'utilisateur comprenne clairement leur fonctionnement.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **ASSOCIATION DEFINITION** avec mes propres mots.
+- [ ] Je peux expliquer **objectives** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **definition** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

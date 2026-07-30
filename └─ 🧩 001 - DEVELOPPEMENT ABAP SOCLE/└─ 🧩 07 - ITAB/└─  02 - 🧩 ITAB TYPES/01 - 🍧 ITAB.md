@@ -10,14 +10,26 @@
 - [ ] Assimiler l’analogie entre `TABLE INTERNE` et carnet d’adresses
 - [ ] Appliquer les bonnes pratiques pour manipuler les tables internes
 
-## 🌺 DEFINITION
 
-> Une `TABLE INTERNE` est un conteneur temporaire de données dans un programme ABAP.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["ITAB TYPE TABLE OF"]
+    A --> B["DEFINITION"]
+    B --> C["DECLARATION"]
+    C --> D["AFFECTATION DE VALEUR ET INSERTION D’UNE LIGNE DANS UN"]
+    D --> E["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Une `TABLE INTERNE` est un conteneur temporaire de données dans un programme ABAP.
 > Elle permet de stocker plusieurs lignes de données structurées, chaque ligne pouvant être une `STRUCTURE` ou un simple type.
 
 > [!TIP]
 > Imaginez une `TABLE INTERNE` comme un carnet d’adresses
->
 > - Chaque page correspond à une ligne de table (une `STRUCTURE`)
 > - Chaque champ sur la page correspond à un champ de la `STRUCTURE` (nom, prénom, téléphone…)
 > - Vous pouvez ajouter ou supprimer des pages sans toucher aux autres
@@ -47,8 +59,8 @@
     DATA: ls_person_2 LIKE LINE OF lt_persons.
 
 > [!TIP]
-> Le TYPES `ty_person` = fiche d’identité  
-> La TABLE `lt_persons` = carnet d’adresses  
+> Le TYPES `ty_person` = fiche d’identité
+> La TABLE `lt_persons` = carnet d’adresses
 > La STRUCTURE `ls_person` = page vide à remplir avant de l’insérer
 
 ## 🌺 AFFECTATION DE VALEUR ET INSERTION D’UNE LIGNE DANS UNE TABLE
@@ -81,16 +93,14 @@
 
 ## 🌺 EXERCICES – DECLARATION ET INSERTION
 
-### 🔹 1 – CREER UNE TABLE INTERNE DE LIVRES
+### 🍧 1 – CREER UNE TABLE INTERNE DE LIVRES
 
 > [!IMPORTANT]
 > Déclarer une `TABLE INTERNE` `lt_livres` avec une `STRUCTURE` `ty_livre` contenant
->
 > - titre (CHAR30)
 > - auteur (CHAR30)
 > - annee (I)
 > - genre (CHAR20)
->
 > Ajouter une ligne à la table.
 
 <details>
@@ -117,7 +127,7 @@
 
 ---
 
-### 🔹 2 – AJOUTER UNE DEUXIEME LIGNE
+### 🍧 2 – AJOUTER UNE DEUXIEME LIGNE
 
 > [!IMPORTANT]
 > Ajouter un deuxième livre dans la même table `lt_livres`.
@@ -136,16 +146,14 @@
 
 ---
 
-### 🔹 3 – CREER UNE TABLE DE CLIENTS
+### 🍧 3 – CREER UNE TABLE DE CLIENTS
 
 > [!IMPORTANT]
 > Déclarer une `TABLE INTERNE lt_clients` avec une `STRUCTURE ty_client` contenant
->
 > - nom (CHAR20)
 > - prenom (CHAR20)
 > - age (I)
 > - ville (CHAR20)
->
 > Ajouter deux clients différents.
 
 <details>
@@ -175,14 +183,12 @@
 
 </details>
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Une `TABLE INTERNE` contient plusieurs lignes de données structurées.
 > - Chaque ligne est une `STRUCTURE`, manipulée via une `VARIABLE` temporaire avant insertion.
 > - Schéma général : `TYPES` → `DATA structure` → `DATA table` → `APPEND TO table`.
->
 > [!TIP]
 > carnet d’adresses pour la table, fiche d’identité pour chaque ligne.
->
 > [!IMPORTANT]
 > utiliser des `STRUCTURES` claires, manipuler les lignes via une `STRUCTURE` temporaire et éviter les header lines.

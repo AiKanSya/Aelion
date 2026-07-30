@@ -7,13 +7,26 @@
 - [ ] Savoir créer une structure et y ajouter des champs
 - [ ] Maîtriser les notions d’INCLUDE et APPEND
 
-## 🌺 DEFINITION
 
-> Une structure de table est un ensemble de champs définis à partir d’éléments de données, sans stockage physique dans la base.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["STRUCTURES DE TABLE"]
+    A --> B["DEFINITION"]
+    B --> C["INCLUDE & APPEND"]
+    C --> D["CREATION D’UNE STRUCTURE DE TABLE (SE11)"]
+    D --> E["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Une structure de table est un ensemble de champs définis à partir d’éléments de données, sans stockage physique dans la base.
 > Elle sert à organiser, transmettre et manipuler des informations, comme un modèle ou un patron pour créer des tables ou travailler sur des données temporaires.
 
 > [!TIP]
-> Imaginez une maquette ou un squelette : vous voyez la forme et les composants (champs), mais il n’y a pas encore de données réelles.  
+> Imaginez une maquette ou un squelette : vous voyez la forme et les composants (champs), mais il n’y a pas encore de données réelles.
 > La structure sert de modèle pour construire des tables ou manipuler des informations temporairement.
 
 > - Une structure de table ne stocke pas de données, elle définit uniquement la forme et le type des champs.
@@ -22,13 +35,13 @@
 >   - Construire des tables temporaires
 >   - Définir des modèles pour créer des tables standard ou transparentes
 
-> [!IMPORTANT]  
-> La structure est une définition technique, comme un plan de formulaire ou un modèle de tableau.  
+> [!IMPORTANT]
+> La structure est une définition technique, comme un plan de formulaire ou un modèle de tableau.
 > On sait quelles colonnes il y aura et quel type de données elles contiendront, même si aucune donnée n’existe encore.
 
 ## 🌺 INCLUDE & APPEND
 
-### INCLUDE
+### 🍧 INCLUDE
 
 > [!TIP]
 > Copier un bloc Lego déjà assemblé dans une nouvelle construction. Si le bloc Lego change, toutes les constructions qui l’utilisent sont mises à jour automatiquement.
@@ -37,10 +50,10 @@
 > - Si la structure source change, les modifications se répercutent automatiquement dans toutes les structures ou tables qui l’incluent.
 > - Les champs issus d’un include apparaissent en bleu dans SE11, signifiant qu’ils ne sont pas natifs de la table principale.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Pour réutiliser des ensembles de champs standard, éviter de les recréer manuellement.
 
-### APPEND
+### 🍧 APPEND
 
 > [!TIP]
 > Ajouter une extension à une maison : la maison originale reste intacte, mais vous pouvez ajouter une pièce pour vos besoins spécifiques.
@@ -52,7 +65,7 @@
 > [!CAUTION]
 > Les champs append ne doivent pas créer de conflits avec les champs existants. Toujours vérifier la cohérence avec la table originale.
 
-## 🌺 CREATION D’UNE STRUCTURE DE TABLE (SE11)
+## 🌺 CRÉATION D’UNE STRUCTURE DE TABLE (SE11)
 
 1. Transaction SE11
 
@@ -114,7 +127,6 @@
 > Créer une structure revient à préparer une fiche Excel avec les colonnes définies, prête à recevoir des données. Vous définissez la forme des informations avant de remplir les cases.
 
 > [!TIP]
->
 > - Vérifiez toujours que les éléments de données associés existent et sont corrects.
 > - Les noms de champs doivent suivre la nomenclature Z/AELION pour éviter les collisions avec SAP standard.
 
@@ -131,11 +143,10 @@
 | Documenter la structure            | Facilite la maintenance et la compréhension pour d’autres devs |
 
 > Utilisation conseillée
->
 > - Réutilisez INCLUDE pour harmoniser les champs communs dans plusieurs tables/structures
 > - Utilisez APPEND uniquement pour vos développements spécifiques ou extensions
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Une structure de table est un modèle de champs sans stockage physique
 > - Include : reprend les champs d’une structure existante, mis à jour automatiquement si la source change
@@ -143,5 +154,15 @@
 > - Les structures servent à organiser les données, faciliter leur passage entre programmes ou créer des tables basées sur un modèle
 
 > [!TIP]
-> La structure est comme une maquette ou un gabarit.  
+> La structure est comme une maquette ou un gabarit.
 > Vous savez quelles colonnes existent et comment elles sont définies, mais les données elles-mêmes ne sont pas encore présentes.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **STRUCTURES DE TABLE** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **include & append** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

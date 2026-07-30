@@ -1,6 +1,21 @@
 # 🌸 BASE.CONTROLLER
 
-## 🧩 BASECONTROLLER.CONTROLLER.JS
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **BASE.CONTROLLER** dans le contexte présenté.
+- [ ] Comprendre **basecontroller.controller.js**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["BASE.CONTROLLER"]
+    A --> B["BASECONTROLLER.CONTROLLER.JS"]
+```
+
+
+## 🌺 BASECONTROLLER.CONTROLLER.JS
 
 Path :
 
@@ -40,11 +55,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Centraliser les fonctions communes utilisées par plusieurs contrôleurs.
->
 > - 🔨 Utilité : Éviter la duplication de code (router, models, messages, helpers).
 > - ⌚ Quand utilisé ? Lorsqu’une fonction est partagée par plusieurs contrôleurs (navigation, accès aux modèles, messages), elle aura tendance à être implémenté dans ce fichier
 
@@ -150,3 +162,17 @@ sap.ui.define(
   },
 );
 ```
+
+## 🌺 RÉSUMÉ
+
+> - **Basecontroller.controller.js :** webapp/controller/BaseController.controller.js
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **BASE.CONTROLLER** avec mes propres mots.
+- [ ] Je peux expliquer **basecontroller.controller.js** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

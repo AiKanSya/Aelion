@@ -1,10 +1,26 @@
 # 🌸 ENTITYTYPE - EDM CORE TYPE
 
-![](.././assets/Capture%20d’écran%202026-01-16%20114713.png)
+## 🌺 OBJECTIFS
 
-## 🧩 EDM CORE TYPE
+- [ ] Expliquer le rôle de **ENTITYTYPE - EDM CORE TYPE** dans le contexte présenté.
+- [ ] Comprendre **edm core type**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
 
-### 🍧 DEFINITION
+```mermaid
+flowchart TD
+    A["ENTITYTYPE - EDM CORE TYPE"]
+    A --> B["EDM CORE TYPE"]
+```
+
+> [!IMPORTANT]
+> Une modification du modèle OData peut nécessiter une nouvelle génération des artefacts d’exécution et une vérification du document `$metadata` consommé par les clients.
+
+
+## 🌺 EDM CORE TYPE
+
+### 🍧 DÉFINITION
 
 Les `EDMCoreTypes` (`Entity Data Model Core Types`) sont les `PrimitiveTypes` standardisés utilisés par `OData` pour décrire la nature des données transportées par un `Service`.
 
@@ -18,7 +34,7 @@ Ils garantissent :
 - la validation automatique des données
 - un format documenté, stable et cohérent
 
-### 🍧 ROLE
+### 🍧 RÔLE
 
 Les `EDMCoreTypes` permettent de :
 
@@ -71,7 +87,7 @@ Voici la liste exacte des types `OData` utilisés dans `SAP Gateway` :
 | Utiliser Guid plutôt que String pour GUID   | Type dédié, validation automatique       |
 | Conserver une cohérence dans tout le modèle | Facilite la maintenance et la lecture    |
 
-### 🍧 ERRORS
+### 🍧 ERREURS
 
 | 🍧 Erreur                                     | 🍧 Conséquence                              |
 | --------------------------------------------- | ------------------------------------------- |
@@ -79,3 +95,17 @@ Voici la liste exacte des types `OData` utilisés dans `SAP Gateway` :
 | Mettre Edm.String pour des booléens           | Logique client cassée                       |
 | Mauvais Scale/Precision sur Decimal           | Arrondis, erreurs de calcul, incohérences   |
 | Choisir Edm.Int32 pour un code alphanumérique | Perte des zéros à gauche → critique en SAP  |
+
+## 🌺 RÉSUMÉ
+
+> - **Edm core type :** Les EDMCoreTypes (Entity Data Model Core Types) sont les PrimitiveTypes standardisés utilisés par OData pour décrire la nature des données transportées par un Service.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **ENTITYTYPE - EDM CORE TYPE** avec mes propres mots.
+- [ ] Je peux expliquer **edm core type** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

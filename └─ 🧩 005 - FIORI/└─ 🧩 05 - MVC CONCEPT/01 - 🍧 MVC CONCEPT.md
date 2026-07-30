@@ -1,14 +1,23 @@
 # 🌸 MVC
 
-> 🌺 Objectifs
->
-> - [ ] Comprendre l’architecture MVC en SAP UI5
-> - [ ] Savoir identifier Model / View / Controller
-> - [ ] Savoir utiliser MVC correctement dans une app Fiori
-> - [ ] Éviter la logique dans la View
-> - [ ] Comprendre le flux de données UI5
+## 🌺 OBJECTIFS
 
-## 🧩 CONCEPT MVC
+- [ ] Expliquer le rôle de **MVC** dans le contexte présenté.
+- [ ] Comprendre **concept mvc**.
+- [ ] Mettre en œuvre **flux ui5 reel** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["MVC"]
+    A --> B["CONCEPT MVC"]
+    B --> C["FLUX UI5 REEL"]
+    C --> D["REGLES IMPORTANTES"]
+```
+
+
+## 🌺 CONCEPT MVC
 
 `MVC` = `Model` <–> `View` <–> `Controller`
 
@@ -36,7 +45,7 @@ Avec `MVC` :
 
 ### 🍧 3 COMPOSANTS DU MVC
 
-#### 🌺 MODEL (M)
+#### 💮 MODEL (M)
 
 Rôle :
 
@@ -50,7 +59,7 @@ Types en UI5 :
 Exemple :
 
 ```js
-var oData = {
+var OData = {
   IdSession: "S001", // Clé technique de la session côté backend SAP (identifiant fonctionnel)
   IdConsultant: "C001", // Clé technique du consultant (identifiant unique dans la session)
   Entreprise: "SAP",
@@ -69,7 +78,7 @@ Règles :
 - ne gère pas l’affichage
 - source de données unique
 
-#### 🌺 VIEW (V)
+#### 💮 VIEW (V)
 
 Rôle :
 
@@ -94,7 +103,7 @@ Règles :
 - uniquement affichage + binding
 - déclenche des événements
 
-#### 🌺 CONTROLLER (C)
+#### 💮 CONTROLLER (C)
 
 Rôle :
 
@@ -115,7 +124,7 @@ Responsabilités :
 - traiter les données
 - mettre à jour la View
 
-## 🧩 FLUX UI5 REEL
+## 🌺 FLUX UI5 REEL
 
      Utilisateur
      ↓
@@ -132,10 +141,26 @@ Responsabilités :
 > [!WARNING]
 > UI5 n’est pas une boucle stricte : les interactions sont déclenchées par événements + binding.
 
-## 🧩 REGLES IMPORTANTES
+## 🌺 REGLES IMPORTANTES
 
 - Le Model contient les données uniquement
 - La View affiche uniquement les données
 - Le Controller contient toute la logique
 - Pas de logique métier dans XML
 - Le Model est la source de vérité
+
+## 🌺 RÉSUMÉ
+
+> - **Concept mvc :** C’est une architecture qui sépare une application en 3 parties :
+> - **Flux ui5 reel :** View (clic / interaction)
+> - Savoir utiliser **regles importantes** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **MVC** avec mes propres mots.
+- [ ] Je peux expliquer **concept mvc** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **flux ui5 reel** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

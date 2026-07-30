@@ -8,17 +8,28 @@
 - [ ] Utiliser `SY-FDPOS` pour obtenir la position du premier caractère trouvé
 - [ ] Appliquer `CA` pour détecter la présence de caractères spécifiques dans une entrée utilisateur
 
-## 🌺 DEFINITION
 
-> L’opérateur `CA` (Contains Any) permet de vérifier si une chaîne de caractères (`oper1`) contient au moins un caractère présent dans une autre chaîne (`oper2`).  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CONTAINS ANY (CA)"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLE"]
+```
+
+
+## 🌺 DÉFINITION
+
+> L’opérateur `CA` (Contains Any) permet de vérifier si une chaîne de caractères (`oper1`) contient au moins un caractère présent dans une autre chaîne (`oper2`).
 > La condition est vraie dès qu’un seul caractère de `oper2` est trouvé dans `oper1`.
 
 > [!TIP]
-> Imagine `oper2` comme une "boîte de lettres à rechercher".  
+> Imagine `oper2` comme une "boîte de lettres à rechercher".
 > Si tu ouvres `oper1` et que tu y trouves au moins une de ces lettres, la condition `CA` est validée.
 
 > [!NOTE]
->
 > - "HELLO" CA "XYZ" → faux (aucune lettre commune)
 > - "HELLO" CA "AEIOU" → vrai (il y a "E" et "O")
 > - "HELLO" CA "LLO" → vrai (le "L" apparaît très vite)
@@ -37,7 +48,7 @@
 - Condition vraie si au moins un caractère de `oper2` est présent dans `oper1`
 
 > [!IMPORTANT]
-> L’opérateur `CA` parcourt `oper1` et retourne TRUE dès qu’il trouve un caractère présent dans `oper2`.  
+> L’opérateur `CA` parcourt `oper1` et retourne TRUE dès qu’il trouve un caractère présent dans `oper2`.
 > La variable système `SY-FDPOS` indique la position du premier caractère trouvé.
 
 ## 🌺 EXEMPLE
@@ -59,16 +70,24 @@
 - `SY-FDPOS = 2` → position du premier caractère trouvé
 
 > [!TIP]
->
 > - `CA` est sensible à la casse : `'HELLO'` ≠ `'Hello'`
 > - Très utile pour vérifier la présence de chiffres, lettres ou symboles dans un champ texte
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `CA` = Contains Any → vérifie si `oper1` contient au moins un caractère de `oper2`.
 > - Condition TRUE dès qu’un seul caractère correspond
 > - `SY-FDPOS` retourne la position du premier caractère trouvé
 > - Idéal pour vérifier la présence de caractères spécifiques dans une chaîne
->
 > [!TIP]
 > c’est comme chercher une lettre précise dans une boîte pour savoir si elle s’y trouve
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CONTAINS ANY (CA)** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

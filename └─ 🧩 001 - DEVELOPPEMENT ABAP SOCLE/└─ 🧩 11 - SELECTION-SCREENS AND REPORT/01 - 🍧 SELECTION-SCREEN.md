@@ -6,10 +6,21 @@
 - [ ] PERMETTRE LA SELECTION DE DONNEES OU L’IMPORT DE FICHIERS VIA L’ECRAN
 - [ ] UTILISER LES PARAMETRES ET SELECT-OPTIONS POUR FILTRER LES DONNEES
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["SELECTION SCREEN"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE"]
+    C --> D["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
 
 > Un écran de sélection est une interface utilisateur qui permet à l’utilisateur final de :
->
 > - Saisir des données
 > - Définir des critères de sélection
 > - Importer des fichiers ou listes de données
@@ -23,7 +34,7 @@
 
 ## 🌺 EXEMPLE
 
-### Définition d'un écran de sélection simple
+### 🍧 Définition d'un écran de sélection simple
 
     SELECTION-SCREEN BEGIN OF BLOCK b000 WITH FRAME TITLE TEXT-000.
 
@@ -37,7 +48,6 @@
     SELECTION-SCREEN END OF BLOCK b000.
 
 > [!IMPORTANT]
->
 > 1. `PARAMETERS` définit un champ unique pour la saisie par l’utilisateur.
 > 2. `SELECT-OPTIONS` permet de créer un intervalle ou une liste de valeurs.
 > 3. Les valeurs saisies sont accessibles dans le programme pour filtrer les données.
@@ -53,9 +63,19 @@
 - Prévoir des valeurs par défaut pour faciliter l’utilisation.
 - Valider les saisies si nécessaire pour éviter des erreurs dans le traitement des données.
 
-## RESUME
+## 🌺 RÉSUMÉ
 
 > - L’écran de sélection est l’interface principale entre le programme ABAP et l’utilisateur.
 > - `PARAMETERS` est utilisé pour un champ unique, `SELECT-OPTIONS` pour des listes ou intervalles.
 > - Les valeurs saisies permettent de filtrer ou sélectionner les enregistrements dans une table.
 > - Les programmes SAP `DEMO*` sont utiles pour illustrer les bonnes pratiques.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **SELECTION SCREEN** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemple** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

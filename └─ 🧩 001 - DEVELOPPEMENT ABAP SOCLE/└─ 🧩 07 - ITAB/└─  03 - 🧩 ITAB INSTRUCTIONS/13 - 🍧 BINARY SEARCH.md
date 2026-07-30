@@ -7,12 +7,22 @@
 - [ ] Connaître la condition nécessaire pour que la recherche binaire fonctionne
 - [ ] Identifier les avantages par rapport à une recherche linéaire
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["BINARY SEARCH"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE"]
+    C --> D["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
 
 > L’option `BINARY SEARCH` utilisée avec `READ TABLE` permet de réaliser une recherche binaire dans une table interne, optimisant ainsi les performances du programme.
->
 > Principe de la recherche binaire
->
 > - Comparer la valeur recherchée à la valeur du milieu de la plage
 > - Si égal → retour de l’index, fin de recherche
 > - Si valeur > milieu → recherche dans la moitié inférieure
@@ -22,7 +32,7 @@
 > [!CAUTION]
 > la table doit être triée (`SORT`) sauf si elle est de type `SORTED`.
 
-> [!TIP]  
+> [!TIP]
 > Chercher un nom dans un annuaire trié par ordre alphabétique en ouvrant toujours à la page du milieu pour diviser les recherches.
 
 ## 🌺 EXEMPLE
@@ -65,9 +75,9 @@
 
 ## 🌺 EXERCICES
 
-### 🔹 1 – RECHERCHE BINAIRE SIMPLE + DECLARATION DYNAMIQUE EN FIELD-SYMBOL
+### 🍧 1 – RECHERCHE BINAIRE SIMPLE + DECLARATION DYNAMIQUE EN FIELD-SYMBOL
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Trier `lt_citizen` par `country` puis `name` et lire l’enregistrement dont `country = 'ES'` et `name = 'Luis'` en utilisant `BINARY SEARCH`. Afficher `age`.
 
 <details>
@@ -84,9 +94,9 @@
 
 ---
 
-### 🔹 2 – VERIFIER L’EXISTENCE SANS COPIER
+### 🍧 2 – VERIFIER L’EXISTENCE SANS COPIER
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Vérifier si un enregistrement `country = 'BR'` et `name = 'Renata'` existe dans `lt_citizen` avec `BINARY SEARCH`, sans copier la ligne (`TRANSPORTING NO FIELDS`). Afficher un message.
 
 <details>
@@ -103,13 +113,11 @@
 
 ---
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > `BINARY SEARCH` permet une recherche rapide dans une table interne triée.
->
 > - Condition : table triée ou de type SORTED
 > - Réduit le nombre de comparaisons par rapport à une recherche linéaire
 > - Retourne l’`INDEX` via `SY-TABIX` et le code retour via `SY-SUBRC`
->
 > [!TIP]
 > feuilleter un annuaire trié en ouvrant toujours au milieu pour diviser les recherches et trouver la personne plus rapidement.

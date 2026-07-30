@@ -1,6 +1,17 @@
 # 🌸 GATEWAY DATA MODEL DEFINITION
 
-## 🧩 OBJECTIVES
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["GATEWAY DATA MODEL DEFINITION"]
+    A --> B["Comprendre la notion"]
+    B --> C["Observer un exemple"]
+    C --> D["Appliquer la méthode"]
+```
+
+
+## 🌺 OBJECTIFS
 
 - [ ] `Import DataModel (EDMX) Method` pour définir un `DataModel`
 
@@ -38,3 +49,17 @@
 
 > [!TIP]
 > Il est également possible de renommer les propriétés d'un `EntityType`, car les valeurs proposées sont générées à partir des noms de champs `ABAP` : les tirets bas (underscores) sont supprimés et les segments sont fusionnés en notation `camelCase`.
+
+## 🌺 RÉSUMÉ
+
+> - **GATEWAY DATA MODEL DEFINITION :** connaître le rôle, la syntaxe, les limites et un cas d’utilisation.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **GATEWAY DATA MODEL DEFINITION** avec mes propres mots.
+- [ ] Je peux expliquer **objectives** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

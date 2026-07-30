@@ -7,24 +7,34 @@
 - [ ] Maîtriser l’insertion à un index précis dans la table cible
 - [ ] Simplifier le code en évitant des boucles manuelles pour ajouter plusieurs lignes
 
-## 🌺 DEFINITION
 
-> L’instruction `INSERT` permet d’ajouter des lignes dans une table interne (`itab`).  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["INSERT INTO ITAB"]
+    A --> B["DEFINITION"]
+    B --> C["DECLARATION ET EXEMPLE"]
+    C --> D["RESULTAT FINAL DE LTCITIZEN1"]
+    D --> E["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> L’instruction `INSERT` permet d’ajouter des lignes dans une table interne (`itab`).
 > Elle peut provenir de différentes sources
->
 > - Une structure (`ls`)
 > - Une ligne vide (`INITIAL LINE`)
 > - Une autre table interne (`LINES OF jtab`) avec possibilité de spécifier un intervalle (`FROM idx1 TO idx2`)
 
 > [!TIP]
 > Imaginez un classeur de fiches
->
 > - Ajouter une fiche complète (structure)
 > - Glisser une page blanche (`INITIAL LINE`)
 > - Copier certaines pages d’un autre classeur (`LINES OF`) à une position précise
 
 > [!NOTE]
->
 > - L’option `INDEX` permet de contrôler l’ordre final des lignes.
 > - Si aucun `INDEX` n’est spécifié, la ligne est ajoutée en fin de table.
 > - Très pratique pour insérer plusieurs lignes d’un coup, sans boucle.
@@ -41,14 +51,14 @@
           lt_citizen2 TYPE TABLE OF ty_citizen,
           ls_citizen  TYPE ty_citizen.
 
-### 1️⃣ INSERTION D'UNE STRUCTURE DANS LA TABLE
+### 🍧 1️⃣ INSERTION D'UNE STRUCTURE DANS LA TABLE
 
     ls_citizen-country = 'FR'.
     ls_citizen-name    = 'Thierry'.
     ls_citizen-age     = '24'.
     INSERT ls_citizen INTO TABLE lt_citizen1.
 
-### 2️⃣ CREATION DE PLUSIEURS ENREGISTREMENT DANS UNE AUTRE TABLE
+### 🍧 2️⃣ CRÉATION DE PLUSIEURS ENREGISTREMENT DANS UNE AUTRE TABLE
 
     ls_citizen-country = 'ES'.
     ls_citizen-name    = 'Luis'.
@@ -65,16 +75,15 @@
     ls_citizen-age     = '32'.
     INSERT ls_citizen INTO TABLE lt_citizen2.
 
-### 3️⃣ INSERTION D'UNE LIGNE VIDE A UN INDEX PRECIS
+### 🍧 3️⃣ INSERTION D'UNE LIGNE VIDE A UN INDEX PRECIS
 
     INSERT INITIAL LINE INTO lt_citizen1 INDEX 1.
 
-### 4️⃣ INSERTION DE PLUSIEURS LIGNES D'UNE AUTRE TABLE
+### 🍧 4️⃣ INSERTION DE PLUSIEURS LIGNES D'UNE AUTRE TABLE
 
     INSERT LINES OF lt_citizen2 FROM 2 TO 3 INTO lt_citizen1 INDEX 1.
 
 > [!IMPORTANT]
->
 > - Une structure sert de modèle de ligne pour la table interne.
 > - On peut insérer une ligne unique, une ligne vide ou plusieurs lignes d’une autre table.
 > - L’ordre des lignes est contrôlé par `INDEX`.
@@ -102,15 +111,13 @@
 
 ## 🌺 EXERCICES
 
-### 🔹 1 – CREER ET INSERER DES ENREGISTREMENTS
+### 🍧 1 – CREER ET INSERER DES ENREGISTREMENTS
 
 > [!IMPORTANT]
 > Déclarer une table interne `lt_employees` avec une structure `ty_employee`
->
 > - id (CHAR5)
 > - nom (CHAR20)
 > - departement (CHAR10)
->
 > Insérer deux employés et afficher les données.
 
 <details>
@@ -143,7 +150,7 @@
 
 ---
 
-### 🔹 2 – INSERER UNE LIGNE VIDE
+### 🍧 2 – INSERER UNE LIGNE VIDE
 
 > [!IMPORTANT]
 > Ajouter une ligne vide à l’index 2 et afficher la table.
@@ -161,7 +168,7 @@
 
 ---
 
-### 🔹 3 – COPIER DES LIGNES D’UNE AUTRE TABLE
+### 🍧 3 – COPIER DES LIGNES D’UNE AUTRE TABLE
 
 > [!IMPORTANT]
 > Créer `lt_new_employees` avec deux lignes et les insérer dans `lt_employees` à l’index 1.
@@ -189,13 +196,11 @@
 
 </details>
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `INSERT` → ajouter une ligne, une ligne vide ou plusieurs lignes d’une autre table.
 > - `INDEX` → contrôle la position de la ou des lignes.
->
 > [!TIP]
 > glisser des fiches dans un classeur à l’emplacement désiré, en copiant ou créant de nouvelles fiches.
->
 > [!IMPORTANT]
 > définir clairement la structure, vérifier la table cible et éviter les boucles pour insérer plusieurs lignes.

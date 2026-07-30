@@ -1,10 +1,19 @@
 # 🌸 GATEWAY DATA MODEL DEFINITION
 
-## 🧩 OBJECTIVES
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["GATEWAY DATA MODEL DEFINITION"]
+    A --> B["SAP GATEWAY DATA MODEL DEFINITION METHODS"]
+```
+
+
+## 🌺 OBJECTIFS
 
 - [ ] `Define Data Model Declaratively Method` pour définir un `DataModel`
 
-## 🧩 SAP GATEWAY DATA MODEL DEFINITION METHODS
+## 🌺 SAP GATEWAY DATA MODEL DÉFINITION METHODS
 
 > [!CAUTION]
 > Cette méthode est la plus longue des 3. Elle nécessite de bien définir les `champs`, leur `type`, leur nombre de `caractère` minimum, maximum, leur `précision` etc. ce qui obligera un développeur à comparer la `Property` à créer avec éventuellement le champ en `DDIC` qui lui correspondrait.
@@ -12,7 +21,7 @@
 > [!NOTE]
 > Méthode 1 : effectuer un Right-Clic sur `Data Model` → `Create` → `EntityType`
 
-![](.././assets/Capture%20d’écran%202025-12-05%20151039.png)
+![](../../└─%20🧩%2010%20-%20ODATA%20OPERATIONS/assets/Capture%20d’écran%202025-12-05%20151039.png)
 
 > [!NOTE]
 > Méthode 2 : effectuer un Right-Clic sur `EntityType` → `Create`
@@ -20,7 +29,6 @@
 ![](.././assets/Capture%20d’écran%202026-01-16%20112029.png)
 
 > [!CAUTION]
->
 > - Entity Type Name : `BusinessPartner`
 > - [x] `Create Related Entity Set`
 > - Entity Set Name : (Se renseigne automatiquement si vous avez renseigner l'Entity Type Name puis cliquer sur la CheckBox) `BusinessPartnerSet`
@@ -63,3 +71,17 @@
 
 > [!TIP]
 > Il est également possible de renommer les propriétés d'un `EntityType`, car les valeurs proposées sont générées à partir des noms de champs `ABAP` : les tirets bas (underscores) sont supprimés et les segments sont fusionnés en notation `camelCase`.
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **sap gateway data model définition methods** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **GATEWAY DATA MODEL DEFINITION** avec mes propres mots.
+- [ ] Je peux expliquer **objectives** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **sap gateway data model definition methods** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

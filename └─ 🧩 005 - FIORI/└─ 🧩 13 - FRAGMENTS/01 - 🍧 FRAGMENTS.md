@@ -1,10 +1,26 @@
 # 🌸 FRAGMENTS
 
-> 🌺 Objectifs
->
-> - [ ] Comprendre le concept de Fragments
+## 🌺 OBJECTIFS
 
-## 🧩 DEFINITION
+- [ ] Expliquer le rôle de **FRAGMENTS** dans le contexte présenté.
+- [ ] Comprendre **définition**.
+- [ ] Mettre en œuvre **difference entre view et fragment** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["FRAGMENTS"]
+    A --> B["DEFINITION"]
+    B --> C["DIFFERENCE ENTRE VIEW ET FRAGMENT"]
+    C --> D["POURQUOI UTILISER UN FRAGMENT ?"]
+```
+
+> [!IMPORTANT]
+> Vérifier la version SAPUI5 ciblée par l’application. La disponibilité d’une API, d’une propriété ou d’un événement peut dépendre de cette version.
+
+
+## 🌺 DÉFINITION
 
 Un Fragment est un morceau de vue XML réutilisable.
 
@@ -27,7 +43,7 @@ Par exemple :
 
 Chaque fragment contient uniquement une partie de l'écran.
 
-## 🧩 DIFFERENCE ENTRE VIEW ET FRAGMENT
+## 🌺 DIFFERENCE ENTRE VIEW ET FRAGMENT
 
 Une View possède :
 
@@ -72,7 +88,7 @@ qui exécute :
 onCreateSession();
 ```
 
-## 🧩 POURQUOI UTILISER UN FRAGMENT ?
+## 🌺 POURQUOI UTILISER UN FRAGMENT ?
 
 Sans fragment :
 
@@ -112,3 +128,19 @@ Le code devient :
      plus lisible
      plus maintenable
      réutilisable
+
+## 🌺 RÉSUMÉ
+
+> - **Définition :** Un Fragment est un morceau de vue XML réutilisable.
+> - **Difference entre view et fragment :** n'a PAS de Controller propre
+> - Savoir utiliser **pourquoi utiliser un fragment ?** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **FRAGMENTS** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **difference entre view et fragment** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

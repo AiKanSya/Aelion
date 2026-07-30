@@ -1,6 +1,21 @@
 # 🌸 UI5-MOCK
 
-## 🧩 UI5-MOCK.YAML (CONFIGURATION POUR START-MOCK)
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **UI5-MOCK** dans le contexte présenté.
+- [ ] Comprendre **ui5-mock.yaml (configuration pour start-mock)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["UI5-MOCK"]
+    A --> B["UI5-MOCK.YAML (CONFIGURATION POUR START-MOCK)"]
+```
+
+
+## 🌺 UI5-MOCK.YAML (CONFIGURATION POUR START-MOCK)
 
 ```
 fgifirstappmodulename/
@@ -31,11 +46,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Configurer le mockserver pour le développement sans backend.
->
 > - 🔨 Utilité : Fournir des données simulées pour tester l’application.
 > - ⌚ Quand utilisé ? Avec la commande `npm run start-mock` ou `fiori run --config ui5-mock.yaml`.
 
@@ -163,3 +175,17 @@ server:
 
         annotations: []
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **ui5-mock.yaml (configuration pour start-mock)** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **UI5-MOCK** avec mes propres mots.
+- [ ] Je peux expliquer **ui5-mock.yaml (configuration pour start-mock)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

@@ -7,7 +7,18 @@
 - [ ] Identifier la différence avec `MODIFY INDEX` et `MODIFY TABLE`
 - [ ] Utiliser TRANSPORTING pour limiter les champs modifiés
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["MODIDFY WITH INDEX"]
+    A --> B["DEFINITION"]
+    B --> C["DECLARATION ET EXEMPLE"]
+```
+
+
+## 🌺 DÉFINITION
 
 > Pour l’instruction MODIFY, il existe trois formes de syntaxe possibles.
 
@@ -51,7 +62,6 @@ MODIFY lt_country INDEX 1 FROM ls_country TRANSPORTING age.
 ```
 
 > [!IMPORTANT]
->
 > Avant le `MODIFY`, la structure `ls_country` est initialisée avec les valeurs souhaitées. Ensuite, le programme va modifier la table interne `lt_country` à l’`index 1`, à partir de la structure `ls_country`, afin de modifier uniquement le champ `AGE`.
 
 `lt_country` avant le MODIFY
@@ -67,3 +77,18 @@ MODIFY lt_country INDEX 1 FROM ls_country TRANSPORTING age.
 | -------- | ------- |
 | FR       | 10      |
 | IT       | 75      |
+
+## 🌺 RÉSUMÉ
+
+> - **Définition :** L’instruction MODIFY va modifier la table interne itab à partir de la structure ls.
+> - Savoir utiliser **declaration et exemple** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **MODIDFY WITH INDEX** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **declaration et exemple** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

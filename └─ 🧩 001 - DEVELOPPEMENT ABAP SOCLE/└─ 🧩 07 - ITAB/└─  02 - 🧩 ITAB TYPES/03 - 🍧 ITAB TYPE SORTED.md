@@ -8,17 +8,30 @@
 - [ ] Maîtriser l’insertion, la lecture et le tri automatique
 - [ ] Appliquer les bonnes pratiques d’utilisation
 
-## 🌺 DEFINITION
 
-> Une SORTED TABLE est une table interne triée automatiquement selon une clé définie lors de la déclaration.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["ITAB TYPE SORTED TABLE OF"]
+    A --> B["DEFINITION"]
+    B --> C["DECLARATION"]
+    C --> D["INSERTION D’UNE LIGNE"]
+    D --> E["BONNES PRATIQUES"]
+    E --> F["EXEMPLES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Une SORTED TABLE est une table interne triée automatiquement selon une clé définie lors de la déclaration.
 > L’ordre est garanti et un index interne est maintenu pour les recherches par clé.
 
 > [!TIP]
-> Un annuaire trié par nom : chaque fiche est automatiquement insérée à la bonne position.  
+> Un annuaire trié par nom : chaque fiche est automatiquement insérée à la bonne position.
 > Impossible d’avoir deux fiches avec le même nom si la clé est unique.
 
 > [!NOTE]
->
 > - Une clé (`WITH UNIQUE KEY` ou `WITH NON-UNIQUE KEY`) est obligatoire.
 > - L’insertion est automatiquement triée.
 > - Les recherches sont optimisées (accès dichotomique).
@@ -26,7 +39,7 @@
 
 ## 🌺 DECLARATION
 
-### 1️⃣ DEFINIR UNE STRUCTURE DE LIGNE
+### 🍧 1️⃣ DEFINIR UNE STRUCTURE DE LIGNE
 
     TYPES: BEGIN OF ty_person,
              id    TYPE char10,
@@ -34,17 +47,16 @@
              age   TYPE i,
            END OF ty_person.
 
-### 2️⃣ D2CLARER UNE TABLE TRIEE AVEC LA CLE UNIQUE
+### 🍧 2️⃣ D2CLARER UNE TABLE TRIEE AVEC LA CLE UNIQUE
 
     DATA: lt_persons TYPE SORTED TABLE OF ty_person
                       WITH UNIQUE KEY id.
 
-### 3️⃣ DECLARER LA STRUCTURE DE TRAVAIL
+### 🍧 3️⃣ DECLARER LA STRUCTURE DE TRAVAIL
 
     DATA: ls_person TYPE ty_person.
 
 > [!IMPORTANT]
->
 > - `SORTED TABLE` maintient un ordre trié automatique.
 > - `WITH UNIQUE KEY` garantit l’unicité sur le champ clé.
 > - `INSERT` insère la ligne au bon endroit, selon la clé.
@@ -65,7 +77,6 @@
 > Peu importe l’ordre du code, les lignes seront triées par la clé (`id`).
 
 > [!CAUTION]
->
 > - `APPEND` ne doit jamais être utilisé dans une `SORTED TABLE`.
 > - Seule l’instruction `INSERT` maintient le tri automatique.
 > - Si une clé dupliquée est insérée → erreur d’exécution (`sy-subrc ≠ 0`).
@@ -84,7 +95,7 @@
 
 ## 🌺 EXEMPLES
 
-### 🔹 EXEMPLE 1 – TABLE DE PRODUITS TRIÉE PAR ID
+### 🍧 EXEMPLE 1 – TABLE DE PRODUITS TRIÉE PAR ID
 
     TYPES: BEGIN OF ty_produit,
              id   TYPE char10,
@@ -107,10 +118,10 @@
     INSERT ls_produit INTO TABLE lt_produits.
 
 > [!IMPORTANT]
-> L’ordre final dans la table est :  
+> L’ordre final dans la table est :
 > `0001 Cahier`, `0002 Stylo`.
 
-### 🔹 EXEMPLE 2 – AJOUT D’UN TROISIÈME PRODUIT
+### 🍧 EXEMPLE 2 – AJOUT D’UN TROISIÈME PRODUIT
 
     ls_produit-id   = '0003'.
     ls_produit-nom  = 'Gomme'.
@@ -123,7 +134,7 @@
 
 ## 🌺 EXERCICES
 
-### 🔹 1 – CREER UNE TABLE DE CLIENTS TRIÉE PAR ID
+### 🍧 1 – CREER UNE TABLE DE CLIENTS TRIÉE PAR ID
 
 > [!IMPORTANT]
 > Déclarer une table `lt_clients` triée par `id` et y insérer trois lignes désordonnées.
@@ -164,7 +175,7 @@
 
 ---
 
-### 🔹 2 – TESTER UNE CLÉ DUPLIQUÉE
+### 🍧 2 – TESTER UNE CLÉ DUPLIQUÉE
 
 > [!IMPORTANT]
 > Essayer d’insérer une ligne avec un `id` déjà existant et observer le `sy-subrc`.
@@ -185,7 +196,7 @@
 
 ---
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `TYPE SORTED TABLE OF` → table interne triée automatiquement selon une clé.
 > - Clé obligatoire (`WITH UNIQUE KEY` ou `WITH NON-UNIQUE KEY`).

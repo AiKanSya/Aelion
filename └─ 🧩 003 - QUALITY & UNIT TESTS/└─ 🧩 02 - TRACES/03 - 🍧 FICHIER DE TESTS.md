@@ -1,18 +1,34 @@
 # 🌸 FICHIER DE TESTS
 
+## 🌺 OBJECTIFS
+
+
 - [ ] Savoir renseigner un `fichier de tests`
 - [ ] `Standardiser` la `validation`
 - [ ] Rendre le test compréhensible par un tiers
 
-## 🧩 STRUCTURE STANDARD
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["FICHIER DE TESTS"]
+    A --> B["STRUCTURE STANDARD"]
+    B --> C["CONTENU"]
+    C --> D["EXEMPLE DE LIEN TRACE/TEST"]
+    D --> E["LIMITES"]
+    E --> F["CONCLUSION"]
+```
+
+
+## 🌺 STRUCTURE STANDARD
 
 > [!IMPORTANT]
 > Format recommandé :
->
 > - Excel ou Word
 > - Un test = une ligne ou une section
 
-## 🧩 CONTENU
+## 🌺 CONTENU
 
 ### 🍧 EN-TETE
 
@@ -35,7 +51,7 @@
 | Preuves          | (Screenshots)                                                                                              |
 | Statut           | OK                                                                                                         |
 
-## 🧩 EXEMPLE DE LIEN TRACE/TEST
+## 🌺 EXEMPLE DE LIEN TRACE/TEST
 
 - Trace ST05 :
   SELECT COUNT(\*) FROM VBAK WHERE KUNNR = 'USCU_S11'
@@ -47,18 +63,33 @@
 > [!WARNING]
 > La trace ne remplace pas le test, elle le documente.
 
-## 🧩 LIMITES
+## 🌺 LIMITES
 
 > [!CAUTION]
->
 > - Une trace n’est pas un test
 > - Une trace ne valide pas la logique
 > - Trop de traces = perte de lisibilité
 > - Toujours désactiver les traces après usage
 
-## 🧩 CONCLUSION
+## 🌺 CONCLUSION
 
 - Le développeur automatise
 - Le consultant documente
 - Les traces servent à prouver
 - Le fichier de tests sert à transmettre
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **structure standard** dans le contexte présenté.
+> - Savoir utiliser **contenu** dans le contexte présenté.
+> - **Exemple de lien trace/test :** SELECT COUNT(\) FROM VBAK WHERE KUNNR = 'USCUS11'
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **FICHIER DE TESTS** avec mes propres mots.
+- [ ] Je peux expliquer **structure standard** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **contenu** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

@@ -10,9 +10,23 @@
 > [!IMPORTANT]
 > L’objectif est d’apprendre à diagnostiquer les erreurs ABAP et à suivre l’exécution du code pour corriger les anomalies.
 
-## 🌺 DEFINITION
 
-> Un `DUMP` (ou `ABAP Runtime Error`) est une erreur fatale qui arrête un programme ABAP pour protéger le système.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["GESTION DES DUMPS ET DU DEBUGUEUR – ST22"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLES DE DUMPS COURANTS"]
+    C --> D["ANALYSE D’UN DUMP AVEC ST22"]
+    D --> E["UTILISER LE DEBUGUEUR ABAP"]
+    E --> F["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Un `DUMP` (ou `ABAP Runtime Error`) est une erreur fatale qui arrête un programme ABAP pour protéger le système.
 > SAP enregistre alors un rapport détaillé dans `ST22` pour analyser la cause.
 
 > [!IMPORTANT]
@@ -50,7 +64,7 @@
 | 🍧 Section          | 🍧 Rôle                                      |
 | ------------------- | -------------------------------------------- |
 | Short Text          | Description rapide de l’erreur               |
-| Error Analysis      | [!IMPORTANT] technique                       |
+| Error Analysis      | Informations techniques                  |
 | Source Code Extract | Ligne ABAP où le programme a planté          |
 | Variables in Memory | Valeurs des variables au moment du `DUMP`    |
 | Call Stack          | Ordre d’exécution des programmes et includes |
@@ -63,7 +77,7 @@
 > [!IMPORTANT]
 > Le débogueur permet d’exécuter le code ligne par ligne, inspecter/modifier les variables et comprendre le comportement du programme.
 
-### 1. DEBOGAGE D'UNE TRANSACTION – /H
+### 🍧 1. DEBOGAGE D'UNE TRANSACTION – /H
 
 1. Entrer `/H` dans la barre de commande → _Debugging switched on_
 2. Exécuter la transaction à analyser
@@ -79,7 +93,7 @@
 > [!TIP]
 > Activer /H avant de cliquer ou valider un formulaire pour observer le flux complet.
 
-### 2. DEBOGAGE D'UN PROGRAMME – SE38 / SE80
+### 🍧 2. DEBOGAGE D'UN PROGRAMME – SE38 / SE80
 
 1. Ouvrir le programme via SE38 ou SE80
 2. Ajouter un point d’arrêt sur une ligne (cliquer dans la marge → point rouge)
@@ -104,7 +118,7 @@
 
 ## 🌺 BONNES PRATIQUES
 
-| 🍧 Bonne pratique                 | 🍧 [!IMPORTANT]                        |
+| 🍧 Bonne pratique                 | 🍧 Pourquoi                           |
 | --------------------------------- | -------------------------------------- |
 | Lire attentivement `ST22`         | Identifier la cause exacte du `DUMP`   |
 | Utiliser /H pour transactions     | Comprendre le flux complet             |
@@ -148,7 +162,7 @@
 3.  Analyser le `DUMP` dans `ST22`
 4.  Ajouter un point d’arrêt dans ton programme, exécuter et observer les variables
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Un `DUMP` est une erreur fatale ABAP qui arrête le programme et génère un rapport dans `ST22`
 > - `ST22` permet d’analyser : message, code fautif, variables, call stack
@@ -156,4 +170,15 @@
 > - Accès : /H pour transactions, point d’arrêt pour programmes
 > - Fonctions clés : F5 (suivant), F6 (sauter), F8 (continuer), breakpoints dynamiques
 
-> [!IMPORTANT] > `ST22` = carnet d’incidents, débogueur = microscope pour suivre ligne par ligne ce que fait le programme.
+> [!IMPORTANT]
+> `ST22` = carnet d’incidents, débogueur = microscope pour suivre ligne par ligne ce que fait le programme.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **GESTION DES DUMPS ET DU DEBUGUEUR – `ST22`** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemples de dumps courants** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

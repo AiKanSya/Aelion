@@ -1,6 +1,21 @@
 # 🌸 IMPLEMENTING GET_FILTER_VALUE
 
-## 🧩 METHOD IMPLEMENTATION
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **IMPLEMENTING GET_FILTER_VALUE** dans le contexte présenté.
+- [ ] Comprendre **method implémentation**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["IMPLEMENTING GETFILTERVALUE"]
+    A --> B["METHOD IMPLEMENTATION"]
+```
+
+
+## 🌺 METHOD IMPLÉMENTATION
 
 ### 🍧 TRANSACTION SE24
 
@@ -21,7 +36,6 @@
 
 > [!NOTE]
 > 🍧 `IT_FILTER_SELECT_OPTIONS` (`/IWBEP//IWBEP/T_MGW_SELECT_OPTION`)
->
 > - Contient les clés de l’entité demandée.
 > - Exemple URL : `Products(ProductID='100')`
 > - Chaque entrée représente une paire clé / valeur.
@@ -29,18 +43,16 @@
 
 > [!NOTE]
 > 🍧 `IV_FILTER_NAME` (STRING)
->
 > - Nom de l’EntitySet appelée.
 > - Exemple : `Products`.
 > - C’est le nom réellement appelé dans l’URL OData. Le plus utilisé pour identifier le contexte.
 
 > [!NOTE]
 > 🍧 `/IWBEP/T_COD_SELECT_OPTIONS` (STRING)
->
 > - Nom de la source (utilisé surtout pour navigation ou alias).
 > - Peu utilisé en pratique dans les cas simples.
 
-### 🍧 GET_FILTER_VALUE METHOD IMPLEMENTATION
+### 🍧 GET_FILTER_VALUE METHOD IMPLÉMENTATION
 
 ```abap
   METHOD get_filter_value.
@@ -82,3 +94,17 @@ METHOD productset_get_entityset.
 
 ENDMETHOD.
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **method implémentation** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **IMPLEMENTING GET_FILTER_VALUE** avec mes propres mots.
+- [ ] Je peux expliquer **method implementation** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

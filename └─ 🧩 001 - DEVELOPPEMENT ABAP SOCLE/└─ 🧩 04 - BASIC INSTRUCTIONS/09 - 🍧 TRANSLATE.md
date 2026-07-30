@@ -6,7 +6,20 @@
 - [ ] Savoir convertir une chaîne en majuscules ou minuscules
 - [ ] Savoir appliquer un masque de transformation sur une chaîne
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["TRANSLATE"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLE BASIQUE"]
+    D --> E["EXEMPLE AVEC MASQUE"]
+```
+
+
+## 🌺 DÉFINITION
 
 > `TRANSLATE` sert à modifier la casse ou appliquer un masque sur une chaîne de caractères.
 
@@ -25,7 +38,6 @@
 - USING mask : applique une logique de transformation définie par un masque
 
 > [!TIP]
->
 > - `UPPER` = écrire tout en lettres capitales
 > - `LOWER` = écrire tout en lettres minuscules
 > - `USING mask` = appliquer un code spécial de substitution lettre par lettre, comme un message codé
@@ -84,10 +96,20 @@
 > [!CAUTION]
 > Vérifier que la variable cible est de type STRING pour éviter les erreurs.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `TRANSLATE` = modifier la casse (`UPPER` / `LOWER`) ou appliquer un masque (`USING`)
 > - Permet d’uniformiser ou transformer le texte avant traitement
 > - Les résultats sont stockés directement dans la variable cible
 > - `USING` mask permet des transformations complexes lettre par lettre
 > - Utilisation conseillée : normaliser le texte avant comparaison, affichage ou traitement automatisé
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **TRANSLATE** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

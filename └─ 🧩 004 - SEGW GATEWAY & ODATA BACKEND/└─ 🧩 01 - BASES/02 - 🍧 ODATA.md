@@ -1,25 +1,37 @@
-# 🍧 ODATA (OPEN DATA PROTOCOL)
+# 🌸 ODATA (OPEN DATA PROTOCOL)
 
-## 🧩 OBJECTIVES
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["ODATA (OPEN DATA PROTOCOL)"]
+    A --> B["DEFINITION"]
+    B --> C["EDM (ENTITY DATA MODEL) & $METADATA"]
+    C --> D["ODATA ENTITYTYPE"]
+    D --> E["ENTITYSET"]
+    E --> F["ODATA ASSOCIATIONS & NAVIGATION"]
+```
+
+
+## 🌺 OBJECTIFS
 
 - [ ] Comprendre la structure d’un service `OData` : `EDM`, `navigation`, `Functions`/`Actions`
 - [ ] Lire un fichier `$metadata`
 
-## 🧩 DEFINITION
+## 🌺 DÉFINITION
 
 L'`OData` (Open Data Protocol) est un `Standard WEB` qui définit un contrat entre `Client` et `Server` pour accéder et manipuler des `Ressources` (données de la `Response` - boissons et plats) via `HTTP`.
 
-> [!TIP]  
+> [!TIP]
 > Imaginez `OData` comme la carte de la brasserie à l'Oktoberfest : les menus (EntitySets), les plats (Entities) et les règles de chaque plat (HTTP Operations) sont les mêmes pour tous les `Clients` (Chefs de Rang).
 
 Il repose sur le `RESTmodel` : chaque `Ressource` est identifiée par une `URI` et manipulée avec des méthodes HTTP (`GET`, `POST`, `PUT`, `DELETE`).
 
-> [!TIP]  
+> [!TIP]
 > Un `User` (fétards) peut commander (GET) un plat, réclamer quelque chose non présent initialement (POST - ca arrive souvent pour des plats pour bébés), demander a modifier (PUT) ou supprimer un plat de sa commande (DELETE).
 
 > [!IMPORTANT]
 > L’objectif principal d’`OData` est de fournir un protocole clair, standardisé et facile à utiliser, permettant le partage des données entre les applications, les services etc. Il vise à simplifier le processus de partage des données, en le rendant plus efficace et plus facile à utiliser.
->
 > `OData` fournit un contrat (format et comportements) qui rend les services interopérables entre n’importe quel `ODataClient` et n’importe quel `ODataServer` (ex : Gateway).
 
 > [!NOTE]
@@ -41,18 +53,16 @@ Les points clés :
 
 👉 Permet des opérations CRUD standardisées.
 
-> [!NOTE]  
+> [!NOTE]
 > SAP supporte surtout `OData V2` (très courant) et `V4` (depuis ABAP 7.50).
 
 > [!CAUTION]
 > La `V3` n’est pas supportée dans `SAP Gateway`.
 
-## 🧩 EDM (ENTITY DATA MODEL) & $METADATA
+## 🌺 EDM (ENTITY DATA MODEL) & $METADATA
 
 > [!IMPORTANT]
->
 > - L’`EDM` décrit la structure des données exposées par le service :
->
 >   - `EntityType`
 >   - `EntitySet`
 >   - `Property`
@@ -61,7 +71,6 @@ Les points clés :
 >   - `Association`
 >   - `Function`.
 >   - `Action`
->
 > - Le `document XML` (`CSDL`) décrivant l’`EDM` du service est le fichier `$metadata`. Autrement dit, le fichier `$metadata` est disponible seulement en `XML` — c’est la "carte/menu" que les développeurs utilisent pour construire l’`UI`.
 
 [Exemple de $metadata décrivant l'EDM du Gateway Service ZLOG_PACK_HU_DET_CHAR_SRV](./assets/ZLOG_PACK_HU_DET_CHAR_SRV.xml)
@@ -77,7 +86,7 @@ Les points clés :
 | Function      | calcul/lecture spécifique                                                                          |
 | Action        | opération métier modifiant l’état                                                                  |
 
-## 🧩 ODATA ENTITYTYPE
+## 🌺 ODATA ENTITYTYPE
 
 ### 🍧 `<ENTUTYTYPE>`
 
@@ -187,7 +196,7 @@ Exemple : Adresse d’un Client
 > [!WARNING]
 > Si un `attribut` n'est pas visible (comme `read-only` dans l'exemple), c'est qu'il est `'true'`.
 
-## 🧩 `<ENTITYSET>`
+## 🌺 `<ENTITYSET>`
 
 - Un `EntitySet` est une collection de lignes/d'instances d’un EntityType.
 - Dans l'exemple ci-dessous, l'EntitySet `EntitySet Name="ProdOrderSet"` possédera possiblement aucune, une ou plusieurs `instances` de l'`EntityType` associé `EntityType="ZLOG_PACK_HU_DET_CHAR_SRV.ProdOrder"`
@@ -221,7 +230,7 @@ Exemple : Adresse d’un Client
 > [!WARNING]
 > Si un `attribut` n'est pas visible (comme `read-only` dans l'exemple), c'est qu'il est `'true'`.
 
-## 🧩 ODATA ASSOCIATIONS & NAVIGATION
+## 🌺 ODATA ASSOCIATIONS & NAVIGATION
 
 [Exemple de $metadata avec association et navigation décrivant l'EDM du Gateway Service ZLOG_KIT_CREATION_SRV](./assets/ZLOG_KIT_CREATION_SRV.xml)
 
@@ -277,13 +286,12 @@ La `Navigation` est plus simple et directe, tout en restant compatible avec les 
 > [!TIP]
 > La `Navigation` = accéder aux entités liées via un chemin `URI`, comme passer d’une table à une autre via une clé étrangère.
 
-## 🧩 ODATA FUNCTIONS
+## 🌺 ODATA FUNCTIONS
 
-Dans `OData`, `Functions` permettent d’effectuer des `opérations spécifiques` sur les données exposées par un `Gateway Service`.  
+Dans `OData`, `Functions` permettent d’effectuer des `opérations spécifiques` sur les données exposées par un `Gateway Service`.
 Elles sont définies dans le `$metadata` et peuvent être appelées via des `URI` depuis un `Client`.
 
 > [!CAUTION]
->
 > - Une `Function` est une `opération` qui ne modifie pas l’état du `Server` (lecture uniquement !).
 > - Elle peut retourner un ou plusieurs `EntityTypes` ou un `PrimitivTypes`.
 > - Les paramètres d’entrée sont définis dans le `$metadata`.
@@ -313,21 +321,35 @@ Exemple extrait du `$metadata` [ZLOG_PACK_HU_DET_CHAR_SRV](./assets/ZLOG_PACK_HU
 > [!TIP]
 > Les `<FunctionImport>` sont utilisées pour effectuer des lectures de données complexes nécessitant des calculs ou des filtrages spécifiques côté `Server`.
 
-## 🧩 COMPARISON FUNCTION IMPORT VS ENTITYSET ACTIONS
+## 🌺 COMPARISON FUNCTION IMPORT VS ENTITYSET ACTIONS
 
 > [!IMPORTANT]
 > Dans `SAP Gateway`, la distinction est importante !
 
 > [!TIP]
 > Règle simple pour décider
->
 > - Si ça lit → FunctionImport
 > - Si ça agit → CRUD
 
 > [!TIP]
 > Bonnes pratiques SEGW
->
 > - Nom explicite : GetOpenOrders, CalculatePrice, CheckAvailability
 > - Pas d’UPDATE caché
 > - Résultat typé DDIC (éviter Edm.String fourre-tout)
 > - Performances > élégance du modèle
+
+## 🌺 RÉSUMÉ
+
+> - **Définition :** L'OData (Open Data Protocol) est un Standard WEB qui définit un contrat entre Client et Server pour accéder et manipuler des Ressources (données de la Response - boissons et plats) via HTTP.
+> - Savoir utiliser **edm (entity data model) & $metadata** dans le contexte présenté.
+> - **Odata entitytype :** Exemple : Adresse d’un Client
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **ODATA (OPEN DATA PROTOCOL)** avec mes propres mots.
+- [ ] Je peux expliquer **objectives** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **definition** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

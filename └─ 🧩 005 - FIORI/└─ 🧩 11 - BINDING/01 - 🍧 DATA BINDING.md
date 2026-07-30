@@ -1,10 +1,28 @@
 # 🌸 DATA BINDING
 
-> 🌺 Objectifs
->
-> - [ ] exploiter le data binding UI5 pour piloter les opérations CRUD Session via UI.
+## 🌺 OBJECTIFS
 
-## 🧩 DEFINITION
+- [ ] Expliquer le rôle de **DATA BINDING** dans le contexte présenté.
+- [ ] Comprendre **définition**.
+- [ ] Mettre en œuvre **type de data binding** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["DATA BINDING"]
+    A --> B["DEFINITION"]
+    B --> C["TYPE DE DATA BINDING"]
+    C --> D["MODE DE BINDING"]
+    D --> E["ROLE"]
+    E --> F["PRINCIPE ARCHITECTURE"]
+```
+
+> [!IMPORTANT]
+> Vérifier la version SAPUI5 ciblée par l’application. La disponibilité d’une API, d’une propriété ou d’un événement peut dépendre de cette version.
+
+
+## 🌺 DÉFINITION
 
 Le Data Binding est le mécanisme qui relie automatiquement une donnée (model) à une interface utilisateur (view), afin que toute modification de la donnée soit reflétée dans l’UI, et inversement selon le type de binding.
 
@@ -15,7 +33,7 @@ Le Data Binding en SAPUI5 est un mécanisme déclaratif de synchronisation autom
 
 Il permet de supprimer la manipulation manuelle du DOM et des valeurs UI.
 
-## 🧩 TYPE DE DATA BINDING
+## 🌺 TYPE DE DATA BINDING
 
 ### 🍧 Property Binding (liaison de propriété)
 
@@ -41,7 +59,7 @@ lie un objet complet à une vue ou un conteneur :
 oView.bindElement("/SessionSet('S001')");
 ```
 
-## 🧩 MODE DE BINDING
+## 🌺 MODE DE BINDING
 
 ### 🍧 One-way binding
 
@@ -53,7 +71,7 @@ oView.bindElement("/SessionSet('S001')");
 - Model ↔ View
 - utilisé surtout avec JSONModel (formulaires)
 
-## 🧩 ROLE
+## 🌺 RÔLE
 
 | Opération | Rôle du binding                          |
 | --------- | ---------------------------------------- |
@@ -62,7 +80,7 @@ oView.bindElement("/SessionSet('S001')");
 | UPDATE    | synchronisation après modification       |
 | DELETE    | suppression + mise à jour automatique UI |
 
-## 🧩 PRINCIPE ARCHITECTURE
+## 🌺 PRINCIPE ARCHITECTURE
 
 Actuellement :
 
@@ -72,12 +90,12 @@ Objectif :
 
      UI (binding) → Controller → DataServices → OData → UI update automatique
 
-## 🧩 POINT CLE
+## 🌺 POINT CLE
 
 - UI automatiquement mis à jour si model modifié
 - ODataModel ne se met pas toujours à jour automatiquement après CREATE/UPDATE/DELETE.
 
-## 🧩 1. CREATION D'UN MODEL JSON
+## 🌺 1. CRÉATION D'UN MODEL JSON
 
 Path :
 
@@ -151,7 +169,7 @@ Points clés :
 
      JSONModel ("view") = état UI (formulaire)
 
-## 🧩 2. CREATION D'UN FORMULAIRE DANS LA VIEW
+## 🌺 2. CRÉATION D'UN FORMULAIRE DANS LA VIEW
 
 Path :
 
@@ -228,3 +246,19 @@ Path :
 
 </Panel>
 ```
+
+## 🌺 RÉSUMÉ
+
+> - **Définition :** Le Data Binding est le mécanisme qui relie automatiquement une donnée (model) à une interface utilisateur (view), afin que toute modification de la donnée soit reflétée dans l’UI, et inversement selon le type de binding.
+> - **Type de data binding :** lie une propriété UI à un champ du modèle :
+> - Savoir utiliser **mode de binding** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **DATA BINDING** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **type de data binding** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

@@ -8,6 +8,20 @@
 - [ ] Organiser le traitement en étapes lisibles
 - [ ] Éviter les effets de bord inutiles
 
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["IMPLEMENTATION ET DONNEES LOCALES"]
+    A --> B["STRUCTURE DU CODE"]
+    B --> C["VARIABLES LOCALES"]
+    C --> D["ORDRE DE TRAITEMENT RECOMMANDE"]
+    D --> E["EXEMPLE COMPLET"]
+    E --> F["DONNEES LOCALES ET DONNEES GLOBALES"]
+```
+
+
 ## 🌺 STRUCTURE DU CODE
 
 Le code d’un module fonction est contenu entre :
@@ -134,13 +148,23 @@ Il ne doit pas simultanément :
 4. Retourner trois valeurs d’export.
 5. Tester les limites `0`, `100` et une valeur invalide.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Le traitement est écrit entre `FUNCTION` et `ENDFUNCTION`.
 > - Les variables locales sont limitées à l’appel.
 > - Les contrôles doivent précéder le traitement principal.
 > - Les sorties sont remplies explicitement.
 > - Les données globales doivent rester exceptionnelles et maîtrisées.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **IMPLEMENTATION ET DONNEES LOCALES** avec mes propres mots.
+- [ ] Je peux expliquer **structure du code** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **variables locales** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>
 
 ## 🌺 SOURCES OFFICIELLES
 

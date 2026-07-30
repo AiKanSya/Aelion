@@ -1,11 +1,23 @@
 # 🌸 APP PREVIEW
 
-> 🌺 Objectifs
->
-> - [ ] Comprendre le package.json
-> - [ ] Comprendre les différents mode de Preview
+## 🌺 OBJECTIFS
 
-## 🧩 APPLICATION PREVIEW
+- [ ] Expliquer le rôle de **APP PREVIEW** dans le contexte présenté.
+- [ ] Comprendre **application preview**.
+- [ ] Mettre en œuvre **package.json** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["APP PREVIEW"]
+    A --> B["APPLICATION PREVIEW"]
+    B --> C["PACKAGE.JSON"]
+    C --> D["QUELLE PREVIEW CHOISIR ?"]
+```
+
+
+## 🌺 APPLICATION PREVIEW
 
 > [!IMPORTANT]
 > Clic-droit sur le nom du projet, puis Preview Application
@@ -22,7 +34,7 @@
 
 ![](./assets/Capture%20d’écran%202026-05-20%20093758.png)
 
-## 🧩 PACKAGE.JSON
+## 🌺 PACKAGE.JSON
 
 > [!IMPORTANT]
 > Le fichier package.json est le centre de commande de l’application Fiori.
@@ -91,7 +103,6 @@ Il contient :
 
 > [!NOTE]
 > Ce sont les outils nécessaires pour développer et prévisualiser l’application.
->
 > - `@ui5/cli` → lance le serveur UI5 local
 > - `@sap/ux-ui5-tooling` → commandes Fiori (fiori run, fiori verify, etc.)
 > - `@sap-ux/ui5-middleware-fe-mockserver` → simuler les données quand le backend n’est pas disponible
@@ -213,7 +224,7 @@ Usage
 > [!TIP]
 > Les données viennent d’un serveur factice, mais le FLP fonctionne normalement
 
-## 🧩 QUELLE PREVIEW CHOISIR ?
+## 🌺 QUELLE PREVIEW CHOISIR ?
 
 > [!IMPORTANT]
 > Pourquoi utilise-t-on plus souvent le start-noflp que les autres ?
@@ -256,3 +267,19 @@ Avantages pour le dev :
 
 > [!TIP]
 > Comme ouvrir directement l’appli sur ton smartphone, sans passer par l’écran d’accueil
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **application preview** dans le contexte présenté.
+> - Savoir utiliser **package.json** dans le contexte présenté.
+> - **Quelle preview choisir ? :** Ce que fait start (avec FLP) :
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **APP PREVIEW** avec mes propres mots.
+- [ ] Je peux expliquer **application preview** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **package.json** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

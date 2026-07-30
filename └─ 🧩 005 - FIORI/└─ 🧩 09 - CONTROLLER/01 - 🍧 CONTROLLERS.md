@@ -1,15 +1,25 @@
 # 🌸 CONTROLLERS SAPUI5
 
-> Objectifs
->
-> - [ ] Comprendre le rôle exact d’un Controller SAPUI5
-> - [ ] Comprendre le pattern MVC dans UI5 (View / Controller / Model)
-> - [ ] Maîtriser le cycle de vie (lifecycle)
-> - [ ] Comprendre l’héritage UI5 et sap.ui.define (AMD)
-> - [ ] Savoir manipuler les événements UI et les modèles
-> - [ ] Éviter les erreurs classiques (this, binding, async, OData)
+## 🌺 OBJECTIFS
 
-## 🧩 CONTROLLER SAPUI5
+- [ ] Expliquer le rôle de **CONTROLLERS SAPUI5** dans le contexte présenté.
+- [ ] Comprendre **controller sapui5**.
+- [ ] Mettre en œuvre **module amd sapui5 (sap.ui.define)** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CONTROLLERS SAPUI5"]
+    A --> B["CONTROLLER SAPUI5"]
+    B --> C["MODULE AMD SAPUI5 (sap.ui.define)"]
+    C --> D["HÉRITAGE UI5"]
+    D --> E["INSTANCE (CONCEPT IMPORTANT)"]
+    E --> F["LIFECYCLE SAPUI5"]
+```
+
+
+## 🌺 CONTROLLER SAPUI5
 
 Un Controller est une classe JavaScript associée à une View.
 
@@ -27,7 +37,7 @@ NON RESPONSABILITÉ :
 - calcul métier complexe
   → doit être déporté (services / backend)
 
-## 🧩 MODULE AMD SAPUI5 (sap.ui.define)
+## 🌺 MODULE AMD SAPUI5 (sap.ui.define)
 
 SAPUI5 utilise le standard AMD (Asynchronous Module Definition)
 
@@ -60,7 +70,23 @@ IMPORTANT :
 
     ordre des paramètres = ordre du tableau
 
-## 🧩 OÙ TROUVER LES MODULES IMPORTABLES (SOURCE OFFICIELLE)
+## 🌺 RÉSUMÉ
+
+> - **Controller sapui5 :** Un Controller est une classe JavaScript associée à une View.
+> - **Module amd sapui5 (sap.ui.define) :** SAPUI5 utilise le standard AMD (Asynchronous Module Definition)
+> - **Où trouver les modules importables (source officielle) :** C’est la référence principale.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CONTROLLERS SAPUI5** avec mes propres mots.
+- [ ] Je peux expliquer **controller sapui5** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **module amd sapui5 (sap.ui.define)** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>
+
+## 🌺 OÙ TROUVER LES MODULES IMPORTABLES (SOURCE OFFICIELLE)
 
 [SAPUI5 SDK (documentation officielle)](https://ui5.sap.com)
 
@@ -125,7 +151,7 @@ Comment trouver le bon Path ?
 
         sap/m/MessageToast
 
-## 🧩 HÉRITAGE UI5
+## 🌺 HÉRITAGE UI5
 
 Exemple :
 
@@ -175,7 +201,7 @@ HÉRITAGE IMPLIQUE :
 - > la version Home remplace celle du paren- t
   > la version parent est ignorée sauf appel explicite
 
-## 🧩 INSTANCE (CONCEPT IMPORTANT)
+## 🌺 INSTANCE (CONCEPT IMPORTANT)
 
 Un Controller n’est PAS un objet statique.
 
@@ -201,7 +227,7 @@ IMPACT :
 - this.getView() pointe vers la vue associée
 - isolation entre écrans
 
-## 🧩 LIFECYCLE SAPUI5
+## 🌺 LIFECYCLE SAPUI5
 
      Cycle de vie = méthodes appelées automatiquement par UI5
 
@@ -241,7 +267,7 @@ onExit();
   subscription- s
   ressources
 
-## 🧩 CONTEXT "this" (CRITIQUE)
+## 🌺 CONTEXT "this" (CRITIQUE)
 
 IDÉE DE BASE :
 
@@ -301,7 +327,7 @@ UI5 exécute juste la fonction, sans lien avec le Controller.
 ### 🍧 SOLUTION 1 (MODERNE) : ARROW FUNCTION
 
 ```js
-success: (oData) => {
+success: (OData) => {
   this.getView(); // OK
 };
 ```
@@ -325,7 +351,7 @@ idée :
 
      on "sauvegarde" le Controller dans une variable
 
-## 🧩 POINT ESSENTIEL
+## 🌺 POINT ESSENTIEL
 
 Controller SAPUI5 n’est PAS :
 

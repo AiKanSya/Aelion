@@ -6,7 +6,19 @@
 - [ ] Savoir réinitialiser une ou plusieurs variables simultanément
 - [ ] Appliquer `CLEAR` sur différents types de données : chaînes, numériques, dates, heures
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CLEAR"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLE"]
+```
+
+
+## 🌺 DÉFINITION
 
 > `CLEAR` permet de supprimer ou réinitialiser le contenu d’une variable.
 
@@ -15,7 +27,6 @@
 
 > [!IMPORTANT]
 > L'instruction `CLEAR` remet chaque variable à sa valeur par défaut selon son type
->
 > - Chaîne → vide ('')
 > - Numérique → 0
 > - Date → 00000000
@@ -69,7 +80,6 @@
 > Après un `CLEAR`, toutes les boîtes sont vides et prêtes à recevoir de nouvelles informations.
 
 > [!TIP]
->
 > - `CLEAR` fonctionne sur tous les types de variables : chaînes, numériques, dates, heures...
 > - On peut `CLEAR` plusieurs variables en même temps en les séparant par des virgules
 > - Très utile pour réinitialiser avant un nouveau calcul ou traitement de données
@@ -77,9 +87,19 @@
 > [!NOTE]
 > Même si la variable est déjà vide ou à zéro, `CLEAR` est sûr et sans effet secondaire.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `CLEAR` supprime le contenu d’une variable
 > - Réinitialise toutes les variables à leurs valeurs par défaut
 > - Peut traiter une ou plusieurs variables simultanément
 > - Utilisation conseillée pour éviter des résidus de valeurs avant de nouveaux traitements
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CLEAR** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

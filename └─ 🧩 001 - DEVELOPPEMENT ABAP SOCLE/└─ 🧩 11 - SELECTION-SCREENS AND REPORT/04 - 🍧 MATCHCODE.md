@@ -6,9 +6,22 @@
 - [ ] UTILISER LES MATCH-CODES AUTOMATIQUES ET SPECIFIQUES
 - [ ] FACILITER LA SELECTION DE DONNEES PAR L’UTILISATEUR FINAL
 
-## 🌺 DEFINITION
 
-> Les `MATCH-CODES` sont des aides à la recherche qui permettent à l’utilisateur d’afficher une liste de choix pour faciliter la sélection de données.  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["MATCH-CODE"]
+    A --> B["DEFINITION"]
+    B --> C["COMPORTEMENT STANDARD"]
+    C --> D["MATCH-CODES SPECIFIQUES"]
+    D --> E["BONNES PRATIQUES"]
+```
+
+
+## 🌺 DÉFINITION
+
+> Les `MATCH-CODES` sont des aides à la recherche qui permettent à l’utilisateur d’afficher une liste de choix pour faciliter la sélection de données.
 > Ils sont souvent utilisés dans les `SELECTION-SCREENS` pour améliorer l’expérience utilisateur et réduire les erreurs de saisie.
 
 > [!TIP]
@@ -24,7 +37,6 @@ _Exemple :_
                 p_posnr TYPE vbap-posnr.
 
 > [!IMPORTANT]
->
 > - Ici, `p_vbeln` et `p_posnr` sont typés sur des champs de table.
 > - SAP propose automatiquement les `MATCH-CODES` associés aux champs.
 > - Si le typage est sur un type simple (ex: `TYPE vbeln`), aucun `MATCH-CODE` ne sera proposé.
@@ -44,7 +56,6 @@ _Exemple :_
     PARAMETERS: p_matnr TYPE mara-matnr MATCHCODE OBJECT zar_mara.
 
 > [!IMPORTANT]
->
 > - `p_matnr` est typé sur `mara-matnr`.
 > - Le `MATCH-CODE` spécifique `zar_mara` est utilisé pour afficher les colonnes et valeurs personnalisées définies dans l’aide à la recherche.
 
@@ -57,9 +68,19 @@ _Exemple :_
 - Créer des `MATCH-CODES` spécifiques pour filtrer et personnaliser la liste des valeurs si nécessaire.
 - Tester le comportement de l’aide à la recherche pour différents profils d’utilisateurs.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Les `MATCH-CODES` facilitent la sélection des données sur les `SELECTION-SCREENS`.
 > - Typage sur table DDIC = `MATCH-CODE` automatique.
 > - Typage sur type simple = pas de `MATCH-CODE`.
 > - Les `MATCH-CODES` spécifiques permettent d’afficher des colonnes et valeurs personnalisées pour améliorer l’expérience utilisateur.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **MATCH-CODE** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **comportement standard** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

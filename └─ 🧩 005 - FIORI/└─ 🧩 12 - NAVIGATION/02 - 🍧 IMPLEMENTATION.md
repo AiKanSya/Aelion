@@ -1,14 +1,25 @@
 # 🌸 IMPLEMENTATION
 
-> 🌺 Objectifs
->
-> - [ ] Adapter le manifest pour créer des routes
+## 🌺 OBJECTIFS
 
-     Home.view.xml
-     ↓ (click session)
-     Details.view.xml
+- [ ] Expliquer le rôle de **IMPLEMENTATION** dans le contexte présenté.
+- [ ] Comprendre **1. création de la view details.view**.
+- [ ] Mettre en œuvre **2. création du controller details.controller** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
 
-## 🧩 1. CREATION DE LA VIEW DETAILS.VIEW
+```mermaid
+flowchart TD
+    A["IMPLEMENTATION"]
+    A --> B["1. CREATION DE LA VIEW DETAILS.VIEW"]
+    B --> C["2. CREATION DU CONTROLLER DETAILS.CONTROLLER"]
+    C --> D["3. AJOUT DE LA ROUTE DANS LE MANIFEST"]
+    D --> E["4. AJOUTER LE TARGET"]
+    E --> F["5. AJOUTER L'EVENEMENT ITEMPRESS ET RENDRE LES LIGNES "]
+```
+
+
+## 🌺 1. CRÉATION DE LA VIEW DETAILS.VIEW
 
 Path :
 
@@ -66,7 +77,7 @@ Code :
 > [!WARNING]
 > Ne pas oublier de définir le controller de cette nouvelle View !
 
-## 🧩 2. CREATION DU CONTROLLER DETAILS.CONTROLLER
+## 🌺 2. CRÉATION DU CONTROLLER DETAILS.CONTROLLER
 
 Path :
 
@@ -92,7 +103,7 @@ sap.ui.define(
 );
 ```
 
-## 🧩 3. AJOUT DE LA ROUTE DANS LE MANIFEST
+## 🌺 3. AJOUT DE LA ROUTE DANS LE MANIFEST
 
 Path :
 
@@ -119,7 +130,7 @@ Ajouter une nouvelle route :
 ],
 ```
 
-## 🧩 4. AJOUTER LE TARGET
+## 🌺 4. AJOUTER LE TARGET
 
 Path :
 
@@ -140,7 +151,7 @@ Ajouter une nouvelle route :
 }
 ```
 
-## 🧩 5. AJOUTER L'EVENEMENT ITEMPRESS ET RENDRE LES LIGNES CLIQUABLES
+## 🌺 5. AJOUTER L'EVENEMENT ITEMPRESS ET RENDRE LES LIGNES CLIQUABLES
 
 Path :
 
@@ -194,7 +205,7 @@ Code :
 </Table>
 ```
 
-## 🧩 6. AJOUTER LA MÉTHODE DE NAVIGATION
+## 🌺 6. AJOUTER LA MÉTHODE DE NAVIGATION
 
 Path :
 
@@ -293,7 +304,7 @@ onPressSession: function (oEvent) {
 }
 ```
 
-## 🧩 7. RÉCUPÉRER LE PARAMÈTRE DANS DETAILS
+## 🌺 7. RÉCUPÉRER LE PARAMÈTRE DANS DETAILS
 
 Path :
 
@@ -408,7 +419,7 @@ onInit: function () {
 },
 ```
 
-## 🧩 8. LIRE LE PARAMÈTRE URL & BINDER LA VIEW DETAILS
+## 🌺 8. LIRE LE PARAMÈTRE URL & BINDER LA VIEW DETAILS
 
 Path :
 
@@ -584,7 +595,7 @@ _onObjectMatched: function (oEvent) {
 }
 ```
 
-## 🧩 9. IMPLEMENTATION DU BOUTON BACK
+## 🌺 9. IMPLÉMENTATION DU BOUTON BACK
 
 Path :
 
@@ -689,7 +700,7 @@ onNavBack: function () {
 }
 ```
 
-## 🧩 10. ARCHITECTURE OBTENUE
+## 🌺 10. ARCHITECTURE OBTENUE
 
     Home
     └── Table SessionSet
@@ -698,3 +709,19 @@ onNavBack: function () {
             ↓
     Details
     └── bindElement(Session)
+
+## 🌺 RÉSUMÉ
+
+> - **1. création de la view details.view :** webapp/view/Details.view.xml
+> - **2. création du controller details.controller :** webapp/controller/Details.controller.js
+> - **3. ajout de la route dans le manifest :** Ajouter une nouvelle route :
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **IMPLEMENTATION** avec mes propres mots.
+- [ ] Je peux expliquer **1. creation de la view details.view** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **2. creation du controller details.controller** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

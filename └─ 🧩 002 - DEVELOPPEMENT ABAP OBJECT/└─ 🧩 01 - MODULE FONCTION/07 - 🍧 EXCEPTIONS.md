@@ -8,7 +8,21 @@
 - [ ] Interpréter `SY-SUBRC`
 - [ ] Comprendre la différence avec une exception de classe
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["EXCEPTIONS CLASSIQUES"]
+    A --> B["DEFINITION"]
+    B --> C["DECLARATION DANS SE37"]
+    C --> D["LEVER UNE EXCEPTION"]
+    D --> E["MAPPING DANS L'APPEL"]
+    E --> F["ROLE DE OTHERS"]
+```
+
+
+## 🌺 DÉFINITION
 
 > Une exception classique signale qu’un module fonction n’a pas pu produire son résultat normal.
 
@@ -62,7 +76,7 @@ Lors du `RAISE`, le traitement normal du module fonction est interrompu et revie
         MESSAGE 'Erreur inattendue' TYPE 'E'.
     ENDCASE.
 
-## 🌺 ROLE DE OTHERS
+## 🌺 RÔLE DE OTHERS
 
 `OTHERS` récupère les exceptions classiques qui ne sont pas mappées individuellement.
 
@@ -122,13 +136,23 @@ Conséquence : le programme ne gère pas explicitement l’échec déclaré par 
 4. Ajouter `OTHERS = 2`.
 5. Afficher un message différent pour chaque résultat.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Une exception classique est déclarée dans `SE37`.
 > - Elle est levée avec `RAISE` ou `MESSAGE ... RAISING`.
 > - L’appelant lui affecte une valeur dans `EXCEPTIONS`.
 > - `SY-SUBRC = 0` indique le traitement normal de l’appel.
 > - Les erreurs attendues doivent être traitées individuellement.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **EXCEPTIONS CLASSIQUES** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **declaration dans se37** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>
 
 ## 🌺 SOURCES OFFICIELLES
 

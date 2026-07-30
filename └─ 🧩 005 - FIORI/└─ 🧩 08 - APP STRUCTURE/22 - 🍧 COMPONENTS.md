@@ -1,6 +1,21 @@
 # 🌸 COMPONENT
 
-## 🧩 COMPONENT.JS (POINT D’ENTRÉE DE L’APPLICATION)
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **COMPONENT** dans le contexte présenté.
+- [ ] Comprendre **component.js (point d’entrée de l’application)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["COMPONENT"]
+    A --> B["COMPONENT.JS (POINT D’ENTRÉE DE L’APPLICATION)"]
+```
+
+
+## 🌺 COMPONENT.JS (POINT D’ENTRÉE DE L’APPLICATION)
 
 ```
 fgifirstappmodulename/
@@ -30,11 +45,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Initialiser l’application et ses composants.
->
 > - 🔨 Utilité : Charger les modèles, configurer le router, et préparer l’application pour l’exécution.
 > - ⌚ Quand utilisé ? Dès le démarrage de l’application, avant l’affichage des vues.
 
@@ -296,26 +308,40 @@ sap.ui.define(
         /****************************************************************
          * Vérification existence instance
          *
-         * !this.oDataServices
+         * !this.ODataServices
          * => signifie :
          * "l’instance n’existe pas encore"
          ****************************************************************/
-        if (!this.oDataServices) {
+        if (!this.ODataServices) {
           /**************************************************************
            * Création du service métier
            *
            * this.getModel()
            * retourne le ODataModel principal défini dans le manifest.
            **************************************************************/
-          this.oDataServices = new DataServices(this.getModel());
+          this.ODataServices = new DataServices(this.getModel());
         }
 
         /****************************************************************
          * Retour de l’instance unique
          ****************************************************************/
-        return this.oDataServices;
+        return this.ODataServices;
       },
     });
   },
 );
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **component.js (point d’entrée de l’application)** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **COMPONENT** avec mes propres mots.
+- [ ] Je peux expliquer **component.js (point d’entrée de l’application)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

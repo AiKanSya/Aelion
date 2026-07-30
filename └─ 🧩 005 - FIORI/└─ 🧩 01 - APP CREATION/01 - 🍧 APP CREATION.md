@@ -1,10 +1,24 @@
 # 🌸 APP CREATION
 
-> 🌺 Objectifs
->
-> - [ ] Créer et paramétrer une SAP Fiori App
+## 🌺 OBJECTIFS
 
-## 🧩 BUSINESS APPLICATION STUDIO
+- [ ] Expliquer le rôle de **APP CREATION** dans le contexte présenté.
+- [ ] Comprendre **business application studio**.
+- [ ] Mettre en œuvre **vscode** dans un exemple guidé.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["APP CREATION"]
+    A --> B["BUSINESS APPLICATION STUDIO"]
+    B --> C["VSCODE"]
+    C --> D["FIORI: OPEN APPLICATION GENERATOR"]
+    D --> E["ERREURS POSSIBLES"]
+```
+
+
+## 🌺 BUSINESS APPLICATION STUDIO
 
 ![](./assets/Capture%20d’écran%202026-02-09%20135018.png)
 
@@ -25,7 +39,7 @@
 - Collaboration facile dans le cloud.
 - Compatible avec les standards SAP et open source.
 
-## 🧩 VSCODE
+## 🌺 VSCODE
 
 > [!IMPORTANT]
 > VSCode est un éditeur de code légèrement différent : c’est local (ou cloud via GitHub Codespaces, par ex.), open source, ultra modulable, avec une énorme bibliothèque d’extensions.
@@ -36,7 +50,7 @@
 - Tu peux connecter VSCode à un BTP dev space ou à un backend ABAP via ABAP Extension for VSCode.
 - Très utile pour les développeurs qui aiment travailler localement et qui veulent la puissance d’extensions tierces (Linting, Prettier, Git, Docker, etc.).
 
-## 🧩 > FIORI: OPEN APPLICATION GENERATOR
+## 🌺 > FIORI: OPEN APPLICATION GENERATOR
 
 ### 🍧 1. PALETTE DE COMMANDE
 
@@ -77,41 +91,40 @@ Conditions : Le système SAP est :
 
 Renseignes les champs obligatoires suivants :
 
-#### 🌺 Data Source\*
+#### 💮 Data Source\*
 
     Connect to a System
 
-#### 🌺 System\*
+#### 💮 System\*
 
     New System
 
 > [!IMPORTANT]
 > New System sera sélectionné par défaut si aucun System n'a encore été paramétré. Si le System ciblé est déjà paramétré, il apparaîtra dans la liste et il ne sera pas nécessaire de renseigner :
->
 > - le System Type\*
 > - le System URL\*
 > - le SAP Client
 
-#### 🌺 System Type\*
+#### 💮 System Type\*
 
     ABAP On Premise
 
-#### 🌺 System URL\*
+#### 💮 System URL\*
 
     https://s4hhost1.stms.fr:44300
 
-#### 🌺 SAP Client (leave empty for default)
+#### 💮 SAP Client (leave empty for default)
 
     200
 
-#### 🌺 Username\*
+#### 💮 Username\*
 
     <SAP_GUI_USER_Name>
 
 > [!IMPORTANT]
 > Le demande d'identification ne s'appliquera que la première fois sauf si les System Credentials (identifiant/mot de passe) ne sont pas enregistrés.
 
-#### 🌺 Password\*
+#### 💮 Password\*
 
     <SAP_GUI_USER_Password>
 
@@ -124,15 +137,15 @@ Vous devriez avoir ceci :
 
 ![](./assets/Capture%20d’écran%202026-05-20%20091056.png)
 
-#### 🌺 Do you want to store the system credentials?
+#### 💮 Do you want to store the system credentials?
 
     Yes
 
-#### 🌺 System name\*
+#### 💮 System name\*
 
     S4H, client 200
 
-#### 🌺 Service (for user [<SAP_GUI_USER_Name>])\*
+#### 💮 Service (for user [<SAP_GUI_USER_Name>])\*
 
     ZAELION_<TRI>_SRV
 
@@ -145,7 +158,7 @@ Vous devriez avoir ceci :
 
 _Configure the selected service._
 
-#### 🌺 View Name
+#### 💮 View Name
 
     Home
 
@@ -158,51 +171,51 @@ _Configure the selected service._
 
 _Configure the main project attributes._
 
-#### 🌺 Module Name\*
+#### 💮 Module Name\*
 
     <tri>_first_app_module_name
 
-#### 🌺 Application Title\*
+#### 💮 Application Title\*
 
     <TRI> First App Application Title
 
-#### 🌺 Application Namespace
+#### 💮 Application Namespace
 
     fr.stms
 
-#### 🌺 Description
+#### 💮 Description
 
     <TRI> First Fiori App Description
 
-#### 🌺 Project Folder Path\*
+#### 💮 Project Folder Path\*
 
     <sélectionner le dossier où vous souhaitez créer le projet>
 
-#### 🌺 Minimum SAPUI5 Version\*
+#### 💮 Minimum SAPUI5 Version\*
 
     <Laisser la valeur par défaut>
 
-#### 🌺 Enable TypeScript
+#### 💮 Enable TypeScript
 
     <No>
 
-#### 🌺 Add Deployment Configuration
+#### 💮 Add Deployment Configuration
 
     <No>
 
-#### 🌺 Add SAP Fiori Launchpad Configuration
+#### 💮 Add SAP Fiori Launchpad Configuration
 
     <No>
 
-#### 🌺 Use Virtual Endpoints for Local Preview
+#### 💮 Use Virtual Endpoints for Local Preview
 
     <Yes>
 
-#### 🌺 Configure Advanced Options
+#### 💮 Configure Advanced Options
 
     <No>
 
-#### 🌺 `Finish`
+#### 💮 `Finish`
 
 ![](./assets/Capture%20d’écran%202026-05-20%20092813.png)
 
@@ -211,7 +224,7 @@ _Configure the main project attributes._
 
 ![](./assets/Capture%20d’écran%202026-05-20%20093317.png)
 
-#### 🌺 Vérifier le ui5-local.yaml
+#### 💮 Vérifier le ui5-local.yaml
 
 Path :
 
@@ -243,7 +256,7 @@ Modifier également le Path metadataPath et mockdataPath :
 
 Si ce n'est pas le cas, modifier le pour correspondre.
 
-#### 🌺 Vérifier/créer le ui5-mock.yaml
+#### 💮 Vérifier/créer le ui5-mock.yaml
 
 vérifier le `Path` du `backend`
 
@@ -311,9 +324,9 @@ server:
         annotations: []
 ```
 
-## 🧩 ERREURS POSSIBLES
+## 🌺 ERREURS POSSIBLES
 
-#### 🌺 Erreurs de Policies :
+#### 💮 Erreurs de Policies :
 
 > [!WARNING]
 > Il se peut que vous ayez une erreur de Policy. Dans ce cas
@@ -327,3 +340,19 @@ server:
 3. Toujours dans la console
 
    npm run
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **business application studio** dans le contexte présenté.
+> - Savoir utiliser **vscode** dans le contexte présenté.
+> - **> fiori: open application generator :** Accéder à la Palette de commandes via Ctrl + Maj + P et sélectionner Fiori: Open Application Generator.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **APP CREATION** avec mes propres mots.
+- [ ] Je peux expliquer **business application studio** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **vscode** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

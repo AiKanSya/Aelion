@@ -6,13 +6,23 @@
 - [ ] UTILISER LA CLAUSE WHERE POUR CIBLER L’ENREGISTREMENT
 - [ ] VERIFIER LE SUCCES DE L’OPERATION VIA SY-SUBRC ET SY-DBCNT
 
-## 🌺 DEFINITION
 
-> DELETE FROM dbtab WHERE condition  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["DELETE SINGLE"]
+    A --> B["DEFINITION"]
+    B --> C["EXEMPLE"]
+```
+
+
+## 🌺 DÉFINITION
+
+> DELETE FROM dbtab WHERE condition
 > Supprime les lignes de la table `dbtab` correspondant à la condition.
 
 > Variables système :
->
 > - SY-SUBRC = 0 → au moins un enregistrement supprimé
 > - SY-SUBRC = 4 → aucun enregistrement trouvé
 > - SY-DBCNT → nombre de lignes supprimées
@@ -25,7 +35,7 @@
 
 ## 🌺 EXEMPLE
 
-### Suppression d'un enregistrement
+### 🍧 Suppression d'un enregistrement
 
     CONSTANTS: lc_user_id TYPE zpassenger_id VALUE 'P0005'.
 
@@ -39,20 +49,34 @@
     ENDIF.
 
 > [!IMPORTANT]
->
 > 1. La constante `lc_user_id` contient l’ID du passager à supprimer.
 > 2. `DELETE FROM` supprime uniquement la ligne correspondant à cet ID.
 > 3. Vérification du succès avec SY-SUBRC et affichage d’un message.
 
-### ENREGISTREMENTS AVANT DELETE
+### 🍧 ENREGISTREMENTS AVANT DELETE
 
 | 🍧 ID_PASS | 🍧 SURNAME | 🍧 NAME |
 | ---------- | ---------- | ------- |
 | P0005      | THIERRY    | ROMAIN  |
 | P0004      | DUPONT     | MARIE   |
 
-### ENREGISTREMENTS APRES DELETE
+### 🍧 ENREGISTREMENTS APRES DELETE
 
 | 🍧 ID_PASS | 🍧 SURNAME | 🍧 NAME |
 | ---------- | ---------- | ------- |
 | P0004      | DUPONT     | MARIE   |
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **définition** dans le contexte présenté.
+> - **Exemple :** CONSTANTS: lcuserid TYPE zpassengerid VALUE 'P0005'.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **DELETE SINGLE** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **exemple** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

@@ -7,7 +7,19 @@
 - [ ] Apprendre à utiliser `WHEN`, `OR` et `WHEN OTHERS` pour gérer tous les cas possibles
 - [ ] Éviter les comportements inattendus en prévoyant un traitement par défaut
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CASE ... ENDCASE"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLE"]
+```
+
+
+## 🌺 DÉFINITION
 
 > L’instruction `CASE` permet de vérifier la valeur d’une (seule) variable et d’exécuter différents traitements selon cette valeur.
 
@@ -62,12 +74,21 @@
 > [!TIP]
 > Le programme lit la variable `lv_month` comme si on lisait un choix de menu : selon la valeur, une action spécifique est effectuée.
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `CASE` teste une variable pour exécuter différents traitements selon sa valeur.
 > - `WHEN` définit les valeurs possibles et le traitement associé.
 > - `OR` permet de regrouper plusieurs valeurs sous un même traitement.
 > - `WHEN OTHERS` capture toutes les valeurs non prévues pour éviter des erreurs.
->
 > [!TIP]
 > Comme un menu avec plusieurs options : selon le choix de l’utilisateur, une action différente sera exécutée.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CASE ... ENDCASE** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

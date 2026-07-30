@@ -7,32 +7,43 @@
 - [ ] Savoir à quel moment chaque section du programme est exécutée
 - [ ] Etre capable d’écrire un squelette complet de `PROGRAMME ABAP`
 
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["SQUELETTE D'UN PROGRAMME ABAP"]
+    A --> B["PRE-REQUIS"]
+    B --> C["DEFINITION"]
+    C --> D["CONSTRUCTION DU SQUELETTE"]
+    D --> E["EXPLICATION DES BLOCS"]
+    E --> F["BONNES PRATIQUES"]
+```
+
+
 ## 🌺 PRE-REQUIS
 
 1. Créer un nouveau programme `ZAELION_TRI_UNIT02_01` à stocker dans ton `PACKAGE` et `OT`
 2. Créer les 3 `INCLUDES` (TOP > SCR > F01)
 3. Sauvegarger, Activer les objets et basculer en Modification.
 
-![](./assets/images/Capture%20d’écran%202025-10-31%20101124.png)
+![](./images/Capture%20d’écran%202025-10-31%20101124.png)
 
-## 🌺 DEFINITION
+## 🌺 DÉFINITION
 
-> Un `PROGRAMME ABAP` est composé de `BLOCS D'EVENEMENTS` déterminant l’ordre et le contexte d’exécution du code.  
+> Un `PROGRAMME ABAP` est composé de `BLOCS D'EVENEMENTS` déterminant l’ordre et le contexte d’exécution du code.
 > Ces blocs structurent le flux d’exécution et rendent le code prédictable et maintainable.
 
 > [!TIP]
 > Le programme est une piece de theatre
 > `REPORT` = titre
->
 > chaque bloc (`INITIALIZATION`, `START-OF-SELECTION`, ...) = acte
->
 > chaque `PERFORM` = séquence
->
 > les instructions des `PERFORM` = repliques.
 
 ## 🌺 CONSTRUCTION DU SQUELETTE
 
-### BLOC DE PROGRAMME : REPORT
+### 🍧 BLOC DE PROGRAMME : REPORT
 
 1.  Dans le `REPORT`, ajouter l'instruction suivante entre l'instruction `REPORT` et les `INCLUDES`
 
@@ -57,9 +68,9 @@
         INCLUDE zaelion_fgi_unit02_01_scr.
         INCLUDE zaelion_fgi_unit02_01_f01.
 
-    ![](./assets/images/Capture%20d’écran%202025-10-31%20102713.png)
+    ![](./images/Capture%20d’écran%202025-10-31%20102713.png)
 
-### INCLUDES
+### 🍧 INCLUDES
 
 1. Dans chaque `INCLUDE`, ajouter respectivement les instructions suivantes
 
@@ -83,9 +94,9 @@
 
 2. Sauvegarder, Activer les objest et Excécuter
 
-   ![](./assets/images/Capture%20d’écran%202025-10-31%20103644.png)
+   ![](./images/Capture%20d’écran%202025-10-31%20103644.png)
 
-### BLOC D'EVENEMENT : INITIALIZATION
+### 🍧 BLOC D'EVENEMENT : INITIALIZATION
 
 Le bloc `INITIALIZATION` en ABAP est une section du `REPORT` exécutée avant l’affichage du premier écran de sélection (c’est-à-dire avant que l’utilisateur voie les paramètres et sélections du programme).
 
@@ -127,9 +138,9 @@ Ce bloc s’exécute une seule fois, automatiquement, sans appel explicite du pr
                 / '     WARNING: Activation unique au lancement',
                 / '-------------------------------------------------'.
 
-    ![](./assets/images/Capture%20d’écran%202025-10-31%20103714.png)
+    ![](./images/Capture%20d’écran%202025-10-31%20103714.png)
 
-### BLOCS D'EVENEMENT : START-OF-SELECTION END-OF-SELECTION
+### 🍧 BLOCS D'EVENEMENT : START-OF-SELECTION END-OF-SELECTION
 
 Le bloc `START-OF-SELECTION` est le point d’entrée principal du traitement logique d’un programme ABAP de type rapport.
 
@@ -188,9 +199,9 @@ Il est souvent utilisé pour le traitement final, comme l’affichage des résul
                 / '     INFO: Traitement de fin du REPORT',
                 / '-------------------------------------------------'.
 
-    ![](./assets/images/Capture%20d’écran%202025-10-31%20104037.png)
+    ![](./images/Capture%20d’écran%202025-10-31%20104037.png)
 
-### BLOC DE SOUS-TRAITEMENT : PERFORM
+### 🍧 BLOC DE SOUS-TRAITEMENT : PERFORM
 
 L’instruction `PERFORM` en ABAP sert à appeler une "sous-routine" (un bloc de code séparé) définie avec `FORM` … `ENDFORM`.
 
@@ -212,15 +223,15 @@ Une sous-routine ne s’exécute que lorsqu’elle est appelée par un `PERFORM`
 
 2.  Double-cliquer sur le nom du `PERFORM` → popup de création → valider → sauvegarder si demander → sélectionner l'`INCLUDE F01` précédemment créé → valider
 
-    ![](./assets/images/Capture%20d’écran%202025-10-31%20104340.png)
+    ![](./images/Capture%20d’écran%202025-10-31%20104340.png)
 
-    ![](./assets/images/Capture%20d’écran%202025-10-31%20104413.png)
+    ![](./images/Capture%20d’écran%202025-10-31%20104413.png)
 
-    ![](./assets/images/Capture%20d’écran%202025-10-31%20104442.png)
+    ![](./images/Capture%20d’écran%202025-10-31%20104442.png)
 
-    ![](./assets/images/Capture%20d’écran%202025-10-31%20104520.png)
+    ![](./images/Capture%20d’écran%202025-10-31%20104520.png)
 
-    ![](./assets/images/Capture%20d’écran%202025-10-31%20104547.png)
+    ![](./images/Capture%20d’écran%202025-10-31%20104547.png)
 
 3.  Implémenter le WRITE suivant dans le `FORM` nouvellement créé
 
@@ -246,7 +257,7 @@ Une sous-routine ne s’exécute que lorsqu’elle est appelée par un `PERFORM`
 
         ENDFORM.
 
-    ![](./assets/images/Capture%20d’écran%202025-10-31%20105140.png)
+    ![](./images/Capture%20d’écran%202025-10-31%20105140.png)
 
 5.  Même chose pour le bloc d'événement `START-OF-SELECTION` avec les `PERFORM report_subprocess_01.` et `PERFORM report_subprocess_02.`
 
@@ -289,11 +300,11 @@ Une sous-routine ne s’exécute que lorsqu’elle est appelée par un `PERFORM`
               / '         INFO: Sous-process 01 du REPORT',
               / '-------------------------------------------------'.
 
-    ![](./assets/images/Capture%20d’écran%202025-10-31%20105537.png)
+    ![](./images/Capture%20d’écran%202025-10-31%20105537.png)
 
     Sauvegarder, Activer les objets et Exécuter.
 
-    ![](./assets/images/Capture%20d’écran%202025-10-31%20105706.png)
+    ![](./images/Capture%20d’écran%202025-10-31%20105706.png)
 
     b. `PERFORM report_subprocess_02.`
 
@@ -335,11 +346,11 @@ Une sous-routine ne s’exécute que lorsqu’elle est appelée par un `PERFORM`
               / '         INFO: Sous-process 02 du REPORT',
               / '-------------------------------------------------'.
 
-    ![](./assets/images/Capture%20d’écran%202025-10-31%20110143.png)
+    ![](./images/Capture%20d’écran%202025-10-31%20110143.png)
 
     Sauvegarder, Activer les objets et Exécuter.
 
-    ![](./assets/images/Capture%20d’écran%202025-10-31%20110250.png)
+    ![](./images/Capture%20d’écran%202025-10-31%20110250.png)
 
 ## 🌺 EXPLICATION DES BLOCS
 
@@ -365,8 +376,18 @@ Une sous-routine ne s’exécute que lorsqu’elle est appelée par un `PERFORM`
 | Respecter l’ordre d’execution SAP                   | Evite des comportements inattendus               |
 | Ne pas placer de code avant `REPORT`                | SAP rejettera ou ignorera du code mal placé      |
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - Un `PROGRAMME ABAP` est organise en blocs d’evenements pour controler l’ordre d’execution.
 > - Inclure des INCLUDES (TOP, SCR, F01) facilite la modularite et la maintenance.
 > - Respecter la structure (`REPORT` -> `INCLUDES` -> `INITIALIZATION` -> `START-OF-SELECTION` -> `PERFORM` -> `END-OF-SELECTION` -> `PERFORM`) garantit lisibilite et predictibilite.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **SQUELETTE D'UN PROGRAMME ABAP** avec mes propres mots.
+- [ ] Je peux expliquer **pre-requis** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **definition** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

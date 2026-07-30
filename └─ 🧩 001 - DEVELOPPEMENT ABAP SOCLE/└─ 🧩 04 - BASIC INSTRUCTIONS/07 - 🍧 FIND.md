@@ -7,7 +7,21 @@
 - [ ] Identifier la première occurrence ou toutes les occurrences
 - [ ] Utiliser les options `MATCH COUNT`, `MATCH OFFSET`, `MATCH LENGTH`, et `RESULTS`
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["FIND"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLE - OFFSET ET LENGTH"]
+    D --> E["EXEMPLE - MATCH COUNT"]
+    E --> F["EXEMPLE - MATCH OFFSET"]
+```
+
+
+## 🌺 DÉFINITION
 
 > FIND sert à localiser des mots ou motifs dans une phrase.
 
@@ -113,17 +127,25 @@
 > Savoir combien de fois le mot apparaît et à quelle position exacte.
 
 > [!TIP]
->
 > - Visualiser la chaîne comme une phrase à scanner à la recherche d’un mot
 > - `FIRST OCCURRENCE` = le premier mot trouvé
 > - `ALL OCCURRENCES` = tous les mots trouvés
 > - `MATCH COUNT` = combien de mots
 > - `MATCH OFFSET` = position du mot dans la phrase
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `FIND` = rechercher un motif dans une chaîne
 > - Peut retourner position, longueur, nombre d’occurrences, ou résultats dans structure/table
->
 > [!TIP]
 > scanner un texte pour identifier et localiser les mots précis
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **FIND** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

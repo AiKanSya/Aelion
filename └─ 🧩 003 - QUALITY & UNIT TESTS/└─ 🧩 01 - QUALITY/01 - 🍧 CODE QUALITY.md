@@ -1,15 +1,31 @@
 # 🌸 CODE QUALITY
 
+## 🌺 OBJECTIFS
+
+
 - [ ] Comprendre le `Code Quality` en ABAP
 - [ ] Identifier les critères de qualité
 
-## 🧩 DÉFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["CODE QUALITY"]
+    A --> B["DÉFINITION"]
+    B --> C["POURQUOI LA QUALITÉ DU CODE EST CRITIQUE EN ABAP"]
+    C --> D["QUALITÉ ≠ PERFORMANCE"]
+    D --> E["PILIERS DE LA CODE QUALITY EN ABAP"]
+    E --> F["CONFORMITÉ"]
+```
+
+
+## 🌺 DÉFINITION
 
 La `Code Quality` désigne le niveau de `fiabilité`, de `lisibilité` et de `maintenabilité` du code ABAP livré.
 
 > [!IMPORTANT]
 > Un code de qualité :
->
 > - fonctionne correctement
 > - peut être compris par un autre développeur
 > - peut être modifié sans casser l’existant
@@ -18,11 +34,10 @@ La `Code Quality` désigne le niveau de `fiabilité`, de `lisibilité` et de `ma
 > [!WARNING]
 > Un code qui "marche" n’est pas forcément un code de qualité.
 
-## 🧩 POURQUOI LA QUALITÉ DU CODE EST CRITIQUE EN ABAP
+## 🌺 POURQUOI LA QUALITÉ DU CODE EST CRITIQUE EN ABAP
 
 > [!IMPORTANT]
 > Le code ABAP :
->
 > - vit longtemps (années)
 > - est maintenu par plusieurs équipes
 > - est transporté entre systèmes
@@ -30,32 +45,28 @@ La `Code Quality` désigne le niveau de `fiabilité`, de `lisibilité` et de `ma
 
 > [!WARNING]
 > Un défaut de qualité :
->
 > - génère des bugs tardifs
 > - rend les corrections risquées
 > - augmente le coût de maintenance
 > - ralentit les projets
 
-## 🧩 QUALITÉ ≠ PERFORMANCE
+## 🌺 QUALITÉ ≠ PERFORMANCE
 
 > [!CAUTION]
 > Un code rapide mais :
->
 > - illisible
 > - non testé
 > - non contrôlé
->
 > est un code dangereux.
 
 > [!IMPORTANT]
 > La qualité vise d’abord :
->
 > - la lisibitité
 > - la fiabilité
 > - la maintenabilité
 > - la conformité
 
-## 🧩 PILIERS DE LA CODE QUALITY EN ABAP
+## 🌺 PILIERS DE LA CODE QUALITY EN ABAP
 
 ### 🍧 LISIBILITÉ
 
@@ -84,7 +95,7 @@ La `Code Quality` désigne le niveau de `fiabilité`, de `lisibilité` et de `ma
 > [!NOTE]
 > Sans tests, chaque modification est un risque.
 
-## 🧩 CONFORMITÉ
+## 🌺 CONFORMITÉ
 
 - respect des règles syntaxiques et statiques
 - utilisation des outils standard :
@@ -94,3 +105,19 @@ La `Code Quality` désigne le niveau de `fiabilité`, de `lisibilité` et de `ma
 
 > [!NOTE]
 > SAP fournit ces outils pour éviter les erreurs classiques.
+
+## 🌺 RÉSUMÉ
+
+> - **Définition :** La Code Quality désigne le niveau de fiabilité, de lisibilité et de maintenabilité du code ABAP livré.
+> - Savoir utiliser **pourquoi la qualité du code est critique en abap** dans le contexte présenté.
+> - Savoir utiliser **qualité ≠ performance** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **CODE QUALITY** avec mes propres mots.
+- [ ] Je peux expliquer **définition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **pourquoi la qualité du code est critique en abap** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

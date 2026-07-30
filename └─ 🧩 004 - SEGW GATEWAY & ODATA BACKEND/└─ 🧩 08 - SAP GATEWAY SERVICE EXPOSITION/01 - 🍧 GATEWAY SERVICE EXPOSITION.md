@@ -1,10 +1,19 @@
 # 🌸 GATEWAY SERVICE EXPOSITION
 
-## 🧩 OBJECTIVES
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["GATEWAY SERVICE EXPOSITION"]
+    A --> B["EXPOSE THE SAP GATEWAY SERVICE"]
+```
+
+
+## 🌺 OBJECTIFS
 
 - [ ] Exposer un `SAP Gateway Service _SRV`
 
-## 🧩 EXPOSE THE SAP GATEWAY SERVICE
+## 🌺 EXPOSE THE SAP GATEWAY SERVICE
 
 > [!IMPORTANT]
 > Actuellement, le Gateway Service existe, a été généré mais n'est toujours pas exposé. Il est nécessaire d'exposer le service afin de tester les implémentations futurs (méthodes CRUD).
@@ -26,9 +35,7 @@
 
 > [!NOTE]
 > Lorsque nous avions généré le projet, nous avions créé plusieurs objets :
->
 > ![](./assets/Capture%20d’écran%202026-01-16%20131127.png)
->
 > Le `Technical Service Name` se trouve indiqué ici. En général et si aucune modification n'a été faite lors de la première génération du service, le `Technical Service Name` aura comme valeur `<PROJECTNAME>_SRV`.
 
 ![](./assets/Capture%20d’écran%202026-01-16%20134912.png)
@@ -65,3 +72,17 @@
 ![](./assets/Capture%20d’écran%202026-01-16%20141621.png)
 
 ![](./assets/Capture%20d’écran%202026-01-16%20141727.png)
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **expose the sap gateway service** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **GATEWAY SERVICE EXPOSITION** avec mes propres mots.
+- [ ] Je peux expliquer **objectives** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **expose the sap gateway service** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

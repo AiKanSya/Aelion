@@ -6,7 +6,20 @@
 - [ ] Séparer une chaîne de caractères selon un séparateur défini
 - [ ] Stocker le résultat dans des `VARIABLES` ou une table interne
 
-## 🌺 DEFINITION
+
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["SPLIT"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLE DE BASE"]
+    D --> E["DECLARATION DYNAMIQUE"]
+```
+
+
+## 🌺 DÉFINITION
 
 > `SPLIT` permet de découper une chaîne de caractères selon un séparateur et de stocker chaque partie dans une variable ou une table interne.
 
@@ -27,7 +40,6 @@
 - IN BYTE|CHARACTER MODE : mode de traitement des caractères
 
 > [!TIP]
->
 > - `IN BYTE MODE` = travailler en mode binaire pur (peu utilisé)
 > - `IN CHARACTER MODE` = travailler sur les caractères comme des lettres
 
@@ -83,15 +95,23 @@
 > Chaque mot devient un élément d'une liste
 
 > [!TIP]
->
 > - Visualiser la chaîne comme une phrase à découper en mots
 > - `SPLIT` est l’inverse de `CONCATENATE` : on passe de la phrase complète aux morceaux
 > - Très utile pour analyser ou transformer des données textuelles
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `SPLIT` = découper une chaîne selon un séparateur
 > - Résultat dans variables individuelles ou table interne
->
 > [!TIP]
 > mettre chaque mot dans une boîte séparée ou dans une liste
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **SPLIT** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

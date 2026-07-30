@@ -2,190 +2,95 @@
 
 ## 🌺 OBJECTIFS
 
-- [ ] Comprendre le rôle d’une exception de classe
-- [ ] Déclarer une exception locale
-- [ ] Déclarer une méthode avec `RAISING`
-- [ ] Lever une exception avec `RAISE EXCEPTION TYPE`
-- [ ] Traiter une exception avec `TRY`, `CATCH` et `ENDTRY`
+- [ ] Créer une classe d’exception globale.
+- [ ] Déclarer une exception dans la signature d’une méthode.
+- [ ] Lever l’exception avec `RAISE EXCEPTION`.
+- [ ] La traiter avec `TRY...CATCH`.
 
-## 🌺 DEFINITION
+## 🌺 DÉFINITION
 
-> Une exception de classe représente une situation anormale qu’une méthode ne peut pas traiter seule.
+Une exception de classe représente une situation anormale qu’un appelant doit pouvoir identifier et traiter. Les classes d’exception héritent généralement de `CX_STATIC_CHECK`, `CX_DYNAMIC_CHECK` ou `CX_NO_CHECK` selon la stratégie retenue.
 
-La méthode signale le problème à son appelant.
-L’appelant décide du traitement à appliquer.
+## 🌺 VUE D'ENSEMBLE
 
-## 🌺 CLASSES RACINES COURANTES
+```mermaid
+sequenceDiagram
+    participant P as Programme
+    participant S as ZCL_AELION_STOCK
+    participant X as ZCX_AELION_INVALID_QTY
+    P->>S: REMOVE_STOCK
+    S->>S: contrôler la quantité
+    S-->>X: RAISE EXCEPTION
+    X-->>P: CATCH et traitement
+```
 
-| 🍧 Classe racine   | 🍧 Contrôle attendu                             |
-| ------------------ | ----------------------------------------------- |
-| `CX_STATIC_CHECK`  | L’appelant doit déclarer ou traiter l’exception |
-| `CX_DYNAMIC_CHECK` | Contrôle plus souple selon le contexte d’appel  |
-| `CX_NO_CHECK`      | Aucun contrôle statique obligatoire             |
+## 🌺 CRÉATION DANS SE24
 
-Pour un apprentissage initial, `CX_STATIC_CHECK` rend le contrat explicite.
+1. Créer `ZCX_AELION_INVALID_QUANTITY` comme classe d’exception.
+2. Choisir une superclasse adaptée, par exemple `CX_STATIC_CHECK` pour une exception explicitement déclarée et contrôlée.
+3. Créer les textes nécessaires.
+4. Ajouter, si besoin, des attributs portant le contexte de l’erreur.
+5. Activer la classe.
 
-## 🌺 DECLARATION D'UNE EXCEPTION LOCALE
+Dans `ZCL_AELION_STOCK`, ajouter l’exception à la signature de `REMOVE_STOCK` dans l’onglet correspondant.
 
-    CLASS lcx_invalid_amount DEFINITION
-      INHERITING FROM cx_static_check.
-    ENDCLASS.
+## 🌺 LEVER L’EXCEPTION
 
-    CLASS lcx_invalid_amount IMPLEMENTATION.
-    ENDCLASS.
+```abap
+METHOD remove_stock.
+  IF iv_quantity <= 0 OR iv_quantity > mv_quantity.
+    RAISE EXCEPTION TYPE zcx_aelion_invalid_quantity.
+  ENDIF.
 
-Convention :
+  mv_quantity = mv_quantity - iv_quantity.
+ENDMETHOD.
+```
 
-    lcx_nom_exception
+## 🌺 TRAITER L’EXCEPTION
 
-## 🌺 DECLARATION AVEC RAISING
+```abap
+TRY.
+    lo_stock->remove_stock( iv_quantity = 10 ).
+  CATCH zcx_aelion_invalid_quantity INTO DATA(lx_quantity).
+    MESSAGE lx_quantity->get_text( ) TYPE 'E'.
+ENDTRY.
+```
 
-    METHODS withdraw
-      IMPORTING
-        iv_amount TYPE decfloat34
-      RAISING
-        lcx_invalid_amount.
+> [!IMPORTANT]
+> Une exception ne doit pas être utilisée pour piloter un déroulement normal. Elle signale une condition qui empêche la méthode de respecter son contrat.
 
-`RAISING` indique que la méthode peut propager cette exception.
+## 🌺 CATÉGORIES
 
-## 🌺 LEVER L'EXCEPTION
+| Superclasse | Contrôle principal |
+|---|---|
+| `CX_STATIC_CHECK` | Déclaration ou traitement imposé statiquement |
+| `CX_DYNAMIC_CHECK` | Contrôle au moment de l’exécution selon propagation |
+| `CX_NO_CHECK` | Pas d’obligation de déclaration explicite |
 
-    IF iv_amount <= 0.
-      RAISE EXCEPTION TYPE lcx_invalid_amount.
-    ENDIF.
+Le choix dépend du contrat de l’API et des règles du projet.
 
-## 🌺 TRAITER L'EXCEPTION
+## 🌺 EXERCICE
 
-    TRY.
-        lo_account->withdraw( iv_amount = -10 ).
+Créer `ZCX_AELION_DIVISION_BY_ZERO`, la lever depuis une méthode `DIVIDE` et la traiter dans un report.
 
-      CATCH lcx_invalid_amount INTO DATA(lx_invalid_amount).
-        WRITE: / 'Montant invalide'.
-    ENDTRY.
+<details>
+<summary>Afficher la correction et les points de contrôle</summary>
 
-## 🌺 EXEMPLE COMPLET
+- [ ] La classe d’exception est globale et active.
+- [ ] La méthode déclare l’exception quand nécessaire.
+- [ ] RAISE EXCEPTION interrompt le traitement normal.
+- [ ] TRY...CATCH traite précisément le type attendu.
 
-    REPORT zaelion_oo_14.
+</details>
 
-    CLASS lcx_invalid_amount DEFINITION
-      INHERITING FROM cx_static_check.
-    ENDCLASS.
+## 🌺 RÉSUMÉ
 
-    CLASS lcx_invalid_amount IMPLEMENTATION.
-    ENDCLASS.
-
-    CLASS lcx_insufficient_balance DEFINITION
-      INHERITING FROM cx_static_check.
-    ENDCLASS.
-
-    CLASS lcx_insufficient_balance IMPLEMENTATION.
-    ENDCLASS.
-
-    CLASS lcl_bank_account DEFINITION.
-      PUBLIC SECTION.
-        METHODS constructor
-          IMPORTING
-            iv_balance TYPE decfloat34.
-
-        METHODS withdraw
-          IMPORTING
-            iv_amount TYPE decfloat34
-          RAISING
-            lcx_invalid_amount
-            lcx_insufficient_balance.
-
-        METHODS get_balance
-          RETURNING
-            VALUE(rv_balance) TYPE decfloat34.
-
-      PRIVATE SECTION.
-        DATA mv_balance TYPE decfloat34.
-    ENDCLASS.
-
-    CLASS lcl_bank_account IMPLEMENTATION.
-      METHOD constructor.
-        mv_balance = iv_balance.
-      ENDMETHOD.
-
-      METHOD withdraw.
-        IF iv_amount <= 0.
-          RAISE EXCEPTION TYPE lcx_invalid_amount.
-        ENDIF.
-
-        IF iv_amount > mv_balance.
-          RAISE EXCEPTION TYPE lcx_insufficient_balance.
-        ENDIF.
-
-        mv_balance = mv_balance - iv_amount.
-      ENDMETHOD.
-
-      METHOD get_balance.
-        rv_balance = mv_balance.
-      ENDMETHOD.
-    ENDCLASS.
-
-    START-OF-SELECTION.
-
-      DATA(lo_account) = NEW lcl_bank_account( iv_balance = '100.00' ).
-
-      TRY.
-          lo_account->withdraw( iv_amount = '30.00' ).
-          WRITE: / lo_account->get_balance( ).
-
-          lo_account->withdraw( iv_amount = '500.00' ).
-
-        CATCH lcx_invalid_amount.
-          WRITE: / 'Le montant doit être strictement positif'.
-
-        CATCH lcx_insufficient_balance.
-          WRITE: / 'Le solde est insuffisant'.
-      ENDTRY.
-
-## 🌺 ORDRE DES CATCH
-
-Lorsqu’une exception spécialisée hérite d’une exception plus générale, traiter d’abord la plus spécifique.
-
-    TRY.
-        " Traitement
-      CATCH lcx_specific_error.
-        " Cas précis
-      CATCH cx_root.
-        " Cas général
-    ENDTRY.
-
-## 🌺 CLEANUP
-
-`CLEANUP` peut être utilisé pour restaurer un état avant la propagation d’une exception non traitée localement.
-Cette notion est avancée et doit être utilisée uniquement lorsqu’un nettoyage explicite est nécessaire.
-
-## 🌺 BONNES PRATIQUES
-
-- Lever une exception lorsqu’une méthode ne peut pas produire un résultat valide.
-- Déclarer clairement les exceptions dans `RAISING`.
-- Créer des exceptions correspondant à des causes distinctes.
-- Ne pas utiliser une exception pour piloter un cas métier normal et fréquent.
-- Ne pas masquer une exception sans traitement ni journalisation.
-- Ajouter des textes d’exception dans les classes globales réelles.
-
-## 🌺 EXERCICES
-
-1. Créer une exception `lcx_invalid_quantity`.
-2. Créer une classe `lcl_stock`.
-3. Déclarer `remove` avec `RAISING`.
-4. Lever l’exception si la quantité est négative ou supérieure au stock.
-5. Traiter l’exception dans `TRY...CATCH`.
-6. Vérifier que le stock n’est pas modifié en cas d’erreur.
-
-## 🌺 RESUME
-
-> - Une exception signale une situation anormale.
-> - `RAISING` documente les exceptions d’une méthode.
-> - `RAISE EXCEPTION TYPE` lève une exception.
-> - `TRY...CATCH` traite l’exception.
-> - Les exceptions structurent les erreurs mieux qu’un simple code retour ambigu.
+> - Une classe d’exception modélise une erreur identifiable.
+> - La méthode lève l’exception quand son contrat ne peut pas être tenu.
+> - L’appelant décide comment la traiter ou la propager.
+> - Le type d’exception doit être choisi consciemment.
 
 ## 🌺 SOURCES OFFICIELLES
 
-- SAP ABAP Keyword Documentation — Class-Based Exceptions : https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/abenexception_classes.htm
-- SAP ABAP Keyword Documentation — `TRY` : https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/abaptry.htm
-- SAP ABAP Keyword Documentation — `RAISE EXCEPTION` : https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/abapraise_exception.htm
+- [Documentation SAP — Exceptions](https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/ABENEXCEPTIONS.html)
+- [Documentation SAP — Builder](https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/ABENCLASS_BUILDER_GLOSRY.html)

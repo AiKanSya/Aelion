@@ -8,17 +8,29 @@
 - [ ] Apprendre à utiliser `IF ... NS ... ENDIF` pour contrôler l'absence d'une séquence
 - [ ] Identifier les cas pratiques où la vérification de l'absence est nécessaire
 
-## 🌺 DEFINITION
 
-> L’opérateur `NS` (No String) est l’inverse de `CS` (Contains String).  
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["NO STRING (NS)"]
+    A --> B["DEFINITION"]
+    B --> C["SYNTAXE"]
+    C --> D["EXEMPLE"]
+    D --> E["DIFFERENCE AVEC CS"]
+```
+
+
+## 🌺 DÉFINITION
+
+> L’opérateur `NS` (No String) est l’inverse de `CS` (Contains String).
 > Il permet de vérifier qu’une chaîne de caractères (`oper1`) ne contient pas une autre sous-chaîne (`oper2`).
 
 > [!TIP]
-> Imagine `oper1` comme un livre et `oper2` comme une phrase précise que tu cherches.  
+> Imagine `oper1` comme un livre et `oper2` comme une phrase précise que tu cherches.
 > Si cette phrase n’existe pas dans le texte, la condition `NS` est vraie.
 
 > [!NOTE]
->
 > - "HELLO WORLD" NS "WORLD" → faux
 > - "HELLO WORLD" NS "SAP" → vrai
 > - "HELLO WORLD" NS "hello" → vrai (sensible à la casse)
@@ -56,12 +68,21 @@
 - `CS` (Contains String) → vrai si la sous-chaîne est trouvée
 - `NS` (No String) → vrai si la sous-chaîne n’est pas trouvée
 
-## 🌺 RESUME
+## 🌺 RÉSUMÉ
 
 > - `NS` = No String → vérifie que `oper1` ne contient pas `oper2`
 > - Sensible à la casse
 > - Inverse logique de `CS`
 > - Très utile pour détecter l’absence d’un mot ou d’une séquence spécifique dans une chaîne
->
 > [!TIP]
 > c’est comme vérifier qu’une phrase précise n’apparaît pas dans un livre
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **NO STRING (NS)** avec mes propres mots.
+- [ ] Je peux expliquer **definition** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **syntaxe** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>

@@ -1,6 +1,21 @@
 # 🌸 MODEL
 
-## 🧩 MODEL/ (MODÈLES DE DONNÉES)
+## 🌺 OBJECTIFS
+
+- [ ] Expliquer le rôle de **MODEL** dans le contexte présenté.
+- [ ] Comprendre **model/ (modèles de données)**.
+- [ ] Appliquer la notion dans un exemple simple.
+- [ ] Reconnaître les erreurs fréquentes et les limites de l’approche.
+## 🌺 VUE D'ENSEMBLE
+
+```mermaid
+flowchart TD
+    A["MODEL"]
+    A --> B["MODEL/ (MODÈLES DE DONNÉES)"]
+```
+
+
+## 🌺 MODEL/ (MODÈLES DE DONNÉES)
 
 ```
 fgifirstappmodulename/
@@ -30,15 +45,11 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Centraliser la gestion des modèles de données côté client.
->
 > - 🔨 Utilité : Définir et exposer les modèles utilisés par l’application (OData, JSON, Resource).
 > - ⌚ Quand utilisé ? Dès que l’application manipule des données (backend, données locales, paramètres).
 > - 📌 Exemple :
->
 >   Utiliser un modèle JSON pour stocker des données temporaires.
 
 ### 🍧 MODELS.JS (DÉFINITION DES MODÈLES)
@@ -72,11 +83,8 @@ fgifirstappmodulename/
 ```
 
 > [!IMPORTANT]
->
 > - 🎯 Objectif
->
 >   Initialiser et configurer les modèles de l’application.
->
 > - 🔨 Utilité : Créer les modèles (OData, JSON, i18n)
 >   et les rendre accessibles aux vues et contrôleurs.
 > - ⌚ Quand utilisé ? Au démarrage de l’application
@@ -104,3 +112,17 @@ sap.ui.define(
   },
 );
 ```
+
+## 🌺 RÉSUMÉ
+
+> - Savoir utiliser **model/ (modèles de données)** dans le contexte présenté.
+
+<details>
+<summary>🍧 Afficher l’auto-évaluation</summary>
+
+- [ ] Je peux définir **MODEL** avec mes propres mots.
+- [ ] Je peux expliquer **model/ (modèles de données)** sans relire le chapitre.
+- [ ] Je peux appliquer ou illustrer **un exemple concret** dans un exemple simple.
+- [ ] Je peux identifier au moins une erreur fréquente ou une limite liée à cette notion.
+
+</details>
