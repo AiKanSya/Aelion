@@ -1,0 +1,10 @@
+# 🌸 SOMMAIRE — └─ 🧩 01 - BASIC
+
+## 🌺 EXERCICES
+
+- [OT](<./01 - 🍧 OT.md>)
+- [PACKAGE](<./02 - 🍧 PACKAGE.md>)
+- [PROGRAM](<./03 - 🍧 PROGRAM.md>)
+- [INCLUDE](<./04 - 🍧 INCLUDE.md>)
+- [DUMP DEBUGGER](<./05 - 🍧 DUMP DEBUGGER.md>)
+- [INTEGRATION COLLECTIVE OT](<./06 - 🍧 INTEGRATION COLLECTIVE OT.md>)

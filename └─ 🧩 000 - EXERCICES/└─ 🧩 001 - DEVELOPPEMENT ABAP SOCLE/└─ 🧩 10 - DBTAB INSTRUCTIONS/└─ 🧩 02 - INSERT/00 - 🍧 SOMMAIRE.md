@@ -1,0 +1,5 @@
+# 🌸 SOMMAIRE — └─ 🧩 02 - INSERT
+
+## 🌺 EXERCICES
+
+- [INSERT INTO](<./01 - 🍧 INSERT INTO.md>)
