@@ -14,6 +14,7 @@ flowchart TD
     A --> B["CODE QUALITY"]
     B --> C["EXTENDED CHECK"]
     C --> D["CODE INSPECTOR"]
+    D --> E["MATRICE DE TESTS D'UN IMPORT"]
 ```
 
 > [!IMPORTANT]
@@ -24,6 +25,7 @@ flowchart TD
 - [CODE QUALITY](<./01 - 🍧 CODE QUALITY.md>)
 - [EXTENDED CHECK](<./02 - 🍧 EXTENDED CHECK.md>)
 - [CODE INSPECTOR](<./03 - 🍧 CODE INSPECTOR.md>)
+- [MATRICE DE TESTS D'UN IMPORT](<./04 - 🍧 MATRICE DE TESTS IMPORT.md>)
 
 <details>
 <summary>Afficher la méthode de travail</summary>

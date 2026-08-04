@@ -40,6 +40,7 @@ flowchart TD
 - [READ](<./12 - 🍧 READ.md>)
 - [BINARY SEARCH](<./13 - 🍧 BINARY SEARCH.md>)
 - [LOOP](<./14 - 🍧 LOOP.md>)
+- [LOOP AT GROUP BY](<./15 - 🍧 LOOP AT GROUP BY.md>)
 
 <details>
 <summary>Afficher la méthode de travail</summary>

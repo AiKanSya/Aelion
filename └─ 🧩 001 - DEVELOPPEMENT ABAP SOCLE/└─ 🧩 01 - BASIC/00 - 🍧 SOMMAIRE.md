@@ -16,6 +16,7 @@ flowchart TD
     C --> D["PROGRAM"]
     D --> E["INCLUDE"]
     E --> F["DUMP DEBUGGER"]
+    F --> G["INTEGRATION COLLECTIVE DANS UN OT"]
 ```
 
 > [!IMPORTANT]
@@ -28,6 +29,7 @@ flowchart TD
 - [PROGRAM](<./03 - 🍧 PROGRAM.md>)
 - [INCLUDE](<./04 - 🍧 INCLUDE.md>)
 - [DUMP DEBUGGER](<./05 - 🍧 DUMP DEBUGGER.md>)
+- [INTÉGRATION COLLECTIVE DANS UN OT](<./06 - 🍧 INTEGRATION COLLECTIVE OT.md>)
 
 <details>
 <summary>Afficher la méthode de travail</summary>

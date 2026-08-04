@@ -19,6 +19,10 @@ flowchart TD
     F --> G["SPLIT"]
     G --> H["FIND"]
     H --> I["REPLACE"]
+    I --> J["TRANSLATE"]
+    J --> K["CLEAR"]
+    K --> L["OFFSET"]
+    L --> M["CONVERSION TEXTE VERS NOMBRE"]
 ```
 
 > [!IMPORTANT]
@@ -37,6 +41,7 @@ flowchart TD
 - [TRANSLATE](<./09 - 🍧 TRANSLATE.md>)
 - [CLEAR](<./10 - 🍧 CLEAR.md>)
 - [OFFSET](<./11 - 🍧 OFFSET.md>)
+- [CONVERSION TEXTE VERS NOMBRE](<./14 - 🍧 CONVERSION TEXTE VERS NOMBRE.md>)
 
 <details>
 <summary>Afficher la méthode de travail</summary>

@@ -25,7 +25,7 @@ flowchart TD
 2. Créer les 3 `INCLUDES` (TOP > SCR > F01)
 3. Sauvegarger, Activer les objets et basculer en Modification.
 
-![](./images/Capture%20d’écran%202025-10-31%20101124.png)
+![](./assets/Capture%20d’écran%202025-10-31%20101124.png)
 
 ## 🌺 DÉFINITION
 
@@ -66,7 +66,7 @@ flowchart TD
         INCLUDE zaelion_fgi_unit02_01_scr.
         INCLUDE zaelion_fgi_unit02_01_f01.
 
-    ![](./images/Capture%20d’écran%202025-10-31%20102713.png)
+    ![](./assets/Capture%20d’écran%202025-10-31%20102713.png)
 
 ### 🍧 INCLUDES
 
@@ -92,7 +92,7 @@ flowchart TD
 
 2. Sauvegarder, Activer les objest et Excécuter
 
-   ![](./images/Capture%20d’écran%202025-10-31%20103644.png)
+   ![](./assets/Capture%20d’écran%202025-10-31%20103644.png)
 
 ### 🍧 BLOC D'EVENEMENT : INITIALIZATION
 
@@ -136,7 +136,7 @@ Ce bloc s’exécute une seule fois, automatiquement, sans appel explicite du pr
                 / '     WARNING: Activation unique au lancement',
                 / '-------------------------------------------------'.
 
-    ![](./images/Capture%20d’écran%202025-10-31%20103714.png)
+    ![](./assets/Capture%20d’écran%202025-10-31%20103714.png)
 
 ### 🍧 BLOCS D'EVENEMENT : START-OF-SELECTION END-OF-SELECTION
 
@@ -197,7 +197,7 @@ Il est souvent utilisé pour le traitement final, comme l’affichage des résul
                 / '     INFO: Traitement de fin du REPORT',
                 / '-------------------------------------------------'.
 
-    ![](./images/Capture%20d’écran%202025-10-31%20104037.png)
+    ![](./assets/Capture%20d’écran%202025-10-31%20104037.png)
 
 ### 🍧 BLOC DE SOUS-TRAITEMENT : PERFORM
 
@@ -221,15 +221,15 @@ Une sous-routine ne s’exécute que lorsqu’elle est appelée par un `PERFORM`
 
 2.  Double-cliquer sur le nom du `PERFORM` → popup de création → valider → sauvegarder si demander → sélectionner l'`INCLUDE F01` précédemment créé → valider
 
-    ![](./images/Capture%20d’écran%202025-10-31%20104340.png)
+    ![](./assets/Capture%20d’écran%202025-10-31%20104340.png)
 
-    ![](./images/Capture%20d’écran%202025-10-31%20104413.png)
+    ![](./assets/Capture%20d’écran%202025-10-31%20104413.png)
 
-    ![](./images/Capture%20d’écran%202025-10-31%20104442.png)
+    ![](./assets/Capture%20d’écran%202025-10-31%20104442.png)
 
-    ![](./images/Capture%20d’écran%202025-10-31%20104520.png)
+    ![](./assets/Capture%20d’écran%202025-10-31%20104520.png)
 
-    ![](./images/Capture%20d’écran%202025-10-31%20104547.png)
+    ![](./assets/Capture%20d’écran%202025-10-31%20104547.png)
 
 3.  Implémenter le WRITE suivant dans le `FORM` nouvellement créé
 
@@ -255,7 +255,7 @@ Une sous-routine ne s’exécute que lorsqu’elle est appelée par un `PERFORM`
 
         ENDFORM.
 
-    ![](./images/Capture%20d’écran%202025-10-31%20105140.png)
+    ![](./assets/Capture%20d’écran%202025-10-31%20105140.png)
 
 5.  Même chose pour le bloc d'événement `START-OF-SELECTION` avec les `PERFORM report_subprocess_01.` et `PERFORM report_subprocess_02.`
 
@@ -298,11 +298,11 @@ Une sous-routine ne s’exécute que lorsqu’elle est appelée par un `PERFORM`
               / '         INFO: Sous-process 01 du REPORT',
               / '-------------------------------------------------'.
 
-    ![](./images/Capture%20d’écran%202025-10-31%20105537.png)
+    ![](./assets/Capture%20d’écran%202025-10-31%20105537.png)
 
     Sauvegarder, Activer les objets et Exécuter.
 
-    ![](./images/Capture%20d’écran%202025-10-31%20105706.png)
+    ![](./assets/Capture%20d’écran%202025-10-31%20105706.png)
 
     b. `PERFORM report_subprocess_02.`
 
@@ -344,11 +344,11 @@ Une sous-routine ne s’exécute que lorsqu’elle est appelée par un `PERFORM`
               / '         INFO: Sous-process 02 du REPORT',
               / '-------------------------------------------------'.
 
-    ![](./images/Capture%20d’écran%202025-10-31%20110143.png)
+    ![](./assets/Capture%20d’écran%202025-10-31%20110143.png)
 
     Sauvegarder, Activer les objets et Exécuter.
 
-    ![](./images/Capture%20d’écran%202025-10-31%20110250.png)
+    ![](./assets/Capture%20d’écran%202025-10-31%20110250.png)
 
 ## 🌺 EXPLICATION DES BLOCS
 
