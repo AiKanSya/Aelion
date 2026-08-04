@@ -115,7 +115,7 @@ Créer un `PACKAGE` permet :
 
 | 🍧 Bonne pratique               | 🍧 Explication                        |
 | ------------------------------- | ------------------------------------- |
-| Toujours commencer par Z ou Y   | Convention SAP pour objets clients    |
+| Utiliser `Z` ou `Y`, ou un namespace client enregistré | Convention habituelle pour distinguer les objets clients des objets SAP |
 | Nom explicite et structuré      | Exemple : ZSD_TRAINING_2025           |
 | Grouper les objets par thème    | Facilite maintenance et transport     |
 | Lier `PACKAGE` à un OT cohérent | Tous les objets liés partent ensemble |

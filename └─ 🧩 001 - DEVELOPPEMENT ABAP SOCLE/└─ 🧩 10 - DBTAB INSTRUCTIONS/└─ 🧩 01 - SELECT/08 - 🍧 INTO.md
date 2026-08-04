@@ -82,7 +82,7 @@ flowchart TD
 | Utiliser INTO CORRESPONDING FIELDS OF                                         | Pour éviter les erreurs si l’ordre des colonnes change |
 | Préférer APPENDING pour ajouter des lignes                                    | Permet d’éviter de supprimer les données existantes    |
 | Déclarer directement les tables/structures avec @DATA                         | Simplifie le code et évite les déclarations multiples  |
-| Toujours utiliser des FIELD-SYMBOLS ou LIKE LINE OF pour parcourir les tables | Facilite l’accès aux données lors du LOOP              |
+| Choisir `ASSIGNING`, `INTO` ou `REFERENCE INTO` selon le traitement | `ASSIGNING` évite une copie ; `INTO` convient lorsque la ligne doit être indépendante |
 
 > [!TIP]
 > Les exercices permettent de visualiser la différence entre `INTO`, `INTO TABLE`, `CORRESPONDING FIELDS` et `APPENDING`.

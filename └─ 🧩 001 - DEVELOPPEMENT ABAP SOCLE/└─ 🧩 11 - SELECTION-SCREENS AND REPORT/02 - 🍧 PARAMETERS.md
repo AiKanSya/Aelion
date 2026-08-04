@@ -28,7 +28,7 @@ flowchart TD
 > Imaginez un formulaire où l’utilisateur saisit uniquement un numéro de document ou une date. `PARAMETERS` correspond à chaque champ de ce formulaire.
 
 > [!NOTE]
-> Les `PARAMETERS` peuvent générer automatiquement un MATCHCODE si le type est lié à une table DDIC, facilitant la recherche.
+> Un `PARAMETERS` peut proposer une aide à la saisie lorsque son type DDIC ou sa logique d'écran fournit une aide de recherche. Le typage DDIC ne garantit pas à lui seul qu'une aide existe.
 
 ## 🌺 INSTRUCTION PARAMETERS
 
@@ -73,7 +73,7 @@ _Exemple de déclaration simple_
 ## 🌺 BONNES PRATIQUES
 
 - Utiliser un nom de paramètre clair et compréhensible, convention `p_`.
-- Toujours typer le paramètre avec un champ DDIC pour bénéficier des validations automatiques et du match-code.
+- Réutiliser un type DDIC lorsqu'il porte la sémantique et l'aide à la saisie attendues ; un type ABAP local reste valide pour une donnée sans objet DDIC approprié.
 - Prévoir des valeurs par défaut si nécessaire pour guider l’utilisateur.
 - Vérifier la valeur saisie dans le programme avant de l’utiliser pour éviter des erreurs.
 

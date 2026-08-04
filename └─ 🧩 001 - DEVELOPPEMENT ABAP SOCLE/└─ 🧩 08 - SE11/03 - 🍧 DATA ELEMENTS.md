@@ -27,7 +27,7 @@ flowchart TD
 
 > Un `ELEMENT DE DONNEES` est lié à un seul `DOMAINE`, mais un `DOMAINE` peut être utilisé par plusieurs éléments de données.
 > Un `ELEMENT DE DONNEES` est la zone de référence d’une donnée dans SAP.
-> Il définit comment une donnée est présentée et utilisée dans le système, et il est toujours associé à un `DOMAINE`.
+> Il porte la signification sémantique et les libellés d'une donnée. Il peut référencer un `DOMAINE` ou être défini à partir d'un type intégré, selon les possibilités de la version ABAP utilisée.
 
 > [!IMPORTANT]
 > Le `DOMAINE` fixe les caractéristiques techniques (type, longueur, format),

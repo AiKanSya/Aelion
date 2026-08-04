@@ -43,7 +43,7 @@ flowchart TD
 - `WHEN OTHERS` : optionnel, capture tous les cas non prévus
 
 > [!TIP]
-> Toujours prévoir un `WHEN OTHERS` pour éviter des comportements inattendus si la valeur de la variable n’est pas dans les cas définis.
+> Ajouter `WHEN OTHERS` seulement si le programme doit traiter explicitement toutes les autres valeurs. L'omettre est correct lorsqu'aucune action n'est attendue ; un bloc vide masque inutilement l'intention.
 
 > [!IMPORTANT]
 > Préférer `CASE` lorsque plusieurs valeurs d’une même variable doivent déclencher des traitements distincts, pour une meilleure lisibilité et maintenance du code.

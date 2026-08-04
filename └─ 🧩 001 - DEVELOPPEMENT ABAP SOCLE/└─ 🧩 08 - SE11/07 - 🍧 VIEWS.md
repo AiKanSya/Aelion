@@ -108,10 +108,10 @@ flowchart TD
 | Utiliser les `VIEWS` pour l’accès logique | Évite de manipuler directement les tables physiques            |
 
 > [!TIP]
-> Pour les rapports et modules SAP, privilégiez toujours les `VIEWS` plutôt que les tables pour accéder aux données, afin de préserver l’intégrité et la cohérence.
+> Choisir une vue lorsqu'elle fournit déjà la projection, les jointures et la sémantique nécessaires. Un accès direct à une table peut être légitime dans le code classique autorisé ; sur S/4HANA, respecter les API et vues CDS publiées du scénario concerné.
 
 > [!CAUTION]
-> Ne pas confondre Database View et table physique : une modification des données via la `VIEW` impacte toujours la table source, mais certaines `VIEWS` (projection/help) peuvent être lecture seule.
+> Ne pas confondre vue et table physique. La possibilité de modifier des données par une vue dépend de son type et de sa définition ; ne jamais supposer qu'une vue est modifiable sans le vérifier.
 
 ## 🌺 RÉSUMÉ
 

@@ -199,7 +199,7 @@ flowchart TD
 | Déclarer les `CONSTANTES` avant les variables       | Règle de bonne structure du code ABAP             |
 
 > [!TIP]
-> Remplace toujours les chiffres ou textes répétés par une `CONSTANTE` : ton code sera plus clair et plus facile à maintenir.
+> Remplacer par une `CONSTANTE` les valeurs métier ou techniques répétées qui portent un sens. Les littéraux évidents et utilisés une seule fois ne nécessitent pas automatiquement une constante.
 
 ## 🌺 RÉSUMÉ
 
@@ -207,7 +207,7 @@ flowchart TD
 > - Se déclare avec `CONSTANTS ... VALUE`.
 > - `TYPE` et `LIKE` définissent ou copient un type existant.
 > - Types principaux : I, N, NUMC, F, DECFLOAT, STRING, C, BOOLEAN, D, T, P, XFELD.
-> - Toujours préférer une `CONSTANTE` à une valeur “en dur”.
+> - Préférer une `CONSTANTE` lorsqu'un littéral possède un nom métier utile, est répété ou doit évoluer de manière centralisée.
 > - Les `CONSTANTES` améliorent la clarté, la sécurité et la maintenabilité du code ABAP.
 
 <details>

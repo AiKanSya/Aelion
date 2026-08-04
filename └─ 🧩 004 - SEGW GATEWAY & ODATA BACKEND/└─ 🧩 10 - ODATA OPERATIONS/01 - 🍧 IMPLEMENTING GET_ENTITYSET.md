@@ -212,7 +212,8 @@ METHOD productset_get_entityset.
       headerdata = lt_headerdata
       return     = lt_return.
 
-  IF lt_return IS NOT INITIAL.
+  IF line_exists( lt_return[ type = 'E' ] )
+     OR line_exists( lt_return[ type = 'A' ] ).
     "--- Message Container
     mo_context->get_message_container( )->add_messages_from_bapi( lt_return ).
     RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
@@ -226,6 +227,27 @@ METHOD productset_get_entityset.
 
 ENDMETHOD.
 ```
+
+### 🍧 TEST DANS `/IWFND/GW_CLIENT`
+
+Remplacer `<SERVICE>` et les noms d'EntitySet par les noms exacts du document `$metadata`.
+
+| Élément | Valeur |
+| --- | --- |
+| Méthode HTTP | `GET` |
+| URI | `/sap/opu/odata/SAP/<SERVICE>/ProductSet?$format=json` |
+| Header optionnel | `Accept: application/json` |
+| Corps | Aucun |
+| Résultat attendu | `200 OK` et une collection dans `d.results` |
+
+Variantes utiles :
+
+```http
+GET /sap/opu/odata/SAP/<SERVICE>/ProductSet?$top=5&$skip=0&$orderby=ProductId
+GET /sap/opu/odata/SAP/<SERVICE>/ProductSet?$filter=ProductId eq 'HT-1000'
+```
+
+Un `404` indique généralement un nom de service ou d'EntitySet incorrect. Un `500` doit être analysé dans `/IWFND/ERROR_LOG`.
 
 ### 🍧 METHOD EXCEPTION
 

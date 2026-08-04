@@ -130,12 +130,13 @@ METHOD businesspartners_delete_entity.
   "--- Delete data
   CALL FUNCTION 'BAPI_EPM_BP_DELETE'
     EXPORTING
-      bp_id  = ls_bp_id
-*     PERSIST_TO_DB = ABAP_TRUE
+      bp_id         = ls_bp_id
+      persist_to_db = abap_true
     TABLES
       return = lt_return.
 
-  IF lt_return IS NOT INITIAL.
+  IF line_exists( lt_return[ type = 'E' ] )
+     OR line_exists( lt_return[ type = 'A' ] ).
     "--- Message Container
     mo_context->get_message_container( )->add_messages_from_bapi( lt_return ).
     RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
@@ -146,6 +147,20 @@ METHOD businesspartners_delete_entity.
 
 ENDMETHOD.
 ```
+
+### 🍧 TEST DANS `/IWFND/GW_CLIENT`
+
+Récupérer d'abord un token CSRF comme indiqué dans `CREATE_ENTITY`, puis conserver la même session.
+
+| Élément | Valeur |
+| --- | --- |
+| Méthode HTTP | `DELETE` |
+| URI | `/sap/opu/odata/SAP/<SERVICE>/BusinessPartners('<ID>')` |
+| Headers | `Accept: application/json`, `X-CSRF-Token: <TOKEN>` |
+| Corps | Aucun |
+| Résultat attendu | `204 No Content` |
+
+Si le service utilise les ETags, ajouter `If-Match: <ETAG>`. Vérifier ensuite avec un `GET` sur la même URI : le résultat attendu est `404 Not Found`.
 
 ### 🍧 METHOD EXCEPTION
 

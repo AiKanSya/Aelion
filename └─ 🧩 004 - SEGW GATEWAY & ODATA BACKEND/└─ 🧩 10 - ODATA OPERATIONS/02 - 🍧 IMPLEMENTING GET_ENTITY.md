@@ -148,18 +148,19 @@ METHOD productset_get_entity.
 *&       └─ 02 - IMPLEMENTING GET_ENTITY
 *&---------------------------------------------------------------------*
 
-  DATA: ls_product_id TYPE bapi_epm_product_id,
+  DATA: ls_request    TYPE zcl_zfgi_gateway_demo_mpc=>ts_product,
+        ls_product_id TYPE bapi_epm_product_id,
         ls_headerdata TYPE bapi_epm_product_header,
         lt_return     TYPE TABLE OF bapiret2.
 
   "--- Get key fields from request
   io_tech_request_context->get_converted_keys(
     IMPORTING
-      es_key_values = er_entity
+      es_key_values = ls_request
   ).
 
   "--- Map key fields to function module parameters
-  ls_product_id-product_id = er_entity-product_id.
+  ls_product_id-product_id = ls_request-product_id.
 
   "--- Get data
   CALL FUNCTION 'BAPI_EPM_PRODUCT_GET_DETAIL'
@@ -170,7 +171,8 @@ METHOD productset_get_entity.
     TABLES
       return     = lt_return.
 
-  IF lt_return IS NOT INITIAL.
+  IF line_exists( lt_return[ type = 'E' ] )
+     OR line_exists( lt_return[ type = 'A' ] ).
     "--- Message Container
     mo_context->get_message_container( )->add_messages_from_bapi( lt_return ).
     RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
@@ -184,6 +186,18 @@ METHOD productset_get_entity.
 
 ENDMETHOD.
 ```
+
+### 🍧 TEST DANS `/IWFND/GW_CLIENT`
+
+| Élément | Valeur |
+| --- | --- |
+| Méthode HTTP | `GET` |
+| URI | `/sap/opu/odata/SAP/<SERVICE>/ProductSet('HT-1000')?$format=json` |
+| Header optionnel | `Accept: application/json` |
+| Corps | Aucun |
+| Résultat attendu | `200 OK` et une seule entité dans `d` |
+
+La forme de la clé dépend de `$metadata`. Pour une clé nommée ou composite : `ProductSet(ProductId='HT-1000',Language='FR')`. Une clé inexistante doit produire `404 Not Found`, pas une entité vide.
 
 ### 🍧 METHOD EXCEPTION
 

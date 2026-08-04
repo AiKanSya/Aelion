@@ -85,13 +85,13 @@ De la même façon :Z
 
 - Si vous oubliez les crochets `[]`, vous testez la référence de la table, pas son contenu.
 - Une table peut être "non initiale" même si elle n’a plus de lignes si elle a été initialisée ailleurs.
-  → Utilisez toujours `itab[] IS INITIAL` avec les crochets.
+→ Utiliser `itab IS INITIAL`. La forme historique `itab[] IS INITIAL` désigne également le corps de table, mais les crochets ne sont pas obligatoires dans ce test.
 
 ## 🌺 BONNES PRATIQUES
 
 | 🍧 Bonne pratique                           | 🍧 Explication                                      |
 | ------------------------------------------- | --------------------------------------------------- |
-| Toujours tester avant traitement            | Évite les erreurs de boucle sur table vide          |
+| Tester avant un traitement qui exige au moins une ligne | Un `LOOP AT` sur une table vide est valide et n'exécute aucune itération |
 | Utiliser `IS INITIAL` avec `[]`             | Spécifie clairement que le test concerne le contenu |
 | Utiliser `... IS NOT INITIAL`               | Vérifie qu’il y a au moins une ligne dans la table  |
 | Appliquer aussi à des variables             | Permet de contrôler l’initialisation d’une donnée   |
@@ -122,7 +122,7 @@ De la même façon :Z
 > - `itab[] IS INITIAL` → table vide
 > - `itab[] IS NOT INITIAL` → table non vide
 > - Fonctionne aussi pour variables et structures simples
->   Bon réflexe : toujours vérifier avant de traiter ou boucler sur une table.
+>   Tester la table lorsque la logique dépend de son absence ou de sa présence. Il est inutile d'ajouter systématiquement ce test avant un simple `LOOP AT`.
 
 > [!TIP]
 > Tester si une boîte contient quelque chose avant d’essayer de prendre un objet à l’intérieur.

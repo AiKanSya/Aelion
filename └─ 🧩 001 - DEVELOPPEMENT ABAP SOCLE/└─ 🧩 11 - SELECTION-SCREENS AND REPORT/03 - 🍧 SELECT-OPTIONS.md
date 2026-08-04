@@ -27,7 +27,7 @@ flowchart TD
 > Imaginez une feuille Excel où l’on peut saisir plusieurs intervalles de valeurs ou une liste de numéros : `SELECT-OPTIONS` permet cette flexibilité alors qu’un `PARAMETERS` ne permet qu’une seule cellule.
 
 > [!TIP]
-> Chaque `SELECT-OPTIONS` est typé automatiquement à partir d’une table DDIC, ce qui permet de générer un match-code et de valider les valeurs saisies.
+> `SELECT-OPTIONS` reprend le type de l'objet indiqué après `FOR`. Une aide à la saisie est disponible seulement si cette référence ou la logique d'écran en fournit une.
 
 ## 🌺 DECLARATION DES TABLES AFFECTEES
 
@@ -37,7 +37,7 @@ _Exemple de déclaration_
 
 > [!CAUTION]
 >
-> - Obligatoire pour indiquer quelles tables seront utilisées avec les `SELECT-OPTIONS`.
+> - La déclaration préalable d'une table n'est nécessaire que si le type de référence est exprimé par `FOR <table>-<field>`. Un élément de données ou une variable correctement typée peut aussi servir de référence selon la syntaxe utilisée.
 > - Généralement placé au début du programme avec les variables et constantes.
 > - Permet de lier le type du champ et d’activer automatiquement le match-code.
 
@@ -64,7 +64,7 @@ _Exemple de déclaration_
 
 ### 🍧 ABSENCE D'ENTREE
 
-- Si aucun champ n’est rempli, le programme considérera toutes les valeurs possibles du champ indiqué dans `FOR`.
+- Si aucune ligne n'est saisie, la table de sélection est initiale. Dans une condition Open SQL `WHERE field IN s_field`, ce critère ne restreint alors pas le résultat. Ce comportement ne signifie pas que tous les traitements ABAP interprètent automatiquement une table vide comme « toutes les valeurs ».
 
 > [!CAUTION]
 > Ne pas oublier de vérifier la table affectée si vous utilisez `SELECT-OPTIONS` pour filtrer les données, sinon des valeurs inattendues peuvent être considérées comme valides.
@@ -74,7 +74,7 @@ _Exemple de déclaration_
 ### 🍧 CHAMP TYPE OBLIGATOIRE
 
 > [!IMPORTANT]
-> Le paramètre `OBLIGATORY` de l'instruction `PARAMETERS` rend obligatoire le champ.
+> L'option `OBLIGATORY` de `SELECT-OPTIONS` impose une saisie sur la ligne de sélection. Elle ne garantit pas, à elle seule, la validité métier de l'intervalle ; cette validation reste à programmer.
 
     SELECT-OPTIONS: s_vbeln FOR vbak-vbeln OBLIGATORY,
                     s_posnr FOR vbap-posnr.
@@ -94,8 +94,8 @@ _Exemple de déclaration_
 
 ## 🌺 BONNES PRATIQUES
 
-- Toujours utiliser la convention `s_` pour nommer vos SELECT-OPTIONS.
-- Déclarer les tables affectées avant les options de sélection.
+- Appliquer la convention de l'équipe ; `s_` est une convention courante pour les `SELECT-OPTIONS`.
+- Référencer directement le champ DDIC ou une donnée typée ; ne pas ajouter `TABLES` sans nécessité.
 - Prévoir des textes d’input clairs pour chaque champ.
 - Tester les différentes saisies possibles : plage, valeur unique, aucune valeur.
 
@@ -103,7 +103,7 @@ _Exemple de déclaration_
 
 > - `SELECT-OPTIONS` crée des champs de saisie pour des plages ou plusieurs valeurs.
 > - Chaque entrée peut contenir une ou plusieurs lignes.
-> - Tables affectées doivent être déclarées avec `TABLES`.
+> - Une déclaration `TABLES` n'est pas obligatoire pour référencer un champ DDIC dans `FOR`.
 > - Noms commencent par `s_` par convention.
 > - Permet un filtrage flexible et puissant dans un programme ABAP.
 

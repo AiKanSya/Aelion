@@ -24,12 +24,12 @@ flowchart TD
 >
 > - Comparer la valeur recherchée à la valeur du milieu de la plage
 > - Si égal → retour de l’index, fin de recherche
-> - Si valeur > milieu → recherche dans la moitié inférieure
-> - Si valeur < milieu → recherche dans la moitié supérieure
+> - Si la valeur recherchée est supérieure à celle du milieu → recherche dans la moitié supérieure
+> - Si la valeur recherchée est inférieure à celle du milieu → recherche dans la moitié inférieure
 > - Répéter jusqu’à trouver la valeur ou épuiser la plage
 
 > [!CAUTION]
-> la table doit être triée (`SORT`) sauf si elle est de type `SORTED`.
+> Pour une `STANDARD TABLE`, la table doit être triée par ordre croissant selon les composants utilisés par la recherche, dans le même ordre. Ces composants doivent former le début de la clé de tri. Une `SORTED TABLE` exploite déjà sa clé triée ; une table `HASHED` doit être lue par sa clé, sans `BINARY SEARCH`.
 
 > [!TIP]
 > Chercher un nom dans un annuaire trié par ordre alphabétique en ouvrant toujours à la page du milieu pour diviser les recherches.
@@ -66,11 +66,11 @@ flowchart TD
 
 | 🍧 Bonne pratique                            | 🍧 Explication                                             |
 | -------------------------------------------- | ---------------------------------------------------------- |
-| Trier la table avant BINARY SEARCH           | Obligatoire pour tables STANDARD                           |
+| Trier sur les champs recherchés, dans le même ordre | Condition de correction pour une `STANDARD TABLE` |
 | Utiliser ASSIGNING <fs> pour performance     | Évite la copie de la ligne, modifie directement la mémoire |
 | Vérifier SY-SUBRC                            | S’assurer que l’enregistrement a été trouvé                |
 | Comparer BINARY SEARCH vs recherche linéaire | Réduction significative du nombre de comparaisons          |
-| Utiliser BY avec tous les champs clés        | Permet une recherche précise et correcte                   |
+| Faire correspondre le début de la clé de tri | La recherche peut utiliser tout ou partie initiale de cette clé |
 
 ## 🌺 EXERCICES
 
@@ -116,7 +116,7 @@ flowchart TD
 
 > `BINARY SEARCH` permet une recherche rapide dans une table interne triée.
 >
-> - Condition : table triée ou de type SORTED
+> - Condition : ordre croissant compatible entre tri et composants de recherche
 > - Réduit le nombre de comparaisons par rapport à une recherche linéaire
 > - Retourne l’`INDEX` via `SY-TABIX` et le code retour via `SY-SUBRC`
 >   [!TIP]

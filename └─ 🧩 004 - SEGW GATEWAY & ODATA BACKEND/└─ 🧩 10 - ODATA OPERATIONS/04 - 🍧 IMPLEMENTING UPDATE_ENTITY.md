@@ -103,7 +103,7 @@ flowchart TD
 ### 🍧 BUSINESSPARTNERS_UPDATE_ENTITY METHOD INITIAL CODE
 
 ```abap
-  METHOD productsebusinesspartners_update_entityt_update_entity.
+  METHOD businesspartners_update_entity.
 **TRY.
 *CALL METHOD SUPER->BUSINESSPARTNERS_UPDATE_ENTITY
 *  EXPORTING
@@ -136,7 +136,8 @@ METHOD businesspartners_update_entity.
 *&       └─ 04 - IMPLEMENTING UPDATE_ENTITY
 *&---------------------------------------------------------------------*
 
-  DATA: ls_bp_id       TYPE bapi_epm_bp_id,
+  DATA: ls_request     TYPE zcl_zfgi_gateway_demo_mpc=>ts_businesspartner,
+        ls_bp_id       TYPE bapi_epm_bp_id,
         ls_headerdata  TYPE bapi_epm_bp_header,
         ls_headerdatax TYPE bapi_epm_bp_headerx,
         lt_return      TYPE TABLE OF bapiret2.
@@ -144,14 +145,17 @@ METHOD businesspartners_update_entity.
   "--- Get key
   io_tech_request_context->get_converted_keys(
     IMPORTING
-      es_key_values = er_entity
+      es_key_values = ls_request
   ).
-  ls_bp_id-bp_id = er_entity-businesspartnerid.
+  ls_bp_id-bp_id = ls_request-businesspartnerid.
 
   "--- Get request data
   io_data_provider->read_entry_data(
     IMPORTING
       es_data = er_entity ).
+
+  "--- The URI key is authoritative
+  er_entity-businesspartnerid = ls_request-businesspartnerid.
 
   "--- Map request fields to function module parameters
   ls_headerdata = VALUE #(
@@ -181,12 +185,13 @@ METHOD businesspartners_update_entity.
     EXPORTING
       bp_id       = ls_bp_id
       headerdata  = ls_headerdata
-      headerdatax = ls_headerdatax
-*     PERSIST_TO_DB = ABAP_TRUE
+      headerdatax   = ls_headerdatax
+      persist_to_db = abap_true
     TABLES
       return      = lt_return.
 
-  IF lt_return IS NOT INITIAL.
+  IF line_exists( lt_return[ type = 'E' ] )
+     OR line_exists( lt_return[ type = 'A' ] ).
     "--- Message Container
     mo_context->get_message_container( )->add_messages_from_bapi( lt_return ).
     RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
@@ -195,8 +200,25 @@ METHOD businesspartners_update_entity.
         message_container = mo_context->get_message_container( ).
   ENDIF.
 
+  "--- Return the updated representation
+  er_entity-businesspartnerid = ls_bp_id-bp_id.
+
 ENDMETHOD.
 ```
+
+### 🍧 TEST DANS `/IWFND/GW_CLIENT`
+
+Récupérer d'abord un token CSRF comme indiqué dans `CREATE_ENTITY`, puis conserver la même session.
+
+| Élément | Valeur |
+| --- | --- |
+| Méthode HTTP | `PATCH` pour une modification partielle ; `PUT` pour un remplacement complet |
+| URI | `/sap/opu/odata/SAP/<SERVICE>/BusinessPartners('<ID>')` |
+| Headers | `Content-Type: application/json`, `Accept: application/json`, `X-CSRF-Token: <TOKEN>` |
+| Corps PATCH minimal | `{ "City": "Lyon" }` |
+| Résultat attendu | `204 No Content` ou `200 OK`, selon l'implémentation |
+
+La clé de l'URI reste la référence. Le payload ne doit pas pouvoir modifier l'identifiant. Si le service utilise les ETags, ajouter `If-Match: <ETAG>` ; `If-Match: *` ne doit être utilisé que pour un exercice sans contrôle de concurrence.
 
 ### 🍧 METHOD EXCEPTION
 

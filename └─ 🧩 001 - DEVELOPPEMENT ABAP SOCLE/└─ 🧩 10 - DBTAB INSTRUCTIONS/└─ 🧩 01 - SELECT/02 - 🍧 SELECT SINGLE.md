@@ -20,18 +20,18 @@ flowchart TD
 ## 🌺 DÉFINITION
 
 > `SELECT SINGLE` permet de lire un seul enregistrement d’une table SAP correspondant aux conditions spécifiées.
-> Il s’arrête dès qu’il trouve la première correspondance et ne lit pas toute la table.
+> Il retourne au plus une ligne. Sans condition couvrant une clé unique, la ligne choisie parmi plusieurs correspondances n'est pas déterministe.
 
 > [!TIP]
 > Imaginez que vous cherchez une fiche client dans un classeur : au lieu de feuilleter toutes les fiches, vous vous arrêtez dès que vous trouvez celle qui correspond exactement au critère recherché.
 
 > [!IMPORTANT]
 >
-> - `SELECT SINGLE` est optimisé pour récupérer un enregistrement précis.
-> - Il est plus rapide qu’un `SELECT` classique avec `WHERE` si vous savez qu’il n’existe qu’un seul enregistrement ou que vous voulez seulement le premier correspondant.
+> - `SELECT SINGLE` exprime le besoin de récupérer au plus une ligne.
+> - Sa performance dépend principalement de la condition, des index, du volume et du plan d'exécution. Il n'est pas automatiquement plus rapide qu'une autre forme équivalente.
 
 > [!CAUTION]
-> `SELECT SINGLE` ne garantit pas de lecture unique si plusieurs enregistrements respectent la condition : il retourne simplement le premier trouvé.
+> `SELECT SINGLE` ne garantit pas l'unicité métier. Si plusieurs lignes correspondent, aucune notion d'ordre ne permet de prévoir laquelle sera retournée. Pour choisir selon un ordre, utiliser une forme compatible avec `ORDER BY ... UP TO 1 ROWS`.
 
 ## 🌺 SYNTAXE
 
@@ -136,7 +136,7 @@ flowchart TD
 
 | 🍧 Bonnes pratiques                                        | 🍧 Explication                                                       |
 | ---------------------------------------------------------- | -------------------------------------------------------------------- |
-| Toujours utiliser une condition WHERE                      | Évite de récupérer un enregistrement aléatoire                       |
+| Couvrir une clé unique lorsque l'identité de la ligne compte | Évite un résultat non déterministe parmi plusieurs correspondances |
 | Ne pas utiliser SELECT SINGLE pour de grandes recherches   | Optimiser SELECT classique si plusieurs résultats sont attendus      |
 | Préférer INTO sur INTO TABLE pour un enregistrement unique | Simplifie le code et améliore les performances                       |
 | Documenter la condition de filtrage                        | Permet de savoir quel critère a été utilisé pour récupérer la donnée |
@@ -152,7 +152,7 @@ flowchart TD
 ## 🌺 RÉSUMÉ
 
 > - `SELECT SINGLE` lit un seul enregistrement correspondant à vos critères.
-> - Plus rapide qu’un `SELECT` classique pour une recherche ciblée.
+> - Sa performance doit être justifiée par la condition et les accès disponibles, pas par le mot-clé seul.
 > - Ne garantit pas l’unicité si plusieurs enregistrements répondent à la condition.
 >   [!TIP]
 >   chercher la fiche exacte dans un classeur et s’arrêter dès qu’on la trouve.

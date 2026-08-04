@@ -165,13 +165,14 @@ METHOD businesspartners_create_entity.
   CALL FUNCTION 'BAPI_EPM_BP_CREATE'
     EXPORTING
       headerdata        = ls_headerdata
-*     PERSIST_TO_DB     = ABAP_TRUE
+      persist_to_db     = abap_true
     IMPORTING
       businesspartnerid = ls_bp_id
     TABLES
       return            = lt_return.
 
-  IF lt_return IS NOT INITIAL.
+  IF line_exists( lt_return[ type = 'E' ] )
+     OR line_exists( lt_return[ type = 'A' ] ).
     "--- Message Container
     mo_context->get_message_container( )->add_messages_from_bapi( lt_return ).
     RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
@@ -186,6 +187,34 @@ METHOD businesspartners_create_entity.
 
 ENDMETHOD.
 ```
+
+### 🍧 TEST DANS `/IWFND/GW_CLIENT`
+
+1. Exécuter un `GET` sur `/sap/opu/odata/SAP/<SERVICE>/` avec le header `X-CSRF-Token: Fetch`.
+2. Copier le token retourné. Dans Gateway Client, la session et les cookies sont conservés dans la même fenêtre.
+3. Exécuter la requête suivante.
+
+| Élément | Valeur |
+| --- | --- |
+| Méthode HTTP | `POST` |
+| URI | `/sap/opu/odata/SAP/<SERVICE>/BusinessPartners` |
+| Headers | `Content-Type: application/json`, `Accept: application/json`, `X-CSRF-Token: <TOKEN>` |
+| Résultat attendu | `201 Created` et l'entité créée |
+
+```json
+{
+  "BusinessPartnerRole": "01",
+  "EmailAddress": "formation@example.com",
+  "CompanyName": "Entreprise école",
+  "CurrencyCode": "EUR",
+  "City": "Paris",
+  "Street": "1 rue Exemple",
+  "Country": "FR",
+  "AddressType": "02"
+}
+```
+
+Utiliser exactement les noms et types exposés par `$metadata`. `403` signale généralement un token CSRF absent ou expiré ; `415`, un `Content-Type` absent ou incorrect.
 
 ### 🍧 METHOD EXCEPTION
 

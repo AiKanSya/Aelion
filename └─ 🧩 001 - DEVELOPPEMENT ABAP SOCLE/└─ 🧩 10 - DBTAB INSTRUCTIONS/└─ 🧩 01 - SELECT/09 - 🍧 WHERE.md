@@ -78,7 +78,7 @@ flowchart TD
 
 | 🍧 Bonnes pratiques                   | 🍧 Explication                                            |
 | ------------------------------------- | --------------------------------------------------------- |
-| Toujours utiliser les parenthèses     | Pour éviter les erreurs d’ordre dans les conditions       |
+| Utiliser des parenthèses lorsqu'elles rendent une combinaison `AND`/`OR` explicite | Elles sont inutiles autour d'une condition simple |
 | Combiner AND / OR avec logique claire | Facilite la lecture et la maintenance du code             |
 | Limiter les données retournées        | Optimise les performances, surtout sur les grandes tables |
 

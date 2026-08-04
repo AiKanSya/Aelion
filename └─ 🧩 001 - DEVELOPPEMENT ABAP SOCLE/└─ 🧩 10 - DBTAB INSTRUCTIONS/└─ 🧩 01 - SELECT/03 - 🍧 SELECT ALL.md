@@ -84,7 +84,7 @@ flowchart TD
 
 | 🍧 Bonnes pratiques                           | 🍧 Explications                                                            |
 | --------------------------------------------- | -------------------------------------------------------------------------- |
-| Toujours utiliser une clause WHERE            | Limite les lignes récupérées et améliore les performances                  |
+| Utiliser `WHERE` lorsque le besoin ne porte pas sur toutes les lignes | Évite de transférer des données inutiles ; une lecture exhaustive reste valide si elle est réellement demandée |
 | Utiliser INTO pour structures simples         | Stocke les données dans une seule structure                                |
 | Utiliser INTO TABLE pour plusieurs lignes     | Stocke les résultats dans une table interne pour manipulations ultérieures |
 | Préférer SELECT SINGLE pour un enregistrement | Évite de récupérer trop de lignes inutilement                              |

@@ -174,7 +174,7 @@ Une plage de valeurs définit un ensemble de valeurs autorisées pour le champ.
 Les routines de conversion permettent de formater automatiquement les données lors de la saisie ou de l’affichage.
 
 > [!IMPORTANT]
-> Un champ de type `MATNR` (numéro de matériel) doit toujours comporter 10 caractères.
+> La longueur technique d'un numéro de matériel dépend du type DDIC et de la version du système. Ne pas recopier une longueur en dur : typer le champ avec l'élément de données approprié et contrôler sa définition dans `SE11`.
 > Si vous saisissez `12345`, la routine ALPHA le convertira automatiquement en `0000012345`.
 
 > [!IMPORTANT]
@@ -258,7 +258,7 @@ Les routines de conversion permettent de formater automatiquement les données l
 > - Les routines de conversion et les plages de valeurs renforcent l’intégrité du modèle de données.
 
 > [!IMPORTANT]
-> Toujours créer un `DOMAIN` réutilisable plutôt que de définir des types directement dans les champs de table.
+> Créer ou réutiliser un domaine lorsque plusieurs champs partagent les mêmes propriétés techniques ou valeurs fixes. Un type intégré peut rester adapté à un besoin local sans sémantique réutilisable.
 > Cela simplifie la maintenance et la normalisation des données à long terme.
 
 <details>

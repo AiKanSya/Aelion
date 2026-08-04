@@ -75,7 +75,7 @@ flowchart TD
 > On remplit une fiche (`STRUCTURE`) et on la colle dans le carnet (`TABLE INTERNE`).
 
 > [!TIP]
-> Toujours utiliser une `STRUCTURE` temporaire pour manipuler les lignes avant de les insérer dans la table.
+> Une structure de travail est utile pour plusieurs opérations successives. Pour une insertion simple, une expression `VALUE #( ... )`, `INSERT ... INTO TABLE` ou `APPEND VALUE #( ... )` évite une variable temporaire.
 
 > [!CAUTION]
 > Lorsque tu alimentes une table avec plusieurs lignes de manière automatique (dans une boucle par exemple), n'oublie pas de CLEAR la structure après tout ajout de ligne dans la table (ou avant toute affectation de valeur).

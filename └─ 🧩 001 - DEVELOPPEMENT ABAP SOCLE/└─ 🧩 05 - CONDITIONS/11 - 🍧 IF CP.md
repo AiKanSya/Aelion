@@ -6,7 +6,7 @@
 - [ ] Vérifier si une chaîne correspond à un `PATTERN` avec caracteres generiques (\* et +)
 - [ ] Utiliser `IF` ... `CP` ... `ENDIF` pour des comparaisons flexibles
 - [ ] Identifier les situations pratiques : noms de fichiers, extensions, formats textuels
-- [ ] Reconnaître la sensibilité à la casse et les types de `VARIABLES` compatibles (C ou STRING)
+- [ ] Comprendre le comportement par défaut sur la casse et le rôle du caractère d'échappement `#`
 
 ## 🌺 VUE D'ENSEMBLE
 
@@ -26,7 +26,7 @@ flowchart TD
 > Comme un filtre de recherche dans un explorateur de fichiers : "\*.png" renvoie tous les fichiers terminant par ".png".
 
 > [!CAUTION]
-> Le `CP` est sensible à la casse. "Hello" ne correspond pas à "\*hello".
+> `CP` n'est pas sensible à la casse par défaut. Le caractère `#` échappe le caractère suivant et permet notamment d'imposer sa casse ou de traiter littéralement `*`, `+` ou `#`.
 
 ## 🌺 SYNTAXE
 
@@ -36,8 +36,8 @@ flowchart TD
 
 - oper1 → CHAINE à tester
 - oper2 → MODELE contenant éventuellement :
-  - - → remplace n'importe quelle suite de caracteres (même vide)
-  - - → remplace exactement un caractere
+- `*` → remplace une suite de caractères, éventuellement vide
+- `+` → remplace exactement un caractère
 
 > [!TIP]
 > Utiliser `CP` pour valider des formats de fichiers, codes produits ou motifs textuels particuliers.
@@ -71,14 +71,13 @@ Explication :
 - 'hello' CP '\*x' → FAUX (ne finit pas par "x")
 
 > [!NOTE]
-> `CP` fonctionne uniquement avec les types de `VARIABLES` `C` ou `STRING`.
+> `CP` compare des opérandes de type caractère. Les conversions implicites peuvent masquer une erreur de typage ; utiliser des données explicitement caractère pour un exemple pédagogique.
 
 ## 🌺 RÉSUMÉ
 
 > - `CP` = `COVERS PATTERN` → teste la correspondance d'une `CHAINE` avec un `PATTERN`.
-> - Caractères generiques - - → plusieurs caracteres
->   - - → un caractere
-> - Sensible à la casse
+> - Caractères génériques : `*` pour une suite de caractères, `+` pour un caractère
+> - Comparaison insensible à la casse par défaut ; `#` sert de caractère d'échappement
 > - Très utile pour filtrer fichiers, extensions ou formats textuels
 >   [!TIP]
 >   Comme un filtre de recherche avancé : on peut dire "montre-moi tous les fichiers commençant par 'abc' et finissant par '.txt'".

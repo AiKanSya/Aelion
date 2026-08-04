@@ -110,7 +110,7 @@ flowchart TD
 >
 > - Nommer les `CHAMPS` avec des préfixes explicites (ex : `ZCLIENT_ID`, `ZCITY_NAME`)
 > - Réutiliser les éléments de données existants pour garder la cohérence du dictionnaire
-> - Ne jamais créer un `CHAMP` sans `DOMAINE` ni `ELEMENT DE DONNEE` (évite les incohérences)
+> - Privilégier un `ÉLÉMENT DE DONNÉES` réutilisable pour porter la sémantique et les libellés. Un type intégré reste possible lorsqu'il est justifié et documenté.
 > - Documenter systématiquement chaque `CHAMP` dans SE11 (onglet “Documentation”)
 
 > [!TIP]

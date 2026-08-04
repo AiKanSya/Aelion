@@ -36,9 +36,26 @@ fgifirstappmodulename/ # <- Racine du projet
 
      Quand vous faites npm start, la commande est exécutée depuis cette racine.
 
+### 🍧 CONTENU ATTENDU
+
+| Élément | Rôle |
+| --- | --- |
+| `package.json` | Scripts et dépendances Node.js du projet |
+| `ui5.yaml` | Configuration de UI5 Tooling |
+| `webapp/` | Sources exécutées ou servies au navigateur |
+| `.gitignore` | Fichiers locaux exclus du versionnement |
+| `README.md` | Commandes, prérequis et conventions propres au projet |
+
+Le nom du dossier racine n'est pas le namespace UI5. Le namespace est défini dans la configuration de l'application et doit rester cohérent avec `Component.js`, `manifest.json` et les chemins de modules.
+
+### 🍧 VÉRIFICATION
+
+Depuis la racine, exécuter `npm install`, puis le script déclaré dans `package.json`, généralement `npm start`. Une commande lancée depuis `webapp/` peut échouer parce que `package.json` et `ui5.yaml` se trouvent au niveau supérieur.
+
 ## 🌺 RÉSUMÉ
 
 > - **Racine :** Quand vous faites npm start, la commande est exécutée depuis cette racine.
+> - Elle contient la configuration du projet ; le code applicatif se trouve principalement dans `webapp/`.
 
 <details>
 <summary>🍧 Afficher l’auto-évaluation</summary>
