@@ -62,6 +62,58 @@ Pour une table de retours :
 > [!NOTE]
 > Les types `A`, `E` et `X` sont généralement considérés comme bloquants. Le contrat exact doit être lu dans la documentation de la BAPI appelée.
 
+## 🌺 STRUCTURES INDICATRICES `X`
+
+Certaines BAPI de création ou de modification utilisent deux structures parallèles :
+
+- une structure de données contenant les valeurs métier ;
+- une structure indicatrice, souvent suffixée par `X`, précisant les champs à prendre en compte.
+
+Exemple générique :
+
+```abap
+DATA ls_data  TYPE zbapi_demo_data.
+DATA ls_datax TYPE zbapi_demo_datax.
+
+ls_data-description  = 'Nouveau libellé'.
+ls_data-valid_from   = sy-datum.
+
+ls_datax-description = abap_true.
+ls_datax-valid_from  = abap_true.
+```
+
+Une valeur présente dans `LS_DATA` peut être ignorée par l'API si l'indicateur correspondant n'est pas positionné. Inversement, un indicateur positionné avec une valeur initiale peut signifier une demande d'effacement lors d'une modification. Le comportement exact appartient au contrat de la BAPI.
+
+### Champs clés
+
+Les identifiants permettant de relier une ligne de données à sa ligne indicatrice doivent généralement être renseignés dans les deux structures.
+
+```abap
+ls_item-item_no  = lv_item_no.
+ls_itemx-item_no = lv_item_no.
+ls_itemx-updateflag = 'U'.
+```
+
+`UPDATEFLAG` n'existe pas dans toutes les interfaces. Ses valeurs et sa présence doivent être vérifiées dans la documentation réelle.
+
+### Réinitialisation
+
+```abap
+CLEAR: ls_data, ls_datax.
+REFRESH: lt_items, lt_itemsx.
+```
+
+Réinitialiser les structures et tables avant de préparer un nouvel objet évite de transmettre des valeurs ou indicateurs issus de l'appel précédent.
+
+### Méthode de lecture d'une interface
+
+1. repérer les couples de paramètres `...` et `...X` ;
+2. comparer leurs composants dans `SE11` ;
+3. identifier les champs clés et un éventuel indicateur d'opération ;
+4. consulter la documentation de chaque champ ;
+5. tester un champ à la fois dans `SE37` ;
+6. vérifier les messages `RETURN`.
+
 ## 🌺 COMMIT APRES UNE BAPI D'ECRITURE
 
 Gabarit transactionnel courant :
@@ -138,6 +190,7 @@ Un commit caché dans la première opération empêcherait l’annulation cohér
 3. Détecter les types bloquants `AEX`.
 4. Appeler le commit seulement en absence d’erreur.
 5. Expliquer pourquoi tout module RFC n’est pas une BAPI.
+6. Construire deux structures génériques `DATA` et `DATAX`, puis montrer la différence entre valeur initiale non sélectionnée et valeur initiale explicitement sélectionnée.
 
 ## 🌺 RÉSUMÉ
 
