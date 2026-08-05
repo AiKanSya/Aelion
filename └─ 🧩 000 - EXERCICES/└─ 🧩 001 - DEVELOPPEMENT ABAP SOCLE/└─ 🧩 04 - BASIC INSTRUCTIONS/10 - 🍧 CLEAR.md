@@ -4,33 +4,148 @@
 
 > Cours associé : [CLEAR](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 04 - BASIC INSTRUCTIONS/10 - 🍧 CLEAR.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+À la fin de l’exercice, le stagiaire doit être capable de :
 
-## 🌺 EXERCICE 1 — RESTITUTION
+- réinitialiser une variable ;
+- réinitialiser plusieurs variables ;
+- connaître la valeur initiale des principaux types élémentaires ;
+- comprendre que `CLEAR` ne supprime pas la déclaration ;
+- éviter de réutiliser une ancienne valeur par erreur.
 
-Sans consulter le cours, définir **CLEAR**, expliquer son utilité et citer une erreur d'utilisation possible.
+## 🌺 DURÉE INDICATIVE
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+20 à 30 minutes.
 
-- [ ] Comprendre le rôle de `CLEAR` pour réinitialiser des variables dans un exemple différent de celui du cours.
-- [ ] Savoir réinitialiser une ou plusieurs variables simultanément dans un exemple différent de celui du cours.
-- [ ] Appliquer `CLEAR` sur différents types de données : chaînes, numériques, dates, heures dans un exemple différent de celui du cours.
+## 🌺 EXERCICE 1 — VALEURS INITIALES
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Déclarer :
 
-1. Construire volontairement un cas incorrect lié à **CLEAR**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```abap
+DATA lv_text   TYPE string VALUE `ABAP`.
+DATA lv_number TYPE i VALUE 42.
+DATA lv_amount TYPE p LENGTH 8 DECIMALS 2 VALUE '19.90'.
+DATA lv_date   TYPE d VALUE '20260805'.
+DATA lv_time   TYPE t VALUE '132500'.
+```
+
+Afficher les valeurs avant et après :
+
+```abap
+CLEAR: lv_text,
+       lv_number,
+       lv_amount,
+       lv_date,
+       lv_time.
+```
+
+## 🌺 EXERCICE 2 — RÉSULTATS ATTENDUS
+
+Compléter :
+
+| Type     | Valeur après `CLEAR` |
+| -------- | -------------------- |
+| `string` |                      |
+| `i`      |                      |
+| `p`      |                      |
+| `d`      |                      |
+| `t`      |                      |
+
+## 🌺 EXERCICE 3 — RÉUTILISATION INCORRECTE
+
+Analyser :
+
+```abap
+DATA lv_total TYPE p LENGTH 8 DECIMALS 2.
+
+lv_total = '100.00'.
+WRITE / lv_total.
+
+" Nouveau traitement sans réinitialisation
+lv_total = lv_total + '25.00'.
+WRITE / lv_total.
+```
+
+Le second traitement devait commencer à zéro.
+
+Corriger avec `CLEAR`.
+
+## 🌺 EXERCICE 4 — CONSTANTE
+
+Analyser :
+
+```abap
+CONSTANTS lc_currency TYPE c LENGTH 3 VALUE 'EUR'.
+
+CLEAR lc_currency.
+```
+
+L’instruction est-elle autorisée ?
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Les valeurs initiales sont identifiées.
+- [ ] Plusieurs variables sont réinitialisées.
+- [ ] La variable reste déclarée après `CLEAR`.
+- [ ] Le résidu d’un ancien traitement est supprimé.
+- [ ] Une constante n’est pas passée à `CLEAR`.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+### Solution — valeurs
+
+```abap
+DATA lv_text   TYPE string VALUE `ABAP`.
+DATA lv_number TYPE i VALUE 42.
+DATA lv_amount TYPE p LENGTH 8 DECIMALS 2 VALUE '19.90'.
+DATA lv_date   TYPE d VALUE '20260805'.
+DATA lv_time   TYPE t VALUE '132500'.
+
+WRITE: / 'Avant CLEAR',
+       / lv_text,
+       / lv_number,
+       / lv_amount,
+       / lv_date,
+       / lv_time.
+
+CLEAR: lv_text,
+       lv_number,
+       lv_amount,
+       lv_date,
+       lv_time.
+
+WRITE: / 'Après CLEAR',
+       / lv_text,
+       / lv_number,
+       / lv_amount,
+       / lv_date,
+       / lv_time.
+```
+
+| Type     | Valeur initiale |
+| -------- | --------------- |
+| `string` | chaîne vide     |
+| `i`      | `0`             |
+| `p`      | `0`             |
+| `d`      | `00000000`      |
+| `t`      | `000000`        |
+
+### Solution — nouveau traitement
+
+```abap
+lv_total = '100.00'.
+WRITE / lv_total.
+
+CLEAR lv_total.
+
+lv_total = lv_total + '25.00'.
+WRITE / lv_total.
+```
+
+Le second résultat vaut `25,00`.
+
+`CLEAR lc_currency` est interdit, car une constante ne peut pas être modifiée.
+
+</details>

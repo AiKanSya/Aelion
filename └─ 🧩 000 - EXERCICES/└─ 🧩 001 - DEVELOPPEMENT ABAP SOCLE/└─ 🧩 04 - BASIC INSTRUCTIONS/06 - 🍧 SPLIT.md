@@ -4,33 +4,136 @@
 
 > Cours associé : [SPLIT](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 04 - BASIC INSTRUCTIONS/06 - 🍧 SPLIT.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+À la fin de l’exercice, le stagiaire doit être capable de :
 
-## 🌺 EXERCICE 1 — RESTITUTION
+- découper une chaîne selon un séparateur ;
+- stocker les segments dans plusieurs variables ;
+- stocker les segments dans une table interne ;
+- identifier un séparateur incorrect ;
+- contrôler le nombre de segments obtenus.
 
-Sans consulter le cours, définir **SPLIT**, expliquer son utilité et citer une erreur d'utilisation possible.
+## 🌺 DURÉE INDICATIVE
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+30 à 40 minutes.
 
-- [ ] Comprendre l'utilisation de l'instruction `SPLIT` en ABAP dans un exemple différent de celui du cours.
-- [ ] Séparer une chaîne de caractères selon un séparateur défini dans un exemple différent de celui du cours.
-- [ ] Stocker le résultat dans des `VARIABLES` ou une table interne dans un exemple différent de celui du cours.
+## 🌺 EXERCICE 1 — DÉCOUPAGE FIXE
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+À partir de :
 
-1. Construire volontairement un cas incorrect lié à **SPLIT**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```abap
+DATA lv_record TYPE string VALUE `FR;75001;PARIS`.
+```
+
+Extraire :
+
+- le pays ;
+- le code postal ;
+- la ville.
+
+Utiliser trois variables de type `string`.
+
+## 🌺 EXERCICE 2 — TABLE INTERNE
+
+À partir de :
+
+```abap
+DATA lv_skills TYPE string
+  VALUE `ABAP;UI5;CPI;ODATA`.
+```
+
+Découper la chaîne dans une table interne déclarée inline :
+
+```abap
+SPLIT lv_skills AT ';' INTO TABLE DATA(lt_skills).
+```
+
+Afficher chaque compétence avec une boucle.
+
+## 🌺 EXERCICE 3 — SÉPARATEUR ABSENT
+
+Tester :
+
+```abap
+DATA lv_invalid_record TYPE string VALUE `FR-75001-PARIS`.
+
+SPLIT lv_invalid_record AT ';'
+  INTO DATA(lv_country)
+       DATA(lv_zip)
+       DATA(lv_city).
+```
+
+Relever le contenu des trois variables.
+
+Expliquer pourquoi le découpage ne produit pas les trois valeurs attendues.
+
+## 🌺 EXERCICE 4 — CONTRÔLE DU NOMBRE DE SEGMENTS
+
+Après le découpage dans `lt_skills`, vérifier :
+
+```abap
+lines( lt_skills )
+```
+
+Le nombre attendu est `4`.
+
+Afficher un message explicite si le nombre est différent.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Les trois segments sont correctement extraits.
+- [ ] La table contient quatre lignes.
+- [ ] Chaque compétence est affichée.
+- [ ] Le séparateur incorrect est diagnostiqué.
+- [ ] Le nombre de segments est contrôlé.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+### Solution — variables
+
+```abap
+DATA lv_record TYPE string VALUE `FR;75001;PARIS`.
+
+SPLIT lv_record AT ';'
+  INTO DATA(lv_country)
+       DATA(lv_zip)
+       DATA(lv_city).
+
+WRITE: / 'Pays        :', lv_country,
+       / 'Code postal :', lv_zip,
+       / 'Ville       :', lv_city.
+```
+
+### Solution — table interne
+
+```abap
+DATA lv_skills TYPE string
+  VALUE `ABAP;UI5;CPI;ODATA`.
+
+SPLIT lv_skills AT ';' INTO TABLE DATA(lt_skills).
+
+LOOP AT lt_skills INTO DATA(lv_skill).
+  WRITE / lv_skill.
+ENDLOOP.
+
+IF lines( lt_skills ) <> 4.
+  WRITE / 'Nombre de compétences incorrect'.
+ENDIF.
+```
+
+### Solution — séparateur absent
+
+Le séparateur `;` n’existe pas dans la source. La chaîne n’est donc pas découpée comme attendu.
+
+Correction :
+
+```abap
+SPLIT lv_invalid_record AT '-'
+  INTO lv_country
+       lv_zip
+       lv_city.
+```
+
+</details>

@@ -4,34 +4,124 @@
 
 > Cours associé : [REPLACE](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 04 - BASIC INSTRUCTIONS/08 - 🍧 REPLACE.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+À la fin de l’exercice, le stagiaire doit être capable de :
 
-## 🌺 EXERCICE 1 — RESTITUTION
+- remplacer la première occurrence ;
+- remplacer toutes les occurrences ;
+- récupérer le nombre de remplacements ;
+- contrôler la casse ;
+- vérifier qu’une source a réellement été modifiée.
 
-Sans consulter le cours, définir **REPLACE**, expliquer son utilité et citer une erreur d'utilisation possible.
+## 🌺 DURÉE INDICATIVE
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+25 à 35 minutes.
 
-- [ ] Comprendre l'utilisation de l'instruction `REPLACE` en ABAP dans un exemple différent de celui du cours.
-- [ ] Remplacer une chaîne pattern par une autre new dans une chaîne source dobj dans un exemple différent de celui du cours.
-- [ ] Utiliser les options `FIRST OCCURRENCE` ou `ALL OCCURRENCES` dans un exemple différent de celui du cours.
-- [ ] Maîtriser les paramètres `REPLACEMENT COUNT`, `REPLACEMENT OFFSET`, `REPLACEMENT LENGTH` et `RESULTS` dans un exemple différent de celui du cours.
+## 🌺 EXERCICE 1 — PREMIÈRE OCCURRENCE
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Déclarer :
 
-1. Construire volontairement un cas incorrect lié à **REPLACE**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```abap
+DATA lv_text_first TYPE string
+  VALUE `ABAP - ABAP - abap`.
+```
+
+Remplacer uniquement le premier `ABAP` par `SAP`.
+
+Résultat attendu :
+
+```text
+SAP - ABAP - abap
+```
+
+## 🌺 EXERCICE 2 — TOUTES LES OCCURRENCES
+
+Copier la source dans une autre variable.
+
+Remplacer toutes les occurrences de `ABAP` par `SAP` en respectant la casse.
+
+Résultat attendu :
+
+```text
+SAP - SAP - abap
+```
+
+Récupérer le nombre de remplacements.
+
+## 🌺 EXERCICE 3 — IGNORING CASE
+
+Remplacer toutes les variantes de casse par `SAP`.
+
+Résultat attendu :
+
+```text
+SAP - SAP - SAP
+```
+
+## 🌺 EXERCICE 4 — MOTIF ABSENT
+
+Rechercher et remplacer `JAVA`.
+
+Afficher le nombre de remplacements.
+
+Expliquer pourquoi le texte reste inchangé.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] La première occurrence seule est remplacée.
+- [ ] Toutes les occurrences exactes sont remplacées.
+- [ ] La variante en minuscules est conservée avec `RESPECTING CASE`.
+- [ ] La variante en minuscules est remplacée avec `IGNORING CASE`.
+- [ ] Le nombre de remplacements est contrôlé.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+DATA lv_source TYPE string
+  VALUE `ABAP - ABAP - abap`.
+
+DATA(lv_text_first) = lv_source.
+DATA(lv_text_all)   = lv_source.
+DATA(lv_text_case)  = lv_source.
+
+REPLACE FIRST OCCURRENCE OF 'ABAP'
+  IN lv_text_first
+  WITH 'SAP'.
+
+REPLACE ALL OCCURRENCES OF 'ABAP'
+  IN lv_text_all
+  WITH 'SAP'
+  RESPECTING CASE
+  REPLACEMENT COUNT DATA(lv_count_exact).
+
+REPLACE ALL OCCURRENCES OF 'ABAP'
+  IN lv_text_case
+  WITH 'SAP'
+  IGNORING CASE
+  REPLACEMENT COUNT DATA(lv_count_all).
+
+WRITE: / 'Première occurrence :', lv_text_first,
+       / 'Toutes, même casse  :', lv_text_all,
+       / 'Toutes, casse libre :', lv_text_case,
+       / 'Nombre exact        :', lv_count_exact,
+       / 'Nombre casse libre  :', lv_count_all.
+
+REPLACE ALL OCCURRENCES OF 'JAVA'
+  IN lv_text_case
+  WITH 'SAP'
+  REPLACEMENT COUNT DATA(lv_count_missing).
+
+WRITE / |Remplacements JAVA : { lv_count_missing }|.
+```
+
+Résultats attendus :
+
+```text
+Nombre exact       : 2
+Nombre casse libre : 3
+Remplacements JAVA : 0
+```
+
+</details>

@@ -4,33 +4,110 @@
 
 > Cours associé : [CONDENSE](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 04 - BASIC INSTRUCTIONS/05 - 🍧 CONDENSE.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+À la fin de l’exercice, le stagiaire doit être capable de :
 
-## 🌺 EXERCICE 1 — RESTITUTION
+- supprimer les espaces de début et de fin ;
+- réduire plusieurs espaces internes à un seul ;
+- supprimer tous les espaces avec `NO-GAPS` ;
+- préserver la valeur originale avant transformation ;
+- choisir la variante adaptée au besoin.
 
-Sans consulter le cours, définir **CONDENSE**, expliquer son utilité et citer une erreur d'utilisation possible.
+## 🌺 DURÉE INDICATIVE
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+20 à 30 minutes.
 
-- [ ] Comprendre l'utilisation de l'instruction `CONDENSE` en ABAP dans un exemple différent de celui du cours.
-- [ ] Supprimer les espaces superflus dans une chaîne de caractères dans un exemple différent de celui du cours.
-- [ ] Utiliser l'option `NO-GAPS` pour enlever tous les espaces dans un exemple différent de celui du cours.
+## 🌺 EXERCICE 1 — NETTOYAGE STANDARD
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Déclarer :
 
-1. Construire volontairement un cas incorrect lié à **CONDENSE**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```abap
+DATA lv_source TYPE string
+  VALUE `   SAP     ABAP    Formation   `.
+```
+
+Copier la valeur dans `lv_condensed`, puis appliquer :
+
+```abap
+CONDENSE lv_condensed.
+```
+
+Résultat attendu :
+
+```text
+SAP ABAP Formation
+```
+
+## 🌺 EXERCICE 2 — NO-GAPS
+
+Copier à nouveau la source dans `lv_no_gaps`, puis appliquer :
+
+```abap
+CONDENSE lv_no_gaps NO-GAPS.
+```
+
+Résultat attendu :
+
+```text
+SAPABAPFormation
+```
+
+## 🌺 EXERCICE 3 — CHOIX DE LA VARIANTE
+
+Indiquer la variante correcte :
+
+| Besoin                                                           | Variante |
+| ---------------------------------------------------------------- | -------- |
+| Nettoyer un nom saisi avec plusieurs espaces                     |          |
+| Construire une clé sans aucun espace                             |          |
+| Conserver exactement les espacements d’un fichier à largeur fixe |          |
+
+## 🌺 EXERCICE 4 — DIAGNOSTIC
+
+Analyser :
+
+```abap
+CONDENSE lv_source NO-GAPS.
+WRITE / lv_source.
+```
+
+Pourquoi est-il impossible d’afficher ensuite la valeur originale avec les espaces initiaux ?
+
+Corriger en conservant la source.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] La source est conservée.
+- [ ] `CONDENSE` garde un espace entre les mots.
+- [ ] `NO-GAPS` retire tous les espaces.
+- [ ] La variante est choisie selon le besoin.
+- [ ] La transformation en place est comprise.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+DATA lv_source TYPE string
+  VALUE `   SAP     ABAP    Formation   `.
+
+DATA(lv_condensed) = lv_source.
+DATA(lv_no_gaps)   = lv_source.
+
+CONDENSE lv_condensed.
+CONDENSE lv_no_gaps NO-GAPS.
+
+WRITE: / 'Source      :', lv_source,
+       / 'CONDENSE    :', lv_condensed,
+       / 'NO-GAPS     :', lv_no_gaps.
+```
+
+| Besoin                         | Variante                    |
+| ------------------------------ | --------------------------- |
+| Nettoyer un nom                | `CONDENSE`                  |
+| Construire une clé sans espace | `CONDENSE ... NO-GAPS`      |
+| Conserver un format fixe       | Ne pas appliquer `CONDENSE` |
+
+`CONDENSE` modifie directement la variable fournie. Une copie préalable est nécessaire lorsque la source doit être conservée.
+
+</details>

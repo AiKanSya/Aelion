@@ -4,34 +4,118 @@
 
 > Cours associé : [FIND](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 04 - BASIC INSTRUCTIONS/07 - 🍧 FIND.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+À la fin de l’exercice, le stagiaire doit être capable de :
 
-## 🌺 EXERCICE 1 — RESTITUTION
+- rechercher une occurrence ;
+- ignorer ou respecter la casse ;
+- récupérer la position et la longueur du premier résultat ;
+- compter toutes les occurrences ;
+- utiliser `sy-subrc` pour distinguer trouvé et non trouvé.
 
-Sans consulter le cours, définir **FIND**, expliquer son utilité et citer une erreur d'utilisation possible.
+## 🌺 DURÉE INDICATIVE
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+30 à 40 minutes.
 
-- [ ] Comprendre l'utilisation de l'instruction FIND en ABAP dans un exemple différent de celui du cours.
-- [ ] Rechercher une chaîne de caractères `pattern` dans une chaîne source `dobj` dans un exemple différent de celui du cours.
-- [ ] Identifier la première occurrence ou toutes les occurrences dans un exemple différent de celui du cours.
-- [ ] Utiliser les options `MATCH COUNT`, `MATCH OFFSET`, `MATCH LENGTH`, et `RESULTS` dans un exemple différent de celui du cours.
+## 🌺 EXERCICE 1 — PREMIÈRE OCCURRENCE
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Déclarer :
 
-1. Construire volontairement un cas incorrect lié à **FIND**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```abap
+DATA lv_text TYPE string
+  VALUE `Formation ABAP : ABAP, UI5 et CPI`.
+```
+
+Rechercher la première occurrence de `ABAP` et récupérer :
+
+- son offset ;
+- sa longueur.
+
+## 🌺 EXERCICE 2 — NOMBRE D’OCCURRENCES
+
+Compter toutes les occurrences de `ABAP`.
+
+Résultat attendu :
+
+```text
+2
+```
+
+## 🌺 EXERCICE 3 — CASSE
+
+Rechercher `abap` :
+
+1. avec `RESPECTING CASE` ;
+2. avec `IGNORING CASE`.
+
+Comparer les résultats.
+
+## 🌺 EXERCICE 4 — VALEUR ABSENTE
+
+Rechercher `JAVA`.
+
+Utiliser `sy-subrc` immédiatement après `FIND` pour afficher :
+
+```text
+Motif absent
+```
+
+> [!IMPORTANT]
+> `sy-subrc` doit être contrôlé immédiatement après l’instruction concernée. Une autre instruction peut modifier sa valeur.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] La première position est récupérée.
+- [ ] La longueur trouvée est récupérée.
+- [ ] Le nombre total vaut deux.
+- [ ] La différence de casse est expliquée.
+- [ ] L’absence du motif est gérée.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+DATA lv_text TYPE string
+  VALUE `Formation ABAP : ABAP, UI5 et CPI`.
+
+FIND FIRST OCCURRENCE OF 'ABAP'
+  IN lv_text
+  MATCH OFFSET DATA(lv_offset)
+  MATCH LENGTH DATA(lv_length).
+
+IF sy-subrc = 0.
+  WRITE: / 'Premier offset :', lv_offset,
+         / 'Longueur       :', lv_length.
+ELSE.
+  WRITE / 'Motif absent'.
+ENDIF.
+
+FIND ALL OCCURRENCES OF 'ABAP'
+  IN lv_text
+  MATCH COUNT DATA(lv_count).
+
+WRITE / |Nombre d'occurrences : { lv_count }|.
+
+FIND FIRST OCCURRENCE OF 'abap'
+  IN lv_text
+  RESPECTING CASE.
+
+WRITE / |RESPECTING CASE - sy-subrc : { sy-subrc }|.
+
+FIND FIRST OCCURRENCE OF 'abap'
+  IN lv_text
+  IGNORING CASE.
+
+WRITE / |IGNORING CASE - sy-subrc : { sy-subrc }|.
+
+FIND FIRST OCCURRENCE OF 'JAVA' IN lv_text.
+
+IF sy-subrc <> 0.
+  WRITE / 'Motif absent'.
+ENDIF.
+```
+
+Le premier `ABAP` commence après le texte `Formation `, soit à l’offset `10`. Sa longueur est `4`.
+
+</details>
