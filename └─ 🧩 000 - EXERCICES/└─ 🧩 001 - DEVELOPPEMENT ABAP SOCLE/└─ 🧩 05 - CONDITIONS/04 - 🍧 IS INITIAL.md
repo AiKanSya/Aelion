@@ -4,35 +4,175 @@
 
 > Cours associé : [IS INITIAL](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 05 - CONDITIONS/04 - 🍧 IS INITIAL.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+À la fin de l’exercice, le stagiaire doit être capable de :
 
-## 🌺 EXERCICE 1 — RESTITUTION
+- reconnaître la valeur initiale d’un type ;
+- utiliser `IS INITIAL` ;
+- utiliser `IS NOT INITIAL` ;
+- contrôler plusieurs champs obligatoires ;
+- distinguer valeur initiale et valeur métier invalide ;
+- éviter un test trompeur sur une donnée numérique.
 
-Sans consulter le cours, définir **IS INITIAL**, expliquer son utilité et citer une erreur d'utilisation possible.
+## 🌺 DURÉE INDICATIVE
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+30 à 40 minutes.
 
-- [ ] Comprendre l'utilisation de `IS INITIAL` pour tester si une variable est vide ou contient sa valeur par défaut dans un exemple différent de celui du cours.
-- [ ] Savoir utiliser `IS NOT INITIAL` pour vérifier qu’une variable contient une valeur dans un exemple différent de celui du cours.
-- [ ] Appliquer `IS INITIAL` avec `IF` pour les conditions simples dans un exemple différent de celui du cours.
-- [ ] Appliquer `IS INITIAL` avec `CASE` pour gérer plusieurs cas dans un exemple différent de celui du cours.
-- [ ] Simplifier les tests de variables non initialisées ou vides dans un exemple différent de celui du cours.
+## 🌺 EXERCICE 1 — VALEURS INITIALES
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Compléter :
 
-1. Construire volontairement un cas incorrect lié à **IS INITIAL**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+| Type         | Valeur initiale |
+| ------------ | --------------- |
+| `string`     |                 |
+| `c LENGTH 3` |                 |
+| `i`          |                 |
+| `p`          |                 |
+| `d`          |                 |
+| `t`          |                 |
+| `abap_bool`  |                 |
+
+## 🌺 EXERCICE 2 — CONTRÔLE DE CHAMPS
+
+Déclarer :
+
+```abap
+DATA lv_customer TYPE string VALUE `C1000`.
+DATA lv_country  TYPE c LENGTH 2 VALUE 'FR'.
+DATA lv_comment  TYPE string.
+```
+
+Règles :
+
+- le client est obligatoire ;
+- le pays est obligatoire ;
+- le commentaire est facultatif.
+
+Afficher :
+
+```text
+Données obligatoires renseignées
+Commentaire non renseigné
+```
+
+## 🌺 EXERCICE 3 — CAS DE TEST
+
+Tester :
+
+| Client  | Pays   | Résultat                         |
+| ------- | ------ | -------------------------------- |
+| `C1000` | `FR`   | Données obligatoires renseignées |
+| vide    | `FR`   | Client obligatoire               |
+| `C1000` | espace | Pays obligatoire                 |
+| vide    | espace | Client et pays obligatoires      |
+
+## 🌺 EXERCICE 4 — VALEUR NUMÉRIQUE
+
+Déclarer :
+
+```abap
+DATA lv_quantity TYPE i VALUE 0.
+```
+
+Répondre :
+
+1. `lv_quantity IS INITIAL` est-il vrai ?
+2. Cette condition permet-elle de savoir si l’utilisateur a explicitement saisi zéro ?
+3. Une quantité nulle peut-elle être initiale et simultanément invalide selon une règle métier ?
+4. Quel contrôle complémentaire faut-il appliquer si la quantité doit être strictement positive ?
+
+## 🌺 EXERCICE 5 — DIAGNOSTIC
+
+Analyser :
+
+```abap
+DATA lv_customer TYPE string.
+
+CASE lv_customer.
+  WHEN IS INITIAL.
+    WRITE / 'Client vide'.
+  WHEN OTHERS.
+    WRITE / 'Client renseigné'.
+ENDCASE.
+```
+
+Réécrire avec `IF`.
+
+## 🌺 LIVRABLES
+
+- tableau des valeurs initiales ;
+- contrôle des champs ;
+- résultats des quatre cas ;
+- explication sur la quantité ;
+- correction du `CASE`.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] `IS INITIAL` est distingué d’une règle métier.
+- [ ] Les champs obligatoires sont contrôlés.
+- [ ] `IS NOT INITIAL` est utilisé à bon escient.
+- [ ] La valeur `0` est reconnue comme initiale pour un entier.
+- [ ] Une quantité strictement positive est contrôlée avec `GT 0`.
+- [ ] Le contrôle est écrit avec `IF`.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+### Solution — valeurs
+
+| Type         | Valeur initiale |
+| ------------ | --------------- |
+| `string`     | chaîne vide     |
+| `c LENGTH 3` | trois espaces   |
+| `i`          | `0`             |
+| `p`          | `0`             |
+| `d`          | `00000000`      |
+| `t`          | `000000`        |
+| `abap_bool`  | espace          |
+
+### Solution — contrôle
+
+```abap
+IF lv_customer IS INITIAL AND lv_country IS INITIAL.
+  WRITE / 'Client et pays obligatoires'.
+ELSEIF lv_customer IS INITIAL.
+  WRITE / 'Client obligatoire'.
+ELSEIF lv_country IS INITIAL.
+  WRITE / 'Pays obligatoire'.
+ELSE.
+  WRITE / 'Données obligatoires renseignées'.
+ENDIF.
+
+IF lv_comment IS INITIAL.
+  WRITE / 'Commentaire non renseigné'.
+ELSE.
+  WRITE / 'Commentaire renseigné'.
+ENDIF.
+```
+
+### Solution — quantité
+
+```abap
+IF lv_quantity IS INITIAL.
+  WRITE / 'La quantité contient sa valeur initiale'.
+ENDIF.
+
+IF lv_quantity LE 0.
+  WRITE / 'La quantité doit être strictement positive'.
+ENDIF.
+```
+
+`IS INITIAL` décrit l’état technique de la donnée. `LE 0` applique une règle métier.
+
+### Solution — diagnostic
+
+```abap
+IF lv_customer IS INITIAL.
+  WRITE / 'Client vide'.
+ELSE.
+  WRITE / 'Client renseigné'.
+ENDIF.
+```
+
+</details>

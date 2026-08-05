@@ -4,35 +4,106 @@
 
 > Cours associé : [CONTAINS STRING (CS)](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 05 - CONDITIONS/09 - 🍧 IF CS.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+À la fin de l’exercice, le stagiaire doit être capable de :
 
-## 🌺 EXERCICE 1 — RESTITUTION
+- rechercher une sous-chaîne complète ;
+- distinguer sous-chaîne et ensemble de caractères ;
+- connaître le comportement sur la casse ;
+- distinguer `CS` de `FIND` ;
+- utiliser `CS` pour un contrôle booléen simple.
 
-Sans consulter le cours, définir **CONTAINS STRING (CS)**, expliquer son utilité et citer une erreur d'utilisation possible.
+## 🌺 DURÉE INDICATIVE
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+25 à 35 minutes.
 
-- [ ] Comprendre l'opérateur `CS` (Contains String) et son fonctionnement dans un exemple différent de celui du cours.
-- [ ] Vérifier si une chaîne contient une sous-chaîne complète dans un exemple différent de celui du cours.
-- [ ] Différencier `CS` (sous-chaîne) de `CA` (caractère individuel) dans un exemple différent de celui du cours.
-- [ ] Apprendre à utiliser `IF ... CS ... ENDIF` pour des contrôles simples dans un exemple différent de celui du cours.
-- [ ] Identifier quand utiliser `FIND` pour obtenir la position exacte ou faire des recherches avancées dans un exemple différent de celui du cours.
+## 🌺 EXERCICE 1 — RECHERCHE SIMPLE
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Déclarer :
 
-1. Construire volontairement un cas incorrect lié à **CONTAINS STRING (CS)**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```abap
+DATA lv_log TYPE string
+  VALUE `Traitement terminé avec ERROR technique`.
+```
+
+Vérifier si le texte contient :
+
+```text
+error
+```
+
+Résultat attendu : vrai.
+
+## 🌺 EXERCICE 2 — SÉQUENCE COMPLÈTE
+
+Tester :
+
+| Texte recherché | Résultat |
+| --------------- | -------- |
+| `terminé`       | Vrai     |
+| `ERROR`         | Vrai     |
+| `error`         | Vrai     |
+| `tech`          | Vrai     |
+| `erreur`        | Faux     |
+| `EOR`           | Faux     |
+
+Expliquer pourquoi `EOR` est faux même si les lettres existent séparément dans le texte.
+
+## 🌺 EXERCICE 3 — CS OU FIND
+
+Choisir :
+
+| Besoin                                      | Instruction |
+| ------------------------------------------- | ----------- |
+| Savoir uniquement si une sous-chaîne existe |             |
+| Obtenir l’offset exact                      |             |
+| Compter toutes les occurrences              |             |
+| Effectuer une recherche avancée             |             |
+
+## 🌺 EXERCICE 4 — CONTRÔLE TROP LARGE
+
+Analyser :
+
+```abap
+IF lv_log CA 'ERROR'.
+  WRITE / 'Erreur détectée'.
+ENDIF.
+```
+
+Pourquoi `CA` peut-il retourner vrai alors que le mot complet `ERROR` n’est pas présent ?
+
+Corriger avec `CS`.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] `error` retrouve `ERROR`.
+- [ ] La recherche porte sur une séquence complète.
+- [ ] `CS` est distingué de `CA`.
+- [ ] `FIND` est choisi pour une position ou un comptage.
+- [ ] Le contrôle ne dépend pas incorrectement de la casse.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+DATA lv_log TYPE string
+  VALUE `Traitement terminé avec ERROR technique`.
+
+IF lv_log CS 'error'.
+  WRITE / 'Erreur détectée'.
+ELSE.
+  WRITE / 'Aucune erreur détectée'.
+ENDIF.
+```
+
+| Besoin                    | Choix                  |
+| ------------------------- | ---------------------- |
+| Présence booléenne simple | `CS`                   |
+| Offset exact              | `FIND`                 |
+| Nombre d’occurrences      | `FIND ALL OCCURRENCES` |
+| Recherche avancée         | `FIND`                 |
+
+`CA 'ERROR'` est vrai dès qu’un seul caractère parmi `E`, `R` ou `O` est trouvé. Il ne garantit pas la présence du mot complet.
+
+</details>

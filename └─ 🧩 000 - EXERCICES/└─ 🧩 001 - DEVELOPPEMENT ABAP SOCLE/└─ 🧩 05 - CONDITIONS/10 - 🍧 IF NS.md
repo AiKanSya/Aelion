@@ -4,35 +4,105 @@
 
 > Cours associé : [NO STRING (NS)](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 05 - CONDITIONS/10 - 🍧 IF NS.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+À la fin de l’exercice, le stagiaire doit être capable de :
 
-## 🌺 EXERCICE 1 — RESTITUTION
+- vérifier l’absence d’une sous-chaîne ;
+- expliquer que `NS` est l’inverse logique de `CS` ;
+- connaître le comportement sur la casse ;
+- valider qu’un texte ne contient pas une séquence interdite ;
+- éviter une condition négative difficile à lire.
 
-Sans consulter le cours, définir **NO STRING (NS)**, expliquer son utilité et citer une erreur d'utilisation possible.
+## 🌺 DURÉE INDICATIVE
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+20 à 30 minutes.
 
-- [ ] Comprendre l'opérateur `NS` (No String) et son fonctionnement dans un exemple différent de celui du cours.
-- [ ] Vérifier si une chaîne ne contient pas une sous-chaîne spécifique dans un exemple différent de celui du cours.
-- [ ] Différencier `NS` (absence de sous-chaîne) de `CS` (présence de sous-chaîne) dans un exemple différent de celui du cours.
-- [ ] Apprendre à utiliser `IF ... NS ... ENDIF` pour contrôler l'absence d'une séquence dans un exemple différent de celui du cours.
-- [ ] Identifier les cas pratiques où la vérification de l'absence est nécessaire dans un exemple différent de celui du cours.
+## 🌺 CONTEXTE
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Une description ne doit pas contenir le mot :
 
-1. Construire volontairement un cas incorrect lié à **NO STRING (NS)**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```text
+TEST
+```
+
+## 🌺 EXERCICE 1 — ABSENCE
+
+Tester :
+
+```abap
+DATA lv_description TYPE string
+  VALUE `Commande productive`.
+```
+
+Utiliser `NS`.
+
+## 🌺 EXERCICE 2 — CAS DE TEST
+
+| Description           | `NS 'TEST'`                                                     |
+| --------------------- | --------------------------------------------------------------- |
+| `Commande productive` | Vrai                                                            |
+| `Commande TEST`       | Faux                                                            |
+| `Commande test`       | Faux                                                            |
+| `test de commande`    | Faux                                                            |
+| vide                  | Vrai techniquement, mais à contrôler séparément selon le besoin |
+
+## 🌺 EXERCICE 3 — LOGIQUE POSITIVE OU NÉGATIVE
+
+Comparer :
+
+```abap
+IF lv_description NS 'TEST'.
+  WRITE / 'Description autorisée'.
+ELSE.
+  WRITE / 'Description interdite'.
+ENDIF.
+```
+
+et :
+
+```abap
+IF lv_description CS 'TEST'.
+  WRITE / 'Description interdite'.
+ELSE.
+  WRITE / 'Description autorisée'.
+ENDIF.
+```
+
+Indiquer quelle version est la plus lisible lorsque le besoin principal consiste à détecter l’interdiction.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] `NS` est identifié comme l’inverse de `CS`.
+- [ ] `test` est détecté comme `TEST`.
+- [ ] Une chaîne vide est traitée selon la règle métier.
+- [ ] La condition la plus lisible est privilégiée.
+- [ ] Aucune confusion avec `NP` ne subsiste.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+DATA lv_description TYPE string
+  VALUE `Commande productive`.
+
+IF lv_description IS INITIAL.
+  WRITE / 'Description non renseignée'.
+ELSEIF lv_description NS 'TEST'.
+  WRITE / 'Description autorisée'.
+ELSE.
+  WRITE / 'Description interdite'.
+ENDIF.
+```
+
+Lorsque le besoin principal est de détecter un texte interdit, la formulation positive suivante peut être plus directe :
+
+```abap
+IF lv_description CS 'TEST'.
+  WRITE / 'Description interdite'.
+ELSE.
+  WRITE / 'Description autorisée'.
+ENDIF.
+```
+
+</details>

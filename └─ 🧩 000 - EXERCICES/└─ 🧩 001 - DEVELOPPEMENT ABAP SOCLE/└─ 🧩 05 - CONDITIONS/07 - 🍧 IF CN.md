@@ -4,36 +4,96 @@
 
 > Cours associé : [CONTAINS NOT ONLY (CN)](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 05 - CONDITIONS/07 - 🍧 IF CN.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+À la fin de l’exercice, le stagiaire doit être capable de :
 
-## 🌺 EXERCICE 1 — RESTITUTION
+- détecter au moins un caractère non autorisé ;
+- expliquer que `CN` est l’inverse logique de `CO` ;
+- récupérer l’offset du premier caractère invalide ;
+- traiter séparément une chaîne vide ;
+- éviter une interprétation incorrecte de `sy-fdpos`.
 
-Sans consulter le cours, définir **CONTAINS NOT ONLY (CN)**, expliquer son utilité et citer une erreur d'utilisation possible.
+## 🌺 DURÉE INDICATIVE
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+25 à 35 minutes.
 
-- [ ] Comprendre l'opérateur `CN` (Contains Not Only) et son utilité dans un exemple différent de celui du cours.
-- [ ] Vérifier qu’une chaîne contient au moins un caractère non autorisé dans un exemple différent de celui du cours.
-- [ ] Savoir utiliser `IF ... CN ... ENDIF` pour des contrôles simples dans un exemple différent de celui du cours.
-- [ ] Connaître la sensibilité à la casse de `CN` dans un exemple différent de celui du cours.
-- [ ] Utiliser `SY-FDPOS` pour localiser le dernier caractère valide dans un exemple différent de celui du cours.
-- [ ] Appliquer `CN` pour détecter des caractères indésirables dans une entrée utilisateur dans un exemple différent de celui du cours.
+## 🌺 EXERCICE 1 — DÉTECTION
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Réutiliser :
 
-1. Construire volontairement un cas incorrect lié à **CONTAINS NOT ONLY (CN)**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```abap
+CONSTANTS lc_allowed_chars TYPE string
+  VALUE `ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-`.
+```
+
+Écrire une condition `CN` qui affiche :
+
+```text
+Caractère non autorisé détecté
+```
+
+## 🌺 EXERCICE 2 — POSITION
+
+Pour :
+
+```abap
+DATA lv_code TYPE string VALUE `ABAP_2026`.
+```
+
+Afficher l’offset du premier caractère absent de la liste autorisée.
+
+## 🌺 EXERCICE 3 — CO OU CN
+
+Compléter :
+
+| Besoin                                       | Opérateur |
+| -------------------------------------------- | --------- |
+| Accepter uniquement les caractères autorisés |           |
+| Détecter au moins un caractère interdit      |           |
+| Traiter le cas nominal dans le bloc `IF`     |           |
+| Traiter l’erreur dans le bloc `IF`           |           |
+
+## 🌺 EXERCICE 4 — CHAÎNE VIDE
+
+Tester une chaîne vide avec `CN`.
+
+Expliquer pourquoi une validation métier doit commencer par `IS INITIAL` ou `IS NOT INITIAL`, indépendamment du résultat logique de `CO` ou `CN`.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] `CN` détecte `_`.
+- [ ] L’offset vaut `4`.
+- [ ] `CN` est identifié comme l’inverse de `CO`.
+- [ ] `sy-fdpos` n’est pas décrit comme la position du dernier caractère valide.
+- [ ] Le vide est traité explicitement.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+CONSTANTS lc_allowed_chars TYPE string
+  VALUE `ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-`.
+
+DATA lv_code TYPE string VALUE `ABAP_2026`.
+
+IF lv_code IS INITIAL.
+  WRITE / 'Code invalide : valeur vide'.
+ELSEIF lv_code CN lc_allowed_chars.
+  DATA(lv_invalid_offset) = sy-fdpos.
+
+  WRITE: / 'Caractère non autorisé détecté',
+         / |Offset : { lv_invalid_offset }|.
+ELSE.
+  WRITE / 'Code valide'.
+ENDIF.
+```
+
+| Besoin                                       | Opérateur |
+| -------------------------------------------- | --------- |
+| Accepter uniquement les caractères autorisés | `CO`      |
+| Détecter au moins un caractère interdit      | `CN`      |
+| Cas nominal dans `IF`                        | `CO`      |
+| Erreur dans `IF`                             | `CN`      |
+
+</details>

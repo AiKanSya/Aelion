@@ -4,35 +4,141 @@
 
 > Cours associé : [COVERS PATTERN (CP)](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 05 - CONDITIONS/11 - 🍧 IF CP.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+À la fin de l’exercice, le stagiaire doit être capable de :
 
-## 🌺 EXERCICE 1 — RESTITUTION
+- comparer une chaîne à un motif ;
+- utiliser `*` ;
+- utiliser `+` ;
+- connaître le comportement sur la casse ;
+- distinguer motif et expression régulière ;
+- expliquer le rôle général de `#`.
 
-Sans consulter le cours, définir **COVERS PATTERN (CP)**, expliquer son utilité et citer une erreur d'utilisation possible.
+## 🌺 DURÉE INDICATIVE
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+35 à 45 minutes.
 
-- [ ] Comprendre l'opérateur `CP` (Covers Pattern) et son usage dans un exemple différent de celui du cours.
-- [ ] Vérifier si une chaîne correspond à un `PATTERN` avec caracteres generiques (\* et +) dans un exemple différent de celui du cours.
-- [ ] Utiliser `IF` ... `CP` ... `ENDIF` pour des comparaisons flexibles dans un exemple différent de celui du cours.
-- [ ] Identifier les situations pratiques : noms de fichiers, extensions, formats textuels dans un exemple différent de celui du cours.
-- [ ] Comprendre le comportement par défaut sur la casse et le rôle du caractère d'échappement `#` dans un exemple différent de celui du cours.
+## 🌺 RAPPEL
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Dans un motif `CP` :
 
-1. Construire volontairement un cas incorrect lié à **COVERS PATTERN (CP)**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+- `*` représente une suite de zéro, un ou plusieurs caractères ;
+- `+` représente exactement un caractère ;
+- la comparaison ne tient pas compte de la casse par défaut ;
+- `#` échappe le caractère suivant.
+
+## 🌺 EXERCICE 1 — EXTENSION DE FICHIER
+
+Tester :
+
+| Fichier       | Motif `*.CSV` | Résultat |
+| ------------- | ------------- | -------- |
+| `export.csv`  |               |          |
+| `EXPORT.CSV`  |               |          |
+| `archive.txt` |               |          |
+| `.csv`        |               |          |
+
+Expliquer pourquoi `.csv` correspond également au motif.
+
+## 🌺 EXERCICE 2 — NOMBRE EXACT DE CARACTÈRES
+
+Le format attendu est :
+
+```text
+INV-2026.CSV
+```
+
+Utiliser :
+
+```text
+INV-++++.CSV
+```
+
+Tester :
+
+| Fichier         | Résultat |
+| --------------- | -------- |
+| `INV-2026.CSV`  | Vrai     |
+| `inv-2026.csv`  | Vrai     |
+| `INV-26.CSV`    | Faux     |
+| `INV-20261.CSV` | Faux     |
+| `DEV-2026.CSV`  | Faux     |
+
+## 🌺 EXERCICE 3 — PLUSIEURS CONTRÔLES
+
+Un fichier est accepté uniquement si :
+
+- il respecte `INV-++++.CSV` ;
+- les quatre caractères variables sont uniquement numériques.
+
+Extraire les quatre caractères avec un offset, puis utiliser `CO '0123456789'`.
+
+## 🌺 EXERCICE 4 — CARACTÈRE D’ÉCHAPPEMENT
+
+Répondre :
+
+1. Pourquoi faut-il échapper `*` lorsqu’il doit représenter une étoile littérale ?
+2. Quel caractère est utilisé ?
+3. `CP` est-il une expression régulière complète ?
+4. Pourquoi un motif simple ne remplace-t-il pas tous les contrôles métier ?
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] `export.csv` et `EXPORT.CSV` sont acceptés.
+- [ ] `*` accepte une suite vide.
+- [ ] `+` représente exactement un caractère.
+- [ ] Le motif exact exige quatre positions.
+- [ ] Les quatre positions sont contrôlées comme numériques.
+- [ ] `CP` n’est pas présenté comme une expression régulière complète.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+### Solution — extension
+
+| Fichier       | Résultat |
+| ------------- | -------- |
+| `export.csv`  | Vrai     |
+| `EXPORT.CSV`  | Vrai     |
+| `archive.txt` | Faux     |
+| `.csv`        | Vrai     |
+
+`*` peut remplacer une suite vide. Aucun caractère n’est donc obligatoire avant `.CSV`.
+
+### Solution — motif exact
+
+```abap
+DATA lv_file TYPE string VALUE `INV-2026.CSV`.
+
+IF lv_file CP 'INV-++++.CSV'.
+  WRITE / 'Structure générale conforme'.
+ELSE.
+  WRITE / 'Structure générale invalide'.
+ENDIF.
+```
+
+### Solution — chiffres
+
+```abap
+IF lv_file CP 'INV-++++.CSV'
+   AND strlen( lv_file ) EQ 12.
+
+  DATA(lv_year_text) = lv_file+4(4).
+
+  IF lv_year_text CO '0123456789'.
+    WRITE / 'Fichier valide'.
+  ELSE.
+    WRITE / 'Les quatre positions doivent être numériques'.
+  ENDIF.
+
+ELSE.
+  WRITE / 'Format de fichier invalide'.
+ENDIF.
+```
+
+Le motif vérifie la structure générale. `CO` vérifie la nature des quatre caractères.
+
+Le caractère `#` permet de traiter spécialement le caractère qui le suit, notamment pour rechercher littéralement un joker.
+
+</details>

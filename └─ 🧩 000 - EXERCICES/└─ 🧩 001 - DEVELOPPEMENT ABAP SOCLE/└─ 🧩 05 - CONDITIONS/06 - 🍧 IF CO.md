@@ -4,36 +4,114 @@
 
 > Cours associé : [CONTAINS ONLY (CO)](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 05 - CONDITIONS/06 - 🍧 IF CO.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+À la fin de l’exercice, le stagiaire doit être capable de :
 
-## 🌺 EXERCICE 1 — RESTITUTION
+- vérifier qu’une chaîne ne contient que des caractères autorisés ;
+- prendre en compte la casse ;
+- contrôler une chaîne vide séparément ;
+- utiliser `sy-fdpos` pour localiser un caractère invalide ;
+- distinguer validation d’alphabet et validation de format.
 
-Sans consulter le cours, définir **CONTAINS ONLY (CO)**, expliquer son utilité et citer une erreur d'utilisation possible.
+## 🌺 DURÉE INDICATIVE
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+30 à 40 minutes.
 
-- [ ] Comprendre l'opérateur `CO` (Contains Only) et son utilité dans un exemple différent de celui du cours.
-- [ ] Vérifier qu’une chaîne ne contient que des caractères autorisés dans un exemple différent de celui du cours.
-- [ ] Savoir utiliser `IF ... CO ... ENDIF` pour des contrôles simples dans un exemple différent de celui du cours.
-- [ ] Connaître la sensibilité à la casse de `CO` dans un exemple différent de celui du cours.
-- [ ] Utiliser `SY-FDPOS` pour connaître la position du dernier caractère vérifié dans un exemple différent de celui du cours.
-- [ ] Appliquer `CO` pour valider ou filtrer des entrées utilisateur dans un exemple différent de celui du cours.
+## 🌺 CONTEXTE
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Un code métier peut contenir uniquement :
 
-1. Construire volontairement un cas incorrect lié à **CONTAINS ONLY (CO)**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```text
+A à Z
+0 à 9
+tiret
+```
+
+## 🌺 EXERCICE 1 — VALIDATION
+
+Déclarer :
+
+```abap
+CONSTANTS lc_allowed_chars TYPE string
+  VALUE `ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-`.
+
+DATA lv_code TYPE string VALUE `ABAP-2026`.
+```
+
+Règles :
+
+1. une chaîne vide est invalide ;
+2. une chaîne non vide est valide uniquement si elle contient exclusivement les caractères autorisés.
+
+## 🌺 EXERCICE 2 — CAS DE TEST
+
+Tester :
+
+| Valeur      | Résultat attendu |
+| ----------- | ---------------- |
+| `ABAP-2026` | Valide           |
+| `ABAP_2026` | Invalide         |
+| `abap-2026` | Invalide         |
+| `2026`      | Valide           |
+| vide        | Invalide         |
+
+## 🌺 EXERCICE 3 — POSITION INVALIDE
+
+Pour `ABAP_2026`, sauvegarder `sy-fdpos` immédiatement après le test `CO`.
+
+Afficher :
+
+```text
+Caractère invalide à l'offset 4
+```
+
+Rappeler que `_` est le cinquième caractère mais se trouve à l’offset `4`.
+
+## 🌺 EXERCICE 4 — LIMITE DE CO
+
+Le code doit maintenant respecter précisément le format :
+
+```text
+ABC-1234
+```
+
+Répondre :
+
+1. `CO` peut-il vérifier que le tiret se trouve obligatoirement à l’offset `3` ?
+2. `CO` peut-il vérifier qu’il existe exactement trois lettres puis quatre chiffres ?
+3. Quel opérateur du dossier convient mieux pour contrôler un motif complet ?
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] La chaîne vide est contrôlée avant `CO`.
+- [ ] Le code nominal est accepté.
+- [ ] `_` est refusé.
+- [ ] Les minuscules sont refusées.
+- [ ] `sy-fdpos` est lu immédiatement.
+- [ ] La limite de `CO` est comprise.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+CONSTANTS lc_allowed_chars TYPE string
+  VALUE `ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-`.
+
+DATA lv_code TYPE string VALUE `ABAP-2026`.
+
+IF lv_code IS INITIAL.
+  WRITE / 'Code invalide : valeur vide'.
+ELSEIF lv_code CO lc_allowed_chars.
+  WRITE / 'Code valide'.
+ELSE.
+  DATA(lv_invalid_offset) = sy-fdpos.
+  WRITE / |Caractère invalide à l'offset { lv_invalid_offset }|.
+ENDIF.
+```
+
+`CO` contrôle l’alphabet autorisé, pas la structure exacte de la chaîne.
+
+Pour un format tel que `ABC-1234`, utiliser un contrôle de motif avec `CP`, éventuellement complété par des contrôles supplémentaires lorsque certaines positions doivent être exclusivement alphabétiques ou numériques.
+
+</details>

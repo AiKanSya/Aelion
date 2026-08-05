@@ -4,35 +4,138 @@
 
 > Cours associé : [NO PATTERN (NP)](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 05 - CONDITIONS/12 - 🍧 IF NP.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+À la fin de l’exercice, le stagiaire doit être capable de :
 
-## 🌺 EXERCICE 1 — RESTITUTION
+- vérifier qu’une chaîne ne correspond pas à un motif ;
+- expliquer que `NP` est l’inverse logique de `CP` ;
+- exclure un format ;
+- connaître le comportement sur la casse ;
+- éviter une double négation difficile à lire.
 
-Sans consulter le cours, définir **NO PATTERN (NP)**, expliquer son utilité et citer une erreur d'utilisation possible.
+## 🌺 DURÉE INDICATIVE
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+25 à 35 minutes.
 
-- [ ] Comprendre l'opérateur `NP` (No Pattern) et son rôle dans un exemple différent de celui du cours.
-- [ ] Vérifier si une CHAINE ne correspond pas à un `PATTERN` avec jokers (\* et +) dans un exemple différent de celui du cours.
-- [ ] Utiliser `IF` ... `NP` ... `ENDIF` pour des comparaisons inverses dans un exemple différent de celui du cours.
-- [ ] Identifier les applications pratiques : exclure des fichiers, formats ou motifs textuels dans un exemple différent de celui du cours.
-- [ ] Reconnaître la sensibilité à la casse et les types de VARIABLES compatibles (C ou STRING) dans un exemple différent de celui du cours.
+## 🌺 EXERCICE 1 — EXCLUSION
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Tester :
 
-1. Construire volontairement un cas incorrect lié à **NO PATTERN (NP)**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+| Fichier       | `NP '*.CSV'` |
+| ------------- | ------------ |
+| `export.csv`  | Faux         |
+| `EXPORT.CSV`  | Faux         |
+| `archive.txt` | Vrai         |
+| `image.png`   | Vrai         |
+
+## 🌺 EXERCICE 2 — LISTE DE FICHIERS
+
+Pour chaque nom suivant, afficher uniquement les fichiers qui ne sont pas des CSV :
+
+```text
+export.csv
+archive.txt
+IMAGE.PNG
+data.CSV
+notes.md
+```
+
+Résultat attendu :
+
+```text
+archive.txt
+IMAGE.PNG
+notes.md
+```
+
+## 🌺 EXERCICE 3 — FORMULATION
+
+Comparer :
+
+```abap
+IF lv_file NP '*.CSV'.
+  WRITE / 'Fichier ignoré'.
+ENDIF.
+```
+
+et :
+
+```abap
+IF lv_file CP '*.CSV'.
+  WRITE / 'Fichier traité'.
+ELSE.
+  WRITE / 'Fichier ignoré'.
+ENDIF.
+```
+
+Choisir la version la plus lisible selon le besoin :
+
+- afficher uniquement les fichiers non CSV ;
+- traiter les CSV et expliquer le rejet des autres.
+
+## 🌺 EXERCICE 4 — RECTIFICATION DE CASSE
+
+Tester :
+
+```text
+export.csv
+EXPORT.CSV
+```
+
+avec le motif :
+
+```text
+*.CSV
+```
+
+Expliquer pourquoi les deux valeurs correspondent à `CP` et ne correspondent donc pas à `NP`.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] `NP` est l’inverse de `CP`.
+- [ ] Les variantes de casse CSV sont exclues.
+- [ ] Les trois fichiers attendus sont affichés.
+- [ ] La structure la plus lisible est choisie.
+- [ ] `NP` n’est pas présenté comme sensible à la casse par défaut.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+DATA lt_files TYPE STANDARD TABLE OF string WITH EMPTY KEY.
+
+lt_files = VALUE #(
+  ( `export.csv` )
+  ( `archive.txt` )
+  ( `IMAGE.PNG` )
+  ( `data.CSV` )
+  ( `notes.md` )
+).
+
+LOOP AT lt_files INTO DATA(lv_file).
+  IF lv_file NP '*.CSV'.
+    WRITE / lv_file.
+  ENDIF.
+ENDLOOP.
+```
+
+Résultat :
+
+```text
+archive.txt
+IMAGE.PNG
+notes.md
+```
+
+Pour un traitement principal centré sur les CSV, une condition positive avec `CP` est généralement plus lisible :
+
+```abap
+IF lv_file CP '*.CSV'.
+  WRITE / 'Fichier traité'.
+ELSE.
+  WRITE / 'Fichier ignoré'.
+ENDIF.
+```
+
+</details>
