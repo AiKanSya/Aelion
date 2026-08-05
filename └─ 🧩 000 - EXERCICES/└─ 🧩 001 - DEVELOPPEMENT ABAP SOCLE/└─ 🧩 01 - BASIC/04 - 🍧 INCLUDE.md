@@ -4,102 +4,222 @@
 
 > Cours associé : [CREATION D’UN INCLUDE – SE38 / SE80](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 01 - BASIC/04 - 🍧 INCLUDE.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+À la fin de l’exercice, le stagiaire doit être capable de :
+
+- expliquer le rôle d’un include ;
+- créer des includes à partir d’un programme principal ;
+- appliquer les conventions `_TOP`, `_SCR` et `_F01` ;
+- répartir déclarations, écran de sélection et sous-routines ;
+- activer et exécuter le programme principal complet ;
+- diagnostiquer un include absent ou mal nommé.
+
+## 🌺 DURÉE INDICATIVE
+
+45 à 60 minutes.
+
+## 🌺 PRÉREQUIS
+
+- Programme `ZAELION_<TRI>_HELLOWORLD` actif.
+- Notions élémentaires sur les variables, paramètres et sous-routines fournies par les snippets.
+
+> [!NOTE]
+> L’objectif principal est l’organisation du programme. La syntaxe de `PARAMETERS`, `FORM` et `PERFORM` est fournie.
 
 ## 🌺 EXERCICE 1 — RESTITUTION
 
-Sans consulter le cours, définir **CREATION D’UN INCLUDE – SE38 / SE80**, expliquer son utilité et citer une erreur d'utilisation possible.
+Compléter le tableau :
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+| Suffixe | Rôle conventionnel | Exemple de contenu |
+| ------- | ------------------ | ------------------ |
+| `_TOP`  |                    |                    |
+| `_SCR`  |                    |                    |
+| `_F01`  |                    |                    |
 
-- [ ] Comprendre le rôle d’un `INCLUDE` dans un programme ABAP dans un exemple différent de celui du cours.
-- [ ] Créer un `INCLUDE` via `SE38` ou `SE80` dans un exemple différent de celui du cours.
-- [ ] Savoir l’intégrer dans un programme principal dans un exemple différent de celui du cours.
-- [ ] Organiser son code ABAP pour plus de clarté et de réutilisation dans un exemple différent de celui du cours.
+Répondre ensuite aux questions :
 
-### Exercice repris du cours
+1. Un include peut-il être exécuté seul ?
+2. Pourquoi le nom d’un include reprend-il généralement le nom du programme principal ?
+3. Quel objet doit être exécuté pour tester l’ensemble ?
 
-1.  Modifier le WRITE (ajout de `/` après le `WRITE:`)
+## 🌺 EXERCICE 2 — CRÉATION DES INCLUDES
 
-         WRITE:/ 'Bonjour le monde !'.
+Créer les objets suivants dans le même package et la même requête que le programme principal :
 
-1.  Créer l’`INCLUDE` ZAELION_TRI_HELLOWORLD_TOP
+- `ZAELION_<TRI>_HELLOWORLD_TOP` ;
+- `ZAELION_<TRI>_HELLOWORLD_SCR` ;
+- `ZAELION_<TRI>_HELLOWORLD_F01`.
 
-         INCLUDE ZAELION_TRI_HELLOWORLD_TOP.
+### 1. Programme principal
 
-1.  Ajouter le WRITE dans l'`INCLUDE`:
+Remplacer le contenu du programme principal par :
 
-         WRITE:/ 'Bonjour le monde depuis l''INCLUDE TOP !'.
+```abap
+REPORT zaelion_<tri>_helloworld.
 
-1.  Sauvegarder, Activer les objets
-1.  Exécuter le programme principal et vérifier l’affichage
-1.  Faite de même avec les `INCLUDES` `ZAELION_TRI_HELLOWORLD_SCR` et `ZAELION_TRI_HELLOWORLD_F01`
+INCLUDE zaelion_<tri>_helloworld_top.
+INCLUDE zaelion_<tri>_helloworld_scr.
 
-<details>
-  <summary>SOLUTION</summary>
+START-OF-SELECTION.
+  PERFORM display_message.
 
----
+INCLUDE zaelion_<tri>_helloworld_f01.
+```
 
-`REPORT ZAELION_TRI_HELLOWORLD`
+### 2. Include `_TOP`
 
-      *&---------------------------------------------------------------------*
-      *& Report ZAELION_TRI_HELLOWORLD
-      *&---------------------------------------------------------------------*
-      *&
-      *&---------------------------------------------------------------------*
-      REPORT ZAELION_TRI_HELLOWORLD.
+```abap
+CONSTANTS gc_title TYPE c LENGTH 30
+  VALUE 'Révision ABAP BASIC'.
+```
 
-      WRITE:/ 'Bonjour le monde !'.
+### 3. Include `_SCR`
 
-      INCLUDE ZAELION_TRI_HELLOWORLD_TOP.
-      INCLUDE ZAELION_TRI_HELLOWORLD_SCR.
-      INCLUDE ZAELION_TRI_HELLOWORLD_F01.
+```abap
+PARAMETERS p_name TYPE c LENGTH 20
+  LOWER CASE
+  DEFAULT 'AELION'.
+```
 
-`INCLUDE ZAELION_TRI_HELLOWORLD_TOP`
+### 4. Include `_F01`
 
-      *&---------------------------------------------------------------------*
-      *& Include          ZAELION_FGI_HELLOWORLD_TOP
-      *&---------------------------------------------------------------------*
+```abap
+FORM display_message.
+  WRITE: / gc_title,
+         / 'Bonjour', p_name,
+         / 'Programme :', sy-repid.
+ENDFORM.
+```
 
-      WRITE:/ 'Bonjour le monde depuis l''INCLUDE TOP !'.
+### Étapes demandées
 
-`INCLUDE ZAELION_TRI_HELLOWORLD_SCR`
+1. Ajouter les instructions `INCLUDE` dans le programme principal.
+2. Créer chaque include par double-clic ou via `SE38`.
+3. Vérifier le package et la requête lors de chaque création.
+4. Saisir le code correspondant dans chaque include.
+5. Enregistrer tous les objets.
+6. Activer les includes puis le programme principal, ou utiliser l’activation de l’ensemble des objets liés.
+7. Exécuter uniquement le programme principal.
+8. Conserver la valeur par défaut `AELION` et exécuter.
+9. Revenir à l’écran de sélection, saisir votre prénom, puis exécuter à nouveau.
 
-      *&---------------------------------------------------------------------*
-      *& Include          ZAELION_TRI_HELLOWORLD_SCR
-      *&---------------------------------------------------------------------*
+## 🌺 EXERCICE 3 — DIAGNOSTIC D’UN INCLUDE MANQUANT
 
-      WRITE:/ 'Bonjour le monde depuis l''INCLUDE SCR !'.
+Dans le programme principal, remplacer temporairement :
 
-`INCLUDE ZAELION_TRI_HELLOWORLD_F01`
+```abap
+INCLUDE zaelion_<tri>_helloworld_f01.
+```
 
-      *&---------------------------------------------------------------------*
-      *& Include          ZAELION_TRI_HELLOWORLD_F01
-      *&---------------------------------------------------------------------*
+par :
 
-      WRITE:/ 'Bonjour le monde depuis l''INCLUDE F01 !'.
+```abap
+INCLUDE zaelion_<tri>_helloworld_f99.
+```
 
-Exécution :
+1. Lancer le contrôle de syntaxe.
+2. Relever le message d’erreur.
+3. Expliquer pourquoi le programme ne peut pas être activé.
+4. Restaurer le nom `_F01`.
+5. Contrôler, activer et exécuter de nouveau.
 
-![](./assets/images/Capture%20d’écran%202025-10-30%20193647.png)
+## 🌺 RÉSULTATS ATTENDUS
 
-</details>
+Avec la valeur `AELION` :
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+```text
+Révision ABAP BASIC
+Bonjour AELION
+Programme : ZAELION_<TRI>_HELLOWORLD
+```
 
-1. Construire volontairement un cas incorrect lié à **CREATION D’UN INCLUDE – SE38 / SE80**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+Avec une autre valeur, seule la ligne `Bonjour ...` doit changer.
+
+## 🌺 LIVRABLES
+
+- Code du programme principal.
+- Code des trois includes.
+- Résultat des deux exécutions.
+- Message obtenu avec l’include `_F99`.
+- Explication du rôle de chaque include.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Les trois includes existent dans le package demandé.
+- [ ] Le programme principal référence les trois noms corrects.
+- [ ] Les déclarations sont dans `_TOP`.
+- [ ] Le paramètre est dans `_SCR`.
+- [ ] La sous-routine est dans `_F01`.
+- [ ] Le programme principal est actif et exécutable.
+- [ ] L’erreur d’include manquant est comprise et corrigée.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+### Solution — exercice 1
+
+| Suffixe | Rôle conventionnel    | Exemple de contenu                    |
+| ------- | --------------------- | ------------------------------------- |
+| `_TOP`  | Déclarations globales | Types, constantes, variables globales |
+| `_SCR`  | Écran de sélection    | `PARAMETERS`, `SELECT-OPTIONS`        |
+| `_F01`  | Sous-routines         | Blocs `FORM ... ENDFORM`              |
+
+1. Un include n’est pas un programme autonome à exécuter directement.
+2. Le préfixe commun permet d’identifier immédiatement le programme auquel l’include appartient.
+3. Le programme principal doit être exécuté.
+
+### Solution — exercice 2
+
+#### Programme principal
+
+```abap
+REPORT zaelion_<tri>_helloworld.
+
+INCLUDE zaelion_<tri>_helloworld_top.
+INCLUDE zaelion_<tri>_helloworld_scr.
+
+START-OF-SELECTION.
+  PERFORM display_message.
+
+INCLUDE zaelion_<tri>_helloworld_f01.
+```
+
+#### Include `_TOP`
+
+```abap
+CONSTANTS gc_title TYPE c LENGTH 30
+  VALUE 'Révision ABAP BASIC'.
+```
+
+#### Include `_SCR`
+
+```abap
+PARAMETERS p_name TYPE c LENGTH 20
+  LOWER CASE
+  DEFAULT 'AELION'.
+```
+
+#### Include `_F01`
+
+```abap
+FORM display_message.
+  WRITE: / gc_title,
+         / 'Bonjour', p_name,
+         / 'Programme :', sy-repid.
+ENDFORM.
+```
+
+### Solution — exercice 3
+
+Le programme référence un include `_F99` qui n’existe pas. Le contrôle de syntaxe signale que l’include ne peut pas être trouvé ou traité. Le programme principal ne peut pas être activé avec cette dépendance absente.
+
+Correction :
+
+```abap
+INCLUDE zaelion_<tri>_helloworld_f01.
+```
+
+Après restauration du nom, le contrôle de syntaxe et l’activation doivent réussir.
+
+</details>
