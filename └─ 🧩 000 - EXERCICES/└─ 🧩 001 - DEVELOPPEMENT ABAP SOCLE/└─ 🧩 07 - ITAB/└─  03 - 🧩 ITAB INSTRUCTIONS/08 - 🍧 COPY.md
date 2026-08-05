@@ -4,35 +4,123 @@
 
 > Cours associé : [COPY TABLE](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/08 - 🍧 COPY.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+- copier toutes les lignes ;
+- comprendre l’indépendance des tables ;
+- distinguer copie et référence ;
+- distinguer affectation complète et correspondance de composants ;
+- expliquer la notation historique avec `[]`.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 DURÉE INDICATIVE
 
-Sans consulter le cours, définir **COPY TABLE**, expliquer son utilité et citer une erreur d'utilisation possible.
+30 à 40 minutes.
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+## 🌺 EXERCICE 1 — COPIE
 
-- [ ] Copier toutes les lignes d’une table interne vers une autre dans un exemple différent de celui du cours.
-- [ ] Comprendre l’usage des crochets `[]` pour copier le contenu complet dans un exemple différent de celui du cours.
-- [ ] Savoir que cette opération duplique toutes les données et non la référence dans un exemple différent de celui du cours.
-- [ ] Connaître les précautions à prendre avant une copie dans un exemple différent de celui du cours.
-- [ ] Être capable de vérifier la réussite d’une copie dans un exemple différent de celui du cours.
+Déclarer :
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+```abap
+DATA lt_orders_copy LIKE lt_orders.
+```
 
-1. Construire volontairement un cas incorrect lié à **COPY TABLE**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+Exécuter :
+
+```abap
+lt_orders_copy = lt_orders.
+```
+
+Afficher le nombre de lignes des deux tables.
+
+## 🌺 EXERCICE 2 — INDÉPENDANCE
+
+Supprimer une ligne dans la copie.
+
+Résultat attendu :
+
+```text
+Source : 4 lignes
+Copie  : 3 lignes
+```
+
+Répondre :
+
+1. la source est-elle modifiée ?
+2. les tables partagent-elles le même corps ?
+3. l’affectation crée-t-elle une référence ?
+4. quel type de copie observe-t-on au niveau des lignes de valeur ?
+
+## 🌺 EXERCICE 3 — NOTATION AVEC CROCHETS
+
+Comparer :
+
+```abap
+lt_orders_copy = lt_orders.
+```
+
+et :
+
+```abap
+lt_orders_copy[] = lt_orders[].
+```
+
+Dans le contexte sans ligne d’en-tête :
+
+1. quelle forme est la plus simple ?
+2. pourquoi la seconde existe-t-elle historiquement ?
+3. faut-il l’appeler « instruction COPY TABLE » ?
+4. quelle instruction ABAP est réellement utilisée ?
+
+## 🌺 EXERCICE 4 — TYPES DIFFÉRENTS
+
+Analyser :
+
+```abap
+lt_display = lt_orders.
+```
+
+alors que les types de ligne diffèrent.
+
+Répondre :
+
+1. une affectation complète exige-t-elle une compatibilité des types ?
+2. quelle solution utiliser lorsque seuls les composants communs doivent être transférés ?
+3. quelle solution moderne permet un mapping explicite ?
+4. quel chapitre traite le transfert par noms ?
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Toutes les lignes sont copiées.
+- [ ] La copie est indépendante.
+- [ ] L’affectation n’est pas appelée une instruction `COPY TABLE`.
+- [ ] La notation sans crochets est privilégiée.
+- [ ] La compatibilité des types est contrôlée.
+- [ ] `MOVE-CORRESPONDING` est choisi pour des lignes différentes.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+DATA lt_orders_copy LIKE lt_orders.
+
+lt_orders_copy = lt_orders.
+
+DELETE lt_orders_copy INDEX 1.
+
+WRITE: / |Source : { lines( lt_orders ) } lignes|,
+       / |Copie  : { lines( lt_orders_copy ) } lignes|.
+```
+
+L’instruction est une affectation :
+
+```abap
+=
+```
+
+La forme moderne et lisible est :
+
+```abap
+lt_orders_copy = lt_orders.
+```
+
+</details>

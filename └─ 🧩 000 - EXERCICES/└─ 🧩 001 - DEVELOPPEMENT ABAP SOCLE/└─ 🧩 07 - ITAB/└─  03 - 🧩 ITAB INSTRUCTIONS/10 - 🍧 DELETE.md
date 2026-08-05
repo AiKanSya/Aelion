@@ -4,95 +4,116 @@
 
 > Cours associé : [DELETE](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/10 - 🍧 DELETE.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+- supprimer par index ;
+- supprimer par condition ;
+- supprimer par clé ;
+- supprimer une plage ;
+- contrôler l’absence de ligne ;
+- éviter un index invalide.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 DURÉE INDICATIVE
 
-Sans consulter le cours, définir **DELETE**, expliquer son utilité et citer une erreur d'utilisation possible.
+45 à 60 minutes.
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+## 🌺 EXERCICE 1 — INDEX
 
-- [ ] Comprendre le fonctionnement de l’instruction `DELETE` pour les tables internes dans un exemple différent de celui du cours.
-- [ ] Savoir supprimer des lignes en fonction de l’index, de la clé ou d’une condition `WHERE` dans un exemple différent de celui du cours.
-- [ ] Identifier les limitations selon le type de table interne dans un exemple différent de celui du cours.
-- [ ] Utiliser DELETE de manière sûre et performante dans un exemple différent de celui du cours.
+Supprimer la deuxième ligne d’une table standard.
 
-### Exercice repris du cours
+Contrôler `sy-subrc`.
 
-### 🍧 1 – DELETE PAR INDEX
+## 🌺 EXERCICE 2 — CONDITION
 
-> [!IMPORTANT]
-> supprimer la première ligne de lt_country.
+Supprimer toutes les commandes clôturées :
 
-<details>
-  <summary>SOLUTION</summary>
+```abap
+DELETE lt_orders WHERE status = 'C'.
+```
 
-    DELETE lt_country INDEX 1.
+Afficher le nombre de lignes supprimées par différence entre les nombres avant et après.
 
-</details>
+## 🌺 EXERCICE 3 — CLÉ
 
----
+Créer une table hachée :
 
-### 🍧 2 – DELETE PAR STRUCTURE / CLE
+```abap
+DATA lt_orders_hashed TYPE HASHED TABLE OF ty_order
+  WITH UNIQUE KEY order_id.
+```
 
-> [!IMPORTANT]
-> supprimer la ligne avec LAND = 'IT'.
+Supprimer :
 
-<details>
-  <summary>SOLUTION</summary>
+```abap
+DELETE TABLE lt_orders_hashed
+  WITH TABLE KEY order_id = '4500000002'.
+```
 
-    CLEAR ls_country-land.
-    ls_country-land = 'IT'.
-    DELETE lt_country FROM ls_country.
+Contrôler `sy-subrc`.
 
-</details>
+## 🌺 EXERCICE 4 — PLAGE
 
----
+Dans une table standard de dix nombres, supprimer les lignes `3` à `6`.
 
-### 🍧 3 – DELETE AVEC WHERE
+Prévoir les valeurs restantes.
 
-> [!IMPORTANT]
-> supprimer toutes les lignes où AGE < 25.
+## 🌺 EXERCICE 5 — LIGNE ABSENTE
 
-<details>
-  <summary>SOLUTION</summary>
+Tenter de supprimer une clé inconnue.
 
-    DELETE lt_country WHERE age < 25.
+Résultat attendu :
 
-</details>
+```text
+Aucune ligne supprimée
+```
 
----
+## 🌺 EXERCICE 6 — INDEX ZÉRO
 
-### 🍧 4 – COMPARAISON DES METHODES
+Analyser sans exécution :
 
-> [!IMPORTANT]
-> expliquer quand utiliser INDEX, FROM, WHERE.
+```abap
+DELETE lt_orders INDEX 0.
+```
 
-<details>
-  <summary>Explication</summary>
-
-- `DELETE INDEX` : rapide, applicable uniquement aux STANDARD TABLE
-- `DELETE FROM` : supprime la ligne correspondant à la clé ou à la structure
-- `DELETE WHERE` : supprime toutes les lignes correspondant à un critère, utile pour des suppressions conditionnelles
-- Utiliser WHERE pour des suppressions multiples et INDEX/FROM pour des suppressions ciblées
-
-</details>
-
-## 🌺 EXERCICE 3 — DIAGNOSTIC
-
-1. Construire volontairement un cas incorrect lié à **DELETE**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+Expliquer pourquoi un index dynamique doit être validé avant l’instruction.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] La suppression par index est contrôlée.
+- [ ] Toutes les lignes clôturées sont supprimées.
+- [ ] La suppression par clé complète est utilisée sur la table hachée.
+- [ ] La plage correcte est supprimée.
+- [ ] Une absence produit un traitement explicite.
+- [ ] L’index zéro n’est pas exécuté.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+DATA(lv_before) = lines( lt_orders ).
+
+DELETE lt_orders WHERE status = 'C'.
+
+DATA(lv_deleted) = lv_before - lines( lt_orders ).
+
+WRITE / |Lignes supprimées : { lv_deleted }|.
+```
+
+Suppression par clé :
+
+```abap
+DELETE TABLE lt_orders_hashed
+  WITH TABLE KEY order_id = '4500000002'.
+
+IF sy-subrc <> 0.
+  WRITE / 'Aucune ligne supprimée'.
+ENDIF.
+```
+
+Plage :
+
+```abap
+DELETE lt_numbers FROM 3 TO 6.
+```
+
+</details>

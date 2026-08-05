@@ -4,34 +4,136 @@
 
 > Cours associé : [IS INITIAL](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/01 - 🍧 IS INITIAL.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+- vérifier si une table contient des lignes ;
+- utiliser `IS INITIAL` et `IS NOT INITIAL` ;
+- comprendre que les crochets ne sont pas nécessaires pour une table sans ligne d’en-tête ;
+- distinguer table vide et ligne contenant uniquement des valeurs initiales ;
+- éviter un contrôle inutile avant un simple `LOOP AT`.
+
+## 🌺 DURÉE INDICATIVE
+
+25 à 35 minutes.
 
 ## 🌺 EXERCICE 1 — RESTITUTION
 
-Sans consulter le cours, définir **IS INITIAL**, expliquer son utilité et citer une erreur d'utilisation possible.
+Compléter :
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+| Expression                 | Signification |
+| -------------------------- | ------------- |
+| `lt_orders IS INITIAL`     |               |
+| `lt_orders IS NOT INITIAL` |               |
+| `lt_orders[] IS INITIAL`   |               |
+| `ls_order IS INITIAL`      |               |
 
-- [ ] Vérifier si une table interne est vide ou non dans un exemple différent de celui du cours.
-- [ ] Comprendre l’usage des crochets `[]` dans un exemple différent de celui du cours.
-- [ ] Utiliser `IS INITIAL` ou `IS NOT INITIAL` pour tester le contenu d’une table interne dans un exemple différent de celui du cours.
-- [ ] Savoir que `IS INITIAL` fonctionne aussi avec des variables simples dans un exemple différent de celui du cours.
+Répondre :
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+1. Une table contenant une ligne entièrement initiale est-elle vide ?
+2. Un `LOOP AT` sur une table vide provoque-t-il une erreur ?
+3. Faut-il tester systématiquement la table avant chaque boucle ?
+4. Quel contrôle utiliser lorsqu’un traitement exige au moins une ligne ?
 
-1. Construire volontairement un cas incorrect lié à **IS INITIAL**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+## 🌺 EXERCICE 2 — AVANT ET APRÈS AJOUT
+
+1. Déclarer une table vide.
+2. Tester son état.
+3. Ajouter une ligne.
+4. Tester à nouveau son état.
+5. Afficher le nombre de lignes.
+
+Résultat attendu :
+
+```text
+Avant ajout : table vide
+Après ajout : table non vide
+Nombre de lignes : 1
+```
+
+## 🌺 EXERCICE 3 — LIGNE INITIALE
+
+Exécuter :
+
+```abap
+APPEND INITIAL LINE TO lt_orders.
+```
+
+Répondre :
+
+1. `lt_orders IS INITIAL` est-il encore vrai ?
+2. Combien de lignes existe-t-il ?
+3. La première ligne contient-elle des valeurs métier ?
+4. Quelle différence existe entre table vide et ligne initiale ?
+
+## 🌺 EXERCICE 4 — TEST INUTILE
+
+Analyser :
+
+```abap
+IF lt_orders IS NOT INITIAL.
+  LOOP AT lt_orders INTO DATA(ls_order).
+    WRITE / ls_order-order_id.
+  ENDLOOP.
+ENDIF.
+```
+
+Répondre :
+
+1. Le test est-il incorrect ?
+2. Est-il nécessaire pour éviter une erreur ?
+3. Quelle version plus simple produit le même résultat ?
+4. Dans quel cas le test préalable reste-t-il utile ?
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] La table vide est correctement détectée.
+- [ ] La table non vide est correctement détectée.
+- [ ] Une ligne initiale rend la table non vide.
+- [ ] Les crochets sont identifiés comme inutiles dans le contexte moderne utilisé.
+- [ ] Le test préalable n’est pas ajouté mécaniquement avant chaque boucle.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+DATA lt_orders TYPE STANDARD TABLE OF ty_order
+  WITH EMPTY KEY.
+
+IF lt_orders IS INITIAL.
+  WRITE / 'Avant ajout : table vide'.
+ENDIF.
+
+APPEND VALUE #(
+  order_id = '4500000001'
+  customer_id = 'C10001'
+) TO lt_orders.
+
+IF lt_orders IS NOT INITIAL.
+  WRITE / 'Après ajout : table non vide'.
+ENDIF.
+
+WRITE / |Nombre de lignes : { lines( lt_orders ) }|.
+```
+
+Une table contenant une ligne initiale contient bien une ligne :
+
+```abap
+CLEAR lt_orders.
+APPEND INITIAL LINE TO lt_orders.
+
+WRITE / |Nombre de lignes : { lines( lt_orders ) }|.
+
+IF lt_orders IS NOT INITIAL.
+  WRITE / 'La table contient une ligne initiale'.
+ENDIF.
+```
+
+Boucle suffisante :
+
+```abap
+LOOP AT lt_orders INTO DATA(ls_order).
+  WRITE / ls_order-order_id.
+ENDLOOP.
+```
+
+</details>

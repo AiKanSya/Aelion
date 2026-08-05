@@ -4,74 +4,129 @@
 
 > Cours associé : [DELETE ADJACENT DUPLICATES](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/11 - 🍧 DELETE ADJACENT DUPLICATES.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+- comprendre que seuls les doublons adjacents sont supprimés ;
+- trier selon les composants comparés ;
+- utiliser `COMPARING`;
+- conserver volontairement la première ligne d’un groupe ;
+- sélectionner la ligne la plus récente grâce à l’ordre de tri ;
+- contrôler `sy-subrc`.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 DURÉE INDICATIVE
 
-Sans consulter le cours, définir **DELETE ADJACENT DUPLICATES**, expliquer son utilité et citer une erreur d'utilisation possible.
+50 à 65 minutes.
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+## 🌺 EXERCICE 1 — DOUBLONS NON ADJACENTS
 
-- [ ] Comprendre le fonctionnement de `DELETE ADJACENT DUPLICATES` dans un exemple différent de celui du cours.
-- [ ] Savoir supprimer les doublons dans une table interne selon une clé ou des champs spécifiques dans un exemple différent de celui du cours.
-- [ ] Identifier les contraintes liées au type de table et à l’ordre des données dans un exemple différent de celui du cours.
-- [ ] Utiliser correctement `COMPARING` pour sélectionner les champs pertinents dans un exemple différent de celui du cours.
+Créer :
 
-### Exercice repris du cours
+```text
+FR - Paris
+DE - Berlin
+FR - Paris
+FR - Lyon
+DE - Berlin
+```
 
-### 🍧 1 – SUPPRIMER LES DOUBLONS SUR SORTED TABLE
+Exécuter sans tri :
 
-> [!IMPORTANT]
-> supprimer les doublons consécutifs sur la clé country.
+```abap
+DELETE ADJACENT DUPLICATES FROM lt_cities
+  COMPARING country city.
+```
 
-<details>
-  <summary>SOLUTION</summary>
+Répondre :
 
-    DELETE ADJACENT DUPLICATES FROM lt_citizen.
+1. tous les doublons sont-ils supprimés ?
+2. pourquoi ?
+3. quel prérequis manque ?
+4. quelle correction faut-il appliquer ?
 
-</details>
+## 🌺 EXERCICE 2 — TRI CORRECT
 
-### 🍧 2 – SUPPRIMER LES DOUBLONS SUR STANDARD TABLE
+Exécuter :
 
-> [!IMPORTANT]
-> supprimer les doublons consécutifs sur le champ country.
+```abap
+SORT lt_cities BY country city.
 
-<details>
-  <summary>SOLUTION</summary>
+DELETE ADJACENT DUPLICATES FROM lt_cities
+  COMPARING country city.
+```
 
-    SORT lt_citizen_std BY country.
-    DELETE ADJACENT DUPLICATES FROM lt_citizen_std COMPARING country.
+Résultat attendu :
 
-</details>
+```text
+DE - Berlin
+FR - Lyon
+FR - Paris
+```
 
-### 🍧 3 – SUPPRIMER LES DOUBLONS SUR PLUSIEURS CHAMPS
+## 🌺 EXERCICE 3 — COMPARAISON PARTIELLE
 
-> [!IMPORTANT]
-> supprimer les doublons où country et age sont identiques.
+Trier par pays puis ville et exécuter :
 
-<details>
-  <summary>SOLUTION</summary>
+```abap
+DELETE ADJACENT DUPLICATES FROM lt_cities
+  COMPARING country.
+```
 
-    SORT lt_citizen_std BY country age.
-    DELETE ADJACENT DUPLICATES FROM lt_citizen_std COMPARING country age.
+Combien de lignes restent ?
 
-</details>
+Quelle ville est conservée pour chaque pays ?
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+## 🌺 EXERCICE 4 — CONSERVER LA LIGNE LA PLUS RÉCENTE
 
-1. Construire volontairement un cas incorrect lié à **DELETE ADJACENT DUPLICATES**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+Une table contient :
+
+| Client | Date     | Montant |
+| ------ | -------- | ------: |
+| C10001 | 20260101 |     100 |
+| C10001 | 20260301 |     120 |
+| C10002 | 20260201 |      80 |
+| C10002 | 20260115 |      70 |
+
+Objectif : conserver la date la plus récente de chaque client.
+
+Définir le tri correct puis supprimer les doublons en comparant uniquement le client.
+
+## 🌺 EXERCICE 5 — `sy-subrc`
+
+Contrôler :
+
+- `0` lorsqu’au moins une ligne est supprimée ;
+- `4` lorsqu’aucune ligne n’est supprimée.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Le caractère adjacent est compris.
+- [ ] Le tri correspond aux composants comparés.
+- [ ] La comparaison partielle est maîtrisée.
+- [ ] La première ligne de chaque groupe trié est conservée.
+- [ ] La ligne la plus récente est obtenue par un tri décroissant sur la date.
+- [ ] `sy-subrc` est contrôlé.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+SORT lt_cities BY country city.
+
+DELETE ADJACENT DUPLICATES FROM lt_cities
+  COMPARING country city.
+```
+
+Pour conserver la ligne la plus récente :
+
+```abap
+SORT lt_history
+  BY customer_id ASCENDING
+     change_date DESCENDING.
+
+DELETE ADJACENT DUPLICATES FROM lt_history
+  COMPARING customer_id.
+```
+
+La première ligne de chaque client après le tri est la plus récente.
+
+</details>

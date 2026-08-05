@@ -4,122 +4,226 @@
 
 > Cours associé : [LOOP AT](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/14 - 🍧 LOOP.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+- parcourir toutes les lignes ;
+- utiliser `INTO`, `ASSIGNING` et `TRANSPORTING NO FIELDS`;
+- filtrer avec `WHERE`;
+- limiter avec `FROM` et `TO`;
+- utiliser `sy-tabix`;
+- distinguer copie et modification directe ;
+- comprendre les ruptures de contrôle ;
+- éviter de remplacer ou vider la table parcourue.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 DURÉE INDICATIVE
 
-Sans consulter le cours, définir **LOOP AT**, expliquer son utilité et citer une erreur d'utilisation possible.
+75 à 95 minutes.
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+## 🌺 EXERCICE 1 — `INTO`
 
-- [ ] Parcourir une table interne ligne par ligne avec `LOOP AT` dans un exemple différent de celui du cours.
-- [ ] Utiliser les options `INTO`, `ASSIGNING <fs>` et `TRANSPORTING NO FIELDS` dans un exemple différent de celui du cours.
-- [ ] Filtrer avec `WHERE`, `FROM` et `TO` dans un exemple différent de celui du cours.
-- [ ] Déclarer dynamiquement les structures et FIELD-SYMBOLS pour plus de flexibilité dans un exemple différent de celui du cours.
-- [ ] Modifier directement les lignes via FIELD-SYMBOLS dans un exemple différent de celui du cours.
-- [ ] Comprendre les variables système `SY-SUBRC` et `SY-TABIX` dans un exemple différent de celui du cours.
-- [ ] Utiliser les ruptures `AT FIRST`, `AT NEW`, `AT END OF`, `AT LAST` dans un exemple différent de celui du cours.
-- [ ] Utiliser des filtres complexes avec `WHERE` sur un ou plusieurs champs dans un exemple différent de celui du cours.
+Parcourir les données communes.
 
-### Exercice repris du cours
+Dans la structure locale, remplacer le statut par `X`.
 
-### 🍧 1 – WHERE SUR UN SEUL CHAMP
+Afficher ensuite la table originale.
 
-> [!IMPORTANT]
-> Parcourir `lt_citizen` et afficher les citoyens dont `country = 'FR'`.
+Répondre :
 
-<details>
-  <summary>SOLUTION</summary>
+1. la table a-t-elle été modifiée ?
+2. pourquoi ?
+3. quelle instruction faudrait-il ajouter pour recopier la modification ?
+4. quel risque existe si `sy-tabix` est utilisé après une autre instruction ?
 
-    LOOP AT lt_citizen INTO ls_citizen WHERE country = 'FR'.
-      WRITE:/ 'Pays:', ls_citizen-country, 'Nom:', ls_citizen-name.
-    ENDLOOP.
+## 🌺 EXERCICE 2 — `ASSIGNING`
 
-</details>
+Parcourir la table et passer toutes les commandes `N` à `P`.
 
----
+Utiliser :
 
-### 🍧 2 – WHERE SUR PLUSIEURS CHAMPS
+```abap
+LOOP AT lt_orders
+  ASSIGNING FIELD-SYMBOL(<lfs_order>)
+  WHERE status = 'N'.
+```
 
-> [!IMPORTANT]
-> Afficher les citoyens dont `country = 'ES'` et `age > 30`.
+Vérifier directement le résultat.
 
-<details>
-  <summary>SOLUTION</summary>
+## 🌺 EXERCICE 3 — `TRANSPORTING NO FIELDS`
 
-    LOOP AT lt_citizen ASSIGNING <lfs_citizen> WHERE country = 'ES' AND age > '30'.
-      WRITE:/ 'Nom:', <lfs_citizen>-name, 'Pays:', <lfs_citizen>-country, 'Âge:', <lfs_citizen>-age.
-    ENDLOOP.
+Compter les commandes françaises sans transporter les lignes.
 
-</details>
+La syntaxe doit contenir une condition `WHERE`.
 
----
+```abap
+LOOP AT lt_orders
+  TRANSPORTING NO FIELDS
+  WHERE country = 'FR'.
 
-### 🍧 3 – WHERE AVEC PLAGE D’AGE
+  lv_count = lv_count + 1.
 
-> [!IMPORTANT]
-> Afficher les citoyens âgés entre 25 et 32 ans.
+ENDLOOP.
+```
 
-<details>
-  <summary>SOLUTION</summary>
+Contrôler `sy-subrc` après la boucle.
 
-    LOOP AT lt_citizen INTO ls_citizen WHERE age >= '25' AND age <= '32'.
-      WRITE:/ 'Nom:', ls_citizen-name, 'Âge:', ls_citizen-age.
-    ENDLOOP.
+## 🌺 EXERCICE 4 — `FROM` ET `TO`
 
-</details>
+Afficher uniquement les lignes d’index `2` à `3`.
 
----
+Tester une table contenant moins de deux lignes.
 
-### 🍧 4 – WHERE DYNAMIQUE
+## 🌺 EXERCICE 5 — CONDITION COMPLEXE
 
-> [!IMPORTANT]
-> Afficher tous les citoyens dont `country = lv_country` et `age > 30`.
+Afficher les commandes :
 
-<details>
-  <summary>SOLUTION</summary>
+- françaises ou allemandes ;
+- montant supérieur ou égal à `75,00`;
+- statut différent de `C`.
 
-    DATA: lv_country TYPE char3 VALUE 'ES'.
+Utiliser des parenthèses.
 
-    LOOP AT lt_citizen ASSIGNING FIELD-SYMBOLS(<dyn_citizen>) WHERE country = lv_country AND age > '30'.
-      WRITE:/ 'Nom:', <dyn_citizen>-name, 'Pays:', <dyn_citizen>-country, 'Âge:', <dyn_citizen>-age.
-    ENDLOOP.
+## 🌺 EXERCICE 6 — `sy-subrc` APRÈS LA BOUCLE
 
-</details>
+Tester un filtre ne correspondant à aucune ligne :
 
----
+```abap
+WHERE country = 'ES'
+```
 
-### 🍧 5 – WHERE COMPLEXE AVEC OR ET AND
+Résultat attendu :
 
-> [!IMPORTANT]
-> Afficher tous les citoyens dont `country = 'BR'` ou `country = 'IT'` et `age < 30`.
+```text
+Aucune ligne parcourue
+```
 
-<details>
-  <summary>SOLUTION</summary>
+## 🌺 EXERCICE 7 — RUPTURES DE CONTRÔLE
 
-    LOOP AT lt_citizen INTO ls_citizen WHERE (country = 'BR' OR country = 'IT') AND age < '30'.
-      WRITE:/ 'Nom:', ls_citizen-name, 'Pays:', ls_citizen-country, 'Âge:', ls_citizen-age.
-    ENDLOOP.
+Trier une table standard par :
 
-</details>
+```abap
+customer_id order_id
+```
 
----
+Utiliser :
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+```abap
+AT NEW customer_id.
+AT END OF customer_id.
+```
 
-1. Construire volontairement un cas incorrect lié à **LOOP AT**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+Afficher un en-tête et un pied pour chaque client.
+
+Contraintes :
+
+- utiliser une structure compatible avec le type de ligne ;
+- ne pas utiliser dans le bloc de rupture des composants situés à droite du composant de rupture ;
+- trier avant la boucle.
+
+## 🌺 EXERCICE 8 — MODIFICATION DANGEREUSE DE LA TABLE
+
+Analyser sans exécution :
+
+```abap
+LOOP AT lt_orders ASSIGNING <lfs_order>.
+  CLEAR lt_orders.
+ENDLOOP.
+```
+
+Répondre :
+
+1. la table parcourue est-elle remplacée pendant la boucle ?
+2. quel risque existe avec un field-symbol assigné ?
+3. pourquoi ce code doit-il être interdit ?
+4. quelle stratégie utiliser pour supprimer certaines lignes ?
+5. quelle instruction directe peut remplacer la boucle dans de nombreux cas ?
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] `INTO` est distingué de `ASSIGNING`.
+- [ ] Les lignes `N` sont modifiées directement avec le field-symbol.
+- [ ] `TRANSPORTING NO FIELDS` possède un `WHERE`.
+- [ ] `FROM` et `TO` limitent la plage.
+- [ ] Les conditions complexes sont parenthésées.
+- [ ] `sy-subrc` distingue une boucle exécutée d’une boucle sans passage.
+- [ ] Les ruptures sont précédées d’un tri adapté.
+- [ ] La table n’est pas vidée ou remplacée pendant son parcours.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+LOOP AT lt_orders INTO DATA(ls_order).
+  ls_order-status = 'X'.
+ENDLOOP.
+
+" La table est inchangée.
+
+LOOP AT lt_orders
+  ASSIGNING FIELD-SYMBOL(<lfs_order>)
+  WHERE status = 'N'.
+
+  <lfs_order>-status = 'P'.
+
+ENDLOOP.
+```
+
+Comptage :
+
+```abap
+DATA lv_count TYPE i.
+
+LOOP AT lt_orders
+  TRANSPORTING NO FIELDS
+  WHERE country = 'FR'.
+
+  lv_count = lv_count + 1.
+
+ENDLOOP.
+
+IF sy-subrc = 0.
+  WRITE / |Commandes françaises : { lv_count }|.
+ELSE.
+  WRITE / 'Aucune commande française'.
+ENDIF.
+```
+
+Condition :
+
+```abap
+LOOP AT lt_orders INTO ls_order
+  WHERE ( country = 'FR' OR country = 'DE' )
+    AND amount >= '75.00'
+    AND status <> 'C'.
+
+  WRITE / ls_order-order_id.
+
+ENDLOOP.
+```
+
+Ruptures :
+
+```abap
+SORT lt_orders BY customer_id order_id.
+
+LOOP AT lt_orders INTO ls_order.
+
+  AT NEW customer_id.
+    WRITE / |Début client { ls_order-customer_id }|.
+  ENDAT.
+
+  WRITE / ls_order-order_id.
+
+  AT END OF customer_id.
+    WRITE / |Fin client { ls_order-customer_id }|.
+  ENDAT.
+
+ENDLOOP.
+```
+
+Pour supprimer selon une condition :
+
+```abap
+DELETE lt_orders WHERE status = 'C'.
+```
+
+</details>

@@ -4,100 +4,133 @@
 
 > Cours associé : [APPEND TO ITAB](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/05 - 🍧 APPEND TO.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+- ajouter à la fin d’une table d’index ;
+- ajouter une structure, une ligne initiale et plusieurs lignes ;
+- utiliser `sy-tabix` immédiatement après l’ajout ;
+- distinguer `APPEND` et `INSERT`;
+- éviter `APPEND` pour une table hachée ;
+- comprendre la contrainte d’ordre d’une table triée.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 DURÉE INDICATIVE
 
-Sans consulter le cours, définir **APPEND TO ITAB**, expliquer son utilité et citer une erreur d'utilisation possible.
+40 à 55 minutes.
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+## 🌺 EXERCICE 1 — AJOUT STANDARD
 
-- [ ] Comprendre le fonctionnement de l’instruction `APPEND` pour les tables internes dans un exemple différent de celui du cours.
-- [ ] Savoir ajouter une structure, une ligne vide, ou des lignes d’une autre table à la fin d’une table dans un exemple différent de celui du cours.
-- [ ] Identifier les limitations selon le type de table interne dans un exemple différent de celui du cours.
-- [ ] Comparer `APPEND` et `INSERT` selon le type de table dans un exemple différent de celui du cours.
+Ajouter trois commandes dans une table standard.
 
-### Exercice repris du cours
+Après chaque `APPEND`, afficher l’index ajouté avec `sy-tabix`.
 
-### 🍧 1 – AJOUTER DES EMPLOYES A UNE STANDARD TABLE
+Résultat attendu :
 
-> [!IMPORTANT]
-> Déclarer `lt_employees` avec la structure `ty_employee` :
->
-> - id (CHAR5)
-> - nom (CHAR20)
-> - departement (CHAR10)
->   Ajouter deux employés avec APPEND et afficher la table.
+```text
+Ligne ajoutée à l'index 1
+Ligne ajoutée à l'index 2
+Ligne ajoutée à l'index 3
+```
 
-<details>
-  <summary>SOLUTION</summary>
+## 🌺 EXERCICE 2 — LIGNE INITIALE
 
-    DATA: lt_employees TYPE TABLE OF ty_employee,
-          ls_employee  TYPE ty_employee.
+Utiliser :
 
-    ls_employee-id         = 'E001'.
-    ls_employee-nom        = 'Dupont'.
-    ls_employee-departement = 'RH'.
-    APPEND ls_employee TO lt_employees.
+```abap
+APPEND INITIAL LINE
+  TO lt_orders
+  ASSIGNING FIELD-SYMBOL(<lfs_order>).
+```
 
-    ls_employee-id         = 'E002'.
-    ls_employee-nom        = 'Martin'.
-    ls_employee-departement = 'IT'.
-    APPEND ls_employee TO lt_employees.
+Alimenter la nouvelle ligne sans structure intermédiaire.
 
-    LOOP AT lt_employees INTO ls_employee.
-      WRITE: / ls_employee-id, ls_employee-nom, ls_employee-departement.
-    ENDLOOP.
+## 🌺 EXERCICE 3 — `APPEND LINES OF`
 
-</details>
+Ajouter toutes les lignes d’une table source à la fin d’une table cible :
 
----
+```abap
+APPEND LINES OF lt_source TO lt_target.
+```
 
-### 🍧 2 – AJOUTER UNE LIGNE VIDE
+Vérifier les nombres de lignes avant et après.
 
-> [!IMPORTANT]
-> Ajouter une ligne vide à la fin de `lt_employees` et afficher la table.
+## 🌺 EXERCICE 4 — TABLE TRIÉE
 
-<details>
-  <summary>SOLUTION</summary>
+Une table triée contient :
 
-    APPEND INITIAL LINE TO lt_employees.
+```text
+C001
+C003
+```
 
-    LOOP AT lt_employees INTO ls_employee.
-      WRITE: / ls_employee-id, ls_employee-nom, ls_employee-departement.
-    ENDLOOP.
+Analyser :
 
-</details>
+```abap
+APPEND VALUE #( customer_id = 'C002' )
+  TO lt_customers_sorted.
+```
 
----
+Ne pas exécuter ce code sur le système partagé.
 
-### 🍧 3 – COPIER DES LIGNES D’UNE AUTRE TABLE
+Répondre :
 
-> [!IMPORTANT]
-> Copier toutes les lignes de `lt_new_employees` à la fin de `lt_employees`.
+1. la ligne peut-elle être placée à la fin sans casser l’ordre ?
+2. quel risque existe ?
+3. quelle instruction faut-il utiliser ?
+4. `APPEND C004` serait-il structurellement possible à la fin ?
+5. faut-il dépendre de cette condition pour alimenter la table ?
 
-<details>
-  <summary>SOLUTION</summary>
+## 🌺 EXERCICE 5 — TABLE HACHÉE
 
-    INSERT LINES OF lt_new_employees INTO TABLE lt_employees.  " ou APPEND si STANDARD
+Analyser :
 
-</details>
+```abap
+APPEND ls_order TO lt_orders_hashed.
+```
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Répondre :
 
-1. Construire volontairement un cas incorrect lié à **APPEND TO ITAB**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+1. une table hachée possède-t-elle une fin indexée ?
+2. quelle instruction faut-il utiliser ?
+3. quelle propriété doit être respectée ?
+4. quelle valeur faut-il contrôler après l’insertion ?
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Les lignes sont ajoutées à la fin de la table standard.
+- [ ] `sy-tabix` est lu immédiatement.
+- [ ] Une ligne initiale est alimentée directement.
+- [ ] Plusieurs lignes sont ajoutées sans boucle.
+- [ ] `APPEND` n’est pas utilisé pour une table hachée.
+- [ ] `INSERT` est privilégié pour les tables triées.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+CLEAR lt_orders.
+
+APPEND VALUE #( order_id = '4500000001' ) TO lt_orders.
+WRITE / |Ligne ajoutée à l'index { sy-tabix }|.
+
+APPEND VALUE #( order_id = '4500000002' ) TO lt_orders.
+WRITE / |Ligne ajoutée à l'index { sy-tabix }|.
+
+APPEND VALUE #( order_id = '4500000003' ) TO lt_orders.
+WRITE / |Ligne ajoutée à l'index { sy-tabix }|.
+```
+
+Pour une table triée ou hachée :
+
+```abap
+INSERT ls_order INTO TABLE lt_target.
+```
+
+puis :
+
+```abap
+IF sy-subrc <> 0.
+  " Gérer le doublon ou l’échec.
+ENDIF.
+```
+
+</details>

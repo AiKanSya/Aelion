@@ -1,0 +1,5 @@
+# 🌸 EXERCICES — SYNTHESE
+
+<!-- GENERATED_EXERCISE_BANK -->
+
+> Cours associé : [TRANSACTION SE16N](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 09 - SE16N/01 - 🍧 SE16N.md>)

@@ -4,34 +4,141 @@
 
 > Cours associé : [MODIDFY WITH INDEX](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/07 - 🍧 MODIFY INDEX.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+- modifier une ligne par index ;
+- transporter uniquement certains composants ;
+- contrôler un index absent ;
+- distinguer index primaire et clé ;
+- identifier l’incompatibilité avec une table hachée sans index secondaire trié.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 DURÉE INDICATIVE
 
-Sans consulter le cours, définir **MODIDFY WITH INDEX**, expliquer son utilité et citer une erreur d'utilisation possible.
+35 à 50 minutes.
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+## 🌺 EXERCICE 1 — MODIFICATION DE LA DEUXIÈME LIGNE
 
-- [ ] Comprendre le fonctionnement de `MODIFY ... INDEX` dans un exemple différent de celui du cours.
-- [ ] Savoir modifier des lignes spécifiques d’une table interne en utilisant une condition dans un exemple différent de celui du cours.
-- [ ] Identifier la différence avec `MODIFY INDEX` et `MODIFY TABLE` dans un exemple différent de celui du cours.
-- [ ] Utiliser TRANSPORTING pour limiter les champs modifiés dans un exemple différent de celui du cours.
+À partir des données communes, modifier uniquement :
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+```text
+amount = 200,00
+priority = 8
+```
 
-1. Construire volontairement un cas incorrect lié à **MODIDFY WITH INDEX**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+sur la ligne d’index `2`.
+
+Utiliser :
+
+```abap
+MODIFY lt_orders
+  FROM VALUE #(
+    amount = '200.00'
+    priority = 8
+  )
+  INDEX 2
+  TRANSPORTING amount priority.
+```
+
+## 🌺 EXERCICE 2 — INDEX ABSENT
+
+Tester l’index `10`.
+
+Contrôler `sy-subrc`.
+
+Résultat attendu :
+
+```text
+Index 10 absent
+```
+
+## 🌺 EXERCICE 3 — INDEX NUL
+
+Analyser sans exécuter :
+
+```abap
+MODIFY lt_orders INDEX 0 FROM ls_order.
+```
+
+Répondre :
+
+1. un index commence-t-il à zéro ?
+2. quelle valeur minimale est valide ?
+3. pourquoi ce cas ne doit-il pas être exécuté volontairement ?
+4. quel contrôle faut-il effectuer sur un index dynamique ?
+
+## 🌺 EXERCICE 4 — TABLE TRIÉE
+
+Une table triée est une table d’index.
+
+Répondre :
+
+1. peut-on modifier un composant non clé par index ?
+2. peut-on modifier librement la clé primaire ?
+3. pourquoi `TRANSPORTING` réduit-il le risque ?
+4. quel index est utilisé sans `USING KEY` ?
+
+## 🌺 EXERCICE 5 — TABLE HACHÉE
+
+Analyser :
+
+```abap
+MODIFY lt_orders_hashed
+  INDEX 1
+  FROM ls_order.
+```
+
+Répondre :
+
+1. la table possède-t-elle un index primaire ?
+2. quelle sélection faut-il privilégier ?
+3. quelle instruction convient à une modification identifiée par clé ?
+4. un accès via index secondaire trié appartient-il au périmètre de base de cet exercice ?
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] La deuxième ligne est modifiée.
+- [ ] Les autres composants sont conservés.
+- [ ] L’index absent est traité.
+- [ ] L’index zéro n’est pas exécuté.
+- [ ] Les composants de clé sont protégés.
+- [ ] Une table hachée n’est pas traitée par index primaire.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+MODIFY lt_orders
+  FROM VALUE #(
+    amount = '200.00'
+    priority = 8
+  )
+  INDEX 2
+  TRANSPORTING amount priority.
+
+IF sy-subrc <> 0.
+  WRITE / 'Index 2 absent'.
+ENDIF.
+
+MODIFY lt_orders
+  FROM VALUE #( amount = '1.00' )
+  INDEX 10
+  TRANSPORTING amount.
+
+IF sy-subrc <> 0.
+  WRITE / 'Index 10 absent'.
+ENDIF.
+```
+
+Validation d’un index dynamique :
+
+```abap
+IF lv_index BETWEEN 1 AND lines( lt_orders ).
+  MODIFY lt_orders
+    FROM ls_order
+    INDEX lv_index.
+ELSE.
+  WRITE / 'Index invalide'.
+ENDIF.
+```
+
+</details>

@@ -4,88 +4,132 @@
 
 > Cours associé : [MODIFY WHERE](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/06 - 🍧 MODIFY WHERE.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+- modifier plusieurs lignes selon une condition ;
+- limiter les composants transportés ;
+- contrôler le résultat ;
+- traiter le cas sans correspondance ;
+- éviter de modifier des composants de clé protégés.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 DURÉE INDICATIVE
 
-Sans consulter le cours, définir **MODIFY WHERE**, expliquer son utilité et citer une erreur d'utilisation possible.
+40 à 55 minutes.
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+## 🌺 EXERCICE 1 — MODIFICATION SIMPLE
 
-- [ ] Comprendre le fonctionnement de `MODIFY ... WHERE` dans un exemple différent de celui du cours.
-- [ ] Savoir modifier des lignes spécifiques d’une table interne en utilisant une condition dans un exemple différent de celui du cours.
-- [ ] Identifier la différence avec `MODIFY INDEX` et `MODIFY TABLE` dans un exemple différent de celui du cours.
-- [ ] Utiliser TRANSPORTING pour limiter les champs modifiés dans un exemple différent de celui du cours.
+À partir des données communes, remplacer le statut `N` par `P`.
 
-### Exercice repris du cours
+Utiliser :
 
-### 🍧 1 – MODIFIER PAR CONDITION SIMPLE
+```abap
+MODIFY lt_orders
+  FROM VALUE #( status = 'P' )
+  TRANSPORTING status
+  WHERE status = 'N'.
+```
 
-> [!IMPORTANT]
-> Modifier l’âge des pays `'FR'` à 35.
+Résultat attendu :
 
-<details>
-  <summary>SOLUTION</summary>
+```text
+4500000003 : P
+4500000001 : P
+4500000004 : C
+4500000002 : P
+```
 
-    CLEAR ls_country-land.
-    ls_country-age = 35.
-    MODIFY lt_country FROM ls_country TRANSPORTING age
-                      WHERE land = 'FR'.
+## 🌺 EXERCICE 2 — PLUSIEURS CONDITIONS
 
-</details>
+Pour les commandes françaises dont le montant est inférieur à `100,00` :
 
----
+- augmenter la priorité à `9` ;
+- ne modifier aucun autre composant.
 
-### 🍧 2 – MODIFIER PLUSIEURS LIGNES AVEC CONDITION
+## 🌺 EXERCICE 3 — AUCUNE LIGNE
 
-> [!IMPORTANT]
-> Ajouter 5 ans à tous les pays dont l’âge est inférieur à 30.
+Exécuter une modification avec :
 
-<details>
-  <summary>SOLUTION</summary>
+```abap
+WHERE country = 'ES'.
+```
 
-    LOOP AT lt_country INTO ls_country.
-      IF ls_country-age < 30.
-        ls_country-age = ls_country-age + 5.
-        MODIFY lt_country FROM ls_country TRANSPORTING age
-                          WHERE land = ls_country-land.
-      ENDIF.
-    ENDLOOP.
+Contrôler `sy-subrc`.
 
-</details>
+Résultat attendu :
 
----
+```text
+Aucune ligne modifiée
+```
 
-### 🍧 3 – COMPARAISON AVEC MODIFY TABLE
+## 🌺 EXERCICE 4 — OUBLI DE `TRANSPORTING`
 
-> [!IMPORTANT]
-> Expliquer la différence pratique entre `MODIFY TABLE` et `MODIFY WHERE`.
+Analyser :
 
-<details>
-  <summary>Explication</summary>
+```abap
+MODIFY lt_orders
+  FROM VALUE #( status = 'P' )
+  WHERE status = 'N'.
+```
 
-- `MODIFY TABLE` : modifie une ligne via la clé
-- `MODIFY WHERE` : modifie une ou plusieurs lignes via une condition
-- WHERE est nécessaire lorsque la clé n’est pas connue ou plusieurs lignes doivent être mises à jour
-- TRANSPORTING reste utile pour modifier uniquement certains champs
+Répondre :
 
-</details>
+1. quels composants contient la structure construite ?
+2. que risque-t-il d’arriver aux autres composants des lignes modifiées ?
+3. pourquoi `TRANSPORTING status` est-il nécessaire ?
+4. quel défaut fonctionnel doit être testé ?
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+## 🌺 EXERCICE 5 — COMPOSANT DE CLÉ
 
-1. Construire volontairement un cas incorrect lié à **MODIFY WHERE**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+Une table triée possède la clé unique `order_id`.
+
+Analyser une tentative de modification de `order_id` avec `MODIFY ... WHERE`.
+
+Répondre :
+
+1. pourquoi la clé est-elle protégée ?
+2. quel risque existe pour l’ordre ou l’unicité ?
+3. quelle stratégie faut-il employer pour changer la clé ?
+4. quelles étapes sont nécessaires ?
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Toutes les lignes `N` deviennent `P`.
+- [ ] Seul le composant demandé est transporté.
+- [ ] La condition multiple est correcte.
+- [ ] `sy-subrc = 4` est géré lorsqu’aucune ligne ne correspond.
+- [ ] L’omission de `TRANSPORTING` est diagnostiquée.
+- [ ] Une clé n’est pas modifiée directement.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+MODIFY lt_orders
+  FROM VALUE #( status = 'P' )
+  TRANSPORTING status
+  WHERE status = 'N'.
+
+IF sy-subrc = 0.
+  WRITE / 'Statuts modifiés'.
+ELSE.
+  WRITE / 'Aucune ligne modifiée'.
+ENDIF.
+
+MODIFY lt_orders
+  FROM VALUE #( priority = 9 )
+  TRANSPORTING priority
+  WHERE country = 'FR'
+    AND amount < '100.00'.
+```
+
+Sans `TRANSPORTING`, les composants initiaux de la structure source peuvent écraser les composants correspondants des lignes modifiées.
+
+Pour changer une clé :
+
+1. lire la ligne ;
+2. supprimer l’ancienne ligne ;
+3. modifier la copie ;
+4. réinsérer ;
+5. contrôler le résultat.
+
+</details>

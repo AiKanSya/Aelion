@@ -4,74 +4,153 @@
 
 > Cours associé : [BINARY SEARCH](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/13 - 🍧 BINARY SEARCH.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+- comprendre la recherche binaire ;
+- préparer correctement une table standard ;
+- respecter l’ordre et le préfixe de tri ;
+- comparer recherche linéaire et recherche binaire ;
+- préférer une clé de table adaptée lorsque le besoin est permanent ;
+- ne pas utiliser l’option sur une table hachée.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 DURÉE INDICATIVE
 
-Sans consulter le cours, définir **BINARY SEARCH**, expliquer son utilité et citer une erreur d'utilisation possible.
+55 à 70 minutes.
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+## 🌺 EXERCICE 1 — RECHERCHE VALIDE
 
-- [ ] Comprendre l’option `BINARY SEARCH` avec `READ TABLE` dans un exemple différent de celui du cours.
-- [ ] Savoir l’utiliser pour optimiser les recherches dans une table interne dans un exemple différent de celui du cours.
-- [ ] Connaître la condition nécessaire pour que la recherche binaire fonctionne dans un exemple différent de celui du cours.
-- [ ] Identifier les avantages par rapport à une recherche linéaire dans un exemple différent de celui du cours.
+Trier :
 
-### Exercice repris du cours
+```abap
+SORT lt_orders BY country customer_id order_id.
+```
 
-### 🍧 1 – RECHERCHE BINAIRE SIMPLE + DECLARATION DYNAMIQUE EN FIELD-SYMBOL
+Lire :
 
-> [!IMPORTANT]
-> Trier `lt_citizen` par `country` puis `name` et lire l’enregistrement dont `country = 'ES'` et `name = 'Luis'` en utilisant `BINARY SEARCH`. Afficher `age`.
+```abap
+READ TABLE lt_orders
+  WITH KEY
+    country = 'FR'
+    customer_id = 'C10001'
+  BINARY SEARCH
+  INTO DATA(ls_order).
+```
 
-<details>
-  <summary>SOLUTION</summary>
+Contrôler `sy-subrc`.
 
-    SORT lt_citizen BY country name.
+## 🌺 EXERCICE 2 — PRÉFIXE INVALIDE
 
-    READ TABLE lt_citizen WITH KEY country = 'ES' name = 'Luis' BINARY SEARCH ASSIGNING FIELD-SYMBOL(<lfs_citizen>).
-    IF sy-subrc = 0.
-      WRITE:/ 'Âge du citoyen Luis en ES :', <lfs_citizen>-age.
-    ENDIF.
+La table est triée par :
 
-</details>
+```abap
+country customer_id order_id
+```
 
----
+Les recherches suivantes sont-elles compatibles ?
 
-### 🍧 2 – VERIFIER L’EXISTENCE SANS COPIER
+| Recherche                      | Compatible |
+| ------------------------------ | ---------- |
+| `country`                      |            |
+| `country customer_id`          |            |
+| `country customer_id order_id` |            |
+| `customer_id`                  |            |
+| `country order_id`             |            |
+| `order_id`                     |            |
 
-> [!IMPORTANT]
-> Vérifier si un enregistrement `country = 'BR'` et `name = 'Renata'` existe dans `lt_citizen` avec `BINARY SEARCH`, sans copier la ligne (`TRANSPORTING NO FIELDS`). Afficher un message.
+## 🌺 EXERCICE 3 — ORDRE DE TRI INCORRECT
 
-<details>
-  <summary>SOLUTION</summary>
+Analyser :
 
-    READ TABLE lt_citizen WITH KEY country = 'BR' name = 'Renata' BINARY SEARCH TRANSPORTING NO FIELDS.
-    IF sy-subrc = 0.
-      WRITE:/ 'Enregistrement BR-Renata trouvé !'.
-    ELSE.
-      WRITE:/ 'Enregistrement BR-Renata non trouvé.'.
-    ENDIF.
+```abap
+SORT lt_orders BY customer_id country.
 
-</details>
+READ TABLE lt_orders
+  WITH KEY
+    country = 'FR'
+    customer_id = 'C10001'
+  BINARY SEARCH.
+```
 
----
+Répondre :
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+1. les composants sont-ils dans le même ordre ?
+2. le résultat est-il fiable ?
+3. le contrôle de syntaxe garantit-il la cohérence du tri ?
+4. quelle correction faut-il appliquer ?
 
-1. Construire volontairement un cas incorrect lié à **BINARY SEARCH**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+## 🌺 EXERCICE 4 — ORDRE DÉCROISSANT
+
+Analyser un tri décroissant sur le premier composant recherché.
+
+Pourquoi n’est-il pas compatible avec le prérequis de la recherche binaire classique ?
+
+## 🌺 EXERCICE 5 — EXISTENCE SANS COPIE
+
+Vérifier l’existence de `DE/C10002` avec :
+
+```abap
+TRANSPORTING NO FIELDS
+```
+
+Afficher `sy-tabix` uniquement si la ligne est trouvée.
+
+## 🌺 EXERCICE 6 — CHOIX DE CONCEPTION
+
+Un programme effectue des milliers de recherches par `order_id`.
+
+Comparer :
+
+1. table standard triée une fois puis `BINARY SEARCH`;
+2. table triée avec clé `order_id`;
+3. table hachée avec clé unique `order_id`.
+
+Indiquer la solution la plus adaptée lorsque :
+
+- l’ordre par clé est également nécessaire ;
+- seul l’accès direct par clé complète est requis.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] La table est triée avant la recherche.
+- [ ] Le tri est croissant.
+- [ ] Les composants recherchés forment un préfixe du tri.
+- [ ] L’ordre des composants est identique.
+- [ ] Un tri incohérent est identifié comme un défaut fonctionnel.
+- [ ] `TRANSPORTING NO FIELDS` est utilisé correctement.
+- [ ] Une catégorie de table adaptée est préférée pour un besoin permanent.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+SORT lt_orders BY country customer_id order_id.
+
+READ TABLE lt_orders
+  WITH KEY
+    country = 'FR'
+    customer_id = 'C10001'
+  BINARY SEARCH
+  INTO DATA(ls_order).
+
+IF sy-subrc = 0.
+  WRITE / ls_order-order_id.
+ENDIF.
+```
+
+| Recherche                      | Compatible |
+| ------------------------------ | ---------- |
+| `country`                      | Oui        |
+| `country customer_id`          | Oui        |
+| `country customer_id order_id` | Oui        |
+| `customer_id`                  | Non        |
+| `country order_id`             | Non        |
+| `order_id`                     | Non        |
+
+Choix :
+
+```text
+Ordre et accès par clé → SORTED TABLE
+Accès direct par clé complète → HASHED TABLE
+```
+
+</details>

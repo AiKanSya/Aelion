@@ -4,122 +4,186 @@
 
 > Cours associé : [INSERT INTO ITAB](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/04 - 🍧 INSERT INTO.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+- insérer une ligne selon la catégorie de table ;
+- insérer à un index précis dans une table d’index ;
+- insérer une ligne initiale ;
+- insérer plusieurs lignes avec `LINES OF` ;
+- contrôler un doublon de clé unique ;
+- distinguer `INTO TABLE` et `INDEX`.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 DURÉE INDICATIVE
 
-Sans consulter le cours, définir **INSERT INTO ITAB**, expliquer son utilité et citer une erreur d'utilisation possible.
+55 à 70 minutes.
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+## 🌺 EXERCICE 1 — INSERTION GÉNÉRIQUE
 
-- [ ] Comprendre le fonctionnement de l’instruction `INSERT` pour les tables internes dans un exemple différent de celui du cours.
-- [ ] Savoir insérer une structure, une ligne vide ou des lignes d’une autre table dans un exemple différent de celui du cours.
-- [ ] Maîtriser l’insertion à un index précis dans la table cible dans un exemple différent de celui du cours.
-- [ ] Simplifier le code en évitant des boucles manuelles pour ajouter plusieurs lignes dans un exemple différent de celui du cours.
+Créer une table triée :
 
-### Exercice repris du cours
+```abap
+DATA lt_orders_sorted TYPE SORTED TABLE OF ty_order
+  WITH UNIQUE KEY order_id.
+```
 
-### 🍧 1 – CREER ET INSERER DES ENREGISTREMENTS
+Insérer les lignes dans l’ordre :
 
-> [!IMPORTANT]
-> Déclarer une table interne `lt_employees` avec une structure `ty_employee`
->
-> - id (CHAR5)
-> - nom (CHAR20)
-> - departement (CHAR10)
->   Insérer deux employés et afficher les données.
+```text
+4500000003
+4500000001
+4500000002
+```
 
-<details>
-  <summary>SOLUTION</summary>
+Utiliser :
 
-    TYPES: BEGIN OF ty_employee,
-             id         TYPE char5,
-             nom        TYPE char20,
-             departement TYPE char10,
-           END OF ty_employee.
+```abap
+INSERT VALUE #( ... ) INTO TABLE lt_orders_sorted.
+```
 
-    DATA: lt_employees TYPE TABLE OF ty_employee,
-          ls_employee  TYPE ty_employee.
+Afficher la table et contrôler `sy-subrc` après chaque insertion.
 
-    ls_employee-id         = 'E001'.
-    ls_employee-nom        = 'Dupont'.
-    ls_employee-departement = 'RH'.
-    INSERT ls_employee INTO TABLE lt_employees.
+## 🌺 EXERCICE 2 — DOUBLON
 
-    ls_employee-id         = 'E002'.
-    ls_employee-nom        = 'Martin'.
-    ls_employee-departement = 'IT'.
-    INSERT ls_employee INTO TABLE lt_employees.
+Tenter d’insérer une deuxième ligne avec :
 
-    LOOP AT lt_employees INTO ls_employee.
-      WRITE: / ls_employee-id, ls_employee-nom, ls_employee-departement.
-    ENDLOOP.
+```text
+order_id = 4500000002
+```
 
-</details>
+Résultat attendu :
 
----
+```text
+Insertion refusée : clé déjà présente
+```
 
-### 🍧 2 – INSERER UNE LIGNE VIDE
+La ligne existante ne doit pas être remplacée.
 
-> [!IMPORTANT]
-> Ajouter une ligne vide à l’index 2 et afficher la table.
+## 🌺 EXERCICE 3 — INDEX PRÉCIS
 
-<details>
-  <summary>SOLUTION</summary>
+Dans une table standard contenant :
 
-    INSERT INITIAL LINE INTO lt_employees INDEX 2.
+```text
+A
+C
+D
+```
 
-    LOOP AT lt_employees INTO ls_employee.
-      WRITE: / ls_employee-id, ls_employee-nom, ls_employee-departement.
-    ENDLOOP.
+insérer `B` à l’index `2`.
 
-</details>
+Résultat attendu :
 
----
+```text
+A
+B
+C
+D
+```
 
-### 🍧 3 – COPIER DES LIGNES D’UNE AUTRE TABLE
+Utiliser :
 
-> [!IMPORTANT]
-> Créer `lt_new_employees` avec deux lignes et les insérer dans `lt_employees` à l’index 1.
+```abap
+INSERT lv_value INTO lt_values INDEX 2.
+```
 
-<details>
-  <summary>SOLUTION</summary>
+## 🌺 EXERCICE 4 — LIGNE INITIALE ASSIGNÉE
 
-    DATA: lt_new_employees TYPE TABLE OF ty_employee.
+Créer une ligne directement dans une table standard :
 
-    ls_employee-id         = 'E003'.
-    ls_employee-nom        = 'Renata'.
-    ls_employee-departement = 'FIN'.
-    INSERT ls_employee INTO TABLE lt_new_employees.
+```abap
+INSERT INITIAL LINE
+  INTO lt_orders INDEX 1
+  ASSIGNING FIELD-SYMBOL(<lfs_order>).
+```
 
-    ls_employee-id         = 'E004'.
-    ls_employee-nom        = 'Luis'.
-    ls_employee-departement = 'LOG'.
-    INSERT ls_employee INTO TABLE lt_new_employees.
+Alimenter la ligne par le field-symbol.
 
-    INSERT LINES OF lt_new_employees INTO lt_employees INDEX 1.
+Contrôler que le field-symbol est assigné.
 
-    LOOP AT lt_employees INTO ls_employee.
-      WRITE: / ls_employee-id, ls_employee-nom, ls_employee-departement.
-    ENDLOOP.
+## 🌺 EXERCICE 5 — PLUSIEURS LIGNES
 
-</details>
+Créer une table source contenant cinq nombres.
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Insérer les lignes `2` à `4` au début d’une table cible :
 
-1. Construire volontairement un cas incorrect lié à **INSERT INTO ITAB**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```abap
+INSERT LINES OF lt_source
+  FROM 2 TO 4
+  INTO lt_target
+  INDEX 1.
+```
+
+Prévoir le résultat.
+
+## 🌺 EXERCICE 6 — MAUVAISE CATÉGORIE
+
+Analyser :
+
+```abap
+INSERT ls_order INTO lt_orders_hashed INDEX 1.
+```
+
+Répondre :
+
+1. une table hachée possède-t-elle un index primaire ?
+2. cette syntaxe est-elle adaptée ?
+3. quelle syntaxe faut-il utiliser ?
+4. quelle clé doit être fournie par la ligne ?
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] `INTO TABLE` est utilisé pour l’insertion générique.
+- [ ] Le doublon unique est contrôlé.
+- [ ] L’insertion par index est limitée aux tables d’index.
+- [ ] La ligne initiale est alimentée par un field-symbol assigné.
+- [ ] `LINES OF` évite une boucle manuelle.
+- [ ] Une table hachée n’est pas traitée comme une table indexée.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+DATA lt_orders_sorted TYPE SORTED TABLE OF ty_order
+  WITH UNIQUE KEY order_id.
+
+INSERT VALUE #( order_id = '4500000003' )
+  INTO TABLE lt_orders_sorted.
+
+INSERT VALUE #( order_id = '4500000001' )
+  INTO TABLE lt_orders_sorted.
+
+INSERT VALUE #( order_id = '4500000002' )
+  INTO TABLE lt_orders_sorted.
+
+INSERT VALUE #( order_id = '4500000002' )
+  INTO TABLE lt_orders_sorted.
+
+IF sy-subrc <> 0.
+  WRITE / 'Insertion refusée : clé déjà présente'.
+ENDIF.
+```
+
+Insertion par index :
+
+```abap
+DATA lt_values TYPE STANDARD TABLE OF string
+  WITH EMPTY KEY.
+
+lt_values = VALUE #( ( `A` ) ( `C` ) ( `D` ) ).
+
+INSERT `B` INTO lt_values INDEX 2.
+```
+
+Ligne initiale :
+
+```abap
+INSERT INITIAL LINE
+  INTO lt_orders INDEX 1
+  ASSIGNING FIELD-SYMBOL(<lfs_order>).
+
+IF <lfs_order> IS ASSIGNED.
+  <lfs_order>-order_id = '4500000099'.
+  <lfs_order>-status   = 'N'.
+ENDIF.
+```
+
+</details>
