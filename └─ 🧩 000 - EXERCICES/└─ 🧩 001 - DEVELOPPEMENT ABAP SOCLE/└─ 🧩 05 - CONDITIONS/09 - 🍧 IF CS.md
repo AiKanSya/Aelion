@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — CONTAINS STRING (CS)
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [CONTAINS STRING (CS)](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 05 - CONDITIONS/09 - 🍧 IF CS.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

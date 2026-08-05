@@ -52,18 +52,3 @@ Le programme doit être enregistré dans le package et l’ordre de transport ut
 
 > [!IMPORTANT]
 > `WRITE` produit une liste classique. Cette instruction convient aux exercices de base et aux rapports simples, mais elle ne remplace pas un ALV ou une interface Fiori dans une application professionnelle.
-
-## 🌺 EXERCICES
-
-- [WRITE](<./01 - 🍧 WRITE.md>)
-- [MESSAGE](<./02 - 🍧 MESSAGE.md>)
-- [CALCULS](<./03 - 🍧 CALCULS.md>)
-- [CONCATENATE](<./04 - 🍧 CONCATENATE.md>)
-- [CONDENSE](<./05 - 🍧 CONDENSE.md>)
-- [SPLIT](<./06 - 🍧 SPLIT.md>)
-- [FIND](<./07 - 🍧 FIND.md>)
-- [REPLACE](<./08 - 🍧 REPLACE.md>)
-- [TRANSLATE](<./09 - 🍧 TRANSLATE.md>)
-- [CLEAR](<./10 - 🍧 CLEAR.md>)
-- [OFFSET](<./11 - 🍧 OFFSET.md>)
-- [CONVERSION TEXTE VERS NOMBRE](<./14 - 🍧 CONVERSION TEXTE VERS NOMBRE.md>)

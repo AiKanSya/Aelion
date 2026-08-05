@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — NO PATTERN (NP)
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [NO PATTERN (NP)](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 05 - CONDITIONS/12 - 🍧 IF NP.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

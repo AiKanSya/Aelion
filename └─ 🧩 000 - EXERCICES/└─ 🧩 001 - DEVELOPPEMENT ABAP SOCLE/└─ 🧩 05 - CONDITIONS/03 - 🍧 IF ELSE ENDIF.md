@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — IF ... ENDIF
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [IF ... ENDIF](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 05 - CONDITIONS/03 - 🍧 IF ELSE ENDIF.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

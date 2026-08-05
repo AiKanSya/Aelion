@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — READ TABLE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [READ TABLE](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/12 - 🍧 READ.md>)
-
 ## 🌺 OBJECTIFS
 
 - lire par index ;

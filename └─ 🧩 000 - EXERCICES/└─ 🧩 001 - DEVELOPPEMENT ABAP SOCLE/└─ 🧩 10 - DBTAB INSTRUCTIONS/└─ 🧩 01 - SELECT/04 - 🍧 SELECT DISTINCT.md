@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — SELECT DISTINCT – EXTRACTION DE VALEURS UNIQUES
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [SELECT DISTINCT – EXTRACTION DE VALEURS UNIQUES](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 10 - DBTAB INSTRUCTIONS/└─ 🧩 01 - SELECT/04 - 🍧 SELECT DISTINCT.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

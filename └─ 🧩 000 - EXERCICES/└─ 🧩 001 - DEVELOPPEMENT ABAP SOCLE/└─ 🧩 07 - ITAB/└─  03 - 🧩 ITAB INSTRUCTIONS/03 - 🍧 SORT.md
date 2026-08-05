@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — SORT
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [SORT](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/03 - 🍧 SORT.md>)
-
 ## 🌺 OBJECTIFS
 
 - trier une table standard ;

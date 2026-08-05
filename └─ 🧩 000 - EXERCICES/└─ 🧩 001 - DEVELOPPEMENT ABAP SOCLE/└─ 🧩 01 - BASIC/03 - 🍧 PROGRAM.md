@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — CREATION DE PROGRAMME – SE38 / SE80
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [CREATION DE PROGRAMME – SE38 / SE80](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 01 - BASIC/03 - 🍧 PROGRAM.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — COVERS PATTERN (CP)
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [COVERS PATTERN (CP)](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 05 - CONDITIONS/11 - 🍧 IF CP.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

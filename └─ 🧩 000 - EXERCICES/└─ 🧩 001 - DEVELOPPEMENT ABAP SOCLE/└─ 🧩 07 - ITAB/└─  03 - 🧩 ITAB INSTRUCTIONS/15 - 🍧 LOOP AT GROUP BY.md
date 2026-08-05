@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — REGROUPER UNE TABLE AVEC `LOOP AT ... GROUP BY`
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [REGROUPER UNE TABLE AVEC `LOOP AT ... GROUP BY`](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/15 - 🍧 LOOP AT GROUP BY.md>)
-
 ## 🌺 OBJECTIFS
 
 - former des groupes selon une clé fonctionnelle ;

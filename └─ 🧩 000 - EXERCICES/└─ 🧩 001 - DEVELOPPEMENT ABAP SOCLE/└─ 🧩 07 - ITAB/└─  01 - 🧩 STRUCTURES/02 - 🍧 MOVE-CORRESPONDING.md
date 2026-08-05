@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — MOVE CORRESPONDING (STRUCTURES)
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [MOVE CORRESPONDING (STRUCTURES)](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  01 - 🧩 STRUCTURES/02 - 🍧 MOVE-CORRESPONDING.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

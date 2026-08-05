@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — CONTAINS NOT ONLY (CN)
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [CONTAINS NOT ONLY (CN)](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 05 - CONDITIONS/07 - 🍧 IF CN.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

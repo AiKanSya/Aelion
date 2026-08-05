@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — FIND
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [FIND](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 04 - BASIC INSTRUCTIONS/07 - 🍧 FIND.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — OPERATEURS DE COMPARAISON
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [OPERATEURS DE COMPARAISON](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 05 - CONDITIONS/01 - 🍧 OPERATORS.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

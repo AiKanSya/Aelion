@@ -1,11 +1,5 @@
 # 🌸 EXERCICES — SYNTHESE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [STRUCTURE](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  01 - 🧩 STRUCTURES/01 - 🍧 STRUCTURES.md>)
-
-> Cours associé : [MOVE CORRESPONDING (STRUCTURES)](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  01 - 🧩 STRUCTURES/02 - 🍧 MOVE-CORRESPONDING.md>)
-
 ## 🌺 OBJECTIF
 
 Transformer une structure technique source en structure d’affichage sans perdre les données propres à la cible.

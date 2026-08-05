@@ -93,8 +93,3 @@ Règles essentielles :
 > [!CAUTION]
 > `MOVE-CORRESPONDING` n’est pas automatiquement « sans risque ».  
 > Les noms et les types des composants doivent être contrôlés.
-
-## 🌺 EXERCICES
-
-- [STRUCTURES](<./01 - 🍧 STRUCTURES.md>)
-- [MOVE-CORRESPONDING](<./02 - 🍧 MOVE-CORRESPONDING.md>)

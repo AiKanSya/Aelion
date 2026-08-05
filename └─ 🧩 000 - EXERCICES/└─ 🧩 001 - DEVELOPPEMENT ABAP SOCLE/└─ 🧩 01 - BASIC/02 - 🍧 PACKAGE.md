@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — CREATION DE PACKAGE – SE80 / SE21
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [CREATION DE PACKAGE – SE80 / SE21](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 01 - BASIC/02 - 🍧 PACKAGE.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

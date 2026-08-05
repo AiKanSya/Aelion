@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — MESSAGES
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [MESSAGES](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 04 - BASIC INSTRUCTIONS/02 - 🍧 MESSAGE.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

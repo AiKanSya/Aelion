@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — SELECT – LECTURE DE DONNEES
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [SELECT – LECTURE DE DONNEES](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 10 - DBTAB INSTRUCTIONS/└─ 🧩 01 - SELECT/01 - 🍧 SELECT.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

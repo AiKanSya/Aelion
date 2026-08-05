@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — SELECT SINGLE – EXTRACTION D’UN ENREGISTREMENT UNIQUE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [SELECT SINGLE – EXTRACTION D’UN ENREGISTREMENT UNIQUE](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 10 - DBTAB INSTRUCTIONS/└─ 🧩 01 - SELECT/02 - 🍧 SELECT SINGLE.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — ITAB TYPE STANDARD TABLE OF
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [ITAB TYPE STANDARD TABLE OF](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  02 - 🧩 ITAB TYPES/02 - 🍧 ITAB TYPE STANDARD.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

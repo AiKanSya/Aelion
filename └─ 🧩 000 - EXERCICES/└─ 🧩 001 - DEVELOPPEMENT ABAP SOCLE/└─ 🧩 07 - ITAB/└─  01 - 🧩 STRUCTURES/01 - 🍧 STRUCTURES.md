@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — STRUCTURE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [STRUCTURE](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  01 - 🧩 STRUCTURES/01 - 🍧 STRUCTURES.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

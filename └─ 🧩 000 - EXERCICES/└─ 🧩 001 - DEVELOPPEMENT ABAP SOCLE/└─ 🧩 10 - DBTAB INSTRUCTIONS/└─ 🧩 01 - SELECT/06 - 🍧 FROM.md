@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — FROM (AS ALIAS) – TABLE SOURCE ET ALIAS
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [FROM (AS ALIAS) – TABLE SOURCE ET ALIAS](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 10 - DBTAB INSTRUCTIONS/└─ 🧩 01 - SELECT/06 - 🍧 FROM.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

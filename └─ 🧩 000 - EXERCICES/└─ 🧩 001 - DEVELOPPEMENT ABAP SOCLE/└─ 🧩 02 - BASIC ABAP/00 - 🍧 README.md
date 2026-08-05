@@ -30,9 +30,3 @@ Le programme `ZAELION_<TRI>_HELLOWORLD`, créé dans le dossier `01 - BASIC`, es
 > [!IMPORTANT]
 > Les conventions de nommage et de cartouche peuvent varier selon le client.  
 > Les conventions demandées dans ces exercices constituent le standard de la formation.
-
-## 🌺 EXERCICES
-
-- [CODE STRUCTURE](<./01 - 🍧 CODE STRUCTURE.md>)
-- [COMMENTS](<./02 - 🍧 COMMENTS.md>)
-- [CARTOUCHE](<./03 - 🍧 CARTOUCHE.md>)

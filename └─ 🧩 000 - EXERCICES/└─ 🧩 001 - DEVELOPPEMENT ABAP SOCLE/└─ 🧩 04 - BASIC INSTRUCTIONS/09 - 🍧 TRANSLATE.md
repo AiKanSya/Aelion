@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — TRANSLATE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [TRANSLATE](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 04 - BASIC INSTRUCTIONS/09 - 🍧 TRANSLATE.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

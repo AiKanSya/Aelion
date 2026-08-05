@@ -44,9 +44,3 @@ Le programme doit être enregistré dans le package et l’ordre de transport cr
 > [!IMPORTANT]
 > Les préfixes utilisés sont des conventions de formation.  
 > Ils ne constituent pas des mots-clés imposés par le langage ABAP.
-
-## 🌺 EXERCICES
-
-- [VARIABLES](<./01 - 🍧 VARIABLES.md>)
-- [CONSTANTS](<./02 - 🍧 CONSTANTS.md>)
-- [FIELD-SYMBOLS](<./03 - 🍧 FIELD-SYMBOLS.md>)

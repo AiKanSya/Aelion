@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — INSERTION INDIVIDUELLE AVEC VALUES
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [INSERT INTO DBTAB VIA STRUCTURE](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 10 - DBTAB INSTRUCTIONS/└─ 🧩 02 - INSERT/01 - 🍧 INSERT INTO.md>)
-
 ## 🌺 OBJECTIFS
 
 - préparer une structure complète ;

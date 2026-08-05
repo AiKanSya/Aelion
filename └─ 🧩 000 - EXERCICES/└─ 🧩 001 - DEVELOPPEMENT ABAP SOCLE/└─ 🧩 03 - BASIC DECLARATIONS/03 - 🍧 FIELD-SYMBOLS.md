@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — FIELD-SYMBOLS
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [FIELD-SYMBOLS](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 03 - BASIC DECLARATIONS/03 - 🍧 FIELD-SYMBOLS.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

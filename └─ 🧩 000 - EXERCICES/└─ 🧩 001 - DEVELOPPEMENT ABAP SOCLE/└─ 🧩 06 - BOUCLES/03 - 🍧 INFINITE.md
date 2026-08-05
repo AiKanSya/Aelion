@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — BOUCLE INFINIE - SM50
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [BOUCLE INFINIE - SM50](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 06 - BOUCLES/03 - 🍧 INFINITE.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

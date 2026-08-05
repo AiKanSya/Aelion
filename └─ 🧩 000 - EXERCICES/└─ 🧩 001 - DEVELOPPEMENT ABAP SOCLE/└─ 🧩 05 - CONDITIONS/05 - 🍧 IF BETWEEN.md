@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — BETWEEN
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [BETWEEN](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 05 - CONDITIONS/05 - 🍧 IF BETWEEN.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

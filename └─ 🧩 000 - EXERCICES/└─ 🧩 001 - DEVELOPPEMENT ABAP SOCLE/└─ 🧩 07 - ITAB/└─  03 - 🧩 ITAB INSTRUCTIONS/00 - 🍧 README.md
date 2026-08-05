@@ -214,21 +214,3 @@ lt_orders = VALUE #(
     priority = 2 )
 ).
 ```
-
-## 🌺 EXERCICES
-
-- [IS INITIAL](<./01 - 🍧 IS INITIAL.md>)
-- [CLEAR](<./02 - 🍧 CLEAR.md>)
-- [SORT](<./03 - 🍧 SORT.md>)
-- [INSERT INTO](<./04 - 🍧 INSERT INTO.md>)
-- [APPEND TO](<./05 - 🍧 APPEND TO.md>)
-- [MODIFY WHERE](<./06 - 🍧 MODIFY WHERE.md>)
-- [MODIFY INDEX](<./07 - 🍧 MODIFY INDEX.md>)
-- [COPY](<./08 - 🍧 COPY.md>)
-- [MOVE-CORRESPONDING](<./09 - 🍧 MOVE-CORRESPONDING.md>)
-- [DELETE](<./10 - 🍧 DELETE.md>)
-- [DELETE ADJACENT DUPLICATES](<./11 - 🍧 DELETE ADJACENT DUPLICATES.md>)
-- [READ](<./12 - 🍧 READ.md>)
-- [BINARY SEARCH](<./13 - 🍧 BINARY SEARCH.md>)
-- [LOOP](<./14 - 🍧 LOOP.md>)
-- [LOOP AT GROUP BY](<./15 - 🍧 LOOP AT GROUP BY.md>)

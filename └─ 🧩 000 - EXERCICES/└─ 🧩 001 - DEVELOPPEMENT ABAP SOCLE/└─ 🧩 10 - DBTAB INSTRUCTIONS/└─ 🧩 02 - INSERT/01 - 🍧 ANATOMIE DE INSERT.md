@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — ANATOMIE DE INSERT
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [INSERT INTO DBTAB VIA STRUCTURE](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 10 - DBTAB INSTRUCTIONS/└─ 🧩 02 - INSERT/01 - 🍧 INSERT INTO.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

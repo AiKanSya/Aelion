@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — ELEMENTS DE DONNEES
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [ELEMENTS DE DONNEES](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 08 - SE11/03 - 🍧 DATA ELEMENTS.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

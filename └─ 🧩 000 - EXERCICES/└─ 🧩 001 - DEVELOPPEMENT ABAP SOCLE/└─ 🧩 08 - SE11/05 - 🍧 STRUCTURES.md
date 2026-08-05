@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — STRUCTURES DE TABLE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [STRUCTURES DE TABLE](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 08 - SE11/05 - 🍧 STRUCTURES.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

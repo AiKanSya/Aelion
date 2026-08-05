@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — INSTRUCTION WRITE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [INSTRUCTION WRITE](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 04 - BASIC INSTRUCTIONS/01 - 🍧 WRITE.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

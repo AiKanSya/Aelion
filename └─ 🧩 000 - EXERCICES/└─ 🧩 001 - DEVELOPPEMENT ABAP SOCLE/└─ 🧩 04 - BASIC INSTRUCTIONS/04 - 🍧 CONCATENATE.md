@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — CONCATENATE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [CONCATENATE](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 04 - BASIC INSTRUCTIONS/04 - 🍧 CONCATENATE.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

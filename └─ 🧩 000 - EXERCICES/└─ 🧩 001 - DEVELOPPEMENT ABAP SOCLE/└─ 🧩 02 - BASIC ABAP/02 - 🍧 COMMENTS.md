@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — COMMENTAIRES IN ABAP
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [COMMENTAIRES IN ABAP](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 02 - BASIC ABAP/02 - 🍧 COMMENTS.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

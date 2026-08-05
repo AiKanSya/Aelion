@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — SQUELETTE D'UN PROGRAMME ABAP
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [SQUELETTE D'UN PROGRAMME ABAP](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 02 - BASIC ABAP/01 - 🍧 CODE STRUCTURE.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

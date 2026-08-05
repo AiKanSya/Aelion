@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — LOOP AT
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [LOOP AT](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/14 - 🍧 LOOP.md>)
-
 ## 🌺 OBJECTIFS
 
 - parcourir toutes les lignes ;

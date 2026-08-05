@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — UPDATE DBTAB FROM ITAB
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [UPDATE DBTAB FROM ITAB](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 10 - DBTAB INSTRUCTIONS/└─ 🧩 03 - UPDATE/02 - 🍧 UPDATE FROM ITAB.md>)
-
 ## 🌺 CONSIGNES
 
 - Réaliser les exercices sans consulter le cours lors du premier essai.

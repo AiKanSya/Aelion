@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — COPY TABLE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [COPY TABLE](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/08 - 🍧 COPY.md>)
-
 ## 🌺 OBJECTIFS
 
 - copier toutes les lignes ;

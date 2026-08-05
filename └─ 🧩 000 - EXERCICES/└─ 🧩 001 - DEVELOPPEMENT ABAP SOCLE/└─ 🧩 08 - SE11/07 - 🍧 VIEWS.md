@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — VIEWS SAP
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [VIEWS SAP](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 08 - SE11/07 - 🍧 VIEWS.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

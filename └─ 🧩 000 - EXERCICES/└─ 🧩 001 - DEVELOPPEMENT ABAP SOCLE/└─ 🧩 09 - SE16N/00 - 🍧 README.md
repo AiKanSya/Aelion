@@ -148,7 +148,3 @@ Les raccourcis clavier et les libellés de menus peuvent varier selon :
 - les autorisations.
 
 Les exercices indiquent les actions fonctionnelles, sans imposer un raccourci autre que l’exécution standard `F8`.
-
-## 🌺 EXERCICES
-
-- [SE16N](<./01 - 🍧 SE16N.md>)

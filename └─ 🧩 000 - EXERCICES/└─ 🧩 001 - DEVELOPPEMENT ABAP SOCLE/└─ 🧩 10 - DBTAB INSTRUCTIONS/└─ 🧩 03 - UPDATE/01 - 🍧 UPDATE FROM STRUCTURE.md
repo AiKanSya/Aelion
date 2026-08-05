@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — UPDATE DBTAB FROM STRUCTURE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [UPDATE DBTAB FROM STRUCTURE](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 10 - DBTAB INSTRUCTIONS/└─ 🧩 03 - UPDATE/01 - 🍧 UPDATE FROM STRUCTURE.md>)
-
 ## 🌺 CONSIGNES
 
 - Réaliser les exercices sans consulter le cours lors du premier essai.

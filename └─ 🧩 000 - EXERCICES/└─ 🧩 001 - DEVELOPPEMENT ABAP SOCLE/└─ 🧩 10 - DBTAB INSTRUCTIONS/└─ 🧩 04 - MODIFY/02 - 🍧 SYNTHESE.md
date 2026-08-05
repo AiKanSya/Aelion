@@ -1,5 +1,0 @@
-# 🌸 EXERCICES — SYNTHESE
-
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [MODIFY](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 10 - DBTAB INSTRUCTIONS/└─ 🧩 04 - MODIFY/01 - 🍧 MODIFY.md>)

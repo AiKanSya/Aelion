@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — CASE ... ENDCASE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [CASE ... ENDCASE](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 05 - CONDITIONS/02 - 🍧 CASE ENDCASE.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

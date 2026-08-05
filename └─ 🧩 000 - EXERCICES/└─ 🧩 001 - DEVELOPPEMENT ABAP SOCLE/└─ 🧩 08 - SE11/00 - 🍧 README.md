@@ -187,14 +187,3 @@ Un champ `QUAN` doit référencer un champ d’unité `UNIT`.
 Les vues classiques `SE11` restent pertinentes pour comprendre et maintenir les systèmes classiques.
 
 Pour un nouveau modèle de données moderne sur une plateforme compatible, les CDS view entities sont généralement la solution recommandée par SAP. Cet exercice reste volontairement limité aux objets classiques du Dictionnaire ABAP.
-
-## 🌺 EXERCICES
-
-- [SE11](<./01 - 🍧 SE11.md>)
-- [DOMAINS](<./02 - 🍧 DOMAINS.md>)
-- [DATA ELEMENTS](<./03 - 🍧 DATA ELEMENTS.md>)
-- [FIELDS](<./04 - 🍧 FIELDS.md>)
-- [STRUCTURES](<./05 - 🍧 STRUCTURES.md>)
-- [DBTABLES](<./06 - 🍧 DBTABLES.md>)
-- [VIEWS](<./07 - 🍧 VIEWS.md>)
-- [SEARCH HELP](<./08 - 🍧 SEARCH HELP.md>)

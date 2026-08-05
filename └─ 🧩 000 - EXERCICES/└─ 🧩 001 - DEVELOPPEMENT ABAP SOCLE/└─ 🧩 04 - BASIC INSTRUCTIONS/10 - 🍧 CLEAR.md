@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — CLEAR
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [CLEAR](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 04 - BASIC INSTRUCTIONS/10 - 🍧 CLEAR.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

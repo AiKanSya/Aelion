@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — FOR ALL ENTRIES IN – UTILISER UNE TABLE INTERNE COMME FILTRE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [FOR ALL ENTRIES IN – UTILISER UNE TABLE INTERNE COMME FILTRE](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 10 - DBTAB INSTRUCTIONS/└─ 🧩 01 - SELECT/10 - 🍧 FOR ALL ENTRIES.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

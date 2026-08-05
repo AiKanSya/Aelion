@@ -292,7 +292,3 @@ ZT_<TRI>_STAT-STATUS
 ne dispense pas la logique d’écriture de contrôler le statut.
 
 Le programme doit éviter d’insérer une commande portant un statut inconnu.
-
-## 🌺 EXERCICES
-
-- [INSERT INTO](<./01 - 🍧 INSERT INTO.md>)

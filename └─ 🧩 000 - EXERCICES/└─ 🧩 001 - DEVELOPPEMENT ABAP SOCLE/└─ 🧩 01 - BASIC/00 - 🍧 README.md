@@ -25,12 +25,3 @@ Les exercices sont progressifs. Les objets créés dans un exercice sont réutil
 
 > [!IMPORTANT]
 > Si un objet portant le même nom existe déjà, ne pas le modifier. Utiliser le suffixe communiqué par le formateur.
-
-## 🌺 EXERCICES
-
-- [OT](<./01 - 🍧 OT.md>)
-- [PACKAGE](<./02 - 🍧 PACKAGE.md>)
-- [PROGRAM](<./03 - 🍧 PROGRAM.md>)
-- [INCLUDE](<./04 - 🍧 INCLUDE.md>)
-- [DUMP DEBUGGER](<./05 - 🍧 DUMP DEBUGGER.md>)
-- [INTEGRATION COLLECTIVE OT](<./06 - 🍧 INTEGRATION COLLECTIVE OT.md>)

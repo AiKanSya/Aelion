@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — GESTION DES DUMPS ET DU DEBUGUEUR – `ST22`
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [GESTION DES DUMPS ET DU DEBUGUEUR – `ST22`](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 01 - BASIC/05 - 🍧 DUMP DEBUGGER.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

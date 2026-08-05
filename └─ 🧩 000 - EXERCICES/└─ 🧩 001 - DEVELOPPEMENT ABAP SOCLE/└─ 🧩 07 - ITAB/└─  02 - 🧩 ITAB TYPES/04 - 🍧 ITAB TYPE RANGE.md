@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — TYPE RANGE OF
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [TYPE RANGE OF](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  02 - 🧩 ITAB TYPES/04 - 🍧 ITAB TYPE RANGE.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — CONDENSE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [CONDENSE](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 04 - BASIC INSTRUCTIONS/05 - 🍧 CONDENSE.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

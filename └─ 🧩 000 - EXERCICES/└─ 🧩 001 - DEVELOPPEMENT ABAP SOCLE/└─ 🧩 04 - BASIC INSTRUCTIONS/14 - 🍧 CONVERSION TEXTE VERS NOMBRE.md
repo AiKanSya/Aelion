@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — CONVERSION SÉCURISÉE D'UN TEXTE EN NOMBRE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [CONVERSION SÉCURISÉE D'UN TEXTE EN NOMBRE](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 04 - BASIC INSTRUCTIONS/14 - 🍧 CONVERSION TEXTE VERS NOMBRE.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

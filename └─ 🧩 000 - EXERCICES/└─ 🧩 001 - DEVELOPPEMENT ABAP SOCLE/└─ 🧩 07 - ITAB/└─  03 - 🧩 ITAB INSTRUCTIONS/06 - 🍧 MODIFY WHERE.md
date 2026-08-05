@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — MODIFY WHERE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [MODIFY WHERE](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/06 - 🍧 MODIFY WHERE.md>)
-
 ## 🌺 OBJECTIFS
 
 - modifier plusieurs lignes selon une condition ;

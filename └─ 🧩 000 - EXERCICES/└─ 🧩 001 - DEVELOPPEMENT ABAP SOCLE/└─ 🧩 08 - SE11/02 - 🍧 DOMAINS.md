@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — DOMAINS
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [DOMAINS](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 08 - SE11/02 - 🍧 DOMAINS.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

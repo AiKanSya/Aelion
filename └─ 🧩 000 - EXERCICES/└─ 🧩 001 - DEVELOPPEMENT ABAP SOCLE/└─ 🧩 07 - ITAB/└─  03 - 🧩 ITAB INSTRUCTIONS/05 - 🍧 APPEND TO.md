@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — APPEND TO ITAB
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [APPEND TO ITAB](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/05 - 🍧 APPEND TO.md>)
-
 ## 🌺 OBJECTIFS
 
 - ajouter à la fin d’une table d’index ;

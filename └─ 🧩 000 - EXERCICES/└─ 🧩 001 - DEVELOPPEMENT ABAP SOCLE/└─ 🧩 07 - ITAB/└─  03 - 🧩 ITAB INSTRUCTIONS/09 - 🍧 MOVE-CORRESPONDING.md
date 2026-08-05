@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — MOVE CORRESPONDING
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [MOVE CORRESPONDING](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/09 - 🍧 MOVE-CORRESPONDING.md>)
-
 ## 🌺 OBJECTIFS
 
 - transférer les composants communs de chaque ligne ;

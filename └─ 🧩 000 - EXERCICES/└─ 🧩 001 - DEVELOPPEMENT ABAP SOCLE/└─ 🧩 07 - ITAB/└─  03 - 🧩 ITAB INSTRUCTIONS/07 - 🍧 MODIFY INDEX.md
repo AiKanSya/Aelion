@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — MODIDFY WITH INDEX
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [MODIDFY WITH INDEX](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/07 - 🍧 MODIFY INDEX.md>)
-
 ## 🌺 OBJECTIFS
 
 - modifier une ligne par index ;

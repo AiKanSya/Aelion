@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — CONSTANTES
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [CONSTANTES](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 03 - BASIC DECLARATIONS/02 - 🍧 CONSTANTS.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

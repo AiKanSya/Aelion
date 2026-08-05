@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — DELETE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [DELETE](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/10 - 🍧 DELETE.md>)
-
 ## 🌺 OBJECTIFS
 
 - supprimer par index ;

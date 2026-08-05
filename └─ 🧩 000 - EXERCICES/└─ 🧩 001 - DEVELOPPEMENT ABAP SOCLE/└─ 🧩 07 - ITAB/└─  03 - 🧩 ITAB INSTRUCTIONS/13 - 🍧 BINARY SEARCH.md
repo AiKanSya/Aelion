@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — BINARY SEARCH
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [BINARY SEARCH](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  03 - 🧩 ITAB INSTRUCTIONS/13 - 🍧 BINARY SEARCH.md>)
-
 ## 🌺 OBJECTIFS
 
 - comprendre la recherche binaire ;

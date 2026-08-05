@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — INSTRUCTION DE CALCUL
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [INSTRUCTION DE CALCUL](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 04 - BASIC INSTRUCTIONS/03 - 🍧 CALCULS.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

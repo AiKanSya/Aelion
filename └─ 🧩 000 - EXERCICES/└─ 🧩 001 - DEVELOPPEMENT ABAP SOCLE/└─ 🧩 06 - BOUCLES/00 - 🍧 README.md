@@ -58,9 +58,3 @@ Enregistrer le programme dans le package et l’ordre de transport utilisés pou
 > - `CHECK` faux : abandon du passage courant et passage au suivant ;
 > - `CONTINUE` : abandon explicite du passage courant et passage au suivant ;
 > - `EXIT` : sortie complète de la boucle.
-
-## 🌺 EXERCICES
-
-- [DO](<./01 - 🍧 DO.md>)
-- [WHILE](<./02 - 🍧 WHILE.md>)
-- [INFINITE](<./03 - 🍧 INFINITE.md>)

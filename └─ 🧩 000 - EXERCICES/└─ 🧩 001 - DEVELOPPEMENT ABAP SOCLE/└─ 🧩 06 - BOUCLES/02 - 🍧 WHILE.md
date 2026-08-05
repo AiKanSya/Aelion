@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — WHILE ENDWHILE - CONTROLE DES BOUCLES CONDITIONNELLES
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [WHILE ENDWHILE - CONTROLE DES BOUCLES CONDITIONNELLES](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 06 - BOUCLES/02 - 🍧 WHILE.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

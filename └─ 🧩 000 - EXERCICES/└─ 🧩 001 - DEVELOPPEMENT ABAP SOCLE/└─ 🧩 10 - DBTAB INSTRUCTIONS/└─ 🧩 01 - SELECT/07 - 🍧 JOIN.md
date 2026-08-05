@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — JOIN – COMBINER DES TABLES SAP
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [JOIN – COMBINER DES TABLES SAP](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 10 - DBTAB INSTRUCTIONS/└─ 🧩 01 - SELECT/07 - 🍧 JOIN.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

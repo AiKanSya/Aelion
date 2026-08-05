@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — CONTAINS ANY (CA)
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [CONTAINS ANY (CA)](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 05 - CONDITIONS/08 - 🍧 IF CA.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

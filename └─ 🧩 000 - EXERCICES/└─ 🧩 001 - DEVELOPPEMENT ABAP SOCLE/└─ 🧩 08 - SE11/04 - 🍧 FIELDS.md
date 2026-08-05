@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — CHAMPS / ZONES / FIELDS
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [CHAMPS / ZONES / FIELDS](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 08 - SE11/04 - 🍧 FIELDS.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

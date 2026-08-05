@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — TYPE HASHED TABLE
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [TYPE HASHED TABLE](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  02 - 🧩 ITAB TYPES/05 - 🍧 ITAB TYPE HASHED.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

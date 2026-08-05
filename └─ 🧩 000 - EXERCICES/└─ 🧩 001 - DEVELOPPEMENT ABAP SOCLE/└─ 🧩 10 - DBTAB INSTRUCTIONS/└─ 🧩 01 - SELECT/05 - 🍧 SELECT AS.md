@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — COL AS ALIAS – RENOMMER LES CHAMPS
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [COL AS ALIAS – RENOMMER LES CHAMPS](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 10 - DBTAB INSTRUCTIONS/└─ 🧩 01 - SELECT/05 - 🍧 SELECT AS.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

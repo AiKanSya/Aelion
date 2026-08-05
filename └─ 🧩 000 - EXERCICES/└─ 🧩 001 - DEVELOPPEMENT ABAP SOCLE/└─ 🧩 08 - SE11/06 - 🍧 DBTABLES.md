@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — TABLES
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [TABLES](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 08 - SE11/06 - 🍧 DBTABLES.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

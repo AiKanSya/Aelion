@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — CARTOUCHE (ENTETE DE PROGRAMME ABAP)
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [CARTOUCHE (ENTETE DE PROGRAMME ABAP)](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 02 - BASIC ABAP/03 - 🍧 CARTOUCHE.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

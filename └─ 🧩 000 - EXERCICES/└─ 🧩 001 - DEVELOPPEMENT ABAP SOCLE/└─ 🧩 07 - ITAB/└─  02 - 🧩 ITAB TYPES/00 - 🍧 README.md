@@ -134,11 +134,3 @@ HIGH
 ```
 
 Elle peut être utilisée avec l’opérateur `IN` et dans les conditions compatibles d’ABAP SQL.
-
-## 🌺 EXERCICES
-
-- [ITAB](<./01 - 🍧 ITAB.md>)
-- [ITAB TYPE STANDARD](<./02 - 🍧 ITAB TYPE STANDARD.md>)
-- [ITAB TYPE SORTED](<./03 - 🍧 ITAB TYPE SORTED.md>)
-- [ITAB TYPE RANGE](<./04 - 🍧 ITAB TYPE RANGE.md>)
-- [ITAB TYPE HASHED](<./05 - 🍧 ITAB TYPE HASHED.md>)

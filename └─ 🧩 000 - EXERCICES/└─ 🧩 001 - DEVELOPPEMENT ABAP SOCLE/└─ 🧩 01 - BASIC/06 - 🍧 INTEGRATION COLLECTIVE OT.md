@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — INTÉGRATION COLLECTIVE DANS UN ORDRE DE TRANSPORT
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [INTÉGRATION COLLECTIVE DANS UN ORDRE DE TRANSPORT](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 01 - BASIC/06 - 🍧 INTEGRATION COLLECTIVE OT.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le groupe doit être capable de :

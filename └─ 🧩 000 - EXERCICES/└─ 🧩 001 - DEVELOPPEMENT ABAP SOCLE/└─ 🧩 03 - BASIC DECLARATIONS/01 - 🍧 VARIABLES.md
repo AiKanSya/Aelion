@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — VARIABLES ABAP
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [VARIABLES ABAP](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 03 - BASIC DECLARATIONS/01 - 🍧 VARIABLES.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

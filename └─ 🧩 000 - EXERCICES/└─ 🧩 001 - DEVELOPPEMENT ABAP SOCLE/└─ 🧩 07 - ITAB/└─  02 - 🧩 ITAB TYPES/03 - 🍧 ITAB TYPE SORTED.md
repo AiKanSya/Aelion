@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — ITAB TYPE SORTED TABLE OF
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [ITAB TYPE SORTED TABLE OF](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 07 - ITAB/└─  02 - 🧩 ITAB TYPES/03 - 🍧 ITAB TYPE SORTED.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

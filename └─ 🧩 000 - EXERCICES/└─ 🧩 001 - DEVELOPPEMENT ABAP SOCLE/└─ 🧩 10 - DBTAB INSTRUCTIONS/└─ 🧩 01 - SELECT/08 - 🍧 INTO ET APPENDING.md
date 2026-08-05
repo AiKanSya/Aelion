@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — INTO – STOCKER LES RESULTATS D'UN SELECT
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [INTO – STOCKER LES RESULTATS D'UN SELECT](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 10 - DBTAB INSTRUCTIONS/└─ 🧩 01 - SELECT/08 - 🍧 INTO.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

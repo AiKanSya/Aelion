@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — AIDE A LA RECHERCHE (F4 HELP)
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [AIDE A LA RECHERCHE (F4 HELP)](<../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 08 - SE11/08 - 🍧 SEARCH HELP.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :

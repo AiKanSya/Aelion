@@ -1,9 +1,5 @@
 # 🌸 EXERCICES — SELECT ALL – EXTRACTION DE PLUSIEURS ENREGISTREMENTS
 
-<!-- GENERATED_EXERCISE_BANK -->
-
-> Cours associé : [SELECT ALL – EXTRACTION DE PLUSIEURS ENREGISTREMENTS](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 10 - DBTAB INSTRUCTIONS/└─ 🧩 01 - SELECT/03 - 🍧 SELECT ALL.md>)
-
 ## 🌺 OBJECTIFS
 
 À la fin de l’exercice, le stagiaire doit être capable de :
