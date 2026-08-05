@@ -1,5 +1,0 @@
-# 🌸 SOMMAIRE — └─ 🧩 02 - APP PREVIEWS
-
-## 🌺 EXERCICES
-
-- [APP PREVIEW](<./01 - 🍧 APP PREVIEW.md>)

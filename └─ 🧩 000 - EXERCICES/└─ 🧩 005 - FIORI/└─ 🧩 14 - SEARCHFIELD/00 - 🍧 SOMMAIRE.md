@@ -1,5 +1,0 @@
-# 🌸 SOMMAIRE — └─ 🧩 14 - SEARCHFIELD
-
-## 🌺 EXERCICES
-
-- [SEARCHFIELD](<./01 - 🍧 SEARCHFIELD.md>)
