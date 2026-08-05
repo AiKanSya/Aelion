@@ -4,34 +4,177 @@
 
 > Cours associé : [COL AS ALIAS – RENOMMER LES CHAMPS](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 10 - DBTAB INSTRUCTIONS/└─ 🧩 01 - SELECT/05 - 🍧 SELECT AS.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+À la fin de l’exercice, le stagiaire doit être capable de :
 
-## 🌺 EXERCICE 1 — RESTITUTION
+- renommer une colonne dans le résultat ;
+- utiliser le nom d’alias dans une cible inline ;
+- créer une cible préexistante avec les noms d’alias ;
+- utiliser `CORRESPONDING FIELDS`;
+- différencier alias de colonne et modification DDIC ;
+- éviter les alias ambigus ou dupliqués.
 
-Sans consulter le cours, définir **COL AS ALIAS – RENOMMER LES CHAMPS**, expliquer son utilité et citer une erreur d'utilisation possible.
+## 🌺 DURÉE INDICATIVE
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+45 à 60 minutes.
 
-- [ ] Comprendre l’utilisation des alias pour renommer des colonnes dans un exemple différent de celui du cours.
-- [ ] Faciliter la lecture et la compréhension des champs sélectionnés dans un exemple différent de celui du cours.
-- [ ] Appliquer les alias dans une sélection DISTINCT ou normale dans un exemple différent de celui du cours.
-- [ ] Stocker les résultats dans une table interne avec les nouveaux noms dans un exemple différent de celui du cours.
+## 🌺 EXERCICE 1 — ALIAS SIMPLES
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Exécuter :
 
-1. Construire volontairement un cas incorrect lié à **COL AS ALIAS – RENOMMER LES CHAMPS**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```abap
+SELECT order_id     AS id,
+       customer_name AS customer,
+       status       AS order_status,
+       amount       AS order_amount,
+       currency     AS currency
+  FROM zt_<tri>_ord
+  ORDER BY id
+  INTO TABLE @DATA(lt_orders).
+```
+
+Afficher les composants :
+
+```abap
+ls_order-id
+ls_order-customer
+ls_order-order_status
+ls_order-order_amount
+ls_order-currency
+```
+
+## 🌺 EXERCICE 2 — NOMS DE LA CIBLE INLINE
+
+Répondre :
+
+1. la ligne de `lt_orders` contient-elle `ORDER_ID` ou `ID` ?
+2. l’alias modifie-t-il `ZT_<TRI>_ORD-ORDER_ID` ?
+3. l’alias existe-t-il après la fin du programme comme objet DDIC ?
+4. pourquoi une cible inline facilite-t-elle cet exercice ?
+
+## 🌺 EXERCICE 3 — CIBLE PRÉDÉFINIE
+
+Définir :
+
+```abap
+TYPES: BEGIN OF ty_order_output,
+         id           TYPE zde_<tri>_oid,
+         customer     TYPE zde_<tri>_name,
+         order_status TYPE zde_<tri>_stat,
+         note         TYPE c LENGTH 20,
+       END OF ty_order_output.
+
+DATA lt_order_output TYPE STANDARD TABLE OF ty_order_output
+  WITH EMPTY KEY.
+```
+
+Lire :
+
+```abap
+SELECT order_id      AS id,
+       customer_name AS customer,
+       status        AS order_status
+  FROM zt_<tri>_ord
+  ORDER BY id
+  INTO CORRESPONDING FIELDS OF TABLE @lt_order_output.
+```
+
+Répondre :
+
+1. quels composants sont alimentés ?
+2. quelle valeur possède `NOTE` ?
+3. la correspondance utilise-t-elle la position ou le nom ?
+4. que se passe-t-il si l’alias `order_status` devient `state` sans modification de la cible ?
+
+## 🌺 EXERCICE 4 — ALIAS D’EXPRESSION
+
+Créer une colonne calculée :
+
+```abap
+amount * 2 AS doubled_amount
+```
+
+Sélectionner également la devise.
+
+Afficher le résultat.
+
+> [!NOTE]
+> Le type inféré de l’expression dépend des opérandes et des règles ABAP SQL. Vérifier la valeur et le type dans le débogueur ou l’éditeur.
+
+## 🌺 EXERCICE 5 — ALIAS DUPLIQUÉ
+
+Analyser :
+
+```abap
+SELECT order_id AS value,
+       status   AS value
+```
+
+Répondre :
+
+1. deux composants de résultat peuvent-ils porter le même nom dans une cible structurée statique ?
+2. quel symptôme de syntaxe est attendu ?
+3. quelle correction appliquer ?
+4. pourquoi un alias doit-il rester unique et sémantique ?
+
+## 🌺 EXERCICE 6 — ALIAS DANS WHERE
+
+Analyser :
+
+```abap
+SELECT order_id AS id
+  FROM zt_<tri>_ord
+  WHERE id = @p_order
+  INTO TABLE @DATA(lt_result).
+```
+
+Répondre :
+
+1. l’alias de la liste doit-il être utilisé dans le `WHERE` du même niveau ?
+2. quel nom faut-il utiliser pour filtrer la source ?
+3. dans quelle clause l’alias peut-il notamment servir au tri ?
+4. corriger la requête.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Les alias deviennent les noms de la cible inline.
+- [ ] La table DDIC reste inchangée.
+- [ ] La cible prédéfinie est alimentée par noms.
+- [ ] Le composant sans source reste initial.
+- [ ] Une expression possède un alias.
+- [ ] Les alias dupliqués sont refusés.
+- [ ] La source réelle est utilisée dans `WHERE`.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+SELECT order_id      AS id,
+       customer_name AS customer,
+       status        AS order_status,
+       amount        AS order_amount,
+       currency      AS currency
+  FROM zt_<tri>_ord
+  ORDER BY id
+  INTO TABLE @DATA(lt_orders).
+
+LOOP AT lt_orders INTO DATA(ls_order).
+  WRITE: / ls_order-id,
+           ls_order-customer,
+           ls_order-order_status,
+           ls_order-order_amount,
+           ls_order-currency.
+ENDLOOP.
+```
+
+Correction du filtre :
+
+```abap
+SELECT order_id AS id
+  FROM zt_<tri>_ord
+  WHERE order_id = @p_order
+  INTO TABLE @DATA(lt_result).
+```
+
+</details>

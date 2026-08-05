@@ -4,34 +4,173 @@
 
 > Cours associé : [FROM (AS ALIAS) – TABLE SOURCE ET ALIAS](<../../../../└─ 🧩 001 - DEVELOPPEMENT ABAP SOCLE/└─ 🧩 10 - DBTAB INSTRUCTIONS/└─ 🧩 01 - SELECT/06 - 🍧 FROM.md>)
 
-## 🌺 CONSIGNES
+## 🌺 OBJECTIFS
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+À la fin de l’exercice, le stagiaire doit être capable de :
 
-## 🌺 EXERCICE 1 — RESTITUTION
+- identifier la source d’une requête ;
+- utiliser une table ou une vue ;
+- créer un alias de source ;
+- qualifier un champ avec `~`;
+- distinguer alias de source et alias de colonne ;
+- utiliser des alias lisibles ;
+- diagnostiquer une référence à un alias inexistant.
 
-Sans consulter le cours, définir **FROM (AS ALIAS) – TABLE SOURCE ET ALIAS**, expliquer son utilité et citer une erreur d'utilisation possible.
+## 🌺 DURÉE INDICATIVE
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+40 à 55 minutes.
 
-- [ ] Comprendre l’utilisation de FROM pour indiquer la table source en ABAP dans un exemple différent de celui du cours.
-- [ ] Appliquer un alias pour simplifier la référence à la table dans la requête dans un exemple différent de celui du cours.
-- [ ] Utiliser les alias dans la sélection de colonnes dans un exemple différent de celui du cours.
-- [ ] Stocker les résultats dans une table interne et les parcourir dans un exemple différent de celui du cours.
+## 🌺 EXERCICE 1 — SOURCE SIMPLE
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Exécuter :
 
-1. Construire volontairement un cas incorrect lié à **FROM (AS ALIAS) – TABLE SOURCE ET ALIAS**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```abap
+SELECT ord~order_id,
+       ord~customer_name,
+       ord~status
+  FROM zt_<tri>_ord AS ord
+  ORDER BY ord~order_id
+  INTO TABLE @DATA(lt_orders).
+```
+
+Répondre :
+
+1. quel objet est la source réelle ?
+2. quel nom est temporaire ?
+3. pourquoi `ord~order_id` utilise-t-il un tilde ?
+4. l’alias renomme-t-il la table dans `SE11` ?
+5. l’alias est-il obligatoire avec une seule source ?
+
+## 🌺 EXERCICE 2 — SOURCE VUE
+
+Lire :
+
+```text
+ZV_<TRI>_ORD
+```
+
+avec l’alias :
+
+```text
+view_order
+```
+
+Sélectionner :
+
+```text
+ORDER_ID
+CUSTOMER_NAME
+STATUS
+STATUS_TEXT
+```
+
+Résultat attendu :
+
+```text
+0000000001 Alice Martin N Nouvelle
+0000000002 Bruno Bernard P En préparation
+0000000003 Claire Martin C Clôturée
+```
+
+## 🌺 EXERCICE 3 — ALIAS SIGNIFICATIFS
+
+Comparer :
+
+```text
+a / b
+ord / stat
+header / item
+source / target
+```
+
+Répondre :
+
+1. les alias d’une lettre sont-ils toujours incorrects ?
+2. quelle qualité doit guider le choix ?
+3. pourquoi `ord` et `stat` conviennent-ils au modèle ?
+4. faut-il ajouter un commentaire pour chaque alias évident ?
+
+## 🌺 EXERCICE 4 — ALIAS DE SOURCE OU DE COLONNE
+
+Classer :
+
+```abap
+FROM zt_<tri>_ord AS ord
+```
+
+```abap
+order_id AS id
+```
+
+Compléter :
+
+| Alias | Porte sur | Utilisation |
+| ----- | --------- | ----------- |
+| `ord` |           |             |
+| `id`  |           |             |
+
+## 🌺 EXERCICE 5 — ALIAS INEXISTANT
+
+Analyser :
+
+```abap
+SELECT order~order_id
+  FROM zt_<tri>_ord AS ord
+  INTO TABLE @DATA(lt_result).
+```
+
+Décrire :
+
+- symptôme ;
+- cause ;
+- correction ;
+- test.
+
+## 🌺 EXERCICE 6 — CHAMP NON QUALIFIÉ DANS UNE JOINTURE
+
+Une future jointure contient `MANDT` et `STATUS` dans les deux sources.
+
+Répondre :
+
+1. pourquoi `SELECT status` devient-il ambigu ?
+2. faut-il écrire `ord~status` ou `stat~status` ?
+3. la valeur est-elle normalement égale lorsque la jointure est correcte ?
+4. pourquoi l’origine doit-elle rester explicite ?
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] La table réelle est distinguée de l’alias.
+- [ ] Le tilde est utilisé correctement.
+- [ ] Une vue est utilisée comme source.
+- [ ] Les alias sont lisibles.
+- [ ] Alias de source et alias de colonne sont distingués.
+- [ ] La référence inexistante est corrigée.
+- [ ] Les champs ambigus sont qualifiés.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+SELECT view_order~order_id,
+       view_order~customer_name,
+       view_order~status,
+       view_order~status_text
+  FROM zv_<tri>_ord AS view_order
+  ORDER BY view_order~order_id
+  INTO TABLE @DATA(lt_view_orders).
+```
+
+| Alias | Porte sur           |
+| ----- | ------------------- |
+| `ord` | source de données   |
+| `id`  | colonne du résultat |
+
+Correction :
+
+```abap
+SELECT ord~order_id
+  FROM zt_<tri>_ord AS ord
+  INTO TABLE @DATA(lt_result).
+```
+
+</details>
