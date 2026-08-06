@@ -1,40 +1,137 @@
 # 🌸 EXERCICES — MÉTHODES STATIQUES DE CLASSES STANDARD
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [MÉTHODES STATIQUES DE CLASSES STANDARD](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 02 - CLASSE/16 - 🍧 METHODES STATIQUES STANDARD.md>)
+- rechercher une classe standard ;
+- appeler une méthode avec `=>` ;
+- traiter son exception ;
+- générer plusieurs UUID ;
+- vérifier format et échantillon ;
+- ne pas instancier inutilement.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+55 à 70 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 CLASSE STANDARD
 
-Sans consulter le cours, définir **MÉTHODES STATIQUES DE CLASSES STANDARD**, expliquer son utilité et citer une erreur d'utilisation possible.
+```text
+CL_SYSTEM_UUID
+```
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+Méthode utilisée selon la version :
 
-- [ ] Appeler une méthode statique avec `=>` dans un exemple différent de celui du cours.
-- [ ] Distinguer méthode statique et méthode d'instance dans un exemple différent de celui du cours.
-- [ ] Traiter une exception déclarée dans un exemple différent de celui du cours.
+```text
+CREATE_UUID_C32_STATIC
+```
 
-### Exercice repris du cours
+Vérifier la signature réelle dans `SE24`.
 
-Générer cinq UUID, vérifier qu'ils ont la longueur attendue, puis expliquer pourquoi aucune instanciation de `CL_SYSTEM_UUID` n'est nécessaire.
+## 🌺 EXERCICE 1 — GÉNÉRATION
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+```abap
+DATA lt_uuids TYPE STANDARD TABLE OF sysuuid_c32
+  WITH EMPTY KEY.
 
-1. Construire volontairement un cas incorrect lié à **MÉTHODES STATIQUES DE CLASSES STANDARD**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+DO 5 TIMES.
+
+  TRY.
+
+      APPEND
+        cl_system_uuid=>create_uuid_c32_static( )
+        TO lt_uuids.
+
+    CATCH cx_uuid_error INTO DATA(lx_uuid).
+
+      WRITE / lx_uuid->get_text( ).
+      EXIT.
+
+  ENDTRY.
+
+ENDDO.
+```
+
+## 🌺 EXERCICE 2 — LONGUEUR
+
+Vérifier pour chaque UUID :
+
+```text
+32 caractères
+```
+
+Le type `SYSUUID_C32` porte déjà cette représentation.
+
+## 🌺 EXERCICE 3 — DOUBLONS DANS L’ÉCHANTILLON
+
+Copier dans une table triée à clé unique ou trier puis rechercher les doublons.
+
+Résultat attendu pour cinq générations :
+
+```text
+aucun doublon
+```
+
+Cette vérification ne constitue pas une preuve mathématique d’unicité globale.
+
+## 🌺 EXERCICE 4 — PAS D’INSTANCE
+
+Ne pas écrire :
+
+```abap
+NEW cl_system_uuid( ).
+```
+
+La méthode est statique et s’appelle avec `=>`.
+
+## 🌺 EXERCICE 5 — AUTRES REPRÉSENTATIONS
+
+Consulter dans `SE24` les méthodes disponibles :
+
+```text
+C22
+C26
+C32
+X16
+```
+
+Choisir selon le type cible et le contrat de persistance.
+
+## 🌺 DIAGNOSTIC
+
+Stocker un UUID C32 dans un champ de longueur 16.
+
+Décrire la troncature et corriger le type DDIC.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] La classe est ouverte dans `SE24`.
+- [ ] La méthode statique réelle est vérifiée.
+- [ ] Cinq UUID sont produits.
+- [ ] `CX_UUID_ERROR` est traitée.
+- [ ] Le type possède une longueur adaptée.
+- [ ] Aucun objet n’est instancié.
+- [ ] Le contrôle d’échantillon n’est pas présenté comme preuve absolue.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+TRY.
+
+    DATA(lv_uuid) =
+      cl_system_uuid=>create_uuid_c32_static( ).
+
+    WRITE / lv_uuid.
+
+  CATCH cx_uuid_error INTO DATA(lx_error).
+
+    MESSAGE lx_error
+      TYPE 'S'
+      DISPLAY LIKE 'E'.
+
+ENDTRY.
+```
+
+La disponibilité exacte des méthodes dépend de la version ABAP. La signature installée dans `SE24` reste la référence.
+
+</details>

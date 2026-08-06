@@ -1,43 +1,155 @@
 # 🌸 EXERCICES — EXCEPTIONS DE CLASSE
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [EXCEPTIONS DE CLASSE](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 02 - CLASSE/14 - 🍧 EXCEPTIONS DE CLASSE.md>)
+- créer une exception globale ;
+- choisir sa superclasse ;
+- la déclarer dans une méthode ;
+- la lever ;
+- la traiter ;
+- chaîner une exception précédente.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+75 à 95 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 EXCEPTION
 
-Sans consulter le cours, définir **EXCEPTIONS DE CLASSE**, expliquer son utilité et citer une erreur d'utilisation possible.
+Créer :
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+```text
+ZCX_<TRI>_DIVISION_BY_ZERO
+```
 
-- [ ] Créer une classe d’exception globale dans un exemple différent de celui du cours.
-- [ ] Déclarer une exception dans la signature d’une méthode dans un exemple différent de celui du cours.
-- [ ] Lever l’exception avec `RAISE EXCEPTION` dans un exemple différent de celui du cours.
-- [ ] La traiter avec `TRY...CATCH` dans un exemple différent de celui du cours.
+Superclasse recommandée pour l’exercice :
 
-### Exercice repris du cours
+```text
+CX_STATIC_CHECK
+```
 
-Créer `ZCX_AELION_DIVISION_BY_ZERO`, la lever depuis une méthode `DIVIDE` et la traiter dans un report.
+## 🌺 MÉTHODE
 
+Dans `ZCL_<TRI>_CALCULATOR`, créer :
 
+```text
+DIVIDE
+```
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Signature :
 
-1. Construire volontairement un cas incorrect lié à **EXCEPTIONS DE CLASSE**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```text
+IV_NUMERATOR   TYPE DECFLOAT34
+IV_DENOMINATOR TYPE DECFLOAT34
+RV_RESULT      TYPE DECFLOAT34
+RAISING        ZCX_<TRI>_DIVISION_BY_ZERO
+```
+
+## 🌺 IMPLÉMENTATION
+
+```abap
+METHOD divide.
+
+  IF iv_denominator = 0.
+
+    RAISE EXCEPTION TYPE
+      zcx_<tri>_division_by_zero.
+
+  ENDIF.
+
+  rv_result =
+    iv_numerator / iv_denominator.
+
+ENDMETHOD.
+```
+
+## 🌺 EXERCICE 1 — TRAITEMENT
+
+```abap
+TRY.
+
+    DATA(lv_result) =
+      lo_calculator->divide(
+        iv_numerator   = 10
+        iv_denominator = 0
+      ).
+
+  CATCH zcx_<tri>_division_by_zero
+    INTO DATA(lx_division).
+
+    WRITE / lx_division->get_text( ).
+
+ENDTRY.
+```
+
+## 🌺 EXERCICE 2 — HIÉRARCHIE
+
+Comparer :
+
+| Superclasse        | Contrôle                          |
+| ------------------ | --------------------------------- |
+| `CX_STATIC_CHECK`  | propagation déclarée statiquement |
+| `CX_DYNAMIC_CHECK` | vérification plus dynamique       |
+| `CX_NO_CHECK`      | déclaration non imposée           |
+
+Utiliser `CX_NO_CHECK` avec prudence.
+
+## 🌺 EXERCICE 3 — ATTRIBUT
+
+Ajouter un attribut contenant le dénominateur ou un contexte métier.
+
+Adapter le constructeur de l’exception.
+
+## 🌺 EXERCICE 4 — PREVIOUS
+
+Lorsqu’une exception technique est transformée en exception métier :
+
+```abap
+RAISE EXCEPTION TYPE zcx_<tri>_import
+  EXPORTING
+    previous = lx_previous.
+```
+
+Conserver la cause d’origine.
+
+## 🌺 DIAGNOSTIC
+
+Un `CATCH cx_root` vide absorbe toutes les erreurs.
+
+Corriger en traitant les exceptions connues et en journalisant ou propageant les autres.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] L’exception globale existe.
+- [ ] La méthode la déclare.
+- [ ] Le cas zéro la lève.
+- [ ] Le report la traite.
+- [ ] Les trois familles sont distinguées.
+- [ ] Le contexte peut être transporté.
+- [ ] `PREVIOUS` est compris.
+- [ ] Le catch vide est supprimé.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+TRY.
+
+    WRITE /
+      lo_calculator->divide(
+        iv_numerator   = 10
+        iv_denominator = 2
+      ).
+
+  CATCH zcx_<tri>_division_by_zero
+    INTO DATA(lx_error).
+
+    MESSAGE lx_error
+      TYPE 'S'
+      DISPLAY LIKE 'E'.
+
+ENDTRY.
+```
+
+La classe métier lève l’exception. Le report choisit la restitution utilisateur.
+
+</details>

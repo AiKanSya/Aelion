@@ -1,41 +1,179 @@
 # 🌸 EXERCICES — UTILISER UNE CLASSE DE MESSAGES DANS UNE CLASSE ABAP
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [UTILISER UNE CLASSE DE MESSAGES DANS UNE CLASSE ABAP](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 02 - CLASSE/15 - 🍧 CLASSE DE MESSAGES DANS UNE CLASSE ABAP.md>)
+- créer une classe de messages `SE91` ;
+- construire un message avec `INTO` ;
+- récupérer les informations techniques ;
+- ajouter le message à un journal ;
+- ne pas imposer de popup ;
+- distinguer message class et ABAP class.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+75 à 95 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 CLASSE DE MESSAGES
 
-Sans consulter le cours, définir **UTILISER UNE CLASSE DE MESSAGES DANS UNE CLASSE ABAP**, expliquer son utilité et citer une erreur d'utilisation possible.
+Créer dans `SE91` :
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+```text
+Z<TRI>_MSG
+```
 
-- [ ] Référencer une classe de messages `SE91` depuis une classe ABAP dans un exemple différent de celui du cours.
-- [ ] Construire un message sans interrompre le traitement dans un exemple différent de celui du cours.
-- [ ] Récupérer identifiant, numéro, type, variables et texte dans un exemple différent de celui du cours.
-- [ ] Ajouter le message à un journal interne dans un exemple différent de celui du cours.
+Message :
 
-### Exercice repris du cours
+```text
+004  Champ &1 invalide à la ligne &2
+```
 
-Créer un message `004` contenant le nom du champ et le numéro de ligne, le construire avec `INTO`, puis ajouter ses informations dans une table interne de journal sans afficher de popup.
+## 🌺 TYPE DE JOURNAL
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Dans une classe de validation, créer :
 
-1. Construire volontairement un cas incorrect lié à **UTILISER UNE CLASSE DE MESSAGES DANS UNE CLASSE ABAP**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```abap
+TYPES tt_messages TYPE STANDARD TABLE OF bapiret2
+  WITH EMPTY KEY.
+```
+
+Attribut privé :
+
+```text
+MT_MESSAGES TYPE TT_MESSAGES
+```
+
+## 🌺 MÉTHODE PRIVÉE
+
+```text
+ADD_FIELD_ERROR
+```
+
+Importing :
+
+```text
+IV_FIELD TYPE STRING
+IV_LINE  TYPE I
+```
+
+## 🌺 CONSTRUCTION DU MESSAGE
+
+```abap
+MESSAGE ID 'Z<TRI>_MSG'
+  TYPE 'E'
+  NUMBER '004'
+  WITH iv_field iv_line
+  INTO DATA(lv_text).
+```
+
+Après cette instruction, récupérer les champs système du message immédiatement.
+
+## 🌺 AJOUT AU JOURNAL
+
+```abap
+APPEND VALUE #(
+  type       = sy-msgty
+  id         = sy-msgid
+  number     = sy-msgno
+  message    = lv_text
+  message_v1 = sy-msgv1
+  message_v2 = sy-msgv2
+  parameter  = iv_field
+  row        = iv_line
+  field      = iv_field
+) TO mt_messages.
+```
+
+Vérifier le type exact de `BAPIRET2-ROW` sur le système et convertir si nécessaire.
+
+## 🌺 EXERCICE 1 — DEUX ERREURS
+
+Ajouter :
+
+```text
+CITY invalide à la ligne 2
+LEVEL invalide à la ligne 5
+```
+
+## 🌺 EXERCICE 2 — RESTITUTION
+
+Créer une méthode :
+
+```text
+GET_MESSAGES
+RETURNING RT_MESSAGES TYPE TT_MESSAGES
+```
+
+Le report décide d’afficher, exporter ou journaliser.
+
+## 🌺 EXERCICE 3 — CLASSE D’EXCEPTION T100
+
+Comparer avec une classe d’exception implémentant :
+
+```text
+IF_T100_MESSAGE
+```
+
+Une exception T100 est adaptée à une erreur propagée. Une table `BAPIRET2` est adaptée à un journal cumulatif.
+
+## 🌺 RECTIFICATION
+
+Une « classe de messages » créée dans `SE91` n’est pas une classe ABAP Objects. C’est un objet Repository regroupant des messages numérotés.
+
+## 🌺 DIAGNOSTIC
+
+Code incorrect :
+
+```abap
+MESSAGE e004(z<tri>_msg)
+  WITH iv_field iv_line.
+```
+
+dans une classe de validation.
+
+Symptôme :
+
+- interruption ou dépendance au contexte ;
+- impossibilité de cumuler plusieurs erreurs ;
+- comportement inadapté en job ou service.
+
+Corriger avec `INTO`.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] La classe de messages existe.
+- [ ] Le message `004` possède deux variables.
+- [ ] `MESSAGE ... INTO` est utilisé.
+- [ ] Les champs `SY-MSG*` sont sauvegardés immédiatement.
+- [ ] Deux erreurs sont cumulées.
+- [ ] Le report récupère la table.
+- [ ] Aucun popup n’est imposé.
+- [ ] `SE91` et classe ABAP sont distinguées.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+METHOD add_field_error.
+
+  MESSAGE ID 'Z<TRI>_MSG'
+    TYPE 'E'
+    NUMBER '004'
+    WITH iv_field iv_line
+    INTO DATA(lv_text).
+
+  APPEND VALUE #(
+    type       = sy-msgty
+    id         = sy-msgid
+    number     = sy-msgno
+    message    = lv_text
+    message_v1 = sy-msgv1
+    message_v2 = sy-msgv2
+    parameter  = iv_field
+    row        = iv_line
+    field      = iv_field
+  ) TO mt_messages.
+
+ENDMETHOD.
+```
+
+</details>

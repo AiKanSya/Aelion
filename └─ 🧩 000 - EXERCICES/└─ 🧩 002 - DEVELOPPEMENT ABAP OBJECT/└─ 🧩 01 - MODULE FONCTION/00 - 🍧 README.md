@@ -2,8 +2,6 @@
 
 ## 🌺 OBJECTIF DU PARCOURS
 
-Ce document reprend **strictement l’ordre du sommaire source** :
-
 1. `MODULE FONCTION & GROUPE FONCTION`
 2. `CREATION SE37`
 3. `INTERFACE`

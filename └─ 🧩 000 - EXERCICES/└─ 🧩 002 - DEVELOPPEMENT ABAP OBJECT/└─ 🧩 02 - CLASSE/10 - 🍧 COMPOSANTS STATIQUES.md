@@ -1,43 +1,119 @@
 # 🌸 EXERCICES — COMPOSANTS STATIQUES
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [COMPOSANTS STATIQUES](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 02 - CLASSE/10 - 🍧 COMPOSANTS STATIQUES.md>)
+- créer une méthode statique ;
+- créer un attribut statique ;
+- utiliser `=>` ;
+- comprendre l’état partagé ;
+- choisir entre statique et instance.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+55 à 70 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 CLASSE
 
-Sans consulter le cours, définir **COMPOSANTS STATIQUES**, expliquer son utilité et citer une erreur d'utilisation possible.
+```text
+ZCL_<TRI>_TEXT_UTIL
+```
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+Instanciation :
 
-- [ ] Identifier les attributs et méthodes statiques dans `SE24` dans un exemple différent de celui du cours.
-- [ ] Utiliser le sélecteur `=>` dans un exemple différent de celui du cours.
-- [ ] Comprendre l’état partagé dans un exemple différent de celui du cours.
-- [ ] Choisir entre méthode statique et méthode d’instance dans un exemple différent de celui du cours.
+```text
+CREATE PRIVATE ou CREATE PUBLIC selon le système,
+mais aucune instance n’est nécessaire pour les méthodes statiques.
+```
 
-### Exercice repris du cours
+## 🌺 MÉTHODE STATIQUE
 
-Créer `ZCL_AELION_TEXT_UTIL` avec une méthode statique `TO_UPPER` retournant une chaîne en majuscules.
+```text
+TO_UPPER
+```
 
+Signature :
 
+```text
+IV_TEXT TYPE STRING
+RV_TEXT TYPE STRING
+```
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+## 🌺 IMPLÉMENTATION
 
-1. Construire volontairement un cas incorrect lié à **COMPOSANTS STATIQUES**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```abap
+METHOD to_upper.
+
+  rv_text = iv_text.
+  TRANSLATE rv_text TO UPPER CASE.
+
+ENDMETHOD.
+```
+
+## 🌺 EXERCICE 1 — APPEL
+
+```abap
+DATA(lv_text) =
+  zcl_<tri>_text_util=>to_upper(
+    iv_text = `Bonjour`
+  ).
+```
+
+## 🌺 EXERCICE 2 — COMPTEUR STATIQUE
+
+Ajouter temporairement :
+
+```text
+GV_CALL_COUNT
+```
+
+Incrémenter à chaque appel.
+
+Observer l’état partagé.
+
+## 🌺 EXERCICE 3 — LIMITE
+
+Une méthode statique ne peut pas accéder directement à un attribut d’instance sans disposer d’une référence vers un objet.
+
+## 🌺 EXERCICE 4 — CHOIX
+
+| Besoin                               | Méthode           |
+| ------------------------------------ | ----------------- |
+| Transformation pure sans état        | Statique possible |
+| Calcul utilisant le stock d’un objet | Instance          |
+| Création contrôlée d’objets          | Factory statique  |
+| Service avec dépendances injectées   | Instance          |
+| État global mutable                  | À éviter          |
+
+## 🌺 DIAGNOSTIC
+
+Transformer toutes les méthodes d’une classe métier en statiques.
+
+Identifier la perte :
+
+- d’encapsulation par objet ;
+- d’injection de dépendances ;
+- de polymorphisme d’instance ;
+- de testabilité.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] `TO_UPPER` est statique.
+- [ ] L’appel utilise `=>`.
+- [ ] Aucune instance n’est créée.
+- [ ] Le compteur partagé est observé.
+- [ ] La limite d’accès aux attributs d’instance est comprise.
+- [ ] Le choix statique/instance est justifié.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+WRITE /
+  zcl_<tri>_text_util=>to_upper(
+    iv_text = `abap objects`
+  ).
+```
+
+Une méthode statique est pertinente lorsque le comportement dépend uniquement de ses paramètres et d’un état statique explicitement maîtrisé.
+
+</details>

@@ -1,43 +1,127 @@
 # 🌸 EXERCICES — ENCAPSULATION
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [ENCAPSULATION](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 02 - CLASSE/09 - 🍧 ENCAPSULATION.md>)
+- protéger un stock ;
+- centraliser les contrôles ;
+- exposer des méthodes métier ;
+- empêcher un état négatif ;
+- éviter les setters génériques.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+65 à 85 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 CLASSE
 
-Sans consulter le cours, définir **ENCAPSULATION**, expliquer son utilité et citer une erreur d'utilisation possible.
+```text
+ZCL_<TRI>_STOCK
+```
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+## 🌺 ATTRIBUT PRIVÉ
 
-- [ ] Protéger l’état interne d’une classe globale dans un exemple différent de celui du cours.
-- [ ] Concevoir une interface publique minimale dans un exemple différent de celui du cours.
-- [ ] Centraliser les contrôles dans les méthodes dans un exemple différent de celui du cours.
-- [ ] Éviter les dépendances directes aux attributs dans un exemple différent de celui du cours.
+```text
+MV_QUANTITY TYPE DECFLOAT34
+```
 
-### Exercice repris du cours
+## 🌺 MÉTHODES PUBLIQUES
 
-Concevoir `ZCL_AELION_STOCK` avec une quantité privée et des méthodes publiques `ADD_STOCK`, `REMOVE_STOCK` et `GET_QUANTITY`.
+```text
+ADD_STOCK
+REMOVE_STOCK
+GET_QUANTITY
+```
 
+Exceptions :
 
+```text
+ZCX_<TRI>_INVALID_AMOUNT
+```
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+## 🌺 RÈGLES
 
-1. Construire volontairement un cas incorrect lié à **ENCAPSULATION**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+- ajout strictement positif ;
+- retrait strictement positif ;
+- retrait inférieur ou égal au stock ;
+- quantité jamais négative.
+
+## 🌺 EXERCICE 1 — AJOUT
+
+```abap
+METHOD add_stock.
+
+  IF iv_quantity <= 0.
+    RAISE EXCEPTION TYPE zcx_<tri>_invalid_amount.
+  ENDIF.
+
+  mv_quantity =
+    mv_quantity + iv_quantity.
+
+ENDMETHOD.
+```
+
+## 🌺 EXERCICE 2 — RETRAIT
+
+Contrôler le montant et le stock disponible.
+
+## 🌺 EXERCICE 3 — TESTS
+
+| Opération    | Résultat   |
+| ------------ | ---------- |
+| Ajouter `10` | stock `10` |
+| Retirer `3`  | stock `7`  |
+| Retirer `8`  | exception  |
+| Ajouter `0`  | exception  |
+| Retirer `-1` | exception  |
+
+## 🌺 EXERCICE 4 — INTERFACE MINIMALE
+
+Ne pas créer :
+
+```text
+SET_QUANTITY
+```
+
+qui permettrait de contourner les règles.
+
+## 🌺 DIAGNOSTIC
+
+Rendre `MV_QUANTITY` public et écrire `-100`.
+
+Prouver que l’encapsulation corrige le défaut.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] L’attribut est privé.
+- [ ] Les méthodes expriment le métier.
+- [ ] Les entrées invalides sont refusées.
+- [ ] Le stock ne devient jamais négatif.
+- [ ] Aucun setter générique n’existe.
+- [ ] Le cas public incorrect est supprimé.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+METHOD remove_stock.
+
+  IF iv_quantity <= 0
+     OR iv_quantity > mv_quantity.
+
+    RAISE EXCEPTION TYPE zcx_<tri>_invalid_amount.
+
+  ENDIF.
+
+  mv_quantity =
+    mv_quantity - iv_quantity.
+
+ENDMETHOD.
+
+METHOD get_quantity.
+
+  rv_quantity = mv_quantity.
+
+ENDMETHOD.
+```
+
+</details>

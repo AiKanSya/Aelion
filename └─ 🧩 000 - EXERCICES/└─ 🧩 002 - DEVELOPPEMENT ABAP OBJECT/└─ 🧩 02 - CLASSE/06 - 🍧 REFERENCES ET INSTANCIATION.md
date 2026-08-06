@@ -1,43 +1,149 @@
 # 🌸 EXERCICES — RÉFÉRENCES ET INSTANCIATION
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [RÉFÉRENCES ET INSTANCIATION](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 02 - CLASSE/06 - 🍧 REFERENCES ET INSTANCIATION.md>)
+- déclarer une référence ;
+- créer un objet avec `NEW` ;
+- distinguer référence initiale et objet ;
+- affecter une référence ;
+- observer l’aliasing ;
+- utiliser `IS BOUND`.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+60 à 75 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 CLASSE
 
-Sans consulter le cours, définir **RÉFÉRENCES ET INSTANCIATION**, expliquer son utilité et citer une erreur d'utilisation possible.
+```text
+ZCL_<TRI>_COUNTER
+```
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+Attribut privé :
 
-- [ ] Déclarer une référence vers une classe globale dans un exemple différent de celui du cours.
-- [ ] Créer un objet avec `NEW` dans un exemple différent de celui du cours.
-- [ ] Distinguer référence initiale et objet existant dans un exemple différent de celui du cours.
-- [ ] Comprendre l’affectation entre références dans un exemple différent de celui du cours.
+```text
+MV_COUNT TYPE I
+```
 
-### Exercice repris du cours
+Méthodes :
 
-Créer deux instances de `ZCL_AELION_COUNTER`, puis une troisième référence désignant la première instance. Comparer les effets des appels.
+```text
+INCREMENT
+GET_COUNT
+```
 
+## 🌺 EXERCICE 1 — TROIS RÉFÉRENCES
 
+```abap
+DATA(lo_counter_1) =
+  NEW zcl_<tri>_counter( ).
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+DATA(lo_counter_2) =
+  NEW zcl_<tri>_counter( ).
 
-1. Construire volontairement un cas incorrect lié à **RÉFÉRENCES ET INSTANCIATION**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+DATA(lo_alias) =
+  lo_counter_1.
+```
+
+## 🌺 EXERCICE 2 — APPELS
+
+```abap
+lo_counter_1->increment( ).
+lo_alias->increment( ).
+lo_counter_2->increment( ).
+```
+
+Attendu :
+
+```text
+counter_1 = 2
+alias     = 2
+counter_2 = 1
+```
+
+## 🌺 EXERCICE 3 — IS INITIAL ET IS BOUND
+
+Tester :
+
+```abap
+DATA lo_empty TYPE REF TO zcl_<tri>_counter.
+
+IF lo_empty IS INITIAL.
+  " Aucun objet référencé
+ENDIF.
+
+IF lo_counter_1 IS BOUND.
+  " Référence utilisable
+ENDIF.
+```
+
+## 🌺 EXERCICE 4 — CLEAR
+
+```abap
+CLEAR lo_alias.
+```
+
+Répondre :
+
+1. l’objet est-il détruit immédiatement si `LO_COUNTER_1` le référence encore ?
+2. le compteur reste-t-il accessible ?
+3. quand un objet peut-il être récupéré par le garbage collector ?
+4. une référence initiale est-elle bound ?
+
+## 🌺 EXERCICE 5 — CREATE OBJECT
+
+Comparer :
+
+```abap
+CREATE OBJECT lo_counter_1.
+```
+
+et :
+
+```abap
+lo_counter_1 =
+  NEW zcl_<tri>_counter( ).
+```
+
+## 🌺 DIAGNOSTIC
+
+Appeler une méthode via une référence initiale.
+
+Corriger avec un contrôle ou une construction garantie.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Trois références sont déclarées.
+- [ ] Deux objets sont créés.
+- [ ] Deux références désignent le premier objet.
+- [ ] Les compteurs attendus sont obtenus.
+- [ ] `IS BOUND` est utilisé.
+- [ ] `CLEAR` d’une référence est compris.
+- [ ] La référence initiale est sécurisée.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+METHOD increment.
+
+  mv_count = mv_count + 1.
+
+ENDMETHOD.
+
+METHOD get_count.
+
+  rv_count = mv_count.
+
+ENDMETHOD.
+```
+
+L’affectation :
+
+```abap
+lo_alias = lo_counter_1.
+```
+
+copie la référence, pas l’objet.
+
+</details>

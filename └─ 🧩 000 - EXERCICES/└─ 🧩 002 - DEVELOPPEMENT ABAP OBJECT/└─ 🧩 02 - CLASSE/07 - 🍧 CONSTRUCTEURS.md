@@ -1,43 +1,143 @@
 # 🌸 EXERCICES — CONSTRUCTEURS
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [CONSTRUCTEURS](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 02 - CLASSE/07 - 🍧 CONSTRUCTEURS.md>)
+- utiliser `CONSTRUCTOR` ;
+- utiliser `CLASS_CONSTRUCTOR` ;
+- garantir un état initial valide ;
+- traiter une exception de construction ;
+- comprendre le constructeur d’une superclasse.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+70 à 90 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 ÉVOLUTION DE PRODUCT
 
-Sans consulter le cours, définir **CONSTRUCTEURS**, expliquer son utilité et citer une erreur d'utilisation possible.
+Créer le constructeur d’instance :
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+```text
+IV_NAME  TYPE STRING
+IV_PRICE TYPE DECFLOAT34
+```
 
-- [ ] Comprendre le rôle de `CONSTRUCTOR` et `CLASS_CONSTRUCTOR` dans un exemple différent de celui du cours.
-- [ ] Définir les paramètres du constructeur dans `SE24` dans un exemple différent de celui du cours.
-- [ ] Garantir un état initial valide dans un exemple différent de celui du cours.
-- [ ] Distinguer initialisation d’objet et initialisation de classe dans un exemple différent de celui du cours.
+Raising :
 
-### Exercice repris du cours
+```text
+ZCX_<TRI>_INVALID_AMOUNT
+```
 
-Ajouter à `ZCL_AELION_PRODUCT` un constructeur recevant le nom et le prix, puis refuser un prix négatif.
+## 🌺 IMPLÉMENTATION
 
+```abap
+METHOD constructor.
 
+  IF iv_name IS INITIAL
+     OR iv_price < 0.
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+    RAISE EXCEPTION TYPE zcx_<tri>_invalid_amount.
 
-1. Construire volontairement un cas incorrect lié à **CONSTRUCTEURS**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+  ENDIF.
+
+  mv_name  = iv_name.
+  mv_price = iv_price.
+
+  gv_product_count =
+    gv_product_count + 1.
+
+ENDMETHOD.
+```
+
+## 🌺 EXERCICE 1 — CRÉATION VALIDE
+
+```abap
+DATA(lo_product) =
+  NEW zcl_<tri>_product(
+    iv_name  = `Clavier`
+    iv_price = '50'
+  ).
+```
+
+## 🌺 EXERCICE 2 — CRÉATION INVALIDE
+
+```abap
+TRY.
+
+    DATA(lo_invalid) =
+      NEW zcl_<tri>_product(
+        iv_name  = `Erreur`
+        iv_price = '-1'
+      ).
+
+  CATCH zcx_<tri>_invalid_amount INTO DATA(lx_amount).
+
+    WRITE / lx_amount->get_text( ).
+
+ENDTRY.
+```
+
+## 🌺 EXERCICE 3 — CLASS_CONSTRUCTOR
+
+Ajouter un attribut statique :
+
+```text
+GV_DEFAULT_CURRENCY TYPE WAERS
+```
+
+Initialiser une seule fois :
+
+```abap
+METHOD class_constructor.
+
+  gv_default_currency = 'EUR'.
+
+ENDMETHOD.
+```
+
+## 🌺 EXERCICE 4 — COMPARAISON
+
+| Constructeur        | Déclenchement | Paramètres |
+| ------------------- | ------------- | ---------- |
+| `CONSTRUCTOR`       |               |            |
+| `CLASS_CONSTRUCTOR` |               |            |
+
+## 🌺 RECTIFICATIONS
+
+- `CONSTRUCTOR` est exécuté pour chaque objet.
+- `CLASS_CONSTRUCTOR` est exécuté automatiquement avant le premier accès pertinent à la classe.
+- Le constructeur statique ne doit pas dépendre d’un ordre d’appel fragile.
+- Un constructeur doit initialiser l’objet, pas effectuer un traitement métier long ou committer.
+- Dans une sous-classe possédant un constructeur, le constructeur de la superclasse doit être appelé explicitement avec `super->constructor( ... )` lorsque nécessaire.
+
+## 🌺 DIAGNOSTIC
+
+Un constructeur écrit en base puis effectue `COMMIT WORK`.
+
+Expliquer :
+
+- effet de bord ;
+- objet impossible à tester isolément ;
+- transaction imposée ;
+- correction par méthode métier ou repository séparé.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Le constructeur possède deux imports.
+- [ ] L’objet invalide n’est pas créé.
+- [ ] L’exception est traitée.
+- [ ] Le compteur est incrémenté.
+- [ ] Le constructeur statique initialise la devise.
+- [ ] Les deux constructeurs sont distingués.
+- [ ] Aucun commit n’existe.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+| Constructeur        | Déclenchement                                                       |
+| ------------------- | ------------------------------------------------------------------- |
+| `CONSTRUCTOR`       | À chaque création d’objet                                           |
+| `CLASS_CONSTRUCTOR` | Une fois avant le premier accès à la classe dans la session interne |
+
+Le constructeur garantit que tout objet obtenu respecte les règles initiales.
+
+</details>

@@ -1,43 +1,120 @@
 # 🌸 EXERCICES — DÉFINITION ET IMPLÉMENTATION DANS SE24
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [DÉFINITION ET IMPLÉMENTATION DANS SE24](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 02 - CLASSE/02 - 🍧 DEFINITION ET IMPLEMENTATION.md>)
+- distinguer déclaration et code ;
+- utiliser les onglets du Class Builder ;
+- créer une méthode ;
+- activer correctement ;
+- diagnostiquer une signature incohérente.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+50 à 65 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 CLASSE
 
-Sans consulter le cours, définir **DÉFINITION ET IMPLÉMENTATION DANS SE24**, expliquer son utilité et citer une erreur d'utilisation possible.
+```text
+ZCL_<TRI>_CALCULATOR
+```
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+## 🌺 EXERCICE 1 — MÉTHODE ADD
 
-- [ ] Comprendre la séparation entre déclaration et code d’une méthode dans un exemple différent de celui du cours.
-- [ ] Utiliser les onglets du Class Builder dans un exemple différent de celui du cours.
-- [ ] Créer et implémenter une méthode globale dans un exemple différent de celui du cours.
-- [ ] Activer correctement une classe dans un exemple différent de celui du cours.
+Créer la méthode publique :
 
-### Exercice repris du cours
+```text
+ADD
+```
 
-Créer `ZCL_AELION_CALCULATOR` avec une méthode publique `ADD` recevant deux entiers et retournant leur somme.
+Signature :
 
+| Paramètre   | Direction | Type |
+| ----------- | --------- | ---- |
+| `IV_LEFT`   | Importing | `I`  |
+| `IV_RIGHT`  | Importing | `I`  |
+| `RV_RESULT` | Returning | `I`  |
 
+## 🌺 EXERCICE 2 — IMPLÉMENTATION
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+```abap
+METHOD add.
 
-1. Construire volontairement un cas incorrect lié à **DÉFINITION ET IMPLÉMENTATION DANS SE24**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+  rv_result =
+    iv_left + iv_right.
+
+ENDMETHOD.
+```
+
+## 🌺 EXERCICE 3 — TEST
+
+```abap
+DATA(lo_calculator) =
+  NEW zcl_<tri>_calculator( ).
+
+DATA(lv_result) =
+  lo_calculator->add(
+    iv_left  = 10
+    iv_right = 20
+  ).
+
+WRITE / lv_result.
+```
+
+Résultat :
+
+```text
+30
+```
+
+## 🌺 EXERCICE 4 — ONGLETS
+
+Identifier dans `SE24` :
+
+- attributs ;
+- méthodes ;
+- événements ;
+- types ;
+- interfaces ;
+- amis ;
+- propriétés ;
+- implémentation.
+
+Les noms exacts varient selon la version.
+
+## 🌺 DIAGNOSTIC
+
+Modifier le type de `RV_RESULT` dans la définition sans adapter un appelant.
+
+Rechercher les erreurs de syntaxe et corriger l’ensemble des dépendances.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] La signature est déclarée.
+- [ ] Le code est dans l’implémentation.
+- [ ] La méthode est activée.
+- [ ] Le report retourne `30`.
+- [ ] Les onglets sont identifiés.
+- [ ] La modification de signature est diagnostiquée.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+La définition décrit :
+
+```text
+nom
+visibilité
+type de méthode
+paramètres
+exceptions
+```
+
+L’implémentation contient :
+
+```text
+METHOD add.
+  ...
+ENDMETHOD.
+```
+
+</details>

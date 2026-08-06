@@ -1,43 +1,111 @@
 # 🌸 EXERCICES — TYPES ET CONSTANTES DE CLASSE
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [TYPES ET CONSTANTES DE CLASSE](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 02 - CLASSE/08 - 🍧 TYPES ET CONSTANTES.md>)
+- créer un type de ligne ;
+- créer un type table ;
+- choisir leur visibilité ;
+- créer des constantes ;
+- utiliser un type public depuis un report.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+60 à 75 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 CLASSE
 
-Sans consulter le cours, définir **TYPES ET CONSTANTES DE CLASSE**, expliquer son utilité et citer une erreur d'utilisation possible.
+```text
+ZCL_<TRI>_ORDER
+```
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+## 🌺 TYPES PUBLICS
 
-- [ ] Créer un type interne dans `SE24` dans un exemple différent de celui du cours.
-- [ ] Choisir une visibilité publique, protégée ou privée dans un exemple différent de celui du cours.
-- [ ] Déclarer une constante de classe dans un exemple différent de celui du cours.
-- [ ] Utiliser un type public depuis un programme dans un exemple différent de celui du cours.
+```abap
+TYPES:
+  BEGIN OF ty_item,
+    item_id     TYPE i,
+    description TYPE string,
+    quantity    TYPE decfloat34,
+    unit_price  TYPE decfloat34,
+  END OF ty_item.
 
-### Exercice repris du cours
+TYPES tt_items TYPE STANDARD TABLE OF ty_item
+  WITH EMPTY KEY.
+```
 
-Créer dans `ZCL_AELION_ORDER` un type public de ligne de commande, un type table public et deux constantes de statut.
+Dans `SE24`, créer les équivalents dans l’onglet Types.
 
+## 🌺 CONSTANTES PUBLIQUES
 
+```text
+GC_STATUS_NEW    TYPE C LENGTH 1 VALUE 'N'
+GC_STATUS_CLOSED TYPE C LENGTH 1 VALUE 'C'
+```
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+## 🌺 EXERCICE 1 — UTILISATION EXTERNE
 
-1. Construire volontairement un cas incorrect lié à **TYPES ET CONSTANTES DE CLASSE**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```abap
+DATA lt_items TYPE zcl_<tri>_order=>tt_items.
+
+APPEND VALUE #(
+  item_id     = 10
+  description = `Article A`
+  quantity    = 2
+  unit_price  = 5
+) TO lt_items.
+```
+
+## 🌺 EXERCICE 2 — CONSTANTE
+
+```abap
+DATA(lv_status) =
+  zcl_<tri>_order=>gc_status_new.
+```
+
+## 🌺 EXERCICE 3 — VISIBILITÉ
+
+Créer un type privé de calcul intermédiaire.
+
+Vérifier qu’il n’est pas utilisable depuis le report.
+
+## 🌺 EXERCICE 4 — TYPE DDIC OU TYPE DE CLASSE
+
+Choisir :
+
+| Besoin                                     | Choix recommandé            |
+| ------------------------------------------ | --------------------------- |
+| Type public utilisé par de nombreux objets | DDIC ou classe d’API stable |
+| Type interne à une implémentation          | Type privé de classe        |
+| Type exposé uniquement par la classe       | Type public de classe       |
+| Type de table de base ou interface RFC     | DDIC                        |
+
+## 🌺 DIAGNOSTIC
+
+Un appelant dépend d’un type privé.
+
+Le code ne compile pas.
+
+Corriger la visibilité ou déplacer le type dans un contrat public approprié.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Le type de ligne existe.
+- [ ] Le type table existe.
+- [ ] Les constantes sont publiques.
+- [ ] Le report utilise `=>`.
+- [ ] Un type privé est inaccessible.
+- [ ] Le choix DDIC/classe est expliqué.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+DATA lt_items TYPE zcl_<tri>_order=>tt_items.
+
+DATA(lv_new_status) =
+  zcl_<tri>_order=>gc_status_new.
+```
+
+Les types publics font partie du contrat de la classe. Leur évolution doit préserver les appelants.
+
+</details>

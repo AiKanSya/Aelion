@@ -1,43 +1,111 @@
 # 🌸 EXERCICES — ATTRIBUTS D’INSTANCE ET STATIQUES
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [ATTRIBUTS D’INSTANCE ET STATIQUES](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 02 - CLASSE/04 - 🍧 ATTRIBUTS.md>)
+- créer des attributs ;
+- distinguer instance et statique ;
+- choisir une visibilité ;
+- observer l’état propre à chaque objet ;
+- observer l’état partagé.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+55 à 70 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 CLASSE
 
-Sans consulter le cours, définir **ATTRIBUTS D’INSTANCE ET STATIQUES**, expliquer son utilité et citer une erreur d'utilisation possible.
+```text
+ZCL_<TRI>_PRODUCT
+```
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+## 🌺 ATTRIBUTS PRIVÉS D’INSTANCE
 
-- [ ] Créer un attribut dans `SE24` dans un exemple différent de celui du cours.
-- [ ] Distinguer un attribut d’instance d’un attribut statique dans un exemple différent de celui du cours.
-- [ ] Choisir une visibilité cohérente dans un exemple différent de celui du cours.
-- [ ] Accéder aux attributs depuis les méthodes dans un exemple différent de celui du cours.
+```text
+MV_NAME  TYPE STRING
+MV_PRICE TYPE DECFLOAT34
+```
 
-### Exercice repris du cours
+## 🌺 ATTRIBUT STATIQUE PRIVÉ
 
-Créer `ZCL_AELION_PRODUCT` avec les attributs privés `MV_NAME`, `MV_PRICE` et l’attribut statique privé `GV_PRODUCT_COUNT`.
+```text
+GV_PRODUCT_COUNT TYPE I
+```
 
+## 🌺 MÉTHODES PUBLIQUES
 
+```text
+SET_NAME
+SET_PRICE
+GET_NAME
+GET_PRICE
+GET_PRODUCT_COUNT
+```
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+`GET_PRODUCT_COUNT` sera statique.
 
-1. Construire volontairement un cas incorrect lié à **ATTRIBUTS D’INSTANCE ET STATIQUES**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+## 🌺 EXERCICE 1 — DEUX OBJETS
+
+Créer :
+
+```text
+Produit A : Clavier, 50
+Produit B : Souris, 25
+```
+
+Vérifier :
+
+```text
+Chaque objet conserve son nom et son prix.
+Le compteur est commun à la classe.
+```
+
+## 🌺 EXERCICE 2 — ACCÈS
+
+Dans une méthode d’instance :
+
+```abap
+mv_name = iv_name.
+```
+
+Dans une méthode statique :
+
+```abap
+rv_count = gv_product_count.
+```
+
+## 🌺 EXERCICE 3 — VISIBILITÉ
+
+Expliquer pourquoi `MV_PRICE` ne doit pas être public.
+
+## 🌺 DIAGNOSTIC
+
+Utiliser un attribut statique pour le prix.
+
+Créer deux produits avec deux prix différents.
+
+Observer que la dernière valeur écrase la valeur commune.
+
+Corriger en attribut d’instance.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Deux attributs d’instance sont créés.
+- [ ] Le compteur est statique.
+- [ ] Deux objets conservent des états distincts.
+- [ ] Le compteur est partagé.
+- [ ] Le prix statique incorrect est corrigé.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```text
+MV_NAME et MV_PRICE
+→ une valeur par objet
+
+GV_PRODUCT_COUNT
+→ une valeur commune à la classe dans la session interne
+```
+
+Un compteur statique n’est pas un compteur persistant système.
+
+</details>
