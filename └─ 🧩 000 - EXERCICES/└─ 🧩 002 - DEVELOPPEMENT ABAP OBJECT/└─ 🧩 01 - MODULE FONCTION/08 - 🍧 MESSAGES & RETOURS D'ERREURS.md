@@ -1,46 +1,142 @@
 # 🌸 EXERCICES — MESSAGES ET RETOURS D'ERREUR
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [MESSAGES ET RETOURS D'ERREUR](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 01 - MODULE FONCTION/08 - 🍧 MESSAGES & RETOURS D'ERREURS.md>)
+- distinguer exception et message fonctionnel ;
+- utiliser `BAPIRET2` ;
+- éviter une sortie écran dans l’API ;
+- renseigner le champ en erreur ;
+- définir un contrat cohérent.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+60 à 75 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 ÉVOLUTION DU MODULE
 
-Sans consulter le cours, définir **MESSAGES ET RETOURS D'ERREUR**, expliquer son utilité et citer une erreur d'utilisation possible.
+Ajouter :
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+```text
+ES_RETURN TYPE BAPIRET2
+```
 
-- [ ] Distinguer exception technique et message fonctionnel dans un exemple différent de celui du cours.
-- [ ] Retourner un message structuré dans un exemple différent de celui du cours.
-- [ ] Utiliser une structure de type `BAPIRET2` dans un exemple différent de celui du cours.
-- [ ] Éviter les sorties écran dans une API réutilisable dans un exemple différent de celui du cours.
-- [ ] Définir un contrat d’erreur cohérent dans un exemple différent de celui du cours.
+à `Z_<TRI>_TEXT_NORMALIZE`.
 
-### Exercice repris du cours
+## 🌺 RÈGLES
 
-1. Ajouter un export `ES_RETURN TYPE BAPIRET2`.
-2. Retourner une erreur lorsque le texte d’entrée est vide.
-3. Retourner un succès lorsque le texte a été normalisé.
-4. Tester l’appel sans produire de `MESSAGE E` direct.
-5. Ajouter le nom du champ en erreur dans le message.
+### Entrée vide
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+```text
+TYPE      = E
+MESSAGE   = Le texte est obligatoire
+PARAMETER = IV_TEXT
+FIELD     = IV_TEXT
+```
 
-1. Construire volontairement un cas incorrect lié à **MESSAGES ET RETOURS D'ERREUR**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+### Succès
+
+```text
+TYPE    = S
+MESSAGE = Texte normalisé
+```
+
+## 🌺 EXERCICE 1 — INITIALISATION
+
+```abap
+CLEAR:
+  ev_text,
+  es_return.
+```
+
+## 🌺 EXERCICE 2 — APPELANT
+
+```abap
+CALL FUNCTION 'Z_<TRI>_TEXT_NORMALIZE'
+  EXPORTING
+    iv_text = lv_input
+  IMPORTING
+    ev_text   = lv_output
+    es_return = ls_return.
+```
+
+## 🌺 EXERCICE 3 — INTERPRÉTATION
+
+```abap
+IF ls_return-type CA 'AEX'.
+  " Traitement bloquant
+ENDIF.
+```
+
+Les avertissements `W` dépendent du contrat métier.
+
+## 🌺 EXERCICE 4 — MAUVAIS CONTRAT
+
+Analyser un module qui mélange :
+
+```text
+MESSAGE E
+exception classique
+BAPIRET2
+code de retour
+```
+
+Choisir un mécanisme principal.
+
+## 🌺 DIAGNOSTIC
+
+Un module lance `MESSAGE E` pendant un appel RFC ou un traitement de fond.
+
+Décrire pourquoi ce comportement est inadapté.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Aucun popup n’est imposé.
+- [ ] La structure est initialisée.
+- [ ] Le champ en erreur est renseigné.
+- [ ] Le succès est distinct de l’erreur.
+- [ ] L’appelant décide de l’affichage.
+- [ ] Le contrat est cohérent.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+CLEAR:
+  ev_text,
+  es_return.
+
+IF iv_text IS INITIAL.
+
+  es_return = VALUE #(
+    type      = 'E'
+    message   = 'Le texte est obligatoire'
+    parameter = 'IV_TEXT'
+    field     = 'IV_TEXT'
+  ).
+
+  RETURN.
+
+ENDIF.
+
+DATA(lv_text) = iv_text.
+CONDENSE lv_text.
+
+IF iv_uppercase = abap_true.
+  TRANSLATE lv_text TO UPPER CASE.
+ENDIF.
+
+ev_text = COND string(
+  WHEN iv_prefix IS INITIAL
+  THEN lv_text
+  ELSE |{ iv_prefix }{ lv_text }|
+).
+
+es_return = VALUE #(
+  type    = 'S'
+  message = 'Texte normalisé'
+).
+```
+
+Dans un projet réel, une classe de messages dédiée doit être utilisée lorsque les champs `ID` et `NUMBER` sont requis.
+
+</details>

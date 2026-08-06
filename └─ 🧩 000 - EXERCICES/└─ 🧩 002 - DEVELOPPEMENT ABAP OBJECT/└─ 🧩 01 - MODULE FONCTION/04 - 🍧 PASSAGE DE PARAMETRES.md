@@ -1,46 +1,125 @@
 # 🌸 EXERCICES — PASSAGE DES PARAMETRES
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [PASSAGE DES PARAMETRES](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 01 - MODULE FONCTION/04 - 🍧 PASSAGE DE PARAMETRES.md>)
+- distinguer référence et valeur ;
+- comprendre `VALUE`;
+- utiliser `OPTIONAL`;
+- utiliser une valeur par défaut ;
+- éviter une modification involontaire.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+55 à 70 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 EXERCICE 1 — PASSAGE PAR VALEUR
 
-Sans consulter le cours, définir **PASSAGE DES PARAMETRES**, expliquer son utilité et citer une erreur d'utilisation possible.
+Dans `SE37`, activer le passage par valeur pour :
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+```text
+IV_TEXT
+IV_PREFIX
+IV_UPPERCASE
+EV_TEXT
+```
 
-- [ ] Distinguer passage par référence et passage par valeur dans un exemple différent de celui du cours.
-- [ ] Comprendre le mot-clé `VALUE` dans un exemple différent de celui du cours.
-- [ ] Déclarer un paramètre facultatif dans un exemple différent de celui du cours.
-- [ ] Déclarer une valeur par défaut dans un exemple différent de celui du cours.
-- [ ] Éviter les modifications involontaires dans un exemple différent de celui du cours.
+Observer le bloc d’interface généré.
 
-### Exercice repris du cours
+## 🌺 EXERCICE 2 — TROIS APPELS
 
-1. Créer un paramètre obligatoire `IV_TEXT`.
-2. Créer un paramètre facultatif `IV_PREFIX`.
-3. Créer un paramètre `IV_UPPERCASE` avec `ABAP_FALSE` comme valeur par défaut.
-4. Retourner le texte transformé dans `EV_TEXT`.
-5. Tester les trois combinaisons d’appel.
+Tester :
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+### Cas 1
 
-1. Construire volontairement un cas incorrect lié à **PASSAGE DES PARAMETRES**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```text
+IV_TEXT = "  bonjour   monde  "
+IV_PREFIX absent
+IV_UPPERCASE absent
+```
+
+Attendu :
+
+```text
+bonjour monde
+```
+
+### Cas 2
+
+```text
+IV_PREFIX = "SAP: "
+```
+
+Attendu :
+
+```text
+SAP: bonjour monde
+```
+
+### Cas 3
+
+```text
+IV_UPPERCASE = ABAP_TRUE
+```
+
+Attendu :
+
+```text
+SAP: BONJOUR MONDE
+```
+
+## 🌺 EXERCICE 3 — IMPORT EN LECTURE
+
+Ne pas modifier directement `IV_TEXT`.
+
+Créer :
+
+```abap
+DATA(lv_text) = iv_text.
+```
+
+## 🌺 EXERCICE 4 — CHANGING PAR RÉFÉRENCE
+
+Créer temporairement un module avec :
+
+```text
+CV_TEXT
+```
+
+Vérifier que la variable fournie par l’appelant est modifiée.
+
+## 🌺 QUESTIONS
+
+1. un paramètre facultatif absent reçoit-il son défaut ?
+2. une sortie non récupérée empêche-t-elle l’exécution ?
+3. un gros volume doit-il être copié sans justification ?
+4. un paramètre `TABLES` peut-il être passé par valeur ?
+5. pourquoi documenter un effet de bord ?
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] `VALUE` est observé.
+- [ ] Les trois combinaisons fonctionnent.
+- [ ] L’import reste en lecture.
+- [ ] L’effet de `CHANGING` est observé.
+- [ ] Le choix référence/valeur est expliqué.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+DATA(lv_text) = iv_text.
+
+CONDENSE lv_text.
+
+IF iv_uppercase = abap_true.
+  TRANSLATE lv_text TO UPPER CASE.
+ENDIF.
+
+IF iv_prefix IS INITIAL.
+  ev_text = lv_text.
+ELSE.
+  ev_text = |{ iv_prefix }{ lv_text }|.
+ENDIF.
+```
+
+</details>

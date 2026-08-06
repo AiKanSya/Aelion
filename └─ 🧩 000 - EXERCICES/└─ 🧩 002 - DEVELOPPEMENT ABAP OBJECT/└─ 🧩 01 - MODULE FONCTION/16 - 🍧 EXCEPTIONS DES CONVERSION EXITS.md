@@ -1,36 +1,97 @@
 # 🌸 EXERCICES — EXCEPTIONS DES CONVERSION EXITS
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [EXCEPTIONS DES CONVERSION EXITS](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 01 - MODULE FONCTION/16 - 🍧 EXCEPTIONS DES CONVERSION EXITS.md>)
+- lire l’interface installée dans `SE37` ;
+- ne pas inventer une exception ;
+- mapper les exceptions déclarées ;
+- contrôler `sy-subrc` immédiatement ;
+- séparer conversion et validation métier.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+45 à 60 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 EXERCICE 1 — INSPECTION
 
-Sans consulter le cours, définir **EXCEPTIONS DES CONVERSION EXITS**, expliquer son utilité et citer une erreur d'utilisation possible.
+Ouvrir :
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+```text
+CONVERSION_EXIT_ALPHA_INPUT
+CONVERSION_EXIT_ALPHA_OUTPUT
+CONVERSION_EXIT_MATN1_INPUT
+```
 
-- [ ] Lire les exceptions déclarées dans `SE37` dans un exemple différent de celui du cours.
-- [ ] Mapper chaque exception utile dans `CALL FUNCTION` dans un exemple différent de celui du cours.
-- [ ] Interpréter `SY-SUBRC` immédiatement après l'appel dans un exemple différent de celui du cours.
+Relever :
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+- import ;
+- export ;
+- exceptions ;
+- documentation ;
+- groupe de fonctions.
 
-1. Construire volontairement un cas incorrect lié à **EXCEPTIONS DES CONVERSION EXITS**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+## 🌺 EXERCICE 2 — EXCEPTION ABSENTE
+
+Si une routine ne déclare aucune exception, ne pas écrire une exception fictive dans l’appel.
+
+## 🌺 EXERCICE 3 — APPEL GÉNÉRÉ
+
+Pour une routine possédant des exceptions :
+
+1. générer l’appel depuis l’éditeur ;
+2. conserver les noms réels ;
+3. mapper les cas utiles ;
+4. ajouter `OTHERS` seulement si justifié.
+
+## 🌺 EXERCICE 4 — SY-SUBRC
+
+```abap
+CALL FUNCTION '...'
+  ...
+  EXCEPTIONS
+    ...
+    OTHERS = 9.
+
+DATA(lv_subrc) = sy-subrc.
+```
+
+Ne pas exécuter une autre instruction avant la sauvegarde.
+
+## 🌺 EXERCICE 5 — CONTRÔLES SÉPARÉS
+
+Une conversion exit ne remplace pas :
+
+- contrôle de longueur ;
+- caractères autorisés ;
+- existence de la clé ;
+- autorisation ;
+- règle métier.
+
+## 🌺 EXERCICE 6 — MATRICE
+
+| Routine      | Interface réelle | Exceptions réelles | Cas limite            |
+| ------------ | ---------------- | ------------------ | --------------------- |
+| ALPHA INPUT  | à relever        | à relever          | valeur trop longue    |
+| ALPHA OUTPUT | à relever        | à relever          | valeur alphanumérique |
+| MATN1 INPUT  | à relever        | à relever          | longueur matériau     |
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Les interfaces sont ouvertes.
+- [ ] Les exceptions réelles sont notées.
+- [ ] Aucune exception fictive n’est utilisée.
+- [ ] L’appel est généré.
+- [ ] `sy-subrc` est contrôlé immédiatement.
+- [ ] Les validations métier restent séparées.
+- [ ] Les différences de version sont documentées.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+Règle :
+
+```text
+L’interface active dans SE37 est la source de vérité du système installé.
+```
+
+</details>

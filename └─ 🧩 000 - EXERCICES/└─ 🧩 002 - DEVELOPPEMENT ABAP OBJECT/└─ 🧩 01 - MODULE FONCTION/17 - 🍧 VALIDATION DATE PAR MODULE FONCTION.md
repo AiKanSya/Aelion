@@ -1,40 +1,195 @@
 # 🌸 EXERCICES — VALIDATION D'UNE DATE PAR MODULE FONCTION
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [VALIDATION D'UNE DATE PAR MODULE FONCTION](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 01 - MODULE FONCTION/17 - 🍧 VALIDATION DATE PAR MODULE FONCTION.md>)
+- distinguer chaîne et date interne ;
+- contrôler le format `AAAAMMJJ` ;
+- utiliser `DATE_CHECK_PLAUSIBILITY` ;
+- traiter l’exception classique ;
+- tester les années bissextiles ;
+- retourner un résultat structuré.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+65 à 80 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 MODULE PERSONNALISÉ
 
-Sans consulter le cours, définir **VALIDATION D'UNE DATE PAR MODULE FONCTION**, expliquer son utilité et citer une erreur d'utilisation possible.
+```text
+Z_<TRI>_DATE_VALIDATE
+```
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+## 🌺 INTERFACE
 
-- [ ] Distinguer format textuel et validité calendaire dans un exemple différent de celui du cours.
-- [ ] Lire l'interface d'un module standard dans `SE37` dans un exemple différent de celui du cours.
-- [ ] Traiter son exception classique dans un exemple différent de celui du cours.
+| Paramètre      | Direction | Type       |
+| -------------- | --------- | ---------- |
+| `IV_DATE_TEXT` | Importing | `STRING`   |
+| `EV_DATE`      | Exporting | `DATS`     |
+| `ES_RETURN`    | Exporting | `BAPIRET2` |
 
-### Exercice repris du cours
+## 🌺 ÉTAPE 1 — FORMAT
 
-Tester une date valide, une année non bissextile, un mois inexistant, une chaîne trop courte et une chaîne alphabétique.
+```abap
+IF strlen( iv_date_text ) <> 8
+   OR iv_date_text CN '0123456789'.
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+  es_return = VALUE #(
+    type      = 'E'
+    message   = 'La date doit respecter le format AAAAMMJJ'
+    parameter = 'IV_DATE_TEXT'
+    field     = 'IV_DATE_TEXT'
+  ).
 
-1. Construire volontairement un cas incorrect lié à **VALIDATION D'UNE DATE PAR MODULE FONCTION**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+  RETURN.
+
+ENDIF.
+```
+
+## 🌺 ÉTAPE 2 — CONVERSION
+
+```abap
+DATA(lv_date) =
+  CONV d( iv_date_text ).
+```
+
+## 🌺 ÉTAPE 3 — PLAUSIBILITÉ
+
+```abap
+CALL FUNCTION 'DATE_CHECK_PLAUSIBILITY'
+  EXPORTING
+    date                      = lv_date
+  EXCEPTIONS
+    plausibility_check_failed = 1
+    OTHERS                    = 2.
+```
+
+## 🌺 ÉTAPE 4 — RÉSULTAT
+
+### Succès
+
+```text
+EV_DATE = date interne
+TYPE = S
+```
+
+### Échec
+
+```text
+TYPE = E
+MESSAGE = Date calendaire invalide
+```
+
+## 🌺 TESTS
+
+| Texte       | Résultat        |
+| ----------- | --------------- |
+| `20240229`  | valide          |
+| `20230229`  | invalide        |
+| `20241301`  | invalide        |
+| `20240431`  | invalide        |
+| `20240101`  | valide          |
+| `2024011`   | format invalide |
+| `2024ABCD`  | format invalide |
+| chaîne vide | format invalide |
+
+## 🌺 EXERCICE — APPEL
+
+```abap
+CALL FUNCTION 'Z_<TRI>_DATE_VALIDATE'
+  EXPORTING
+    iv_date_text = lv_text
+  IMPORTING
+    ev_date      = lv_date
+    es_return    = ls_return.
+```
+
+## 🌺 DIAGNOSTIC
+
+Cas incorrect :
+
+```abap
+ev_date = iv_date_text.
+```
+
+sans contrôle de longueur, caractères ou plausibilité.
+
+Décrire pourquoi une valeur de huit chiffres peut malgré tout être une date impossible.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] La longueur est contrôlée.
+- [ ] Les caractères sont contrôlés.
+- [ ] La chaîne est convertie en `DATS`.
+- [ ] La plausibilité est vérifiée.
+- [ ] L’exception est traitée.
+- [ ] Une année bissextile valide est acceptée.
+- [ ] Une date calendaire impossible est refusée.
+- [ ] Aucun message interactif n’est imposé.
+
+<details>
+<summary>🍧 Afficher la solution complète</summary>
+
+```abap
+FUNCTION z_<tri>_date_validate.
+
+  CLEAR:
+    ev_date,
+    es_return.
+
+  IF strlen( iv_date_text ) <> 8
+     OR iv_date_text CN '0123456789'.
+
+    es_return = VALUE #(
+      type      = 'E'
+      message   = 'La date doit respecter le format AAAAMMJJ'
+      parameter = 'IV_DATE_TEXT'
+      field     = 'IV_DATE_TEXT'
+    ).
+
+    RETURN.
+
+  ENDIF.
+
+  DATA(lv_date) =
+    CONV d( iv_date_text ).
+
+  CALL FUNCTION 'DATE_CHECK_PLAUSIBILITY'
+    EXPORTING
+      date                      = lv_date
+    EXCEPTIONS
+      plausibility_check_failed = 1
+      OTHERS                    = 2.
+
+  CASE sy-subrc.
+
+    WHEN 0.
+
+      ev_date = lv_date.
+
+      es_return = VALUE #(
+        type    = 'S'
+        message = 'Date valide'
+      ).
+
+    WHEN 1.
+
+      es_return = VALUE #(
+        type      = 'E'
+        message   = 'Date calendaire invalide'
+        parameter = 'IV_DATE_TEXT'
+        field     = 'IV_DATE_TEXT'
+      ).
+
+    WHEN OTHERS.
+
+      es_return = VALUE #(
+        type    = 'E'
+        message = 'Erreur technique pendant la validation de la date'
+      ).
+
+  ENDCASE.
+
+ENDFUNCTION.
+```
+
+</details>

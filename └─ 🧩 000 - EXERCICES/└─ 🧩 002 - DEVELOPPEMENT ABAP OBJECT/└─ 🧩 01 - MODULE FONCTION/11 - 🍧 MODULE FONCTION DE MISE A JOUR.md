@@ -1,46 +1,149 @@
 # 🌸 EXERCICES — MODULES FONCTION DE MISE A JOUR
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [MODULES FONCTION DE MISE A JOUR](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 01 - MODULE FONCTION/11 - 🍧 MODULE FONCTION DE MISE A JOUR.md>)
+- créer une table de journal ;
+- créer un module V1 ;
+- comprendre `IN UPDATE TASK` ;
+- tester commit et rollback ;
+- connaître les restrictions ;
+- utiliser Update Debugging et `SM13`.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+90 à 120 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 TABLE DE TEST
 
-Sans consulter le cours, définir **MODULES FONCTION DE MISE A JOUR**, expliquer son utilité et citer une erreur d'utilisation possible.
+Créer :
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+```text
+ZT_<TRI>_FMLOG
+```
 
-- [ ] Définir un module fonction de mise à jour dans un exemple différent de celui du cours.
-- [ ] Comprendre `IN UPDATE TASK` dans un exemple différent de celui du cours.
-- [ ] Comprendre le rôle de `COMMIT WORK` dans un exemple différent de celui du cours.
-- [ ] Distinguer enregistrement et exécution dans un exemple différent de celui du cours.
-- [ ] Connaître les restrictions principales dans un exemple différent de celui du cours.
+| Champ        | Type      | Clé |
+| ------------ | --------- | --- |
+| `MANDT`      | `MANDT`   | Oui |
+| `LOG_ID`     | `NUMC10`  | Oui |
+| `LOG_TEXT`   | `CHAR80`  | Non |
+| `CREATED_BY` | `SYUNAME` | Non |
+| `CREATED_ON` | `SYDATUM` | Non |
+| `CREATED_AT` | `SYUZEIT` | Non |
 
-### Exercice repris du cours
+## 🌺 MODULE
 
-1. Créer une table de journal simple.
-2. Créer un module de mise à jour qui insère une ligne.
-3. L’appeler avec `IN UPDATE TASK`.
-4. Tester sans commit, avec commit, puis avec rollback.
-5. Observer les résultats en base et analyser `SM13` si nécessaire.
+```text
+Z_<TRI>_LOG_WRITE_UPD
+```
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Type :
 
-1. Construire volontairement un cas incorrect lié à **MODULES FONCTION DE MISE A JOUR**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```text
+Update with immediate start
+```
+
+Interface :
+
+```text
+IS_LOG TYPE ZT_<TRI>_FMLOG
+```
+
+Aucun export, changing ou exception.
+
+## 🌺 IMPLÉMENTATION
+
+```abap
+INSERT zt_<tri>_fmlog
+  FROM @is_log.
+```
+
+## 🌺 EXERCICE 1 — ENREGISTREMENT
+
+```abap
+CALL FUNCTION 'Z_<TRI>_LOG_WRITE_UPD'
+  IN UPDATE TASK
+  EXPORTING
+    is_log = ls_log.
+```
+
+Avant commit, le module n’est pas encore exécuté par l’Update Task.
+
+## 🌺 EXERCICE 2 — COMMIT
+
+```abap
+COMMIT WORK AND WAIT.
+```
+
+Vérifier la ligne, puis la nettoyer dans une transaction séparée.
+
+## 🌺 EXERCICE 3 — ROLLBACK
+
+Enregistrer un autre appel puis :
+
+```abap
+ROLLBACK WORK.
+```
+
+Vérifier l’absence de la ligne.
+
+## 🌺 EXERCICE 4 — INTERDICTIONS
+
+Le module ne doit pas contenir :
+
+```text
+COMMIT WORK
+ROLLBACK WORK
+MESSAGE
+paramètre d’export
+exception de retour
+```
+
+## 🌺 EXERCICE 5 — UPDATE DEBUGGING
+
+Activer le débogage Update Task avant le commit.
+
+## 🌺 EXERCICE 6 — SM13
+
+Avec les autorisations nécessaires, analyser une demande de mise à jour.
+
+Ne pas la répéter ou la supprimer sans accord d’exploitation.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] La table est créée.
+- [ ] Le module est marqué Update.
+- [ ] L’interface est compatible.
+- [ ] Le commit déclenche l’exécution.
+- [ ] Le rollback abandonne l’appel.
+- [ ] Aucun commit interne n’existe.
+- [ ] Le débogage est compris.
+- [ ] Les données sont nettoyées.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+DATA(ls_log) = VALUE zt_<tri>_fmlog(
+  mandt      = sy-mandt
+  log_id     = '0000000001'
+  log_text   = 'Test Update Task'
+  created_by = sy-uname
+  created_on = sy-datum
+  created_at = sy-uzeit
+).
+
+CALL FUNCTION 'Z_<TRI>_LOG_WRITE_UPD'
+  IN UPDATE TASK
+  EXPORTING
+    is_log = ls_log.
+
+COMMIT WORK AND WAIT.
+
+IF sy-subrc = 0.
+  WRITE / 'Mise à jour V1 exécutée'.
+ELSE.
+  WRITE / 'Échec de la mise à jour V1'.
+ENDIF.
+```
+
+</details>

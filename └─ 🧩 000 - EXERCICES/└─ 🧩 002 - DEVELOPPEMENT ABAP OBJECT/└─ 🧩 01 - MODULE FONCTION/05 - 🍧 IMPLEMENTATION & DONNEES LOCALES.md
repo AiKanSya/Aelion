@@ -1,46 +1,113 @@
 # 🌸 EXERCICES — IMPLEMENTATION ET DONNEES LOCALES
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [IMPLEMENTATION ET DONNEES LOCALES](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 01 - MODULE FONCTION/05 - 🍧 IMPLEMENTATION & DONNEES LOCALES.md>)
+- utiliser `FUNCTION ... ENDFUNCTION` ;
+- déclarer des données locales ;
+- organiser contrôles et calcul ;
+- retourner plusieurs résultats ;
+- éviter les effets de bord.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+65 à 80 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 MODULE
 
-Sans consulter le cours, définir **IMPLEMENTATION ET DONNEES LOCALES**, expliquer son utilité et citer une erreur d'utilisation possible.
+```text
+Z_<TRI>_CALC_NET_AMOUNT
+```
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+## 🌺 INTERFACE
 
-- [ ] Identifier le bloc `FUNCTION ... ENDFUNCTION` dans un exemple différent de celui du cours.
-- [ ] Déclarer des variables locales dans un exemple différent de celui du cours.
-- [ ] Utiliser les paramètres de l’interface dans un exemple différent de celui du cours.
-- [ ] Organiser le traitement en étapes lisibles dans un exemple différent de celui du cours.
-- [ ] Éviter les effets de bord inutiles dans un exemple différent de celui du cours.
+| Paramètre            | Direction | Type         |
+| -------------------- | --------- | ------------ |
+| `IV_QUANTITY`        | Importing | `DECFLOAT34` |
+| `IV_UNIT_PRICE`      | Importing | `DECFLOAT34` |
+| `IV_DISCOUNT_PCT`    | Importing | `DECFLOAT34` |
+| `EV_GROSS_AMOUNT`    | Exporting | `DECFLOAT34` |
+| `EV_DISCOUNT_AMOUNT` | Exporting | `DECFLOAT34` |
+| `EV_NET_AMOUNT`      | Exporting | `DECFLOAT34` |
 
-### Exercice repris du cours
+Exceptions :
 
-1. Créer un module qui calcule un montant brut, une remise et un montant net.
-2. Contrôler que la quantité est positive.
-3. Contrôler que la remise est comprise entre `0` et `100`.
-4. Retourner trois valeurs d’export.
-5. Tester les limites `0`, `100` et une valeur invalide.
+```text
+INVALID_QUANTITY
+INVALID_PRICE
+INVALID_DISCOUNT
+```
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+## 🌺 RÈGLES
 
-1. Construire volontairement un cas incorrect lié à **IMPLEMENTATION ET DONNEES LOCALES**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```text
+Quantité > 0
+Prix >= 0
+Remise entre 0 et 100
+Brut = quantité × prix
+Montant remise = brut × pourcentage / 100
+Net = brut - remise
+```
+
+## 🌺 TESTS
+
+| Quantité | Prix | Remise | Attendu            |
+| -------: | ---: | -----: | ------------------ |
+|      `2` | `10` |    `0` | net `20`           |
+|      `2` | `10` |   `10` | net `18`           |
+|      `2` | `10` |  `100` | net `0`            |
+|      `0` | `10` |   `10` | `INVALID_QUANTITY` |
+|      `2` | `-1` |   `10` | `INVALID_PRICE`    |
+|      `2` | `10` |  `101` | `INVALID_DISCOUNT` |
+
+## 🌺 DIAGNOSTIC
+
+Vérifier que le module ne contient pas :
+
+```text
+WRITE
+MESSAGE E
+COMMIT WORK
+INSERT
+UPDATE
+```
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Les contrôles précèdent le calcul.
+- [ ] Les limites `0` et `100` sont acceptées.
+- [ ] Les valeurs invalides lèvent la bonne exception.
+- [ ] Les données de travail sont locales.
+- [ ] Aucun effet de bord n’est introduit.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+FUNCTION z_<tri>_calc_net_amount.
+
+  IF iv_quantity <= 0.
+    RAISE invalid_quantity.
+  ENDIF.
+
+  IF iv_unit_price < 0.
+    RAISE invalid_price.
+  ENDIF.
+
+  IF iv_discount_pct < 0
+     OR iv_discount_pct > 100.
+    RAISE invalid_discount.
+  ENDIF.
+
+  ev_gross_amount =
+    iv_quantity * iv_unit_price.
+
+  ev_discount_amount =
+    ev_gross_amount * iv_discount_pct / 100.
+
+  ev_net_amount =
+    ev_gross_amount - ev_discount_amount.
+
+ENDFUNCTION.
+```
+
+</details>

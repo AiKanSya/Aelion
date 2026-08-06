@@ -1,46 +1,136 @@
 # 🌸 EXERCICES — BONNES PRATIQUES ET LIMITES
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [BONNES PRATIQUES ET LIMITES](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 01 - MODULE FONCTION/14 - 🍧 BONNES PRATIQUES & LIMITES.md>)
+- auditer un module existant ;
+- identifier les effets de bord ;
+- stabiliser l’interface ;
+- déplacer la logique dans une classe ;
+- conserver un adaptateur compatible ;
+- rechercher les appelants.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+70 à 90 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 EXERCICE 1 — CHECKLIST D’AUDIT
 
-Sans consulter le cours, définir **BONNES PRATIQUES ET LIMITES**, expliquer son utilité et citer une erreur d'utilisation possible.
+Vérifier :
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+```text
+Nom
+Description
+Groupe
+Interface
+Types
+Paramètres facultatifs
+Exceptions
+Messages
+Accès base
+Commit
+Données globales
+RFC
+Update Task
+Documentation
+Tests
+Appelants
+```
 
-- [ ] Concevoir une interface stable dans un exemple différent de celui du cours.
-- [ ] Éviter les effets de bord cachés dans un exemple différent de celui du cours.
-- [ ] Comprendre les limites du modèle dans un exemple différent de celui du cours.
-- [ ] Encapsuler la logique métier dans une classe lorsque pertinent dans un exemple différent de celui du cours.
-- [ ] Maintenir la compatibilité des appelants dans un exemple différent de celui du cours.
+## 🌺 EXERCICE 2 — EFFETS DE BORD
 
-### Exercice repris du cours
+Identifier au moins trois éléments :
 
-1. Auditer un module fonction existant avec la checklist.
-2. Identifier trois effets de bord.
-3. Extraire un calcul dans une classe statique.
-4. Conserver le module comme adaptateur.
-5. Rechercher les programmes appelants avant de modifier son interface.
+```text
+COMMIT interne
+MESSAGE E
+écriture en base cachée
+table globale
+CHANGING inattendu
+popup
+mémoire SAP
+paramètre utilisateur
+appel externe
+```
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+## 🌺 EXERCICE 3 — EXTRACTION
 
-1. Construire volontairement un cas incorrect lié à **BONNES PRATIQUES ET LIMITES**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+Créer :
+
+```text
+ZCL_<TRI>_TEXT_SERVICE
+```
+
+Méthode statique :
+
+```text
+NORMALIZE
+```
+
+Déplacer la logique pure.
+
+## 🌺 EXERCICE 4 — ADAPTATEUR
+
+Conserver le module :
+
+```text
+Z_<TRI>_TEXT_NORMALIZE
+```
+
+Il appelle la classe et traduit l’ancien contrat.
+
+## 🌺 EXERCICE 5 — WHERE-USED
+
+Avant une modification :
+
+- rechercher les programmes ;
+- rechercher les appels dynamiques ;
+- rechercher les RFC externes ;
+- rechercher les jobs ;
+- rechercher les tests ;
+- analyser la compatibilité.
+
+## 🌺 EXERCICE 6 — ÉVOLUTION COMPATIBLE
+
+Un nouveau paramètre d’import doit être :
+
+- facultatif ;
+- doté d’un défaut compatible ;
+- documenté ;
+- sans changement pour les anciens appelants.
+
+## 🌺 EXERCICE 7 — CHOIX TECHNOLOGIQUE
+
+Utiliser un module fonction lorsque le cadre l’exige :
+
+- API existante ;
+- RFC ;
+- Update Task ;
+- BAPI ;
+- conversion exit ;
+- framework historique.
+
+Pour une nouvelle logique interne objet, préférer une classe.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] L’audit est complet.
+- [ ] Trois effets de bord sont identifiés.
+- [ ] La logique pure est déplacée.
+- [ ] Le module reste compatible.
+- [ ] Les appelants sont recherchés.
+- [ ] L’évolution est non destructive.
+- [ ] Le choix classe ou module est justifié.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+Architecture :
+
+```text
+Appelant historique
+→ module fonction stable
+→ classe de service
+→ logique métier testable
+```
+
+</details>

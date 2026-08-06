@@ -1,47 +1,121 @@
 # 🌸 EXERCICES — BAPI ET GESTION DE TRANSACTION
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [BAPI ET GESTION DE TRANSACTION](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 01 - MODULE FONCTION/12 - 🍧 BAPI & GESTION DE TRANSACTION.md>)
+- définir une BAPI ;
+- la distinguer d’un RFC personnalisé ;
+- analyser `BAPIRET2` ;
+- utiliser commit et rollback BAPI ;
+- comprendre `DATA` et `DATAX`.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+70 à 90 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 EXERCICE 1 — DÉFINITIONS
 
-Sans consulter le cours, définir **BAPI ET GESTION DE TRANSACTION**, expliquer son utilité et citer une erreur d'utilisation possible.
+| Objet                     | Définition |
+| ------------------------- | ---------- |
+| Module normal             |            |
+| Module RFC                |            |
+| BAPI                      |            |
+| `BAPI_TRANSACTION_COMMIT` |            |
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+## 🌺 EXERCICE 2 — MESSAGES
 
-- [ ] Définir une BAPI dans un exemple différent de celui du cours.
-- [ ] Distinguer BAPI et module fonction quelconque dans un exemple différent de celui du cours.
-- [ ] Lire un paramètre `RETURN` dans un exemple différent de celui du cours.
-- [ ] Comprendre le contrôle du commit par l’appelant dans un exemple différent de celui du cours.
-- [ ] Utiliser `BAPI_TRANSACTION_COMMIT` et `BAPI_TRANSACTION_ROLLBACK` dans un exemple différent de celui du cours.
+Construire une table :
 
-### Exercice repris du cours
+```abap
+DATA lt_return TYPE STANDARD TABLE OF bapiret2
+  WITH EMPTY KEY.
+```
 
-1. Préparer une table interne de type `BAPIRET2`.
-2. Ajouter une erreur, un avertissement et un succès.
-3. Détecter les types bloquants `AEX`.
-4. Appeler le commit seulement en absence d’erreur.
-5. Expliquer pourquoi tout module RFC n’est pas une BAPI.
-6. Construire deux structures génériques `DATA` et `DATAX`, puis montrer la différence entre valeur initiale non sélectionnée et valeur initiale explicitement sélectionnée.
+Ajouter :
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+```text
+S
+W
+E
+```
 
-1. Construire volontairement un cas incorrect lié à **BAPI ET GESTION DE TRANSACTION**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+## 🌺 EXERCICE 3 — TYPES BLOQUANTS
+
+```abap
+DATA(lv_has_error) =
+  xsdbool(
+    line_exists( lt_return[ type = 'A' ] )
+    OR line_exists( lt_return[ type = 'E' ] )
+    OR line_exists( lt_return[ type = 'X' ] )
+  ).
+```
+
+## 🌺 EXERCICE 4 — TRANSACTION
+
+```abap
+IF lv_has_error = abap_true.
+
+  CALL FUNCTION 'BAPI_TRANSACTION_ROLLBACK'.
+
+ELSE.
+
+  CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
+    EXPORTING
+      wait = abap_true.
+
+ENDIF.
+```
+
+## 🌺 EXERCICE 5 — DATA ET DATAX
+
+Expliquer :
+
+```text
+CITY initial, CITYX initial
+→ champ non sélectionné pour modification
+
+CITY initial, CITYX = X
+→ effacement explicite du champ
+```
+
+## 🌺 EXERCICE 6 — DEUX BAPI
+
+Appeler deux BAPI d’écriture.
+
+Ne committer qu’après le succès des deux.
+
+## 🌺 DIAGNOSTIC
+
+Cas incorrect :
+
+```abap
+CALL FUNCTION 'BAPI_...'.
+COMMIT WORK.
+```
+
+Identifier :
+
+- messages non contrôlés ;
+- buffer BAPI éventuel ;
+- contrat non respecté ;
+- risque de commit malgré erreur.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Une BAPI n’est pas réduite à un RFC.
+- [ ] Les types `AEX` sont détectés.
+- [ ] Le commit est conditionné.
+- [ ] Le rollback est utilisé.
+- [ ] `DATA` et `DATAX` sont distinguées.
+- [ ] Le contrat documenté est prioritaire.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```text
+Appeler la BAPI
+Analyser tous les retours
+Si erreur bloquante → BAPI_TRANSACTION_ROLLBACK
+Sinon → BAPI_TRANSACTION_COMMIT
+```
+
+</details>

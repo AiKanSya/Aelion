@@ -1,46 +1,100 @@
 # 🌸 EXERCICES — APPEL AVEC CALL FUNCTION
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [APPEL AVEC CALL FUNCTION](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 01 - MODULE FONCTION/06 - 🍧 APPEL AVEC CALL FUNCTION.md>)
+- générer un appel ;
+- mapper paramètres formels et réels ;
+- comprendre l’inversion import/export ;
+- utiliser une déclaration inline ;
+- contrôler `sy-subrc`.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+50 à 65 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 EXERCICE 1 — MODULE D’ADDITION
 
-Sans consulter le cours, définir **APPEL AVEC CALL FUNCTION**, expliquer son utilité et citer une erreur d'utilisation possible.
+Créer :
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+```text
+Z_<TRI>_ADD
+```
 
-- [ ] Appeler un module fonction dans un exemple différent de celui du cours.
-- [ ] Mapper les paramètres réels et formels dans un exemple différent de celui du cours.
-- [ ] Comprendre l’inversion des mots-clés import et export dans un exemple différent de celui du cours.
-- [ ] Utiliser une génération d’appel depuis l’éditeur dans un exemple différent de celui du cours.
-- [ ] Contrôler `SY-SUBRC` dans un exemple différent de celui du cours.
+Interface :
 
-### Exercice repris du cours
+```text
+IV_VALUE_1 TYPE I
+IV_VALUE_2 TYPE I
+EV_RESULT  TYPE I
+```
 
-1. Appeler un module recevant deux nombres.
-2. Récupérer leur somme dans une variable inline.
-3. Ajouter deux exceptions et traiter `SY-SUBRC` avec `CASE`.
-4. Omettre un paramètre facultatif puis le fournir dans un second test.
-5. Expliquer l’inversion entre l’interface et l’appel.
+## 🌺 EXERCICE 2 — APPEL
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+```abap
+CALL FUNCTION 'Z_<TRI>_ADD'
+  EXPORTING
+    iv_value_1 = 10
+    iv_value_2 = 20
+  IMPORTING
+    ev_result  = DATA(lv_result)
+  EXCEPTIONS
+    OTHERS = 1.
+```
 
-1. Construire volontairement un cas incorrect lié à **APPEL AVEC CALL FUNCTION**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+## 🌺 EXERCICE 3 — INVERSION
+
+Compléter :
+
+| Interface `SE37` | Bloc de l’appel |
+| ---------------- | --------------- |
+| Importing        |                 |
+| Exporting        |                 |
+| Changing         |                 |
+| Tables           |                 |
+| Exceptions       |                 |
+
+## 🌺 EXERCICE 4 — CONTRÔLE
+
+```abap
+IF sy-subrc = 0.
+  WRITE / lv_result.
+ELSE.
+  WRITE / 'Erreur pendant l’appel'.
+ENDIF.
+```
+
+Le contrôle doit être immédiat.
+
+## 🌺 EXERCICE 5 — PARAMÈTRE FACULTATIF
+
+Appeler `Z_<TRI>_TEXT_NORMALIZE` :
+
+1. sans `IV_PREFIX` ;
+2. avec `IV_PREFIX`.
+
+## 🌺 DIAGNOSTIC
+
+Ajouter une instruction entre l’appel et le contrôle de `sy-subrc`.
+
+Observer que cette instruction peut remplacer la valeur.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] L’appel compile.
+- [ ] Le résultat inline est récupéré.
+- [ ] L’inversion est expliquée.
+- [ ] `sy-subrc` est contrôlé immédiatement.
+- [ ] Le paramètre facultatif est omis puis fourni.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+| Interface  | Appel        |
+| ---------- | ------------ |
+| Importing  | `EXPORTING`  |
+| Exporting  | `IMPORTING`  |
+| Changing   | `CHANGING`   |
+| Tables     | `TABLES`     |
+| Exceptions | `EXCEPTIONS` |
+
+</details>

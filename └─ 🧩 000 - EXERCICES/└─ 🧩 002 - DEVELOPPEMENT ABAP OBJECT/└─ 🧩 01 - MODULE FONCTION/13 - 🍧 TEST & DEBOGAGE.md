@@ -1,46 +1,93 @@
 # 🌸 EXERCICES — TEST ET DEBOGAGE
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [TEST ET DEBOGAGE](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 01 - MODULE FONCTION/13 - 🍧 TEST & DEBOGAGE.md>)
+- tester dans `SE37` ;
+- conserver des jeux de test ;
+- poser un point d’arrêt ;
+- déboguer local, RFC et Update Task ;
+- détecter un état résiduel.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+65 à 85 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 EXERCICE 1 — MATRICE DE TEST
 
-Sans consulter le cours, définir **TEST ET DEBOGAGE**, expliquer son utilité et citer une erreur d'utilisation possible.
+Pour `Z_<TRI>_CALC_NET_AMOUNT` :
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+| Cas              | Quantité | Prix | Remise | Attendu   |
+| ---------------- | -------: | ---: | -----: | --------- |
+| Nominal          |      `2` | `10` |   `10` | net `18`  |
+| Sans remise      |      `2` | `10` |    `0` | net `20`  |
+| Remise totale    |      `2` | `10` |  `100` | net `0`   |
+| Quantité nulle   |      `0` | `10` |   `10` | exception |
+| Remise excessive |      `2` | `10` |  `101` | exception |
 
-- [ ] Tester un module dans `SE37` dans un exemple différent de celui du cours.
-- [ ] Sauvegarder et réutiliser des données de test dans un exemple différent de celui du cours.
-- [ ] Poser un point d’arrêt dans un exemple différent de celui du cours.
-- [ ] Déboguer un appel local, RFC ou Update Task dans un exemple différent de celui du cours.
-- [ ] Contrôler les résultats et exceptions dans un exemple différent de celui du cours.
+## 🌺 EXERCICE 2 — SE37
 
-### Exercice repris du cours
+Pour chaque cas :
 
-1. Définir cinq cas de test pour un calcul de remise.
-2. Exécuter chaque cas dans `SE37`.
-3. Placer un point d’arrêt sur le premier contrôle.
-4. Observer `SY-SUBRC` dans le programme appelant.
-5. Tester deux appels successifs pour vérifier l’absence d’état global résiduel.
+1. saisir les paramètres ;
+2. exécuter ;
+3. relever les exports ;
+4. relever l’exception ;
+5. comparer à l’attendu.
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+## 🌺 EXERCICE 3 — DONNÉES DE TEST
 
-1. Construire volontairement un cas incorrect lié à **TEST ET DEBOGAGE**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+Sauvegarder un jeu si la fonction est disponible dans la version du système :
+
+```text
+NOMINAL_10_PERCENT
+```
+
+## 🌺 EXERCICE 4 — BREAKPOINT
+
+Observer :
+
+- paramètres formels ;
+- variables locales ;
+- pile d’appel ;
+- retour dans l’appelant ;
+- `sy-subrc`.
+
+## 🌺 EXERCICE 5 — DEUX APPELS
+
+Premier appel invalide, puis appel valide.
+
+Vérifier qu’aucun message global résiduel ne subsiste.
+
+## 🌺 EXERCICE 6 — RFC
+
+Utiliser un breakpoint externe lorsque l’appel se déroule dans une autre session ou sous un autre utilisateur.
+
+## 🌺 EXERCICE 7 — UPDATE TASK
+
+Activer Update Debugging avant le commit.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Cinq cas sont exécutés.
+- [ ] Les attendus sont écrits avant le test.
+- [ ] Les exceptions sont vérifiées.
+- [ ] Un breakpoint est utilisé.
+- [ ] Deux appels successifs sont indépendants.
+- [ ] Le contexte RFC est compris.
+- [ ] Update Debugging est compris.
+
+<details>
+<summary>🍧 Afficher la checklist</summary>
+
+```text
+□ interface active
+□ données d’entrée connues
+□ résultat attendu défini
+□ résultat réel enregistré
+□ exception vérifiée
+□ sy-subrc contrôlé
+□ aucune donnée globale résiduelle
+□ transaction nettoyée
+```
+
+</details>

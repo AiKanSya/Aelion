@@ -1,45 +1,119 @@
 # 🌸 EXERCICES — INTERFACE DU MODULE FONCTION
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [INTERFACE DU MODULE FONCTION](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 01 - MODULE FONCTION/03 - 🍧 INTERFACE.md>)
+- choisir la direction des données ;
+- concevoir une interface de calcul ;
+- utiliser un type de table global ;
+- comprendre `TABLES` ;
+- documenter le contrat.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+60 à 75 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 EXERCICE 1 — MOYENNE
 
-Sans consulter le cours, définir **INTERFACE DU MODULE FONCTION**, expliquer son utilité et citer une erreur d'utilisation possible.
+Créer :
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+```text
+Z_<TRI>_AVERAGE
+```
 
-- [ ] Utiliser les paramètres d’import dans un exemple différent de celui du cours.
-- [ ] Utiliser les paramètres d’export dans un exemple différent de celui du cours.
-- [ ] Utiliser les paramètres changing dans un exemple différent de celui du cours.
-- [ ] Comprendre les paramètres tables dans un exemple différent de celui du cours.
-- [ ] Choisir une direction cohérente pour chaque donnée dans un exemple différent de celui du cours.
+Interface :
 
-### Exercice repris du cours
+| Paramètre    | Direction | Type         |
+| ------------ | --------- | ------------ |
+| `IV_VALUE_1` | Importing | `DECFLOAT34` |
+| `IV_VALUE_2` | Importing | `DECFLOAT34` |
+| `EV_AVERAGE` | Exporting | `DECFLOAT34` |
 
-1. Définir l’interface d’un module qui reçoit deux nombres et retourne leur moyenne.
-2. Définir l’interface d’un module qui normalise un texte reçu puis modifié.
-3. Définir l’interface d’un module qui reçoit une table et retourne une autre table.
-4. Expliquer pourquoi `TABLES` ne doit pas être privilégié dans un nouveau développement.
+## 🌺 EXERCICE 2 — NORMALISATION
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Interface de `Z_<TRI>_TEXT_NORMALIZE` :
 
-1. Construire volontairement un cas incorrect lié à **INTERFACE DU MODULE FONCTION**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+| Paramètre      | Direction | Propriété           |
+| -------------- | --------- | ------------------- |
+| `IV_TEXT`      | Importing | obligatoire         |
+| `IV_PREFIX`    | Importing | facultatif          |
+| `IV_UPPERCASE` | Importing | défaut `ABAP_FALSE` |
+| `EV_TEXT`      | Exporting | résultat            |
+
+Exception :
+
+```text
+EMPTY_TEXT
+```
+
+## 🌺 EXERCICE 3 — CHANGING
+
+Créer une variante avec :
+
+```text
+CV_TEXT
+```
+
+Répondre :
+
+1. la variable de l’appelant est-elle modifiée ?
+2. l’effet de bord est-il explicite ?
+3. un export séparé est-il plus simple à tester ?
+4. quand `CHANGING` est-il réellement pertinent ?
+
+## 🌺 EXERCICE 4 — TABLE
+
+Créer dans le DDIC un type de table :
+
+```text
+ZTT_<TRI>_TEXT
+```
+
+Puis concevoir :
+
+```text
+IMPORTING IT_TEXTS TYPE ZTT_<TRI>_TEXT
+EXPORTING ET_TEXTS TYPE ZTT_<TRI>_TEXT
+```
+
+## 🌺 EXERCICE 5 — TABLES HISTORIQUE
+
+Expliquer :
+
+- transmission par référence ;
+- modification possible de la table appelante ;
+- compatibilité avec les anciens modules ;
+- raison de préférer `IT_`, `ET_` ou `CT_`.
+
+## 🌺 DIAGNOSTIC
+
+Une table de sortie a été déclarée dans `IMPORTING`.
+
+Décrire le défaut de contrat et corriger la direction.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Chaque donnée possède une direction cohérente.
+- [ ] Les paramètres facultatifs sont documentés.
+- [ ] `CHANGING` est justifié.
+- [ ] Un type de table global est utilisé.
+- [ ] `TABLES` n’est pas privilégié.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+Interface recommandée :
+
+```text
+IMPORTING
+  VALUE(IV_TEXT)      TYPE STRING
+  VALUE(IV_PREFIX)    TYPE STRING OPTIONAL
+  VALUE(IV_UPPERCASE) TYPE ABAP_BOOL DEFAULT ABAP_FALSE
+
+EXPORTING
+  VALUE(EV_TEXT)      TYPE STRING
+
+EXCEPTIONS
+  EMPTY_TEXT
+```
+
+</details>

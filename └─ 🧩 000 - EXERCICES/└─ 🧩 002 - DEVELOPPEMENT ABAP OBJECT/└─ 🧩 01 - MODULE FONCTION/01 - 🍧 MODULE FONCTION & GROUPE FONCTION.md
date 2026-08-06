@@ -1,44 +1,98 @@
 # 🌸 EXERCICES — MODULES FONCTION ET GROUPES DE FONCTIONS
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [MODULES FONCTION ET GROUPES DE FONCTIONS](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 01 - MODULE FONCTION/01 - 🍧 MODULE FONCTION & GROUPE FONCTION.md>)
+- définir un module fonction ;
+- définir un groupe de fonctions ;
+- comprendre leur relation ;
+- distinguer module fonction, `FORM` et méthode ;
+- expliquer l’unicité du nom.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+40 à 55 minutes.
 
 ## 🌺 EXERCICE 1 — RESTITUTION
 
-Sans consulter le cours, définir **MODULES FONCTION ET GROUPES DE FONCTIONS**, expliquer son utilité et citer une erreur d'utilisation possible.
+Compléter :
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+| Objet                 | Définition | Appel |
+| --------------------- | ---------- | ----- |
+| Groupe de fonctions   |            |       |
+| Module fonction       |            |       |
+| Sous-programme `FORM` |            |       |
+| Méthode de classe     |            |       |
 
-- [ ] Définir un module fonction dans un exemple différent de celui du cours.
-- [ ] Définir un groupe de fonctions dans un exemple différent de celui du cours.
-- [ ] Comprendre le lien entre les deux objets dans un exemple différent de celui du cours.
-- [ ] Distinguer module fonction, sous-programme et méthode dans un exemple différent de celui du cours.
+## 🌺 EXERCICE 2 — DOMAINE FONCTIONNEL
 
-### Exercice repris du cours
+Proposer un groupe lié aux commandes :
 
-1. Expliquer la différence entre un groupe de fonctions et un module fonction.
-2. Donner un exemple de domaine fonctionnel pouvant contenir trois modules fonction.
-3. Identifier l’instruction utilisée pour appeler un module fonction.
-4. Expliquer pourquoi le nom du module fonction doit être unique.
+```text
+ZFG_<TRI>_ORDER
+```
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Créer trois noms de modules pour :
 
-1. Construire volontairement un cas incorrect lié à **MODULES FONCTION ET GROUPES DE FONCTIONS**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+1. lire une commande ;
+2. valider une commande ;
+3. calculer son montant.
+
+## 🌺 EXERCICE 3 — UNICITÉ
+
+Répondre :
+
+1. le nom est-il unique seulement dans son groupe ?
+2. deux groupes peuvent-ils contenir un module de même nom ?
+3. le groupe apparaît-il dans `CALL FUNCTION` ?
+4. pourquoi un préfixe de projet est-il utile ?
+5. comment retrouver le groupe d’un module ?
+
+## 🌺 EXERCICE 4 — COMPARAISON
+
+| Critère                     | Module fonction | Méthode | `FORM` |
+| --------------------------- | --------------- | ------- | ------ |
+| Interface déclarée          |                 |         |        |
+| Appel RFC possible          |                 |         |        |
+| Update Task possible        |                 |         |        |
+| Héritage et interfaces OO   |                 |         |        |
+| Portée limitée au programme |                 |         |        |
+
+## 🌺 DIAGNOSTIC
+
+Cas incorrect :
+
+```text
+Deux équipes créent Z_ORDER_GET dans deux groupes différents.
+```
+
+Décrire le symptôme et corriger le nommage.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Le groupe est identifié comme conteneur.
+- [ ] Le module possède une interface.
+- [ ] Le nom du module est globalement unique.
+- [ ] Trois noms cohérents sont proposés.
+- [ ] Les trois formes de modularisation sont distinguées.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+| Objet               | Définition                                            |
+| ------------------- | ----------------------------------------------------- |
+| Groupe de fonctions | Function pool regroupant modules et données partagées |
+| Module fonction     | Procédure système appelée par `CALL FUNCTION`         |
+| `FORM`              | Sous-programme interne à un programme                 |
+| Méthode             | Procédure d’une classe ou interface                   |
+
+Exemple :
+
+```text
+Z_<TRI>_ORDER_GET
+Z_<TRI>_ORDER_VALIDATE
+Z_<TRI>_ORDER_CALCULATE
+```
+
+Deux groupes ne peuvent pas posséder deux modules de même nom, car le nom du module est unique dans le système.
+
+</details>

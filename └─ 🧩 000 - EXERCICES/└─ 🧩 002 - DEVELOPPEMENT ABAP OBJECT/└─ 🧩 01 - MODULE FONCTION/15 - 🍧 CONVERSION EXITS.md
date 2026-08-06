@@ -1,40 +1,113 @@
 # 🌸 EXERCICES — CONVERSION EXITS
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [CONVERSION EXITS](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 01 - MODULE FONCTION/15 - 🍧 CONVERSION EXITS.md>)
+- distinguer format externe et interne ;
+- identifier la routine du domaine ;
+- tester `ALPHA_INPUT` et `ALPHA_OUTPUT` ;
+- tester `MATN1` seulement si adapté ;
+- comparer avec une syntaxe moderne.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+60 à 75 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 EXERCICE 1 — RECHERCHE DDIC
 
-Sans consulter le cours, définir **CONVERSION EXITS**, expliquer son utilité et citer une erreur d'utilisation possible.
+Pour trois champs :
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+1. ouvrir le champ ;
+2. ouvrir l’élément de données ;
+3. ouvrir le domaine ;
+4. relever la routine de conversion ;
+5. relever la longueur interne.
 
-- [ ] Distinguer format externe et format interne SAP dans un exemple différent de celui du cours.
-- [ ] Utiliser `ALPHA_INPUT` et `MATN1_INPUT` dans un exemple différent de celui du cours.
-- [ ] Identifier la routine associée à un champ DDIC dans un exemple différent de celui du cours.
+## 🌺 EXERCICE 2 — ALPHA INPUT
 
-### Exercice repris du cours
+```abap
+CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
+  EXPORTING
+    input  = lv_external
+  IMPORTING
+    output = lv_internal.
+```
 
-Rechercher la conversion exit de trois champs DDIC de votre choix, puis comparer leur valeur externe et leur valeur interne.
+Avec une cible de longueur dix :
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+```text
+123
+→ 0000000123
+```
 
-1. Construire volontairement un cas incorrect lié à **CONVERSION EXITS**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+## 🌺 EXERCICE 3 — ALPHA OUTPUT
+
+```abap
+CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
+  EXPORTING
+    input  = lv_internal
+  IMPORTING
+    output = lv_external.
+```
+
+## 🌺 EXERCICE 4 — ALPHANUMÉRIQUE
+
+Tester :
+
+```text
+AB12
+```
+
+Observer le comportement réel. `ALPHA` n’est pas une simple fonction universelle d’ajout de zéros.
+
+## 🌺 EXERCICE 5 — MATN1
+
+Utiliser :
+
+```text
+CONVERSION_EXIT_MATN1_INPUT
+```
+
+uniquement si le domaine du numéro de matériau du système utilise la routine `MATN1`.
+
+## 🌺 EXERCICE 6 — TEMPLATE
+
+Sur une version compatible :
+
+```abap
+DATA(lv_internal) =
+  |{ lv_external ALPHA = IN }|.
+
+DATA(lv_external_again) =
+  |{ lv_internal ALPHA = OUT }|.
+```
+
+## 🌺 DIAGNOSTIC
+
+Appliquer `ALPHA_INPUT` à un identifiant dont le domaine ne possède aucune routine.
+
+Décrire le risque de clé incorrecte.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Trois domaines sont inspectés.
+- [ ] Input et Output sont distingués.
+- [ ] `ALPHA` est testé.
+- [ ] Le cas alphanumérique est observé.
+- [ ] `MATN1` dépend du domaine.
+- [ ] La syntaxe moderne est testée si disponible.
+- [ ] Aucune conversion arbitraire n’est conservée.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```text
+INPUT
+→ format externe vers format interne
+
+OUTPUT
+→ format interne vers format externe
+```
+
+La routine du domaine constitue la référence.
+
+</details>

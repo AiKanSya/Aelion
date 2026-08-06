@@ -1,46 +1,142 @@
 # 🌸 EXERCICES — MODULES FONCTION RFC
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [MODULES FONCTION RFC](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 01 - MODULE FONCTION/10 - 🍧 MODULES FONCTION RFC.md>)
+- créer un module remote-enabled ;
+- utiliser une interface compatible RFC ;
+- appeler avec `DESTINATION` ;
+- traiter les erreurs techniques ;
+- distinguer les variantes RFC.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+70 à 90 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 MODULE
 
-Sans consulter le cours, définir **MODULES FONCTION RFC**, expliquer son utilité et citer une erreur d'utilisation possible.
+```text
+Z_<TRI>_ADD_RFC
+```
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+Interface par valeur :
 
-- [ ] Définir un module fonction RFC dans un exemple différent de celui du cours.
-- [ ] Comprendre un appel local et un appel distant dans un exemple différent de celui du cours.
-- [ ] Connaître les contraintes principales d’une interface RFC dans un exemple différent de celui du cours.
-- [ ] Utiliser `DESTINATION` dans un exemple différent de celui du cours.
-- [ ] Distinguer RFC synchrone et variantes asynchrones dans un exemple différent de celui du cours.
+```text
+IV_VALUE_1 TYPE I
+IV_VALUE_2 TYPE I
+EV_RESULT  TYPE I
+```
 
-### Exercice repris du cours
+Type :
 
-1. Transformer un module d’addition en module RFC.
-2. Remplacer les types locaux par des types DDIC si nécessaire.
-3. Générer un appel avec `DESTINATION`.
-4. Traiter `SYSTEM_FAILURE` et `COMMUNICATION_FAILURE`.
-5. Expliquer pourquoi une popup est incompatible avec un appel distant fiable.
+```text
+Remote-Enabled Module
+```
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+## 🌺 EXERCICE 1 — APPEL LOCAL
 
-1. Construire volontairement un cas incorrect lié à **MODULES FONCTION RFC**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```abap
+CALL FUNCTION 'Z_<TRI>_ADD_RFC'
+  EXPORTING
+    iv_value_1 = 2
+    iv_value_2 = 3
+  IMPORTING
+    ev_result  = DATA(lv_result).
+```
+
+## 🌺 EXERCICE 2 — APPEL DISTANT AUTORISÉ
+
+Selon la configuration du système :
+
+```abap
+CALL FUNCTION 'Z_<TRI>_ADD_RFC'
+  DESTINATION lv_destination
+  EXPORTING
+    iv_value_1 = 2
+    iv_value_2 = 3
+  IMPORTING
+    ev_result  = lv_result
+  EXCEPTIONS
+    system_failure        = 1 MESSAGE lv_message
+    communication_failure = 2 MESSAGE lv_message
+    OTHERS                = 3.
+```
+
+## 🌺 EXERCICE 3 — ERREURS
+
+| `sy-subrc` | Cas                     |
+| ---------: | ----------------------- |
+|        `0` | succès                  |
+|        `1` | erreur du système cible |
+|        `2` | communication           |
+|        `3` | autre erreur mappée     |
+
+## 🌺 EXERCICE 4 — INTERFACE
+
+Expliquer pourquoi éviter :
+
+- références d’objet ;
+- types locaux privés ;
+- dialogue SAP GUI ;
+- popup ;
+- état global ;
+- dépendance à la session appelante.
+
+## 🌺 EXERCICE 5 — VARIANTES
+
+| Forme | Principe                                   |
+| ----- | ------------------------------------------ |
+| sRFC  | appel synchrone                            |
+| aRFC  | appel asynchrone avec retour               |
+| tRFC  | exécution transactionnelle enregistrée     |
+| qRFC  | tRFC ordonnée par file                     |
+| bgRFC | traitement distant moderne en arrière-plan |
+
+## 🌺 DIAGNOSTIC
+
+Un module RFC utilise :
+
+```abap
+CALL SCREEN 100.
+```
+
+Expliquer pourquoi l’appel distant n’est pas fiable.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Le module est remote-enabled.
+- [ ] Les paramètres sont par valeur.
+- [ ] L’appel local fonctionne.
+- [ ] La destination est gérée.
+- [ ] Les deux erreurs spéciales sont mappées.
+- [ ] Aucun dialogue n’est utilisé.
+- [ ] Les variantes sont distinguées.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+CALL FUNCTION 'Z_<TRI>_ADD_RFC'
+  DESTINATION lv_destination
+  EXPORTING
+    iv_value_1 = 10
+    iv_value_2 = 20
+  IMPORTING
+    ev_result  = DATA(lv_result)
+  EXCEPTIONS
+    system_failure        = 1 MESSAGE DATA(lv_message)
+    communication_failure = 2 MESSAGE lv_message
+    OTHERS                = 3.
+
+CASE sy-subrc.
+  WHEN 0.
+    WRITE / lv_result.
+  WHEN 1.
+    WRITE / |Erreur du système cible : { lv_message }|.
+  WHEN 2.
+    WRITE / |Communication impossible : { lv_message }|.
+  WHEN OTHERS.
+    WRITE / 'Erreur RFC non classée'.
+ENDCASE.
+```
+
+</details>

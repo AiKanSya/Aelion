@@ -1,46 +1,121 @@
 # 🌸 EXERCICES — EXCEPTIONS CLASSIQUES
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [EXCEPTIONS CLASSIQUES](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 01 - MODULE FONCTION/07 - 🍧 EXCEPTIONS.md>)
+- déclarer une exception classique ;
+- la lever avec `RAISE` ;
+- la mapper ;
+- interpréter `sy-subrc` ;
+- comparer avec une exception de classe.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+55 à 70 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 MODULE
 
-Sans consulter le cours, définir **EXCEPTIONS CLASSIQUES**, expliquer son utilité et citer une erreur d'utilisation possible.
+```text
+Z_<TRI>_DIVIDE
+```
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+Interface :
 
-- [ ] Déclarer une exception classique dans `SE37` dans un exemple différent de celui du cours.
-- [ ] Lever une exception avec `RAISE` dans un exemple différent de celui du cours.
-- [ ] Mapper les exceptions dans `CALL FUNCTION` dans un exemple différent de celui du cours.
-- [ ] Interpréter `SY-SUBRC` dans un exemple différent de celui du cours.
-- [ ] Comprendre la différence avec une exception de classe dans un exemple différent de celui du cours.
+```text
+IV_NUMERATOR   TYPE DECFLOAT34
+IV_DENOMINATOR TYPE DECFLOAT34
+EV_RESULT      TYPE DECFLOAT34
+```
 
-### Exercice repris du cours
+Exception :
 
-1. Déclarer `DIVISION_BY_ZERO`.
-2. Lever l’exception lorsque le diviseur vaut zéro.
-3. Mapper l’exception sur `SY-SUBRC = 1`.
-4. Ajouter `OTHERS = 2`.
-5. Afficher un message différent pour chaque résultat.
+```text
+DIVISION_BY_ZERO
+```
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+## 🌺 EXERCICE 1 — IMPLÉMENTATION
 
-1. Construire volontairement un cas incorrect lié à **EXCEPTIONS CLASSIQUES**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```abap
+IF iv_denominator = 0.
+  RAISE division_by_zero.
+ENDIF.
+```
+
+## 🌺 EXERCICE 2 — APPEL
+
+```abap
+CALL FUNCTION 'Z_<TRI>_DIVIDE'
+  EXPORTING
+    iv_numerator   = 10
+    iv_denominator = 2
+  IMPORTING
+    ev_result      = DATA(lv_result)
+  EXCEPTIONS
+    division_by_zero = 1
+    OTHERS           = 2.
+```
+
+## 🌺 EXERCICE 3 — MAPPING
+
+Remplacer :
+
+```text
+DIVISION_BY_ZERO = 1
+```
+
+par :
+
+```text
+DIVISION_BY_ZERO = 8
+```
+
+Le module reste inchangé, mais `sy-subrc` devient `8`.
+
+## 🌺 EXERCICE 4 — OTHERS
+
+Expliquer :
+
+- utilité ;
+- perte de précision ;
+- journalisation nécessaire ;
+- raison de mapper explicitement les exceptions connues.
+
+## 🌺 EXERCICE 5 — EXCEPTION DE CLASSE
+
+Comparer :
+
+```text
+RAISE division_by_zero
+```
+
+avec :
+
+```abap
+RAISE EXCEPTION TYPE zcx_<tri>_division.
+```
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] L’exception est déclarée.
+- [ ] La division est protégée.
+- [ ] Le cas nominal retourne `0`.
+- [ ] Le cas zéro retourne le code mappé.
+- [ ] Le mapping appartient à l’appelant.
+- [ ] Les deux modèles sont distingués.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+```abap
+FUNCTION z_<tri>_divide.
+
+  IF iv_denominator = 0.
+    RAISE division_by_zero.
+  ENDIF.
+
+  ev_result =
+    iv_numerator / iv_denominator.
+
+ENDFUNCTION.
+```
+
+</details>

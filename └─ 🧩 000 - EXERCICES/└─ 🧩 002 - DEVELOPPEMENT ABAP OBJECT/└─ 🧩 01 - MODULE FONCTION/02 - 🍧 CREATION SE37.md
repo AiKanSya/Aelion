@@ -1,45 +1,125 @@
 # 🌸 EXERCICES — CREATION DANS SE37
 
-<!-- GENERATED_EXERCISE_BANK -->
+## 🌺 OBJECTIFS
 
-> Cours associé : [CREATION DANS SE37](<../../../└─ 🧩 002 - DEVELOPPEMENT ABAP OBJECT/└─ 🧩 01 - MODULE FONCTION/02 - 🍧 CREATION SE37.md>)
+- créer un groupe ;
+- créer un module ;
+- identifier les onglets ;
+- documenter et activer ;
+- comprendre les includes générés.
 
-## 🌺 CONSIGNES
+## 🌺 DURÉE INDICATIVE
 
-- Réaliser les exercices sans consulter le cours lors du premier essai.
-- Produire une preuve vérifiable : code, résultat, capture ou explication structurée.
-- Consulter le cours uniquement après avoir identifié précisément le blocage.
-- Ne pas utiliser la solution de l'évaluation finale comme exemple.
+45 à 60 minutes.
 
-## 🌺 EXERCICE 1 — RESTITUTION
+## 🌺 EXERCICE 1 — GROUPE
 
-Sans consulter le cours, définir **CREATION DANS SE37**, expliquer son utilité et citer une erreur d'utilisation possible.
+Créer :
 
-## 🌺 EXERCICE 2 — MISE EN PRATIQUE
+```text
+ZFG_<TRI>_TOOLS
+```
 
-- [ ] Créer un groupe de fonctions dans un exemple différent de celui du cours.
-- [ ] Créer un module fonction dans un exemple différent de celui du cours.
-- [ ] Identifier les principaux onglets de `SE37` dans un exemple différent de celui du cours.
-- [ ] Activer et documenter l’objet dans un exemple différent de celui du cours.
+Renseigner :
 
-### Exercice repris du cours
+- description ;
+- package ;
+- ordre de transport.
 
-1. Créer le groupe `ZFG_AELION_TEXT`.
-2. Créer le module `Z_AELION_TEXT_NORMALIZE`.
-3. Ajouter une description claire.
-4. Identifier les onglets nécessaires pour une entrée, une sortie et une exception.
-5. Activer le module sans encore écrire son traitement.
+## 🌺 EXERCICE 2 — MODULE
 
-## 🌺 EXERCICE 3 — DIAGNOSTIC
+Créer dans `SE37` :
 
-1. Construire volontairement un cas incorrect lié à **CREATION DANS SE37**.
-2. Décrire le symptôme observable.
-3. Identifier la cause technique ou fonctionnelle.
-4. Corriger le cas et prouver la non-régression avec un cas nominal et un cas limite.
+```text
+Z_<TRI>_TEXT_NORMALIZE
+```
+
+Description :
+
+```text
+Normalise un texte et applique des options de présentation
+```
+
+Type :
+
+```text
+Normal Function Module
+```
+
+## 🌺 EXERCICE 3 — ONGLETS
+
+Identifier :
+
+```text
+Attributes
+Import
+Export
+Changing
+Tables
+Exceptions
+Source Code
+Documentation
+```
+
+Les libellés varient selon la langue et la version du système.
+
+## 🌺 EXERCICE 4 — ACTIVATION
+
+Activer :
+
+1. l’interface ;
+2. le source ;
+3. le module ;
+4. le groupe si nécessaire.
+
+## 🌺 EXERCICE 5 — INCLUDES
+
+Dans `SE80`, identifier :
+
+```text
+SAPLZFG_<TRI>_TOOLS
+LZFG_<TRI>_TOOLSTOP
+LZFG_<TRI>_TOOLSUxx
+```
+
+Ne pas renommer les includes générés.
+
+## 🌺 DIAGNOSTIC
+
+Un module existe mais le test retourne une erreur d’objet inactif.
+
+Vérifier :
+
+- activation de l’interface ;
+- activation de l’include ;
+- activation du groupe ;
+- erreurs syntaxiques.
 
 ## 🌺 CRITÈRES DE VALIDATION
 
-- [ ] Le résultat peut être expliqué sans relire le cours.
-- [ ] L'exemple est exécutable ou vérifiable.
-- [ ] Le cas d'erreur est distingué du cas nominal.
-- [ ] Aucun élément propre à la solution de l'évaluation finale n'est utilisé.
+- [ ] Le groupe existe.
+- [ ] Le module appartient au bon groupe.
+- [ ] Le type Normal est utilisé.
+- [ ] La documentation est renseignée.
+- [ ] Tous les objets sont actifs.
+- [ ] Les includes sont identifiés.
+
+<details>
+<summary>🍧 Afficher la solution</summary>
+
+Checklist :
+
+```text
+□ ZFG_<TRI>_TOOLS créé
+□ description renseignée
+□ package correct
+□ ordre de transport correct
+□ Z_<TRI>_TEXT_NORMALIZE créé
+□ type Normal Function Module
+□ interface active
+□ source actif
+□ documentation maintenue
+□ test SE37 accessible
+```
+
+</details>
